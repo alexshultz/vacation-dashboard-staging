@@ -29,6 +29,32 @@ Remaining LOW items (non-blocking, logged for Phase 2):
 
 ---
 
+## 2026-04-21 ~23:55 CDT -- Codemaster handback pattern established
+
+Alex identified that codemaster (Opus, expensive) was burning turns on mechanical tasks like `git commit`, `cp`, and `git push`. Established the codemaster handback pattern: codemaster writes code only, then explicitly stops and lists what it changed. Hermes handles all post-code orchestration (commit, copy to preview repo, push to Pages, PROJECT_LOG update, Discord notification) via direct terminal calls at zero LLM cost. Saved to `claude-code` skill and `branson-dashboard-maintenance` skill. Also encoded in PROJECT_LOG as standing rule.
+
+**Rule going forward:** Every codemaster task brief ends with the handback instruction block. Codemaster must NOT run git, cp, push, or log commands.
+
+---
+
+## 2026-04-21 ~22:00 CDT -- Codemaster review pass + 5 fixes applied
+
+Codemaster (Claude Code) reviewed all code from the autonomous session (commits 7fa638d-ecced73). Verdict: PASS WITH WARNINGS. 5 fixes applied and committed as `891ce59`, pushed to Pages:
+
+1. components.css: tap targets increased to 44x44 on .theme-toggle, .chip, .site-nav .nav-link
+2. hookup_pages.py: idempotency guard (skip if site-header already present)
+3. hookup_pages.py: data-mode regex scoped to `<html>` tag only; re-ran on 3 static pages
+4. generate_dashboard.py: bare except: replaced with typed exception handlers + stderr warnings
+5. attractions.html: name chooser modal -- Escape key, backdrop click, inline input replacing window.prompt(), aria-modal attributes
+
+**Remaining LOW items (non-blocking, Phase 2 cleanup):**
+- render_head/render_nav duplicated between generate_dashboard.py and hookup_pages.py
+- audit_thumbs.py divide-by-zero guard
+- tags_str/slug not html.escaped in generator template
+- attractions.html inline style block duplicates components.css rules
+
+---
+
 ## 2026-04-21 ~16:30 CDT -- Phase 2-prep: interactive picks + GitHub Pages deploy
 
 Autonomous session continued after Phase 4. Heart buttons in attractions.html now wired to picks.js via a name-chooser modal (Phase 1 honor-system -- no auth, localStorage only). Added hello banner showing current user. Attractions dashboard live on GitHub Pages with 132 cards, 39 filter tags, 174 thumbnails, and working wishlist. Supabase schema SQL written (Alex must run manually). picks.js scaffold ready for Phase 2 Supabase wiring.
