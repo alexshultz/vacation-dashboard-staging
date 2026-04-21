@@ -145,7 +145,7 @@
       }
     },
     {
-      "slug": "a-shepherds-christmas-carol",
+      "slug": "a-shepherd-s-christmas-carol",
       "name": "A Shepherd’s Christmas Carol",
       "category": "show",
       "duration_hours": 2,
@@ -375,7 +375,7 @@
       }
     },
     {
-      "slug": "americana-new-years-eve-show",
+      "slug": "americana-new-year-s-eve-show",
       "name": "Americana New Year’s Eve Show",
       "category": "show",
       "duration_hours": 2,
@@ -869,7 +869,7 @@
       }
     },
     {
-      "slug": "bransons-famous-baldknobbers",
+      "slug": "branson-s-famous-baldknobbers",
       "name": "Branson’s Famous Baldknobbers",
       "category": "show",
       "duration_hours": 2,
@@ -1283,7 +1283,7 @@
       }
     },
     {
-      "slug": "dan-wagners-johnny-cash-friends-tribute",
+      "slug": "dan-wagner-s-johnny-cash-friends-tribute",
       "name": "Dan Wagner’s Johnny Cash & Friends Tribute",
       "category": "show",
       "duration_hours": 2,
@@ -1472,7 +1472,7 @@
       }
     },
     {
-      "slug": "dolly-parton-s-stampede",
+      "slug": "dolly-partons-stampede",
       "name": "Dolly Parton's Stampede",
       "category": "show",
       "duration_hours": 2,
@@ -1991,7 +1991,7 @@
       }
     },
     {
-      "slug": "hamners-all-american-new-years-eve-celebration",
+      "slug": "hamners-all-american-new-year-s-eve-celebration",
       "name": "Hamners’ All American New Year’s Eve Celebration",
       "category": "show",
       "duration_hours": 2,
@@ -3552,7 +3552,7 @@
       }
     },
     {
-      "slug": "riga-tonys-murder-mystery-dinner-show",
+      "slug": "riga-tony-s-murder-mystery-dinner-show",
       "name": "Riga-Tony’s Murder Mystery Dinner Show",
       "category": "show",
       "duration_hours": 2,
@@ -3820,7 +3820,7 @@
       }
     },
     {
-      "slug": "shepherds-great-american-chuckwagon-dinner-show",
+      "slug": "shepherd-s-great-american-chuckwagon-dinner-show",
       "name": "Shepherd’s Great American Chuckwagon Dinner Show",
       "category": "show",
       "duration_hours": 2,
@@ -3868,7 +3868,7 @@
       }
     },
     {
-      "slug": "shepherds-wild-west-showdown",
+      "slug": "shepherd-s-wild-west-showdown",
       "name": "Shepherd’s Wild West Showdown",
       "category": "show",
       "duration_hours": 2,
@@ -3907,7 +3907,7 @@
       }
     },
     {
-      "slug": "branson-showboat",
+      "slug": "silver-dollar-cityand8217-s-showboat",
       "name": "Branson Showboat",
       "category": "show",
       "duration_hours": 2,
@@ -5077,7 +5077,7 @@
       }
     },
     {
-      "slug": "fritz-s-adventure",
+      "slug": "fritzs-adventure",
       "name": "Fritz's Adventure",
       "category": "attraction",
       "price_adult": 24.95,
@@ -5118,7 +5118,7 @@
       }
     },
     {
-      "slug": "branson-s-wild-world",
+      "slug": "bransons-wild-world",
       "name": "Branson's Wild World",
       "category": "attraction",
       "price_adult": 24.52,
