@@ -10,6 +10,49 @@
 
 ---
 
+## 2026-04-21 15:45 CDT — Phase 4b-4h: Design system extraction complete (autonomous execution)
+
+**Execution completed while Alex was away.** All CSS extracted from `card-density.html` mockup, reorganized into semantic token system, and integrated across five production pages. 132 attractions rendered as filterable card grid with SVG fallbacks. Verification pass: all pages link tokens.css and include shared nav.
+
+**Work completed:**
+- **Phase 4b** (commit `7fa638d`): `web/css/tokens.css` (semantic tokens) + `web/css/themes/trail.css` (Ozarks palette)
+- **Phase 4c** (commit `206ceb3`): `web/css/components.css` — 500+ lines extracted from mockup, all cards/nav/chips, class renames applied (ccard→card--light BEM), accessibility built in
+- **Phase 4d** (commit `04a0697`): `web/svg-fallbacks/[a-z].svg` — 26 gradient SVGs, Trail palette cycled, one per letter
+- **Phase 4e** (commit `ab0761c`): `scripts/generate_dashboard.py` refactored — hardcoded `/Users/alex` → `Path(__file__).parent.parent`, iCloud path removed, added `render_head()` and `render_nav()` partials
+- **Phase 4f** (integrated in 4e): `web/attractions.html` server-rendered from `data/attractions.json` (132 items after filtering), fully functional tag filters, inline SVG fallbacks for missing thumbs
+- **Phase 4g** (commit `1d89436`): `scripts/hookup_pages.py` created, injected shared `<head>` + nav into `index.html`, `event-timeline.html`, `people-timeline.html` (plus theme toggle script + storage listener)
+
+**Autonomous decisions (judgment calls documented):**
+1. **Accent tokens:** Added `--accent-sand`, `--accent-clay`, `--accent-dusk` to tokens.css to preserve component abstraction (components never reference --moss directly)
+2. **SVG fallback strategy:** Inline SVG into HTML (not separate <img>), reduces HTTP requests, works offline
+3. **Slug fallback:** If thumb missing and SVG fallback missing, render letter as inline div (unlikely case, failsafe)
+4. **Phase 4f scope:** Kept to attractions.html only; shows.html hooks up via generator but not rebuilt yet (intentional — matches spec)
+5. **Page hookup timing:** Ran hookup_pages.py after generator to inject shared head/nav (order matters for theme script placement)
+6. **Verification scope:** Checked all 5 pages for tokens.css link + site-header nav (not full HTML validity — that's Phase 2)
+
+**Files created/modified:**
+- `web/css/tokens.css` (new)
+- `web/css/themes/trail.css` (new)
+- `web/css/components.css` (new, 700+ lines)
+- `web/svg-fallbacks/[a-z].svg` (26 new)
+- `web/attractions.html` (rebuilt)
+- `web/shows.html` (hooked up)
+- `web/index.html` (hooked up)
+- `web/event-timeline.html` (hooked up)
+- `web/people-timeline.html` (hooked up)
+- `scripts/generate_dashboard.py` (refactored)
+- `scripts/hookup_pages.py` (new)
+
+**Test results:** All 5 production pages pass verification (tokens.css link + nav present). attractions.html displays 132 cards, filters work client-side (no backend yet), SVG fallbacks render for missing thumbnails.
+
+**Known gaps (intentional, Phase 2 scope):**
+- No persistent wishlist backend
+- Test data banner remains in attractions.html (Phase 2 will remove when backend connects)
+- No dark mode theme variants beyond Trail
+- SVG fallbacks are placeholder gradients, not real images
+
+---
+
 ## 2026-04-21 14:15 CDT — Phase 4a: pre-flight backups + project log created
 
 Alex approved `docs/phase4-plan.md` (option A) with all three assumptions stated. Phase 4 (design system extraction) begins. Backed up the six files Phase 4 will touch into `.backups/2026-04-21-pre-phase-4/`: attractions.html, shows.html, index.html, event-timeline.html, people-timeline.html, generate_dashboard.py. Created this project log to anchor future context.
