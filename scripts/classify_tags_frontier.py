@@ -59,7 +59,10 @@ TEACHING EXAMPLES (calibrate against these):
 
     vocab += """\n---
 
-OUTPUT FORMAT (JSON only, no preamble):
+OUTPUT FORMAT (STRICT): Respond with a single JSON object and nothing else.
+No code fences. No prose before or after. No markdown. Start your response with '{'.
+
+Schema:
 {
   "show_categories": ["<0-2>"],
   "music_subgenres": ["<0-N>"],
@@ -116,14 +119,25 @@ def smoke_test(client):
 
 
 def call_claude(client, system, user):
-    """Call Claude API with exponential backoff retry on 429/5xx. Returns (text, elapsed, attempts, usage)."""
+    """Call Claude API with exponential backoff retry on 429/5xx. Returns (text, elapsed, attempts, usage).
+    
+    Note: Sonnet 4.6 does not support assistant message prefill, so we rely on a
+    strong JSON-only instruction in the system/user prompt plus a robust parser
+    that extracts the first {...} block from the response.
+    """
     for attempt in range(1, 4):
         try:
             start = time.time()
-            resp = client.messages.create(model="claude-sonnet-4-6", max_tokens=600, temperature=0.0, system=system, messages=[{"role": "user", "content": user}, {"role": "assistant", "content": "{"}])
+            resp = client.messages.create(
+                model="claude-sonnet-4-6",
+                max_tokens=600,
+                temperature=0.0,
+                system=system,
+                messages=[{"role": "user", "content": user}],
+            )
             elapsed = time.time() - start
             usage = {"input_tokens": resp.usage.input_tokens, "output_tokens": resp.usage.output_tokens}
-            return "{" + (resp.content[0].text or ""), elapsed, attempt, usage
+            return (resp.content[0].text or ""), elapsed, attempt, usage
         except anthropic.APIStatusError as e:
             if e.status_code in (429, 500, 502, 503, 504) and attempt < 3:
                 backoff = 2 ** (attempt - 1)
@@ -136,6 +150,40 @@ def call_claude(client, system, user):
             print(f"  LOUD: Network error: {e}", file=sys.stderr)
             return None, 0, attempt, None
     return None, 0, 3, None
+
+
+def extract_json(text):
+    """Extract the first top-level {...} JSON object from a model response.
+    Returns None if no balanced braces found.
+    """
+    if not text:
+        return None
+    start = text.find("{")
+    if start < 0:
+        return None
+    depth = 0
+    in_str = False
+    escape = False
+    for i in range(start, len(text)):
+        ch = text[i]
+        if escape:
+            escape = False
+            continue
+        if ch == "\\":
+            escape = True
+            continue
+        if ch == '"' and not escape:
+            in_str = not in_str
+            continue
+        if in_str:
+            continue
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                return text[start:i+1]
+    return None
 
 
 def validate_tags(parsed):
@@ -234,10 +282,14 @@ def process_one(client, system_prompt, att, teaching_map):
     if raw_text is None:
         return None, True, None, None
     
+    json_blob = extract_json(raw_text)
+    if json_blob is None:
+        print(f"  LOUD: No JSON object in response ({elapsed:.1f}s): {raw_text[:120]!r}", file=sys.stderr)
+        return None, True, usage, raw_text
     try:
-        parsed = json.loads(raw_text)
-    except json.JSONDecodeError:
-        print(f"  LOUD: Non-JSON ({elapsed:.1f}s): {raw_text[:120]!r}", file=sys.stderr)
+        parsed = json.loads(json_blob)
+    except json.JSONDecodeError as e:
+        print(f"  LOUD: Invalid JSON ({elapsed:.1f}s): {e}; blob={json_blob[:120]!r}", file=sys.stderr)
         return None, True, usage, raw_text
     
     valid, warnings, clean = validate_tags(parsed)
