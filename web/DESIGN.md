@@ -283,4 +283,63 @@ Nav + head + theme-loader live in `scripts/generate_dashboard.py` as Python stri
 - When a new component enters the system, add a section here.
 - This doc is markdown on purpose: readable in Obsidian, on GitHub, and inlinable into AI context.
 
-Last updated: 2026-04-20
+Last updated: 2026-04-21
+
+---
+
+## Phase 4 Changes (2026-04-21)
+
+The following files were created as the production design system (committed autonomously while Alex was away):
+- `web/css/tokens.css` — all semantic CSS custom properties (colors, spacing, typography, shadows, radii)
+- `web/css/themes/trail.css` — Trail theme (Ozarks palette: moss #3F6B3A, lake #2A6A8A, sand #D8A660, clay #C1553B, dusk #6B4C8F)
+- `web/css/components.css` — all shared components (cards, nav, chips, avatars, 700+ lines extracted from `card-density.html` mockup)
+- `web/svg-fallbacks/[a-z].svg` — 26 gradient SVGs for missing thumbnails, one per letter, Trail palette cycled
+
+### Class naming convention
+
+- **Browse card:** `.card--light` (sparse, grid-friendly, two-column on mobile)
+- **Detail/wishlist card:** `.card--dense` (full metadata, one per row)
+- **Nested elements:** BEM-style naming
+  - `.card--light__body`, `.card--light__thumb`, `.card--light__hook`, `.card--light__row`
+  - `.card--dense__body`, `.card--dense__top`, `.card--dense__thumb`
+- **Shared components:** `.chip`, `.tag`, `.minichip`, `.avatar`, `.avatars`, `.heart-overlay`, `.filter-strip`, `.catalog-grid`
+
+### Theme switching
+
+Themes controlled via `data-mode` attribute on `<html>`: `system` | `light` | `dark`.
+- Default: `system` (matches OS preference via `prefers-color-scheme`)
+- User choice persisted in `localStorage` at key `vacdash:v1:mode`
+- Inline theme loader script in `<head>` prevents flash-of-wrong-theme on page load
+- Storage listener script at end of `<body>` syncs theme across tabs in real-time
+
+### Adding a new page
+
+1. Add it to the `pages` list in `render_nav()` function in `scripts/generate_dashboard.py`
+2. Create HTML and call `render_head(title, description)` and `render_nav(active_page)` to inject shared `<head>` + nav
+3. Link `css/tokens.css`, `css/themes/trail.css`, `css/components.css` (paths relative to `web/`)
+4. Include the storage listener script before closing `</body>` for real-time theme sync
+
+### CSS organization rules
+
+- Components reference ONLY semantic tokens (--color-*, --status-*, --warn, --shadow-*, --radius-*, --font-*)
+- Components NEVER reference private palette vars (--moss, --lake, --sand, --clay, --dusk)
+- Private palette lives ONLY in `themes/trail.css` (theme-specific overrides)
+- Use `color-mix()` for blends and semantic tints (e.g., `color-mix(in srgb, var(--status-yes) 12%, transparent)`)
+
+### SVG fallback strategy
+
+For attractions without real thumbnails:
+1. Check `web/assets/thumbs/{slug}-thumb.[jpg|png|webp]`
+2. If not found, inline SVG from `web/svg-fallbacks/{first_letter_of_name}.svg`
+3. SVGs are gradient backgrounds with white letter overlay; no HTTP request needed
+4. Fallback graceful: never render broken images, always show something
+
+### Data pipeline
+
+- `scripts/generate_dashboard.py` reads `data/attractions.json` + `data/blacklist.json` (optional)
+- Renders to `web/attractions.html` (132 attractions after filtering)
+- Generates `web/shows.html` with shared head/nav
+- Called by `scripts/clean_slugs.py` and `scripts/audit_thumbs.py` as data integrity tools
+- Shared `render_head()` and `render_nav()` partials keep head/nav in sync across all 5 pages
+
+Last updated: 2026-04-21
