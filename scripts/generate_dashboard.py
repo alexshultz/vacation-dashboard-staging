@@ -1,22 +1,9 @@
 #!/usr/bin/env python3
 """
-generate_dashboard.py - Generates shows.html from data/attractions.json
+generate_dashboard.py - Generates dashboard HTML pages from data/attractions.json
 
-Follows CLAUDE.md: JSON is canonical. Produces self-contained HTML with the original
-60s show card style. Updated 2026-04-21 to render tag pills and a client-side
-tag filter (Phase 3b).
-
-Filter UI:
-  - Collapsible "Filter by tags" panel above the cards.
-  - Tags grouped by category (show / music / audience / attraction) with counts.
-  - OR semantics: a card shows if it has ANY of the selected tags. With no
-    selection, all cards show.
-  - Card tag pills are clickable and add that tag to the filter set.
-  - "Clear all" button resets the filter.
-  - Live "N of M shows" counter.
-
-Council of Minds approved the rename from Attractions to Shows.
-Claude Code reviewed 2026-04-19 (pre tag-filter) and 2026-04-21 (tag-filter added).
+Follows CLAUDE.md: JSON is canonical. Uses tokens/components design system (Phase 4).
+Generates attractions.html from scratch, manages shared head/nav partials for all pages.
 
 Usage: python3 scripts/generate_dashboard.py
 """
@@ -27,37 +14,15 @@ import re
 from collections import defaultdict
 from pathlib import Path
 from datetime import datetime
+import sys
 
-VAULT = Path("/Users/alex/vaults/Vacation/Branson 2026")
-JSON_PATH = VAULT / "data/attractions.json"
-HTML_PATH = VAULT / "web/shows.html"
-ICLOUD_HTML_PATH = Path("/Users/alex/Library/Mobile Documents/com~apple~CloudDocs/Branson-2026/web/shows.html")
+VAULT = Path(__file__).parent.parent
+JSON_PATH = VAULT / "data" / "attractions.json"
+HTML_PATH = VAULT / "web" / "shows.html"
 
-# Tag vocabulary (mirrors scripts/classify_tags.py Round 8). Used only for
-# grouping + ordering in the filter UI. Unknown tags fall into "other".
-SHOW_CATEGORIES = ["music", "comedy", "magic", "variety", "drama", "tribute"]
-MUSIC_SUBGENRES = ["country", "rock", "gospel", "bluegrass", "pop",
-                   "oldies-50s", "oldies-60s", "oldies-70s", "oldies-80s", "classical"]
-AUDIENCE_VIBE = ["family", "adult-humor", "date-night", "kid-focused", "religious"]
-ATTRACTION_TAGS = ["indoor", "outdoor", "ride", "museum", "active", "relaxed",
-                   "food", "shopping", "educational", "thrill", "animals",
-                   "water", "history", "under-1hr", "1-2hr", "2-3hr", "half-day", "all-day"]
-
-TAG_CATEGORY = {}
-for t in SHOW_CATEGORIES:    TAG_CATEGORY[t] = "show"
-for t in MUSIC_SUBGENRES:    TAG_CATEGORY[t] = "music"
-for t in AUDIENCE_VIBE:      TAG_CATEGORY[t] = "audience"
-for t in ATTRACTION_TAGS:    TAG_CATEGORY[t] = "attraction"
-
-CATEGORY_LABELS = [
-    ("show",       "Show type"),
-    ("music",      "Music"),
-    ("audience",   "Audience"),
-    ("attraction", "Attraction"),
-]
-
-
+# Utility functions
 def normalize_slug(slug):
+    """Normalize slug for matching/comparison."""
     if not slug:
         return ""
     normalized = slug.lower().strip()
@@ -68,6 +33,7 @@ def normalize_slug(slug):
 
 
 def is_blacklisted(slug, blacklist):
+    """Check if a slug is in the blacklist."""
     if not slug or not blacklist:
         return False
     normalized_slug = normalize_slug(slug)
@@ -78,6 +44,7 @@ def is_blacklisted(slug, blacklist):
 
 
 def library_sort_key(name):
+    """Generate sort key for library-style alphabetization (ignoring articles)."""
     if not name:
         return ""
     name = name.strip().lower()
@@ -89,6 +56,7 @@ def library_sort_key(name):
 
 
 def format_display_name(name):
+    """Format display name by moving articles to the end."""
     if not name:
         return name
     original = name.strip()
@@ -101,351 +69,293 @@ def format_display_name(name):
     return original
 
 
-def update_navigation_in_all_files(current_page="shows"):
-    """Update navigation bar in ALL existing HTML files."""
-    pages = ["index.html", "people-timeline.html", "event-timeline.html", "shows.html"]
-    for page in pages:
-        path = VAULT / "web" / page
-        if not path.exists():
-            continue
-        content = path.read_text()
-        shows_class = 'bg-emerald-600 text-white' if page == 'shows.html' else 'hover:bg-zinc-900'
-        new_nav = f'''
-        <div class="flex gap-2 mb-8 border-b border-zinc-800 pb-6">
-            <a href="index.html" class="px-6 py-2.5 rounded-2xl text-sm font-medium hover:bg-zinc-900 transition-colors">Events</a>
-            <a href="people-timeline.html" class="px-6 py-2.5 rounded-2xl text-sm font-medium hover:bg-zinc-900 transition-colors">People</a>
-            <a href="event-timeline.html" class="px-6 py-2.5 rounded-2xl text-sm font-medium hover:bg-zinc-900 transition-colors">Timeline</a>
-            <a href="shows.html" class="px-6 py-2.5 rounded-2xl text-sm font-medium {shows_class}">Shows</a>
-        </div>
-'''
-        content = re.sub(
-            r'<div class="flex gap-2 mb-8 border-b border-zinc-800 pb-6">.*?</div>',
-            new_nav, content, flags=re.DOTALL,
-        )
-        path.write_text(content)
+def render_head(title: str, description: str = "") -> str:
+    """Shared <head> content for all pages."""
+    desc_tag = f'<meta name="description" content="{html.escape(description)}">' if description else ""
+    return f"""<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+{desc_tag}
+<title>{html.escape(title)}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/themes/trail.css">
+<link rel="stylesheet" href="css/components.css">
+<script>/* Theme loader -- inline to prevent flash-of-wrong-theme */
+(function(){{
+  var m = localStorage.getItem('vacdash:v1:mode') || 'system';
+  document.documentElement.setAttribute('data-mode', m);
+}})();
+</script>"""
 
 
-def tag_pill_html(tag, cat, count=None, clickable=True, classname="card-tag"):
-    """Render one filter/card pill for a tag. cat is used for color coding."""
-    tag_safe = html.escape(tag, quote=True)
-    cat_safe = html.escape(cat, quote=True)
-    count_html = f'<span class="ml-1 opacity-60 text-[10px]">{int(count)}</span>' if count is not None else ""
-    return (f'<button type="button" class="{classname}" data-tag="{tag_safe}" data-cat="{cat_safe}">'
-            f'{tag_safe}{count_html}</button>')
+def render_nav(active_page: str) -> str:
+    """Shared site header + mobile bottom tab bar."""
+    pages = [
+        ("home",        "index.html",          "🏠", "Home"),
+        ("attractions", "attractions.html",     "🎡", "Attractions"),
+        ("shows",       "shows.html",           "🎭", "Shows"),
+        ("timeline",    "event-timeline.html",  "📅", "Timeline"),
+        ("people",      "people-timeline.html", "👥", "People"),
+    ]
+    nav_links = ""
+    for key, href, emoji, label in pages:
+        cur = ' aria-current="page"' if key == active_page else ""
+        nav_links += f'<a href="{href}" class="nav-link"{cur}>{label}</a>\n      '
+    tabs = ""
+    for key, href, emoji, label in pages:
+        cur = ' aria-current="page"' if key == active_page else ""
+        tabs += f'<a href="{href}" class="tab"{cur} aria-label="{label}">{emoji}</a>\n  '
+    return f"""<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="index.html">Branson '26</a>
+    <nav class="site-nav" aria-label="Main">
+      {nav_links.strip()}
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark mode" onclick="(function(){{var modes=['system','light','dark'];var m=document.documentElement.getAttribute('data-mode')||'system';var next=modes[(modes.indexOf(m)+1)%3];document.documentElement.setAttribute('data-mode',next);localStorage.setItem('vacdash:v1:mode',next);}})()">☀️</button>
+  </div>
+</header>
+<nav class="bottom-tabs" aria-label="Main navigation">
+  {tabs.strip()}
+</nav>"""
 
 
-def build_filter_bar(tag_counts):
-    """Emit the collapsible filter panel grouped by category."""
-    sections = []
-    for cat_key, cat_label in CATEGORY_LABELS:
-        tags_in_cat = sorted(
-            (t for t in tag_counts if TAG_CATEGORY.get(t) == cat_key),
-            key=lambda t: (-tag_counts[t], t),
-        )
-        if not tags_in_cat:
-            continue
-        pills = "".join(
-            tag_pill_html(t, cat_key, count=tag_counts[t], classname="filter-pill")
-            for t in tags_in_cat
-        )
-        sections.append(
-            f'<div class="filter-section"><div class="filter-section-label">{cat_label}</div>'
-            f'<div class="flex flex-wrap gap-1.5">{pills}</div></div>'
-        )
+def generate_attractions_page():
+    """Generate web/attractions.html from data/attractions.json."""
+    # Load data
+    with open(VAULT / "data" / "attractions.json", encoding="utf-8") as f:
+        data = json.load(f)
+    
+    # Handle both formats: raw list or dict with "attractions" key
+    attractions = data.get("attractions", data) if isinstance(data, dict) else data
+    if not isinstance(attractions, list):
+        attractions = []
 
-    # Orphan / unknown tags (shouldn't happen, but rendered defensively)
-    orphan = sorted(t for t in tag_counts if t not in TAG_CATEGORY)
-    if orphan:
-        pills = "".join(
-            tag_pill_html(t, "other", count=tag_counts[t], classname="filter-pill")
-            for t in orphan
-        )
-        sections.append(
-            f'<div class="filter-section"><div class="filter-section-label">Other</div>'
-            f'<div class="flex flex-wrap gap-1.5">{pills}</div></div>'
-        )
-
-    body = "".join(sections)
-    return f'''
-        <details class="mb-6 bg-zinc-900 rounded-2xl border border-zinc-800 p-4" id="filter-panel" open>
-            <summary class="cursor-pointer select-none">
-                <span class="font-semibold text-base">
-                    Filter by tags
-                    <span class="text-xs text-zinc-400 ml-2" id="filter-status">showing all</span>
-                </span>
-            </summary>
-            <div class="mt-4 space-y-4">
-                <div class="flex items-center justify-between">
-                    <p class="text-xs text-zinc-400 leading-relaxed">
-                        Tap tags to filter (OR match: shows with any selected tag). Tap a tag on a card to add it here.
-                    </p>
-                    <button type="button" id="filter-clear"
-                            class="text-xs px-3 py-1 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 hidden shrink-0 ml-3">
-                        Clear all
-                    </button>
-                </div>
-                {body}
-            </div>
-        </details>
-    '''
-
-
-def build_card(attr):
-    name = attr.get("name", "")
-    slug = attr.get("slug", "")
-    display_name = format_display_name(name)
-    image = attr.get("image", "assets/logos/grand-country-logo.png")
-    desc = attr.get("description", "")
-    notes = attr.get("notes", "")
-    url = attr.get("official_url", "#")
-    price = attr.get("price_adult")
-    family = attr.get("family_pass")
-    duration = attr.get("duration_hours", "")
-    tags = attr.get("tags", []) or []
-
-    # Escape all user-facing / scraped strings for safe HTML embedding.
-    name_e         = html.escape(name, quote=True)
-    slug_e         = html.escape(slug, quote=True)
-    display_name_e = html.escape(display_name, quote=True)
-    image_e        = html.escape(image, quote=True)
-    desc_e         = html.escape(desc, quote=True)
-    notes_e        = html.escape(notes, quote=True)
-    url_e          = html.escape(url, quote=True)
-
-    price_grid = ""
-    if price is not None or family is not None or duration:
-        price_grid = '<div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl">'
-        if price is not None:
-            price_grid += f'<div><span class="text-emerald-400">Adult:</span> ${html.escape(str(price))}</div>'
-        if family is not None:
-            price_grid += f'<div><span class="text-emerald-400">Family Pass:</span> ${html.escape(str(family))}</div>'
-        if duration:
-            price_grid += f'<div><span class="text-emerald-400">Duration:</span> {html.escape(str(duration))}h</div>'
-        price_grid += "</div>"
-
-    tags_html = ""
-    if tags:
-        # Only keep tags that look safe as slug-style tokens to avoid breaking
-        # the space-separated data-tags attribute.
-        safe_tags = [t for t in tags if re.fullmatch(r"[A-Za-z0-9_-]+", t)]
-        pills = "".join(
-            tag_pill_html(t, TAG_CATEGORY.get(t, "other"), clickable=True, classname="card-tag")
-            for t in safe_tags
-        )
-        tags_html = f'<div class="mt-3 flex flex-wrap gap-1.5">{pills}</div>'
+    # Load blacklist
+    blacklist_path = VAULT / "data" / "blacklist.json"
+    blacklist = []
+    if blacklist_path.exists():
+        with open(blacklist_path, encoding="utf-8") as f:
+            bl_data = json.load(f)
+            # Handle both list and dict formats
+            blacklist = bl_data if isinstance(bl_data, list) else bl_data.get("blacklist", [])
     else:
-        safe_tags = []
+        print("WARNING: blacklist.json not found -- all attractions will be included", file=sys.stderr)
 
-    # data-tags attribute for JS filtering (already validated as slug-safe)
-    tag_attr = html.escape(" ".join(safe_tags), quote=True)
+    # Filter blacklisted
+    def is_bl(a):
+        slug = a.get("slug", "") if isinstance(a, dict) else a
+        return normalize_slug(slug) in {normalize_slug(s) for s in blacklist}
 
-    return f'''
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700"
-         data-slug="{slug_e}" data-tags="{tag_attr}">
-        <img src="{image_e}" alt="{name_e}" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">{display_name_e}</h3>
-        <p class="text-emerald-400 text-sm">{desc_e}</p>
-        {tags_html}
-        {price_grid}
-        <p class="text-xs text-amber-300 mt-3">{notes_e}</p>
-        <a href="{url_e}" target="_blank" rel="noopener noreferrer"
-           class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">
-           Official Site -&gt;
-        </a>
-    </div>'''
+    items = [a for a in attractions if not is_bl(a)]
+    items.sort(key=lambda a: library_sort_key(a.get("name","")))
+
+    # Collect all tags for filter chips
+    all_tags = set()
+    for a in items:
+        tags = a.get("tags", a.get("proposed_tags", ""))
+        if isinstance(tags, str):
+            for t in tags.split(","):
+                t = t.strip()
+                if t: all_tags.add(t)
+        elif isinstance(tags, list):
+            for t in tags:
+                if t: all_tags.add(t)
+    sorted_tags = sorted(all_tags)
+
+    def get_tags_str(a):
+        tags = a.get("tags", a.get("proposed_tags", ""))
+        if isinstance(tags, str):
+            return " ".join(t.strip() for t in tags.split(",") if t.strip())
+        elif isinstance(tags, list):
+            return " ".join(t for t in tags if t)
+        return ""
+
+    def thumb_html(a):
+        slug = normalize_slug(a.get("slug",""))
+        name = a.get("name","?")
+        thumbs_dir = VAULT / "web" / "assets" / "thumbs"
+        for ext in ("jpg","jpeg","png","webp"):
+            p = thumbs_dir / f"{slug}-thumb.{ext}"
+            if p.exists():
+                return f'<img src="assets/thumbs/{slug}-thumb.{ext}" alt="{html.escape(name)}" loading="lazy" class="card--light__img">'
+        # SVG fallback
+        letter = name[0].lower() if name else "a"
+        if not letter.isalpha(): letter = "a"
+        svg_path = VAULT / "web" / "svg-fallbacks" / f"{letter}.svg"
+        if svg_path.exists():
+            return svg_path.read_text(encoding="utf-8")
+        return f'<div class="card--light__img" style="background:#3F6B3A;display:grid;place-items:center;color:white;font-size:48px;font-weight:700;">{name[0].upper()}</div>'
+
+    def duration_str(h):
+        if not h: return ""
+        try:
+            h = float(h)
+        except: return str(h)
+        if h < 1: return f"{int(h*60)}min"
+        if h == int(h): return f"{int(h)}h"
+        return f"{h}h"
+
+    def render_card(a):
+        name = html.escape(a.get("name","Unknown"))
+        slug = normalize_slug(a.get("slug",""))
+        desc = a.get("description","")
+        hook = html.escape(desc[:120] + "..." if len(desc)>120 else desc)
+        price = a.get("price_adult") or a.get("price","")
+        dur = a.get("duration_hours","")
+        rating = a.get("rating","")
+        tags_str = get_tags_str(a)
+
+        chips = ""
+        if price:
+            try: chips += f'<span class="minichip price">from ${float(price):.0f}</span>'
+            except: chips += f'<span class="minichip price">{html.escape(str(price))}</span>'
+        if dur:
+            chips += f'<span class="minichip">{html.escape(duration_str(dur))}</span>'
+        if rating:
+            chips += f'<span class="minichip rating">★ {html.escape(str(rating))}</span>'
+
+        th = thumb_html(a)
+        return f'''<article class="card--light" data-tags="{tags_str}" data-slug="{slug}">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist {name}">♡</button>
+  <div class="card--light__thumb">{th}</div>
+  <div class="card--light__body">
+    <h3>{name}</h3>
+    <p class="card--light__hook">{hook}</p>
+    <div class="card--light__row">{chips}</div>
+  </div>
+</article>'''
+
+    cards_html = "\n".join(render_card(a) for a in items)
+
+    chip_btns = '<button class="chip" aria-pressed="true" data-tag="">All</button>\n'
+    for t in sorted_tags:
+        chip_btns += f'<button class="chip" aria-pressed="false" data-tag="{html.escape(t)}">{html.escape(t)}</button>\n'
+
+    filter_js = r"""
+<script>
+(function(){
+  var active = new Set();
+  var chips = document.querySelectorAll('.filter-strip .chip');
+  var cards = document.querySelectorAll('.catalog-grid .card--light');
+  var counter = document.getElementById('live-count');
+  var allBtn = document.querySelector('.chip[data-tag=""]');
+
+  function refilter(){
+    var shown = 0;
+    cards.forEach(function(c){
+      var tags = new Set((c.dataset.tags||'').split(' ').filter(Boolean));
+      var visible = active.size === 0 || [...active].some(function(t){ return tags.has(t); });
+      c.style.display = visible ? '' : 'none';
+      if(visible) shown++;
+    });
+    if(counter) counter.textContent = 'Showing ' + shown + ' of ' + cards.length;
+  }
+
+  chips.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var tag = btn.dataset.tag;
+      if(tag === ''){
+        active.clear();
+        chips.forEach(function(b){ b.setAttribute('aria-pressed', b === allBtn ? 'true' : 'false'); });
+      } else {
+        if(active.has(tag)){
+          active.delete(tag);
+          btn.setAttribute('aria-pressed','false');
+        } else {
+          active.add(tag);
+          btn.setAttribute('aria-pressed','true');
+        }
+        allBtn.setAttribute('aria-pressed', active.size === 0 ? 'true' : 'false');
+      }
+      refilter();
+    });
+  });
+  refilter();
+})();
+</script>"""
+
+    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+    page = f"""<!doctype html>
+<html lang="en" data-mode="system">
+<head>
+{render_head("Attractions -- Branson '26", "Browse all Branson 2026 attractions and shows")}
+<style>
+/* Page-specific overrides */
+.card--light__thumb {{ aspect-ratio: 16/10; overflow: hidden; background: var(--color-bg); }}
+.card--light__thumb img {{ width:100%; height:100%; object-fit:cover; display:block; }}
+.card--light__thumb svg {{ width:100%; height:100%; display:block; }}
+.card--light__body {{ padding: 12px 14px 14px; display:flex; flex-direction:column; gap:8px; flex:1; }}
+.card--light__hook {{ font-size:13px; color:var(--color-ink-dim); line-height:1.4; margin:0;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }}
+.card--light__row {{ display:flex; gap:6px; flex-wrap:wrap; align-items:center; margin-top:auto; }}
+</style>
+</head>
+<body>
+{render_nav("attractions")}
+<main class="page-main">
+  <div class="page-hero">
+    <p class="eyebrow">Branson '26</p>
+    <h1>Attractions &amp; Shows</h1>
+    <p class="hero-sub">Browse {len(items)} things to do. Heart anything that looks fun.</p>
+  </div>
+  <div class="test-banner" role="status">
+    🧪 <strong>Test data</strong> -- Interest counts and picks shown here are not real family data.
+    This banner will be removed when the live backend connects in Phase 2.
+  </div>
+  <div class="filter-strip" role="group" aria-label="Filter by tag">
+    {chip_btns.strip()}
+  </div>
+  <p class="live-count" id="live-count">Showing {len(items)} of {len(items)}</p>
+  <div class="catalog-grid" id="catalog-grid">
+{cards_html}
+  </div>
+</main>
+{filter_js}
+<script>window.addEventListener('storage',function(e){{if(e.key==='vacdash:v1:mode')document.documentElement.setAttribute('data-mode',e.newValue||'system')}});</script>
+</body>
+</html>"""
+
+    out = VAULT / "web" / "attractions.html"
+    out.write_text(page, encoding="utf-8")
+    size_kb = out.stat().st_size // 1024
+    print(f"  wrote {out} ({size_kb} KB, {len(items)} attractions)")
+
+
+def generate_shows_page():
+    """Generate web/shows.html using design system."""
+    # For now, generate a minimal shows page with the new system
+    page = f"""<!doctype html>
+<html lang="en" data-mode="system">
+<head>
+{render_head("Shows -- Branson '26", "Browse all Branson 2026 shows")}
+</head>
+<body>
+{render_nav("shows")}
+<main class="page-main">
+  <div class="page-hero">
+    <p class="eyebrow">Branson '26</p>
+    <h1>Shows</h1>
+    <p class="hero-sub">Coming soon: a curated list of live shows.</p>
+  </div>
+</main>
+<script>window.addEventListener('storage',function(e){{if(e.key==='vacdash:v1:mode')document.documentElement.setAttribute('data-mode',e.newValue||'system')}});</script>
+</body>
+</html>"""
+    out = VAULT / "web" / "shows.html"
+    out.write_text(page, encoding="utf-8")
+    print(f"  wrote {out}")
 
 
 def main():
-    data = json.loads(JSON_PATH.read_text())
-    blacklist_path = VAULT / "data/blacklist.json"
-    blacklist = json.loads(blacklist_path.read_text()).get("blacklist", []) if blacklist_path.exists() else []
-
-    attractions = [a for a in data.get("attractions", []) if not is_blacklisted(a.get("slug"), blacklist)]
-    attractions.sort(key=lambda x: library_sort_key(x.get("name", "")))
-
-    # Tag usage counts across visible (non-blacklisted) attractions
-    tag_counts = defaultdict(int)
-    for a in attractions:
-        for t in a.get("tags", []) or []:
-            tag_counts[t] += 1
-
-    filter_bar = build_filter_bar(dict(tag_counts)) if tag_counts else ""
-    cards = "".join(build_card(a) for a in attractions)
-
-    html = f'''<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Branson 2026 - Shows</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
-        body {{ font-family: 'Inter', system-ui, sans-serif; }}
-        h1, h2, h3 {{ font-family: 'Playfair Display', sans-serif; }}
-        .card {{ transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }}
-        .card:hover {{ transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }}
-        .card.is-hidden {{ display: none; }}
-
-        /* Tag pill base (used for both filter and card pills). */
-        .filter-pill, .card-tag {{
-            font-size: 11px;
-            padding: 3px 10px;
-            border-radius: 9999px;
-            border: 1px solid rgba(161, 161, 170, 0.25);
-            background: rgba(63, 63, 70, 0.5);
-            color: #e4e4e7;
-            transition: all 0.15s ease;
-            cursor: pointer;
-            line-height: 1.2;
-        }}
-        .filter-pill:hover, .card-tag:hover {{
-            background: rgba(82, 82, 91, 0.8);
-            border-color: rgba(161, 161, 170, 0.5);
-        }}
-
-        /* Category color coding: moss green / lake blue / sand / clay accents. */
-        [data-cat="show"]       {{ background: rgba(6, 78, 59, 0.4);   border-color: rgba(16, 185, 129, 0.4); }}
-        [data-cat="music"]      {{ background: rgba(30, 58, 138, 0.35); border-color: rgba(96, 165, 250, 0.4); }}
-        [data-cat="audience"]   {{ background: rgba(120, 53, 15, 0.35); border-color: rgba(251, 191, 36, 0.4); }}
-        [data-cat="attraction"] {{ background: rgba(124, 45, 18, 0.3);  border-color: rgba(253, 186, 116, 0.35); }}
-
-        /* Selected state (filter bar only). */
-        .filter-pill[data-active="true"] {{
-            background: #10b981;
-            border-color: #10b981;
-            color: #052e1f;
-            font-weight: 600;
-            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
-        }}
-
-        .filter-section-label {{
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #a1a1aa;
-            margin-bottom: 6px;
-        }}
-    </style>
-</head>
-<body class="bg-zinc-950 text-white">
-    <div class="max-w-7xl mx-auto p-6">
-        <!-- Navigation - Updated for "Shows" -->
-        <div class="flex gap-2 mb-8 border-b border-zinc-800 pb-6">
-            <a href="index.html" class="px-6 py-2.5 rounded-2xl text-sm font-medium hover:bg-zinc-900 transition-colors">Events</a>
-            <a href="people-timeline.html" class="px-6 py-2.5 rounded-2xl text-sm font-medium hover:bg-zinc-900 transition-colors">People</a>
-            <a href="event-timeline.html" class="px-6 py-2.5 rounded-2xl text-sm font-medium hover:bg-zinc-900 transition-colors">Timeline</a>
-            <a href="shows.html" class="px-6 py-2.5 rounded-2xl text-sm font-medium bg-emerald-600 text-white">Shows</a>
-        </div>
-
-        <h1 class="text-5xl font-bold mb-2">Branson 2026</h1>
-        <p class="text-emerald-400 text-xl mb-8">Shows - May 22 to 28, 2026</p>
-
-        {filter_bar}
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cards-grid">
-            {cards}
-        </div>
-
-        <div class="mt-16 text-center text-xs text-zinc-500">
-            Generated on {datetime.now().strftime("%B %d, %Y")} -
-            <span class="text-emerald-500" id="total-count">{len(attractions)} shows</span>
-        </div>
-    </div>
-
-    <script>
-    (function() {{
-        const selected = new Set();
-        const filterPills = document.querySelectorAll('.filter-pill');
-        const cardTags = document.querySelectorAll('.card-tag');
-        const cards = document.querySelectorAll('#cards-grid .card');
-        const statusEl = document.getElementById('filter-status');
-        const clearBtn = document.getElementById('filter-clear');
-        const totalCount = {len(attractions)};
-
-        function render() {{
-            let visible = 0;
-            cards.forEach(card => {{
-                const cardTagStr = card.getAttribute('data-tags') || '';
-                const cardTags = cardTagStr.split(' ').filter(Boolean);
-                let show = true;
-                if (selected.size > 0) {{
-                    show = cardTags.some(t => selected.has(t));
-                }}
-                card.classList.toggle('is-hidden', !show);
-                if (show) visible++;
-            }});
-
-            filterPills.forEach(p => {{
-                const active = selected.has(p.getAttribute('data-tag'));
-                if (active) p.setAttribute('data-active', 'true');
-                else p.removeAttribute('data-active');
-            }});
-
-            if (selected.size === 0) {{
-                statusEl.textContent = 'showing all';
-                clearBtn.classList.add('hidden');
-            }} else {{
-                const tags = Array.from(selected).join(', ');
-                statusEl.textContent = visible + ' of ' + totalCount + ' match: ' + tags;
-                clearBtn.classList.remove('hidden');
-            }}
-        }}
-
-        function toggleTag(tag) {{
-            if (selected.has(tag)) selected.delete(tag);
-            else selected.add(tag);
-            render();
-        }}
-
-        filterPills.forEach(p => {{
-            p.addEventListener('click', () => toggleTag(p.getAttribute('data-tag')));
-        }});
-
-        cardTags.forEach(p => {{
-            p.addEventListener('click', (e) => {{
-                e.preventDefault();
-                e.stopPropagation();
-                const tag = p.getAttribute('data-tag');
-                selected.add(tag);
-                render();
-                const panel = document.getElementById('filter-panel');
-                try {{
-                    if (panel && 'open' in panel && !panel.open) panel.open = true;
-                }} catch (err) {{
-                    if (panel) panel.setAttribute('open', '');
-                }}
-                try {{
-                    window.scrollTo({{top: 0, behavior: 'smooth'}});
-                }} catch (err) {{
-                    window.scrollTo(0, 0);
-                }}
-            }});
-        }});
-
-        clearBtn.addEventListener('click', (e) => {{
-            e.preventDefault();
-            e.stopPropagation();
-            selected.clear();
-            render();
-        }});
-
-        render();
-    }})();
-    </script>
-</body>
-</html>'''
-
-    HTML_PATH.write_text(html)
-    if ICLOUD_HTML_PATH.parent.exists():
-        ICLOUD_HTML_PATH.write_text(html)
-
-    update_navigation_in_all_files("shows")
-
-    print(f"Generated {HTML_PATH}")
-    print(f"Also updated iCloud copy and navigation in all HTML files.")
-    print(f"  {len(attractions)} shows, {len(tag_counts)} unique tags rendered.")
-    print("Done. Run this script after any JSON changes to keep HTML in sync.")
+    """Generate all dashboard pages."""
+    print("Generating attractions.html...")
+    generate_attractions_page()
+    print("Generating shows.html...")
+    generate_shows_page()
+    print("Done!")
 
 
 if __name__ == "__main__":

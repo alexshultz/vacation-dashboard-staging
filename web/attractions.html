@@ -1,296 +1,1598 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-mode="system">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Branson 2026 - Attractions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
-        body { font-family: 'Inter', system-ui, sans-serif; }
-        h1, h2, h3 { font-family: 'Playfair Display', sans-serif; }
-        .card { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Browse all Branson 2026 attractions and shows">
+<title>Attractions -- Branson &#x27;26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/themes/trail.css">
+<link rel="stylesheet" href="css/components.css">
+<script>/* Theme loader -- inline to prevent flash-of-wrong-theme */
+(function(){
+  var m = localStorage.getItem('vacdash:v1:mode') || 'system';
+  document.documentElement.setAttribute('data-mode', m);
+})();
+</script>
+<style>
+/* Page-specific overrides */
+.card--light__thumb { aspect-ratio: 16/10; overflow: hidden; background: var(--color-bg); }
+.card--light__thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.card--light__thumb svg { width:100%; height:100%; display:block; }
+.card--light__body { padding: 12px 14px 14px; display:flex; flex-direction:column; gap:8px; flex:1; }
+.card--light__hook { font-size:13px; color:var(--color-ink-dim); line-height:1.4; margin:0;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.card--light__row { display:flex; gap:6px; flex-wrap:wrap; align-items:center; margin-top:auto; }
+</style>
 </head>
-<body class="bg-zinc-950 text-white">
-    <div class="max-w-7xl mx-auto p-6">
-        <!-- Navigation with Attractions tab active -->
-        <div class="flex gap-2 mb-8 border-b border-zinc-800 pb-6">
-            <a href="index.html" class="px-6 py-2.5 rounded-2xl text-sm font-medium hover:bg-zinc-900 transition-colors ">Events</a>
-            <a href="people-timeline.html" class="px-6 py-2.5 rounded-2xl text-sm font-medium hover:bg-zinc-900 transition-colors ">People</a>
-            <a href="event-timeline.html" class="px-6 py-2.5 rounded-2xl text-sm font-medium hover:bg-zinc-900 transition-colors ">Timeline</a>
-            <a href="shows.html" class="px-6 py-2.5 rounded-2xl text-sm font-medium hover:bg-zinc-900 transition-colors ">Shows</a>
-            <a href="attractions.html" class="px-6 py-2.5 rounded-2xl text-sm font-medium bg-emerald-600 text-white">Attractions</a>
-        </div>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="index.html">Branson '26</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="attractions.html" class="nav-link" aria-current="page">Attractions</a>
+      <a href="shows.html" class="nav-link">Shows</a>
+      <a href="event-timeline.html" class="nav-link">Timeline</a>
+      <a href="people-timeline.html" class="nav-link">People</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark mode" onclick="(function(){var modes=['system','light','dark'];var m=document.documentElement.getAttribute('data-mode')||'system';var next=modes[(modes.indexOf(m)+1)%3];document.documentElement.setAttribute('data-mode',next);localStorage.setItem('vacdash:v1:mode',next);})()">☀️</button>
+  </div>
+</header>
+<nav class="bottom-tabs" aria-label="Main navigation">
+  <a href="index.html" class="tab" aria-label="Home">🏠</a>
+  <a href="attractions.html" class="tab" aria-current="page" aria-label="Attractions">🎡</a>
+  <a href="shows.html" class="tab" aria-label="Shows">🎭</a>
+  <a href="event-timeline.html" class="tab" aria-label="Timeline">📅</a>
+  <a href="people-timeline.html" class="tab" aria-label="People">👥</a>
+</nav>
+<main class="page-main">
+  <div class="page-hero">
+    <p class="eyebrow">Branson '26</p>
+    <h1>Attractions &amp; Shows</h1>
+    <p class="hero-sub">Browse 132 things to do. Heart anything that looks fun.</p>
+  </div>
+  <div class="test-banner" role="status">
+    🧪 <strong>Test data</strong> -- Interest counts and picks shown here are not real family data.
+    This banner will be removed when the live backend connects in Phase 2.
+  </div>
+  <div class="filter-strip" role="group" aria-label="Filter by tag">
+    <button class="chip" aria-pressed="true" data-tag="">All</button>
+<button class="chip" aria-pressed="false" data-tag="1-2hr">1-2hr</button>
+<button class="chip" aria-pressed="false" data-tag="2-3hr">2-3hr</button>
+<button class="chip" aria-pressed="false" data-tag="active">active</button>
+<button class="chip" aria-pressed="false" data-tag="adult-humor">adult-humor</button>
+<button class="chip" aria-pressed="false" data-tag="all-day">all-day</button>
+<button class="chip" aria-pressed="false" data-tag="animals">animals</button>
+<button class="chip" aria-pressed="false" data-tag="bluegrass">bluegrass</button>
+<button class="chip" aria-pressed="false" data-tag="classical">classical</button>
+<button class="chip" aria-pressed="false" data-tag="comedy">comedy</button>
+<button class="chip" aria-pressed="false" data-tag="country">country</button>
+<button class="chip" aria-pressed="false" data-tag="date-night">date-night</button>
+<button class="chip" aria-pressed="false" data-tag="drama">drama</button>
+<button class="chip" aria-pressed="false" data-tag="educational">educational</button>
+<button class="chip" aria-pressed="false" data-tag="family">family</button>
+<button class="chip" aria-pressed="false" data-tag="food">food</button>
+<button class="chip" aria-pressed="false" data-tag="gospel">gospel</button>
+<button class="chip" aria-pressed="false" data-tag="half-day">half-day</button>
+<button class="chip" aria-pressed="false" data-tag="history">history</button>
+<button class="chip" aria-pressed="false" data-tag="indoor">indoor</button>
+<button class="chip" aria-pressed="false" data-tag="kid-focused">kid-focused</button>
+<button class="chip" aria-pressed="false" data-tag="magic">magic</button>
+<button class="chip" aria-pressed="false" data-tag="museum">museum</button>
+<button class="chip" aria-pressed="false" data-tag="music">music</button>
+<button class="chip" aria-pressed="false" data-tag="oldies-50s">oldies-50s</button>
+<button class="chip" aria-pressed="false" data-tag="oldies-60s">oldies-60s</button>
+<button class="chip" aria-pressed="false" data-tag="oldies-70s">oldies-70s</button>
+<button class="chip" aria-pressed="false" data-tag="oldies-80s">oldies-80s</button>
+<button class="chip" aria-pressed="false" data-tag="outdoor">outdoor</button>
+<button class="chip" aria-pressed="false" data-tag="pop">pop</button>
+<button class="chip" aria-pressed="false" data-tag="relaxed">relaxed</button>
+<button class="chip" aria-pressed="false" data-tag="religious">religious</button>
+<button class="chip" aria-pressed="false" data-tag="ride">ride</button>
+<button class="chip" aria-pressed="false" data-tag="rock">rock</button>
+<button class="chip" aria-pressed="false" data-tag="shopping">shopping</button>
+<button class="chip" aria-pressed="false" data-tag="thrill">thrill</button>
+<button class="chip" aria-pressed="false" data-tag="tribute">tribute</button>
+<button class="chip" aria-pressed="false" data-tag="under-1hr">under-1hr</button>
+<button class="chip" aria-pressed="false" data-tag="variety">variety</button>
+<button class="chip" aria-pressed="false" data-tag="water">water</button>
+  </div>
+  <p class="live-count" id="live-count">Showing 132 of 132</p>
+  <div class="catalog-grid" id="catalog-grid">
+<article class="card--light" data-tags="1-2hr active family indoor music oldies-50s oldies-60s variety" data-slug="1-hits-of-the-60s-and-50s-too">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist #1 Hits of the 60s (and 50s Too!)">♡</button>
+  <div class="card--light__thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3F6B3A" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#1E3B1C" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#g)"/>
+  <text x="160" y="130" text-anchor="middle"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-weight="700" font-size="96"
+        fill="white" fill-opacity="0.9">A</text>
+</svg></div>
+  <div class="card--light__body">
+    <h3>#1 Hits of the 60s (and 50s Too!)</h3>
+    <p class="card--light__hook">Interactive 50s/60s music with 150+ songs, 100+ costume changes, games, and high school dance segment. Voted Branson&#x27;s S...</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.7</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr adult-humor comedy date-night family indoor relaxed" data-slug="aaron-wayne-comedy-hypnosis-show">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Aaron Wayne Comedy Hypnosis Show">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/aaron-wayne-comedy-hypnosis-show-thumb.jpg" alt="Aaron Wayne Comedy Hypnosis Show" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Aaron Wayne Comedy Hypnosis Show</h3>
+    <p class="card--light__hook">Audiences will smile, chuckle, and laugh...
+](https://www.branson.com/shows/aaron-wayne-sweet-dreams-comedy-hypnosis-sho...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr adult-humor date-night family indoor variety" data-slug="abby-lee-miller-live-at-the-top-of-the-pyramid">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Abby Lee Miller: Live At The Top Of The Pyramid">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/abby-lee-miller-live-at-the-top-of-the-pyramid-thumb.jpg" alt="Abby Lee Miller: Live At The Top Of The Pyramid" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Abby Lee Miller: Live At The Top Of The Pyramid</h3>
+    <p class="card--light__hook">Abby Lee Miller LIVE! At the Top of the...
+](https://www.branson.com/shows/abby-lee-miller-live-at-the-top-of-the-pyrami...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country family gospel indoor music relaxed religious" data-slug="absolutely-country-definitely-gospel">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Absolutely Country, Definitely Gospel">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/absolutely-country-definitely-gospel-thumb.jpg" alt="Absolutely Country, Definitely Gospel" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Absolutely Country, Definitely Gospel</h3>
+    <p class="card--light__hook">Branson&#x27;s Absolutely Country, Definitely...
+**Rating:** 4.6
+](https://www.branson.com/shows/absolutely-country-definitel...</p>
+    <div class="card--light__row"><span class="minichip price">from $47</span><span class="minichip">2h</span><span class="minichip rating">★ 4.6</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr active family" data-slug="adventure-seekers">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Adventure Seekers">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/adventure-seekers-thumb.jpg" alt="Adventure Seekers" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Adventure Seekers</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country family indoor music" data-slug="americas-top-country-hits">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist America&#x27;s Top Country Hits">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/americas-top-country-hits-thumb.png" alt="America&#x27;s Top Country Hits" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>America&#x27;s Top Country Hits</h3>
+    <p class="card--light__hook">America&#x27;s Top Country Hits brings the hi...
+](https://www.branson.com/shows/amaericas-top-country-hits/)</p>
+    <div class="card--light__row"><span class="minichip price">from $47</span><span class="minichip">2h</span><span class="minichip rating">★ 4.6</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr adult-humor date-night indoor music oldies-80s rock tribute" data-slug="anthems-of-rock">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Anthems of Rock">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/anthems-of-rock-thumb.jpg" alt="Anthems of Rock" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Anthems of Rock</h3>
+    <p class="card--light__hook">Rock Party with hits from Queen, Elton John, Bon Jovi, Journey.</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr animals educational family indoor kid-focused relaxed" data-slug="aquarium-at-the-boardwalk">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Aquarium At The Boardwalk">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/aquarium-at-the-boardwalk-thumb.jpg" alt="Aquarium At The Boardwalk" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Aquarium At The Boardwalk</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-80s pop rock tribute" data-slug="awesome-80s">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Awesome 80&#x27;s">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/awesome-80s-thumb.jpg" alt="Awesome 80&#x27;s" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Awesome 80&#x27;s</h3>
+    <p class="card--light__hook">Awesome &#x27;80s take you on a Journey of th...
+](https://www.branson.com/shows/awesome-80s/)</p>
+    <div class="card--light__row"><span class="minichip price">from $47</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music tribute" data-slug="back-to-country-with-mark-aldred">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Back To Country With Mark Aldred">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/back-to-country-with-mark-aldred-thumb.jpg" alt="Back To Country With Mark Aldred" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Back To Country With Mark Aldred</h3>
+    <p class="card--light__hook">Join us for an unforgettable live perfor...
+](https://www.branson.com/shows/back-to-country-with-mark-aldred/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-70s oldies-80s pop relaxed tribute" data-slug="back-to-the-bee-gees">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Back To The Bee Gees">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/back-to-the-bee-gees-thumb.jpg" alt="Back To The Bee Gees" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Back To The Bee Gees</h3>
+    <p class="card--light__hook">Relive the nearly four-decade career of...
+Buy 1 ticket get second ticket 1/2 Off
+](https://www.branson.com/shows/back-t...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music relaxed" data-slug="the-bellamy-brothers">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist The Bellamy Brothers">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/the-bellamy-brothers-thumb.jpg" alt="The Bellamy Brothers" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>The Bellamy Brothers</h3>
+    <p class="card--light__hook">Don&#x27;t miss out on your chance to see &quot;Th...
+**Rating:** 4.5
+](https://www.branson.com/shows/the-bellamy-brothers/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-50s oldies-60s relaxed tribute" data-slug="best-of-dean-martin-tribute">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Best of Dean Martin Tribute">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/best-of-dean-martin-tribute-thumb.jpg" alt="Best of Dean Martin Tribute" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Best of Dean Martin Tribute</h3>
+    <p class="card--light__hook">The Best of Dean Martin Tribute, featuri...
+](https://www.branson.com/shows/dean-martin-and-more-tribute/)
+Popular
+](htt...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="active all-day bluegrass family food half-day music outdoor" data-slug="bluegrass-bbq-festival">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Bluegrass &amp; BBQ Festival">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/bluegrass-bbq-festival-thumb.png" alt="Bluegrass &amp; BBQ Festival" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Bluegrass &amp; BBQ Festival</h3>
+    <p class="card--light__hook">One of the nation&#x27;s top bluegrass events at Silver Dollar City with top acts like Rhonda Vincent &amp; The Rage (May 9-11), ...</p>
+    <div class="card--light__row"><span class="minichip">6h</span><span class="minichip rating">★ 4.8</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr adult-humor date-night indoor music oldies-70s oldies-80s rock variety" data-slug="bohemian-queen">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Bohemian Queen">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/bohemian-queen-thumb.jpg" alt="Bohemian Queen" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Bohemian Queen</h3>
+    <p class="card--light__hook">Bohemian Queen&#x27;s theatrical show feature...
+](https://www.branson.com/shows/bohemian-queen/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr adult-humor comedy date-night family food indoor variety" data-slug="branson-comedy-bash-dinner-show">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Branson Comedy Bash Dinner Show">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/branson-comedy-bash-dinner-show-thumb.jpg" alt="Branson Comedy Bash Dinner Show" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Branson Comedy Bash Dinner Show</h3>
+    <p class="card--light__hook">Branson&#x27;s most beloved personalities are...
+](https://www.branson.com/shows/branson-comedy-bash-dinner-show/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr animals educational family history indoor museum" data-slug="branson-dinosaur-museum">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Branson Dinosaur Museum">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/branson-dinosaur-museum-thumb.jpg" alt="Branson Dinosaur Museum" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Branson Dinosaur Museum</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr active date-night family outdoor ride" data-slug="branson-duck-tours">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Branson Duck Tours">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/branson-duck-tours-thumb.jpg" alt="Branson Duck Tours" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Branson Duck Tours</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr active date-night family half-day outdoor" data-slug="branson-hills-golf-club">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Branson Hills Golf Club">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/branson-hills-golf-club-thumb.jpg" alt="Branson Hills Golf Club" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Branson Hills Golf Club</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr active adult-humor comedy date-night family food indoor variety" data-slug="branson-murder-mystery-show">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Branson Murder Mystery Show">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/branson-murder-mystery-show-thumb.jpg" alt="Branson Murder Mystery Show" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Branson Murder Mystery Show</h3>
+    <p class="card--light__hook">Voted &quot;Best Comedy of the Year&quot;, The Bra...
+**Rating:** 3.9
+](https://www.branson.com/shows/branson-murder-mystery-show/...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night educational family history outdoor relaxed ride" data-slug="branson-scenic-railway">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Branson Scenic Railway">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/branson-scenic-railway-thumb.jpg" alt="Branson Scenic Railway" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Branson Scenic Railway</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="2-3hr date-night family indoor variety" data-slug="silver-dollar-city-s-showboat">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Branson Showboat">♡</button>
+  <div class="card--light__thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2A6A8A" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#14405A" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#g)"/>
+  <text x="160" y="130" text-anchor="middle"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-weight="700" font-size="96"
+        fill="white" fill-opacity="0.9">B</text>
+</svg></div>
+  <div class="card--light__body">
+    <h3>Branson Showboat</h3>
+    <p class="card--light__hook">From branson.com source: Branson Showboat</p>
+    <div class="card--light__row"><span class="minichip price">from $65</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr active date-night family half-day outdoor thrill" data-slug="branson-zipline-at-wolfe-mountain">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Branson Zipline at Wolfe Mountain">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/branson-zipline-at-wolfe-mountain-thumb.jpg" alt="Branson Zipline at Wolfe Mountain" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Branson Zipline at Wolfe Mountain</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr animals educational family indoor kid-focused outdoor relaxed" data-slug="bransons-wild-world">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Branson&#x27;s Wild World">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/bransons-wild-world-thumb.jpg" alt="Branson&#x27;s Wild World" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Branson&#x27;s Wild World</h3>
+    <p class="card--light__hook">Zoo and animal encounters with many exotic animals.</p>
+    <div class="card--light__row"><span class="minichip price">from $25</span><span class="minichip">2h</span><span class="minichip rating">★ 4.6</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor magic variety" data-slug="brett-daniels">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Brett Daniels">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/brett-daniels-thumb.jpg" alt="Brett Daniels" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Brett Daniels</h3>
+    <p class="card--light__hook">Brett Daniels is an internationally reco...
+](https://www.branson.com/shows/brett-daniels/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-60s rock tribute" data-slug="british-invasion">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist British Invasion">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/british-invasion-thumb.jpg" alt="British Invasion" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>British Invasion</h3>
+    <p class="card--light__hook">It all began 1964 when the Beatles lande...
+](https://www.branson.com/shows/british-invasion/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-60s oldies-70s pop relaxed variety" data-slug="broadway-to-buble-starring-george-dyer">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Broadway to Buble starring George Dyer">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/broadway-to-buble-starring-george-dyer-thumb.jpg" alt="Broadway to Buble starring George Dyer" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Broadway to Buble starring George Dyer</h3>
+    <p class="card--light__hook">George Dyer brings world-class and his a...
+**Rating:** 4.4
+](https://www.branson.com/shows/broadway-to-buble-starring-g...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr animals educational family indoor kid-focused relaxed" data-slug="butterfly-palace-rainforest-adventure">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Butterfly Palace &amp; Rainforest Adventure">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/butterfly-palace-rainforest-adventure-thumb.jpg" alt="Butterfly Palace &amp; Rainforest Adventure" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Butterfly Palace &amp; Rainforest Adventure</h3>
+    <p class="card--light__hook">Branson&#x27;s Butterfly Palace &amp; Rainforest Adventure featuring thousands of live butterflies, a rainforest habitat, and int...</p>
+    <div class="card--light__row"><span class="minichip price">from $32</span><span class="minichip">2h</span><span class="minichip rating">★ 4.7</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-70s pop relaxed tribute" data-slug="carpenters-once-more">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Carpenters Once More">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/carpenters-once-more-thumb.jpg" alt="Carpenters Once More" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Carpenters Once More</h3>
+    <p class="card--light__hook">Celebrating the sounds of the Carpenters...
+**Rating:** 4.7
+](https://www.branson.com/shows/carpenters-once-more/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr comedy country family indoor music" data-slug="classic-country-and-comedy">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Classic Country and Comedy">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/classic-country-and-comedy-thumb.png" alt="Classic Country and Comedy" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Classic Country and Comedy</h3>
+    <p class="card--light__hook">Classic country hits with comedy.</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr adult-humor date-night indoor music rock tribute" data-slug="classic-rock-icons">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Classic Rock Icons">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/classic-rock-icons-thumb.jpg" alt="Classic Rock Icons" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Classic Rock Icons</h3>
+    <p class="card--light__hook">Classic Rock Icons brings the music to l...
+](https://www.branson.com/shows/classic-rock-icons/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country family indoor music variety" data-slug="clay-coopers-country-express">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Clay Cooper&#x27;s Country Express">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/clay-coopers-country-express-thumb.jpg" alt="Clay Cooper&#x27;s Country Express" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Clay Cooper&#x27;s Country Express</h3>
+    <p class="card--light__hook">Clay Cooper&#x27;s Country Express features 2...
+**Rating:** 4.7
+](https://www.branson.com/shows/clay-coopers-country-express...</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.7</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr comedy family indoor variety" data-slug="comedy-jamboree">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Comedy Jamboree">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/comedy-jamboree-thumb.jpg" alt="Comedy Jamboree" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Comedy Jamboree</h3>
+    <p class="card--light__hook">Branson&#x27;s Comedy Jamboree is an electrif...
+**Rating:** 4
+](https://www.branson.com/shows/comedy-jamboree/)</p>
+    <div class="card--light__row"><span class="minichip price">from $47</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="date-night family outdoor ride thrill under-1hr" data-slug="copperhead-mountain-coaster">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Copperhead Mountain Coaster">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/copperhead-mountain-coaster-thumb.jpg" alt="Copperhead Mountain Coaster" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Copperhead Mountain Coaster</h3>
+    <p class="card--light__hook">Branson&#x27;s longest downhill mountain coaster with thrilling turns and scenic views.</p>
+    <div class="card--light__row"><span class="minichip price">from $19</span><span class="minichip">30min</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr active date-night family outdoor under-1hr" data-slug="coral-reef-mini-golf">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Coral Reef Mini Golf">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/coral-reef-mini-golf-thumb.jpg" alt="Coral Reef Mini Golf" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Coral Reef Mini Golf</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music tribute" data-slug="dan-wagners-johnny-cash-friends-tribute">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Dan Wagner’s Johnny Cash &amp; Friends Tribute">♡</button>
+  <div class="card--light__thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C1553B" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#8B3020" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#g)"/>
+  <text x="160" y="130" text-anchor="middle"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-weight="700" font-size="96"
+        fill="white" fill-opacity="0.9">D</text>
+</svg></div>
+  <div class="card--light__body">
+    <h3>Dan Wagner’s Johnny Cash &amp; Friends Tribute</h3>
+    <p class="card--light__hook">Dan Wagner&#x27;s Johnny Cash and Friends: Th...
+](https://www.branson.com/shows/dan-wagner-johnny-cash/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music relaxed" data-slug="darryl-worley">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Darryl Worley">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/darryl-worley-thumb.jpg" alt="Darryl Worley" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Darryl Worley</h3>
+    <p class="card--light__hook">There are many things PLATINUM-selling D...
+**Rating:** 5
+](https://www.branson.com/shows/darryl-worley/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="2-3hr drama family gospel indoor music relaxed religious" data-slug="david-sight-sound-theatres">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist DAVID (Sight &amp; Sound Theatres)">♡</button>
+  <div class="card--light__thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C1553B" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#8B3020" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#g)"/>
+  <text x="160" y="130" text-anchor="middle"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-weight="700" font-size="96"
+        fill="white" fill-opacity="0.9">D</text>
+</svg></div>
+  <div class="card--light__body">
+    <h3>DAVID (Sight &amp; Sound Theatres)</h3>
+    <p class="card--light__hook">A massive biblical production featuring live animals and original music.</p>
+    <div class="card--light__row"><span class="minichip">3h</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-50s oldies-60s rock tribute" data-slug="dean-z-the-ultimate-elvis">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Dean Z - The Ultimate Elvis">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/dean-z-the-ultimate-elvis-thumb.jpg" alt="Dean Z - The Ultimate Elvis" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Dean Z - The Ultimate Elvis</h3>
+    <p class="card--light__hook">Dean Z has been performing as the Ultimate Elvis for nearly two decades.</p>
+    <div class="card--light__row"><span class="minichip price">from $44</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family food indoor variety" data-slug="dolly-partons-stampede">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Dolly Parton&#x27;s Stampede">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/dolly-partons-stampede-thumb.jpg" alt="Dolly Parton&#x27;s Stampede" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Dolly Parton&#x27;s Stampede</h3>
+    <p class="card--light__hook">From branson.com source: Dolly Parton&#x27;s Stampede</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-50s oldies-60s relaxed variety" data-slug="doo-wop-more">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Doo Wop &amp; More">♡</button>
+  <div class="card--light__thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C1553B" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#8B3020" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#g)"/>
+  <text x="160" y="130" text-anchor="middle"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-weight="700" font-size="96"
+        fill="white" fill-opacity="0.9">D</text>
+</svg></div>
+  <div class="card--light__body">
+    <h3>Doo Wop &amp; More</h3>
+    <p class="card--light__hook">&quot;Doo Wop &amp; More&quot; takes you back to the 5...
+**Rating:** 4.8
+](https://www.branson.com/shows/doo-wop-and-more/)
+Popular
+]...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music oldies-60s oldies-70s oldies-80s pop variety" data-slug="doug-gabriel-the-ultimate-variety-show">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Doug Gabriel - The Ultimate Variety Show">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/doug-gabriel-the-ultimate-variety-show-thumb.jpg" alt="Doug Gabriel - The Ultimate Variety Show" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Doug Gabriel - The Ultimate Variety Show</h3>
+    <p class="card--light__hook">The Doug Gabriel Ultimate Variety Show i...
+**Rating:** 3.8
+Buy 1 ticket get second ticket 1/2 Off
+Available in 4 for $8...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country family indoor music variety" data-slug="down-home-country">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Down Home Country">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/down-home-country-thumb.jpg" alt="Down Home Country" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Down Home Country</h3>
+    <p class="card--light__hook">The Down Home Country Show is the best s...
+**Rating:** 4.3
+](https://www.branson.com/shows/down-home-country/)</p>
+    <div class="card--light__row"><span class="minichip price">from $47</span><span class="minichip">2h</span><span class="minichip rating">★ 4.7</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr classical date-night family indoor music pop variety" data-slug="dublins-irish-tenors-the-celtic-ladies">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Dublin&#x27;s Irish Tenors &amp; The Celtic Ladies">♡</button>
+  <div class="card--light__thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C1553B" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#8B3020" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#g)"/>
+  <text x="160" y="130" text-anchor="middle"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-weight="700" font-size="96"
+        fill="white" fill-opacity="0.9">D</text>
+</svg></div>
+  <div class="card--light__body">
+    <h3>Dublin&#x27;s Irish Tenors &amp; The Celtic Ladies</h3>
+    <p class="card--light__hook">Classical and modern hits with Irish twist.</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.6</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country family indoor music variety" data-slug="the-duttons">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist The Duttons">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/the-duttons-thumb.jpg" alt="The Duttons" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>The Duttons</h3>
+    <p class="card--light__hook">From branson.com source: The Duttons</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr active family indoor outdoor thrill" data-slug="fritzs-adventure">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Fritz&#x27;s Adventure">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/fritzs-adventure-thumb.jpg" alt="Fritz&#x27;s Adventure" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Fritz&#x27;s Adventure</h3>
+    <p class="card--light__hook">Adventure park with ropes courses, climbing, and zip lines.</p>
+    <div class="card--light__row"><span class="minichip price">from $25</span><span class="minichip">2h</span><span class="minichip rating">★ 4.6</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music tribute" data-slug="a-garth-tribute">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist A Garth Tribute">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/a-garth-tribute-thumb.jpg" alt="A Garth Tribute" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>A Garth Tribute</h3>
+    <p class="card--light__hook">Rich and Anna have quickly become a must...
+](https://www.branson.com/shows/a-garth-tribute/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music" data-slug="the-gatlin-brothers">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist The Gatlin Brothers">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/the-gatlin-brothers-thumb.jpg" alt="The Gatlin Brothers" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>The Gatlin Brothers</h3>
+    <p class="card--light__hook">Larry Gatlin &amp; The Gatlin Brothers perfo...
+**Rating:** 3.8
+](https://www.branson.com/shows/gatlin-brothers/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music relaxed" data-slug="gene-watson">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Gene Watson">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/gene-watson-thumb.jpg" alt="Gene Watson" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Gene Watson</h3>
+    <p class="card--light__hook">One of the most masterful voices in coun...
+](https://www.branson.com/shows/gene-watson/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music tribute" data-slug="george-jones-haggard-friends">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist George Jones, Haggard &amp; Friends">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/george-jones-haggard-friends-thumb.jpg" alt="George Jones, Haggard &amp; Friends" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>George Jones, Haggard &amp; Friends</h3>
+    <p class="card--light__hook">&quot;George Jones and Friends&quot; honors one of...
+**Rating:** 3.3
+](https://www.branson.com/shows/george-jones-tribute/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music tribute" data-slug="george-strait-tribute">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist George Strait Tribute">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/george-strait-tribute-thumb.jpg" alt="George Strait Tribute" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>George Strait Tribute</h3>
+    <p class="card--light__hook">Experience the timeless sound of country...
+](https://www.branson.com/shows/george-strait-tribute/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-50s oldies-60s relaxed tribute" data-slug="golden-sounds-of-the-platters">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Golden Sounds of the Platters">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/golden-sounds-of-the-platters-thumb.jpg" alt="Golden Sounds of the Platters" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Golden Sounds of the Platters</h3>
+    <p class="card--light__hook">Branson&#x27;s &quot;Golden Sounds&quot; will fill you...
+**Rating:** 4.5
+](https://www.branson.com/shows/golden-sounds-of-the-platters...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country family gospel indoor music variety" data-slug="grand-jubilee">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Grand Jubilee">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/grand-jubilee-thumb.jpg" alt="Grand Jubilee" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Grand Jubilee</h3>
+    <p class="card--light__hook">Grand Jubilee is one Branson show that h...
+**Rating:** 4.7
+](https://www.branson.com/shows/grand-jubilee/)</p>
+    <div class="card--light__row"><span class="minichip price">from $47</span><span class="minichip">2h</span><span class="minichip rating">★ 4.7</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor magic variety" data-slug="hamners-unbelievable-variety-show">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Hamners&#x27; Unbelievable Variety Show">♡</button>
+  <div class="card--light__thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D8A660" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#A87838" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#g)"/>
+  <text x="160" y="130" text-anchor="middle"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-weight="700" font-size="96"
+        fill="white" fill-opacity="0.9">H</text>
+</svg></div>
+  <div class="card--light__body">
+    <h3>Hamners&#x27; Unbelievable Variety Show</h3>
+    <p class="card--light__hook">At &quot;Hamners&#x27; Unbelievable Variety&quot; show,...
+**Rating:** 4.3
+Buy 1 ticket get second ticket 1/2 Off
+Available in 4 for $8...</p>
+    <div class="card--light__row"><span class="minichip">2h</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music pop variety" data-slug="the-haygoods">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist The Haygoods">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/the-haygoods-thumb.jpg" alt="The Haygoods" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>The Haygoods</h3>
+    <p class="card--light__hook">From branson.com source: The Haygoods</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music oldies-50s oldies-60s oldies-70s variety" data-slug="the-heatherlys-hits-on-route-66">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist The Heatherlys Hits On Route 66">♡</button>
+  <div class="card--light__thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6B4C8F" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#3E2260" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#g)"/>
+  <text x="160" y="130" text-anchor="middle"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-weight="700" font-size="96"
+        fill="white" fill-opacity="0.9">T</text>
+</svg></div>
+  <div class="card--light__body">
+    <h3>The Heatherlys Hits On Route 66</h3>
+    <p class="card--light__hook">Show from Americana Theatre.</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr educational family indoor museum relaxed" data-slug="hollywood-wax-museum-entertainment-center">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Hollywood Wax Museum Entertainment Center">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/hollywood-wax-museum-entertainment-center-thumb.jpg" alt="Hollywood Wax Museum Entertainment Center" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Hollywood Wax Museum Entertainment Center</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-50s oldies-60s rock variety" data-slug="hot-rods-high-heels">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Hot Rods &amp; High Heels">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/hot-rods-high-heels-thumb.jpg" alt="Hot Rods &amp; High Heels" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Hot Rods &amp; High Heels</h3>
+    <p class="card--light__hook">Get your glad rags on! We&#x27;re going to th...
+**Rating:** 4.5
+](https://www.branson.com/shows/hot-rods-and-high-heels/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music variety" data-slug="hughes-brothers-country-show">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Hughes Brothers Country Show">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/hughes-brothers-country-show-thumb.jpg" alt="Hughes Brothers Country Show" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Hughes Brothers Country Show</h3>
+    <p class="card--light__hook">From branson.com source: Hughes Brothers Country Show</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music oldies-50s oldies-60s oldies-70s variety" data-slug="hughes-music-show">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Hughes Music Show">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/hughes-music-show-thumb.jpg" alt="Hughes Music Show" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Hughes Music Show</h3>
+    <p class="card--light__hook">From branson.com source: Hughes Music Show</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor magic variety" data-slug="illusionist-rick-thomas">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Illusionist Rick Thomas">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/illusionist-rick-thomas-thumb.png" alt="Illusionist Rick Thomas" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Illusionist Rick Thomas</h3>
+    <p class="card--light__hook">Premier grand illusions and mind-bending stage magic.</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.8</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-50s oldies-60s rock tribute" data-slug="jerry-presley-elvis-live">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Jerry Presley Elvis Live!">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/jerry-presley-elvis-live-thumb.jpg" alt="Jerry Presley Elvis Live!" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Jerry Presley Elvis Live!</h3>
+    <p class="card--light__hook">The timeless music of the world&#x27;s most f...
+**Rating:** 4.6
+](https://www.branson.com/shows/jerry-presley-elvis-live/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music relaxed" data-slug="jimmy-fortune">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Jimmy Fortune">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/jimmy-fortune-thumb.jpg" alt="Jimmy Fortune" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Jimmy Fortune</h3>
+    <p class="card--light__hook">The fabulous singer and songwriter, Jimm...
+](https://www.branson.com/shows/jimmy-fortune1/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music relaxed" data-slug="joe-nichols">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Joe Nichols">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/joe-nichols-thumb.jpg" alt="Joe Nichols" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Joe Nichols</h3>
+    <p class="card--light__hook">In a career that spans 20 years, &quot;Nichol...
+](https://www.branson.com/shows/joe-nichols/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music" data-slug="josh-turner">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Josh Turner">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/josh-turner-thumb.jpg" alt="Josh Turner" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Josh Turner</h3>
+    <p class="card--light__hook">Known for his unmistakable, buttery bari...
+](https://www.branson.com/shows/josh-turner/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music tribute" data-slug="kenny-rogers-tribute">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Kenny Rogers Tribute">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/kenny-rogers-tribute-thumb.png" alt="Kenny Rogers Tribute" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Kenny Rogers Tribute</h3>
+    <p class="card--light__hook">Tribute to Kenny Rogers (The Gambler).</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music rock" data-slug="kentucky-headhunters">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Kentucky Headhunters">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/kentucky-headhunters-thumb.jpg" alt="Kentucky Headhunters" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Kentucky Headhunters</h3>
+    <p class="card--light__hook">The Kentucky Headhunters, declared &quot;the...
+](https://www.branson.com/shows/kentucky-headhunters/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music oldies-50s oldies-60s oldies-70s oldies-80s pop rock tribute" data-slug="legends-in-concert">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Legends in Concert">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/legends-in-concert-thumb.jpg" alt="Legends in Concert" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Legends in Concert</h3>
+    <p class="card--light__hook">Legends in Concert, Branson&#x27;s premier tr...
+**Rating:** 4.4
+](https://www.branson.com/shows/legends-in-concert/)</p>
+    <div class="card--light__row"><span class="minichip price">from $47</span><span class="minichip">2h</span><span class="minichip rating">★ 4.4</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music" data-slug="malpass-brothers-friends">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Malpass Brothers &amp; Friends">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/malpass-brothers-friends-thumb.jpg" alt="Malpass Brothers &amp; Friends" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Malpass Brothers &amp; Friends</h3>
+    <p class="card--light__hook">The Malpass Brothers toured with the lat...
+](https://www.branson.com/shows/the-malpass-brothers/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr adult-humor comedy family indoor variety" data-slug="matt-gumm-and-company">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Matt Gumm and Company">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/matt-gumm-and-company-thumb.jpg" alt="Matt Gumm and Company" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Matt Gumm and Company</h3>
+    <p class="card--light__hook">This show features Matt Gumm, comedian a...
+](https://www.branson.com/shows/matt-gumm-and-company/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music pop variety" data-slug="melody-hart-the-all-star-band">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Melody Hart &amp; The All Star Band">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/melody-hart-the-all-star-band-thumb.jpg" alt="Melody Hart &amp; The All Star Band" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Melody Hart &amp; The All Star Band</h3>
+    <p class="card--light__hook">Get ready for a heartwarming and high-en...
+](https://www.branson.com/shows/melody-hart-and-the-all-star-band/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr adult-humor comedy date-night indoor music" data-slug="menopause-the-musical">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Menopause The Musical">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/menopause-the-musical-thumb.jpg" alt="Menopause The Musical" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Menopause The Musical</h3>
+    <p class="card--light__hook">Legends in Concert Branson and GFour Pro...
+](https://www.branson.com/shows/menopause-the-musical/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-60s oldies-70s pop tribute" data-slug="motown-downtown">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Motown Downtown">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/motown-downtown-thumb.jpg" alt="Motown Downtown" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Motown Downtown</h3>
+    <p class="card--light__hook">Motown Downtown brings Branson the sound...
+**Rating:** 3
+](https://www.branson.com/shows/motown-downtown/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr bluegrass country family indoor music relaxed variety" data-slug="the-mountain-hollers-family-band">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist The Mountain Hollers Family Band">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/the-mountain-hollers-family-band-thumb.jpg" alt="The Mountain Hollers Family Band" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>The Mountain Hollers Family Band</h3>
+    <p class="card--light__hook">With roots deep in the Ozarks, The Mount...
+](https://www.branson.com/shows/the-mountain-hollers-family-band/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music oldies-50s oldies-60s oldies-70s oldies-80s variety" data-slug="nashville-roadhouse-live">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Nashville Roadhouse Live">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/nashville-roadhouse-live-thumb.jpg" alt="Nashville Roadhouse Live" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Nashville Roadhouse Live</h3>
+    <p class="card--light__hook">The Winner of more awards than any Singl...
+Buy 1 ticket get second ticket 1/2 Off
+Available in 4 for $89 Package
+](http...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music relaxed" data-slug="neal-mccoy">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Neal McCoy">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/neal-mccoy-thumb.jpg" alt="Neal McCoy" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Neal McCoy</h3>
+    <p class="card--light__hook">Neal McCoy once again graces the Branson...
+**Rating:** 4.9
+](https://www.branson.com/shows/neal-mccoy/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-70s pop relaxed tribute" data-slug="a-neil-diamond-tribute-ft-keith-allynn">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist A Neil Diamond Tribute ft. Keith Allynn">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/a-neil-diamond-tribute-ft-keith-allynn-thumb.jpg" alt="A Neil Diamond Tribute ft. Keith Allynn" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>A Neil Diamond Tribute ft. Keith Allynn</h3>
+    <p class="card--light__hook">Keith Allynn&#x27;s A Neil Diamond Tribute; L...
+](https://www.branson.com/shows/a-neil-diamond-tribute-featuring-keith-allyn...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-60s pop relaxed tribute" data-slug="new-jersey-nights">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist New Jersey Nights">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/new-jersey-nights-thumb.jpg" alt="New Jersey Nights" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>New Jersey Nights</h3>
+    <p class="card--light__hook">A slickly choreographed tribute to Frankie Valli and The Four Seasons.</p>
+    <div class="card--light__row"><span class="minichip">2h</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country family gospel indoor music relaxed religious" data-slug="new-south-gospel">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist New South Gospel">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/new-south-gospel-thumb.jpg" alt="New South Gospel" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>New South Gospel</h3>
+    <p class="card--light__hook">New South Gospel in Branson is southern...
+**Rating:** 4.9
+](https://www.branson.com/shows/new-south-gospel/)</p>
+    <div class="card--light__row"><span class="minichip price">from $47</span><span class="minichip">2h</span><span class="minichip rating">★ 4.8</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-60s relaxed rock tribute" data-slug="orbison-still">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Orbison Still">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/orbison-still-thumb.jpg" alt="Orbison Still" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Orbison Still</h3>
+    <p class="card--light__hook">In Orbison Still, Branson&#x27;s youngest sol...
+](https://www.branson.com/shows/orbison-still/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country family indoor music variety" data-slug="outpost-opry-variety-show-w-joey-garland">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Outpost Opry Variety Show w/ Joey Garland">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/outpost-opry-variety-show-w-joey-garland-thumb.jpg" alt="Outpost Opry Variety Show w/ Joey Garland" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Outpost Opry Variety Show w/ Joey Garland</h3>
+    <p class="card--light__hook">](https://www.branson.com/shows/outpost-opry-variety-show-with-joey-garland/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night food indoor relaxed" data-slug="ozark-hills-winery-wine-tasting">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Ozark Hills Winery Wine Tasting">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/ozark-hills-winery-wine-tasting-thumb.jpg" alt="Ozark Hills Winery Wine Tasting" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Ozark Hills Winery Wine Tasting</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr educational family outdoor" data-slug="ozarks-aglow-nighttime-walk">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Ozarks Aglow Nighttime Walk">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/ozarks-aglow-nighttime-walk-thumb.jpg" alt="Ozarks Aglow Nighttime Walk" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Ozarks Aglow Nighttime Walk</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country family indoor music variety" data-slug="ozarks-country">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Ozarks Country">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/ozarks-country-thumb.jpg" alt="Ozarks Country" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Ozarks Country</h3>
+    <p class="card--light__hook">When the sun goes down, the fun is just...
+**Rating:** 4
+](https://www.branson.com/shows/ozarks-country/)</p>
+    <div class="card--light__row"><span class="minichip price">from $47</span><span class="minichip">2h</span><span class="minichip rating">★ 4.6</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr family gospel indoor music relaxed religious" data-slug="ozarks-gospel">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Ozarks Gospel">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/ozarks-gospel-thumb.jpg" alt="Ozarks Gospel" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Ozarks Gospel</h3>
+    <p class="card--light__hook">Ozarks Gospel combines great music with...
+**Rating:** 4.6
+](https://www.branson.com/shows/ozarks-gospel/)</p>
+    <div class="card--light__row"><span class="minichip price">from $47</span><span class="minichip">2h</span><span class="minichip rating">★ 4.9</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr animals family outdoor" data-slug="parakeet-petes">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Parakeet Pete&#x27;s">♡</button>
+  <div class="card--light__thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3F6B3A" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#1E3B1C" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#g)"/>
+  <text x="160" y="130" text-anchor="middle"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-weight="700" font-size="96"
+        fill="white" fill-opacity="0.9">P</text>
+</svg></div>
+  <div class="card--light__body">
+    <h3>Parakeet Pete&#x27;s</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music tribute" data-slug="patsy-to-patsy">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Patsy to Patsy">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/patsy-to-patsy-thumb.jpg" alt="Patsy to Patsy" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Patsy to Patsy</h3>
+    <p class="card--light__hook">Patsy to Patsy features the music of Pat...
+**Rating:** 2
+](https://www.branson.com/shows/patsy-to-patsy/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr bluegrass country family indoor music relaxed" data-slug="the-petersens">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist The Petersens">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/the-petersens-thumb.jpg" alt="The Petersens" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>The Petersens</h3>
+    <p class="card--light__hook">The Petersens are an award-winning blueg...
+**Rating:** 5
+](https://www.branson.com/shows/the-petersens/)</p>
+    <div class="card--light__row"><span class="minichip price">from $42</span><span class="minichip">2h</span><span class="minichip rating">★ 5.0</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music variety" data-slug="pierce-arrow-30th-anniversary">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Pierce Arrow 30th Anniversary">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/pierce-arrow-30th-anniversary-thumb.jpg" alt="Pierce Arrow 30th Anniversary" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Pierce Arrow 30th Anniversary</h3>
+    <p class="card--light__hook">Pierce Arrow shows take audiences on a m...
+**Rating:** 4.2
+Buy 1 ticket get second ticket 1/2 Off
+Available in 4 for $8...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country family gospel indoor music religious variety" data-slug="pierce-arrow-gospel">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Pierce Arrow Gospel">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/pierce-arrow-gospel-thumb.jpg" alt="Pierce Arrow Gospel" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Pierce Arrow Gospel</h3>
+    <p class="card--light__hook">Spend your Sunday afternoons with Pierce...
+Buy 1 ticket get second ticket 1/2 Off
+Available in 4 for $89 Package
+](http...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-50s oldies-60s oldies-70s oldies-80s variety" data-slug="pierce-arrow-decades">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Pierce Arrow: Decades">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/pierce-arrow-decades-thumb.jpg" alt="Pierce Arrow: Decades" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Pierce Arrow: Decades</h3>
+    <p class="card--light__hook">Voted Best NEW SHOW! Pierce Arrow&#x27;s awa...
+**Rating:** 4.5
+Buy 1 ticket get second ticket 1/2 Off
+Available in 4 for $89...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr active date-night family outdoor ride" data-slug="pink-jeep-tours">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Pink Jeep Tours">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/pink-jeep-tours-thumb.jpg" alt="Pink Jeep Tours" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Pink Jeep Tours</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-60s oldies-70s pop tribute" data-slug="queens-of-soul">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Queens of Soul">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/queens-of-soul-thumb.jpg" alt="Queens of Soul" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Queens of Soul</h3>
+    <p class="card--light__hook">As the curtain rises, the Queens of Soul...
+](https://www.branson.com/shows/queens-of-soul/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family food indoor music oldies-70s oldies-80s pop variety" data-slug="re-vibe-dinner-show">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Re-Vibe Dinner Show">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/re-vibe-dinner-show-thumb.jpg" alt="Re-Vibe Dinner Show" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Re-Vibe Dinner Show</h3>
+    <p class="card--light__hook">Re-Vibe is a dynamic, family-friendly mu...
+](https://www.branson.com/shows/re-vibe/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr family indoor" data-slug="retromania">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Retromania">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/retromania-thumb.jpg" alt="Retromania" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Retromania</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor magic variety" data-slug="the-revollusionists">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist The Revollusionists">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/the-revollusionists-thumb.jpg" alt="The Revollusionists" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>The Revollusionists</h3>
+    <p class="card--light__hook">From branson.com source: The Revollusionists</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor magic variety" data-slug="reza-edge-of-illusion">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Reza Edge of Illusion">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/reza-edge-of-illusion-thumb.jpg" alt="Reza Edge of Illusion" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Reza Edge of Illusion</h3>
+    <p class="card--light__hook">REZA is recognized as one of today&#x27;s mos...
+**Rating:** 4.5
+Buy 1 ticket get second ticket 1/2 Off
+Available in 4 for $8...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music tribute" data-slug="rick-mcewen-presents-the-gambler">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Rick McEwen Presents The Gambler">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/rick-mcewen-presents-the-gambler-thumb.jpg" alt="Rick McEwen Presents The Gambler" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Rick McEwen Presents The Gambler</h3>
+    <p class="card--light__hook">If you&#x27;re ready for a night filled with...
+](https://www.branson.com/shows/rick-mcewen-presents-the-gambler/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="2-3hr active adult-humor date-night food indoor variety" data-slug="riga-tonys-murder-mystery-dinner-show">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Riga-Tony’s Murder Mystery Dinner Show">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/riga-tonys-murder-mystery-dinner-show-thumb.jpg" alt="Riga-Tony’s Murder Mystery Dinner Show" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Riga-Tony’s Murder Mystery Dinner Show</h3>
+    <p class="card--light__hook">Murder mystery dinner shows are entertai...
+](https://www.branson.com/shows/riga-tonys-murder-mystery-dinner-show/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr educational family indoor kid-focused museum relaxed under-1hr" data-slug="ripleys-believe-it-or-not">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Ripley&#x27;s Believe It or Not">♡</button>
+  <div class="card--light__thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D8A660" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#A87838" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#g)"/>
+  <text x="160" y="130" text-anchor="middle"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-weight="700" font-size="96"
+        fill="white" fill-opacity="0.9">R</text>
+</svg></div>
+  <div class="card--light__body">
+    <h3>Ripley&#x27;s Believe It or Not</h3>
+    <p class="card--light__hook">Hundreds of oddities, interactive exhibits, hands-on experiences. Very popular with kids.</p>
+    <div class="card--light__row"><span class="minichip price">from $35</span><span class="minichip">1h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-50s oldies-60s rock tribute" data-slug="rock-n-roll-sunrise">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Rock N Roll Sunrise">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/rock-n-roll-sunrise-thumb.jpg" alt="Rock N Roll Sunrise" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Rock N Roll Sunrise</h3>
+    <p class="card--light__hook">Rock &#x27;n&#x27; Roll Sunrise brings Branson aud...
+](https://www.branson.com/shows/rock-n-roll-sunrise/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="date-night family outdoor ride thrill under-1hr" data-slug="runaway-mountain-coaster">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Runaway Mountain Coaster">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/runaway-mountain-coaster-thumb.jpg" alt="Runaway Mountain Coaster" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Runaway Mountain Coaster</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr adult-humor date-night drama indoor variety" data-slug="separate-journeys">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Separate Journeys">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/separate-journeys-thumb.jpg" alt="Separate Journeys" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Separate Journeys</h3>
+    <p class="card--light__hook">Separate Journeys is a Los Angeles-based...
+](https://www.branson.com/shows/separate-journeys/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr family indoor kid-focused variety" data-slug="shanghai-circus">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Shanghai Circus">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/shanghai-circus-thumb.jpg" alt="Shanghai Circus" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Shanghai Circus</h3>
+    <p class="card--light__hook">A thrilling showcase of international acrobatics and strength.</p>
+    <div class="card--light__row"><span class="minichip">2h</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="2-3hr active date-night family outdoor thrill" data-slug="shepherd-of-the-hills-great-woodsman-canopy-tours">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Shepherd of the Hills Great Woodsman Canopy Tours">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/shepherd-of-the-hills-great-woodsman-canopy-tours-thumb.jpg" alt="Shepherd of the Hills Great Woodsman Canopy Tours" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Shepherd of the Hills Great Woodsman Canopy Tours</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr educational family history outdoor relaxed" data-slug="shepherd-of-the-hills-historic-homestead-tour">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Shepherd of the Hills Historic Homestead Tour">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/shepherd-of-the-hills-historic-homestead-tour-thumb.jpg" alt="Shepherd of the Hills Historic Homestead Tour" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Shepherd of the Hills Historic Homestead Tour</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr educational family outdoor relaxed" data-slug="shepherd-of-the-hills-inspiration-tower">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Shepherd of the Hills Inspiration Tower">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/shepherd-of-the-hills-inspiration-tower-thumb.jpg" alt="Shepherd of the Hills Inspiration Tower" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Shepherd of the Hills Inspiration Tower</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="2-3hr drama family history outdoor relaxed" data-slug="shepherd-of-the-hills-outdoor-drama">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Shepherd of the Hills Outdoor Drama">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/shepherd-of-the-hills-outdoor-drama-thumb.jpg" alt="Shepherd of the Hills Outdoor Drama" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Shepherd of the Hills Outdoor Drama</h3>
+    <p class="card--light__hook">The Shepherd of the Hills Outdoor Drama...
+**Rating:** 4.5
+](https://www.branson.com/shows/shepherd-of-the-hills/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr active date-night family outdoor ride thrill" data-slug="shepherd-of-the-hills-vigilante-extreme-ziprider">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Shepherd of the Hills Vigilante Extreme ZipRider">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/shepherd-of-the-hills-vigilante-extreme-ziprider-thumb.jpg" alt="Shepherd of the Hills Vigilante Extreme ZipRider" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Shepherd of the Hills Vigilante Extreme ZipRider</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="active all-day family food half-day outdoor ride shopping thrill" data-slug="silver-dollar-city">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Silver Dollar City">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/silver-dollar-city-thumb.jpg" alt="Silver Dollar City" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Silver Dollar City</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr adult-humor date-night indoor music variety" data-slug="six">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist SIX">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/six-thumb.jpg" alt="SIX" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>SIX</h3>
+    <p class="card--light__hook">From branson.com source: SIX</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr comedy country family gospel indoor music religious" data-slug="smoke-on-the-mountain">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Smoke On The Mountain">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/smoke-on-the-mountain-thumb.jpg" alt="Smoke On The Mountain" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Smoke On The Mountain</h3>
+    <p class="card--light__hook">&quot;Smoke on the Mountain&quot; is a Branson bre...
+**Rating:** 3.8
+](https://www.branson.com/shows/smoke-on-the-mountain/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr active family outdoor thrill" data-slug="snowflex-tubing-at-wolfe-mountain">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Snowflex Tubing at Wolfe Mountain">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/snowflex-tubing-at-wolfe-mountain-thumb.jpg" alt="Snowflex Tubing at Wolfe Mountain" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Snowflex Tubing at Wolfe Mountain</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr active date-night family outdoor" data-slug="the-social-birdy-putting-golf">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist The Social Birdy Putting Golf">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/the-social-birdy-putting-golf-thumb.jpg" alt="The Social Birdy Putting Golf" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>The Social Birdy Putting Golf</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-50s oldies-60s oldies-70s oldies-80s relaxed variety" data-slug="the-sons-of-britches">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist The Sons of Britches">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/the-sons-of-britches-thumb.jpg" alt="The Sons of Britches" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>The Sons of Britches</h3>
+    <p class="card--light__hook">Sing along to the tunes you know and lov...
+**Rating:** 4.7
+](https://www.branson.com/shows/the-sons-of-britches/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-60s oldies-70s relaxed tribute" data-slug="the-sound-of-simon-garfunkel">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist The Sound of Simon &amp; Garfunkel">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/the-sound-of-simon-garfunkel-thumb.jpg" alt="The Sound of Simon &amp; Garfunkel" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>The Sound of Simon &amp; Garfunkel</h3>
+    <p class="card--light__hook">&quot;The Sound of Simon and Garfunkel&quot; pays...
+Buy 1 ticket get second ticket 1/2 Off
+](https://www.branson.com/shows/the-so...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr family gospel indoor music relaxed religious" data-slug="southern-gospel-sundays-with-the-frosts">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Southern Gospel Sundays with The Frosts">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/southern-gospel-sundays-with-the-frosts-thumb.jpg" alt="Southern Gospel Sundays with The Frosts" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Southern Gospel Sundays with The Frosts</h3>
+    <p class="card--light__hook">The Frosts are proud to announce &quot;Southe...
+](https://www.branson.com/shows/southern-gospel-sundays-with-the-frosts/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor magic variety" data-slug="steve-sanders-the-mind-spy">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Steve Sanders The Mind Spy">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/steve-sanders-the-mind-spy-thumb.jpg" alt="Steve Sanders The Mind Spy" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Steve Sanders The Mind Spy</h3>
+    <p class="card--light__hook">Step into a world where the impossible b...
+](https://www.branson.com/shows/steve-sanders-the-mind-spy/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music tribute" data-slug="strait-to-branson-a-george-strait-tribute">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Strait to Branson - A George Strait Tribute">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/strait-to-branson-a-george-strait-tribute-thumb.jpg" alt="Strait to Branson - A George Strait Tribute" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Strait to Branson - A George Strait Tribute</h3>
+    <p class="card--light__hook">Paying tribute to this living legend and...
+](https://www.branson.com/shows/a-george-strait-and-friends-tribute/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr classical country date-night family indoor music pop relaxed" data-slug="the-texas-tenors">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist The Texas Tenors">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/the-texas-tenors-thumb.jpg" alt="The Texas Tenors" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>The Texas Tenors</h3>
+    <p class="card--light__hook">The Texas Tenors, the extremely talented...
+**Rating:** 4.9
+](https://www.branson.com/shows/the-texas-tenors/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night educational family history indoor museum relaxed" data-slug="titanic-museum-attraction">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Titanic Museum Attraction">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/titanic-museum-attraction-thumb.jpg" alt="Titanic Museum Attraction" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Titanic Museum Attraction</h3>
+    <p class="card--light__hook">Interactive museum telling the story of the Titanic with real artifacts.</p>
+    <div class="card--light__row"><span class="minichip price">from $32</span><span class="minichip">2h</span><span class="minichip rating">★ 4.6</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr country date-night family indoor music" data-slug="tracy-byrd">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Tracy Byrd">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/tracy-byrd-thumb.jpg" alt="Tracy Byrd" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Tracy Byrd</h3>
+    <p class="card--light__hook">Tracy Byrd became a household name on th...
+](https://www.branson.com/shows/tracy-byrd/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr educational family indoor relaxed religious" data-slug="truth-traveler">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Truth Traveler">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/truth-traveler-thumb.jpg" alt="Truth Traveler" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Truth Traveler</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-70s pop rock tribute" data-slug="ultimate-70s-show">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Ultimate 70s Show">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/ultimate-70s-show-thumb.jpg" alt="Ultimate 70s Show" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Ultimate 70s Show</h3>
+    <p class="card--light__hook">Nostalgic 1970s pop and rock journey (often with Dancing Queen).</p>
+    <div class="card--light__row"><span class="minichip price">from $50</span><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr date-night family indoor music oldies-50s oldies-60s rock tribute" data-slug="ultimate-elvis-contest-headliner-act-cote-deonath">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Ultimate Elvis Contest Headliner Act: Cote Deonath">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/ultimate-elvis-contest-headliner-act-cote-deonath-thumb.jpg" alt="Ultimate Elvis Contest Headliner Act: Cote Deonath" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Ultimate Elvis Contest Headliner Act: Cote Deonath</h3>
+    <p class="card--light__hook">Cote Deonath is a world-renowned Elvis T...
+](https://www.branson.com/shows/ultimate-elvis-contest-headliner-cote-deonat...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr educational family history indoor museum relaxed" data-slug="veterans-memorial-museum">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Veterans Memorial Museum">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/veterans-memorial-museum-thumb.jpg" alt="Veterans Memorial Museum" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Veterans Memorial Museum</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr educational family indoor relaxed religious variety" data-slug="where-jesus-walked-immersive">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Where Jesus Walked Immersive">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/where-jesus-walked-immersive-thumb.jpg" alt="Where Jesus Walked Immersive" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Where Jesus Walked Immersive</h3>
+    <p class="card--light__hook">Immerse yourself in a virtual visit to t...
+](https://www.branson.com/shows/where-jesus-walked-immersive/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="all-day family half-day outdoor water" data-slug="white-water">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist White Water">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/white-water-thumb.jpg" alt="White Water" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>White Water</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr active adult-humor comedy country date-night family food indoor variety" data-slug="whodunnit-hoedown-murder-mystery-dinner-show">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist WhoDunnit Hoedown Murder Mystery Dinner Show">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/whodunnit-hoedown-murder-mystery-dinner-show-thumb.jpg" alt="WhoDunnit Hoedown Murder Mystery Dinner Show" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>WhoDunnit Hoedown Murder Mystery Dinner Show</h3>
+    <p class="card--light__hook">Looking for a great family dinner show t...
+](https://www.branson.com/shows/whodunnit-hoedown-murder-mystery-dinner-show...</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr active educational family indoor kid-focused thrill" data-slug="wonderworks">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist WonderWorks">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/wonderworks-thumb.jpg" alt="WonderWorks" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>WonderWorks</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr educational family indoor kid-focused museum relaxed" data-slug="worlds-largest-toy-museum-complex">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist World&#x27;s Largest Toy Museum Complex">♡</button>
+  <div class="card--light__thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D8A660" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#A87838" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#g)"/>
+  <text x="160" y="130" text-anchor="middle"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-weight="700" font-size="96"
+        fill="white" fill-opacity="0.9">W</text>
+</svg></div>
+  <div class="card--light__body">
+    <h3>World&#x27;s Largest Toy Museum Complex</h3>
+    <p class="card--light__hook">From 2026 Branson Attractions source listing.</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+<article class="card--light" data-tags="1-2hr adult-humor date-night indoor music oldies-60s oldies-70s oldies-80s rock tribute" data-slug="zep-la">
+  <button class="heart-overlay" aria-pressed="false" aria-label="Wishlist Zep-LA">♡</button>
+  <div class="card--light__thumb"><img src="assets/thumbs/zep-la-thumb.jpg" alt="Zep-LA" loading="lazy" class="card--light__img"></div>
+  <div class="card--light__body">
+    <h3>Zep-LA</h3>
+    <p class="card--light__hook">Zep-LA is a powerhouse 60s, 70s, and 80s...
+](https://www.branson.com/shows/zep-la/)</p>
+    <div class="card--light__row"><span class="minichip">2h</span><span class="minichip rating">★ 4.5</span></div>
+  </div>
+</article>
+  </div>
+</main>
 
-        <h1 class="text-5xl font-bold mb-2">Branson 2026</h1>
-        <p class="text-emerald-400 text-xl mb-10">Attractions • May 22–28, 2026</p>
+<script>
+(function(){
+  var active = new Set();
+  var chips = document.querySelectorAll('.filter-strip .chip');
+  var cards = document.querySelectorAll('.catalog-grid .card--light');
+  var counter = document.getElementById('live-count');
+  var allBtn = document.querySelector('.chip[data-tag=""]');
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/adventure-seekers-thumb.jpg" alt="Adventure Seekers" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Adventure Seekers</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/adventure-seekers/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/aquarium-at-the-boardwalk-thumb.jpg" alt="Aquarium At The Boardwalk" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Aquarium At The Boardwalk</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/aquarium-at-the-boardwalk/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/branson-dinosaur-museum-thumb.jpg" alt="Branson Dinosaur Museum" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Branson Dinosaur Museum</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/branson-dinosaur-museum/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/branson-duck-tours-thumb.jpg" alt="Branson Duck Tours" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Branson Duck Tours</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/branson-duck-tours/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/branson-hills-golf-club-thumb.jpg" alt="Branson Hills Golf Club" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Branson Hills Golf Club</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/branson-hills-golf-club/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/branson-scenic-railway-thumb.jpg" alt="Branson Scenic Railway" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Branson Scenic Railway</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/branson-scenic-railway/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/branson-zipline-at-wolfe-mountain-thumb.jpg" alt="Branson Zipline at Wolfe Mountain" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Branson Zipline at Wolfe Mountain</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/branson-zipline-at-wolfe-mountain/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/bransons-wild-world-thumb.jpg" alt="Branson's Wild World" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Branson's Wild World</h3>
-        <p class="text-emerald-400 text-sm">Zoo and animal encounters with many exotic animals.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Adult:</span> $24.52</div><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from 2026 Branson Attractions html.md using standardized Safari headers. Added April 19, 2026.</p>
-        <a href="https://www.branson.com/attractions/bransons-wild-world/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/butterfly-palace-rainforest-adventure-thumb.jpg" alt="Butterfly Palace & Rainforest Adventure" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Butterfly Palace & Rainforest Adventure</h3>
-        <p class="text-emerald-400 text-sm">Branson's Butterfly Palace & Rainforest Adventure featuring thousands of live butterflies, a rainforest habitat, and interactive exhibits.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Adult:</span> $32.28</div><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from 2026 Branson Attractions html.md using standardized Safari headers. Added April 19, 2026.</p>
-        <a href="https://www.branson.com/attractions/butterfly-palace-rainforest-adventure/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/copperhead-mountain-coaster-thumb.jpg" alt="Copperhead Mountain Coaster" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Copperhead Mountain Coaster</h3>
-        <p class="text-emerald-400 text-sm">Branson's longest downhill mountain coaster with thrilling turns and scenic views.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Adult:</span> $18.96</div><div><span class="text-emerald-400">Duration:</span> 0.5h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from 2026 Branson Attractions html.md using standardized Safari headers. Added April 19, 2026.</p>
-        <a href="https://www.branson.com/attractions/copperhead-mountain-coaster/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/coral-reef-mini-golf-thumb.jpg" alt="Coral Reef Mini Golf" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Coral Reef Mini Golf</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/coral-reef-mini-golf/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/fritzs-adventure-thumb.jpg" alt="Fritz's Adventure" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Fritz's Adventure</h3>
-        <p class="text-emerald-400 text-sm">Adventure park with ropes courses, climbing, and zip lines.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Adult:</span> $24.95</div><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from 2026 Branson Attractions html.md using standardized Safari headers. Added April 19, 2026.</p>
-        <a href="https://www.branson.com/attractions/fritzs-adventure/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/hollywood-wax-museum-entertainment-center-thumb.jpg" alt="Hollywood Wax Museum Entertainment Center" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Hollywood Wax Museum Entertainment Center</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/hollywood-wax-museum-entertainment-center/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/ozark-hills-winery-wine-tasting-thumb.jpg" alt="Ozark Hills Winery Wine Tasting" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Ozark Hills Winery Wine Tasting</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/ozark-hills-winery-wine-tasting/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/ozarks-aglow-nighttime-walk-thumb.jpg" alt="Ozarks Aglow Nighttime Walk" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Ozarks Aglow Nighttime Walk</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/ozarks-aglow-nighttime-walk/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/parakeet-pete-s-thumb.jpg" alt="Parakeet Pete's" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Parakeet Pete's</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/parakeet-pete-s/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/pink-jeep-tours-thumb.jpg" alt="Pink Jeep Tours" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Pink Jeep Tours</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/pink-jeep-tours/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/retromania-thumb.jpg" alt="Retromania" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Retromania</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/retromania/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/runaway-mountain-coaster-thumb.jpg" alt="Runaway Mountain Coaster" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Runaway Mountain Coaster</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/runaway-mountain-coaster/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/shepherd-of-the-hills-great-woodsman-canopy-tours-thumb.jpg" alt="Shepherd of the Hills Great Woodsman Canopy Tours" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Shepherd of the Hills Great Woodsman Canopy Tours</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/shepherd-of-the-hills-great-woodsman-canopy-tours/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/shepherd-of-the-hills-historic-homestead-tour-thumb.jpg" alt="Shepherd of the Hills Historic Homestead Tour" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Shepherd of the Hills Historic Homestead Tour</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/shepherd-of-the-hills-historic-homestead-tour/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/shepherd-of-the-hills-inspiration-tower-thumb.jpg" alt="Shepherd of the Hills Inspiration Tower" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Shepherd of the Hills Inspiration Tower</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/shepherd-of-the-hills-inspiration-tower/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/shepherd-of-the-hills-vigilante-extreme-ziprider-thumb.jpg" alt="Shepherd of the Hills Vigilante Extreme ZipRider" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Shepherd of the Hills Vigilante Extreme ZipRider</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/shepherd-of-the-hills-vigilante-extreme-ziprider/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/silver-dollar-city-thumb.jpg" alt="Silver Dollar City" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Silver Dollar City</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/silver-dollar-city/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/snowflex-tubing-at-wolfe-mountain-thumb.jpg" alt="Snowflex Tubing at Wolfe Mountain" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Snowflex Tubing at Wolfe Mountain</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/snowflex-tubing-at-wolfe-mountain/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/the-social-birdy-putting-golf-thumb.jpg" alt="The Social Birdy Putting Golf" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Social Birdy Putting Golf, The</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/the-social-birdy-putting-golf/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/titanic-museum-branson-thumb.jpg" alt="Titanic Museum Attraction" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Titanic Museum Attraction</h3>
-        <p class="text-emerald-400 text-sm">Interactive museum telling the story of the Titanic with real artifacts.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Adult:</span> $32.0</div><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Thumbnail updated from official site. Name and sorting fixed to match show conventions (ignores leading articles). Updated April 19, 2026.</p>
-        <a href="https://www.titanicbranson.com/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/truth-traveler-thumb.jpg" alt="Truth Traveler" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Truth Traveler</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/truth-traveler/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/veterans-memorial-museum-thumb.jpg" alt="Veterans Memorial Museum" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">Veterans Memorial Museum</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/veterans-memorial-museum/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/white-water-thumb.jpg" alt="White Water" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">White Water</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/white-water/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/wonderworks-thumb.jpg" alt="WonderWorks" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">WonderWorks</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/wonderworks/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-    <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">
-        <img src="assets/thumbs/world-s-largest-toy-museum-complex-thumb.jpg" alt="World's Largest Toy Museum Complex" class="rounded-2xl mb-4 w-full max-h-48 object-contain bg-zinc-800 p-2">
-        <h3 class="font-semibold text-lg">World's Largest Toy Museum Complex</h3>
-        <p class="text-emerald-400 text-sm">From 2026 Branson Attractions source listing.</p>
-        <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Processed from source HTML using standardized Safari headers. Added 2026-04-19.</p>
-        <a href="https://www.branson.com/attractions/world-s-largest-toy-museum-complex/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
-    </div>
-        </div>
+  function refilter(){
+    var shown = 0;
+    cards.forEach(function(c){
+      var tags = new Set((c.dataset.tags||'').split(' ').filter(Boolean));
+      var visible = active.size === 0 || [...active].some(function(t){ return tags.has(t); });
+      c.style.display = visible ? '' : 'none';
+      if(visible) shown++;
+    });
+    if(counter) counter.textContent = 'Showing ' + shown + ' of ' + cards.length;
+  }
 
-        <div class="mt-16 text-center text-xs text-zinc-500">
-            Generated on April 19, 2026 • 
-            <span class="text-emerald-500">32 attractions</span>
-        </div>
-    </div>
+  chips.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var tag = btn.dataset.tag;
+      if(tag === ''){
+        active.clear();
+        chips.forEach(function(b){ b.setAttribute('aria-pressed', b === allBtn ? 'true' : 'false'); });
+      } else {
+        if(active.has(tag)){
+          active.delete(tag);
+          btn.setAttribute('aria-pressed','false');
+        } else {
+          active.add(tag);
+          btn.setAttribute('aria-pressed','true');
+        }
+        allBtn.setAttribute('aria-pressed', active.size === 0 ? 'true' : 'false');
+      }
+      refilter();
+    });
+  });
+  refilter();
+})();
+</script>
+<script>window.addEventListener('storage',function(e){if(e.key==='vacdash:v1:mode')document.documentElement.setAttribute('data-mode',e.newValue||'system')});</script>
 </body>
 </html>
