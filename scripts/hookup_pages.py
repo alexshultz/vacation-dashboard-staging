@@ -7,6 +7,7 @@ with the design system.
 """
 
 import re
+import sys
 from pathlib import Path
 
 VAULT = Path(__file__).parent.parent
@@ -68,26 +69,25 @@ def render_nav(active_page: str) -> str:
 def hookup_page(page_path: Path, page_key: str, title: str):
     """Update a single HTML page with shared head and nav."""
     content = page_path.read_text(encoding="utf-8")
-    
+
     # Replace <head> content (keep <!doctype> and <html> tags)
     head_pattern = r'(<head[^>]*>)(.*?)(</head>)'
     new_head = f'<head>\n{render_head(title)}\n'
     content = re.sub(head_pattern, new_head + r'\3', content, flags=re.DOTALL | re.IGNORECASE)
-    
+
     # Inject nav after <body> tag
     body_pattern = r'(<body[^>]*>)'
     nav = render_nav(page_key)
     content = re.sub(body_pattern, r'\1\n' + nav, content, flags=re.IGNORECASE)
-    
+
     # Add storage event listener before </body>
     storage_script = '<script>window.addEventListener(\'storage\',function(e){if(e.key===\'vacdash:v1:mode\')document.documentElement.setAttribute(\'data-mode\',e.newValue||\'system\')});</script>'
     content = re.sub(r'</body>', storage_script + '\n</body>', content, flags=re.IGNORECASE)
-    
-    # Add data-mode attribute to <html> tag
-    html_pattern = r'<html([^>]*)>'
-    if not re.search(r'data-mode', content):
-        content = re.sub(html_pattern, r'<html data-mode="system"\1>', content, flags=re.IGNORECASE)
-    
+
+    # Add data-mode attribute to <html> tag (scoped to the opening tag)
+    if not re.search(r'<html[^>]*data-mode', content):
+        content = re.sub(r'<html([^>]*?)>', r'<html\1 data-mode="system">', content, count=1)
+
     page_path.write_text(content, encoding="utf-8")
     print(f"  hooked up {page_path.name}")
 
@@ -104,6 +104,10 @@ def main():
         path = VAULT / "web" / filename
         if not path.exists():
             print(f"  skipping {filename} (not found)")
+            continue
+        content = path.read_text(encoding="utf-8")
+        if 'class="site-header"' in content:
+            print(f"  WARNING: {filename} already has site-header -- skipping to avoid double-injection", file=sys.stderr)
             continue
         hookup_page(path, page_key, title)
     

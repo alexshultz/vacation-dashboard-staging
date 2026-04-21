@@ -55,6 +55,7 @@ h3 { font-size: 19px; font-weight: 700; }
   font-family: var(--font-display); font-weight: 700; font-size: 14px;
   padding: 6px 12px; border-radius: var(--radius-btn);
   color: var(--color-ink-dim); text-decoration: none;
+  min-height: 44px; display: inline-flex; align-items: center;
   transition: background 150ms, color 150ms;
 }
 .site-nav .nav-link:hover { background: var(--color-bg); color: var(--color-ink); }
@@ -63,7 +64,7 @@ h3 { font-size: 19px; font-weight: 700; }
   color: var(--status-yes);
 }
 .theme-toggle {
-  width: 36px; height: 36px; border-radius: 50%;
+  width: 44px; height: 44px; border-radius: 50%;
   border: 1.5px solid var(--color-line);
   background: var(--color-surface);
   cursor: pointer; font-size: 16px;
@@ -290,10 +291,11 @@ h3 { font-size: 19px; font-weight: 700; }
 
 .chip {
   font-family: var(--font-display); font-weight: 700; font-size: 13px;
-  padding: 6px 12px; border-radius: var(--radius-pill);
+  padding: 10px 14px; border-radius: var(--radius-pill);
   background: var(--color-surface); border: 1.5px solid var(--color-line);
   color: var(--color-ink-dim);
   cursor: pointer;
+  min-height: 44px;
   transition: background 150ms, border-color 150ms, color 150ms;
 }
 .chip:hover { background: var(--color-bg); }

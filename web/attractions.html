@@ -1608,11 +1608,11 @@ Buy 1 ticket get second ticket 1/2 Off
 <script src="picks.js"></script>
 
 <!-- Name chooser modal (Phase 1 honor-system) -->
-<div id="name-modal" style="display:none; position:fixed; inset:0; z-index:200;
+<div id="name-modal" role="dialog" aria-modal="true" aria-labelledby="name-modal-title" style="display:none; position:fixed; inset:0; z-index:200;
   background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
   <div style="background:var(--color-surface); border-radius:var(--radius-card);
     padding:32px; max-width:340px; width:90%; box-shadow:var(--shadow-2);">
-    <h2 style="font-family:var(--font-display); font-weight:800; margin:0 0 8px;
+    <h2 id="name-modal-title" style="font-family:var(--font-display); font-weight:800; margin:0 0 8px;
       font-size:22px;">Who are you?</h2>
     <p style="color:var(--color-ink-dim); margin:0 0 20px; font-size:15px;">
       Your picks are saved to this browser. Pick your name so we can show you
@@ -1647,9 +1647,19 @@ Buy 1 ticket get second ticket 1/2 Off
       btn.addEventListener('mouseleave', function(){ btn.style.background='var(--color-surface)'; });
       btn.addEventListener('click', function(){
         if (name === 'Other') {
-          var custom = prompt('Enter your name:');
-          if (!custom) return;
-          name = custom.trim();
+          btns.innerHTML = '<input id="custom-name-input" type="text" placeholder="Your name" style="width:100%;padding:12px;border-radius:var(--radius-btn);border:1.5px solid var(--color-line);font-size:16px;font-family:var(--font-body);background:var(--color-surface);color:var(--color-ink);" autofocus>' +
+            '<button style="width:100%;margin-top:10px;padding:12px;border-radius:var(--radius-btn);background:var(--status-yes);color:white;border:none;font-family:var(--font-display);font-weight:700;font-size:16px;cursor:pointer;" id="custom-name-submit">OK</button>';
+          document.getElementById('custom-name-submit').addEventListener('click', function() {
+            var val = document.getElementById('custom-name-input').value.trim();
+            if (!val) return;
+            picks.init(val);
+            modal.style.display = 'none';
+            if (callback) callback(val);
+          });
+          document.getElementById('custom-name-input').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') document.getElementById('custom-name-submit').click();
+          });
+          return;
         }
         picks.init(name);
         modal.style.display = 'none';
@@ -1658,6 +1668,19 @@ Buy 1 ticket get second ticket 1/2 Off
       btns.appendChild(btn);
     });
   }
+
+  // Escape key and backdrop click dismiss
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      var modal = document.getElementById('name-modal');
+      if (modal && modal.style.display === 'flex') {
+        modal.style.display = 'none';
+      }
+    }
+  });
+  document.getElementById('name-modal').addEventListener('click', function(e) {
+    if (e.target === this) this.style.display = 'none';
+  });
 
   function ensureUser(callback) {
     if (picks.getUser()) { callback(picks.getUser()); return; }

@@ -193,7 +193,9 @@ def generate_attractions_page():
         if not h: return ""
         try:
             h = float(h)
-        except: return str(h)
+        except (TypeError, ValueError) as e:
+            print(f"[generate_dashboard] WARN: duration_str failed for {h!r}: {e}", file=sys.stderr)
+            return str(h)
         if h < 1: return f"{int(h*60)}min"
         if h == int(h): return f"{int(h)}h"
         return f"{h}h"
@@ -210,8 +212,11 @@ def generate_attractions_page():
 
         chips = ""
         if price:
-            try: chips += f'<span class="minichip price">from ${float(price):.0f}</span>'
-            except: chips += f'<span class="minichip price">{html.escape(str(price))}</span>'
+            try:
+                chips += f'<span class="minichip price">from ${float(price):.0f}</span>'
+            except (TypeError, ValueError) as e:
+                print(f"[generate_dashboard] WARN: price format failed for {price!r}: {e}", file=sys.stderr)
+                chips += f'<span class="minichip price">{html.escape(str(price))}</span>'
         if dur:
             chips += f'<span class="minichip">{html.escape(duration_str(dur))}</span>'
         if rating:
