@@ -10,6 +10,32 @@
 
 ---
 
+## 2026-04-21 ~16:30 CDT -- Phase 2-prep: interactive picks + GitHub Pages deploy
+
+Autonomous session continued after Phase 4. Heart buttons in attractions.html now wired to picks.js via a name-chooser modal (Phase 1 honor-system -- no auth, localStorage only). Added hello banner showing current user. Attractions dashboard live on GitHub Pages with 132 cards, 39 filter tags, 174 thumbnails, and working wishlist. Supabase schema SQL written (Alex must run manually). picks.js scaffold ready for Phase 2 Supabase wiring.
+
+**Artifacts:**
+- Live: https://alexshultz.github.io/vacation-dashboard-previews/attractions.html
+- `web/attractions.html` — picks.js + name-chooser modal + hello banner wired (commit `412e496` in preview repo)
+- `data/supabase-phase2-schema.sql` — Supabase table & RLS (created in earlier session, ready to run)
+- `web/js/picks.js` — localStorage backend (Phase 1), Supabase hooks ready (Phase 2)
+- `data/autonomous-session-summary.md` — tester handoff doc
+
+**How it works (Phase 1):**
+1. User clicks a heart button → name-chooser modal appears
+2. User picks their name (8-name honor system: Alex, Mycah, Ashlyn, Jordan, Evie, Josh, Bee, or custom)
+3. picks.js saves to `vacdash:v1:picks` (localStorage)
+4. Hello banner shows "👋 Picking as [name]" with Change button
+5. Hearts persist across reload (same browser only)
+6. Supabase wiring deferred to Phase 2 (Alex must run schema + fill SUPABASE_* config in picks.js)
+
+**Next steps for Alex:**
+- Test on https://alexshultz.github.io/vacation-dashboard-previews/attractions.html
+- Run `data/supabase-phase2-schema.sql` in Supabase dashboard when ready for Phase 2
+- Update `web/js/picks.js` to add SUPABASE_URL + SUPABASE_ANON_KEY + user auth
+
+---
+
 ## 2026-04-21 15:45 CDT — Phase 4b-4h: Design system extraction complete (autonomous execution)
 
 **Execution completed while Alex was away.** All CSS extracted from `card-density.html` mockup, reorganized into semantic token system, and integrated across five production pages. 132 attractions rendered as filterable card grid with SVG fallbacks. Verification pass: all pages link tokens.css and include shared nav.
