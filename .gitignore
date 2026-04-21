@@ -1,0 +1,29 @@
+# macOS / iCloud / editor junk
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.icloud
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Backups (kept locally for rollback, not worth versioning)
+.backups/
+
+# Obsidian workspace state (per-user, not content)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+.obsidian/plugins/*/data.json
+
+# Thumbnail cache / tmp
+*.tmp
+*.swp
+.vscode/

@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mockup B · Lakeside — Branson '26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" />
+<style>
+  /* ===== Tokens (Lakeside: Apple-leaning, glassy) ===== */
+  :root {
+    --radius-card: 20px;
+    --radius-pill: 999px;
+
+    --color-bg:       #F3F6FA;
+    --color-surface:  #FFFFFF;
+    --color-ink:      #0F1B2D;
+    --color-ink-dim: #5B6A80;
+    --color-line:     #E1E7F0;
+
+    --tint:       #0A84FF;   /* Apple system blue */
+    --tint-warm:  #FF9F0A;
+    --tint-pink:  #FF375F;
+    --tint-mint:  #34C759;
+    --tint-violet:#BF5AF2;
+
+    --status-yes:       #30B26A;
+    --status-no:        #D93B4F;
+    --status-maybe:     #E0A023;
+    --status-norsvp:    #8E99AE;
+    --status-wishlist:  #0A84FF;
+    --status-confirmed: #FF375F;
+
+    --shadow-1: 0 1px 2px rgba(15,27,45,0.04), 0 4px 14px rgba(15,27,45,0.06);
+    --shadow-2: 0 2px 6px rgba(15,27,45,0.06), 0 18px 40px rgba(10,132,255,0.10);
+
+    --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+    --space-5: 24px; --space-6: 32px; --space-7: 48px;
+
+    --font-display: 'Lexend', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', system-ui, sans-serif;
+    --font-body:    'Atkinson Hyperlegible', -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg:      #0A1220;
+      --color-surface: #141D2E;
+      --color-ink:     #F2F5FA;
+      --color-ink-dim: #98A3B8;
+      --color-line:    #24304A;
+      --shadow-1: 0 1px 2px rgba(0,0,0,0.4), 0 6px 18px rgba(0,0,0,0.35);
+      --shadow-2: 0 2px 6px rgba(0,0,0,0.5), 0 22px 44px rgba(10,132,255,0.22);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    font-family: var(--font-body);
+    font-size: 17px; line-height: 1.5;
+    color: var(--color-ink);
+    background:
+      radial-gradient(1000px 500px at 100% -10%, #D6E8FF 0%, transparent 60%),
+      radial-gradient(800px 500px at -10% 30%, #E5F6EF 0%, transparent 60%),
+      var(--color-bg);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-color-scheme: dark) {
+    body {
+      background:
+        radial-gradient(1000px 500px at 100% -10%, #0E2648 0%, transparent 60%),
+        radial-gradient(800px 500px at -10% 30%, #0F2B36 0%, transparent 60%),
+        var(--color-bg);
+    }
+  }
+
+  h1, h2, h3 { font-family: var(--font-display); margin: 0; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(28px, 4vw, 40px); font-weight: 700; line-height: 1.15; }
+  h2 { font-size: 22px; font-weight: 600; }
+  h3 { font-size: 17px; font-weight: 600; }
+
+  /* ===== Top bar ===== */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; gap: var(--space-5);
+    padding: 14px 28px;
+    background: color-mix(in srgb, var(--color-bg) 70%, transparent);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .brand {
+    font-family: var(--font-display); font-weight: 600; font-size: 17px;
+    letter-spacing: -0.01em;
+  }
+  .brand .dot {
+    display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--tint); margin-right: 8px; vertical-align: middle;
+  }
+  .topnav { display: flex; gap: 4px; margin-left: auto; }
+  .topnav a {
+    text-decoration: none; color: var(--color-ink-dim);
+    font-weight: 500; font-size: 15px;
+    padding: 8px 12px; border-radius: 10px;
+  }
+  .topnav a[aria-current="page"] {
+    color: var(--color-ink); background: color-mix(in srgb, var(--tint) 8%, transparent);
+  }
+  .theme-toggle {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: var(--color-surface); box-shadow: var(--shadow-1);
+    display: grid; place-items: center; font-weight: 600; cursor: pointer;
+  }
+  @media (max-width: 720px) { .topnav { display: none; } }
+
+  /* ===== Layout ===== */
+  main { max-width: 1140px; margin: 0 auto; padding: 32px 24px 120px; }
+  section + section { margin-top: 40px; }
+
+  /* ===== Hero ===== */
+  .hero {
+    display: grid; gap: 14px;
+    padding: 32px;
+    border-radius: 24px;
+    background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+    backdrop-filter: blur(18px);
+    border: 1px solid var(--color-line);
+    box-shadow: var(--shadow-1);
+  }
+  .eyebrow {
+    font-size: 13px; font-weight: 600; color: var(--tint); letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .hero p { margin: 0; color: var(--color-ink-dim); max-width: 58ch; }
+  .today-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+  .today-pill {
+    padding: 6px 12px; border-radius: 999px;
+    background: color-mix(in srgb, var(--tint) 10%, transparent);
+    color: var(--tint);
+    font-size: 13px; font-weight: 600;
+  }
+  .today-pill.warm { background: color-mix(in srgb, var(--tint-warm) 12%, transparent); color: var(--tint-warm); }
+  .today-pill.pink { background: color-mix(in srgb, var(--tint-pink) 10%, transparent); color: var(--tint-pink); }
+
+  /* ===== Trending strip ===== */
+  .trending-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
+  .trending-head a { color: var(--tint); text-decoration: none; font-weight: 500; }
+  .trending-grid {
+    display: grid; gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+  .mini {
+    display: grid; grid-template-columns: 48px 1fr auto;
+    gap: 12px; align-items: center;
+    padding: 12px 14px;
+    border-radius: 16px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+  }
+  .mini img { width: 48px; height: 48px; border-radius: 10px; object-fit: cover; }
+  .mini .title { font-weight: 600; }
+  .mini .meta { font-size: 13px; color: var(--color-ink-dim); }
+  .mini .chev { color: var(--color-ink-dim); }
+
+  /* ===== Filter chips ===== */
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .chip {
+    padding: 7px 14px; border-radius: 999px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    font-family: var(--font-display); font-weight: 500; font-size: 14px;
+    color: var(--color-ink-dim); cursor: pointer;
+  }
+  .chip.on { background: var(--color-ink); color: var(--color-bg); border-color: var(--color-ink); }
+
+  /* ===== Card grid ===== */
+  .grid {
+    display: grid; gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .card {
+    position: relative;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    box-shadow: var(--shadow-1);
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  }
+  .card:hover { transform: translateY(-1px); box-shadow: var(--shadow-2); }
+
+  .card.untouched { background: transparent; border-style: dashed; }
+  .card.wish {
+    border-color: color-mix(in srgb, var(--status-wishlist) 45%, var(--color-line));
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--tint) 8%, transparent), transparent 40%),
+      var(--color-surface);
+  }
+  .card.confirmed {
+    border-color: color-mix(in srgb, var(--status-confirmed) 55%, var(--color-line));
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--tint-pink) 10%, transparent), transparent 45%),
+      var(--color-surface);
+  }
+
+  .thumb {
+    aspect-ratio: 16/9; width: 100%; object-fit: cover; display: block;
+  }
+  .thumb-fallback {
+    aspect-ratio: 16/9; width: 100%;
+    display: grid; place-items: center;
+    background: linear-gradient(135deg, #83B4FF, #0A84FF);
+    color: white; font-family: var(--font-display); font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .badges { position: absolute; top: 12px; left: 12px; display: flex; gap: 6px; }
+  .badge {
+    font-family: var(--font-display); font-weight: 600; font-size: 12px;
+    padding: 4px 10px; border-radius: 999px;
+    background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--color-line);
+    color: var(--color-ink);
+  }
+  .badge.trending { background: var(--tint-pink); color: white; border-color: transparent; }
+  .badge.first    { background: var(--tint-violet); color: white; border-color: transparent; }
+
+  .card-body { padding: 16px 18px 18px; display: grid; gap: 10px; }
+  .card h3 { font-size: 18px; }
+
+  .meta-row {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    color: var(--color-ink-dim); font-size: 14px;
+  }
+  .meta-row .sep { opacity: 0.3; }
+  .rating { color: var(--tint-warm); font-weight: 600; }
+
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag {
+    font-size: 12px; font-weight: 500;
+    padding: 3px 9px; border-radius: 999px;
+    background: color-mix(in srgb, var(--tint) 8%, transparent);
+    color: var(--tint);
+  }
+
+  .interest {
+    display: flex; align-items: center; gap: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--color-line);
+  }
+  .avatars { display: flex; }
+  .avatar {
+    width: 26px; height: 26px; border-radius: 50%;
+    border: 2px solid var(--color-surface);
+    margin-left: -7px;
+    display: grid; place-items: center;
+    font-size: 11px; font-weight: 600; font-family: var(--font-display);
+    color: white;
+  }
+  .avatar:first-child { margin-left: 0; }
+  .interest-text { font-size: 13px; color: var(--color-ink-dim); }
+
+  .actions { display: flex; gap: 8px; }
+  .btn {
+    flex: 1; cursor: pointer;
+    font-family: var(--font-display); font-weight: 600; font-size: 14px;
+    padding: 9px 14px; border-radius: 12px;
+    border: 1px solid var(--color-line);
+    background: var(--color-surface); color: var(--color-ink);
+  }
+  .btn.primary { background: var(--tint); color: white; border-color: var(--tint); }
+  .btn.pink    { background: var(--tint-pink); color: white; border-color: var(--tint-pink); }
+
+  /* Bottom tabs */
+  .tabs {
+    position: fixed; bottom: 12px; left: 12px; right: 12px; display: none;
+    padding: 6px; border-radius: 20px;
+    background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--color-line);
+    box-shadow: var(--shadow-2);
+    z-index: 50;
+  }
+  .tabs a {
+    flex: 1; text-align: center; text-decoration: none;
+    padding: 9px 6px; border-radius: 14px;
+    font-family: var(--font-display); font-weight: 500; font-size: 12px;
+    color: var(--color-ink-dim);
+  }
+  .tabs a[aria-current="page"] { background: var(--tint); color: white; }
+  @media (max-width: 720px) { .tabs { display: flex; } main { padding-bottom: 100px; } }
+
+  .legend {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    padding: 16px 20px;
+    border-radius: 16px;
+    border: 1px solid var(--color-line);
+    background: var(--color-surface);
+  }
+  .swatch { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; }
+  .swatch .dot { width: 10px; height: 10px; border-radius: 50%; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span>Branson · May '26</div>
+  <nav class="topnav" aria-label="Primary">
+    <a href="#">Today</a>
+    <a href="#" aria-current="page">Attractions</a>
+    <a href="#">Shows</a>
+    <a href="#">Schedule</a>
+    <a href="#">People</a>
+  </nav>
+  <div class="theme-toggle" title="Theme">Aa</div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <span class="eyebrow">Thu, Apr 20 · 32 days to the lake</span>
+    <h1>Plan what matters to you. <br/>We'll handle the logistics.</h1>
+    <p>Browse together. Wishlist to float an idea. Confirm to lock it in — the schedule, travel times, and Evie's meal counts update live.</p>
+    <div class="today-row">
+      <span class="today-pill">3 new picks this week</span>
+      <span class="today-pill pink">7 people on Silver Dollar City</span>
+      <span class="today-pill warm">5 still undecided</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="trending-head">
+      <h2>Popular with the group</h2>
+      <a href="#">See all →</a>
+    </div>
+    <div class="trending-grid">
+      <div class="mini">
+        <img src="../assets/thumbs/silver-dollar-city-thumb.jpg" alt="" />
+        <div><div class="title">Silver Dollar City</div><div class="meta">7 people · confirmed</div></div>
+        <span class="chev">›</span>
+      </div>
+      <div class="mini">
+        <img src="../assets/thumbs/1-hits-of-the-60s-thumb.jpg" alt="" />
+        <div><div class="title">#1 Hits of the 60s</div><div class="meta">5 people · confirmed</div></div>
+        <span class="chev">›</span>
+      </div>
+      <div class="mini">
+        <img src="../assets/thumbs/titanic-museum-branson-thumb.jpg" alt="" />
+        <div><div class="title">Titanic Museum</div><div class="meta">First pick · Bee</div></div>
+        <span class="chev">›</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="margin-bottom: 14px">Browse attractions</h2>
+    <div class="filters">
+      <button class="chip on">All</button>
+      <button class="chip">Attractions</button>
+      <button class="chip">Shows</button>
+      <button class="chip">Family</button>
+      <button class="chip">Under $30</button>
+      <button class="chip">Indoor</button>
+    </div>
+
+    <div class="grid">
+
+      <article class="card confirmed">
+        <img class="thumb" src="../assets/thumbs/silver-dollar-city-thumb.jpg" alt="" />
+        <div class="badges"><span class="badge trending">Trending</span></div>
+        <div class="card-body">
+          <h3>Silver Dollar City</h3>
+          <div class="meta-row">
+            <span>Full day</span><span class="sep">·</span>
+            <span>Admission</span><span class="sep">·</span>
+            <span class="rating">★ 4.8</span>
+          </div>
+          <div class="tags"><span class="tag">Theme park</span><span class="tag">Outdoor</span><span class="tag">All ages</span></div>
+          <div class="interest">
+            <div class="avatars">
+              <div class="avatar" style="background:#FF375F">B</div>
+              <div class="avatar" style="background:#0A84FF">A</div>
+              <div class="avatar" style="background:#30B26A">E</div>
+              <div class="avatar" style="background:#E0A023">D</div>
+              <div class="avatar" style="background:#34C759">M</div>
+              <div class="avatar" style="background:#8E99AE">+2</div>
+            </div>
+            <div class="interest-text">7 confirmed</div>
+          </div>
+          <div class="actions">
+            <button class="btn">Wishlist</button>
+            <button class="btn pink">You're in</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card wish">
+        <img class="thumb" src="../assets/thumbs/titanic-museum-branson-thumb.jpg" alt="" />
+        <div class="badges"><span class="badge first">First pick</span></div>
+        <div class="card-body">
+          <h3>Titanic Museum</h3>
+          <div class="meta-row">
+            <span>2 hrs</span><span class="sep">·</span>
+            <span>$32 adult</span><span class="sep">·</span>
+            <span class="rating">★ 4.6</span>
+          </div>
+          <div class="tags"><span class="tag">Museum</span><span class="tag">Indoor</span></div>
+          <div class="interest">
+            <div class="avatars"><div class="avatar" style="background:#FF375F">B</div></div>
+            <div class="interest-text">Bee wishlisted · be the first to join</div>
+          </div>
+          <div class="actions">
+            <button class="btn primary">Add to wishlist</button>
+            <button class="btn">I'm in</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card wish">
+        <img class="thumb" src="../assets/thumbs/aquarium-at-the-boardwalk-thumb.jpg" alt="" />
+        <div class="card-body">
+          <h3>Aquarium at the Boardwalk</h3>
+          <div class="meta-row">
+            <span>2 hrs</span><span class="sep">·</span>
+            <span>varies</span><span class="sep">·</span>
+            <span class="rating">★ 4.5</span>
+          </div>
+          <div class="tags"><span class="tag">Family</span><span class="tag">Indoor</span></div>
+          <div class="interest">
+            <div class="avatars">
+              <div class="avatar" style="background:#FF375F">B</div>
+              <div class="avatar" style="background:#E0A023">D</div>
+              <div class="avatar" style="background:#34C759">M</div>
+            </div>
+            <div class="interest-text">3 wishlisted · nobody confirmed</div>
+          </div>
+          <div class="actions">
+            <button class="btn">Wishlist</button>
+            <button class="btn primary">Confirm</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card confirmed">
+        <img class="thumb" src="../assets/thumbs/1-hits-of-the-60s-thumb.jpg" alt="" />
+        <div class="badges"><span class="badge">Show</span></div>
+        <div class="card-body">
+          <h3>#1 Hits of the 60s</h3>
+          <div class="meta-row">
+            <span>2 hrs</span><span class="sep">·</span>
+            <span>$50 · $150 family</span><span class="sep">·</span>
+            <span class="rating">★ 4.7</span>
+          </div>
+          <div class="tags"><span class="tag">Family</span><span class="tag">Evening</span><span class="tag">Interactive</span></div>
+          <div class="interest">
+            <div class="avatars">
+              <div class="avatar" style="background:#FF375F">B</div>
+              <div class="avatar" style="background:#0A84FF">A</div>
+              <div class="avatar" style="background:#30B26A">E</div>
+              <div class="avatar" style="background:#E0A023">D</div>
+              <div class="avatar" style="background:#34C759">M</div>
+            </div>
+            <div class="interest-text">5 confirmed</div>
+          </div>
+          <div class="actions">
+            <button class="btn">Wishlist</button>
+            <button class="btn pink">You're in</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card wish">
+        <div class="thumb-fallback">Ripley's</div>
+        <div class="card-body">
+          <h3>Ripley's Believe It or Not</h3>
+          <div class="meta-row">
+            <span>~1 hr</span><span class="sep">·</span>
+            <span>$35 adult</span><span class="sep">·</span>
+            <span class="rating">★ 4.5</span>
+          </div>
+          <div class="tags"><span class="tag">Oddities</span><span class="tag">Indoor</span></div>
+          <div class="interest">
+            <div class="avatars"><div class="avatar" style="background:#FF375F">B</div></div>
+            <div class="interest-text">1 wishlisted</div>
+          </div>
+          <div class="actions">
+            <button class="btn primary">Wishlist</button>
+            <button class="btn">I'm in</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card untouched">
+        <img class="thumb" src="../assets/thumbs/anthems-of-rock-thumb.jpg" alt="" />
+        <div class="card-body">
+          <h3>Anthems of Rock</h3>
+          <div class="meta-row">
+            <span>2 hrs</span><span class="sep">·</span>
+            <span>$50 adult</span><span class="sep">·</span>
+            <span class="rating">★ 4.5</span>
+          </div>
+          <div class="tags"><span class="tag">Show</span><span class="tag">Evening</span></div>
+          <div class="interest"><div class="interest-text">Nobody's picked this yet</div></div>
+          <div class="actions">
+            <button class="btn primary">Wishlist</button>
+            <button class="btn">I'm in</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2 style="margin-bottom: 12px">Status colors</h2>
+    <div class="legend">
+      <span class="swatch"><span class="dot" style="background:var(--status-yes)"></span>Yes</span>
+      <span class="swatch"><span class="dot" style="background:var(--status-no)"></span>No</span>
+      <span class="swatch"><span class="dot" style="background:var(--status-maybe)"></span>Undecided</span>
+      <span class="swatch"><span class="dot" style="background:var(--status-norsvp)"></span>No response</span>
+      <span class="swatch"><span class="dot" style="background:var(--status-wishlist)"></span>Wishlist</span>
+      <span class="swatch"><span class="dot" style="background:var(--status-confirmed)"></span>Confirmed</span>
+    </div>
+  </section>
+
+</main>
+
+<nav class="tabs" aria-label="Mobile">
+  <a href="#">Today</a>
+  <a href="#" aria-current="page">Browse</a>
+  <a href="#">Schedule</a>
+  <a href="#">People</a>
+  <a href="#">Me</a>
+</nav>
+
+</body>
+</html>

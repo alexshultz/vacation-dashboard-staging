@@ -1,0 +1,396 @@
+{
+  "title": "Branson 2026 @ Watermill Cove",
+  "last_updated": "2026-04-18",
+  "attendees": [
+    {
+      "name": "Adrian Silva",
+      "age": 9
+    },
+    {
+      "name": "Alex Shultz",
+      "age": 56
+    },
+    {
+      "name": "Ashlyn Shultz",
+      "age": 27
+    },
+    {
+      "name": "Bee Shultz",
+      "age": 18
+    },
+    {
+      "name": "Brian Shultz",
+      "age": 55
+    },
+    {
+      "name": "Octavia (Bug) Shultz",
+      "age": 8
+    },
+    {
+      "name": "David Shultz",
+      "age": 17
+    },
+    {
+      "name": "Desia",
+      "age": 25
+    },
+    {
+      "name": "Evie Shultz",
+      "age": 73
+    },
+    {
+      "name": "Georgie Shultz",
+      "age": 5
+    },
+    {
+      "name": "Jackson Candido",
+      "age": 11
+    },
+    {
+      "name": "Jacob Shultz",
+      "age": 31
+    },
+    {
+      "name": "Jordan Shultz",
+      "age": 44
+    },
+    {
+      "name": "Josh Shultz",
+      "age": 44
+    },
+    {
+      "name": "Kevin",
+      "age": 28
+    },
+    {
+      "name": "Lucy Shultz",
+      "age": 15
+    },
+    {
+      "name": "McKinley Candido",
+      "age": 15
+    },
+    {
+      "name": "Mel Shultz",
+      "age": 53
+    },
+    {
+      "name": "Mycah Shultz",
+      "age": 20
+    },
+    {
+      "name": "Natalie",
+      "age": 18
+    },
+    {
+      "name": "Rachel Simental",
+      "age": 29
+    },
+    {
+      "name": "Ray Shultz",
+      "age": 74
+    },
+    {
+      "name": "Simran Widmer",
+      "age": 23
+    },
+    {
+      "name": "Skylar Widmer",
+      "age": 28
+    },
+    {
+      "name": "Tayden Weisbender",
+      "age": 20
+    },
+    {
+      "name": "Zach Shultz",
+      "age": 24
+    }
+  ],
+  "events": [
+    {
+      "title": "ATV Riding",
+      "date": "2026-05-26",
+      "priority": "high",
+      "who_wants_to_go": [
+        "Kevin"
+      ]
+    },
+    {
+      "title": "Branson Belle Showboat",
+      "date": "2026-05-27",
+      "priority": "medium",
+      "who_wants_to_go": [
+        "Alex",
+        "Mel"
+      ]
+    },
+    {
+      "title": "Butterfly Palace",
+      "date": "2026-05-25",
+      "priority": "medium",
+      "who_wants_to_go": [
+        "Bug",
+        "Georgie",
+        "McKinley"
+      ]
+    },
+    {
+      "title": "Car Museum",
+      "date": "2026-05-24",
+      "priority": "low",
+      "who_wants_to_go": [
+        "Ray",
+        "Evie"
+      ]
+    },
+    {
+      "title": "Cat Cafe",
+      "date": "2026-05-28",
+      "priority": "low",
+      "who_wants_to_go": [
+        "Ashlyn",
+        "Mycah"
+      ]
+    },
+    {
+      "title": "Cave Exploration",
+      "date": "2026-05-23",
+      "priority": "medium",
+      "who_wants_to_go": [
+        "Jacob",
+        "Josh"
+      ]
+    },
+    {
+      "title": "Dogwood Canyon Horse",
+      "date": "2026-05-25",
+      "priority": "medium",
+      "who_wants_to_go": [
+        "Bee",
+        "Kevin"
+      ]
+    },
+    {
+      "title": "Dogwood Canyon Tram",
+      "date": "2026-05-25",
+      "priority": "medium",
+      "who_wants_to_go": [
+        "Most People"
+      ]
+    },
+    {
+      "title": "Dogwood Canyon",
+      "date": "2026-05-25",
+      "priority": "medium",
+      "who_wants_to_go": [
+        "Alex",
+        "Brian"
+      ]
+    },
+    {
+      "title": "Dolly Parton's Stampede",
+      "date": "2026-05-28",
+      "priority": "high",
+      "who_wants_to_go": [
+        "Adrian",
+        "Bug",
+        "Georgie"
+      ]
+    },
+    {
+      "title": "Escape Room",
+      "date": "2026-05-24",
+      "priority": "high",
+      "who_wants_to_go": [
+        "Adrian",
+        "David",
+        "Tayden"
+      ]
+    },
+    {
+      "title": "Fishing",
+      "date": "2026-05-27",
+      "priority": "low",
+      "who_wants_to_go": [
+        "Kevin",
+        "Jacob"
+      ]
+    },
+    {
+      "title": "Five & Dime",
+      "date": "2026-05-23",
+      "priority": "low",
+      "who_wants_to_go": [
+        "Mel",
+        "Evie"
+      ]
+    },
+    {
+      "title": "Go Karts",
+      "date": "2026-05-26",
+      "priority": "medium",
+      "who_wants_to_go": [
+        "Zach",
+        "Tayden",
+        "David"
+      ]
+    },
+    {
+      "title": "Horseback Riding",
+      "date": "2026-05-26",
+      "priority": "medium",
+      "who_wants_to_go": [
+        "Bee",
+        "Ashlyn"
+      ]
+    },
+    {
+      "title": "Knife Forge",
+      "date": "2026-05-27",
+      "priority": "medium",
+      "who_wants_to_go": [
+        "Josh",
+        "Jacob"
+      ]
+    },
+    {
+      "title": "Mini Golf",
+      "date": "2026-05-28",
+      "priority": "low",
+      "who_wants_to_go": [
+        "Bug",
+        "Georgie",
+        "McKinley"
+      ]
+    },
+    {
+      "title": "Paintball",
+      "date": "2026-05-24",
+      "priority": "low",
+      "who_wants_to_go": [
+        "David",
+        "Zach"
+      ]
+    },
+    {
+      "title": "Ripley\u2019s Believe It or Not",
+      "date": "2026-05-23",
+      "priority": "high",
+      "who_wants_to_go": [
+        "Most People"
+      ]
+    },
+    {
+      "title": "Riverfront Activities",
+      "date": "2026-05-28",
+      "priority": "medium",
+      "who_wants_to_go": [
+        "Skylar",
+        "Simran"
+      ]
+    },
+    {
+      "title": "Sight & Sound Theatre",
+      "date": "2026-05-23",
+      "priority": "high",
+      "who_wants_to_go": [
+        "Bee",
+        "Kevin",
+        "Evie",
+        "Ray"
+      ]
+    },
+    {
+      "title": "Silver Dollar City",
+      "date": "2026-05-24",
+      "priority": "high",
+      "who_wants_to_go": [
+        "Adrian",
+        "Bug",
+        "Georgie",
+        "McKinley"
+      ]
+    },
+    {
+      "title": "Simon & Garfunkel Show",
+      "date": "2026-05-27",
+      "priority": "medium",
+      "who_wants_to_go": [
+        "Mel",
+        "Brian"
+      ]
+    },
+    {
+      "title": "Thrift Shop",
+      "date": "2026-05-28",
+      "priority": "low",
+      "who_wants_to_go": [
+        "Ashlyn",
+        "Mycah",
+        "Natalie"
+      ]
+    },
+    {
+      "title": "Titanic Museum",
+      "date": "2026-05-25",
+      "priority": "high",
+      "who_wants_to_go": [
+        "Most People"
+      ]
+    },
+    {
+      "title": "Water Park",
+      "date": "2026-05-25",
+      "priority": "high",
+      "who_wants_to_go": [
+        "Adrian",
+        "Bug",
+        "Georgie",
+        "McKinley",
+        "Lucy"
+      ]
+    },
+    {
+      "title": "Wax Museum",
+      "date": "2026-05-26",
+      "priority": "medium",
+      "who_wants_to_go": [
+        "Most People"
+      ]
+    },
+    {
+      "title": "Zip Line",
+      "date": "2026-05-27",
+      "priority": "medium",
+      "who_wants_to_go": [
+        "David",
+        "Tayden",
+        "Zach"
+      ]
+    }
+  ],
+  "timeline": {
+    "most_people": {
+      "start": "2026-05-22",
+      "end": "2026-05-29",
+      "label": "Full Week"
+    },
+    "ashlyn": {
+      "start": "2026-05-23",
+      "end": "2026-05-29",
+      "label": "Arrives Sat 23"
+    },
+    "bee": {
+      "start": "2026-05-22",
+      "end": "2026-05-26",
+      "label": "Departs Tue 26"
+    },
+    "kevin": {
+      "start": "2026-05-22",
+      "end": "2026-05-27",
+      "label": "Departs Wed 27 \u2022 ATV early"
+    }
+  },
+  "note": "Based on 2025 spreadsheet + who wanted what last year. Run generate_data.py to update."
+}
