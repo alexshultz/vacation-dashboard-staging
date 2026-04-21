@@ -1,0 +1,7 @@
+[
+  {"id": "person-1", "name": "Alex", "role": "organizer", "avatar_letter": "A", "avatar_color": "#3F6B3A"},
+  {"id": "person-2", "name": "Mycah", "role": "family", "avatar_letter": "M", "avatar_color": "#2A6A8A"},
+  {"id": "person-3", "name": "Ashlyn", "role": "family", "avatar_letter": "A", "avatar_color": "#C1553B"},
+  {"id": "person-4", "name": "Jordan", "role": "family", "avatar_letter": "J", "avatar_color": "#D8A660"},
+  {"id": "person-5", "name": "Evie", "role": "cook", "avatar_letter": "E", "avatar_color": "#6B4C8F"}
+]
