@@ -1,0 +1,71 @@
+/*
+ * tokens.css -- Branson '26 Design System
+ * Semantic tokens only. Private palette lives in themes/trail.css.
+ * Components ONLY reference vars from this file.
+ */
+:root {
+  /* Geometry */
+  --radius-card: 18px;
+  --radius-pill: 999px;
+  --radius-btn: 10px;
+
+  /* Spacing */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+
+  /* Typography */
+  --font-display: 'Lexend', Georgia, 'Iowan Old Style', serif;
+  --font-body: 'Atkinson Hyperlegible', 'Lexend', system-ui, -apple-system, sans-serif;
+  --text-xs: 12px; --text-sm: 14px; --text-base: 17px;
+  --text-lg: 19px; --text-xl: 22px;
+
+  /* Colors -- defaults match Trail light mode */
+  --color-bg:      #FBF6EC;
+  --color-surface: #FFFDF7;
+  --color-ink:     #20281E;
+  --color-ink-dim: #5E6B58;
+  --color-line:    #E4DCC6;
+
+  --status-yes:      #3F6B3A;
+  --status-no:       #B83A35;
+  --status-wishlist: #2A6A8A;
+  --status-neutral:  #8B8671;
+  --status-lock:     #6B4C8F;
+  --warn:            #A86A1C;
+
+  /* Accent tokens for component references */
+  --accent-sand: #D8A660;
+  --accent-clay: #C1553B;
+  --accent-dusk: #6B4C8F;
+
+  --shadow-1: 0 1px 2px rgba(32,40,30,0.05), 0 6px 18px rgba(32,40,30,0.06);
+  --shadow-2: 0 2px 4px rgba(32,40,30,0.08), 0 20px 40px rgba(63,107,58,0.14);
+}
+
+/* System dark mode */
+@media (prefers-color-scheme: dark) {
+  :root[data-mode="system"], :root:not([data-mode]) {
+    --color-bg:      #161A14;
+    --color-surface: #1F261C;
+    --color-ink:     #F3EEDD;
+    --color-ink-dim: #ADB3A3;
+    --color-line:    #343C2F;
+    --warn:          #E0B35A;
+  }
+}
+:root[data-mode="dark"] {
+  --color-bg:      #161A14;
+  --color-surface: #1F261C;
+  --color-ink:     #F3EEDD;
+  --color-ink-dim: #ADB3A3;
+  --color-line:    #343C2F;
+  --warn:          #E0B35A;
+}
+:root[data-mode="light"] {
+  --color-bg:      #FBF6EC;
+  --color-surface: #FFFDF7;
+  --color-ink:     #20281E;
+  --color-ink-dim: #5E6B58;
+  --color-line:    #E4DCC6;
+  --warn:          #A86A1C;
+}
