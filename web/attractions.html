@@ -43,6 +43,16 @@
     <button class="theme-toggle" aria-label="Toggle dark mode" onclick="(function(){var modes=['system','light','dark'];var m=document.documentElement.getAttribute('data-mode')||'system';var next=modes[(modes.indexOf(m)+1)%3];document.documentElement.setAttribute('data-mode',next);localStorage.setItem('vacdash:v1:mode',next);})()">☀️</button>
   </div>
 </header>
+<div id="hello-banner" style="display:none; background:color-mix(in srgb, var(--status-yes) 10%, transparent);
+  border-bottom:1px solid color-mix(in srgb, var(--status-yes) 20%, var(--color-line));
+  padding:8px 18px; font-size:14px; font-family:var(--font-display); font-weight:700;
+  color:var(--status-yes); text-align:center;">
+  👋 Picking as <span id="hello-name"></span> &nbsp;·&nbsp;
+  <button onclick="localStorage.removeItem('vacdash:v1:user');location.reload();"
+    style="background:none;border:none;cursor:pointer;color:var(--color-ink-dim);font-size:13px;font-family:inherit;">
+    Change
+  </button>
+</div>
 <nav class="bottom-tabs" aria-label="Main navigation">
   <a href="index.html" class="tab" aria-label="Home">🏠</a>
   <a href="attractions.html" class="tab" aria-current="page" aria-label="Attractions">🎡</a>
@@ -1591,6 +1601,123 @@ Buy 1 ticket get second ticket 1/2 Off
     });
   });
   refilter();
+})();
+</script>
+
+<!-- Load picks client -->
+<script src="picks.js"></script>
+
+<!-- Name chooser modal (Phase 1 honor-system) -->
+<div id="name-modal" style="display:none; position:fixed; inset:0; z-index:200;
+  background:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
+  <div style="background:var(--color-surface); border-radius:var(--radius-card);
+    padding:32px; max-width:340px; width:90%; box-shadow:var(--shadow-2);">
+    <h2 style="font-family:var(--font-display); font-weight:800; margin:0 0 8px;
+      font-size:22px;">Who are you?</h2>
+    <p style="color:var(--color-ink-dim); margin:0 0 20px; font-size:15px;">
+      Your picks are saved to this browser. Pick your name so we can show you
+      separately from everyone else later.
+    </p>
+    <div style="display:grid; gap:10px; margin-bottom:20px;" id="name-btns">
+      <!-- populated by JS from FAMILY_NAMES -->
+    </div>
+    <p style="font-size:13px; color:var(--color-ink-dim); margin:0;">
+      Your choice is saved. You can change it later by clearing your browser storage.
+    </p>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Family names for Phase 1 honor-system chooser
+  var FAMILY_NAMES = ['Alex','Mycah','Ashlyn','Jordan','Evie','Josh','Bee','Other'];
+
+  // ---- Name chooser ----
+  function showNameModal(callback) {
+    var modal = document.getElementById('name-modal');
+    var btns = document.getElementById('name-btns');
+    btns.innerHTML = '';
+    modal.style.display = 'flex';
+
+    FAMILY_NAMES.forEach(function(name) {
+      var btn = document.createElement('button');
+      btn.textContent = name;
+      btn.style.cssText = 'padding:12px 16px; border-radius:var(--radius-btn); border:1.5px solid var(--color-line); background:var(--color-surface); font-family:var(--font-body); font-size:16px; font-weight:700; cursor:pointer; text-align:left; transition:background 150ms;';
+      btn.addEventListener('mouseenter', function(){ btn.style.background='var(--color-bg)'; });
+      btn.addEventListener('mouseleave', function(){ btn.style.background='var(--color-surface)'; });
+      btn.addEventListener('click', function(){
+        if (name === 'Other') {
+          var custom = prompt('Enter your name:');
+          if (!custom) return;
+          name = custom.trim();
+        }
+        picks.init(name);
+        modal.style.display = 'none';
+        if (callback) callback(name);
+      });
+      btns.appendChild(btn);
+    });
+  }
+
+  function ensureUser(callback) {
+    if (picks.getUser()) { callback(picks.getUser()); return; }
+    showNameModal(callback);
+  }
+
+  // ---- Restore saved heart states ----
+  function restoreHearts() {
+    if (!picks.getUser()) return;
+    var all = picks.getAll();
+    document.querySelectorAll('.card--light').forEach(function(card) {
+      var slug = card.dataset.slug;
+      var state = all[slug];
+      var btn = card.querySelector('.heart-overlay');
+      if (!btn) return;
+      if (state === 'wishlist' || state === 'committing') {
+        btn.setAttribute('aria-pressed', 'true');
+        btn.textContent = '♥';
+        btn.style.color = 'white';
+      }
+    });
+  }
+
+  // ---- Wire heart buttons ----
+  document.querySelectorAll('.heart-overlay').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var card = btn.closest('.card--light');
+      var slug = card ? card.dataset.slug : '';
+      if (!slug) return;
+
+      ensureUser(function(userName) {
+        var current = picks.get(slug);
+        var next = (current === 'wishlist') ? null : 'wishlist';
+        picks.set(slug, next);
+
+        if (next === 'wishlist') {
+          btn.setAttribute('aria-pressed', 'true');
+          btn.textContent = '♥';
+          btn.style.color = 'white';
+        } else {
+          btn.setAttribute('aria-pressed', 'false');
+          btn.textContent = '♡';
+          btn.style.color = '';
+        }
+      });
+    });
+  });
+
+  // ---- Init ----
+  if (picks.getUser()) {
+    restoreHearts();
+  }
+
+  // Show hello banner if user is set
+  var user = picks.getUser();
+  if (user) {
+    var banner = document.getElementById('hello-banner');
+    var nameEl = document.getElementById('hello-name');
+    if (banner && nameEl) { nameEl.textContent = user; banner.style.display = 'block'; }
+  }
 })();
 </script>
 <script>window.addEventListener('storage',function(e){if(e.key==='vacdash:v1:mode')document.documentElement.setAttribute('data-mode',e.newValue||'system')});</script>
