@@ -6,7 +6,7 @@ Writes: data/tag-proposals-v2.csv, data/tag-proposals-v2.meta.json, data/tag-pro
 Also: incremental checkpointing to .partial.csv, appends to .raw.jsonl
 """
 import argparse, csv, json, os, sys, time
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 try:
@@ -337,7 +337,7 @@ def write_meta(num_att, failures, cost, in_toks, out_toks):
     """Write metadata sidecar."""
     meta = {
         "vocabulary_round": 8, "model": "claude-sonnet-4-6", "temperature": 0.0,
-        "timestamp": datetime.utcnow().isoformat(), "cost_usd": round(cost, 2),
+        "timestamp": datetime.now(timezone.utc).isoformat(), "cost_usd": round(cost, 2),
         "input_tokens": in_toks, "output_tokens": out_toks, "attractions_count": num_att, "failures": failures
     }
     with open(PROPOSALS_V2_META, "w") as f:
@@ -354,7 +354,7 @@ def write_diff(results, v1_map, cost, in_toks, out_toks):
                     set(r["proposed_tags"].split(",")) - {""})
     changed = len(results) - unchanged
     
-    now = datetime.utcnow().strftime("%Y-%m-%d %H:%M")
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
     md = f"""# Tag classification diff - v2 (claude-sonnet-4-6)
 
 - Generated: {now}
@@ -452,7 +452,7 @@ def main():
             if raw_text is not None:
                 with open(RAW_LOG, "a") as rf:
                     rf.write(json.dumps({"slug": slug, "elapsed": 0, "raw": raw_text[:2000], "parsed": None,
-                                          "attempt_count": 0, "timestamp": datetime.utcnow().isoformat(),
+                                          "attempt_count": 0, "timestamp": datetime.now(timezone.utc).isoformat(),
                                           "failed": True}) + "\n")
         else:
             elapsed = float(result["elapsed_s"])
@@ -472,7 +472,7 @@ def main():
                         "slug": slug, "elapsed": elapsed, "raw": raw_text[:2000],
                         "parsed": {"tags": result["proposed_tags"], "confidence": result["confidence"]},
                         "cost_usd": round(cost, 6), "input_tokens": in_tok, "output_tokens": out_tok,
-                        "timestamp": datetime.utcnow().isoformat()
+                        "timestamp": datetime.now(timezone.utc).isoformat()
                     }) + "\n")
                 append_partial(result)
             

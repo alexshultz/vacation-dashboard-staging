@@ -221,7 +221,7 @@ Popular
         <h3 class="font-semibold text-lg">Branson Showboat</h3>
         <p class="text-emerald-400 text-sm">From branson.com source: Branson Showboat</p>
         <div class="mt-4 grid grid-cols-2 gap-4 text-xs bg-zinc-800 p-3 rounded-2xl"><div><span class="text-emerald-400">Adult:</span> $65</div><div><span class="text-emerald-400">Duration:</span> 2h</div></div>
-        <p class="text-xs text-amber-300 mt-3">Thumbnail from source HTML div. Added during full parse.</p>
+        <p class="text-xs text-amber-300 mt-3">INTENTIONAL: slug kept as 'silver-dollar-cityand8217-s-showboat' per Alex 2026-04-21 to preserve underlying data despite display rename to 'Branson Showboat'. Downstream scripts that normalize slugs must use attr.get('image') directly, not reconstruct from slug.</p>
         <a href="https://www.branson.com/attractions/silver-dollar-city/" target="_blank" class="inline-block mt-4 px-6 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-2xl text-white text-sm font-medium">Official Site →</a>
     </div>
     <div class="card bg-zinc-900 rounded-3xl p-6 border border-emerald-700">

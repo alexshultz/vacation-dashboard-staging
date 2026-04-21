@@ -11,7 +11,42 @@
       "description": "Interactive 50s/60s music with 150+ songs, 100+ costume changes, games, and high school dance segment. Voted Branson's Show of The Year.",
       "image": "assets/thumbs/1-hits-of-the-60s-thumb.jpg",
       "official_url": "https://www.1hitsofthe60s.com/",
-      "notes": "Very family-friendly. Military discount $45."
+      "notes": "Very family-friendly. Military discount $45.",
+      "tags": [
+        "1-2hr",
+        "active",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.95,
+        "reasoning": "Interactive 50s/60s music show with games and costume changes clearly fits music/variety with family audience and 2-hour indoor duration.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "oldies-50s",
+            "oldies-60s"
+          ],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "active",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "a-garth-tribute",
@@ -24,7 +59,40 @@
       "description": "Rich and Anna have quickly become a must...\n](https://www.branson.com/shows/a-garth-tribute/)",
       "image": "assets/thumbs/a-garth-tribute-thumb.jpg",
       "official_url": "https://www.branson.com/shows/a-garth-tribute/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "A Garth tribute show clearly features country music in tribute format, likely appealing to families and couples, with a 2-hour duration placing it in the 1-2hr bracket.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "a-neil-diamond-tribute-ft-keith-allynn",
@@ -37,7 +105,44 @@
       "description": "Keith Allynn's A Neil Diamond Tribute; L...\n](https://www.branson.com/shows/a-neil-diamond-tribute-featuring-keith-allynn/)",
       "image": "assets/thumbs/a-neil-diamond-tribute-thumb.jpg",
       "official_url": "https://www.branson.com/shows/a-neil-diamond-tribute-featuring-keith-allynn/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-70s",
+        "pop",
+        "relaxed",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Neil Diamond is a classic pop/70s artist, so tribute show tags are clear; family and date-night are reasonable assumptions for a tribute concert format with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "pop",
+            "oldies-70s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "a-shepherd-s-christmas-carol",
@@ -50,7 +155,46 @@
       "description": "We invite you to enjoy a full-course tur...\n](https://www.branson.com/shows/a-shepherds-christmas-carol/)",
       "image": "assets/thumbs/a-shepherd-s-christmas-carol-thumb.jpg",
       "official_url": "https://www.branson.com/shows/a-shepherds-christmas-carol/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "family",
+        "food",
+        "gospel",
+        "indoor",
+        "music",
+        "relaxed",
+        "religious",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.65,
+        "reasoning": "A Christmas Carol dinner show at Shepherd of the Hills suggests a variety/music show with religious themes, family-friendly, with a full-course meal included, running approximately 2 hours.",
+        "categories": {
+          "show": [
+            "variety",
+            "music"
+          ],
+          "music": [
+            "gospel",
+            "country"
+          ],
+          "audience": [
+            "family",
+            "religious"
+          ],
+          "attraction": [
+            "indoor",
+            "food",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "aaron-wayne-comedy-hypnosis-show",
@@ -63,7 +207,39 @@
       "description": "Audiences will smile, chuckle, and laugh...\n](https://www.branson.com/shows/aaron-wayne-sweet-dreams-comedy-hypnosis-show/)",
       "image": "assets/thumbs/aaron-wayne-comedy-hypnosis-show-thumb.jpg",
       "official_url": "https://www.branson.com/shows/aaron-wayne-sweet-dreams-comedy-hypnosis-show/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "adult-humor",
+        "comedy",
+        "date-night",
+        "family",
+        "indoor",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Comedy hypnosis show clearly fits comedy category with adult-humor and date-night appeal, 2-hour duration maps to 1-2hr, and indoor is standard for Branson shows.",
+        "categories": {
+          "show": [
+            "comedy"
+          ],
+          "music": [],
+          "audience": [
+            "adult-humor",
+            "date-night",
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "abby-lee-miller-live-at-the-top-of-the-pyramid",
@@ -76,7 +252,37 @@
       "description": "Abby Lee Miller LIVE! At the Top of the...\n](https://www.branson.com/shows/abby-lee-miller-live-at-the-top-of-the-pyramid/)",
       "image": "assets/thumbs/abby-lee-miller-live-at-the-top-of-the-pyramid-thumb.jpg",
       "official_url": "https://www.branson.com/shows/abby-lee-miller-live-at-the-top-of-the-pyramid/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "adult-humor",
+        "date-night",
+        "family",
+        "indoor",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.6,
+        "reasoning": "Abby Lee Miller is known from Dance Moms as a dance instructor/personality, so this is likely a live variety/comedy show with broad appeal, running approximately 2 hours indoors.",
+        "categories": {
+          "show": [
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "adult-humor",
+            "date-night",
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "absolutely-country-definitely-gospel",
@@ -89,7 +295,42 @@
       "description": "Branson's Absolutely Country, Definitely...\n**Rating:** 4.6\n](https://www.branson.com/shows/absolutely-country-definitely-gospel/)",
       "image": "assets/thumbs/absolutely-country-definitely-gospel-thumb.png",
       "official_url": "https://www.branson.com/shows/absolutely-country-definitely-gospel/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "family",
+        "gospel",
+        "indoor",
+        "music",
+        "relaxed",
+        "religious"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "The title clearly indicates a country and gospel music show, family category is confirmed, and the 2-hour duration maps to 1-2hr tag.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "country",
+            "gospel"
+          ],
+          "audience": [
+            "family",
+            "religious"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "america-s-top-country-hits",
@@ -102,7 +343,36 @@
       "description": "America's Top Country Hits brings the hi...\n](https://www.branson.com/shows/amaericas-top-country-hits/)",
       "image": "assets/thumbs/americas-top-country-hits-thumb.png",
       "official_url": "https://www.branson.com/shows/amaericas-top-country-hits/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "family",
+        "indoor",
+        "music"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "The name and category clearly indicate a country music show suitable for families with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "americana-new-year-s-eve-show",
@@ -115,7 +385,48 @@
       "description": "Get ready for Branson's BIGGEST New Year...\n](https://www.branson.com/shows/americana-new-years-eve-show/)",
       "image": "assets/thumbs/americana-new-year-s-eve-show-thumb.jpg",
       "official_url": "https://www.branson.com/shows/americana-new-years-eve-show/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "oldies-70s",
+        "oldies-80s",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.6,
+        "reasoning": "An Americana-themed New Year's Eve show in Branson likely features patriotic and classic American music with variety elements, suitable for families and couples, running approximately 2 hours indoors.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "country",
+            "oldies-50s",
+            "oldies-60s",
+            "oldies-70s",
+            "oldies-80s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "anthems-of-rock",
@@ -128,7 +439,42 @@
       "description": "Rock Party with hits from Queen, Elton John, Bon Jovi, Journey.",
       "image": "assets/thumbs/anthems-of-rock-thumb.jpg",
       "official_url": "https://www.kingscastletheatre.com/whats-on/view/?permalink=rock-anthems-15657881695d540809395c05d540809395cc",
-      "notes": "King's Castle Theatre. Official site."
+      "notes": "King's Castle Theatre. Official site.",
+      "tags": [
+        "1-2hr",
+        "adult-humor",
+        "date-night",
+        "indoor",
+        "music",
+        "oldies-80s",
+        "rock",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "Rock tribute show featuring classic rock artists from the 70s-80s era, likely appealing to adults and date-night crowds at an indoor theatre.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "rock",
+            "oldies-80s"
+          ],
+          "audience": [
+            "adult-humor",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "awesome-80-s",
@@ -141,7 +487,44 @@
       "description": "Awesome '80s take you on a Journey of th...\n](https://www.branson.com/shows/awesome-80s/)",
       "image": "assets/thumbs/awesome-80s-thumb.jpg",
       "official_url": "https://www.branson.com/shows/awesome-80s/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-80s",
+        "pop",
+        "rock",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.8,
+        "reasoning": "An '80s tribute show strongly implies rock and pop music from that decade, suitable for families and date nights, with a 2-hour indoor performance.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "oldies-80s",
+            "rock",
+            "pop"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "back-to-country-with-mark-aldred",
@@ -154,7 +537,40 @@
       "description": "Join us for an unforgettable live perfor...\n](https://www.branson.com/shows/back-to-country-with-mark-aldred/)",
       "image": "assets/thumbs/back-to-country-with-mark-aldred-thumb.jpg",
       "official_url": "https://www.branson.com/shows/back-to-country-with-mark-aldred/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "The name and category clearly indicate a country music tribute show with a 2-hour duration, likely family and date-night friendly based on typical Branson country show audiences.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "back-to-the-bee-gees",
@@ -167,7 +583,46 @@
       "description": "Relive the nearly four-decade career of...\nBuy 1 ticket get second ticket 1/2 Off\n](https://www.branson.com/shows/back-to-the-beegees/)",
       "image": "assets/thumbs/back-to-the-bee-gees-thumb.jpg",
       "official_url": "https://www.branson.com/shows/back-to-the-beegees/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-70s",
+        "oldies-80s",
+        "pop",
+        "relaxed",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Back To The Bee Gees is clearly a tribute show celebrating the Bee Gees' career spanning the 70s and 80s pop/disco era, with a 2-hour duration and broad family/date-night appeal.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "pop",
+            "oldies-70s",
+            "oldies-80s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "best-of-dean-martin-tribute",
@@ -180,7 +635,44 @@
       "description": "The Best of Dean Martin Tribute, featuri...\n](https://www.branson.com/shows/dean-martin-and-more-tribute/)\nPopular\n](https://www.branson.com/shows/decades-pierce-arrow/)",
       "image": "assets/thumbs/best-of-dean-martin-tribute-thumb.jpg",
       "official_url": "https://www.branson.com/shows/dean-martin-and-more-tribute/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "relaxed",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Dean Martin tribute show clearly fits music and tribute categories with 50s/60s era songs; family and date-night audience typical for this style; 2-hour duration maps to 1-2hr tag.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "oldies-50s",
+            "oldies-60s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "bluegrass-bbq-festival",
@@ -193,7 +685,42 @@
       "description": "One of the nation's top bluegrass events at Silver Dollar City with top acts like Rhonda Vincent & The Rage (May 9-11), slow-smoked BBQ, limited-time flavors, and tasting tickets. May 7-25, 2026.",
       "image": "assets/thumbs/bluegrass-bbq-festival-thumb.png",
       "official_url": "https://www.silverdollarcity.com/theme-park/festivals/bluegrass-bbq",
-      "notes": "Included with Silver Dollar City admission. VIP Opera House seating $15 + tax per show. Tasting ticket for 5 BBQ items available. Great for families."
+      "notes": "Included with Silver Dollar City admission. VIP Opera House seating $15 + tax per show. Tasting ticket for 5 BBQ items available. Great for families.",
+      "tags": [
+        "active",
+        "all-day",
+        "bluegrass",
+        "family",
+        "food",
+        "half-day",
+        "music",
+        "outdoor"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "A 6-hour bluegrass music festival at Silver Dollar City with BBQ food, live top acts, and family-friendly appeal clearly maps to music/bluegrass, family vibe, and outdoor food event with half-day to a",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "bluegrass"
+          ],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "outdoor",
+            "food",
+            "active",
+            "half-day",
+            "all-day"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "bohemian-queen",
@@ -206,7 +733,44 @@
       "description": "Bohemian Queen's theatrical show feature...\n](https://www.branson.com/shows/bohemian-queen/)",
       "image": "assets/thumbs/bohemian-queen-thumb.jpg",
       "official_url": "https://www.branson.com/shows/bohemian-queen/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "adult-humor",
+        "date-night",
+        "indoor",
+        "music",
+        "oldies-70s",
+        "oldies-80s",
+        "rock",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "Bohemian Queen is a theatrical music/variety show likely featuring Queen and similar rock acts from the 70s-80s era, appealing to adult and date-night audiences, with a 2-hour indoor runtime.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "rock",
+            "oldies-70s",
+            "oldies-80s"
+          ],
+          "audience": [
+            "adult-humor",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "branson-comedy-bash-dinner-show",
@@ -219,7 +783,41 @@
       "description": "Branson's most beloved personalities are...\n](https://www.branson.com/shows/branson-comedy-bash-dinner-show/)",
       "image": "assets/thumbs/branson-comedy-bash-dinner-show-thumb.jpg",
       "official_url": "https://www.branson.com/shows/branson-comedy-bash-dinner-show/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "adult-humor",
+        "comedy",
+        "date-night",
+        "family",
+        "food",
+        "indoor",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "A comedy dinner show featuring Branson personalities suggests variety/comedy with food, family and adult-humor appeal, and a 2-hour indoor format.",
+        "categories": {
+          "show": [
+            "comedy",
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "family",
+            "adult-humor",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "food",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "branson-murder-mystery-show",
@@ -232,7 +830,43 @@
       "description": "Voted \"Best Comedy of the Year\", The Bra...\n**Rating:** 3.9\n](https://www.branson.com/shows/branson-murder-mystery-show/)",
       "image": "assets/thumbs/branson-murder-mystery-show-thumb.jpg",
       "official_url": "https://www.branson.com/shows/branson-murder-mystery-show/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "active",
+        "adult-humor",
+        "comedy",
+        "date-night",
+        "family",
+        "food",
+        "indoor",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "Murder mystery shows are typically comedy-variety format with adult humor and date-night appeal, indoor setting, and the 2hr duration fits the 1-2hr bracket.",
+        "categories": {
+          "show": [
+            "comedy",
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "adult-humor",
+            "date-night",
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "food",
+            "active",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "branson-s-famous-baldknobbers",
@@ -245,7 +879,40 @@
       "description": "For more than 50 years, Branson's Famous...\n**Rating:** 3.9\n](https://www.branson.com/shows/bransons-famous-baldknobbers/)",
       "image": "assets/thumbs/branson-s-famous-baldknobbers-thumb.jpg",
       "official_url": "https://www.branson.com/shows/bransons-famous-baldknobbers/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "Branson's Famous Baldknobbers is a long-running variety and music show with country music, family-friendly appeal, and a 2-hour duration based on teaching examples.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "brett-daniels",
@@ -258,7 +925,37 @@
       "description": "Brett Daniels is an internationally reco...\n](https://www.branson.com/shows/brett-daniels/)",
       "image": "assets/thumbs/brett-daniels-thumb.jpg",
       "official_url": "https://www.branson.com/shows/brett-daniels/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "magic",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.8,
+        "reasoning": "Brett Daniels is a well-known magician in Branson, and the 2-hour duration fits the 1-2hr tag; family and date-night are typical for magic/variety shows.",
+        "categories": {
+          "show": [
+            "magic",
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "british-invasion",
@@ -271,7 +968,42 @@
       "description": "It all began 1964 when the Beatles lande...\n](https://www.branson.com/shows/british-invasion/)",
       "image": "assets/thumbs/british-invasion-thumb.jpg",
       "official_url": "https://www.branson.com/shows/british-invasion/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-60s",
+        "rock",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "British Invasion is clearly a tribute show celebrating 1960s British rock music (Beatles era), suitable for families and date nights, with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "rock",
+            "oldies-60s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "broadway-to-buble-starring-george-dyer",
@@ -284,7 +1016,46 @@
       "description": "George Dyer brings world-class and his a...\n**Rating:** 4.4\n](https://www.branson.com/shows/broadway-to-buble-starring-george-dyer/)",
       "image": "assets/thumbs/broadway-to-buble-starring-george-dyer-thumb.jpg",
       "official_url": "https://www.branson.com/shows/broadway-to-buble-starring-george-dyer/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-60s",
+        "oldies-70s",
+        "pop",
+        "relaxed",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.7,
+        "reasoning": "Broadway and Buble suggests a vocal/pop music show with variety elements, likely appealing to date-night and family audiences in an indoor theater setting with a 2-hour runtime.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "pop",
+            "oldies-60s",
+            "oldies-70s"
+          ],
+          "audience": [
+            "date-night",
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "carpenters-once-more",
@@ -297,7 +1068,44 @@
       "description": "Celebrating the sounds of the Carpenters...\n**Rating:** 4.7\n](https://www.branson.com/shows/carpenters-once-more/)",
       "image": "assets/thumbs/carpenters-once-more-thumb.jpg",
       "official_url": "https://www.branson.com/shows/carpenters-once-more/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-70s",
+        "pop",
+        "relaxed",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "Carpenters Once More is a tribute show celebrating the Carpenters, a popular 70s pop duo, likely appealing to families and couples in a relaxed indoor setting with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "pop",
+            "oldies-70s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "classic-country-and-comedy",
@@ -310,7 +1118,38 @@
       "description": "Classic country hits with comedy.",
       "image": "assets/thumbs/classic-country-and-comedy-thumb.png",
       "official_url": "https://americanatheatrebranson.com/shows/classic_country_and_comedy.html",
-      "notes": "Americana Theatre. Official site."
+      "notes": "Americana Theatre. Official site.",
+      "tags": [
+        "1-2hr",
+        "comedy",
+        "country",
+        "family",
+        "indoor",
+        "music"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "Classic country music with comedy elements at an indoor theatre, family-friendly, with a clear 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "comedy"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "classic-rock-icons",
@@ -323,7 +1162,40 @@
       "description": "Classic Rock Icons brings the music to l...\n](https://www.branson.com/shows/classic-rock-icons/)",
       "image": "assets/thumbs/classic-rock-icons-thumb.jpg",
       "official_url": "https://www.branson.com/shows/classic-rock-icons/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "adult-humor",
+        "date-night",
+        "indoor",
+        "music",
+        "rock",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Classic Rock Icons is clearly a tribute/music show focused on rock music, likely appealing to adults and date-night audiences, with a 2-hour duration placing it in the 1-2hr bracket.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "rock"
+          ],
+          "audience": [
+            "adult-humor",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "clay-cooper-s-country-express",
@@ -336,7 +1208,38 @@
       "description": "Clay Cooper's Country Express features 2...\n**Rating:** 4.7\n](https://www.branson.com/shows/clay-coopers-country-express/)",
       "image": "assets/thumbs/clay-coopers-country-express-thumb.jpg",
       "official_url": "https://www.branson.com/shows/clay-coopers-country-express/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "family",
+        "indoor",
+        "music",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "Clay Cooper's Country Express is a well-known Branson country music variety show explicitly categorized as family with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "comedy-jamboree",
@@ -349,7 +1252,35 @@
       "description": "Branson's Comedy Jamboree is an electrif...\n**Rating:** 4\n](https://www.branson.com/shows/comedy-jamboree/)",
       "image": "assets/thumbs/comedy-jamboree-thumb.jpg",
       "official_url": "https://www.branson.com/shows/comedy-jamboree/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "comedy",
+        "family",
+        "indoor",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.8,
+        "reasoning": "Comedy Jamboree is a family-oriented comedy/variety show with a 2-hour duration, likely held indoors based on typical Branson show venues.",
+        "categories": {
+          "show": [
+            "comedy",
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "dan-wagner-s-johnny-cash-friends-tribute",
@@ -362,7 +1293,40 @@
       "description": "Dan Wagner's Johnny Cash and Friends: Th...\n](https://www.branson.com/shows/dan-wagner-johnny-cash/)",
       "image": "assets/thumbs/dan-wagner-johnny-cash-thumb.jpg",
       "official_url": "https://www.branson.com/shows/dan-wagner-johnny-cash/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "A Johnny Cash tribute show clearly falls under music and tribute categories with country subgenre, family and date-night appeal, indoor setting, and a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "darryl-worley",
@@ -375,7 +1339,40 @@
       "description": "There are many things PLATINUM-selling D...\n**Rating:** 5\n](https://www.branson.com/shows/darryl-worley/)",
       "image": "assets/thumbs/darryl-worley-thumb.jpg",
       "official_url": "https://www.branson.com/shows/darryl-worley/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Darryl Worley is a well-known platinum-selling country music artist, making country music and a family/date-night audience highly likely for a 2-hour live show in Branson.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "david-sight-sound-theatres",
@@ -388,7 +1385,42 @@
       "description": "A massive biblical production featuring live animals and original music.",
       "image": "assets/thumbs/david-sight-and-sound-thumb.jpg",
       "official_url": "https://www.sight-sound.com/shows/david",
-      "notes": "Sight & Sound Theatres. Spectacular large-scale biblical production. Book in advance."
+      "notes": "Sight & Sound Theatres. Spectacular large-scale biblical production. Book in advance.",
+      "tags": [
+        "2-3hr",
+        "drama",
+        "family",
+        "gospel",
+        "indoor",
+        "music",
+        "relaxed",
+        "religious"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "Sight & Sound Theatres is well-known for large-scale biblical drama productions with live animals, original music, and strong religious/family appeal, fitting drama, gospel, religious, and family tags",
+        "categories": {
+          "show": [
+            "drama",
+            "music"
+          ],
+          "music": [
+            "gospel"
+          ],
+          "audience": [
+            "family",
+            "religious"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "2-3hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "dean-z-the-ultimate-elvis",
@@ -400,7 +1432,44 @@
       "price_adult": 44.11,
       "rating": 4.5,
       "description": "Dean Z has been performing as the Ultimate Elvis for nearly two decades.",
-      "notes": "Added from Source Data Adjustments.md with thumbnail from source HTML."
+      "notes": "Added from Source Data Adjustments.md with thumbnail from source HTML.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "rock",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "Dean Z is clearly an Elvis tribute show featuring rock and oldies music from the 50s and 60s, suitable for families and date nights, with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "tribute",
+            "music"
+          ],
+          "music": [
+            "rock",
+            "oldies-50s",
+            "oldies-60s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "dolly-partons-stampede",
@@ -413,7 +1482,40 @@
       "description": "From branson.com source: Dolly Parton's Stampede",
       "image": "assets/thumbs/dolly-partons-stampede-thumb.jpg",
       "official_url": "https://dpstampede.com/branson/show-schedule",
-      "notes": "Thumbnail from source HTML div. Added during full parse."
+      "notes": "Thumbnail from source HTML div. Added during full parse.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "food",
+        "indoor",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "Dolly Parton's Stampede is a well-known dinner show featuring country music, horse stunts, and variety entertainment suitable for families and couples, calibrated against the teaching example.",
+        "categories": {
+          "show": [
+            "variety"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "food",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "doo-wop-more",
@@ -426,7 +1528,44 @@
       "description": "\"Doo Wop & More\" takes you back to the 5...\n**Rating:** 4.8\n](https://www.branson.com/shows/doo-wop-and-more/)\nPopular\n](https://www.branson.com/shows/doug-gabriel-/)",
       "image": "assets/thumbs/doo-wop-and-more-thumb.jpg",
       "official_url": "https://www.branson.com/shows/doo-wop-and-more/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "relaxed",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Doo Wop music is strongly associated with the 1950s-60s era, and the 2-hour duration and family/date-night appeal are consistent with typical Branson music shows.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "oldies-50s",
+            "oldies-60s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "doug-gabriel-the-ultimate-variety-show",
@@ -439,7 +1578,48 @@
       "description": "The Doug Gabriel Ultimate Variety Show i...\n**Rating:** 3.8\nBuy 1 ticket get second ticket 1/2 Off\nAvailable in 4 for $89 Package\n](https://www.branson.com/shows/doug-gabriel-/)",
       "image": "assets/thumbs/doug-gabriel-the-ultimate-variety-show-thumb.jpg",
       "official_url": "https://www.branson.com/shows/doug-gabriel-/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-60s",
+        "oldies-70s",
+        "oldies-80s",
+        "pop",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.7,
+        "reasoning": "Doug Gabriel is known as a versatile performer covering multiple genres in a variety show format, appealing to families and couples, with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "variety",
+            "music"
+          ],
+          "music": [
+            "country",
+            "pop",
+            "oldies-60s",
+            "oldies-70s",
+            "oldies-80s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "down-home-country",
@@ -452,7 +1632,38 @@
       "description": "The Down Home Country Show is the best s...\n**Rating:** 4.3\n](https://www.branson.com/shows/down-home-country/)",
       "image": "assets/thumbs/down-home-country-thumb.jpg",
       "official_url": "https://www.branson.com/shows/down-home-country/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "family",
+        "indoor",
+        "music",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "The name and category clearly indicate a country music variety show suitable for families with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "dublin-s-irish-tenors-the-celtic-ladies",
@@ -465,7 +1676,42 @@
       "description": "Classical and modern hits with Irish twist.",
       "image": "assets/thumbs/dublins-irish-tenors-thumb.jpg",
       "official_url": "https://www.kingscastletheatre.com/whats-on/view/?permalink=dublins-irish-tenors--the-celtic-ladies-15658716095d554df9212fc5d554df92130b",
-      "notes": "King's Castle Theatre. Official site."
+      "notes": "King's Castle Theatre. Official site.",
+      "tags": [
+        "1-2hr",
+        "classical",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "pop",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.8,
+        "reasoning": "Irish tenors and Celtic ladies performing classical and modern hits suggests a music/variety show with classical and pop subgenres, suitable for families and date nights, indoors with a 2-hour duratio",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "classical",
+            "pop"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "gene-watson",
@@ -478,7 +1724,40 @@
       "description": "One of the most masterful voices in coun...\n](https://www.branson.com/shows/gene-watson/)",
       "image": "assets/thumbs/gene-watson-thumb.jpg",
       "official_url": "https://www.branson.com/shows/gene-watson/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "Gene Watson is a well-known country music artist, so this is clearly a country music show with a relaxed family/date-night appeal and a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "george-jones-haggard-friends",
@@ -491,7 +1770,40 @@
       "description": "\"George Jones and Friends\" honors one of...\n**Rating:** 3.3\n](https://www.branson.com/shows/george-jones-tribute/)",
       "image": "assets/thumbs/george-jones-haggard-friends-thumb.jpg",
       "official_url": "https://www.branson.com/shows/george-jones-tribute/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "A tribute show honoring George Jones and Merle Haggard clearly falls into country music tribute category, suitable for families and date nights, with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "george-strait-tribute",
@@ -504,7 +1816,40 @@
       "description": "Experience the timeless sound of country...\n](https://www.branson.com/shows/george-strait-tribute/)",
       "image": "assets/thumbs/george-strait-tribute-thumb.jpg",
       "official_url": "https://www.branson.com/shows/george-strait-tribute/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.9,
+        "reasoning": "A George Strait tribute show clearly features country music in a tribute format, suitable for families and date nights, with a 2-hour indoor performance.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "golden-sounds-of-the-platters",
@@ -517,7 +1862,44 @@
       "description": "Branson's \"Golden Sounds\" will fill you...\n**Rating:** 4.5\n](https://www.branson.com/shows/golden-sounds-of-the-platters/)",
       "image": "assets/thumbs/golden-sounds-of-the-platters-thumb.jpg",
       "official_url": "https://www.branson.com/shows/golden-sounds-of-the-platters/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "relaxed",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "The Platters were a famous vocal group from the 1950s-60s, so this is clearly a tribute/music show featuring oldies from those decades, with a family and date-night appeal and a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "oldies-50s",
+            "oldies-60s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "grand-jubilee",
@@ -530,7 +1912,40 @@
       "description": "Grand Jubilee is one Branson show that h...\n**Rating:** 4.7\n](https://www.branson.com/shows/grand-jubilee/)",
       "image": "assets/thumbs/grand-jubilee-thumb.jpg",
       "official_url": "https://www.branson.com/shows/grand-jubilee/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "family",
+        "gospel",
+        "indoor",
+        "music",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "Grand Jubilee is a well-known Branson family variety show with music elements, likely featuring country and gospel based on its Branson heritage, with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "variety",
+            "music"
+          ],
+          "music": [
+            "country",
+            "gospel"
+          ],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "hamners-unbelievable-variety-show",
@@ -543,7 +1958,37 @@
       "description": "At \"Hamners' Unbelievable Variety\" show,...\n**Rating:** 4.3\nBuy 1 ticket get second ticket 1/2 Off\nAvailable in 4 for $89 Package\n](https://www.branson.com/shows/hamners-unbelievable-variety/)",
       "image": "assets/thumbs/hamners-unbelievable-variety-thumb.jpg",
       "official_url": "https://www.branson.com/shows/hamners-unbelievable-variety/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "magic",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Hamners' is a well-known Branson variety show featuring magic and illusions, suitable for families and date nights, running approximately 2 hours indoors.",
+        "categories": {
+          "show": [
+            "variety",
+            "magic"
+          ],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "hamners-all-american-new-year-s-eve-celebration",
@@ -556,7 +2001,35 @@
       "description": "This New Year's Eve in Branson, there is...\n](https://www.branson.com/shows/hamners-new-years-eve-fiesta/)",
       "image": "assets/thumbs/hamners-all-american-new-year-s-eve-celebration-thumb.jpg",
       "official_url": "https://www.branson.com/shows/hamners-new-years-eve-fiesta/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.5,
+        "reasoning": "New Year's Eve celebration show at Hamners' suggests a variety format suitable for families and couples, likely indoors with a 2-hour duration, but sparse description limits confidence.",
+        "categories": {
+          "show": [
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "hot-rods-high-heels",
@@ -569,7 +2042,44 @@
       "description": "Get your glad rags on! We're going to th...\n**Rating:** 4.5\n](https://www.branson.com/shows/hot-rods-and-high-heels/)",
       "image": "assets/thumbs/hot-rods-high-heels-thumb.jpg",
       "official_url": "https://www.branson.com/shows/hot-rods-and-high-heels/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "rock",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.65,
+        "reasoning": "The name 'Hot Rods & High Heels' and phrase 'glad rags' strongly suggest a 1950s/60s rock-and-roll themed variety show, likely family and date-night friendly with a 2-hour runtime.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "oldies-50s",
+            "oldies-60s",
+            "rock"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "hughes-brothers-country-show",
@@ -582,7 +2092,40 @@
       "description": "From branson.com source: Hughes Brothers Country Show",
       "image": "assets/thumbs/hughes-brothers-country-show-thumb.jpg",
       "official_url": "https://media.branson.com/images/bcom/shows/hughes-brothers-country-show",
-      "notes": "Thumbnail from source HTML div. Added during full parse."
+      "notes": "Thumbnail from source HTML div. Added during full parse.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "The Hughes Brothers are a well-known Branson family act performing country music in a variety show format, suitable for families and couples, with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "hughes-music-show",
@@ -595,7 +2138,46 @@
       "description": "From branson.com source: Hughes Music Show",
       "image": "assets/thumbs/hughes-music-show-thumb.jpg",
       "official_url": "https://media.branson.com/images/bcom/shows/hughes-music-show",
-      "notes": "Thumbnail from source HTML div. Added during full parse."
+      "notes": "Thumbnail from source HTML div. Added during full parse.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "oldies-70s",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.55,
+        "reasoning": "Hughes Music Show is a well-known Branson family music and variety show, but the sparse description limits confidence in specific subgenre and vibe tags.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "country",
+            "oldies-50s",
+            "oldies-60s",
+            "oldies-70s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "illusionist-rick-thomas",
@@ -608,7 +2190,37 @@
       "description": "Premier grand illusions and mind-bending stage magic.",
       "image": "assets/thumbs/illusionist-rick-thomas-thumb.png",
       "official_url": "https://americanatheatrebranson.com/shows/rick_thomas.html",
-      "notes": "Americana Theatre. Official site."
+      "notes": "Americana Theatre. Official site.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "magic",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "A magic/illusion stage show at a theater is clearly indoor, family and date-night friendly, with a 2-hour duration fitting the 1-2hr bracket.",
+        "categories": {
+          "show": [
+            "magic",
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "jerry-presley-elvis-live",
@@ -621,7 +2233,44 @@
       "description": "The timeless music of the world's most f...\n**Rating:** 4.6\n](https://www.branson.com/shows/jerry-presley-elvis-live/)",
       "image": "assets/thumbs/jerry-presley-elvis-live-thumb.jpg",
       "official_url": "https://www.branson.com/shows/jerry-presley-elvis-live/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "rock",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "Jerry Presley Elvis Live is clearly an Elvis tribute show featuring rock and oldies music from the 50s and 60s, suitable for families and date nights, with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "rock",
+            "oldies-50s",
+            "oldies-60s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "jimmy-fortune",
@@ -634,7 +2283,40 @@
       "description": "The fabulous singer and songwriter, Jimm...\n](https://www.branson.com/shows/jimmy-fortune1/)",
       "image": "assets/thumbs/jimmy-fortune-thumb.jpg",
       "official_url": "https://www.branson.com/shows/jimmy-fortune1/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "Jimmy Fortune is a well-known country singer and songwriter, formerly of The Statler Brothers, making country music and family/date-night audience tags highly likely for a 2-hour indoor show.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "joe-nichols",
@@ -647,7 +2329,40 @@
       "description": "In a career that spans 20 years, \"Nichol...\n](https://www.branson.com/shows/joe-nichols/)",
       "image": "assets/thumbs/joe-nichols-thumb.jpg",
       "official_url": "https://www.branson.com/shows/joe-nichols/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "Joe Nichols is a well-known country music artist with a 20-year career, making this a country music show suitable for families and date nights with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "josh-turner",
@@ -660,7 +2375,38 @@
       "description": "Known for his unmistakable, buttery bari...\n](https://www.branson.com/shows/josh-turner/)",
       "image": "assets/thumbs/josh-turner-thumb.jpg",
       "official_url": "https://www.branson.com/shows/josh-turner/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "Josh Turner is a well-known country music artist famous for his deep baritone voice, making this clearly a country music show suitable for families and date nights with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "kenny-rogers-tribute",
@@ -673,7 +2419,40 @@
       "description": "Tribute to Kenny Rogers (The Gambler).",
       "image": "assets/thumbs/kenny-rogers-tribute-thumb.png",
       "official_url": "https://americanatheatrebranson.com/shows/the_gambler.html",
-      "notes": "Americana Theatre. Official site."
+      "notes": "Americana Theatre. Official site.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.9,
+        "reasoning": "Kenny Rogers is a well-known country music artist, making this clearly a country music tribute show suitable for families and date nights at an indoor theater.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "kentucky-headhunters",
@@ -686,7 +2465,40 @@
       "description": "The Kentucky Headhunters, declared \"the...\n](https://www.branson.com/shows/kentucky-headhunters/)",
       "image": "assets/thumbs/kentucky-headhunters-thumb.jpg",
       "official_url": "https://www.branson.com/shows/kentucky-headhunters/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "rock"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "The Kentucky Headhunters are a well-known country-rock band, making music with country and rock subgenres appropriate, with a typical 2-hour show duration in an indoor venue.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "country",
+            "rock"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "legends-in-concert",
@@ -699,7 +2511,52 @@
       "description": "Legends in Concert, Branson's premier tr...\n**Rating:** 4.4\n](https://www.branson.com/shows/legends-in-concert/)",
       "image": "assets/thumbs/legends-in-concert-thumb.jpg",
       "official_url": "https://www.branson.com/shows/legends-in-concert/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "oldies-70s",
+        "oldies-80s",
+        "pop",
+        "rock",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Legends in Concert is a well-known tribute show featuring impersonators of famous musicians across multiple genres, suitable for families and date nights with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "tribute",
+            "music"
+          ],
+          "music": [
+            "country",
+            "rock",
+            "pop",
+            "oldies-50s",
+            "oldies-60s",
+            "oldies-70s",
+            "oldies-80s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "malpass-brothers-friends",
@@ -712,7 +2569,38 @@
       "description": "The Malpass Brothers toured with the lat...\n](https://www.branson.com/shows/the-malpass-brothers/)",
       "image": "assets/thumbs/malpass-brothers-friends-thumb.jpg",
       "official_url": "https://www.branson.com/shows/the-malpass-brothers/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "The Malpass Brothers are a well-known traditional country music act, and the 2-hour duration fits the 1-2hr tag; family and date-night are reasonable audience assumptions for a country music show in B",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "matt-gumm-and-company",
@@ -725,7 +2613,37 @@
       "description": "This show features Matt Gumm, comedian a...\n](https://www.branson.com/shows/matt-gumm-and-company/)",
       "image": "assets/thumbs/matt-gumm-and-company-thumb.jpg",
       "official_url": "https://www.branson.com/shows/matt-gumm-and-company/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "adult-humor",
+        "comedy",
+        "family",
+        "indoor",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "Matt Gumm is identified as a comedian with a company, suggesting a comedy/variety show with family and adult-humor appeal, running approximately 2 hours indoors.",
+        "categories": {
+          "show": [
+            "comedy",
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "family",
+            "adult-humor"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "melody-hart-the-all-star-band",
@@ -738,7 +2656,42 @@
       "description": "Get ready for a heartwarming and high-en...\n](https://www.branson.com/shows/melody-hart-and-the-all-star-band/)",
       "image": "assets/thumbs/melody-hart-the-all-star-band-thumb.jpg",
       "official_url": "https://www.branson.com/shows/melody-hart-and-the-all-star-band/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "pop",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.6,
+        "reasoning": "The name and 'heartwarming' descriptor suggest a live music variety show with broad appeal, likely country/pop oriented, but limited description prevents higher confidence on subgenres or vibe.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "country",
+            "pop"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "menopause-the-musical",
@@ -751,7 +2704,37 @@
       "description": "Legends in Concert Branson and GFour Pro...\n](https://www.branson.com/shows/menopause-the-musical/)",
       "image": "assets/thumbs/menopause-the-musical-thumb.jpg",
       "official_url": "https://www.branson.com/shows/menopause-the-musical/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "adult-humor",
+        "comedy",
+        "date-night",
+        "indoor",
+        "music"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "Menopause The Musical is a well-known comedy musical show targeting adult women and couples, with adult humor and a typical 2-hour runtime performed indoors.",
+        "categories": {
+          "show": [
+            "music",
+            "comedy"
+          ],
+          "music": [],
+          "audience": [
+            "adult-humor",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "motown-downtown",
@@ -764,7 +2747,44 @@
       "description": "Motown Downtown brings Branson the sound...\n**Rating:** 3\n](https://www.branson.com/shows/motown-downtown/)",
       "image": "assets/thumbs/motown-downtown-thumb.jpg",
       "official_url": "https://www.branson.com/shows/motown-downtown/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-60s",
+        "oldies-70s",
+        "pop",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "Motown music is strongly associated with the 60s and 70s soul/pop sound, making it a tribute music show with broad family and date-night appeal, likely running about 2 hours indoors.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "oldies-60s",
+            "oldies-70s",
+            "pop"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "nashville-roadhouse-live",
@@ -777,7 +2797,48 @@
       "description": "The Winner of more awards than any Singl...\nBuy 1 ticket get second ticket 1/2 Off\nAvailable in 4 for $89 Package\n](https://www.branson.com/shows/nashville-roadhouse-live/)",
       "image": "assets/thumbs/nashville-roadhouse-live-thumb.jpg",
       "official_url": "https://www.branson.com/shows/nashville-roadhouse-live/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "oldies-70s",
+        "oldies-80s",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Nashville Roadhouse Live is an award-winning show likely featuring country and multi-decade oldies music, suitable for families and date nights, with a 2-hour duration placing it in the 1-2hr bracket ",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "country",
+            "oldies-50s",
+            "oldies-60s",
+            "oldies-70s",
+            "oldies-80s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "neal-mccoy",
@@ -790,7 +2851,40 @@
       "description": "Neal McCoy once again graces the Branson...\n**Rating:** 4.9\n](https://www.branson.com/shows/neal-mccoy/)",
       "image": "assets/thumbs/neal-mccoy-thumb.jpg",
       "official_url": "https://www.branson.com/shows/neal-mccoy/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Neal McCoy is a well-known country music artist, so this is clearly a country music show with family and date-night appeal, running approximately 2 hours indoors in Branson.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "new-jersey-nights",
@@ -803,7 +2897,44 @@
       "description": "A slickly choreographed tribute to Frankie Valli and The Four Seasons.",
       "image": "assets/thumbs/new-jersey-nights-thumb.jpg",
       "official_url": "https://www.stubhub.com/E-160844990",
-      "notes": "King's Castle Theatre. Tribute to Frankie Valli and The Four Seasons."
+      "notes": "King's Castle Theatre. Tribute to Frankie Valli and The Four Seasons.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-60s",
+        "pop",
+        "relaxed",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "A tribute show to Frankie Valli and The Four Seasons clearly fits music and tribute categories with 60s pop subgenres, family and date-night appeal, held indoors at King's Castle Theatre with a 2-hour",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "oldies-60s",
+            "pop"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "new-south-gospel",
@@ -816,7 +2947,42 @@
       "description": "New South Gospel in Branson is southern...\n**Rating:** 4.9\n](https://www.branson.com/shows/new-south-gospel/)",
       "image": "assets/thumbs/new-south-gospel-thumb.jpg",
       "official_url": "https://www.branson.com/shows/new-south-gospel/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "family",
+        "gospel",
+        "indoor",
+        "music",
+        "relaxed",
+        "religious"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Name and 'southern gospel' description clearly indicate a gospel music show with family and religious audience appeal, typical indoor 2-hour duration.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "gospel",
+            "country"
+          ],
+          "audience": [
+            "family",
+            "religious"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "orbison-still",
@@ -829,7 +2995,44 @@
       "description": "In Orbison Still, Branson's youngest sol...\n](https://www.branson.com/shows/orbison-still/)",
       "image": "assets/thumbs/orbison-still-thumb.jpg",
       "official_url": "https://www.branson.com/shows/orbison-still/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-60s",
+        "relaxed",
+        "rock",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.72,
+        "reasoning": "Orbison Still is a tribute show to Roy Orbison, featuring his classic rock/pop music from the 1960s, likely appealing to families and date-night audiences in a relaxed indoor setting with a 2-hour dur",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "oldies-60s",
+            "rock"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "outpost-opry-variety-show-w-joey-garland",
@@ -842,7 +3045,38 @@
       "description": "](https://www.branson.com/shows/outpost-opry-variety-show-with-joey-garland/)",
       "image": "assets/thumbs/outpost-opry-variety-show-w-joey-garland-thumb.jpg",
       "official_url": "https://www.branson.com/shows/outpost-opry-variety-show-with-joey-garland/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "family",
+        "indoor",
+        "music",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.6,
+        "reasoning": "An opry-style variety show in Branson strongly suggests country music and family-friendly variety entertainment with a typical 2-hour duration, though limited description reduces confidence.",
+        "categories": {
+          "show": [
+            "variety",
+            "music"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "ozarks-country",
@@ -855,7 +3089,38 @@
       "description": "When the sun goes down, the fun is just...\n**Rating:** 4\n](https://www.branson.com/shows/ozarks-country/)",
       "image": "assets/thumbs/ozarks-country-thumb.jpg",
       "official_url": "https://www.branson.com/shows/ozarks-country/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "family",
+        "indoor",
+        "music",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.72,
+        "reasoning": "The name 'Ozarks Country' and family category strongly suggest a country music variety show with a 2-hour duration, though the truncated description limits full confidence.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "ozarks-gospel",
@@ -868,7 +3133,40 @@
       "description": "Ozarks Gospel combines great music with...\n**Rating:** 4.6\n](https://www.branson.com/shows/ozarks-gospel/)",
       "image": "assets/thumbs/ozarks-gospel-thumb.jpg",
       "official_url": "https://www.branson.com/shows/ozarks-gospel/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "family",
+        "gospel",
+        "indoor",
+        "music",
+        "relaxed",
+        "religious"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "The name and description clearly indicate a gospel music show categorized as family, with a 2-hour duration and likely indoor religious/family-friendly atmosphere.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "gospel"
+          ],
+          "audience": [
+            "family",
+            "religious"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "patsy-to-patsy",
@@ -881,7 +3179,40 @@
       "description": "Patsy to Patsy features the music of Pat...\n**Rating:** 2\n](https://www.branson.com/shows/patsy-to-patsy/)",
       "image": "assets/thumbs/patsy-to-patsy-thumb.jpg",
       "official_url": "https://www.branson.com/shows/patsy-to-patsy/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Patsy to Patsy is clearly a tribute show featuring the music of Patsy Cline, a classic country artist, with a 2-hour duration suitable for families and date nights.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "pierce-arrow-30th-anniversary",
@@ -894,7 +3225,40 @@
       "description": "Pierce Arrow shows take audiences on a m...\n**Rating:** 4.2\nBuy 1 ticket get second ticket 1/2 Off\nAvailable in 4 for $89 Package\n](https://www.branson.com/shows/pierce-arrow-country/)",
       "image": "assets/thumbs/pierce-arrow-30th-anniversary-thumb.jpg",
       "official_url": "https://www.branson.com/shows/pierce-arrow-country/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.8,
+        "reasoning": "Pierce Arrow is a well-known Branson country music and variety show, family-friendly with a typical 2-hour runtime.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "pierce-arrow-gospel",
@@ -907,7 +3271,42 @@
       "description": "Spend your Sunday afternoons with Pierce...\nBuy 1 ticket get second ticket 1/2 Off\nAvailable in 4 for $89 Package\n](https://www.branson.com/shows/pierce-arrow-gospel/)",
       "image": "assets/thumbs/pierce-arrow-gospel-thumb.jpg",
       "official_url": "https://www.branson.com/shows/pierce-arrow-gospel/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "family",
+        "gospel",
+        "indoor",
+        "music",
+        "religious",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Pierce Arrow Gospel is a Sunday gospel music show, strongly suggesting religious and family audience with gospel and likely country music subgenres, indoor setting, and approximately 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "gospel",
+            "country"
+          ],
+          "audience": [
+            "family",
+            "religious"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "pierce-arrow-decades",
@@ -920,7 +3319,46 @@
       "description": "Voted Best NEW SHOW! Pierce Arrow's awa...\n**Rating:** 4.5\nBuy 1 ticket get second ticket 1/2 Off\nAvailable in 4 for $89 Package\n](https://www.branson.com/shows/decades-pierce-arrow/)",
       "image": "assets/thumbs/pierce-arrow-decades-thumb.jpg",
       "official_url": "https://www.branson.com/shows/decades-pierce-arrow/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "oldies-70s",
+        "oldies-80s",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "Pierce Arrow is a well-known Branson variety/music show covering multiple decades, likely spanning 50s-80s music in a family-friendly indoor setting with a ~2hr runtime.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "oldies-50s",
+            "oldies-60s",
+            "oldies-70s",
+            "oldies-80s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "queens-of-soul",
@@ -933,7 +3371,44 @@
       "description": "As the curtain rises, the Queens of Soul...\n](https://www.branson.com/shows/queens-of-soul/)",
       "image": "assets/thumbs/queens-of-soul-thumb.jpg",
       "official_url": "https://www.branson.com/shows/queens-of-soul/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-60s",
+        "oldies-70s",
+        "pop",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.7,
+        "reasoning": "Queens of Soul is a tribute/music show focused on soul music, likely featuring classic hits from the 60s and 70s, with a family and date-night appeal in a typical indoor Branson theater setting.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "pop",
+            "oldies-60s",
+            "oldies-70s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "re-vibe-dinner-show",
@@ -946,7 +3421,46 @@
       "description": "Re-Vibe is a dynamic, family-friendly mu...\n](https://www.branson.com/shows/re-vibe/)",
       "image": "assets/thumbs/re-vibe-dinner-show-thumb.jpg",
       "official_url": "https://www.branson.com/shows/re-vibe/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "food",
+        "indoor",
+        "music",
+        "oldies-70s",
+        "oldies-80s",
+        "pop",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.7,
+        "reasoning": "Re-Vibe is described as a family-friendly music/variety dinner show with a 2-hour duration, likely featuring pop and oldies music given the 'vibe' theme, with food included as a dinner show.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "pop",
+            "oldies-70s",
+            "oldies-80s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "food",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "reza-edge-of-illusion",
@@ -959,7 +3473,37 @@
       "description": "REZA is recognized as one of today's mos...\n**Rating:** 4.5\nBuy 1 ticket get second ticket 1/2 Off\nAvailable in 4 for $89 Package\n](https://www.branson.com/shows/reza-edge-of-illusion/)",
       "image": "assets/thumbs/reza-edge-of-illusion-thumb.jpg",
       "official_url": "https://www.branson.com/shows/reza-edge-of-illusion/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "magic",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "Reza is a well-known magician, making magic and variety the clear show categories, with family and date-night appeal typical of illusion shows in Branson.",
+        "categories": {
+          "show": [
+            "magic",
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "rick-mcewen-presents-the-gambler",
@@ -972,7 +3516,40 @@
       "description": "If you're ready for a night filled with...\n](https://www.branson.com/shows/rick-mcewen-presents-the-gambler/)",
       "image": "assets/thumbs/rick-mcewen-presents-the-gambler-thumb.jpg",
       "official_url": "https://www.branson.com/shows/rick-mcewen-presents-the-gambler/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.72,
+        "reasoning": "The Gambler is a well-known Kenny Rogers song, strongly suggesting this is a country music tribute show with family and date-night appeal, running approximately 2 hours.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "riga-tony-s-murder-mystery-dinner-show",
@@ -985,7 +3562,39 @@
       "description": "Murder mystery dinner shows are entertai...\n](https://www.branson.com/shows/riga-tonys-murder-mystery-dinner-show/)",
       "image": "assets/thumbs/riga-tony-s-murder-mystery-dinner-show-thumb.jpg",
       "official_url": "https://www.branson.com/shows/riga-tonys-murder-mystery-dinner-show/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "2-3hr",
+        "active",
+        "adult-humor",
+        "date-night",
+        "food",
+        "indoor",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.8,
+        "reasoning": "Murder mystery dinner shows are typically adult-oriented variety experiences with food, suitable for date nights, running approximately 2 hours.",
+        "categories": {
+          "show": [
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "adult-humor",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "food",
+            "active",
+            "2-3hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "ripley-s-believe-it-or-not",
@@ -998,7 +3607,40 @@
       "description": "Hundreds of oddities, interactive exhibits, hands-on experiences. Very popular with kids.",
       "image": "assets/logos/ripleys-logo-white.svg",
       "official_url": "https://www.ripleys.com/branson",
-      "notes": "Combo ticket available with Super Fun Park."
+      "notes": "Combo ticket available with Super Fun Park.",
+      "tags": [
+        "1-2hr",
+        "educational",
+        "family",
+        "indoor",
+        "kid-focused",
+        "museum",
+        "relaxed",
+        "under-1hr"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.9,
+        "reasoning": "Ripley's Believe It or Not is a well-known indoor museum attraction with interactive exhibits, clearly family and kid-focused, with a duration around 1 hour fitting under-1hr to 1-2hr range.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "kid-focused"
+          ],
+          "attraction": [
+            "indoor",
+            "museum",
+            "educational",
+            "relaxed",
+            "under-1hr",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "rock-n-roll-sunrise",
@@ -1011,7 +3653,44 @@
       "description": "Rock 'n' Roll Sunrise brings Branson aud...\n](https://www.branson.com/shows/rock-n-roll-sunrise/)",
       "image": "assets/thumbs/rock-n-roll-sunrise-thumb.jpg",
       "official_url": "https://www.branson.com/shows/rock-n-roll-sunrise/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "rock",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "Rock N Roll Sunrise is a music/tribute show focused on rock and roll, likely covering 50s and 60s era music, with a family and date-night appeal, running approximately 2 hours.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "rock",
+            "oldies-50s",
+            "oldies-60s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "separate-journeys",
@@ -1024,7 +3703,37 @@
       "description": "Separate Journeys is a Los Angeles-based...\n](https://www.branson.com/shows/separate-journeys/)",
       "image": "assets/thumbs/separate-journeys-thumb.jpg",
       "official_url": "https://www.branson.com/shows/separate-journeys/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "adult-humor",
+        "date-night",
+        "drama",
+        "indoor",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.45,
+        "reasoning": "Very sparse description mentioning only LA-based origin and 2-hour duration; drama/variety and adult date-night vibe are best guesses with low confidence.",
+        "categories": {
+          "show": [
+            "variety",
+            "drama"
+          ],
+          "music": [],
+          "audience": [
+            "adult-humor",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "shanghai-circus",
@@ -1037,7 +3746,35 @@
       "description": "A thrilling showcase of international acrobatics and strength.",
       "image": "assets/thumbs/shanghai-circus-thumb.jpg",
       "official_url": "https://www.eventticketscenter.com/shanghai-circus-branson-05-22-2026/7769973/t",
-      "notes": "Mickey Gilley Theatre. International acrobats and circus arts. Great for kids."
+      "notes": "Mickey Gilley Theatre. International acrobats and circus arts. Great for kids.",
+      "tags": [
+        "1-2hr",
+        "family",
+        "indoor",
+        "kid-focused",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "Shanghai Circus is a family-friendly variety/acrobatics show held indoors at Mickey Gilley Theatre with a 2-hour duration, great for kids.",
+        "categories": {
+          "show": [
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "family",
+            "kid-focused"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "shepherd-of-the-hills-outdoor-drama",
@@ -1050,7 +3787,37 @@
       "description": "The Shepherd of the Hills Outdoor Drama...\n**Rating:** 4.5\n](https://www.branson.com/shows/shepherd-of-the-hills/)",
       "image": "assets/thumbs/shepherd-of-the-hills-outdoor-drama-thumb.jpg",
       "official_url": "https://www.branson.com/shows/shepherd-of-the-hills/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "2-3hr",
+        "drama",
+        "family",
+        "history",
+        "outdoor",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "The name clearly indicates an outdoor drama production at Shepherd of the Hills, a historic Ozarks story, with a 2-hour duration placing it in the 2-3hr bracket and an outdoor, family-friendly, histor",
+        "categories": {
+          "show": [
+            "drama"
+          ],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "outdoor",
+            "relaxed",
+            "2-3hr",
+            "history"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "shepherd-s-great-american-chuckwagon-dinner-show",
@@ -1063,7 +3830,42 @@
       "description": "A rip roarin' good time! Come enjoy an a...\n](https://www.branson.com/shows/shepherds-great-american-chuckwagon-dinner-show/)",
       "image": "assets/thumbs/shepherd-s-great-american-chuckwagon-dinner-show-thumb.jpg",
       "official_url": "https://www.branson.com/shows/shepherds-great-american-chuckwagon-dinner-show/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "active",
+        "country",
+        "date-night",
+        "family",
+        "food",
+        "half-day",
+        "outdoor",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.8,
+        "reasoning": "Chuckwagon dinner shows are typically outdoor western-themed variety performances with food, family-friendly and date-night appeal, consistent with prior corrections for this venue.",
+        "categories": {
+          "show": [
+            "variety"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "outdoor",
+            "food",
+            "active",
+            "half-day"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "shepherd-s-wild-west-showdown",
@@ -1076,7 +3878,33 @@
       "description": "The wild west is coming to the Shepherd...\n](https://www.branson.com/shows/shepherds-wild-west-showdown/)",
       "image": "assets/thumbs/shepherd-s-wild-west-showdown-thumb.jpg",
       "official_url": "https://www.branson.com/shows/shepherds-wild-west-showdown/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "family",
+        "outdoor",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "Based on the teaching example for Shepherd's Wild West Showdown, the corrected tags are variety, family, 1-2hr, outdoor, matching the human-edited result.",
+        "categories": {
+          "show": [
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "outdoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "silver-dollar-cityand8217-s-showboat",
@@ -1089,7 +3917,35 @@
       "description": "From branson.com source: Branson Showboat",
       "image": "assets/thumbs/silver-dollar-cityand8217-s-showboat-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/silver-dollar-city/",
-      "notes": "INTENTIONAL: slug kept as 'silver-dollar-cityand8217-s-showboat' per Alex 2026-04-21 to preserve underlying data despite display rename to 'Branson Showboat'. Downstream scripts that normalize slugs must use attr.get('image') directly, not reconstruct from slug."
+      "notes": "INTENTIONAL: slug kept as 'silver-dollar-cityand8217-s-showboat' per Alex 2026-04-21 to preserve underlying data despite display rename to 'Branson Showboat'. Downstream scripts that normalize slugs must use attr.get('image') directly, not reconstruct from slug.",
+      "tags": [
+        "2-3hr",
+        "date-night",
+        "family",
+        "indoor",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.7,
+        "reasoning": "Based on the teaching example for Branson Showboat, the corrected tags are variety, family, date-night, indoor, 2-3hr with no music subgenres specified.",
+        "categories": {
+          "show": [
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "2-3hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "six",
@@ -1102,7 +3958,37 @@
       "description": "From branson.com source: SIX",
       "image": "assets/thumbs/six-thumb.jpg",
       "official_url": "https://media.branson.com/images/bcom/shows/six",
-      "notes": "Thumbnail from source HTML div. Added during full parse."
+      "notes": "Thumbnail from source HTML div. Added during full parse.",
+      "tags": [
+        "1-2hr",
+        "adult-humor",
+        "date-night",
+        "indoor",
+        "music",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.7,
+        "reasoning": "SIX is a known Branson music/variety show with adult appeal and date-night vibe, running approximately 2 hours indoors, consistent with prior calibration example.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "adult-humor",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "smoke-on-the-mountain",
@@ -1115,7 +4001,42 @@
       "description": "\"Smoke on the Mountain\" is a Branson bre...\n**Rating:** 3.8\n](https://www.branson.com/shows/smoke-on-the-mountain/)",
       "image": "assets/thumbs/smoke-on-the-mountain-thumb.jpg",
       "official_url": "https://www.branson.com/shows/smoke-on-the-mountain/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "comedy",
+        "country",
+        "family",
+        "gospel",
+        "indoor",
+        "music",
+        "religious"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "Smoke on the Mountain is a well-known musical comedy set in a Baptist church featuring gospel and country music, suitable for families with religious themes, running approximately 2 hours.",
+        "categories": {
+          "show": [
+            "music",
+            "comedy"
+          ],
+          "music": [
+            "gospel",
+            "country"
+          ],
+          "audience": [
+            "family",
+            "religious"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "southern-gospel-sundays-with-the-frosts",
@@ -1128,7 +4049,40 @@
       "description": "The Frosts are proud to announce \"Southe...\n](https://www.branson.com/shows/southern-gospel-sundays-with-the-frosts/)",
       "image": "assets/thumbs/southern-gospel-sundays-with-the-frosts-thumb.jpg",
       "official_url": "https://www.branson.com/shows/southern-gospel-sundays-with-the-frosts/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "family",
+        "gospel",
+        "indoor",
+        "music",
+        "relaxed",
+        "religious"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "Southern Gospel Sundays clearly indicates a gospel music show with religious and family-friendly appeal, approximately 2 hours in duration.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "gospel"
+          ],
+          "audience": [
+            "family",
+            "religious"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "steve-sanders-the-mind-spy",
@@ -1141,7 +4095,37 @@
       "description": "Step into a world where the impossible b...\n](https://www.branson.com/shows/steve-sanders-the-mind-spy/)",
       "image": "assets/thumbs/steve-sanders-the-mind-spy-thumb.jpg",
       "official_url": "https://www.branson.com/shows/steve-sanders-the-mind-spy/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "magic",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "The name 'Mind Spy' strongly suggests a mentalism/magic-based variety show, suitable for families and date nights, with a 2-hour indoor performance.",
+        "categories": {
+          "show": [
+            "variety",
+            "magic"
+          ],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "strait-to-branson-a-george-strait-tribute",
@@ -1154,7 +4138,40 @@
       "description": "Paying tribute to this living legend and...\n](https://www.branson.com/shows/a-george-strait-and-friends-tribute/)",
       "image": "assets/thumbs/strait-to-branson-a-george-strait-tribute-thumb.jpg",
       "official_url": "https://www.branson.com/shows/a-george-strait-and-friends-tribute/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "A George Strait tribute show clearly falls into music/tribute categories with country subgenre, family and date-night appeal, indoor setting, and approximately 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "the-bellamy-brothers",
@@ -1167,7 +4184,40 @@
       "description": "Don't miss out on your chance to see \"Th...\n**Rating:** 4.5\n](https://www.branson.com/shows/the-bellamy-brothers/)",
       "image": "assets/thumbs/the-bellamy-brothers-thumb.jpg",
       "official_url": "https://www.branson.com/shows/the-bellamy-brothers/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "The Bellamy Brothers are a well-known country music duo, making country music and family/date-night audience tags highly appropriate for a 2-hour live show.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "the-duttons",
@@ -1180,7 +4230,38 @@
       "description": "From branson.com source: The Duttons",
       "image": "assets/thumbs/the-duttons-thumb.jpg",
       "official_url": "https://media.branson.com/images/bcom/shows/duttons",
-      "notes": "Thumbnail from source HTML div. Added during full parse."
+      "notes": "Thumbnail from source HTML div. Added during full parse.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "family",
+        "indoor",
+        "music",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.6,
+        "reasoning": "The Duttons are a well-known Branson family music and variety act performing country and mixed genres, suitable for families, in a typical 2-hour indoor show format.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "the-gatlin-brothers",
@@ -1193,7 +4274,38 @@
       "description": "Larry Gatlin & The Gatlin Brothers perfo...\n**Rating:** 3.8\n](https://www.branson.com/shows/gatlin-brothers/)",
       "image": "assets/thumbs/the-gatlin-brothers-thumb.jpg",
       "official_url": "https://www.branson.com/shows/gatlin-brothers/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "The Gatlin Brothers are a well-known country music act, making country and music tags clear, with a family and date-night audience typical for Branson country shows and a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "the-haygoods",
@@ -1206,7 +4318,42 @@
       "description": "From branson.com source: The Haygoods",
       "image": "assets/thumbs/the-haygoods-thumb.jpg",
       "official_url": "https://media.branson.com/images/bcom/shows/haygoods",
-      "notes": "Thumbnail from source HTML div. Added during full parse."
+      "notes": "Thumbnail from source HTML div. Added during full parse.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "pop",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.7,
+        "reasoning": "The Haygoods are a well-known Branson family music and variety act performing country and pop, appealing to families and couples, in an indoor 2-hour show format.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "country",
+            "pop"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "the-heatherlys-hits-on-route-66",
@@ -1219,7 +4366,46 @@
       "description": "Show from Americana Theatre.",
       "image": "assets/thumbs/hits-on-route-66-thumb.png",
       "official_url": "https://americanatheatrebranson.com/images/icon-th.png",
-      "notes": "Official thumbnail added. Details from provided site."
+      "notes": "Official thumbnail added. Details from provided site.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "oldies-70s",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.55,
+        "reasoning": "Route 66 theme suggests Americana-style music spanning multiple decades with country and oldies, likely family-friendly, but sparse description limits confidence.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "country",
+            "oldies-50s",
+            "oldies-60s",
+            "oldies-70s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "the-mountain-hollers-family-band",
@@ -1232,7 +4418,42 @@
       "description": "With roots deep in the Ozarks, The Mount...\n](https://www.branson.com/shows/the-mountain-hollers-family-band/)",
       "image": "assets/thumbs/the-mountain-hollers-family-band-thumb.jpg",
       "official_url": "https://www.branson.com/shows/the-mountain-hollers-family-band/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "bluegrass",
+        "country",
+        "family",
+        "indoor",
+        "music",
+        "relaxed",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "The Ozarks roots and family band name strongly suggest country/bluegrass music in a family-friendly variety show format with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "country",
+            "bluegrass"
+          ],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "the-petersens",
@@ -1245,7 +4466,40 @@
       "description": "The Petersens are an award-winning blueg...\n**Rating:** 5\n](https://www.branson.com/shows/the-petersens/)",
       "image": "assets/thumbs/the-petersens-thumb.jpg",
       "official_url": "https://www.branson.com/shows/the-petersens/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "bluegrass",
+        "country",
+        "family",
+        "indoor",
+        "music",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "The Petersens are a well-known award-winning bluegrass family band, making music, bluegrass, family, and indoor tags highly appropriate for a 2-hour show.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "bluegrass",
+            "country"
+          ],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "the-revollusionists",
@@ -1258,7 +4512,37 @@
       "description": "From branson.com source: The Revollusionists",
       "image": "assets/thumbs/the-revollusionists-thumb.jpg",
       "official_url": "https://media.branson.com/images/bcom/shows/the-revollusionists",
-      "notes": "Thumbnail from source HTML div. Added during full parse."
+      "notes": "Thumbnail from source HTML div. Added during full parse.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "magic",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.6,
+        "reasoning": "Based on the teaching example for The Revollusionists, the show is a variety/magic show with family and date-night appeal, running approximately 2 hours indoors.",
+        "categories": {
+          "show": [
+            "variety",
+            "magic"
+          ],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "the-sons-of-britches",
@@ -1271,7 +4555,48 @@
       "description": "Sing along to the tunes you know and lov...\n**Rating:** 4.7\n](https://www.branson.com/shows/the-sons-of-britches/)",
       "image": "assets/thumbs/the-sons-of-britches-thumb.jpg",
       "official_url": "https://www.branson.com/shows/the-sons-of-britches/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "oldies-70s",
+        "oldies-80s",
+        "relaxed",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "Sing-along format with familiar tunes suggests a variety/music show spanning multiple decades, family and date-night friendly, with a 2-hour duration fitting the 1-2hr bracket based on teaching exampl",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "oldies-50s",
+            "oldies-60s",
+            "oldies-70s",
+            "oldies-80s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "the-sound-of-simon-garfunkel",
@@ -1284,7 +4609,45 @@
       "description": "\"The Sound of Simon and Garfunkel\" pays...\nBuy 1 ticket get second ticket 1/2 Off\n](https://www.branson.com/shows/the-sound-of-simon-and-garfunkel/)",
       "image": "assets/thumbs/the-sound-of-simon-garfunkel-thumb.jpg",
       "official_url": "https://www.branson.com/shows/the-sound-of-simon-and-garfunkel/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-60s",
+        "oldies-70s",
+        "relaxed",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Simon & Garfunkel tribute show featuring their classic folk-pop music primarily from the 60s and 70s, likely appealing to families and couples in a relaxed indoor setting with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "oldies-60s",
+            "oldies-70s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21",
+        "warnings": "music_subgenres: unknown 'folk'"
+      }
     },
     {
       "slug": "the-texas-tenors",
@@ -1297,7 +4660,44 @@
       "description": "The Texas Tenors, the extremely talented...\n**Rating:** 4.9\n](https://www.branson.com/shows/the-texas-tenors/)",
       "image": "assets/thumbs/the-texas-tenors-thumb.jpg",
       "official_url": "https://www.branson.com/shows/the-texas-tenors/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "classical",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "pop",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "The Texas Tenors are a well-known vocal trio blending country, pop, and classical styles in a live performance setting, appealing to families and couples with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "country",
+            "pop",
+            "classical"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "tracy-byrd",
@@ -1310,7 +4710,38 @@
       "description": "Tracy Byrd became a household name on th...\n](https://www.branson.com/shows/tracy-byrd/)",
       "image": "assets/thumbs/tracy-byrd-thumb.jpg",
       "official_url": "https://www.branson.com/shows/tracy-byrd/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "country",
+        "date-night",
+        "family",
+        "indoor",
+        "music"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "Tracy Byrd is a well-known country music artist, so this is clearly a country music show suitable for families and date nights with a 2-hour duration.",
+        "categories": {
+          "show": [
+            "music"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "ultimate-70s-show",
@@ -1323,7 +4754,44 @@
       "description": "Nostalgic 1970s pop and rock journey (often with Dancing Queen).",
       "image": "assets/thumbs/ultimate-70s-show-thumb.jpg",
       "official_url": "https://www.kingscastletheatre.com/whats-on/view/?permalink=the-ultimate-70s-show--dancing-queen-167468467363d1a9010d98063d1a9010d987",
-      "notes": "King's Castle Theatre. Official site."
+      "notes": "King's Castle Theatre. Official site.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-70s",
+        "pop",
+        "rock",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "A tribute-style music show focused on 1970s pop and rock hits performed at an indoor theatre with a 2-hour duration, appealing to families and couples.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "oldies-70s",
+            "pop",
+            "rock"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "ultimate-elvis-contest-headliner-act-cote-deonath",
@@ -1336,7 +4804,44 @@
       "description": "Cote Deonath is a world-renowned Elvis T...\n](https://www.branson.com/shows/ultimate-elvis-contest-headliner-cote-deonath/)",
       "image": "assets/thumbs/ultimate-elvis-contest-headliner-act-cote-deonath-thumb.jpg",
       "official_url": "https://www.branson.com/shows/ultimate-elvis-contest-headliner-cote-deonath/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "family",
+        "indoor",
+        "music",
+        "oldies-50s",
+        "oldies-60s",
+        "rock",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "An Elvis tribute act clearly falls under music and tribute categories with rock and oldies-50s/60s subgenres, family and date-night appeal, indoor venue, and 2-hour duration.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "rock",
+            "oldies-50s",
+            "oldies-60s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "where-jesus-walked-immersive",
@@ -1349,7 +4854,39 @@
       "description": "Immerse yourself in a virtual visit to t...\n](https://www.branson.com/shows/where-jesus-walked-immersive/)",
       "image": "assets/thumbs/where-jesus-walked-immersive-thumb.jpg",
       "official_url": "https://www.branson.com/shows/where-jesus-walked-immersive/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "educational",
+        "family",
+        "indoor",
+        "relaxed",
+        "religious",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.8,
+        "reasoning": "An immersive virtual experience about Jesus's life is clearly religious and educational, suitable for families, and fits a 2-hour indoor relaxed format.",
+        "categories": {
+          "show": [
+            "variety"
+          ],
+          "music": [],
+          "audience": [
+            "family",
+            "religious"
+          ],
+          "attraction": [
+            "indoor",
+            "educational",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "whodunnit-hoedown-murder-mystery-dinner-show",
@@ -1362,7 +4899,46 @@
       "description": "Looking for a great family dinner show t...\n](https://www.branson.com/shows/whodunnit-hoedown-murder-mystery-dinner-show/)",
       "image": "assets/thumbs/whodunnit-hoedown-murder-mystery-dinner-show-thumb.jpg",
       "official_url": "https://www.branson.com/shows/whodunnit-hoedown-murder-mystery-dinner-show/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "active",
+        "adult-humor",
+        "comedy",
+        "country",
+        "date-night",
+        "family",
+        "food",
+        "indoor",
+        "variety"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "A murder mystery dinner show with a hoedown theme suggests country music, comedy/variety format, family-friendly with some adult humor, indoor dining, and approximately 2-hour duration.",
+        "categories": {
+          "show": [
+            "variety",
+            "comedy"
+          ],
+          "music": [
+            "country"
+          ],
+          "audience": [
+            "family",
+            "adult-humor",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "food",
+            "active",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "zep-la",
@@ -1375,7 +4951,46 @@
       "description": "Zep-LA is a powerhouse 60s, 70s, and 80s...\n](https://www.branson.com/shows/zep-la/)",
       "image": "assets/thumbs/zep-la-thumb.jpg",
       "official_url": "https://www.branson.com/shows/zep-la/",
-      "notes": "From branson.com source. Starting at $Varies."
+      "notes": "From branson.com source. Starting at $Varies.",
+      "tags": [
+        "1-2hr",
+        "adult-humor",
+        "date-night",
+        "indoor",
+        "music",
+        "oldies-60s",
+        "oldies-70s",
+        "oldies-80s",
+        "rock",
+        "tribute"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "Zep-LA is clearly a Led Zeppelin tribute rock show covering the 60s-80s era, likely appealing to adult and date-night audiences with a standard 2-hour show duration.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "rock",
+            "oldies-60s",
+            "oldies-70s",
+            "oldies-80s"
+          ],
+          "audience": [
+            "adult-humor",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "butterfly-palace-rainforest-adventure",
@@ -1387,7 +5002,38 @@
       "description": "Branson's Butterfly Palace & Rainforest Adventure featuring thousands of live butterflies, a rainforest habitat, and interactive exhibits.",
       "image": "assets/thumbs/butterfly-palace-rainforest-adventure-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/butterfly-palace-rainforest-adventure/",
-      "notes": "Processed from 2026 Branson Attractions html.md using standardized Safari headers. Added April 19, 2026."
+      "notes": "Processed from 2026 Branson Attractions html.md using standardized Safari headers. Added April 19, 2026.",
+      "tags": [
+        "1-2hr",
+        "animals",
+        "educational",
+        "family",
+        "indoor",
+        "kid-focused",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "A butterfly palace with live butterflies, rainforest habitat, and interactive exhibits is clearly a family/kid-focused indoor educational attraction with animals, fitting a 2-hour duration.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "kid-focused"
+          ],
+          "attraction": [
+            "indoor",
+            "animals",
+            "educational",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "copperhead-mountain-coaster",
@@ -1399,7 +5045,36 @@
       "description": "Branson's longest downhill mountain coaster with thrilling turns and scenic views.",
       "image": "assets/thumbs/copperhead-mountain-coaster-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/copperhead-mountain-coaster/",
-      "notes": "Processed from 2026 Branson Attractions html.md using standardized Safari headers. Added April 19, 2026."
+      "notes": "Processed from 2026 Branson Attractions html.md using standardized Safari headers. Added April 19, 2026.",
+      "tags": [
+        "date-night",
+        "family",
+        "outdoor",
+        "ride",
+        "thrill",
+        "under-1hr"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.92,
+        "reasoning": "A downhill mountain coaster is clearly an outdoor thrill ride suitable for families and couples, with a 0.5h duration placing it under-1hr.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "outdoor",
+            "ride",
+            "thrill",
+            "under-1hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "fritzs-adventure",
@@ -1411,7 +5086,36 @@
       "description": "Adventure park with ropes courses, climbing, and zip lines.",
       "image": "assets/thumbs/fritzs-adventure-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/fritzs-adventure/",
-      "notes": "Processed from 2026 Branson Attractions html.md using standardized Safari headers. Added April 19, 2026."
+      "notes": "Processed from 2026 Branson Attractions html.md using standardized Safari headers. Added April 19, 2026.",
+      "tags": [
+        "1-2hr",
+        "active",
+        "family",
+        "indoor",
+        "outdoor",
+        "thrill"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "Fritz's Adventure is an adventure park with ropes courses, climbing, and zip lines, clearly family-oriented with active and thrill elements; the 2-hour duration fits 1-2hr, and the facility is known t",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "outdoor",
+            "active",
+            "thrill",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "bransons-wild-world",
@@ -1423,7 +5127,40 @@
       "description": "Zoo and animal encounters with many exotic animals.",
       "image": "assets/thumbs/bransons-wild-world-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/bransons-wild-world/",
-      "notes": "Processed from 2026 Branson Attractions html.md using standardized Safari headers. Added April 19, 2026."
+      "notes": "Processed from 2026 Branson Attractions html.md using standardized Safari headers. Added April 19, 2026.",
+      "tags": [
+        "1-2hr",
+        "animals",
+        "educational",
+        "family",
+        "indoor",
+        "kid-focused",
+        "outdoor",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "A zoo and animal encounter attraction is clearly family and kid-focused with animals and educational tags; indoor/outdoor mix is typical for zoos, and the 2-hour duration maps to 1-2hr.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "kid-focused"
+          ],
+          "attraction": [
+            "indoor",
+            "outdoor",
+            "animals",
+            "educational",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "titanic-museum-attraction",
@@ -1435,7 +5172,40 @@
       "description": "Interactive museum telling the story of the Titanic with real artifacts.",
       "image": "assets/thumbs/titanic-museum-branson-thumb.jpg",
       "official_url": "https://www.titanicbranson.com/",
-      "notes": "Thumbnail updated from official site. Name and sorting fixed to match show conventions (ignores leading articles). Updated April 19, 2026."
+      "notes": "Thumbnail updated from official site. Name and sorting fixed to match show conventions (ignores leading articles). Updated April 19, 2026.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "educational",
+        "family",
+        "history",
+        "indoor",
+        "museum",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.92,
+        "reasoning": "The Titanic Museum is a well-known indoor museum attraction featuring real artifacts and interactive exhibits focused on the historical Titanic disaster, clearly educational and history-oriented with ",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "museum",
+            "relaxed",
+            "educational",
+            "history",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "adventure-seekers",
@@ -1447,7 +5217,30 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/adventure-seekers-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/adventure-seekers/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "active",
+        "family"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.35,
+        "reasoning": "The name 'Adventure Seekers' implies an active, likely family-oriented attraction, but the description provides no detail about indoor/outdoor, theme, or specific activity type, so confidence is low.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "active",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "aquarium-at-the-boardwalk",
@@ -1459,7 +5252,38 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/aquarium-at-the-boardwalk-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/aquarium-at-the-boardwalk/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "animals",
+        "educational",
+        "family",
+        "indoor",
+        "kid-focused",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "An aquarium attraction is almost certainly indoor, family/kid-focused, educational, and features animals, with a 2-hour duration matching the 1-2hr tag.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "kid-focused"
+          ],
+          "attraction": [
+            "indoor",
+            "educational",
+            "relaxed",
+            "animals",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "branson-dinosaur-museum",
@@ -1471,7 +5295,38 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/branson-dinosaur-museum-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/branson-dinosaur-museum/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "animals",
+        "educational",
+        "family",
+        "history",
+        "indoor",
+        "museum"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "Dinosaur museums are consistently indoor, educational, family-friendly attractions with fossil/animal exhibits and history elements; 2-hour duration maps to 1-2hr tag.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "educational",
+            "museum",
+            "history",
+            "animals",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "branson-scenic-railway",
@@ -1483,7 +5338,40 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/branson-scenic-railway-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/branson-scenic-railway/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "educational",
+        "family",
+        "history",
+        "outdoor",
+        "relaxed",
+        "ride"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.7,
+        "reasoning": "Scenic railway tours are typically outdoor, relaxed rides with historical/educational elements suitable for families and couples, with a 2-hour duration matching the 1-2hr tag.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "outdoor",
+            "ride",
+            "relaxed",
+            "educational",
+            "history",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "branson-hills-golf-club",
@@ -1495,7 +5383,36 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/branson-hills-golf-club-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/branson-hills-golf-club/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "active",
+        "date-night",
+        "family",
+        "half-day",
+        "outdoor"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.7,
+        "reasoning": "Golf club is clearly an outdoor active attraction; family and date-night are reasonable audience assumptions for a golf course, with 2-hour duration fitting 1-2hr tag.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "outdoor",
+            "active",
+            "half-day",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "branson-duck-tours",
@@ -1507,7 +5424,36 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/branson-duck-tours-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/branson-duck-tours/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "active",
+        "date-night",
+        "family",
+        "outdoor",
+        "ride"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "Duck tours are well-known land-and-water vehicle tours, family and date-night friendly, outdoor, and typically run around 1-2 hours based on the listed duration.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "outdoor",
+            "ride",
+            "active",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "branson-zipline-at-wolfe-mountain",
@@ -1519,7 +5465,38 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/branson-zipline-at-wolfe-mountain-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/branson-zipline-at-wolfe-mountain/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "active",
+        "date-night",
+        "family",
+        "half-day",
+        "outdoor",
+        "thrill"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.72,
+        "reasoning": "Zipline attractions are outdoor, active, and thrilling experiences typically appealing to families and couples, with a 2-hour duration fitting the 1-2hr and half-day tags.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "outdoor",
+            "active",
+            "thrill",
+            "half-day",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "coral-reef-mini-golf",
@@ -1531,7 +5508,36 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/coral-reef-mini-golf-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/coral-reef-mini-golf/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "active",
+        "date-night",
+        "family",
+        "outdoor",
+        "under-1hr"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.6,
+        "reasoning": "Mini golf is typically an outdoor, family and date-night activity with a duration fitting under 1-2 hours, though the coral reef theme and indoor/outdoor nature is uncertain from the sparse descriptio",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "outdoor",
+            "active",
+            "under-1hr",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "hollywood-wax-museum-entertainment-center",
@@ -1543,7 +5549,36 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/hollywood-wax-museum-entertainment-center-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/hollywood-wax-museum-entertainment-center/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "educational",
+        "family",
+        "indoor",
+        "museum",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.72,
+        "reasoning": "Hollywood Wax Museums are well-known indoor wax figure museums that are family-friendly and typically take 1-2 hours to explore.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "museum",
+            "relaxed",
+            "educational",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "ozark-hills-winery-wine-tasting",
@@ -1555,7 +5590,34 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/ozark-hills-winery-wine-tasting-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/ozark-hills-winery-wine-tasting/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "date-night",
+        "food",
+        "indoor",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.7,
+        "reasoning": "Wine tasting is a relaxed, date-night-oriented food activity typically held indoors, with a 2-hour duration matching the 1-2hr tag.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "relaxed",
+            "food",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "ozarks-aglow-nighttime-walk",
@@ -1567,7 +5629,32 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/ozarks-aglow-nighttime-walk-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/ozarks-aglow-nighttime-walk/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "educational",
+        "family",
+        "outdoor"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.6,
+        "reasoning": "Based on the name and prior teaching example, Ozarks Aglow Nighttime Walk is a family-friendly outdoor walk; duration of 2h maps to 1-2hr tag.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "outdoor",
+            "educational",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "parakeet-pete-s",
@@ -1579,7 +5666,32 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/parakeet-pete-s-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/parakeet-pete-s/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "animals",
+        "family",
+        "outdoor"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.45,
+        "reasoning": "The name 'Parakeet Pete's' strongly implies an animal-based attraction (parakeets), likely outdoor and family-friendly, with a 2-hour duration, but the sparse description limits confidence.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "animals",
+            "outdoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "pink-jeep-tours",
@@ -1591,7 +5703,36 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/pink-jeep-tours-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/pink-jeep-tours/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "active",
+        "date-night",
+        "family",
+        "outdoor",
+        "ride"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.6,
+        "reasoning": "Pink Jeep Tours are well-known guided off-road/sightseeing jeep tours, typically outdoor and active with family and date-night appeal, and the 2-hour duration maps to 1-2hr.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "outdoor",
+            "ride",
+            "active",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "retromania",
@@ -1603,7 +5744,30 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/retromania-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/retromania/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "family",
+        "indoor"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.4,
+        "reasoning": "The name 'Retromania' suggests a retro-themed attraction with a 2-hour duration, but the sparse description provides insufficient detail to confidently assign specific tags beyond duration and a gener",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "runaway-mountain-coaster",
@@ -1615,7 +5779,36 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/runaway-mountain-coaster-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/runaway-mountain-coaster/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "date-night",
+        "family",
+        "outdoor",
+        "ride",
+        "thrill",
+        "under-1hr"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.7,
+        "reasoning": "Mountain coasters are outdoor thrill rides typically suitable for families and couples, with individual runs lasting well under an hour despite a listed 2h visit window.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "outdoor",
+            "ride",
+            "thrill",
+            "under-1hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "shepherd-of-the-hills-historic-homestead-tour",
@@ -1627,7 +5820,36 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/shepherd-of-the-hills-historic-homestead-tour-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/shepherd-of-the-hills-historic-homestead-tour/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "educational",
+        "family",
+        "history",
+        "outdoor",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.7,
+        "reasoning": "The Shepherd of the Hills Historic Homestead Tour is likely an outdoor, educational, historically-focused attraction based on its name and 2-hour duration, consistent with similar Shepherd of the Hill",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "outdoor",
+            "educational",
+            "history",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "shepherd-of-the-hills-vigilante-extreme-ziprider",
@@ -1639,7 +5861,38 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/shepherd-of-the-hills-vigilante-extreme-ziprider-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/shepherd-of-the-hills-vigilante-extreme-ziprider/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "active",
+        "date-night",
+        "family",
+        "outdoor",
+        "ride",
+        "thrill"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "A ZipRider is clearly an outdoor thrill ride attraction; family and date-night appeal is typical for this type of activity, and the 2-hour duration maps to 1-2hr.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "outdoor",
+            "ride",
+            "thrill",
+            "active",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "shepherd-of-the-hills-great-woodsman-canopy-tours",
@@ -1651,7 +5904,36 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/shepherd-of-the-hills-great-woodsman-canopy-tours-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/shepherd-of-the-hills-great-woodsman-canopy-tours/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "2-3hr",
+        "active",
+        "date-night",
+        "family",
+        "outdoor",
+        "thrill"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.65,
+        "reasoning": "Canopy tours are outdoor, active, and thrilling zip-line style attractions typically appealing to families and couples, with a 2-hour duration placing it in the 2-3hr bracket.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "outdoor",
+            "active",
+            "thrill",
+            "2-3hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "shepherd-of-the-hills-north-pole-adventure",
@@ -1663,7 +5945,32 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/shepherd-of-the-hills-north-pole-adventure-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/shepherd-of-the-hills-north-pole-adventure/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "educational",
+        "family",
+        "outdoor"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.6,
+        "reasoning": "Based on the teaching example for Shepherd of the Hills - North Pole Adventure, the corrected tags are family, outdoor, educational, and given the 2h duration noted, 1-2hr is added.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "outdoor",
+            "educational",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "shepherd-of-the-hills-inspiration-tower",
@@ -1675,7 +5982,34 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/shepherd-of-the-hills-inspiration-tower-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/shepherd-of-the-hills-inspiration-tower/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "educational",
+        "family",
+        "outdoor",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.7,
+        "reasoning": "Based on the teaching example for this same attraction, the corrected tags are outdoor, educational, relaxed, and 1-2hr for the Shepherd of the Hills Inspiration Tower.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "outdoor",
+            "educational",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "silver-dollar-city",
@@ -1687,7 +6021,42 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/silver-dollar-city-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/silver-dollar-city/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "active",
+        "all-day",
+        "family",
+        "food",
+        "half-day",
+        "outdoor",
+        "ride",
+        "shopping",
+        "thrill"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.72,
+        "reasoning": "Silver Dollar City is a well-known Branson theme park with rides, shows, food, and shopping, primarily family-oriented and outdoor, though the sparse description limits precision on duration and subge",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "outdoor",
+            "ride",
+            "thrill",
+            "active",
+            "food",
+            "shopping",
+            "half-day",
+            "all-day"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "snowflex-tubing-at-wolfe-mountain",
@@ -1699,7 +6068,34 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/snowflex-tubing-at-wolfe-mountain-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/snowflex-tubing-at-wolfe-mountain/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "active",
+        "family",
+        "outdoor",
+        "thrill"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.7,
+        "reasoning": "Snowflex tubing is an outdoor snow tubing activity on a hill, suitable for families with thrill elements, and the duration is listed as 2 hours.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "outdoor",
+            "active",
+            "thrill",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "the-social-birdy-putting-golf",
@@ -1711,7 +6107,34 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/the-social-birdy-putting-golf-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/the-social-birdy-putting-golf/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "active",
+        "date-night",
+        "family",
+        "outdoor"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "Based on the name 'Social Birdy Putting Golf' and 2-hour duration, this is a putting golf attraction suitable for families and date nights, likely outdoor based on prior corrections to similar attract",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "outdoor",
+            "active",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "truth-traveler",
@@ -1723,7 +6146,36 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/truth-traveler-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/truth-traveler/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "educational",
+        "family",
+        "indoor",
+        "relaxed",
+        "religious"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.45,
+        "reasoning": "The name 'Truth Traveler' suggests an immersive or educational religious/faith-based experience common in Branson, but the sparse description limits confidence in specific tags.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "religious"
+          ],
+          "attraction": [
+            "indoor",
+            "educational",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "veterans-memorial-museum",
@@ -1735,7 +6187,39 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/veterans-memorial-museum-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/veterans-memorial-museum/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "educational",
+        "family",
+        "history",
+        "indoor",
+        "museum",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.82,
+        "reasoning": "A veterans memorial museum is clearly an indoor, educational, history-focused museum attraction with a relaxed family-friendly vibe and a stated 2-hour duration.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "museum",
+            "educational",
+            "relaxed",
+            "history",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21",
+        "warnings": "audience_vibe: unknown 'educational'"
+      }
     },
     {
       "slug": "white-water",
@@ -1747,7 +6231,34 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/white-water-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/white-water/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "all-day",
+        "family",
+        "half-day",
+        "outdoor",
+        "water"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "White Water is a well-known Branson water park suitable for families, with all-day and half-day visit options based on prior calibration.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "outdoor",
+            "water",
+            "all-day",
+            "half-day"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "wonderworks",
@@ -1759,7 +6270,38 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/wonderworks-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/wonderworks/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "active",
+        "educational",
+        "family",
+        "indoor",
+        "kid-focused",
+        "thrill"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.72,
+        "reasoning": "WonderWorks is a well-known interactive science-based attraction chain with hands-on exhibits appealing to families and kids, typically indoors with a 2-hour duration.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "kid-focused"
+          ],
+          "attraction": [
+            "indoor",
+            "active",
+            "educational",
+            "thrill",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     },
     {
       "slug": "world-s-largest-toy-museum-complex",
@@ -1771,7 +6313,38 @@
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/world-s-largest-toy-museum-complex-thumb.jpg",
       "official_url": "https://www.branson.com/attractions/world-s-largest-toy-museum-complex/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19."
+      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "tags": [
+        "1-2hr",
+        "educational",
+        "family",
+        "indoor",
+        "kid-focused",
+        "museum",
+        "relaxed"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.75,
+        "reasoning": "A toy museum complex is clearly family and kid-focused, indoor, educational, and museum-type with a 2-hour duration indicated.",
+        "categories": {
+          "show": [],
+          "music": [],
+          "audience": [
+            "family",
+            "kid-focused"
+          ],
+          "attraction": [
+            "indoor",
+            "museum",
+            "relaxed",
+            "educational",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-04-21"
+      }
     }
   ],
   "last_updated": "2026-04-19T03:34:07.090437",
