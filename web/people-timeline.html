@@ -79,7 +79,7 @@
   <div class="page-hero">
     <p class="eyebrow">Branson '26</p>
     <h1>People &amp; Timeline</h1>
-    <p class="hero-sub">Arrival and departure windows for all 26 attendees.</p>
+    <p class="hero-sub">26 attendees • ages verified from Apple Contacts • May 22-29, 2026</p>
   </div>
 
   <div style="background:var(--color-surface);border:1.5px solid var(--color-line);border-radius:var(--radius-card);box-shadow:var(--shadow-1);padding:20px 24px;margin-bottom:20px;">
@@ -92,65 +92,116 @@
     <div id="attendee-list" style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px 24px;font-size:var(--text-sm);color:var(--color-ink-dim);"></div>
   </div>
 
-  <p style="text-align:center;color:var(--color-ink-dim);font-size:var(--text-xs);margin-top:48px;">
-    People page • Data from Test Vacation Checklist.md • iMessage is primary
-  </p>
 </main>
 
-    <script>
-        function loadData() {
-            const days = ['Fri 22', 'Sat 23', 'Sun 24', 'Mon 25', 'Tue 26', 'Wed 27', 'Thu 28', 'Fri 29'];
-            document.getElementById('timeline-header').innerHTML = days.map(d =>
-                `<div class="day">${d}</div>`
-            ).join('');
+<script>
+  function loadData() {
+    const days = ['Fri 22','Sat 23','Sun 24','Mon 25','Tue 26','Wed 27','Thu 28','Fri 29'];
+    document.getElementById('timeline-header').innerHTML = days.map(d =>
+      `<div class="day">${d}</div>`
+    ).join('');
 
-            const timelineDiv = document.getElementById('timeline-bars');
-            const order = ['most_people', 'ashlyn', 'bee', 'kevin', 'evie_ray'];
-            const colors = ['var(--status-yes)', 'var(--status-wishlist)', 'var(--accent-sand)', 'var(--accent-dusk)', 'var(--accent-clay)'];
-            const names = ['Most People', 'Ashlyn', 'Bee', 'Kevin', 'Evie & Ray'];
-            const labels = ['Full Week (22-29)', 'Arrives Sat 23', 'Departs Tue 26', 'Departs Wed 27 • ATV early', 'Full Week'];
-            const starts = [22, 23, 22, 22, 22];
-            const ends = [29, 29, 26, 27, 29];
+    fetch('people.json')
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(data => {
+        const tripStart = data.trip_start;
+        const tripEnd   = data.trip_end;
+        const tripStartDay = new Date(tripStart).getDate(); // 22
+        const totalDays = 8; // May 22 through May 29 inclusive
 
-            let html = '';
-            order.forEach((key, i) => {
-                const startDay = starts[i];
-                const endDay = ends[i];
-                const widthPct = ((endDay - startDay + 1) / 8) * 100;
-                const marginLeft = ((startDay - 22) / 8) * 100;
+        // --- Gantt bars ---
+        const fullWeek  = data.attendees.filter(p => p.arrival === tripStart && p.departure === tripEnd);
+        const lateArr   = data.attendees.filter(p => p.arrival !== tripStart);
+        const dep26     = data.attendees.filter(p => p.departure < tripEnd && p.departure === '2026-05-26');
+        const dep27     = data.attendees.filter(p => p.departure < tripEnd && p.departure === '2026-05-27');
 
-                html += `
-                    <div>
-                        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
-                            <span style="font-weight:600;color:${colors[i]}">${names[i]}</span>
-                            <span style="font-size:var(--text-sm);color:${colors[i]}">${labels[i]}</span>
-                        </div>
-                        <div class="bar-container">
-                            <div class="bar" style="width: ${widthPct}%; margin-left: ${marginLeft}%; background: ${colors[i]}"></div>
-                        </div>
-                    </div>
-                `;
-            });
-            timelineDiv.innerHTML = html;
-
-            const attendees = [
-                "Adrian (10)", "Alex (57)", "Ashlyn (28)", "Bee (19)", "Brian (55)", "Bug (9)", "David (18)",
-                "Dez (26)", "Evie (74)", "Georgie (6)", "Jackson (12)", "Jacob (32)", "Jordan (45)", "Josh (45)",
-                "Kevin (29)", "Lucy (16)", "McKinley (16)", "Mel (54)", "Mycah (21)", "Natalie (19)", "Rachel (30)",
-                "Ray (74)", "Simran (24)", "Skylar (29)", "Tayden (21)", "Zach (25)"
-            ];
-            const spans = { 'Bee': 'May 22–26', 'Ashlyn': 'May 23–29', 'Kevin': 'May 22–27' };
-            document.getElementById('attendee-count').textContent = attendees.length;
-            document.getElementById('attendee-list').innerHTML = attendees.map(a => {
-                const name = a.split(' (')[0];
-                const href = 'profile.html?name=' + encodeURIComponent(name);
-                const span = spans[name] || 'May 22–29';
-                return `<div><a href="${href}" class="attendee-link">${a}</a><span style="font-size:11px;color:var(--color-ink-dim);margin-left:8px;">${span}</span></div>`;
-            }).join('');
+        function barPct(arrival, departure) {
+          const startOff = new Date(arrival).getDate() - tripStartDay;
+          const dur      = (new Date(departure) - new Date(arrival)) / 86400000 + 1;
+          return {
+            width:      (dur      / totalDays) * 100,
+            marginLeft: (startOff / totalDays) * 100
+          };
         }
 
-        window.onload = loadData;
-    </script>
+        function groupLabel(people) {
+          return people.map(p => p.display_name).join(', ');
+        }
+
+        const groups = [];
+
+        if (fullWeek.length) {
+          const { width, marginLeft } = barPct(tripStart, tripEnd);
+          groups.push({
+            name:  'Most Attendees',
+            label: `Full week • ${groupLabel(fullWeek)}`,
+            color: 'var(--status-yes)',
+            width, marginLeft
+          });
+        }
+
+        lateArr.forEach(p => {
+          const { width, marginLeft } = barPct(p.arrival, p.departure);
+          const arrDate = new Date(p.arrival);
+          const dayName = arrDate.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', timeZone: 'UTC' });
+          groups.push({
+            name:  p.display_name,
+            label: `Arrives ${dayName}`,
+            color: 'var(--status-wishlist)',
+            width, marginLeft
+          });
+        });
+
+        dep26.forEach(p => {
+          const { width, marginLeft } = barPct(p.arrival, p.departure);
+          groups.push({
+            name:  p.display_name,
+            label: 'Departs Tue 26',
+            color: 'var(--accent-sand)',
+            width, marginLeft
+          });
+        });
+
+        dep27.forEach(p => {
+          const { width, marginLeft } = barPct(p.arrival, p.departure);
+          groups.push({
+            name:  p.display_name,
+            label: 'Departs Wed 27',
+            color: 'var(--accent-dusk)',
+            width, marginLeft
+          });
+        });
+
+        document.getElementById('timeline-bars').innerHTML = groups.map(g => `
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+              <span style="font-weight:600;color:${g.color}">${g.name}</span>
+              <span style="font-size:var(--text-sm);color:${g.color}">${g.label}</span>
+            </div>
+            <div class="bar-container">
+              <div class="bar" style="width:${g.width}%;margin-left:${g.marginLeft}%;background:${g.color}"></div>
+            </div>
+          </div>
+        `).join('');
+
+        // --- Attendee list ---
+        document.getElementById('attendee-count').textContent = data.attendees.length;
+        document.getElementById('attendee-list').innerHTML = data.attendees.map(p => {
+          const arrDay  = new Date(p.arrival).getUTCDate();
+          const depDay  = new Date(p.departure).getUTCDate();
+          const dateStr = `May ${arrDay}-${depDay}`;
+          const href    = 'profile.html?name=' + encodeURIComponent(p.display_name);
+          return `<div><a href="${href}" class="attendee-link">${p.display_name} (${p.age})</a><span style="font-size:11px;color:var(--color-ink-dim);margin-left:8px;">${dateStr}</span></div>`;
+        }).join('');
+      })
+      .catch(err => {
+        document.getElementById('attendee-list').innerHTML =
+          `<p style="color:var(--status-no);grid-column:1/-1;">Could not load people.json (${err.message}). Reload to retry.</p>`;
+      });
+  }
+
+  window.onload = loadData;
+</script>
 <script>window.addEventListener('storage',function(e){if(e.key==='vacdash:v1:mode')document.documentElement.setAttribute('data-mode',e.newValue||'system')});</script>
 <script>
 (function(){
