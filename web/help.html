@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" data-mode="system">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Help and FAQ for the Branson 2026 family vacation dashboard">
+<title>Help -- Branson &#x27;26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/themes/trail.css">
+<link rel="stylesheet" href="css/components.css">
+<script>/* Theme loader -- inline to prevent flash-of-wrong-theme */
+(function(){
+  var m = localStorage.getItem('vacdash:v1:mode') || 'system';
+  document.documentElement.setAttribute('data-mode', m);
+})();
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="index.html">Branson '26</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="attractions.html" class="nav-link">Activities</a>
+      <a href="wishlist.html" class="nav-link">Wishlist</a>
+      <a href="suggested.html" class="nav-link">Suggested</a>
+      <a href="event-timeline.html" class="nav-link">Timeline</a>
+      <a href="people-timeline.html" class="nav-link">People</a>
+      <a href="help.html" class="nav-link" aria-current="page">Help</a>
+    </nav>
+    <a class="header-profile-btn" href="profile.html" aria-label="Profile" id="profile-btn"><span aria-hidden="true">👤</span><span class="profile-nudge-dot" aria-hidden="true"></span></a>
+    <button class="theme-toggle" aria-label="Toggle dark mode" onclick="(function(){var modes=['system','light','dark'];var m=document.documentElement.getAttribute('data-mode')||'system';var next=modes[(modes.indexOf(m)+1)%3];document.documentElement.setAttribute('data-mode',next);localStorage.setItem('vacdash:v1:mode',next);})()">☀️</button>
+  </div>
+</header>
+<nav class="bottom-tabs" aria-label="Main navigation">
+  <a href="index.html" class="tab" aria-label="Home">🏠</a>
+  <a href="attractions.html" class="tab" aria-label="Activities">🎡</a>
+  <a href="wishlist.html" class="tab" aria-label="Wishlist">♡</a>
+  <a href="suggested.html" class="tab" aria-label="Suggested">💡</a>
+  <a href="event-timeline.html" class="tab" aria-label="Timeline">📅</a>
+  <a href="people-timeline.html" class="tab" aria-label="People">👥</a>
+</nav>
+<main class="page-main">
+  <div class="page-hero">
+    <p class="eyebrow">Branson '26</p>
+    <h1>Help</h1>
+    <p class="hero-sub">Quick guide for family members.</p>
+  </div>
+
+  <div style="background:var(--color-surface);border:1.5px solid var(--color-line);border-radius:var(--radius-card);box-shadow:var(--shadow-1);padding:20px 24px;margin-bottom:16px;">
+    <p style="font-size:2rem;margin:0 0 8px;">🗓️</p>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-lg);margin:0 0 10px;color:var(--color-ink);">What is this?</h2>
+    <p style="color:var(--color-ink-dim);margin:0;line-height:1.6;">This is the Branson 2026 family vacation planner — a private website just for our trip. Use it to browse activities and shows, save the ones you're excited about, and see what everyone else is interested in. No login required.</p>
+  </div>
+
+  <div style="background:var(--color-surface);border:1.5px solid var(--color-line);border-radius:var(--radius-card);box-shadow:var(--shadow-1);padding:20px 24px;margin-bottom:16px;">
+    <p style="font-size:2rem;margin:0 0 8px;">👤</p>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-lg);margin:0 0 10px;color:var(--color-ink);">Setting your name</h2>
+    <p style="color:var(--color-ink-dim);margin:0;line-height:1.6;">Tap the profile button (👤) in the top-right corner of any page. Pick your name from the list. This tells the app who you are so your hearts and picks are saved under your name. You can change it any time.</p>
+  </div>
+
+  <div style="background:var(--color-surface);border:1.5px solid var(--color-line);border-radius:var(--radius-card);box-shadow:var(--shadow-1);padding:20px 24px;margin-bottom:16px;">
+    <p style="font-size:2rem;margin:0 0 8px;">♡</p>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-lg);margin:0 0 10px;color:var(--color-ink);">The wishlist heart</h2>
+    <p style="color:var(--color-ink-dim);margin:0;line-height:1.6;">On any activity or show card, tap the heart (♡) to save it to your wishlist. It turns solid (♥) when saved. See everything you've hearted on the Wishlist page.</p>
+  </div>
+
+  <div style="background:var(--color-surface);border:1.5px solid var(--color-line);border-radius:var(--radius-card);box-shadow:var(--shadow-1);padding:20px 24px;margin-bottom:16px;">
+    <p style="font-size:2rem;margin:0 0 8px;">🎴</p>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-lg);margin:0 0 10px;color:var(--color-ink);">Quick Pick</h2>
+    <p style="color:var(--color-ink-dim);margin:0;line-height:1.6;">Quick Pick lets you swipe through cards fast. Swipe right (or tap ✓) to add something to your wishlist. Swipe left (or tap ✗) to skip it. It's the fastest way to go through everything and tell us what you want to do.</p>
+  </div>
+
+  <div style="background:var(--color-surface);border:1.5px solid var(--color-line);border-radius:var(--radius-card);box-shadow:var(--shadow-1);padding:20px 24px;margin-bottom:16px;">
+    <p style="font-size:2rem;margin:0 0 8px;">👁️</p>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:var(--text-lg);margin:0 0 10px;color:var(--color-ink);">Who sees your picks?</h2>
+    <p style="color:var(--color-ink-dim);margin:0;line-height:1.6;">For now, everyone in the family can see everyone's wishlist. This helps us plan together. In a future update (Phase 2) we'll add the option to keep your picks private until you're ready to share.</p>
+  </div>
+
+  <p style="margin-top:24px;font-size:var(--text-sm);color:var(--color-ink-dim);">
+    ← <a href="profile.html" style="color:var(--status-yes);font-weight:700;text-decoration:none;">Back to Profile</a>
+  </p>
+</main>
+<script>window.addEventListener('storage',function(e){if(e.key==='vacdash:v1:mode')document.documentElement.setAttribute('data-mode',e.newValue||'system')});</script>
+<script>
+(function(){
+  function syncBadge(){
+    var btn = document.getElementById('profile-btn');
+    if (!btn) return;
+    var u = ''; try { u = localStorage.getItem('vacdash:v1:user') || ''; } catch(e){}
+    btn.setAttribute('data-unset', u ? 'false' : 'true');
+  }
+  syncBadge();
+  window.addEventListener('storage', function(e){ if (e.key === 'vacdash:v1:user') syncBadge(); });
+})();
+</script>
+</body>
+</html>
