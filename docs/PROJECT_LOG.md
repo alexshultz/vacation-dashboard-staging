@@ -10,6 +10,26 @@
 
 ---
 
+## 2026-04-23 ~11:00 CDT — Documentation architecture overhaul + fetch(data.json) conversion
+
+Council of Minds synthesis session (Weaver + Archivist). Two changes in this session:
+
+1. **fetch(data.json) conversion (ADR-003):** `web/attractions.html` converted from ~130 statically baked card elements to a dynamic `fetch('data.json')` render loop via `renderCatalog()`. Blacklist slugs inlined as JS array. Quick Pick deck and filter chips now read DOM `data-*` attributes post-render. 10 stale duplicate cards removed first (see `.claude/sync-triple-change-task.md` for quality gates).
+
+2. **Documentation architecture overhaul:** CLAUDE.md was stale (last updated 2026-04-18, missing Quick Pick warning and fetch-loop architecture). Full rewrite: accurate architecture diagram, frozen-generator rules, GitHub Pages sync workflow, pitfall table, and mandatory codemaster handback block. Created `docs/DECISIONS.md` (ADR-lite) to replace scattered decision prose in PROJECT_LOG. All decisions from project history back-populated as ADR-001 through ADR-006.
+
+**Documentation structure now:**
+- `CLAUDE.md` — live rules + architecture (agents auto-load, must be accurate)
+- `docs/PROJECT_LOG.md` — timestamped state record (Hermes/human reads)
+- `docs/DECISIONS.md` — ADR-lite for architectural choices (agents append, never delete)
+
+**Artifacts:**
+- `CLAUDE.md` — full rewrite (2026-04-23)
+- `docs/DECISIONS.md` — created, ADR-001 through ADR-006
+- `docs/PROJECT_LOG.md` — this entry
+
+---
+
 ## 2026-04-21 ~22:00 CDT -- Codemaster review pass + 5 fixes applied
 
 Codemaster (Claude Code) reviewed all code from the autonomous session (commits 7fa638d-ecced73).
