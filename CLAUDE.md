@@ -171,15 +171,29 @@ git add -A && \
 
 ## Codemaster Handback (Mandatory — Part of Every Session)
 
-When all code changes are complete:
+When all code changes are complete, produce a structured handback report and then STOP.
+**Codemaster writes code only. Hermes writes documentation, runs git, runs rsync, and pushes.**
 
-1. **List every file modified** with a one-line description.
-2. **List files created** with their purpose.
-3. **Note judgment calls** made during implementation.
-4. **Update `docs/DECISIONS.md`** for any architectural choice (non-trivial only — follows ADR-lite format in that file).
-5. **Add an entry to `docs/PROJECT_LOG.md`** (ISO timestamp, one paragraph, bullet artifacts).
-6. **Update this file (`CLAUDE.md`)** if you changed the architecture, file layout, or any rule listed here.
-7. **STOP.** Do not run git. Do not push. Do not rsync. Do not run the generator. Hermes handles post-code orchestration.
+The handback report must contain exactly three sections:
+
+**1. Files changed**
+List every file modified or created, one line each, with a plain-English description of what changed.
+
+**2. Architectural choices**
+For any non-trivial decision made during this session (data flow, file ownership, pattern choice, constraint added or removed), list it as:
+- Choice: [what was decided]
+- Why: [one sentence rationale]
+- Affects: [which files, rules, or invariants are now different]
+
+If no architectural choices were made, say so explicitly.
+
+**3. Invariants affected**
+List any pre-push safety checks that changed -- new checks added, existing checks whose expected values changed, or checks that are no longer valid.
+
+---
+
+**After the handback report: STOP.**
+Do not update CLAUDE.md. Do not write to DECISIONS.md or PROJECT_LOG.md. Do not run git. Do not push. Do not rsync. Do not run the generator. Hermes reads the handback report and handles all documentation and deployment.
 
 ---
 
