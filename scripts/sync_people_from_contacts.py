@@ -25,10 +25,8 @@ Requirements:
 """
 
 import json
-import os
 import sys
 import sqlite3
-import glob
 from datetime import date, timedelta, datetime, timezone
 from pathlib import Path
 
@@ -83,7 +81,8 @@ def calc_age(dob, reference_date):
 def lookup_by_unique_id(cur, unique_id):
     """
     Look up a contact's birthday by their stable ZUNIQUEID.
-    Returns (dob_date, birth_year) or (None, None) if not found.
+    Returns (dob_date, found) where found=True means the UUID existed in Contacts.
+    dob_date may still be None if the contact has no birthday set.
     """
     cur.execute("""
         SELECT ZBIRTHDAYYEAR, ZBIRTHDAY
@@ -93,10 +92,10 @@ def lookup_by_unique_id(cur, unique_id):
     """, (unique_id,))
     row = cur.fetchone()
     if not row:
-        return None, None
+        return None, False   # UUID genuinely not found
     byear, btime = row
     dob = zbirthday_to_date(btime)
-    return dob, byear
+    return dob, True         # UUID found; dob may be None if birthday field is empty
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
@@ -111,63 +110,70 @@ def main():
         private_data = json.load(f)
 
     trip_start = date.fromisoformat(private_data["trip_start"])
-    trip_end   = date.fromisoformat(private_data["trip_end"])
     attendees  = private_data["attendees"]
 
     # Connect to Contacts
     db_path = find_contacts_db()
     print(f"Using Contacts DB: {db_path}")
-    conn = sqlite3.connect(db_path)
-    cur = conn.cursor()
+    try:
+        conn = sqlite3.connect(db_path)
+        cur = conn.cursor()
 
-    print(f"\nChecking {len(attendees)} attendees against Apple Contacts...")
-    print(f"Trip start for age calculation: {trip_start}\n")
-    print(f"{'Name':<12} {'Stored DOB':<13} {'Contacts DOB':<13} {'Age':<5} {'Change?'}")
-    print("-" * 60)
+        print(f"\nChecking {len(attendees)} attendees against Apple Contacts...")
+        print(f"Trip start for age calculation: {trip_start}\n")
+        print(f"{'Name':<12} {'Stored DOB':<13} {'Contacts DOB':<13} {'Age':<5} {'Change?'}")
+        print("-" * 60)
 
-    changes = []
-    errors  = []
+        changes = []
+        errors  = []
 
-    for person in attendees:
-        display = person["display_name"]
-        uid     = person.get("contact_unique_id")
-        stored_dob_str = person.get("dob")
-        stored_dob = date.fromisoformat(stored_dob_str) if stored_dob_str else None
+        for person in attendees:
+            display = person["display_name"]
+            uid     = person.get("contact_unique_id")
+            stored_dob_str = person.get("dob")
+            stored_dob = date.fromisoformat(stored_dob_str) if stored_dob_str else None
 
-        if not uid:
-            errors.append(f"{display}: no contact_unique_id stored")
-            print(f"{display:<12} {'?':<13} {'?':<13} {'?':<5} NO UUID STORED")
-            continue
+            if not uid:
+                errors.append(f"{display}: no contact_unique_id stored")
+                print(f"{display:<12} {'?':<13} {'?':<13} {'?':<5} NO UUID STORED")
+                continue
 
-        contacts_dob, byear = lookup_by_unique_id(cur, uid)
+            contacts_dob, found = lookup_by_unique_id(cur, uid)
 
-        if contacts_dob is None:
-            # Try to find by name if UUID lookup fails (contact may have been re-created)
-            errors.append(f"{display}: UUID not found in Contacts -- may need re-linking")
-            print(f"{display:<12} {str(stored_dob) or '?':<13} {'NOT FOUND':<13} {'?':<5} UUID MISSING")
-            continue
+            if not found:
+                errors.append(f"{display}: UUID not found in Contacts -- contact may have been re-created")
+                stored_str = str(stored_dob) if stored_dob else "?"
+                print(f"{display:<12} {stored_str:<13} {'NOT FOUND':<13} {'?':<5} UUID MISSING")
+                continue
 
-        age = calc_age(contacts_dob, trip_start)
-        stored_str   = str(stored_dob) if stored_dob else "?"
-        contacts_str = str(contacts_dob)
-        changed = contacts_dob != stored_dob
-        marker = " <<< CHANGED" if changed else ""
+            if contacts_dob is None:
+                errors.append(f"{display}: contact found but birthday field is empty in Contacts")
+                stored_str = str(stored_dob) if stored_dob else "?"
+                print(f"{display:<12} {stored_str:<13} {'NO BIRTHDAY':<13} {'?':<5} BIRTHDAY EMPTY")
+                continue
 
-        print(f"{display:<12} {stored_str:<13} {contacts_str:<13} {str(age):<5}{marker}")
+            age = calc_age(contacts_dob, trip_start)
+            stored_str   = str(stored_dob) if stored_dob else "?"
+            contacts_str = str(contacts_dob)
+            changed = contacts_dob != stored_dob
+            marker = " <<< CHANGED" if changed else ""
 
-        if changed:
-            changes.append({
-                "display_name": display,
-                "old_dob": stored_str,
-                "new_dob": contacts_str,
-                "new_age": age,
-            })
+            print(f"{display:<12} {stored_str:<13} {contacts_str:<13} {str(age):<5}{marker}")
 
-        # Update the person record
-        person["dob"]            = contacts_str
-        person["age_trip_start"] = age
+            if changed:
+                changes.append({
+                    "display_name": display,
+                    "old_dob": stored_str,
+                    "new_dob": contacts_str,
+                    "new_age": age,
+                })
 
-    conn.close()
+            # Update the person record in memory
+            person["dob"]            = contacts_str
+            person["age_trip_start"] = age
+
+    finally:
+        conn.close()
 
     # Summary
     print(f"\n{'='*60}")
