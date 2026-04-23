@@ -1,10 +1,29 @@
 # Branson '26 Dashboard — Phased Roadmap
 
-**Today:** 2026-04-20
-**Family starts using dashboard:** ~2026-05-08 (two weeks before trip)
+**Last updated:** 2026-04-23
+**Family starts using dashboard:** ~2026-05-08
 **Trip:** 2026-05-22 → 05-29
 
-That's **~18 calendar days** to a usable product, **~32 days** to the trip. Time is the dominant constraint. This roadmap is honest about what fits and what doesn't.
+---
+
+## Current Status (2026-04-23)
+
+Phase 1 and Phase 2 core features are complete and live on GitHub Pages.
+
+**What's done:**
+- Design system (tokens.css, trail.css, components.css)
+- Browse page (attractions.html) -- dynamic fetch(data.json), filter chips, wishlist hearts, detail modal
+- Quick Pick swipe deck (quick-pick.html) -- separate page, same data source
+- Wishlist, Suggested, Profile, Timeline, People pages
+- Supabase Phase 2 backend wired (picks table live)
+- GitHub Pages deploy pipeline established
+
+**What's pending before May 8:**
+- [ ] `web/help.html` -- plain-language user guide for family (see Phase: Help Page below)
+- [ ] Final tester pass with Ashlyn, Jordan, Mycah
+- [ ] Send family the link with a one-paragraph plain-English intro
+
+---
 
 ---
 
@@ -139,6 +158,39 @@ That's **~18 calendar days** to a usable product, **~32 days** to the trip. Time
 ---
 
 ## Risks + mitigations
+
+| Risk | Mitigation |
+|---|---|
+| **Claude hallucinates broken code** (Alex's #1 fear) | Every Phase 1 deliverable is a working HTML file you can open in a browser. No "trust me it works" — always verify visually. For Phase 2 DB work, write one test per write-path before integrating. |
+| **Scope creep into auto-scheduler** | Roadmap explicitly defers; when Alex asks "can we add the scheduler", answer is "yes, after the trip, or in a feature-flagged beta page that doesn't block the main dashboard." |
+| **Auth complexity blocks Phase 2** | If Supabase Auth wastes a day, fall back to "passwordless magic link only via email." 26 family members, all trusted — no need for multi-factor. |
+| **Family hates the chosen visual direction** | 3 mockups ship simultaneously. If nobody loves one, we blend. Don't commit code to a direction nobody endorses. |
+| **Connectivity assumption breaks** | Phase 2 ships a "last-known-good" cache via Service Worker for attraction data. Picks + RSVPs are the only calls that need the backend. |
+
+---
+
+## Phase: Help Page (target ~May 1-7, before family onboarding)
+
+**Goal:** A single in-app page (`web/help.html`) that answers every question a family member might have without needing to ask Alex.
+
+**Audience:** Non-technical family members on phones. Parents, teens, anyone. Assume zero familiarity with the app.
+
+**Format:** Same nav, same design system as every other page. Accessible from the Profile page (👤 button). Five sections max, plain English, no jargon.
+
+**Content to cover (draft topics -- Alex reviews final copy):**
+1. **What is this?** One paragraph. "This is our trip planning board for Branson. Use it to mark what you want to do so we can coordinate."
+2. **Setting your name** -- tap 👤, pick your name from the list. This is how the app knows whose picks are whose.
+3. **Browsing and wishlisting** -- what the heart does, what Browse shows, how to filter by type.
+4. **Quick Pick** -- what the swipe deck is and when to use it vs Browse.
+5. **Privacy** -- who can see your picks (honest answer: everyone, Phase 1 is honor-system).
+
+**Who writes it:** Hermes drafts, Alex reviews tone and adjusts for family voice. One codemaster pass to build the page.
+
+**When to ship:** No later than May 7 (one day before family onboarding). Earlier is fine.
+
+**Entry point:** Add a "?" or "Help" link to the Profile page and/or the home page index.html.
+
+---
 
 | Risk | Mitigation |
 |---|---|
