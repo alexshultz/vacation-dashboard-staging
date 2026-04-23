@@ -10,10 +10,10 @@
 
 **Running the generator destroys that code. This happened TWICE. It must never happen again.**
 
-**Pre-push safety check — never skip this:**
+**Pre-push safety check -- never skip this:**
 ```bash
-grep -c 'pointerdown' web/attractions.html
-# Must return 1. If 0: STOP. Do not push. Recover the Quick Pick code first.
+grep -c 'pointerdown' web/quick-pick.html
+# Must return 1. If 0: STOP. Quick Pick swipe code is missing. Do not push.
 ```
 
 **To add new attractions:** edit `data/attractions.json`, then sync to `web/data.json`. Do NOT use the generator. Do NOT regenerate any HTML file from scratch.
@@ -119,8 +119,8 @@ VAULT="/Users/alex/vaults/Vacation/Branson 2026"
 PREVIEW="/Users/alex/code/vacation-dashboard-previews"
 
 # 0. SAFETY CHECK — never skip
-grep -c 'pointerdown' "$VAULT/web/attractions.html"
-# Must return 1. If 0: STOP.
+grep -c 'pointerdown' "$VAULT/web/quick-pick.html"
+# Must return 1. If 0: STOP. Quick Pick swipe code is missing.
 
 # 1. DO NOT run generate_dashboard.py
 
