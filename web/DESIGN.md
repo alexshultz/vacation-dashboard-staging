@@ -1,345 +1,523 @@
-# Branson '26 Design System — Draft
+# DESIGN.md -- Branson '26 Design System Reference
 
-**Status:** draft, pre-commit. This is a PROPOSAL, not a locked spec. Values in brackets are placeholders that get replaced by whichever mockup direction wins (see `web/mockups/`).
+> **AGENT INSTRUCTION:** This file is the primary design reference for AI coding agents working on this project. Read it before writing or modifying any CSS, HTML, or JS that affects visual output. If any value here contradicts the live CSS files, the CSS files win -- use grep to verify. See CLAUDE.md for architectural rules and forbidden operations.
 
-**Audience of this doc:**
-- Humans — Alex, family members glancing at decisions
-- Future Claude instances regenerating pages from `data/*.json`
-
----
-
-## Goals
-
-1. **Readable by everyone in the family.** Parents in their 70s, family members with dyslexia, kids on small Android phones.
-2. **"Nintendo meets Apple."** Playful without being cartoony, modern without being corporate.
-3. **Fast.** No build-in-front-of-you. Cards render immediately from generated HTML. Fonts cache on first load.
-4. **Template-friendly.** Everything here must survive regeneration by `scripts/generate_dashboard.py` and the planned `scripts/generate_dashboard.py` pipeline.
-5. **Themeable.** User can choose skins (Cartridge / Lakeside / Trail / colorblind / high-contrast-outdoor).
-
-## Non-goals (Phase 1)
-
-- Micro-animations beyond card hover + button press
-- Icon set selection (using emoji + unicode glyphs in mockups as placeholders)
-- Print stylesheet
-- PDF export styling (Phase 3)
+**Last updated:** 2026-04-23
+**Primary reader:** AI coding agents (Claude Code, codemaster)
+**Secondary reader:** Alex (developer/architect)
 
 ---
 
-## Design tokens
+## Orientation (Read First)
 
-Tokens are authored once in `web/css/tokens.css` and consumed via CSS custom properties. Theme skins override tokens at the `:root[data-theme="..."]` level.
+This file answers three questions any agent should ask before touching CSS or HTML:
 
-### Color
+1. **What is the visual contract for this element?** -- See Layer 3 (Component Catalog)
+2. **Where in the CSS does it live?** -- See Layer 1 (CSS File Map) + Layer 3 (`Class(es)` field)
+3. **If I change this, what breaks?** -- See Layer 1 (Impact Table) + run the grep commands in Section 1
 
-Token names are semantic, not literal. The hex values below are the defaults for the **[winning mockup]** theme. Dark mode and alternate themes override at the root.
-
-```css
---color-bg        /* page background */
---color-surface   /* card / panel background */
---color-ink       /* primary text */
---color-ink-dim   /* secondary text */
---color-line      /* borders, dividers */
-
---brand-1 ... --brand-4  /* brand accents (decorative) */
-
---status-yes        /* green — "I'm in" */
---status-no         /* red — "not for me" */
---status-maybe      /* yellow — "undecided" */
---status-norsvp     /* gray — "no response yet" */
---status-wishlist   /* blue/violet — soft pick */
---status-confirmed  /* pink/red — locked in */
+**Drift check -- run at session start:**
+```bash
+wc -l web/css/tokens.css          # expect ~71
+wc -l web/css/components.css      # expect ~1100; if >100 lines different, Layer 3 may be stale
+grep -c 'pointerdown' web/attractions.html  # must return 0; if 1, Quick Pick code was re-introduced
+ls web/css/themes/                 # expect trail.css (plus any new themes)
 ```
 
-**Contrast targets:** WCAG AA minimum across all text. Body text ≥ 4.5:1 on its background; large text (≥ 18px bold) ≥ 3:1.
+---
 
-**Color is never the only signal.** Every status conveyed by color also has an icon or text label. This matters for: (a) colorblind users (6% of the male family members, statistically ≈ 1 person), (b) bright outdoor phone reading.
+## Before Editing Any CSS: Run These First
 
-**Themes:**
-- `default` — the chosen direction from mockups
-- `colorblind` — uses the Okabe–Ito 8-color palette (deuteranopia/protanopia safe)
-- `high-contrast-outdoor` — pure white background, true black text, maximum legibility in sun
-- `night` — dark mode pairings, auto-applied via `prefers-color-scheme: dark` unless user overrides
+```bash
+grep -rn "<token-you-are-changing>" web/css/         # find all usages of a token
+grep -c 'pointerdown' web/attractions.html            # Quick Pick safety check (must be 0)
+grep -n "=====.*=====" web/css/components.css         # section map (find the relevant block)
+grep -rn "card--light" web/*.html web/js/             # find all HTML/JS that depends on a selector
+```
+
+---
+
+## Layer 1 -- Site-wide Design System
+
+### Design Philosophy
+
+"Airbnb meets National Parks." The Ozarks-inspired Trail theme is warm, natural, and readable at every age -- grandparents squinting at phones in sunlight, kids swiping on small Androids, parents reading at the cabin. The aesthetic is earned outdoors: moss green, lake blue, sand amber, clay terracotta. Never corporate, never cartoony. Playful enough to feel like a vacation, polished enough to feel trustworthy.
+
+Accessibility is a first-class constraint, not a checkbox. Body text never falls below 16px. Color is never the only signal -- every status has an icon or label. All interactive targets are 44x44px minimum.
+
+---
+
+### CSS File Map
+
+| File | Purpose | Contains | Must NEVER contain |
+|---|---|---|---|
+| `css/tokens.css` | Semantic token layer | All CSS custom properties: colors, spacing, type, radii, shadows | Raw palette names (`--moss`, `--lake`); component rules |
+| `css/themes/trail.css` | Ozarks private palette | `--moss`, `--lake`, `--sand`, `--clay`, `--dusk`; semantic token re-assignments | Component rules; new token definitions |
+| `css/components.css` | Full component library (~1103 lines) | Every UI component: cards, nav, chips, deck, modal, grid, buttons | References to `--moss`, `--lake`, etc. directly -- always use semantic tokens |
+
+**Load order (every page `<head>`):**
+```html
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/themes/trail.css">
+<link rel="stylesheet" href="css/components.css">
+```
+The order is mandatory. Trail overrides tokens; components consume tokens.
+
+---
+
+### Architectural Rules (Hard Constraints)
+
+- Components reference ONLY `--color-*`, `--status-*`, `--accent-*`, `--shadow-*`, `--radius-*`, `--font-*`, `--sp-*`, `--text-*`
+- Never hardcode hex values in `components.css` -- always use a token
+- Never reference `--moss`, `--lake`, `--sand`, `--clay`, or `--dusk` outside of `themes/trail.css`
+- `[hidden]` + `display:flex` always requires a companion `.element[hidden] { display: none; }` rule -- browser UA `[hidden]` loses to author-level `display:flex`
+- `generate_dashboard.py` is FROZEN -- never execute it (see CLAUDE.md)
+- `data/attractions.json` is canonical; `web/data.json` is its runtime copy -- after editing the former, copy to the latter before deploying
+
+---
+
+### Design Token Inventory
+
+> If this table disagrees with the live `css/tokens.css` file, the CSS file wins.
+
+#### Colors -- Light Mode (tokens.css defaults)
+
+| Token | Value | Semantic Meaning | trail.css mapping |
+|---|---|---|---|
+| `--color-bg` | `#FBF6EC` | Warm cream page background | -- |
+| `--color-surface` | `#FFFDF7` | Card/panel background, near-white | -- |
+| `--color-ink` | `#20281E` | Primary text, dark forest | -- |
+| `--color-ink-dim` | `#5E6B58` | Secondary text, muted green-gray | -- |
+| `--color-line` | `#E4DCC6` | Borders and dividers, warm tan | -- |
+| `--status-yes` | `#3F6B3A` | Green -- wishlist / positive / "I'm in" | `var(--moss)` |
+| `--status-no` | `#B83A35` | Red -- not going | -- |
+| `--status-wishlist` | `#2A6A8A` | Blue -- soft pick / considering | `var(--lake)` |
+| `--status-neutral` | `#8B8671` | Gray -- no response yet | -- |
+| `--status-lock` | `#6B4C8F` | Purple -- committed / locked in | `var(--dusk)` |
+| `--warn` | `#A86A1C` | Amber -- warnings, notes fields | -- |
+| `--accent-sand` | `#D8A660` | Warm amber accent (ratings, highlights) | `var(--sand)` |
+| `--accent-clay` | `#C1553B` | Terracotta accent (remove X, danger actions) | `var(--clay)` |
+| `--accent-dusk` | `#6B4C8F` | Purple accent (same as status-lock) | `var(--dusk)` |
+| `--shadow-1` | `0 1px 2px rgba(32,40,30,0.05), 0 6px 18px rgba(32,40,30,0.06)` | Resting card shadow | -- |
+| `--shadow-2` | `0 2px 4px rgba(32,40,30,0.08), 0 20px 40px rgba(63,107,58,0.14)` | Elevated / hover shadow | -- |
+
+#### Colors -- Dark Mode Overrides
+
+Applied via `@media (prefers-color-scheme: dark)` AND `[data-mode="dark"]` on `<html>`. Only these tokens change:
+
+| Token | Dark Value |
+|---|---|
+| `--color-bg` | `#161A14` |
+| `--color-surface` | `#1F261C` |
+| `--color-ink` | `#F3EEDD` |
+| `--color-ink-dim` | `#ADB3A3` |
+| `--color-line` | `#343C2F` |
+| `--warn` | `#E0B35A` |
+
+#### trail.css Ozarks Palette
+
+| Variable | Hex | Wired to |
+|---|---|---|
+| `--moss` | `#3F6B3A` | `--status-yes` |
+| `--moss-d` | `#284A26` | Darker moss (hover states; not wired to a semantic token by default) |
+| `--lake` | `#2A6A8A` | `--status-wishlist` |
+| `--sand` | `#D8A660` | `--accent-sand` |
+| `--clay` | `#C1553B` | `--accent-clay` |
+| `--dusk` | `#6B4C8F` | `--status-lock`, `--accent-dusk` |
+
+---
 
 ### Typography
 
-```css
---font-body    'Atkinson Hyperlegible', system-ui, sans-serif
---font-display 'Lexend', system-ui, sans-serif
-```
+| Token | Value | When to use |
+|---|---|---|
+| `--font-display` | `Lexend` | Headings (h1-h3), logo, nav links, button labels, chip text -- anything identity-forward |
+| `--font-body` | `Atkinson Hyperlegible` | Body copy, card descriptions, metadata, form labels -- anything for sustained reading |
+| `--text-xs` | `12px` | Tags, metadata badges, timestamps |
+| `--text-sm` | `14px` | Secondary info, nav links |
+| `--text-base` | `17px` | Body text (NEVER below 16px) |
+| `--text-lg` | `19px` | Card titles, section subheadings |
+| `--text-xl` | `22px` | Page section headings |
 
-**Why these fonts:**
-- **Atkinson Hyperlegible** (Braille Institute, free) — designed specifically for reading with low vision. Highly distinct letterforms reduce confusion of similar glyphs (0 vs O, 1 vs l vs I). Good for the body text that parents and dyslexic family members will read most.
-- **Lexend** (Bonnie Shaver-Troup, free) — research-backed reading-proficiency gains, broader weights, better for display sizes.
-
-**Loading:** served from Google Fonts CDN with `font-display: swap` so fallback renders immediately. After first visit, fonts are cached by the browser — no refetch on reloads or subsequent pages. If offline mid-trip (unlikely given confirmed cabin wifi), fallback system fonts take over.
-
-**Sizes (body-first, mobile baseline):**
-```
---text-xs   12px  /* tags, metadata, badges */
---text-sm   14px  /* secondary info */
---text-base 17px  /* body — NEVER below 16px */
---text-lg   19px  /* card titles */
---text-xl   22px  /* section headings */
---text-2xl  clamp(28px, 4vw, 44px)  /* hero */
-```
-
-**Line height:** 1.45 body, 1.15 headings.
-
-**Readability rules:**
-- Body text is never bold-only colored text. (Dyslexia consideration.)
-- No all-caps except micro-eyebrow labels ≤ 13px.
-- Line length capped at ~64ch in prose, narrower for meta rows.
-
-### Spacing
-
-```css
---space-1 4px   --space-2 8px   --space-3 12px   --space-4 16px
---space-5 24px  --space-6 32px  --space-7 48px   --space-8 64px
-```
-
-Use the scale. Don't introduce arbitrary values.
-
-### Radius
-
-```css
---radius-card 18–24px   /* varies by theme */
---radius-pill 999px
---radius-btn  10–14px
-```
-
-### Shadow
-
-Two depths: `--shadow-1` (resting) and `--shadow-2` (hover/active). Dark mode swaps to blurred-black rather than brightening.
-
-### Breakpoints
-
-Mobile-first. Media queries expand up.
-
-```css
-@media (min-width: 640px)   /* small tablet / landscape phone */
-@media (min-width: 900px)   /* tablet */
-@media (min-width: 1200px)  /* desktop */
-```
-
-Bottom tab bar is shown below 720px; top nav is shown above.
+Line height: `1.5` body, `1.1-1.25` headings. Maximum line length in prose: ~64 characters.
 
 ---
 
-## Components
+### Spacing Scale
 
-### Card (attraction / show)
+| Token | Value | Common use |
+|---|---|---|
+| `--sp-1` | `4px` | Tight internal gaps (icon-to-label) |
+| `--sp-2` | `8px` | Chip internal padding, small gaps |
+| `--sp-3` | `12px` | Card internal padding (tight) |
+| `--sp-4` | `16px` | Standard horizontal page margin |
+| `--sp-5` | `24px` | Section gaps, card external margin |
+| `--sp-6` | `32px` | Large section padding |
+| `--sp-7` | `48px` | Hero section spacing |
+| `--sp-8` | `64px` | Max content width padding |
 
-Structure:
-```
-<article class="card [wish|confirmed|untouched]">
-  <img class="thumb"> | <div class="thumb-fallback">
-  <div class="badges">...</div>   <!-- trending, first-pick, show -->
-  <div class="card-body">
-    <h3>Title</h3>
-    <div class="meta-row">duration · price · rating</div>
-    <div class="tags">tag tag tag</div>
-    <div class="interest">avatars + count text</div>
-    <div class="actions">Wishlist + Confirm buttons</div>
-  </div>
-</article>
-```
-
-**States:**
-- `.untouched` — transparent background, dashed border, low opacity (nobody picked)
-- `.wish` — tinted background (status-wishlist), solid border (someone wishlisted)
-- `.confirmed` — warmer tint (status-confirmed), stronger border (someone locked in)
-
-The three states form a clear visual progression: gray/faded → tinted → vivid.
-
-### Badge
-
-Small pill overlay on thumb. Variants: default, `.trending`, `.first`, `.show`.
-
-### Tag
-
-Lightweight chip inside card body. Plain text classification (Indoor, Family, Evening, etc.). **Tag strategy:**
-- Keep to ≤ 4 per card, rendered in priority order
-- Wrap to second line on narrow cards, do not truncate
-- Standard tag vocabulary (proposed): `indoor | outdoor | family | evening | morning | under-30 | kid-favorite | rainy-day | dinner-show | theme-park | museum | music | comedy`
-
-### Avatar stack
-
-Overlapping 26–28px circles, 2px surface-color border, initial inside. Max 5 visible; `+N` bubble for overflow.
-
-Colors are assigned per-person from the theme palette and remain stable across all views (a person's color is their identity). This is defined once in data, not per-card.
-
-### Status legend
-
-Small row on each page showing swatch + meaning. Persistent reminder for color-coded statuses.
-
-### Buttons
-
-- **Primary** — solid brand color, white text
-- **Secondary** — surface background, ink border, ink text
-- **Ghost** — transparent, for tertiary actions
-- Min tap target: 44×44px
-- Always pair icon + text label
-
-### Top nav / bottom tabs
-
-- **Desktop** (≥ 720px): top bar with brand + inline nav + theme toggle
-- **Mobile** (< 720px): compact top bar (brand + toggle only) + fixed bottom tab bar
-- Exactly one source of truth. **Nav markup lives in `scripts/generate_dashboard.py` as a template partial.** Every generated HTML file gets the same block inserted; no per-file duplication.
-
-### Filter row
-
-Horizontal chip row above card grid. Active chip inverts colors. Chips are buttons, keyboard-focusable.
-
-### Trending strip
-
-`grid-template-columns: repeat(auto-fill, minmax(260px, 1fr))` of mini-cards. Each shows thumb + title + meta (count/status). Max 6 items; if more, show "See all →" link.
-
-### Hero
-
-Per-page but same skeleton: eyebrow + headline + supporting line + stat row or pill row. Scripts generate with per-page copy variables.
+Use only these values. Do not introduce arbitrary pixel values.
 
 ---
 
-## Pages (Phase 1 scope)
+### Geometry
 
-1. **`index.html` (Today view)** — countdown, today's events, trending strip, "first picks" callout
-2. **`attractions.html`** — filter row + card grid (REFERENCE PAGE, first polished)
-3. **`shows.html`** — same skeleton as attractions; cards surface showtimes
-4. **`event-timeline.html`** — Gantt; rewritten later, Phase 2
-5. **`people-timeline.html`** — per-person status + "who's at the cabin right now"; Phase 2
-
----
-
-## Accessibility floor
-
-- Semantic HTML: `<header> <nav> <main> <section> <article>` for structure
-- `aria-current="page"` on active nav link
-- Focus-visible outline on every interactive element, at least 2px and 3:1 contrast
-- Images have meaningful alt OR empty alt + aria-label on parent
-- No motion > 200ms unless user-requested; respect `prefers-reduced-motion`
-- Color never sole signal (icon + text + color always)
-- Body text ≥ 16px, line-height ≥ 1.4
-- Target size 44×44px minimum
+| Token | Value | Use |
+|---|---|---|
+| `--radius-card` | `18px` | Cards (`.card--light`, `.card--dense`), panels |
+| `--radius-pill` | `999px` | Chips, badges, pill buttons |
+| `--radius-btn` | `10px` | Square-ish buttons, nav links |
 
 ---
 
-## Performance budget
+### Theming -- How to Add a New Theme
 
-- **HTML per page:** ≤ 80 KB generated
-- **CSS total:** ≤ 40 KB across tokens + components
-- **JS total:** ≤ 30 KB (Phase 1 is static; interactivity in Phase 2 uses a small vanilla-JS file)
-- **Images:** WebP preferred; thumbs ≤ 60 KB each, lazy-loaded with `loading="lazy"`
-- **Fonts:** loaded with `font-display: swap`; max 2 families, 3 weights each
+To create a new theme (e.g. an "Easter" or "Night Hike" skin):
 
-Target: First Contentful Paint < 1.5s on a 4G phone, interactive < 2.5s.
+1. **Create** `web/css/themes/<theme-name>.css`
+2. **Override** the semantic tokens you want to change at `:root` level:
+   ```css
+   :root {
+     --color-bg: #FFF0F5;
+     --status-yes: #8BBF4D;
+     /* ...only tokens that differ from the base */
+   }
+   ```
+3. **Optionally** define private palette names (like `--moss`) and wire them:
+   ```css
+   :root {
+     --clover: #8BBF4D;
+     --status-yes: var(--clover);
+   }
+   ```
+4. **Load** the new theme file in `<head>` instead of (or after) `trail.css`
+5. **Do not** touch `tokens.css` or `components.css` -- the new file is the only change
 
----
-
-## Browser support floor
-
-- iOS Safari 16+ (iPhone 14 shipped on iOS 16)
-- Chrome 108+ (covers modern Android flagships including Pixel, Flip)
-- macOS Safari 16+
-- Firefox 110+ (rare in this family but kept as tertiary)
-
-This unlocks: `:has()`, `container queries`, `color-mix()`, `backdrop-filter`, `aspect-ratio`. No polyfills needed.
-
----
-
-## File layout
-
-```
-web/
-├── index.html
-├── attractions.html
-├── shows.html
-├── event-timeline.html
-├── people-timeline.html
-├── css/
-│   ├── tokens.css         ← colors, type, space, radii (per theme)
-│   ├── components.css     ← card, badge, nav, etc.
-│   └── themes/            ← alternate skins as overrides
-│       ├── cartridge.css
-│       ├── lakeside.css
-│       ├── trail.css
-│       ├── colorblind.css
-│       └── outdoor.css
-├── js/
-│   └── theme.js           ← persists theme choice in localStorage
-├── mockups/               ← visual exploration; not shipped to prod
-└── assets/
-    ├── thumbs/
-    ├── banners/
-    └── logos/
-```
-
-Nav + head + theme-loader live in `scripts/generate_dashboard.py` as Python string templates so every page gets identical markup.
+**Constraint:** A theme file may only assign values to tokens already defined in `tokens.css`. It must not add new tokens or component rules.
 
 ---
 
-## How this doc stays alive
+### Dark Mode Mechanism
 
-- When a token changes, update this file AND `tokens.css` in the same commit.
-- When a new component enters the system, add a section here.
-- This doc is markdown on purpose: readable in Obsidian, on GitHub, and inlinable into AI context.
-
-Last updated: 2026-04-21
+- The `<html>` element carries `data-mode` attribute: `"system"` | `"light"` | `"dark"`
+- `localStorage` key: `vacdash:v1:mode` stores the user's choice
+- An inline `<script>` in `<head>` (before any CSS) reads localStorage and sets `data-mode` -- this prevents flash-of-wrong-theme
+- `tokens.css` handles `[data-mode="dark"]` and `@media (prefers-color-scheme: dark) :root[data-mode="system"]` via CSS selectors
+- A storage event listener at end of `<body>` syncs theme changes across open tabs in real time
+- The theme toggle button (`.theme-toggle` in `.site-header__inner`) cycles: system -> light -> dark -> system
 
 ---
 
-## Phase 4 Changes (2026-04-21)
+### Site Chrome (Present on Every Page)
 
-The following files were created as the production design system (committed autonomously while Alex was away):
-- `web/css/tokens.css` — all semantic CSS custom properties (colors, spacing, typography, shadows, radii)
-- `web/css/themes/trail.css` — Trail theme (Ozarks palette: moss #3F6B3A, lake #2A6A8A, sand #D8A660, clay #C1553B, dusk #6B4C8F)
-- `web/css/components.css` — all shared components (cards, nav, chips, avatars, 700+ lines extracted from `card-density.html` mockup)
-- `web/svg-fallbacks/[a-z].svg` — 26 gradient SVGs for missing thumbnails, one per letter, Trail palette cycled
+Every page shares these elements, defined in `components.css`:
 
-### Class naming convention
+| Element | Selector | Behavior |
+|---|---|---|
+| Site header | `.site-header` | Sticky, top 0, `z-index: 100`, `backdrop-filter: blur(12px)`, `height: 56px` |
+| Inner layout | `.site-header__inner` | `max-width: 1100px`, flex row, `height: 56px` |
+| Logo | `.site-logo` | "Branson '26" text, Lexend 800, `color: var(--status-yes)`, links to `index.html` |
+| Desktop nav | `.site-nav .nav-link` | Lexend 700 14px, `min-height: 44px`, active state via `aria-current="page"` |
+| Theme toggle | `.theme-toggle` | 44x44px circle button, top-right of header |
+| Profile button | `.header-profile-btn` | 👤 emoji button, links to `profile.html`, amber dot badge when name not set |
+| Bottom tabs | `.bottom-tabs` | Fixed bottom, 6 emoji tabs, hidden on desktop (>=720px) |
+| Page main | `.page-main` | `max-width: 1100px`, `padding-bottom: 120px` (clears bottom tab bar) |
 
-- **Browse card:** `.card--light` (sparse, grid-friendly, two-column on mobile)
-- **Detail/wishlist card:** `.card--dense` (full metadata, one per row)
-- **Nested elements:** BEM-style naming
-  - `.card--light__body`, `.card--light__thumb`, `.card--light__hook`, `.card--light__row`
-  - `.card--dense__body`, `.card--dense__top`, `.card--dense__thumb`
-- **Shared components:** `.chip`, `.tag`, `.minichip`, `.avatar`, `.avatars`, `.heart-overlay`, `.filter-strip`, `.catalog-grid`
+---
 
-### Theme switching
+### Accessibility Floor
 
-Themes controlled via `data-mode` attribute on `<html>`: `system` | `light` | `dark`.
-- Default: `system` (matches OS preference via `prefers-color-scheme`)
-- User choice persisted in `localStorage` at key `vacdash:v1:mode`
-- Inline theme loader script in `<head>` prevents flash-of-wrong-theme on page load
-- Storage listener script at end of `<body>` syncs theme across tabs in real-time
+- WCAG AA minimum: body text >=4.5:1 contrast ratio, large text >=3:1
+- All interactive elements: `min-width: 44px; min-height: 44px` tap target
+- Color is never the sole signal -- every status has an icon or text label alongside the color
+- Focus-visible outline on every interactive element: at least 2px, 3:1 contrast
+- `aria-current="page"` on the active nav link on every page
+- Images: meaningful `alt` attribute OR empty `alt` with `aria-label` on parent
 
-### Adding a new page
+---
 
-1. Add it to the `pages` list in `render_nav()` function in `scripts/generate_dashboard.py`
-2. Create HTML and call `render_head(title, description)` and `render_nav(active_page)` to inject shared `<head>` + nav
-3. Link `css/tokens.css`, `css/themes/trail.css`, `css/components.css` (paths relative to `web/`)
-4. Include the storage listener script before closing `</body>` for real-time theme sync
+## Layer 2 -- Per-Page Layout Specs
 
-### CSS organization rules
+### index.html
 
-- Components reference ONLY semantic tokens (--color-*, --status-*, --warn, --shadow-*, --radius-*, --font-*)
-- Components NEVER reference private palette vars (--moss, --lake, --sand, --clay, --dusk)
-- Private palette lives ONLY in `themes/trail.css` (theme-specific overrides)
-- Use `color-mix()` for blends and semantic tints (e.g., `color-mix(in srgb, var(--status-yes) 12%, transparent)`)
+**File:** `web/index.html`
+**Purpose:** Trip home screen -- countdown to departure, quick orientation, and entry point to all other pages.
+**Data source:** None -- fully static content, no fetch calls.
+**Unique layout elements:** Countdown timer or date display; prominent navigation tiles to key pages; prefetch hint for `data.json` (`<link rel="prefetch" href="data.json">` in `<head>`).
+**Key JS behavior:** Inline theme loader in `<head>`; storage event listener for cross-tab theme sync; no data-dependent scripts.
 
-### SVG fallback strategy
+---
 
-For attractions without real thumbnails:
-1. Check `web/assets/thumbs/{slug}-thumb.[jpg|png|webp]`
-2. If not found, inline SVG from `web/svg-fallbacks/{first_letter_of_name}.svg`
-3. SVGs are gradient backgrounds with white letter overlay; no HTTP request needed
-4. Fallback graceful: never render broken images, always show something
+### attractions.html
 
-### Data pipeline
+**File:** `web/attractions.html`
+**Purpose:** Browse all 139 attractions via a filterable card grid -- the main discovery surface.
+**Data source:** `fetch('data.json')` at page load via `renderCatalog()`. Blacklisted slugs (24 total) are inlined as a JS array; they are NOT fetched separately. `picks.js` loaded for wishlist heart state.
+**Unique layout elements:** Filter row (`.filter-strip` with `.chip` buttons above the grid); live count text (`.live-count`); `.catalog-grid` card grid; detail modal (`.detail-modal`) that opens on card tap; Quick Pick nav button (`<a class="qp-nav-btn" href="quick-pick.html">`).
+**Key JS behavior:**
+- `renderCatalog()` -- fetches `data.json`, filters blacklist, renders `.card--light` articles into `#catalog-grid`, dispatches `catalog-rendered` event
+- Filter IIFE -- listens for `catalog-rendered`, captures cards via `querySelectorAll`, handles chip toggle and grid filtering
+- Heart handler -- listens for `catalog-rendered`, wires `.heart-overlay` buttons to `picks.js`
+- Detail modal IIFE -- listens for `catalog-rendered`, wires card click to open modal
+- Avatar stack IIFE -- listens for `catalog-rendered`, populates `.card--light__avatars` divs
 
-- `scripts/generate_dashboard.py` reads `data/attractions.json` + `data/blacklist.json` (optional)
-- Renders to `web/attractions.html` (132 attractions after filtering)
-- Generates `web/shows.html` with shared head/nav
-- Called by `scripts/clean_slugs.py` and `scripts/audit_thumbs.py` as data integrity tools
-- Shared `render_head()` and `render_nav()` partials keep head/nav in sync across all 5 pages
+**CRITICAL:** All scripts that query `.card--light` must wait for the `catalog-rendered` event. Cards are not present in DOM at parse time.
 
-Last updated: 2026-04-21
+---
+
+### shows.html
+
+**File:** `web/shows.html`
+**Purpose:** Browse ticketed shows with showtime information.
+**Data source:** Static baked-in cards (NOT yet converted to `fetch(data.json)` -- this is a known divergence from attractions.html).
+**Unique layout elements:** Showtime display chips; show-specific filter tags (country, comedy, magic, etc.).
+**Key JS behavior:** Filter chip handling (similar to attractions but driven by baked DOM cards); no async render loop.
+
+---
+
+### quick-pick.html
+
+**File:** `web/quick-pick.html`
+**Purpose:** Swipe-to-decide deck -- a Tinder-style experience for quickly wishlisting attractions.
+**Data source:** `fetch('data.json')` at page load. Blacklist slugs are inlined as a JS array (same 24 slugs as attractions.html). `picks.js` loaded.
+**Unique layout elements:** `.deck-stage` containing stacked `.deck-card` elements; action buttons (Skip / Wishlist / Undo); progress bar; end-state screen with "Review Wishlist" CTA. No `.catalog-grid`, no baked article cards.
+**Key JS behavior:** Full pointer-events drag physics (pointerdown / pointermove / pointerup) for swipe; fly-off animation on decision; keyboard support (arrow keys, Z for undo); localStorage session state at key `vacdash:swipe:progress`; right-swipe calls `picks.set(slug, 'wishlist')`.
+
+**Note:** quick-pick.html is a STANDALONE PAGE. The "Quick Pick" button on attractions.html is a plain `<a href="quick-pick.html">` link, not a mode toggle.
+
+---
+
+### wishlist.html
+
+**File:** `web/wishlist.html`
+**Purpose:** Shows the current user's wishlisted attractions in a dense card layout.
+**Data source:** `picks.js` state (localStorage + Supabase Phase 2). No `fetch(data.json)`.
+**Unique layout elements:** `.dense-stack` grid of `.card--dense` cards; each card has a two-button segmented control (`.seg`) for Wishlist / Committing / Not Going state; remove X button (`.remove-x`).
+**Key JS behavior:** `picks.js` drives all content; card state reflects `data-state` attribute; animated removal on "Not Going" selection.
+
+---
+
+### suggested.html
+
+**File:** `web/suggested.html`
+**Purpose:** Shows attractions suggested by other family members for the current user.
+**Data source:** `picks.js` (for current user identity) + Supabase `suggestions` table (for suggestion records).
+**Unique layout elements:** Suggestion cards with "from [Name]" attribution and optional note; accept/dismiss actions; swipe-to-decide layout similar to quick-pick.
+**Key JS behavior:** Reads current user from `vacdash:v1:user` localStorage key; fetches suggestions from Supabase where `to_user` matches; renders results.
+
+---
+
+### profile.html
+
+**File:** `web/profile.html`
+**Purpose:** User identity and preference settings -- name picker, theme, interests, trip dates.
+**Data source:** All `localStorage` -- no fetch calls. localStorage keys used: `vacdash:v1:user`, `vacdash:v1:mode`, `vacdash:v1:arrival`, `vacdash:v1:departure`, `vacdash:v1:interests`, `vacdash:v1:wishlist-privacy`.
+**Unique layout elements:** Native `<select>` for 26-person name picker; three-way segmented theme control; interest chip multi-select; date inputs for arrival/departure.
+**Key JS behavior:** URL param `?name=Ashlyn` auto-fills and persists name on load; all form controls write to localStorage on change with debounced "Saved" toast; no explicit Save button.
+
+---
+
+### event-timeline.html
+
+**File:** `web/event-timeline.html`
+**Purpose:** Gantt-style trip timeline showing scheduled events across the vacation days.
+**Data source:** Static schedule data baked into the page (no fetch).
+**Unique layout elements:** Day-column Gantt grid; event blocks with time and attendee overlap indicators.
+**Key JS behavior:** Minimal -- primarily CSS-driven layout with JS for interactive hover/tap details.
+
+---
+
+### people-timeline.html
+
+**File:** `web/people-timeline.html`
+**Purpose:** Per-person attendance overview -- who's at the cabin when, and their wishlisted picks.
+**Data source:** Static people data baked into the page (no fetch).
+**Unique layout elements:** Attendee list with arrival/departure dates; each name is a tappable link to `profile.html?name=[Name]`.
+**Key JS behavior:** Name links navigate to profile.html with `?name=` query param.
+
+---
+
+## Layer 3 -- Component Catalog
+
+### card--light (Browse Card)
+
+**Class(es):** `article.card--light`
+**Visual description:** Vertical card with a 16:10 image thumbnail on top, card title (Lexend 700 16px) below, a 2-line hook description in dim text, an avatar stack row, and a minichip row (price, duration, rating). On hover: lifts 2px, shadow deepens to `--shadow-2`. Heart button (`.heart-overlay`) sits in the top-right corner of the thumbnail.
+**Use when:** Displaying an attraction in the Browse grid. This is the primary discovery card.
+**Do NOT use when:** Showing a detailed/selected attraction (use `card--dense`) or in the swipe deck (use `deck-card`).
+**CSS custom properties:** `--radius-card`, `--shadow-1`, `--shadow-2`, `--color-surface`, `--color-ink`, `--color-ink-dim`, `--color-line`
+**Variants / states:** No explicit variant classes. State is conveyed via the `.heart-overlay` button's `aria-pressed` attribute (filled = wishlisted).
+**Pitfalls for AI agents:**
+- Cards are generated at RUNTIME by `renderCatalog()` in `attractions.html` -- they are NOT baked into the HTML. Do not add or edit article cards directly in the HTML source.
+- The card template lives in a JS template literal inside `renderCatalog()`. To change card layout, edit that function -- not the HTML.
+- All filter chips, the detail modal, and picks.js heart wiring listen for the `catalog-rendered` event before querying `.card--light` elements. If you restructure the render loop, ensure the event still fires after all cards are inserted.
+- `data-tags-json` attribute must use HTML-entity-encoded quotes (`&quot;`) because it is embedded inside an HTML attribute.
+
+---
+
+### card--dense (Wishlist/Detail Card)
+
+**Class(es):** `article.card--dense` with `data-state="wishlist"` | `"committing"` | `"not-going"`
+**Visual description:** Horizontal card with a square thumbnail on the left and metadata on the right. Three background color states driven by `data-state`. A two-button segmented control (`.seg`) below the metadata for state selection. A small remove button (`.remove-x`) in the top right.
+**Use when:** Wishlist page or anywhere a selected/committed attraction needs full metadata visible.
+**Do NOT use when:** In a browse grid (too tall) or in the swipe deck.
+**CSS custom properties:** `--radius-card`, `--color-surface`, `--color-line`, `--status-yes`, `--status-lock`, `--status-no`, `--accent-clay`
+**Variants / states:**
+- `[data-state="wishlist"]` -- blue tint background
+- `[data-state="committing"]` -- green tint background
+- `[data-state="not-going"]` -- red tint, `.removing` animation class triggers slide-out
+**Pitfalls for AI agents:**
+- Always update the `data-state` attribute AND the `.seg button[aria-pressed]` states together -- they must stay in sync.
+- The `.removing` class triggers a CSS animation. Do not remove the element from the DOM before the animation completes.
+
+---
+
+### heart-overlay (Wishlist Button)
+
+**Class(es):** `button.heart-overlay` with `aria-pressed="true"` | `"false"`
+**Visual description:** Small circular button, absolute-positioned in the top-right corner of a `.card--light__thumb`. Shows ♡ (unfilled) or ♥ (filled, `--status-yes` color) based on `aria-pressed`.
+**Use when:** On every `.card--light` card to allow wishlisting.
+**Do NOT use when:** On `.card--dense` cards (which use the `.seg` control instead).
+**CSS custom properties:** `--status-yes`, `--color-surface`
+**Variants / states:** `aria-pressed="true"` = wishlisted (filled heart, green). `aria-pressed="false"` = not wishlisted (outline heart).
+**Pitfalls for AI agents:**
+- The `aria-pressed` attribute is the source of truth for visual state. Always toggle it in JS alongside `picks.set()`. Do not rely on class toggling alone.
+- The click handler is wired by the heart handler script in `attractions.html`, which listens for the `catalog-rendered` event. If cards are re-rendered without re-dispatching the event, hearts will be inert.
+
+---
+
+### chip (Filter Chip)
+
+**Class(es):** `button.chip` with `aria-pressed="true"` | `"false"` and `data-tag="tagname"`
+**Visual description:** Pill-shaped button (radius-pill). Inverts colors when active (`aria-pressed="true"`): background becomes `--color-ink`, text becomes `--color-surface`. Inactive state: surface background, muted ink text, line border.
+**Use when:** Filter rows on Browse and Quick Pick pages to narrow the visible card set by tag.
+**Do NOT use when:** For navigation actions (use nav links) or for binary on/off toggles with two explicit states (use `.seg`).
+**CSS custom properties:** `--radius-pill`, `--color-surface`, `--color-ink`, `--color-ink-dim`, `--color-line`
+**Variants / states:** `aria-pressed="true"` = active filter (inverted colors). `aria-pressed="false"` = inactive. The "All" chip has `data-tag=""`.
+**Pitfalls for AI agents:**
+- The filter IIFE on attractions.html reads `aria-pressed` state synchronously on chip click to determine the active filter. On quick-pick.html, there is a 50ms `setTimeout` before reading `aria-selected` to allow the existing handler to run first.
+- Do NOT change the chip element type away from `<button>` -- the filter script queries `button.chip`.
+
+---
+
+### minichip (Price/Duration/Rating Pill)
+
+**Class(es):** `span.minichip` with optional `.price` or `.rating` modifier
+**Visual description:** Tiny inline pill (radius-pill) inside `.card--light__row`. Shows formatted text: "from $50", "2h", "★ 4.7". Price chip uses `--status-yes` text; rating chip uses `--accent-sand` text.
+**Use when:** Inside `.card--light__row` only, for the three card metadata fields.
+**Do NOT use when:** For interactive elements (minichips are display-only spans).
+**CSS custom properties:** `--radius-pill`, `--color-line`, `--status-yes` (price), `--accent-sand` (rating)
+**Variants / states:** `.minichip` (neutral), `.minichip.price` (green text), `.minichip.rating` (amber text)
+**Pitfalls for AI agents:**
+- If `price_adult` is null, omit the price minichip entirely -- do not render an empty span.
+- The price format is "from $N" with no decimal for whole numbers.
+
+---
+
+### site-header + bottom-tabs (Navigation)
+
+**Class(es):** `.site-header`, `.site-header__inner`, `.site-logo`, `.site-nav`, `.site-nav .nav-link`, `.bottom-tabs`, `.bottom-tabs .tab`
+**Visual description:** Sticky top bar (56px tall) with blurred background (backdrop-filter: blur 12px). Logo on the left (moss green), nav links in the middle-right, theme toggle + profile button on the far right. On mobile (<720px), the site nav collapses and a fixed 6-tab bottom bar replaces it with emoji icons.
+**Use when:** Every page. Copy from an existing page -- do not build from scratch.
+**Do NOT use when:** N/A -- required on all pages.
+**CSS custom properties:** `--color-surface`, `--color-line`, `--color-ink`, `--color-ink-dim`, `--status-yes`, `--radius-btn`, `--sp-2`, `--sp-4`, `--font-display`
+**Variants / states:** `.nav-link[aria-current="page"]` = active page (green tint background, green text). `.header-profile-btn[data-unset="true"]` = amber nudge dot shown.
+**Pitfalls for AI agents:**
+- `padding-bottom: 120px` on `.page-main` is required to prevent content from being hidden behind the fixed bottom tab bar on mobile. Do not remove it.
+- `aria-current="page"` must be set on the correct nav link AND the correct bottom tab for every page -- both independently.
+- When adding a new page, add it to the `<nav class="site-nav">` block AND the `<nav class="bottom-tabs">` block on EVERY existing page. (Currently 9 pages total.)
+
+---
+
+### catalog-grid (Card Grid Layout)
+
+**Class(es):** `div.catalog-grid#catalog-grid`
+**Visual description:** CSS grid with `auto-fill minmax(280px, 1fr)` columns. Cards flow automatically into as many columns as the viewport allows.
+**Use when:** The Browse page card grid. Only one instance per page.
+**Do NOT use when:** On pages where cards are displayed in a single column (use `.dense-stack` for wishlist cards).
+**CSS custom properties:** `--sp-3` (gap)
+**Variants / states:** `[hidden]` -- hide the grid (e.g., when switching to Quick Pick mode). Companion rule `.catalog-grid[hidden] { display: none; }` exists in components.css to override the grid display value.
+**Pitfalls for AI agents:**
+- The grid is initially empty -- populated by `renderCatalog()` after `fetch(data.json)` resolves. Never add `<article>` elements directly to the HTML inside this div.
+- The `#live-count` element (above the grid) is updated by `renderCatalog()` after insertion. Do not manually set its text content.
+
+---
+
+### deck-card (Quick Pick Swipe Card)
+
+**Class(es):** `.deck-card`, `.deck-card.stack-2`, `.deck-card.stack-3`
+**Visual description:** Large portrait-oriented card in the swipe deck stage. The top card is the active swipe target. `.stack-2` and `.stack-3` are visual offset layers behind it showing depth. Cards fly off-screen on swipe with a rotation animation.
+**Use when:** Quick Pick swipe deck only (`quick-pick.html`).
+**Do NOT use when:** Anywhere on `attractions.html` (which uses `.card--light` in browse mode).
+**CSS custom properties:** `--radius-card`, `--color-surface`, `--shadow-2`
+**Variants / states:** `.deck-card.stack-2` (second card in stack, scaled and offset), `.deck-card.stack-3` (third card, further offset)
+**Pitfalls for AI agents:**
+- The top card selector for programmatic decisions (button clicks, keyboard) is: `deckStage.querySelector('.deck-card:not(.stack-2):not(.stack-3)')`
+- Image paths in `data-img` on `.card--light` store `assets/thumbs/...` (relative to `web/`). The deck JS normalizes these to `../assets/thumbs/...` for use in quick-pick.html. Do not skip this normalization.
+- Do NOT add `.deck-card` or swipe JS to `attractions.html`. Quick Pick lives exclusively on `quick-pick.html`.
+
+---
+
+### seg (Segmented Control)
+
+**Class(es):** `.seg`, `.seg.two-btn`, `button[aria-pressed][data-v]`
+**Visual description:** A two-button pill toggle (full-width of its container). Buttons share a surface-color border. The active button turns solid green (`--status-yes`) when `data-v="committing"`, with other states mapped to their status colors.
+**Use when:** `.card--dense` state selection (Wishlist / Committing / Not Going) on the Wishlist page. Also used for theme switching on the Profile page.
+**Do NOT use when:** For navigation (use nav links). For single on/off toggles (use `aria-pressed` on a single button).
+**CSS custom properties:** `--color-surface`, `--color-line`, `--status-yes`, `--status-no`, `--radius-pill`
+**Variants / states:** `button[aria-pressed="true"][data-v="committing"]` = green. `button[aria-pressed="true"][data-v="not-going"]` = red. `button[aria-pressed="true"][data-v="wishlist"]` = blue.
+**Pitfalls for AI agents:**
+- Always set `aria-pressed="false"` on the inactive button when setting `aria-pressed="true"` on the active one -- both attributes must be present and accurate.
+
+---
+
+### modal (Detail Modal)
+
+**Class(es):** `.detail-modal`, `.modal-backdrop`
+**Visual description:** A full-screen overlay panel that slides up or fades in when a `.card--light` is tapped. Shows the attraction's full image, name, description, tags, price, duration, RSVP/picks controls, and a link to the official URL. The backdrop (`.modal-backdrop`) is a semi-opaque overlay behind the panel.
+**Use when:** Detail view of any attraction card on the Browse page.
+**Do NOT use when:** On Quick Pick (which uses a bottom sheet instead).
+**CSS custom properties:** `--color-surface`, `--color-bg`, `--radius-card`, `--shadow-2`
+**Variants / states:** `.detail-modal.is-open` = visible. Closed by default.
+**Pitfalls for AI agents:**
+- The modal IIFE queries all `.card--light` elements and wires click handlers. It must listen for `catalog-rendered` before initializing, since cards are rendered asynchronously.
+- Closing the modal on `Escape` keypress is wired in the same IIFE -- do not add a duplicate listener.
+
+---
+
+### page-hero (Page Title Section)
+
+**Class(es):** `.page-hero`
+**Visual description:** The top content section below the header on each page. Contains the page `<h1>` title and optionally a subheading (`.hero-sub`). No background color -- sits on the page background.
+**Use when:** At the top of every page's `<main>` content area.
+**Do NOT use when:** As a full-bleed banner with background image (this project does not use hero images).
+**CSS custom properties:** `--font-display`, `--text-xl`, `--color-ink-dim`, `--sp-2`, `--sp-5`
+**Variants / states:** None. Simple block.
+**Pitfalls for AI agents:**
+- Do NOT include `<p class="eyebrow">Branson '26</p>` inside `.page-hero` -- this was removed in 2026-04-23 as redundant with the site-header logo.
+
+---
+
+### filter-strip (Horizontal Filter Row)
+
+**Class(es):** `.filter-strip` inside `.filter-popover`, toggled by `.filter-toggle-btn`
+**Visual description:** A horizontally scrollable row of `.chip` buttons for filtering by tag. Hidden behind a "Filter ▾" toggle button on mobile (`.filter-popover-wrap`). The Quick Pick nav button (`<a class="qp-nav-btn">`) sits in the same row as the filter toggle on the Browse page.
+**Use when:** Above the card grid on attractions.html and quick-pick.html.
+**Do NOT use when:** On pages without a filterable card collection.
+**CSS custom properties:** `--sp-2`, `--sp-3`, `--color-surface`, `--color-line`, `--radius-btn`
+**Variants / states:** `.filter-popover` has `aria-expanded="true"/"false"` on the toggle button to control visibility.
+**Pitfalls for AI agents:**
+- Filter chips must have `data-tag=""` for the "All" chip and `data-tag="tagname"` for all others -- the filter IIFE reads this attribute.
+- The filter IIFE on attractions.html is wrapped in a `catalog-rendered` event listener. Do not move it outside that listener.
+
+---
+
+## Agent Notes (Cross-Cutting Rules)
+
+- **Never hardcode hex values** in any CSS file. Always use a token (`--color-bg`, `--status-yes`, etc.).
+- **Never reference `--moss`, `--lake`, `--sand`, `--clay`, or `--dusk`** outside of `css/themes/trail.css`. These are private palette names. Use the semantic token names in components.
+- **Always check `data-state` attribute** before assuming a `.card--dense` card's color -- the CSS is data-attribute-driven, not class-driven.
+- **Always verify `aria-pressed` is toggled in JS** alongside any visual state change on chips, heart buttons, and seg buttons. The CSS uses attribute selectors -- if `aria-pressed` is not set, the visual state will not update.
+- **Before any CSS change**, run `grep -rn "<token-or-selector>" web/css/ web/*.html` to find all usages. CSS custom properties propagate across all three CSS files and into inline JS that reads them.
+- **When adding a new HTML page**, add it to: (1) the `<nav class="site-nav">` block on all existing pages, (2) the `<nav class="bottom-tabs">` block on all existing pages, (3) the `sed` path-fix command in the GitHub Pages deploy workflow (CLAUDE.md, GitHub Pages Sync section).
+- **`generate_dashboard.py` is FROZEN.** See CLAUDE.md for details. Running it destroys hand-edited code.
