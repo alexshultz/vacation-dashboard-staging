@@ -18,52 +18,87 @@
   document.documentElement.setAttribute('data-mode', m);
 })();
 </script>
+<style>
+.event-card {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.event-card > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  cursor: pointer;
+  list-style: none;
+  gap: 12px;
+}
+.event-card > summary::-webkit-details-marker { display: none; }
+.event-card > summary:hover { background: color-mix(in srgb, var(--color-bg) 60%, transparent); }
+.event-card__title { font-family: var(--font-display); font-weight: 700; font-size: var(--text-base); color: var(--color-ink); }
+.event-card__meta { font-size: var(--text-sm); color: var(--color-ink-dim); margin-top: 2px; }
+.event-card__chips { display: flex; gap: 6px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; align-items: center; }
+.event-card__body {
+  padding: 0 18px 18px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  font-size: var(--text-sm);
+}
+@media (min-width: 720px) { .event-card__body { grid-template-columns: repeat(4, 1fr); } }
+.event-card__group-title { font-weight: 700; margin-bottom: 6px; }
+.event-card__name { padding: 2px 0; color: var(--color-ink-dim); }
+.event-card__none { color: var(--color-ink-dim); opacity: 0.5; font-style: italic; }
+.event-card__summary-main { flex: 1; min-width: 0; }
+</style>
 </head>
-<body class="bg-zinc-950 text-zinc-100 p-4 max-w-2xl mx-auto">
+<body>
 <header class="site-header">
   <div class="site-header__inner">
     <a class="site-logo" href="index.html">Branson '26</a>
     <nav class="site-nav" aria-label="Main">
       <a href="index.html" class="nav-link">Home</a>
-      <a href="attractions.html" class="nav-link">Attractions</a>
-      <a href="shows.html" class="nav-link">Shows</a>
+      <a href="attractions.html" class="nav-link">Activities</a>
+      <a href="wishlist.html" class="nav-link">Wishlist</a>
+      <a href="suggested.html" class="nav-link">Suggested</a>
       <a href="event-timeline.html" class="nav-link" aria-current="page">Timeline</a>
       <a href="people-timeline.html" class="nav-link">People</a>
     </nav>
+    <a class="header-profile-btn" href="profile.html" aria-label="Profile" id="profile-btn"><span aria-hidden="true">👤</span><span class="profile-nudge-dot" aria-hidden="true"></span></a>
     <button class="theme-toggle" aria-label="Toggle dark mode" onclick="(function(){var modes=['system','light','dark'];var m=document.documentElement.getAttribute('data-mode')||'system';var next=modes[(modes.indexOf(m)+1)%3];document.documentElement.setAttribute('data-mode',next);localStorage.setItem('vacdash:v1:mode',next);})()">☀️</button>
   </div>
 </header>
 <nav class="bottom-tabs" aria-label="Main navigation">
   <a href="index.html" class="tab" aria-label="Home">🏠</a>
-  <a href="attractions.html" class="tab" aria-label="Attractions">🎡</a>
-  <a href="shows.html" class="tab" aria-label="Shows">🎭</a>
+  <a href="attractions.html" class="tab" aria-label="Activities">🎡</a>
+  <a href="wishlist.html" class="tab" aria-label="Wishlist">♡</a>
+  <a href="suggested.html" class="tab" aria-label="Suggested">💡</a>
   <a href="event-timeline.html" class="tab" aria-current="page" aria-label="Timeline">📅</a>
   <a href="people-timeline.html" class="tab" aria-label="People">👥</a>
 </nav>
-    <div class="bg-zinc-900 border-b border-zinc-700 px-4 py-3 mb-6">
-      <div class="max-w-2xl mx-auto flex items-center justify-between">
-        <div class="font-bold text-emerald-400 text-xl">Branson 2026</div>
-        <div class="flex gap-2 text-sm font-medium">
-          <a href="index.html" class="px-5 py-2 rounded-2xl hover:bg-zinc-800 data-[active=true]:bg-emerald-900 data-[active=true]:text-emerald-400">Events</a>
-          <a href="people-timeline.html" class="px-5 py-2 rounded-2xl hover:bg-zinc-800 data-[active=true]:bg-emerald-900 data-[active=true]:text-emerald-400">People</a>
-          <a href="event-timeline.html" data-active="true" class="px-5 py-2 rounded-2xl hover:bg-zinc-800 data-[active=true]:bg-emerald-900 data-[active=true]:text-emerald-400">Timeline</a>
-        </div>
-      </div>
-    </div>
-    <p class="text-xs text-zinc-500 mb-8">Chronological timeline with duration bars (from Test Vacation Checklist.md) • Tap cards for full RSVP details</p>
+<main class="page-main">
+  <div class="page-hero">
+    <h1>Timeline</h1>
+    <p class="hero-sub">25 events grouped by date, May 23–28. Duration bars scale to 6 hours max.</p>
+  </div>
 
-    <div class="mb-6">
-        <button onclick="toggleAll()" id="toggle-btn"
-                class="px-5 py-2 bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-600 rounded-2xl text-sm font-medium flex items-center gap-2">
-            <span id="toggle-text">Collapse All</span>
-        </button>
-    </div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+    <span class="minichip" style="color:var(--status-yes);border-color:color-mix(in srgb,var(--status-yes) 35%,var(--color-line))">✓ Interested</span>
+    <span class="minichip" style="color:var(--warn);border-color:color-mix(in srgb,var(--warn) 35%,var(--color-line))">? Undecided</span>
+    <span class="minichip" style="color:var(--status-no);border-color:color-mix(in srgb,var(--status-no) 35%,var(--color-line))">✗ Not Interested</span>
+    <span class="minichip">– No Response</span>
+  </div>
 
-    <div id="timeline-list" class="space-y-4"></div>
+  <div style="margin-bottom:18px;">
+    <button onclick="toggleAll()" id="toggle-btn" style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:14px;cursor:pointer;color:var(--color-ink);">
+      <span id="toggle-text">Collapse All</span>
+    </button>
+  </div>
 
-    <p class="text-center text-zinc-500 text-xs mt-12">
-        Tap Share → "Add to Home Screen" on iOS. iMessage is primary communication. Updated with visual duration bars.
-    </p>
+  <div id="timeline-list"></div>
 
     <script>
         let allExpanded = true;
@@ -108,50 +143,75 @@
 
         function render() {
             const container = document.getElementById('timeline-list');
-            const maxDuration = 6; // for scaling bars (Silver Dollar City, Dogwood)
-            container.innerHTML = eventsData.map(event => {
-                const pct = Math.min((event.duration / maxDuration) * 100, 100);
-                const interestedHtml = event.interested.map(name => `<div>${name}</div>`).join('');
-                const undecidedHtml = event.undecided.map(name => `<div>${name}</div>`).join('');
-                const notInterestedHtml = event.notInterested.map(name => `<div>${name}</div>`).join('');
-                const noResponseHtml = event.noResponse.map(name => `<div>${name}</div>`).join('');
+            const maxDuration = 6;
+            const yesStyle = 'color:var(--status-yes);border-color:color-mix(in srgb,var(--status-yes) 35%,var(--color-line))';
+            const warnStyle = 'color:var(--warn);border-color:color-mix(in srgb,var(--warn) 35%,var(--color-line))';
+            const noStyle = 'color:var(--status-no);border-color:color-mix(in srgb,var(--status-no) 35%,var(--color-line))';
+            const dayLabels = {
+                '2026-05-23': 'May 23 — Saturday',
+                '2026-05-24': 'May 24 — Sunday',
+                '2026-05-25': 'May 25 — Monday',
+                '2026-05-26': 'May 26 — Tuesday',
+                '2026-05-27': 'May 27 — Wednesday',
+                '2026-05-28': 'May 28 — Thursday'
+            };
+            const nameCell = (n) => `<div class="event-card__name">${n}</div>`;
+            const noneCell = '<div class="event-card__none">(none)</div>';
 
+            const groups = {};
+            eventsData.forEach(ev => {
+                if (!groups[ev.date]) groups[ev.date] = [];
+                groups[ev.date].push(ev);
+            });
+            const dates = Object.keys(groups).sort();
+
+            const renderCard = (event) => {
+                const pct = Math.min((event.duration / maxDuration) * 100, 100);
                 return `
-                    <details class="event-card bg-zinc-900 border border-zinc-700 rounded-3xl">
-                        <summary class="px-6 py-4 flex justify-between items-center cursor-pointer hover:bg-zinc-800">
-                            <div class="flex-1">
-                                <div class="font-semibold text-white">${event.title}</div>
-                                <div class="text-emerald-400 text-sm">${event.date} • ${event.duration}h • ${event.priority} priority</div>
-                                <div class="duration-bar-container">
-                                    <div class="duration-bar" style="width: ${pct}%"></div>
+                    <details class="event-card">
+                        <summary>
+                            <div class="event-card__summary-main">
+                                <div class="event-card__title">${event.title}</div>
+                                <div class="event-card__meta">${event.duration}h • ${event.priority} priority</div>
+                                <div class="duration-bar-wrap" style="margin-top:6px;height:6px;border-radius:var(--radius-pill);background:var(--color-line);overflow:hidden;">
+                                    <div style="height:100%;width:${pct}%;background:var(--status-yes);border-radius:var(--radius-pill);"></div>
                                 </div>
                             </div>
-                            <div class="text-xs bg-zinc-800 px-3 py-1 rounded-2xl flex items-center gap-3">
-                                <span class="text-green-400">${event.interested.length}</span>
-                                <span class="text-amber-400">${event.undecided.length}</span>
-                                <span class="text-red-400">${event.notInterested.length}</span>
-                                <span class="text-zinc-500">${event.noResponse.length}</span>
+                            <div class="event-card__chips">
+                                <span class="minichip" style="${yesStyle};font-size:13px;font-weight:800;">✓ ${event.interested.length}</span>
+                                <span class="minichip" style="${warnStyle}">? ${event.undecided.length}</span>
+                                <span class="minichip" style="${noStyle}">✗ ${event.notInterested.length}</span>
+                                <span class="minichip">– ${event.noResponse.length}</span>
                             </div>
                         </summary>
-                        <div class="px-6 pb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-sm pt-2">
-                            <div class="group">
-                                <div class="group-title text-green-400">Interested (${event.interested.length})</div>
-                                <div class="name-list text-green-300">${interestedHtml || '<div class="opacity-50">(none)</div>'}</div>
+                        <div class="event-card__body">
+                            <div>
+                                <div class="event-card__group-title" style="color:var(--status-yes)">Interested (${event.interested.length})</div>
+                                ${event.interested.map(nameCell).join('') || noneCell}
                             </div>
-                            <div class="group">
-                                <div class="group-title text-amber-400">Undecided (${event.undecided.length})</div>
-                                <div class="name-list text-amber-300">${undecidedHtml || '<div class="opacity-50">(none)</div>'}</div>
+                            <div>
+                                <div class="event-card__group-title" style="color:var(--warn)">Undecided (${event.undecided.length})</div>
+                                ${event.undecided.map(nameCell).join('') || noneCell}
                             </div>
-                            <div class="group">
-                                <div class="group-title text-red-400">Not Interested (${event.notInterested.length})</div>
-                                <div class="name-list text-red-300">${notInterestedHtml || '<div class="opacity-50">(none)</div>'}</div>
+                            <div>
+                                <div class="event-card__group-title" style="color:var(--status-no)">Not Interested (${event.notInterested.length})</div>
+                                ${event.notInterested.map(nameCell).join('') || noneCell}
                             </div>
-                            <div class="group">
-                                <div class="group-title text-zinc-500">No Response (${event.noResponse.length})</div>
-                                <div class="name-list text-zinc-400">${noResponseHtml || '<div class="opacity-50">(none)</div>'}</div>
+                            <div>
+                                <div class="event-card__group-title" style="color:var(--color-ink-dim)">No Response (${event.noResponse.length})</div>
+                                ${event.noResponse.map(nameCell).join('') || noneCell}
                             </div>
                         </div>
                     </details>
+                `;
+            };
+
+            container.innerHTML = dates.map(date => {
+                const label = dayLabels[date] || date;
+                const cards = groups[date].map(renderCard).join('');
+                return `
+                    <h2 style="font-family:var(--font-display);font-weight:800;font-size:var(--text-lg);color:var(--color-ink);margin:24px 0 10px;border-bottom:2px solid var(--color-line);padding-bottom:6px;">📅 ${label}</h2>
+                    ${cards}
                 `;
             }).join('');
         }
@@ -172,6 +232,19 @@
             window.addEventListener('resize', setupMobileCollapse);
         };
     </script>
+</main>
 <script>window.addEventListener('storage',function(e){if(e.key==='vacdash:v1:mode')document.documentElement.setAttribute('data-mode',e.newValue||'system')});</script>
+<script>
+(function(){
+  function syncBadge(){
+    var btn = document.getElementById('profile-btn');
+    if (!btn) return;
+    var u = ''; try { u = localStorage.getItem('vacdash:v1:user') || ''; } catch(e){}
+    btn.setAttribute('data-unset', u ? 'false' : 'true');
+  }
+  syncBadge();
+  window.addEventListener('storage', function(e){ if (e.key === 'vacdash:v1:user') syncBadge(); });
+})();
+</script>
 </body>
 </html>
