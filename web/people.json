@@ -1,0 +1,190 @@
+{
+  "last_updated": "2026-04-23",
+  "trip_start": "2026-05-22",
+  "trip_end": "2026-05-29",
+  "note": "Ages verified from Apple Contacts as of May 22, 2026. Birthdates and contact IDs are in data/people.json (private, never deployed).",
+  "attendees": [
+    {
+      "display_name": "Adrian",
+      "full_name": "Adrian Silva",
+      "age": 9,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Alex",
+      "full_name": "Alex Shultz",
+      "age": 56,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Ashlyn",
+      "full_name": "Ashlyn Shultz",
+      "age": 27,
+      "arrival": "2026-05-23",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Bee",
+      "full_name": "Bee Shultz",
+      "age": 18,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-26"
+    },
+    {
+      "display_name": "Brian",
+      "full_name": "Brian Shultz",
+      "age": 55,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Bug",
+      "full_name": "Octavia Shultz",
+      "age": 8,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "David",
+      "full_name": "David Shultz",
+      "age": 17,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Dez",
+      "full_name": "Dezie Silvia",
+      "age": 25,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Evie",
+      "full_name": "Evie Shultz",
+      "age": 73,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Georgie",
+      "full_name": "Georgina Shultz",
+      "age": 5,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Jackson",
+      "full_name": "Jackson Candido",
+      "age": 11,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Jacob",
+      "full_name": "Jacob Shultz",
+      "age": 31,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Jordan",
+      "full_name": "Jordan Shultz",
+      "age": 38,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Josh",
+      "full_name": "Josh Shultz",
+      "age": 44,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Kevin",
+      "full_name": "Kevin Luberus",
+      "age": 28,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-27"
+    },
+    {
+      "display_name": "Lucy",
+      "full_name": "Lucy Shultz",
+      "age": 15,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "McKinley",
+      "full_name": "McKinley Candido",
+      "age": 15,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Mel",
+      "full_name": "Mel Shultz",
+      "age": 53,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Mycah",
+      "full_name": "Mycah Shultz",
+      "age": 20,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Natalie",
+      "full_name": "Natalie Hunt",
+      "age": 18,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Rachel",
+      "full_name": "Rachel Simental",
+      "age": 29,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Ray",
+      "full_name": "Ray Shultz",
+      "age": 74,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Simran",
+      "full_name": "Simran Widmer",
+      "age": 23,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Skylar",
+      "full_name": "Skylar Widmer",
+      "age": 28,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Tayden",
+      "full_name": "Tayden Weisbender",
+      "age": 20,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    },
+    {
+      "display_name": "Zach",
+      "full_name": "Zach Shultz",
+      "age": 24,
+      "arrival": "2026-05-22",
+      "departure": "2026-05-29"
+    }
+  ]
+}
