@@ -133,7 +133,7 @@ rsync -av --delete \
 cd "$PREVIEW"
 sed -i '' 's|../assets/thumbs/|assets/thumbs/|g' \
   attractions.html shows.html index.html event-timeline.html people-timeline.html \
-  wishlist.html suggested.html profile.html quick-pick.html
+  wishlist.html suggested.html profile.html quick-pick.html help.html
 
 # 4. Commit and push
 git add -A && \
