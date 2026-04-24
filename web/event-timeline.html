@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="preload" href="js/site.js" as="script">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/themes/trail.css" id="theme-css">
 <link rel="stylesheet" href="css/components.css">
@@ -61,29 +62,7 @@
 </style>
 </head>
 <body>
-<header class="site-header">
-  <div class="site-header__inner">
-    <a class="site-logo" href="index.html">Branson '26</a>
-    <nav class="site-nav" aria-label="Main">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="attractions.html" class="nav-link">Activities</a>
-      <a href="wishlist.html" class="nav-link">Wishlist</a>
-      <a href="suggested.html" class="nav-link">Suggested</a>
-      <a href="event-timeline.html" class="nav-link" aria-current="page">Timeline</a>
-      <a href="people-timeline.html" class="nav-link">People</a>
-    </nav>
-    <a class="header-profile-btn" href="profile.html" aria-label="Profile" id="profile-btn"><span aria-hidden="true">👤</span><span class="profile-nudge-dot" aria-hidden="true"></span></a>
-    <button class="theme-toggle" aria-label="Toggle dark mode" onclick="(function(){var modes=['system','light','dark'];var m=document.documentElement.getAttribute('data-mode')||'system';var next=modes[(modes.indexOf(m)+1)%3];document.documentElement.setAttribute('data-mode',next);localStorage.setItem('vacdash:v1:mode',next);})()">☀️</button>
-  </div>
-</header>
-<nav class="bottom-tabs" aria-label="Main navigation">
-  <a href="index.html" class="tab" aria-label="Home">🏠</a>
-  <a href="attractions.html" class="tab" aria-label="Activities">🎡</a>
-  <a href="wishlist.html" class="tab" aria-label="Wishlist">♡</a>
-  <a href="suggested.html" class="tab" aria-label="Suggested">💡</a>
-  <a href="event-timeline.html" class="tab" aria-current="page" aria-label="Timeline">📅</a>
-  <a href="people-timeline.html" class="tab" aria-label="People">👥</a>
-</nav>
+<script src="js/site.js"></script>
 <main class="page-main">
   <div class="page-hero">
     <h1>Timeline</h1>
@@ -238,18 +217,6 @@
         };
     </script>
 </main>
-<script>window.addEventListener('storage',function(e){if(e.key==='vacdash:v1:mode')document.documentElement.setAttribute('data-mode',e.newValue||'system')});</script>
-<script>
-(function(){
-  function syncBadge(){
-    var btn = document.getElementById('profile-btn');
-    if (!btn) return;
-    var u = ''; try { u = localStorage.getItem('vacdash:v1:user') || ''; } catch(e){}
-    btn.setAttribute('data-unset', u ? 'false' : 'true');
-  }
-  syncBadge();
-  window.addEventListener('storage', function(e){ if (e.key === 'vacdash:v1:user') syncBadge(); });
-})();
-</script>
+
 </body>
 </html>

@@ -73,3 +73,30 @@
 **Critical:** Always include `--exclude=".git"` in the rsync command. Omitting it silently deletes `.git/` from the preview repo, breaking all future git commands. If `.git/` is destroyed: `git init && git remote add origin … && git fetch && git checkout -b main && git add -A && git commit && git push --force`.
 
 ---
+
+## ADR-007 · Shared site chrome via site.js (2026-04-24)
+
+**Decision:** All 10 dashboard pages share a single `web/js/site.js` for nav, dark mode toggle, and badge sync. Static per-page `<header>` and `<nav class="bottom-tabs">` HTML has been removed from every page.
+
+**Context:** The nav bar was copy-pasted across all 10 HTML pages as raw static HTML. This caused visible inconsistencies (help.html had a 7th nav link others lacked; attractions.html/wishlist.html/suggested.html were missing the profile button entirely; shows.html and quick-pick.html had no aria-current; badge sync was broken on multiple pages). Any nav change required updating 10 files.
+
+**Mechanism:** site.js is loaded as a synchronous `<script>` as the first child of `<body>`. It uses `document.currentScript.insertAdjacentHTML('afterend', html)` to inject the header and bottom-tabs nav into the DOM during body parsing, before any `<main>` content renders. Active page detection uses `window.location.pathname.split('/').pop()` with a NAV_ALIASES map for sub-pages.
+
+**Why synchronous (not async/defer):** The script must run before `<main>` content parses so the nav appears without flash. A `<link rel="preload" href="js/site.js" as="script">` in `<head>` ensures it is fetched in parallel with CSS, eliminating extra round-trip cost.
+
+**Canonical nav definition:** `NAV_LINKS` (7 items) and `BOTTOM_TABS` (6 items) in site.js are the single source of truth for nav structure. To add, remove, or rename a nav item: edit site.js only.
+
+**Site name:** `SITE_NAME` constant in site.js drives the logo text. Page `<title>` tags remain per-page static HTML.
+
+**Bugs fixed by this change:**
+- help.html no longer has an extra 7th nav link that others lacked
+- attractions.html, wishlist.html, suggested.html now have the profile button
+- shows.html and quick-pick.html now highlight the correct nav item
+- Badge sync (profile nudge dot) now works consistently on all 10 pages
+- Dark mode toggle handler is a single implementation instead of 10 inline onclick strings
+
+**Failure mode:** If site.js fails to load, every page renders without a nav bar. Mitigation: `<link rel="preload">` reduces this risk; site is a private family tool on GitHub Pages where this scenario is extremely unlikely.
+
+**Rule for adding a new page:** (1) Do NOT copy-paste header/nav HTML. (2) Add `<link rel="preload" href="js/site.js" as="script">` to `<head>`. (3) Add `<script src="js/site.js"></script>` as first child of `<body>`. (4) If the page needs its own nav alias, add it to `NAV_ALIASES` in site.js.
+
+---
