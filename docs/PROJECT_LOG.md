@@ -10,6 +10,26 @@
 
 ---
 
+## 2026-04-23 -- 4 new themes committed; codemaster CSS review pending
+
+Four new theme CSS files were designed by the Council of Minds and committed. They follow the same private-palette + semantic-token override pattern as `trail.css`. They are NOT yet wired into any HTML page -- that requires codemaster review first. Alex plans to create additional themes; all theme CSS files should be batched and reviewed together before any are activated.
+
+**BACKLOG: Codemaster CSS review required before any theme is activated.**
+- Review all files in `web/css/themes/` except `trail.css` (already in production)
+- Verify each file only overrides tokens defined in `tokens.css` -- no direct `--moss`/`--lake` refs in components
+- Verify dark mode blocks match `[data-mode="dark"]` selector pattern used by the rest of the system
+- Verify contrast ratios meet AA on both light and dark modes
+- No geometry, spacing, or typography changes permitted in theme files
+
+**Artifacts:**
+- `web/css/themes/midnight.css` -- teens/night owls, dark indigo + neon
+- `web/css/themes/sunshine.css` -- young kids, candy-bright summer carnival
+- `web/css/themes/heritage.css` -- grandparents, aged parchment + colonial palette
+- `web/css/themes/neon-country.css` -- wildcard, honky-tonk wood + neon signs
+- Commit: d3c6642
+
+---
+
 ## 2026-04-23 ~11:00 CDT — Documentation architecture overhaul + fetch(data.json) conversion
 
 Council of Minds synthesis session (Weaver + Archivist). Two changes in this session:
