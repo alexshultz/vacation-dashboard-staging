@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;600&display=swap');
+
+/*
+ * superman.css -- Superman theme
+ * Vibe: Classic DC Comics Superman -- primary colors done heroically.
+ *       Metropolis by day, cape flying against a blue sky.
+ *       Dark mode: the city at night, neon signs, spotlight on the S-shield.
+ *
+ * Light mode: Metropolis daytime -- sky-blue tinted whites, heroic primaries
+ * Dark mode:  Metropolis at night -- deep navy, neon Kryptonite, S-shield spotlight
+ *
+ * Best for: Kids and adults who love Superman, DC fans, Jackson, David, any superhero fans.
+ */
+
+:root {
+  /* ── Private Palette: The Man of Steel ──────────────────────────── */
+
+  --super-red:        #CC0000;   /* Superman cape red */
+  --super-red-bright: #E31414;   /* Bright cape red / danger */
+  --super-blue:       #0052B4;   /* Superman suit blue */
+  --super-blue-deep:  #003DA5;   /* Deeper suit blue */
+  --super-yellow:     #FCD116;   /* S-shield yellow */
+  --super-gold:       #D4AF37;   /* Belt/trim gold */
+  --kryptonite:       #39FF14;   /* Neon Kryptonite green -- danger! */
+  --metropolis-sky:   #87CEEB;   /* Daytime Metropolis sky */
+  --metropolis-gray:  #6E7F8D;   /* Metropolis concrete */
+  --cape-shadow:      #8B0000;   /* Deep shadow on red cape */
+  --night-city:       #0A0F1E;   /* Metropolis at night */
+  --spotlight:        #FFFFF0;   /* Warm ivory spotlight */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Bangers', 'Impact', sans-serif;
+  --font-body:    'Oswald', 'Arial Narrow', sans-serif;
+
+  /* ── Light Mode: Metropolis Daytime ─────────────────────────────── */
+  /* Bright morning in the city -- clear sky, glass towers, hope in the air */
+  --color-bg:       #EEF4FF;   /* Sky-blue tinted near-white */
+  --color-surface:  #F8FBFF;   /* Clean surface white */
+  --color-ink:      #0A0F1E;   /* Night-city deep ink */
+  --color-ink-dim:  #3A5070;   /* Muted blue-gray dim text */
+  --color-line:     #BDD0EE;   /* Metropolis sky blue divider */
+
+  /* ── Light Mode: Semantic Tokens ────────────────────────────────── */
+  --status-yes:      #005C00;             /* Deep heroic green -- confirmed going */
+  --status-no:       #9A0000;             /* Deep cape red -- not going */
+  --status-wishlist: #003DA5;             /* Superman blue -- on the list */
+  --status-neutral:  #5A6878;             /* Metropolis gray neutral */
+  --status-lock:     #7A5000;             /* Gold/bronze locked */
+  --warn:            #AA8000;             /* Muted S-shield yellow -- warn */
+
+  --accent-sand: var(--super-yellow);   /* #FCD116 -- S-shield yellow */
+  --accent-clay: var(--super-red);      /* #CC0000 -- Superman cape red */
+  --accent-dusk: #7A5000;               /* Gold-bronze dusk */
+}
+
+/* ── Dark Mode: Metropolis at Night ─────────────────────────────────── */
+/* Neon signs blaze against the skyline, the S-shield blazes in a        */
+/* spotlight, and Kryptonite green hums dangerously in the shadows.      */
+[data-mode="dark"] {
+  --color-bg:       #0A0F1E;   /* Metropolis at night */
+  --color-surface:  #101828;   /* Slightly lighter night panel */
+  --color-ink:      #F0F8FF;   /* Cool near-white -- spotlight glow */
+  --color-ink-dim:  #6888AA;   /* Muted blue-gray dim text */
+  --color-line:     #1A2838;   /* Deep navy rule -- barely visible */
+
+  --status-yes:      #39FF14;   /* Kryptonite neon green -- going */
+  --status-no:       #E31414;   /* Bright cape red -- danger */
+  --status-wishlist: #4A8FFF;   /* Lighter Superman blue */
+  --status-neutral:  #6E7F8D;   /* Metropolis concrete gray */
+  --status-lock:     #FCD116;   /* S-shield yellow -- locked/lit up */
+  --warn:            #FCD116;   /* S-shield yellow -- neon warn */
+
+  --accent-sand: #FCD116;   /* S-shield yellow */
+  --accent-clay: #E31414;   /* Bright cape red */
+  --accent-dusk: #4A8FFF;   /* Lighter Superman blue */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:       #0A0F1E;
+    --color-surface:  #101828;
+    --color-ink:      #F0F8FF;
+    --color-ink-dim:  #6888AA;
+    --color-line:     #1A2838;
+
+    --status-yes:      #39FF14;
+    --status-no:       #E31414;
+    --status-wishlist: #4A8FFF;
+    --status-neutral:  #6E7F8D;
+    --status-lock:     #FCD116;
+    --warn:            #FCD116;
+
+    --accent-sand: #FCD116;
+    --accent-clay: #E31414;
+    --accent-dusk: #4A8FFF;
+  }
+}

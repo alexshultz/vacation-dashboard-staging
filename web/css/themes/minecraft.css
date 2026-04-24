@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 /*
  * minecraft.css -- Minecraft theme
  * Vibe: Blocky pixel world -- grass block green on dirt brown, stone gray UI panels,
@@ -13,6 +14,9 @@
  */
 
 :root {
+  --font-heading: 'Press Start 2P', 'Courier New', monospace;
+  --font-body: 'VT323', 'Courier New', monospace;
+
   /* ── Private Palette: The Overworld ─────────────────────────── */
 
   /* Grass & nature */

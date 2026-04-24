@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap');
 /*
  * bluey.css -- Bluey theme (Australian animated TV show)
  * Vibe: Sunny Queensland backyard by day; cosy bedroom after bedtime by night.
@@ -25,6 +26,9 @@
  */
 
 :root {
+  --font-heading: 'Fredoka One', 'Verdana', sans-serif;
+  --font-body: 'Nunito', 'Arial', sans-serif;
+
   /* ── Private Palette: The Heeler Family Colours ───────────────── */
 
   /* Bluey (blue heeler protagonist) */

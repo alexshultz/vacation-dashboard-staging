@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap');
+
+/*
+ * toy-story.css -- Toy Story theme
+ * Vibe: Andy's room come to life -- the iconic blue sky with puffy white clouds
+ *       wallpaper, Woody's warm western palette and Buzz's space ranger colors.
+ *       Light mode is warm and sunny like a childhood bedroom.
+ *       Dark mode is the toys coming alive at night -- lamp glow, living room
+ *       shadows, and every color a little more electric.
+ *
+ * Palette key:
+ *   --woody-hat     #C8A84B  Woody's yellow hat
+ *   --woody-vest    #C0392B  Woody's red vest pattern
+ *   --woody-shirt   #4A9BD4  Woody's blue shirt
+ *   --woody-brown   #7B4A1E  Woody's brown pants/boots
+ *   --buzz-white    #F0F4F8  Buzz Lightyear white suit
+ *   --buzz-purple   #6C3483  Buzz's purple chest/helmet
+ *   --buzz-green    #1E8449  Buzz's green trim
+ *   --buzz-red      #C0392B  Buzz's red chin/wing accents
+ *   --andys-sky     #87CEEB  THE cloud wallpaper sky blue
+ *   --cloud-white   #FFFEFA
+ *   --rex-green     #27AE60  Rex the dinosaur green
+ *   --slinky-gold   #D4AC0D  Slinky Dog's coil gold
+ *   --hamm-pink     #E8A0A0  Hamm the piggy bank pink
+ *   --pizza-planet  #6C3483  Pizza Planet purple
+ *
+ * Best for: Kids and nostalgic adults. Georgie, Adrian, Buggy, Jackson, McKinley --
+ *           anyone who grew up with Toy Story.
+ */
+
+:root {
+  /* ── Typography ────────────────────────────────────────────── */
+  --font-heading: 'Fredoka One', 'Verdana', sans-serif;
+  --font-body:    'Nunito', 'Arial Rounded MT Bold', sans-serif;
+
+  /* ── Private Palette ──────────────────────────────────────── */
+
+  /* Woody's western wardrobe */
+  --woody-hat:    #C8A84B;   /* Woody's yellow hat */
+  --woody-vest:   #C0392B;   /* Woody's red vest pattern */
+  --woody-shirt:  #4A9BD4;   /* Woody's blue shirt */
+  --woody-brown:  #7B4A1E;   /* Woody's brown pants/boots */
+
+  /* Buzz Lightyear space ranger suit */
+  --buzz-white:   #F0F4F8;   /* Buzz's white suit panels */
+  --buzz-purple:  #6C3483;   /* Buzz's purple chest/helmet */
+  --buzz-green:   #1E8449;   /* Buzz's green trim */
+  --buzz-red:     #C0392B;   /* Buzz's red chin/wing accents */
+
+  /* Andy's bedroom world */
+  --andys-sky:    #87CEEB;   /* THE cloud wallpaper sky blue */
+  --cloud-white:  #FFFEFA;   /* Cloud wallpaper white puffs */
+  --rex-green:    #27AE60;   /* Rex the dinosaur green */
+  --slinky-gold:  #D4AC0D;   /* Slinky Dog's coil gold */
+  --hamm-pink:    #E8A0A0;   /* Hamm the piggy bank pink */
+  --pizza-planet: #6C3483;   /* Pizza Planet purple */
+
+  /* ── Light Mode: Andy's Room, Daytime ────────────────────── */
+  /* Warm and sunny like a childhood bedroom -- sky wallpaper glow,  */
+  /* toys arranged on shelves, sunlight through curtains.            */
+  --color-bg:      #EEF6FF;   /* Andy's sky wallpaper tint -- dreamy light blue */
+  --color-surface: #F8FDFF;   /* Clean bright surface -- Buzz's white suit panels */
+  --color-ink:     #1A0C00;   /* Deep warm near-black */
+  --color-ink-dim: #5A3A20;   /* Woody's brown -- secondary text */
+  --color-line:    #BBDDF5;   /* Sky blue rule -- Andy's wallpaper */
+
+  /* ── Light Mode: Semantic + Accent Tokens ─────────────────── */
+  --status-yes:      #1A6B30;   /* Buzz green trim -- going! */
+  --status-no:       #9A2018;   /* Woody vest red -- nope */
+  --status-wishlist: #1A5A9A;   /* Woody shirt blue -- on my list */
+  --status-neutral:  #6A5A40;   /* Woody brown neutral */
+  --status-lock:     #5A2878;   /* Pizza Planet purple -- locked */
+  --warn:            #8A6800;   /* Slinky gold muted -- heads up */
+  --accent-sand:     var(--woody-hat);    /* #C8A84B -- Woody's hat gold */
+  --accent-clay:     var(--woody-vest);   /* #C0392B -- Woody's vest red */
+  --accent-dusk:     var(--buzz-purple);  /* #6C3483 -- Buzz purple */
+}
+
+/* ── Dark Mode: Toys Alive at Night -- Living Room Lamp Glow ── */
+/* Andy's asleep. The room is dark. The toys have come to life.   */
+/* Warm lamp glow from the hallway, blue moonlight through the    */
+/* window, and every color a little more vivid and electric.      */
+[data-mode="dark"] {
+  --color-bg:      #0D1018;   /* dark bedroom at night -- near-black indigo */
+  --color-surface: #161C28;   /* toy chest / shelf surface -- deep blue-black */
+  --color-ink:     #F0F8FF;   /* cool near-white -- like moonlight on a page */
+  --color-ink-dim: #7090B0;   /* muted sky blue -- ambient nighttime glow */
+  --color-line:    #1E2A3A;   /* dark blue rule -- barely-there depth line */
+
+  --status-yes:      #27AE60;   /* Rex green -- going! */
+  --status-no:       #C0392B;   /* vest red -- danger */
+  --status-wishlist: #4A9BD4;   /* Woody shirt blue -- lit up */
+  --status-neutral:  #7090B0;   /* muted blue-gray neutral */
+  --status-lock:     #8844C0;   /* Buzz purple lit up in the dark */
+  --warn:            #D4AC0D;   /* Slinky gold -- glinting coil */
+  --accent-sand:     #C8A84B;   /* Woody hat gold -- warm lamp glow */
+  --accent-clay:     #C0392B;   /* vest red */
+  --accent-dusk:     #8844C0;   /* Buzz purple */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      #0D1018;
+    --color-surface: #161C28;
+    --color-ink:     #F0F8FF;
+    --color-ink-dim: #7090B0;
+    --color-line:    #1E2A3A;
+
+    --status-yes:      #27AE60;   /* Rex green */
+    --status-no:       #C0392B;   /* vest red */
+    --status-wishlist: #4A9BD4;   /* Woody shirt blue */
+    --status-neutral:  #7090B0;
+    --status-lock:     #8844C0;   /* Buzz purple lit up */
+    --warn:            #D4AC0D;   /* Slinky gold */
+
+    --accent-sand: #C8A84B;
+    --accent-clay: #C0392B;
+    --accent-dusk: #8844C0;
+  }
+}

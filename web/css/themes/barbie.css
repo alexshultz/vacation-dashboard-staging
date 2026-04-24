@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600&display=swap');
 /*
  * barbie.css -- Barbie theme (Dreamhouse glamour / movie magic)
  * Vibe: Bright Barbieland in the light — pink walls, gold accents, every surface
@@ -11,6 +12,9 @@
  */
 
 :root {
+  --font-heading: 'Pacifico', 'Comic Sans MS', cursive;
+  --font-body: 'Quicksand', 'Trebuchet MS', sans-serif;
+
   /* ── Private Palette ──────────────────────────────────────── */
   --barbie:    #E91E8C;   /* THE iconic Barbie hot pink — Pantone 219 C */
   --bubblegum: #FF69B4;   /* lighter bubblegum pink */
