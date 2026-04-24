@@ -58,6 +58,7 @@ web/
     themes/trail.css     ← Ozarks palette: --moss, --lake, --sand, --clay, --dusk
     components.css       ← all shared components, 542+ lines
   js/
+    site.js              ← shared site chrome: nav injection, dark mode toggle, badge sync
     picks.js             ← wishlist state (localStorage Phase 1, Supabase Phase 2)
   assets/
     thumbs/              ← {slug}-thumb.{jpg,png,webp}
@@ -87,6 +88,37 @@ scripts/
 - **Components** (`components.css`) reference semantic tokens only: `--color-bg`, `--accent-sand`, etc. Never `--moss` or `--lake` directly.
 - Private palette lives in `css/themes/trail.css`. To expose a palette color to components, add a passthrough token in `tokens.css` (e.g., `--accent-sand: var(--sand)`) and use that in components.
 - **`[hidden]` + `display:flex` pitfall:** Browser UA `[hidden]{display:none}` is overridden by author `display:flex`. Fix: add `.element[hidden] { display: none; }` companion rule in `components.css` for every element toggled via JS `.hidden = true`.
+
+---
+
+## site.js -- Shared Site Chrome (as of 2026-04-24)
+
+`web/js/site.js` is the single source of truth for the nav bar, dark mode toggle, and profile badge sync. It is loaded synchronously as the first child of `<body>` on all 10 pages.
+
+**What it owns:**
+- `<header class="site-header">` injection (logo, 7-link desktop nav, profile-btn, theme-toggle)
+- `<nav class="bottom-tabs">` injection (6 mobile tabs)
+- `aria-current="page"` auto-detection from `window.location.pathname`
+- Dark mode toggle click handler
+- Cross-tab `storage` sync for `vacdash:v1:mode` and `vacdash:v1:user`
+- Profile button badge state (`data-unset`) on all pages
+
+**Key constants (edit in site.js only):**
+- `SITE_NAME` -- the logo text ('Branson \'26')
+- `NAV_LINKS` -- 7-item desktop nav array
+- `BOTTOM_TABS` -- 6-item mobile tab array
+- `NAV_ALIASES` -- sub-page to parent mapping (e.g. quick-pick.html → attractions.html)
+
+**Adding a new page:**
+1. Add `<link rel="preload" href="js/site.js" as="script">` to `<head>`
+2. Add `<script src="js/site.js"></script>` as the FIRST child of `<body>`
+3. Do NOT copy-paste static `<header>` or `<nav class="bottom-tabs">` HTML
+4. If the page is a sub-page (not in the main nav), add it to `NAV_ALIASES` in site.js
+
+**Do NOT:**
+- Add static `<header class="site-header">` to any page
+- Duplicate the storage event listener for mode or user key
+- Put the dark mode onclick inline on the theme-toggle button
 
 ---
 
