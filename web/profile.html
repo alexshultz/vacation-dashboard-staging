@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="system">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+
+<title>Profile -- Branson &#x27;26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/themes/trail.css" id="theme-css">
+<link rel="stylesheet" href="css/components.css">
+<script>/* Theme loader -- inline to prevent flash-of-wrong-theme */
+(function(){
+  var m = localStorage.getItem('vacdash:v1:mode') || 'system';
+  document.documentElement.setAttribute('data-mode', m);
+  var t = localStorage.getItem('vacdash:v1:theme');
+  if (t && t !== 'trail') {
+    var link = document.getElementById('theme-css');
+    if (link) link.setAttribute('href', link.getAttribute('href').replace(/themes\/[^/]+\.css/, 'themes/' + t + '.css'));
+  }
+})();
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="index.html">Branson '26</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="attractions.html" class="nav-link">Activities</a>
+      <a href="wishlist.html" class="nav-link">Wishlist</a>
+      <a href="suggested.html" class="nav-link">Suggested</a>
+      <a href="event-timeline.html" class="nav-link">Timeline</a>
+      <a href="people-timeline.html" class="nav-link">People</a>
+    </nav>
+    <a class="header-profile-btn" href="profile.html" aria-label="Profile" aria-current="page" id="profile-btn"><span aria-hidden="true">👤</span><span class="profile-nudge-dot" aria-hidden="true"></span></a>
+    <button class="theme-toggle" aria-label="Toggle dark mode" onclick="(function(){var modes=['system','light','dark'];var m=document.documentElement.getAttribute('data-mode')||'system';var next=modes[(modes.indexOf(m)+1)%3];document.documentElement.setAttribute('data-mode',next);localStorage.setItem('vacdash:v1:mode',next);})()">☀️</button>
+  </div>
+</header>
+<nav class="bottom-tabs" aria-label="Main navigation">
+  <a href="index.html" class="tab" aria-label="Home">🏠</a>
+  <a href="attractions.html" class="tab" aria-label="Activities">🎡</a>
+  <a href="wishlist.html" class="tab" aria-label="Wishlist">♡</a>
+  <a href="suggested.html" class="tab" aria-label="Suggested">💡</a>
+  <a href="event-timeline.html" class="tab" aria-label="Timeline">📅</a>
+  <a href="people-timeline.html" class="tab" aria-label="People">👥</a>
+</nav>
+
+<main class="profile-page">
+  <p class="eyebrow">Branson '26</p>
+  <h1>Profile</h1>
+  <p class="hero-sub">Tell the dashboard who you are. Everything saves automatically.</p>
+
+  <!-- Section 1: Identity -->
+  <section class="profile-section" id="section-identity" aria-labelledby="h-identity">
+    <h2 id="h-identity">Who are you?</h2>
+    <p class="help">Your picks, RSVPs, and suggestions are saved under this name.</p>
+    <label for="profile-name">Name</label>
+    <select id="profile-name" autocomplete="off">
+      <option value="">Who are you?</option>
+      <option value="Adrian">Adrian</option>
+      <option value="Alex">Alex</option>
+      <option value="Ashlyn">Ashlyn</option>
+      <option value="Bee">Bee</option>
+      <option value="Brian">Brian</option>
+      <option value="Buggy">Buggy</option>
+      <option value="David">David</option>
+      <option value="Dez">Dez</option>
+      <option value="Evie">Evie</option>
+      <option value="Georgie">Georgie</option>
+      <option value="Jackson">Jackson</option>
+      <option value="Jacob">Jacob</option>
+      <option value="Jordan">Jordan</option>
+      <option value="Josh">Josh</option>
+      <option value="Kevin">Kevin</option>
+      <option value="Lucy">Lucy</option>
+      <option value="McKinley">McKinley</option>
+      <option value="Mel">Mel</option>
+      <option value="Mycah">Mycah</option>
+      <option value="Natalie">Natalie</option>
+      <option value="Rachel">Rachel</option>
+      <option value="Ray">Ray</option>
+      <option value="Simran">Simran</option>
+      <option value="Skylar">Skylar</option>
+      <option value="Tayden">Tayden</option>
+      <option value="Zach">Zach</option>
+      <option value="__other__">I'm not on the list</option>
+    </select>
+    <p class="profile-greeting" id="profile-greeting" hidden></p>
+  </section>
+
+  <!-- Section 2: Display Preferences -->
+  <section class="profile-section" id="section-display" aria-labelledby="h-display">
+    <h2 id="h-display">Display</h2>
+    <p class="help">Pick a color theme, then choose light or dark mode.</p>
+
+    <!-- 2a: Color theme picker -->
+    <label id="color-theme-label">Color Theme</label>
+    <div class="theme-grid" role="radiogroup" aria-labelledby="color-theme-label" id="color-theme-grid">
+      <!-- populated by JS -->
+    </div>
+
+    <!-- 2b: Light / dark / system -->
+    <label id="mode-label" style="margin-top:1.25rem;display:block;">Mode</label>
+    <div class="seg" role="radiogroup" aria-labelledby="mode-label" id="theme-seg">
+      <button type="button" role="radio" data-theme="system" aria-checked="false">System</button>
+      <button type="button" role="radio" data-theme="light" aria-checked="false">Light</button>
+      <button type="button" role="radio" data-theme="dark" aria-checked="false">Dark</button>
+    </div>
+  </section>
+
+  <!-- Section 3: Wishlist Privacy -->
+  <section class="profile-section" id="section-privacy" aria-labelledby="h-privacy">
+    <h2 id="h-privacy">Wishlist privacy</h2>
+    <p class="help">Who can see the things you've hearted.</p>
+    <div class="profile-radio-group" role="radiogroup" aria-labelledby="h-privacy" id="privacy-group">
+      <label class="profile-radio-row">
+        <input type="radio" name="privacy" value="public">
+        <span class="text">
+          <span class="row-label">Share with the family</span>
+          <span class="row-sub">Others can see what you've wishlisted.</span>
+        </span>
+      </label>
+      <label class="profile-radio-row">
+        <input type="radio" name="privacy" value="private">
+        <span class="text">
+          <span class="row-label">Keep it private</span>
+          <span class="row-sub">Only you can see your picks.</span>
+        </span>
+      </label>
+    </div>
+    <p class="profile-notice">
+      Privacy settings are coming in Phase 2 — right now everyone can see everyone's picks.
+      <!-- Phase 2: enforce this setting via Supabase row-level security. -->
+    </p>
+  </section>
+
+  <!-- Section 4: Trip Dates -->
+  <section class="profile-section" id="section-dates" aria-labelledby="h-dates">
+    <h2 id="h-dates">My trip dates</h2>
+    <p class="help">When you'll be in Branson. Powers your view of the timeline.</p>
+    <div class="profile-date-row">
+      <div>
+        <label for="profile-arrival">Arrival</label>
+        <input type="date" id="profile-arrival" autocomplete="off">
+      </div>
+      <div>
+        <label for="profile-departure">Departure</label>
+        <input type="date" id="profile-departure" autocomplete="off">
+      </div>
+    </div>
+    <!-- Phase 2: feed these dates into people-timeline.html automatically. -->
+  </section>
+
+  <!-- Section 5: Interests -->
+  <section class="profile-section" id="section-interests" aria-labelledby="h-interests">
+    <h2 id="h-interests">Interests</h2>
+    <p class="help">Used to personalize your Suggested tab.</p>
+    <div class="profile-interests" role="group" aria-labelledby="h-interests" id="interests-group">
+      <button type="button" class="chip" aria-pressed="false" data-interest="shows">Shows</button>
+      <button type="button" class="chip" aria-pressed="false" data-interest="adventure">Adventure</button>
+      <button type="button" class="chip" aria-pressed="false" data-interest="museums-and-attractions">Museums &amp; Attractions</button>
+      <button type="button" class="chip" aria-pressed="false" data-interest="food-and-dining">Food &amp; Dining</button>
+      <button type="button" class="chip" aria-pressed="false" data-interest="outdoors">Outdoors</button>
+      <button type="button" class="chip" aria-pressed="false" data-interest="water">Water</button>
+      <button type="button" class="chip" aria-pressed="false" data-interest="shopping">Shopping</button>
+      <button type="button" class="chip" aria-pressed="false" data-interest="family-friendly">Family-Friendly</button>
+    </div>
+  </section>
+</main>
+
+<div class="toast-wrap" id="toasts" aria-live="polite"></div>
+
+<script src="js/picks.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  var NAMES = ["Adrian","Alex","Ashlyn","Bee","Brian","Buggy","David","Dez","Evie","Georgie","Jackson","Jacob","Jordan","Josh","Kevin","Lucy","McKinley","Mel","Mycah","Natalie","Rachel","Ray","Simran","Skylar","Tayden","Zach"];
+
+  var USER_KEY      = 'vacdash:v1:user';
+  var MODE_KEY      = 'vacdash:v1:mode';
+  var PRIVACY_KEY   = 'vacdash:v1:wishlist-privacy';
+  var ARRIVAL_KEY   = 'vacdash:v1:arrival';
+  var DEPARTURE_KEY = 'vacdash:v1:departure';
+  var INTERESTS_KEY = 'vacdash:v1:interests';
+  var COLOR_THEME_KEY = 'vacdash:v1:theme';
+
+  /* ===== Toast (debounced) ===== */
+  var toastTimer = null;
+  function toast(msg){
+    if (toastTimer) { clearTimeout(toastTimer); toastTimer = null; }
+    toastTimer = setTimeout(function(){
+      var wrap = document.getElementById('toasts');
+      var el = document.createElement('div');
+      el.className = 'toast';
+      el.textContent = msg;
+      wrap.appendChild(el);
+      setTimeout(function(){
+        el.classList.add('leaving');
+        setTimeout(function(){ el.remove(); }, 220);
+      }, 2000);
+      toastTimer = null;
+    }, 180);
+  }
+  function saved(){ toast('Saved ✓'); }
+
+  /* ===== Profile button badge (reflects current user state) ===== */
+  function updateProfileBtnBadge(){
+    var btn = document.getElementById('profile-btn');
+    if (!btn) return;
+    var u = '';
+    try { u = localStorage.getItem(USER_KEY) || ''; } catch(e){}
+    btn.setAttribute('data-unset', u ? 'false' : 'true');
+  }
+
+  /* ===== Section 1: Identity ===== */
+  var nameSel     = document.getElementById('profile-name');
+  var greetingEl  = document.getElementById('profile-greeting');
+
+  function renderGreeting(name){
+    if (name) {
+      greetingEl.textContent = 'Hi, ' + name + '!';
+      greetingEl.hidden = false;
+    } else {
+      greetingEl.textContent = '';
+      greetingEl.hidden = true;
+    }
+  }
+
+  function setUser(name){
+    if (name) {
+      try { localStorage.setItem(USER_KEY, name); } catch(e){}
+      try { picks.init(name); } catch(e){}
+    } else {
+      try { localStorage.setItem(USER_KEY, ''); } catch(e){}
+      try { picks.init(''); } catch(e){}
+    }
+    renderGreeting(name);
+    updateProfileBtnBadge();
+  }
+
+  function initIdentity(){
+    var existing = '';
+    try { existing = localStorage.getItem(USER_KEY) || ''; } catch(e){}
+    if (existing && NAMES.indexOf(existing) >= 0) {
+      nameSel.value = existing;
+    } else if (existing) {
+      nameSel.value = '__other__';
+    } else {
+      nameSel.value = '';
+    }
+    renderGreeting(existing);
+    nameSel.addEventListener('change', function(){
+      var v = nameSel.value;
+      if (v === '__other__') {
+        setUser('');
+      } else {
+        setUser(v);
+      }
+      saved();
+    });
+  }
+
+  /* ===== Section 2a: Color Theme Picker ===== */
+  var THEMES = [
+    { id: 'trail',               label: 'Trail',               bg: '#FBF6EC', accent: '#3F6B3A', emoji: '🌲' },
+    { id: 'midnight',            label: 'Midnight',            bg: '#0B0D17', accent: '#2CFFAA', emoji: '🌌' },
+    { id: 'sunshine',            label: 'Sunshine',            bg: '#FFF8D6', accent: '#FF5E3A', emoji: '☀️' },
+    { id: 'heritage',            label: 'Heritage',            bg: '#F7F0DF', accent: '#B07A00', emoji: '📜' },
+    { id: 'neon-country',        label: 'Neon Country',        bg: '#F2E6C8', accent: '#FF8C00', emoji: '🤠' },
+    { id: 'dungeon-crawler-carl',label: 'Dungeon Crawler Carl',bg: '#0D1017', accent: '#00D4FF', emoji: '⚔️' },
+    { id: 'spongebob',           label: 'SpongeBob',           bg: '#FFF9D6', accent: '#FFE033', emoji: '🧽' },
+    { id: 'bluey',               label: 'Bluey',               bg: '#F0F8FF', accent: '#4A8FD4', emoji: '🐕' },
+    { id: 'barbie',              label: 'Barbie',              bg: '#FFF0F8', accent: '#E91E8C', emoji: '👛' },
+    { id: 'minecraft',           label: 'Minecraft',           bg: '#E8F4E0', accent: '#5AAA00', emoji: '⛏️' },
+    { id: 'superman',            label: 'Superman',            bg: '#EEF4FF', accent: '#CC0000', emoji: '🦸' },
+    { id: 'star-wars',           label: 'Star Wars',           bg: '#EEEEE8', accent: '#FFE81F', emoji: '⚡' },
+    { id: 'toy-story',           label: 'Toy Story',           bg: '#EEF6FF', accent: '#C8A84B', emoji: '🚀' },
+    { id: 'patriotic',           label: 'Patriotic',           bg: '#F5F0E8', accent: '#B22234', emoji: '🇺🇸' },
+  ];
+
+  function applyColorTheme(themeId) {
+    var link = document.getElementById('theme-css');
+    if (!link) return;
+    var base = link.getAttribute('href').replace(/themes\/[^/]+\.css/, '');
+    link.setAttribute('href', base + 'themes/' + themeId + '.css');
+    try { localStorage.setItem(COLOR_THEME_KEY, themeId); } catch(e) {}
+  }
+
+  function renderColorTheme(activeId) {
+    document.querySelectorAll('#color-theme-grid .theme-swatch').forEach(function(btn) {
+      var active = btn.getAttribute('data-color-theme') === activeId;
+      btn.setAttribute('aria-checked', active ? 'true' : 'false');
+      btn.classList.toggle('theme-swatch--active', active);
+    });
+  }
+
+  function initColorTheme() {
+    var cur = 'trail';
+    try { cur = localStorage.getItem(COLOR_THEME_KEY) || 'trail'; } catch(e) {}
+    var validIds = THEMES.map(function(t){ return t.id; });
+    if (validIds.indexOf(cur) < 0) cur = 'trail';
+
+    var grid = document.getElementById('color-theme-grid');
+    THEMES.forEach(function(t) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.role = 'radio';
+      btn.setAttribute('role', 'radio');
+      btn.setAttribute('aria-checked', t.id === cur ? 'true' : 'false');
+      btn.setAttribute('data-color-theme', t.id);
+      btn.className = 'theme-swatch' + (t.id === cur ? ' theme-swatch--active' : '');
+      btn.innerHTML =
+        '<span class="theme-swatch__preview" style="background:' + t.bg + ';border-color:' + t.accent + '">' +
+          '<span class="theme-swatch__dot" style="background:' + t.accent + '"></span>' +
+        '</span>' +
+        '<span class="theme-swatch__emoji">' + t.emoji + '</span>' +
+        '<span class="theme-swatch__label">' + t.label + '</span>';
+      btn.addEventListener('click', function() {
+        applyColorTheme(t.id);
+        renderColorTheme(t.id);
+        saved();
+      });
+      grid.appendChild(btn);
+    });
+
+    // Apply stored theme on load (in case head script didn't catch it)
+    applyColorTheme(cur);
+  }
+
+  /* ===== Section 2b: Mode (light / dark / system) ===== */
+  function applyTheme(mode){
+    document.documentElement.setAttribute('data-mode', mode);
+    try { localStorage.setItem(MODE_KEY, mode); } catch(e){}
+  }
+  function renderTheme(mode){
+    document.querySelectorAll('#theme-seg button').forEach(function(b){
+      var active = (b.getAttribute('data-theme') === mode);
+      b.setAttribute('aria-pressed', active ? 'true' : 'false');
+      b.setAttribute('aria-checked', active ? 'true' : 'false');
+    });
+  }
+  function initTheme(){
+    var cur = 'system';
+    try { cur = localStorage.getItem(MODE_KEY) || 'system'; } catch(e){}
+    if (cur !== 'system' && cur !== 'light' && cur !== 'dark') cur = 'system';
+    renderTheme(cur);
+    document.querySelectorAll('#theme-seg button').forEach(function(b){
+      b.addEventListener('click', function(){
+        var mode = b.getAttribute('data-theme');
+        applyTheme(mode);
+        renderTheme(mode);
+        saved();
+      });
+    });
+  }
+
+  /* ===== Section 3: Privacy ===== */
+  function initPrivacy(){
+    var cur = 'public';
+    try { cur = localStorage.getItem(PRIVACY_KEY) || 'public'; } catch(e){}
+    if (cur !== 'public' && cur !== 'private') cur = 'public';
+    var radios = document.querySelectorAll('input[name="privacy"]');
+    radios.forEach(function(r){
+      r.checked = (r.value === cur);
+      r.addEventListener('change', function(){
+        if (r.checked) {
+          try { localStorage.setItem(PRIVACY_KEY, r.value); } catch(e){}
+          saved();
+        }
+      });
+    });
+  }
+
+  /* ===== Section 4: Trip Dates ===== */
+  function initDates(){
+    var arr = document.getElementById('profile-arrival');
+    var dep = document.getElementById('profile-departure');
+    try {
+      arr.value = localStorage.getItem(ARRIVAL_KEY) || '';
+      dep.value = localStorage.getItem(DEPARTURE_KEY) || '';
+    } catch(e){}
+    arr.addEventListener('change', function(){
+      try { localStorage.setItem(ARRIVAL_KEY, arr.value || ''); } catch(e){}
+      saved();
+    });
+    dep.addEventListener('change', function(){
+      try { localStorage.setItem(DEPARTURE_KEY, dep.value || ''); } catch(e){}
+      saved();
+    });
+  }
+
+  /* ===== Section 5: Interests ===== */
+  function readInterests(){
+    try {
+      var raw = localStorage.getItem(INTERESTS_KEY);
+      if (!raw) return [];
+      var arr = JSON.parse(raw);
+      return Array.isArray(arr) ? arr.filter(function(s){ return typeof s === 'string'; }) : [];
+    } catch(e) { return []; }
+  }
+  function writeInterests(list){
+    try { localStorage.setItem(INTERESTS_KEY, JSON.stringify(list)); } catch(e){}
+  }
+  function initInterests(){
+    var active = new Set(readInterests());
+    document.querySelectorAll('#interests-group .chip').forEach(function(chip){
+      var k = chip.getAttribute('data-interest');
+      chip.setAttribute('aria-pressed', active.has(k) ? 'true' : 'false');
+      chip.addEventListener('click', function(){
+        if (active.has(k)) { active.delete(k); chip.setAttribute('aria-pressed','false'); }
+        else                { active.add(k);   chip.setAttribute('aria-pressed','true');  }
+        writeInterests([...active]);
+        saved();
+      });
+    });
+  }
+
+  /* ===== URL ?name= prefill ===== */
+  function applyNameQueryParam(){
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var candidate = params.get('name');
+      if (!candidate) return;
+      if (NAMES.indexOf(candidate) < 0) return; // silently ignore unknown names
+      setUser(candidate);
+      nameSel.value = candidate;
+      var section = document.getElementById('section-identity');
+      if (section && section.scrollIntoView) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } catch(e){}
+  }
+
+  /* ===== Init ===== */
+  initIdentity();
+  initColorTheme();
+  initTheme();
+  initPrivacy();
+  initDates();
+  initInterests();
+  updateProfileBtnBadge();
+  applyNameQueryParam();
+})();
+</script>
+<script>window.addEventListener('storage',function(e){if(e.key==='vacdash:v1:mode')document.documentElement.setAttribute('data-mode',e.newValue||'system')});</script>
+</body>
+</html>
