@@ -167,6 +167,11 @@ sed -i '' 's|../assets/thumbs/|assets/thumbs/|g' \
   attractions.html shows.html index.html event-timeline.html people-timeline.html \
   wishlist.html suggested.html profile.html quick-pick.html help.html
 
+# 3b. Cache-bust all local CSS/JS asset URLs (?v=TIMESTAMP)
+#     Prevents stale-cache problems on iOS Safari and CDN edges.
+#     Run from preview dir. Stamps href="css/..." and src="js/..." only.
+python3 "$VAULT/scripts/cache_bust.py"
+
 # 4. Commit and push
 git add -A && \
   git -c user.email="alexshultz@users.noreply.github.com" commit -m "MESSAGE" && \
