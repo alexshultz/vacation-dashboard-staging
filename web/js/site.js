@@ -91,7 +91,7 @@
       '<header class="site-header"><div class="site-header__inner">' +
       '<a class="site-logo" href="index.html">' + SITE_NAME + '</a>' +
       '<nav class="site-nav" aria-label="Main">' + links + '</nav>' +
-      profileBtn + toggle +
+      toggle + profileBtn +
       '</div></header>'
     );
   }
