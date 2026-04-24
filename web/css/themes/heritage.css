@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=EB+Garamond:wght@400;500&display=swap');
+
 /*
  * heritage.css -- Heritage theme (Grandparents / timeless elegant aesthetic)
  * Vibe: Warm parchment + Colonial American palette — like a fine printed program
@@ -7,6 +9,9 @@
  */
 
 :root {
+  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-body: 'EB Garamond', 'Georgia', serif;
+
   /* ── Private Palette ──────────────────────────────────────── */
   --ivory:   #F7F0DF;   /* aged parchment — warm off-white */
   --vellum:  #EDE4CE;   /* slightly deeper parchment for dividers */

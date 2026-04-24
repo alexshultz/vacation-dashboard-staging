@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=Arvo:wght@400;700&display=swap');
+
 /*
  * neon-country.css -- Neon Country theme (Wildcard / unexpected fun)
  * Vibe: A honky-tonk bar at midnight — warm wood grain meets blinking neon signs,
@@ -7,6 +9,9 @@
  */
 
 :root {
+  --font-heading: 'Rye', 'Georgia', serif;
+  --font-body: 'Arvo', 'Georgia', serif;
+
   /* ── Private Palette ──────────────────────────────────────── */
   --barwood:  #2A1508;   /* dark weathered wood planks */
   --cedar:    #3D2010;   /* cedar plank surface */

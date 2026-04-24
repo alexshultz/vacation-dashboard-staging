@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+
 /*
  * dungeon-crawler-carl.css -- Dungeon Crawler Carl theme
  * Vibe: LitRPG System UI meets grimy dungeon crawl -- dark near-black stone with
@@ -15,6 +17,9 @@
  */
 
 :root {
+  --font-heading: 'Orbitron', 'Eurostile', sans-serif;
+  --font-body: 'Share Tech Mono', 'Courier New', monospace;
+
   /* ── Private Palette: The Dungeon ────────────────────────────── */
 
   /* Dungeon stone / environment */

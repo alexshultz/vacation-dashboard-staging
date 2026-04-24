@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@400;600&display=swap');
+
 /*
  * midnight.css -- Midnight theme (Teens / night-owl aesthetic)
  * Vibe: Electric dark — neon-infused like Ozarks midnight sky meets gaming HUD.
@@ -6,6 +8,9 @@
  */
 
 :root {
+  --font-heading: 'Orbitron', 'Eurostile', sans-serif;
+  --font-body: 'Exo 2', 'Segoe UI', sans-serif;
+
   /* ── Private Palette ──────────────────────────────────────── */
   --night:  #0B0D17;   /* near-black indigo background */
   --cave:   #141828;   /* card surface (dark) */

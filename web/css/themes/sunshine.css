@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap');
+
 /*
  * sunshine.css -- Sunshine theme (Kids / pure joy aesthetic)
  * Vibe: Summer carnival, candy-bright, lemon + coral + sky-blue on warm white.
@@ -6,6 +8,9 @@
  */
 
 :root {
+  --font-heading: 'Fredoka One', 'Verdana', sans-serif;
+  --font-body: 'Nunito', 'Arial', sans-serif;
+
   /* ── Private Palette ──────────────────────────────────────── */
   --lemon:  #FFC800;   /* bright warm yellow */
   --coral:  #FF5E3A;   /* vivid coral-orange */

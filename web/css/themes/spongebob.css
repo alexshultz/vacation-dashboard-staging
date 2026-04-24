@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Patrick+Hand&display=swap');
 /*
  * spongebob.css -- SpongeBob SquarePants theme
  * Vibe: Sunny Bikini Bottom above the waves — SpongeBob yellow, Patrick pink,
@@ -23,6 +24,9 @@
  */
 
 :root {
+  --font-heading: 'Bangers', 'Impact', sans-serif;
+  --font-body: 'Patrick Hand', 'Comic Sans MS', cursive;
+
   /* ── Private Palette: Bikini Bottom ────────────────────────────── */
 
   /* SpongeBob SquarePants — his iconic sponge-body yellow */

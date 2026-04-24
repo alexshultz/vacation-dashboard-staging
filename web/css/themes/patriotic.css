@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Libre+Baskerville:wght@400;700&display=swap');
+
+/*
+ * patriotic.css -- Patriotic theme (250th Anniversary of the United States)
+ * Vibe: July 4th fireworks over a summer sky -- the exact US flag colors (Old
+ *       Glory Red, White, and Old Glory Blue) with gold fireworks bursts as
+ *       accents. Light mode: a sunny Independence Day parade, parchment-warm
+ *       and dignified. Dark mode: fireworks exploding against a midnight sky,
+ *       the night of the 250th, brilliant bursts against pure black-blue.
+ *
+ * Palette key (exact Pantone references where noted):
+ *   --glory-red       #B22234  Old Glory Red (Pantone 193 C)
+ *   --glory-blue      #3C3B6E  Old Glory Blue (Pantone 281 C)
+ *   --pure-white      #FFFFFF
+ *   --firework-gold   #FFD700  fireworks burst gold
+ *   --firework-orange #FF6B00  fireworks ember orange
+ *   --firework-burst  #FFFACD  fireworks bright white-yellow core
+ *   --liberty-copper  #8C6A4A  Statue of Liberty copper/brown when new
+ *   --liberty-green   #5BAD6F  Statue of Liberty green patina
+ *   --parchment       #F5E6C8  Declaration of Independence parchment
+ *   --night-sky       #050A1E  midnight July 4th sky
+ *   --star-white      #FFFEF5  clean star white
+ *   --eagle-brown     #8B5E3C  bald eagle brown
+ *
+ * Best for: Everyone -- this IS the 250th anniversary of the country.
+ *           Could be the default theme for the 4th of July.
+ *           Ray and Evie will probably love this one.
+ */
+
+:root {
+  /* ── Typography ────────────────────────────────────────────── */
+  --font-heading: 'Alfa Slab One', 'Georgia', serif;
+  --font-body:    'Libre Baskerville', 'Georgia', serif;
+
+  /* ── Private Palette ──────────────────────────────────────── */
+
+  /* The Stars and Stripes -- exact flag colors */
+  --glory-red:       #B22234;   /* Old Glory Red -- Pantone 193 C */
+  --glory-blue:      #3C3B6E;   /* Old Glory Blue -- Pantone 281 C */
+  --pure-white:      #FFFFFF;
+
+  /* Fireworks -- the July 4th sky show */
+  --firework-gold:   #FFD700;   /* fireworks burst gold */
+  --firework-orange: #FF6B00;   /* fireworks ember orange */
+  --firework-burst:  #FFFACD;   /* fireworks bright white-yellow core */
+
+  /* American landmarks */
+  --liberty-copper:  #8C6A4A;   /* Statue of Liberty -- original copper/brown */
+  --liberty-green:   #5BAD6F;   /* Statue of Liberty -- oxidized green patina */
+  --parchment:       #F5E6C8;   /* Declaration of Independence parchment */
+  --night-sky:       #050A1E;   /* midnight July 4th sky */
+  --star-white:      #FFFEF5;   /* clean star white */
+  --eagle-brown:     #8B5E3C;   /* bald eagle brown */
+
+  /* ── Light Mode: July 4th Parade, Sunny Afternoon ────────── */
+  /* A clear summer day -- bunting on the porches, the parade on Main   */
+  /* Street, parchment warm, dignified, Declaration-of-Independence     */
+  /* energy. All the gravitas of 250 years.                             */
+  --color-bg:      #F5F0E8;   /* parchment-warm white -- Declaration energy */
+  --color-surface: #FDFAF5;   /* slightly cooler parchment surface */
+  --color-ink:     #0A0A1E;   /* deep Old Glory Blue-black -- ink on parchment */
+  --color-ink-dim: #3C3B6E;   /* Old Glory Blue -- secondary text */
+  --color-line:    #D4C8B0;   /* warm parchment tan rule */
+
+  /* ── Light Mode: Semantic + Accent Tokens ─────────────────── */
+  --status-yes:      #1A6B1A;   /* patriot green -- confirmed going */
+  --status-no:       #8B1A1A;   /* Old Glory Red muted -- not going */
+  --status-wishlist: #2A2A6E;   /* Old Glory Blue muted -- on the list */
+  --status-neutral:  #5A5A6A;   /* muted blue-gray neutral */
+  --status-lock:     #7A6000;   /* gold muted -- locked/booked */
+  --warn:            #8B5E00;   /* eagle brown muted -- warning */
+  --accent-sand:     var(--parchment);    /* #F5E6C8 -- Declaration parchment */
+  --accent-clay:     var(--glory-red);    /* #B22234 -- Old Glory Red */
+  --accent-dusk:     var(--glory-blue);   /* #3C3B6E -- Old Glory Blue */
+}
+
+/* ── Dark Mode: Fireworks at Midnight -- July 4th Night Sky ── */
+/* The parade is over. The sun has set. The nation turns 250 and */
+/* the sky is alive -- gold bursts, red fire, blue-white stars.  */
+/* A midnight sky so deep it feels like the first night of a     */
+/* new century. Every color is a firework.                       */
+[data-mode="dark"] {
+  --color-bg:      #050A1E;   /* deep midnight Independence Day sky */
+  --color-surface: #0A1030;   /* slightly lighter -- night field horizon */
+  --color-ink:     #FFFEF5;   /* clean star white -- crisp text */
+  --color-ink-dim: #8090C0;   /* muted blue-gray -- distant light */
+  --color-line:    #101828;   /* near-invisible dark rule -- night sky depth */
+
+  --status-yes:      #44DD66;   /* fireworks green burst -- going! */
+  --status-no:       #EE3344;   /* bright Old Glory Red -- danger */
+  --status-wishlist: #6688FF;   /* lighter blue firework -- wishlist */
+  --status-neutral:  #8090C0;   /* muted blue-gray neutral */
+  --status-lock:     #FFD700;   /* fireworks gold burst -- locked/booked */
+  --warn:            #FF6B00;   /* fireworks ember orange -- warning */
+  --accent-sand:     #FFD700;   /* fireworks gold */
+  --accent-clay:     #B22234;   /* Old Glory Red */
+  --accent-dusk:     #3C3B6E;   /* Old Glory Blue */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      #050A1E;
+    --color-surface: #0A1030;
+    --color-ink:     #FFFEF5;
+    --color-ink-dim: #8090C0;
+    --color-line:    #101828;
+
+    --status-yes:      #44DD66;   /* fireworks green burst */
+    --status-no:       #EE3344;   /* bright Old Glory Red */
+    --status-wishlist: #6688FF;   /* lighter blue firework */
+    --status-neutral:  #8090C0;
+    --status-lock:     #FFD700;   /* fireworks gold burst */
+    --warn:            #FF6B00;   /* fireworks ember orange */
+
+    --accent-sand: #FFD700;
+    --accent-clay: #B22234;
+    --accent-dusk: #3C3B6E;
+  }
+}
