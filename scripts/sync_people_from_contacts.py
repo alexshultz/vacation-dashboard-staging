@@ -4,14 +4,15 @@ sync_people_from_contacts.py
 ----------------------------
 Reads each person in data/people.json, looks them up by ZUNIQUEID in Apple Contacts,
 re-extracts their birthday using the verified ZBIRTHDAY + CDT-6 method, recalculates
-their age as of the trip start date, and reports any differences.
+their age as of the trip start date, pulls extended contact fields (name parts,
+nickname, preferred phone, preferred email), and reports any differences.
 
 Usage:
   python3 scripts/sync_people_from_contacts.py           -- check mode (no writes)
   python3 scripts/sync_people_from_contacts.py --update  -- update both JSON files
 
 Outputs:
-  - data/people.json        (private: DOBs + contact UUIDs -- never deployed)
+  - data/people.json        (private: DOBs + contact UUIDs + name/phone/email -- never deployed)
   - web/people.json         (public-safe: display names, ages, arrival/departure only)
 
 Method:
@@ -25,6 +26,7 @@ Requirements:
 """
 
 import json
+import re
 import sys
 import sqlite3
 from datetime import date, timedelta, datetime, timezone
@@ -97,6 +99,84 @@ def lookup_by_unique_id(cur, unique_id):
     dob = zbirthday_to_date(btime)
     return dob, True         # UUID found; dob may be None if birthday field is empty
 
+
+def lookup_contact_fields(cur, unique_id):
+    """
+    Pull extended contact fields (Z_PK, name parts, nickname, preferred phone,
+    preferred email) by ZUNIQUEID.
+
+    Phone preference: a row whose ZLABEL exactly equals "iPhone" wins; otherwise
+    the first row by ZORDERINGINDEX ASC is used. Email preference: a row whose
+    ZLABEL exactly equals "iCloud" wins; otherwise the first row by
+    ZORDERINGINDEX ASC is used. If the corresponding table has no rows for this
+    owner, the value is None.
+
+    Returns a dict with keys: z_pk, first_name, last_name, nickname, phone, email.
+    All values may be None.
+    """
+    cur.execute("""
+        SELECT Z_PK, ZFIRSTNAME, ZLASTNAME, ZNICKNAME
+        FROM ZABCDRECORD
+        WHERE ZUNIQUEID = ?
+        LIMIT 1
+    """, (unique_id,))
+    row = cur.fetchone()
+    if not row:
+        return {
+            "z_pk": None,
+            "first_name": None,
+            "last_name": None,
+            "nickname": None,
+            "phone": None,
+            "email": None,
+        }
+    z_pk, first_name, last_name, nickname = row
+
+    # Phone: iPhone label preferred (exact match), else first row.
+    # ORDER BY ZORDERINGINDEX ASC -- user-visible order in Contacts.app.
+    cur.execute("""
+        SELECT ZFULLNUMBER, ZLABEL
+        FROM ZABCDPHONENUMBER
+        WHERE ZOWNER = ?
+        ORDER BY ZORDERINGINDEX ASC
+    """, (z_pk,))
+    phone_rows = cur.fetchall()
+    phone = None
+    if phone_rows:
+        for number, label in phone_rows:
+            if number and label == "iPhone":
+                phone = number
+                break
+        if phone is None:
+            phone = phone_rows[0][0]
+
+    # Email: iCloud label preferred (exact match), else first row.
+    # ORDER BY ZORDERINGINDEX ASC -- user-visible order in Contacts.app.
+    cur.execute("""
+        SELECT ZADDRESS, ZLABEL
+        FROM ZABCDEMAILADDRESS
+        WHERE ZOWNER = ?
+        ORDER BY ZORDERINGINDEX ASC
+    """, (z_pk,))
+    email_rows = cur.fetchall()
+    email = None
+    if email_rows:
+        for address, label in email_rows:
+            if address and label == "iCloud":
+                email = address
+                break
+        if email is None:
+            email = email_rows[0][0]
+
+    return {
+        "z_pk": z_pk,
+        "first_name": first_name,
+        "last_name": last_name,
+        "nickname": nickname,
+        "phone": phone,
+        "email": email,
+    }
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
@@ -112,6 +192,10 @@ def main():
     trip_start = date.fromisoformat(private_data["trip_start"])
     attendees  = private_data["attendees"]
 
+    # Snapshot OLD display_name list before any in-place mutation; the public-JSON
+    # rebuild needs to find rows by their pre-rename name.
+    original_display_names = [p["display_name"] for p in attendees]
+
     # Connect to Contacts
     db_path = find_contacts_db()
     print(f"Using Contacts DB: {db_path}")
@@ -124,8 +208,11 @@ def main():
         print(f"{'Name':<12} {'Stored DOB':<13} {'Contacts DOB':<13} {'Age':<5} {'Change?'}")
         print("-" * 60)
 
-        changes = []
-        errors  = []
+        birthday_changes       = []
+        contact_field_changes  = []   # list of dicts: {display_name, field, old, new}
+        errors                 = []
+        empty_phone            = []   # display_names whose phone resolved to ''
+        empty_email            = []   # display_names whose email resolved to ''
 
         for person in attendees:
             display = person["display_name"]
@@ -146,6 +233,76 @@ def main():
                 print(f"{display:<12} {stored_str:<13} {'NOT FOUND':<13} {'?':<5} UUID MISSING")
                 continue
 
+            # UUID resolved -- pull extended fields.
+            fields = lookup_contact_fields(cur, uid)
+
+            # Build the target-schema values. UUID was found, so CHANGE 2
+            # applies: None phone/email are coerced to '' here.
+            first_part  = (fields["first_name"] or "").strip()
+            last_part   = (fields["last_name"]  or "").strip()
+            contact_name = f"{first_part} {last_part}".strip()
+
+            nickname_raw = fields["nickname"]
+            contact_nickname = nickname_raw.strip() if nickname_raw else ""
+
+            phone = fields["phone"] if fields["phone"] is not None else ""
+            email = fields["email"] if fields["email"] is not None else ""
+
+            if phone == "":
+                empty_phone.append(display)
+            if email == "":
+                empty_email.append(display)
+
+            # Per-field change detection against what's already stored.
+            stored_contact_name     = (person.get("contact_name") or "").strip()
+            stored_contact_nickname = (person.get("contact_nickname") or "").strip()
+            stored_phone            = person.get("phone") or ""
+            stored_email            = person.get("email") or ""
+
+            # contact_name: strip() both sides for comparison.
+            if contact_name.strip() != stored_contact_name:
+                contact_field_changes.append({
+                    "display_name": display,
+                    "field": "contact_name",
+                    "old": stored_contact_name,
+                    "new": contact_name,
+                })
+
+            # contact_nickname: strip both; None and '' are equivalent.
+            if contact_nickname.strip() != stored_contact_nickname.strip():
+                contact_field_changes.append({
+                    "display_name": display,
+                    "field": "contact_nickname",
+                    "old": stored_contact_nickname,
+                    "new": contact_nickname,
+                })
+                # REVIEW advisory: do NOT auto-update display_name.
+                print(f"  REVIEW: display_name is currently '{display}' -- update it if needed.")
+
+            # phone: compare digits only; store raw value.
+            if re.sub(r'\D', '', phone) != re.sub(r'\D', '', stored_phone):
+                contact_field_changes.append({
+                    "display_name": display,
+                    "field": "phone",
+                    "old": stored_phone,
+                    "new": phone,
+                })
+
+            # email: compare lowercased + stripped; store raw value.
+            if email.lower().strip() != stored_email.lower().strip():
+                contact_field_changes.append({
+                    "display_name": display,
+                    "field": "email",
+                    "old": stored_email,
+                    "new": email,
+                })
+
+            # Store the final target-schema values on the person record.
+            person["contact_name"]     = contact_name
+            person["contact_nickname"] = contact_nickname
+            person["phone"]            = phone
+            person["email"]            = email
+
             if contacts_dob is None:
                 errors.append(f"{display}: contact found but birthday field is empty in Contacts")
                 stored_str = str(stored_dob) if stored_dob else "?"
@@ -159,9 +316,12 @@ def main():
             marker = " <<< CHANGED" if changed else ""
 
             print(f"{display:<12} {stored_str:<13} {contacts_str:<13} {str(age):<5}{marker}")
+            # Visibility line: show all 5 contact fields for this person.
+            print(f"    contact_name={contact_name!r} contact_nickname={contact_nickname!r} "
+                  f"dob={contacts_str} phone={phone!r} email={email!r}")
 
             if changed:
-                changes.append({
+                birthday_changes.append({
                     "display_name": display,
                     "old_dob": stored_str,
                     "new_dob": contacts_str,
@@ -175,59 +335,81 @@ def main():
     finally:
         conn.close()
 
-    # Summary
+    # ── Summary ──────────────────────────────────────────────────────────────
     print(f"\n{'='*60}")
-    print(f"Results: {len(changes)} change(s), {len(errors)} error(s)")
+    print(f"Results: {len(birthday_changes)} birthday change(s), "
+          f"{len(contact_field_changes)} contact-field change(s), "
+          f"{len(errors)} error(s)")
 
-    if changes:
+    if birthday_changes:
         print(f"\nCHANGED BIRTHDAYS:")
-        for c in changes:
+        for c in birthday_changes:
             print(f"  {c['display_name']}: {c['old_dob']} -> {c['new_dob']} (age {c['new_age']})")
+
+    if contact_field_changes:
+        print(f"\nCHANGED CONTACT FIELDS:")
+        for c in contact_field_changes:
+            old_disp = c["old"] if c["old"] != "" else "<empty>"
+            new_disp = c["new"] if c["new"] != "" else "<empty>"
+            print(f"  {c['display_name']} [{c['field']}]: {old_disp!r} -> {new_disp!r}")
 
     if errors:
         print(f"\nERRORS (manual attention needed):")
         for e in errors:
             print(f"  {e}")
 
-    if not changes and not errors:
-        print("All birthdays match. No updates needed.")
-        return
-
-    # Write updates
+    # ── Write updates ─────────────────────────────────────────────────────────
     if update_mode:
-        if changes:
-            print(f"\nWriting updated data/people.json...")
-            private_data["last_updated"] = str(date.today())
-            private_data["attendees"] = attendees
-            with open(PRIVATE_JSON, "w") as f:
-                json.dump(private_data, f, indent=2)
-            print(f"  Saved: {PRIVATE_JSON}")
+        # Always rewrite private JSON: even with no birthday/contact changes,
+        # the contact fields per attendee need to be persisted.
+        new_note = (
+            "dob is stored as YYYY-MM-DD. age_trip_start is exact age on May 22, 2026. "
+            "contact_unique_id is the Apple Contacts ZUNIQUEID. "
+            "contact_name, contact_nickname, phone, email are pulled from Apple "
+            "Contacts at sync time -- private, never deployed. display_name is "
+            "human-curated; the sync script never overwrites it automatically. "
+            "full_name is the legal name from the contact card."
+        )
+        private_data["note"]         = new_note
+        private_data["last_updated"] = str(date.today())
+        private_data["attendees"]    = attendees
 
-            # Rebuild public web/people.json from updated private data
-            print(f"Writing updated web/people.json...")
-            with open(PUBLIC_JSON) as f:
-                public_data = json.load(f)
+        print(f"\nWriting updated data/people.json...")
+        with open(PRIVATE_JSON, "w") as f:
+            json.dump(private_data, f, indent=2)
+        print(f"  Saved: {PRIVATE_JSON}")
 
-            # Build a lookup from display_name -> updated age
-            age_lookup = {p["display_name"]: p["age_trip_start"] for p in attendees}
+        # PRIVACY: only age is written to public JSON
+        # Public JSON carries only non-sensitive fields. Phone, email, dob,
+        # contact_name, and contact_nickname MUST NEVER appear here.
+        old_to_age = {
+            orig_name: person.get("age_trip_start")
+            for orig_name, person in zip(original_display_names, attendees)
+        }
 
-            for pub_person in public_data["attendees"]:
-                name = pub_person["display_name"]
-                if name in age_lookup and age_lookup[name] is not None:
-                    pub_person["age"] = age_lookup[name]
+        print(f"Writing updated web/people.json...")
+        with open(PUBLIC_JSON) as f:
+            public_data = json.load(f)
 
-            public_data["last_updated"] = str(date.today())
-            with open(PUBLIC_JSON, "w") as f:
-                json.dump(public_data, f, indent=2)
-            print(f"  Saved: {PUBLIC_JSON}")
+        for pub_person in public_data["attendees"]:
+            name_key = pub_person["display_name"]
+            if name_key in old_to_age and old_to_age[name_key] is not None:
+                pub_person["age"] = old_to_age[name_key]
 
+        public_data["last_updated"] = str(date.today())
+        with open(PUBLIC_JSON, "w") as f:
+            json.dump(public_data, f, indent=2)
+        print(f"  Saved: {PUBLIC_JSON}")
+
+        if birthday_changes or contact_field_changes:
             print(f"\nDone. Remember to:")
             print(f"  1. Run the GitHub Pages sync to deploy web/people.json")
             print(f"  2. Commit both files to git")
         else:
-            print("\nNo birthday changes to write.")
+            print(f"\nDone. Private JSON now includes contact fields; "
+                  f"public JSON re-written but no age diffs.")
     else:
-        if changes:
+        if birthday_changes or contact_field_changes:
             print(f"\nRun with --update to apply these changes:")
             print(f"  python3 scripts/sync_people_from_contacts.py --update")
 
