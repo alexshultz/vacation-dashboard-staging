@@ -264,7 +264,7 @@
   function applyColorTheme(themeId) {
     var link = document.getElementById('theme-css');
     if (!link) return;
-    var base = link.getAttribute('href').replace(/themes\/[^/]+\.css/, '');
+    var base = link.getAttribute('href').replace(/themes\/[^/]+\.css(\?.*)?$/, '');
     link.setAttribute('href', base + 'themes/' + themeId + '.css');
     try { localStorage.setItem(COLOR_THEME_KEY, themeId); } catch(e) {}
   }
