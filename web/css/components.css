@@ -112,7 +112,7 @@ h3 { font-size: 19px; font-weight: 700; }
   margin: 0; list-style: none;
 }
 @media (max-width: 719px) { .site-nav { display: none; } .bottom-tabs { display: flex; } }
-@media (max-width: 719px) { .theme-toggle { margin-left: auto; } }
+@media (max-width: 719px) { .site-logo { margin-right: auto; } }
 .bottom-tabs .tab {
   display: flex; flex-direction: column; align-items: center; gap: 2px;
   font-size: 22px; text-decoration: none;
