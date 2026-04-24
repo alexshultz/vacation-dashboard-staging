@@ -3,140 +3,216 @@
   "source": "Apple Contacts (ZBIRTHDAY field, CDT UTC-6 correction applied)",
   "trip_start": "2026-05-22",
   "trip_end": "2026-05-29",
-  "note": "dob is stored as YYYY-MM-DD. age_trip_start is exact age on May 22, 2026. contact_unique_id is the Apple Contacts ZUNIQUEID -- use to pull email/phone later. display_name is what the dashboard shows. full_name is the legal name from the contact card.",
+  "note": "dob is stored as YYYY-MM-DD. age_trip_start is exact age on May 22, 2026. contact_unique_id is the Apple Contacts ZUNIQUEID. contact_name, contact_nickname, phone, email are pulled from Apple Contacts at sync time -- private, never deployed. display_name is human-curated; the sync script never overwrites it automatically. full_name is the legal name from the contact card.",
   "attendees": [
     {
       "display_name": "Adrian",
       "full_name": "Adrian Silva",
       "dob": "2016-11-27",
       "age_trip_start": 9,
-      "contact_unique_id": "9FBD9777-244E-4554-B4FA-BB89A240AF64:ABPerson"
+      "contact_unique_id": "9FBD9777-244E-4554-B4FA-BB89A240AF64:ABPerson",
+      "contact_name": "Adrian Silva",
+      "contact_nickname": "",
+      "phone": "",
+      "email": ""
     },
     {
       "display_name": "Alex",
       "full_name": "Alex Shultz",
       "dob": "1970-01-11",
       "age_trip_start": 56,
-      "contact_unique_id": "5A5B6325-6D46-4E14-AE6E-C8F19685848F:ABPerson"
+      "contact_unique_id": "5A5B6325-6D46-4E14-AE6E-C8F19685848F:ABPerson",
+      "contact_name": "Alex Shultz",
+      "contact_nickname": "",
+      "phone": "+17855627890",
+      "email": "alex.shultz@icloud.com"
     },
     {
       "display_name": "Ashlyn",
       "full_name": "Ashlyn Shultz",
       "dob": "1998-07-24",
       "age_trip_start": 27,
-      "contact_unique_id": "DA85572E-41A8-4A8A-8876-FEA57E6DB435:ABPerson"
+      "contact_unique_id": "DA85572E-41A8-4A8A-8876-FEA57E6DB435:ABPerson",
+      "contact_name": "Ashlyn Shultz",
+      "contact_nickname": "",
+      "phone": "7858440514",
+      "email": "amskittycat@gmail.com"
     },
     {
       "display_name": "Bee",
       "full_name": "Bee Shultz",
       "dob": "2007-06-05",
       "age_trip_start": 18,
-      "contact_unique_id": "CFC8C3F6-E5CC-481B-969F-2C03C2456111:ABPerson"
+      "contact_unique_id": "CFC8C3F6-E5CC-481B-969F-2C03C2456111:ABPerson",
+      "contact_name": "Bee Shultz",
+      "contact_nickname": "Bee",
+      "phone": "+1 (785) 477-0635",
+      "email": "lizzielshultz@gmail.com"
     },
     {
       "display_name": "Brian",
       "full_name": "Brian Shultz",
       "dob": "1971-04-22",
       "age_trip_start": 55,
-      "contact_unique_id": "D3AC2D7A-097B-40CB-A0FE-86FE57F0C09E:ABPerson"
+      "contact_unique_id": "D3AC2D7A-097B-40CB-A0FE-86FE57F0C09E:ABPerson",
+      "contact_name": "Brian Shultz",
+      "contact_nickname": "",
+      "phone": "785-494-8745",
+      "email": "bshultzfarm@gmail.com"
     },
     {
-      "display_name": "Bug",
+      "display_name": "Buggy",
       "full_name": "Octavia Shultz",
       "dob": "2018-02-07",
       "age_trip_start": 8,
-      "contact_unique_id": "02F0E700-E7DB-463B-8AFF-293EB4882CFC:ABPerson"
+      "contact_unique_id": "02F0E700-E7DB-463B-8AFF-293EB4882CFC:ABPerson",
+      "contact_name": "Octavia Shultz",
+      "contact_nickname": "Buggy",
+      "phone": "",
+      "email": ""
     },
     {
       "display_name": "David",
       "full_name": "David Shultz",
       "dob": "2009-04-11",
       "age_trip_start": 17,
-      "contact_unique_id": "7B5A86A1-EC03-4FBE-883C-4DE70BBBF76A:ABPerson"
+      "contact_unique_id": "7B5A86A1-EC03-4FBE-883C-4DE70BBBF76A:ABPerson",
+      "contact_name": "David Shultz",
+      "contact_nickname": "",
+      "phone": "+1 (785) 458-2156",
+      "email": ""
     },
     {
       "display_name": "Dez",
       "full_name": "Dezie Silvia",
       "dob": "2000-09-29",
       "age_trip_start": 25,
-      "contact_unique_id": "6FFDCEF2-D66E-41F1-B87B-E0931C167523:ABPerson"
+      "contact_unique_id": "6FFDCEF2-D66E-41F1-B87B-E0931C167523:ABPerson",
+      "contact_name": "Dezie Silvia",
+      "contact_nickname": "Dez",
+      "phone": "7857892420",
+      "email": "dezie4729@gmail.com"
     },
     {
       "display_name": "Evie",
       "full_name": "Evie Shultz",
       "dob": "1952-09-04",
       "age_trip_start": 73,
-      "contact_unique_id": "AD238396-D1B2-4741-AF3A-C425A2A81AD7:ABPerson"
+      "contact_unique_id": "AD238396-D1B2-4741-AF3A-C425A2A81AD7:ABPerson",
+      "contact_name": "Evie Shultz",
+      "contact_nickname": "Mom",
+      "phone": "+1 (785) 562-6105",
+      "email": "eviejs99@gmail.com"
     },
     {
       "display_name": "Georgie",
       "full_name": "Georgina Shultz",
       "dob": "2020-07-15",
       "age_trip_start": 5,
-      "contact_unique_id": "572B9AAF-B4E1-4E61-B09B-4207029D1696:ABPerson"
+      "contact_unique_id": "572B9AAF-B4E1-4E61-B09B-4207029D1696:ABPerson",
+      "contact_name": "Georgina Shultz",
+      "contact_nickname": "Georgie",
+      "phone": "",
+      "email": ""
     },
     {
       "display_name": "Jackson",
       "full_name": "Jackson Candido",
       "dob": "2014-10-01",
       "age_trip_start": 11,
-      "contact_unique_id": "3C1E58BC-B3CF-4620-B74A-2C03452EB169:ABPerson"
+      "contact_unique_id": "3C1E58BC-B3CF-4620-B74A-2C03452EB169:ABPerson",
+      "contact_name": "Jackson Candido",
+      "contact_nickname": "",
+      "phone": "7852034026",
+      "email": ""
     },
     {
       "display_name": "Jacob",
       "full_name": "Jacob Shultz",
       "dob": "1995-03-03",
       "age_trip_start": 31,
-      "contact_unique_id": "FBADCCB6-ED73-4B0B-8984-F73F8D05FFDB:ABPerson"
+      "contact_unique_id": "FBADCCB6-ED73-4B0B-8984-F73F8D05FFDB:ABPerson",
+      "contact_name": "Jacob Shultz",
+      "contact_nickname": "",
+      "phone": "785-844-1915",
+      "email": "jacob.shultz@gmail.com"
     },
     {
       "display_name": "Jordan",
       "full_name": "Jordan Shultz",
       "dob": "1988-03-14",
       "age_trip_start": 38,
-      "contact_unique_id": "942FDD5A-E82D-45A6-B111-82F088870F17:ABPerson"
+      "contact_unique_id": "942FDD5A-E82D-45A6-B111-82F088870F17:ABPerson",
+      "contact_name": "Jordan Shultz",
+      "contact_nickname": "",
+      "phone": "(785) 410-0607",
+      "email": "jordan.candido@yahoo.com"
     },
     {
       "display_name": "Josh",
       "full_name": "Josh Shultz",
       "dob": "1981-07-29",
       "age_trip_start": 44,
-      "contact_unique_id": "272FA839-DF0A-46E5-93AE-566AD2418E9E:ABPerson"
+      "contact_unique_id": "272FA839-DF0A-46E5-93AE-566AD2418E9E:ABPerson",
+      "contact_name": "Josh Shultz",
+      "contact_nickname": "",
+      "phone": "(785) 313-1867",
+      "email": "josh.shultz@gmail.com"
     },
     {
       "display_name": "Kevin",
       "full_name": "Kevin Luberus",
       "dob": "1997-08-16",
       "age_trip_start": 28,
-      "contact_unique_id": "9F15D81D-D9A0-4B29-90F7-B886DBB1ECB3:ABPerson"
+      "contact_unique_id": "9F15D81D-D9A0-4B29-90F7-B886DBB1ECB3:ABPerson",
+      "contact_name": "Kevin Luberus",
+      "contact_nickname": "",
+      "phone": "+1 (830) 765-4527",
+      "email": ""
     },
     {
       "display_name": "Lucy",
       "full_name": "Lucy Shultz",
       "dob": "2010-12-14",
       "age_trip_start": 15,
-      "contact_unique_id": "E25E55CB-740F-4032-89B2-CF81664C608D:ABPerson"
+      "contact_unique_id": "E25E55CB-740F-4032-89B2-CF81664C608D:ABPerson",
+      "contact_name": "Lucy Shultz",
+      "contact_nickname": "",
+      "phone": "(785) 410-0954",
+      "email": ""
     },
     {
       "display_name": "McKinley",
       "full_name": "McKinley Candido",
       "dob": "2010-10-11",
       "age_trip_start": 15,
-      "contact_unique_id": "18E38E7A-E9FD-46BE-979B-00889094D9EE:ABPerson"
+      "contact_unique_id": "18E38E7A-E9FD-46BE-979B-00889094D9EE:ABPerson",
+      "contact_name": "McKinley Candido",
+      "contact_nickname": "",
+      "phone": "+1 (785) 473-6543",
+      "email": ""
     },
     {
       "display_name": "Mel",
       "full_name": "Mel Shultz",
       "dob": "1973-02-11",
       "age_trip_start": 53,
-      "contact_unique_id": "81EAC92C-6291-45E2-9C51-20CF72B4F130:ABPerson"
+      "contact_unique_id": "81EAC92C-6291-45E2-9C51-20CF72B4F130:ABPerson",
+      "contact_name": "Mel Shultz",
+      "contact_nickname": "Mel",
+      "phone": "785-410-2847",
+      "email": "mshultzfarm@gmail.com"
     },
     {
       "display_name": "Mycah",
       "full_name": "Mycah Shultz",
       "dob": "2006-03-14",
       "age_trip_start": 20,
-      "contact_unique_id": "B968A8D7-9D4F-44F1-A426-B581227A9199:ABPerson"
+      "contact_unique_id": "B968A8D7-9D4F-44F1-A426-B581227A9199:ABPerson",
+      "contact_name": "Mycah Shultz",
+      "contact_nickname": "",
+      "phone": "+1 (785) 370-5587",
+      "email": "littlemlittleb@gmail.com"
     },
     {
       "display_name": "Natalie",
@@ -144,49 +220,77 @@
       "dob": "2008-04-17",
       "age_trip_start": 18,
       "contact_unique_id": "50C7A3D1-A545-49E5-8FE3-9E3BDA711678:ABPerson",
-      "contact_note": "Raw contact name contains emoji (Natalie Hunt \u271d\ufe0f\ud83d\udc9c) -- use display_name and full_name fields only on dashboard"
+      "contact_note": "Raw contact name contains emoji (Natalie Hunt \u271d\ufe0f\ud83d\udc9c) -- use display_name and full_name fields only on dashboard",
+      "contact_name": "Natalie Hunt \u271d\ufe0f\ud83d\udc9c Hunt",
+      "contact_nickname": "",
+      "phone": "+17852361041",
+      "email": ""
     },
     {
       "display_name": "Rachel",
       "full_name": "Rachel Simental",
       "dob": "1996-05-27",
       "age_trip_start": 29,
-      "contact_unique_id": "9603925B-4BB2-4045-B15E-B09D91663B93:ABPerson"
+      "contact_unique_id": "9603925B-4BB2-4045-B15E-B09D91663B93:ABPerson",
+      "contact_name": "Rachel Simental",
+      "contact_nickname": "",
+      "phone": "(785) 307-5994",
+      "email": ""
     },
     {
       "display_name": "Ray",
       "full_name": "Ray Shultz",
       "dob": "1952-05-09",
       "age_trip_start": 74,
-      "contact_unique_id": "E6530E11-D684-4733-8CF4-9A1AED76D845:ABPerson"
+      "contact_unique_id": "E6530E11-D684-4733-8CF4-9A1AED76D845:ABPerson",
+      "contact_name": "Ray Shultz",
+      "contact_nickname": "Dad",
+      "phone": "785-562-6171",
+      "email": "ray.shultz99@gmail.com"
     },
     {
       "display_name": "Simran",
       "full_name": "Simran Widmer",
       "dob": "2002-06-02",
       "age_trip_start": 23,
-      "contact_unique_id": "2364ACB4-10A9-4B1B-B7AB-3AA09D21A46E:ABPerson"
+      "contact_unique_id": "2364ACB4-10A9-4B1B-B7AB-3AA09D21A46E:ABPerson",
+      "contact_name": "Simran Widmer",
+      "contact_nickname": "",
+      "phone": "(913) 600-3816",
+      "email": "roasimmy@gmail.com"
     },
     {
       "display_name": "Skylar",
       "full_name": "Skylar Widmer",
       "dob": "1997-11-21",
       "age_trip_start": 28,
-      "contact_unique_id": "7B037E55-B457-4B23-B7D5-EC7F75F63E5C:ABPerson"
+      "contact_unique_id": "7B037E55-B457-4B23-B7D5-EC7F75F63E5C:ABPerson",
+      "contact_name": "Skylar Widmer",
+      "contact_nickname": "",
+      "phone": "(+1 785) 713-1187",
+      "email": "skylarwidmer@icloud.com"
     },
     {
       "display_name": "Tayden",
       "full_name": "Tayden Weisbender",
       "dob": "2006-01-06",
       "age_trip_start": 20,
-      "contact_unique_id": "4440CA2D-C430-4A5E-A862-790B15C43417:ABPerson"
+      "contact_unique_id": "4440CA2D-C430-4A5E-A862-790B15C43417:ABPerson",
+      "contact_name": "Tayden Weisbender",
+      "contact_nickname": "",
+      "phone": "785-473-1407",
+      "email": ""
     },
     {
       "display_name": "Zach",
       "full_name": "Zach Shultz",
       "dob": "2001-12-25",
       "age_trip_start": 24,
-      "contact_unique_id": "A78B86C9-8F7D-45B1-8200-B99EA1061FE0:ABPerson"
+      "contact_unique_id": "A78B86C9-8F7D-45B1-8200-B99EA1061FE0:ABPerson",
+      "contact_name": "Zach Shultz",
+      "contact_nickname": "",
+      "phone": "(785) 844-9639",
+      "email": "brian@valleyvet.com"
     }
   ]
 }
