@@ -346,3 +346,17 @@ Earlier design-track work is captured in source docs, not this log:
 - `docs/ROADMAP.md` — three-phase plan
 - Preview site: https://alexshultz.github.io/vacation-dashboard-previews/
 - Tester roster: Mycah, Jordan, Ashlyn
+---
+
+## 2026-04-26 (morning) -- Tier Compliance Audit: 4 gaps, no damage
+
+Overnight self-audit cron (job d9de71c5a9fe, scheduled by Vacation at end of prior session) reviewed 6 operations from the Apr 25/26 session. 4 were T2/T3; none followed the declaration + verifier/Council protocol.
+
+**Gap summary:**
+- Op A (Star Jedi font) -- T2, no verifier. Contained.
+- Op B (help.html + ADR-009) -- T3, no Council. Low-Med risk.
+- Op C (font bug fixes/reverts) -- T2, no verifier. Low risk.
+- Op D (staging env + CLAUDE.md) -- T3, **no Council, Medium risk.** CLAUDE.md edits shape future lazlo behavior.
+
+**Verdict:** Directionally correct decisions. Zero project damage. Protocol compliance was 0/4.
+**Action:** Alex reviewed and acknowledged. Future sessions must declare tier and spawn verifier before any CLAUDE.md or multi-file change.
