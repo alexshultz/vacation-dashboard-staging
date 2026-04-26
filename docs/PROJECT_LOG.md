@@ -1,3 +1,18 @@
+## 2026-04-26 -- Staging environment created + font bug fixes deployed
+
+**What changed:**
+- Created `vacation-dashboard-staging` repo at https://github.com/alexshultz/vacation-dashboard-staging
+- GitHub Pages enabled at https://alexshultz.github.io/vacation-dashboard-staging/
+- Local staging clone at `/Users/alex/code/vacation-dashboard-staging/`
+- Initial staging snapshot deployed (matches production at time of creation)
+- CLAUDE.md updated with two-target deploy table and staging-first rule
+- Font bug fixes deployed to production: Star Jedi removed from `--font-display` in star-wars.css; 12 reading copy selectors bumped to 17px desktop / 18px mobile in components.css
+- Three HTML files (people-timeline.html, profile.html, shows.html) reverted after lazlo made unsolicited eyebrow element removals -- not part of the task brief. Added note to future briefs: do not modify any HTML element not explicitly named in the task.
+
+**Deploy rule effective May 8:** All new feature work goes to staging first. Production only receives tested, reviewed work.
+
+---
+
 ## 2026-04-26 -- help.html: runtime JSON renderer + content + profile Help link
 
 **What changed:**
