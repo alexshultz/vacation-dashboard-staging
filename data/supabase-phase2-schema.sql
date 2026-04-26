@@ -65,13 +65,17 @@ CREATE TABLE IF NOT EXISTS public.wishlist_trash (
 CREATE INDEX IF NOT EXISTS trash_user_idx ON public.wishlist_trash (user_id);
 
 -- RLS policies (Phase 1: honor-system, anyone can read/write)
+-- DROP POLICY IF EXISTS guards make this script safe to re-run (no "CREATE POLICY IF NOT EXISTS" in Postgres)
 ALTER TABLE public.picks ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS "picks_open_phase1" ON public.picks;
 CREATE POLICY "picks_open_phase1" ON public.picks FOR ALL TO anon USING (true) WITH CHECK (true);
 
 ALTER TABLE public.suggestions ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS "suggestions_open_phase1" ON public.suggestions;
 CREATE POLICY "suggestions_open_phase1" ON public.suggestions FOR ALL TO anon USING (true) WITH CHECK (true);
 
 ALTER TABLE public.wishlist_trash ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS "trash_open_phase1" ON public.wishlist_trash;
 CREATE POLICY "trash_open_phase1" ON public.wishlist_trash FOR ALL TO anon USING (true) WITH CHECK (true);
 
 -- Trigger to auto-update updated_at
@@ -80,7 +84,9 @@ RETURNS TRIGGER AS $$
 BEGIN NEW.updated_at = now(); RETURN NEW; END;
 $$ LANGUAGE plpgsql;
 
+DROP TRIGGER IF EXISTS picks_updated_at ON public.picks;
 CREATE TRIGGER picks_updated_at BEFORE UPDATE ON public.picks
   FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
+DROP TRIGGER IF EXISTS suggestions_updated_at ON public.suggestions;
 CREATE TRIGGER suggestions_updated_at BEFORE UPDATE ON public.suggestions
   FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();

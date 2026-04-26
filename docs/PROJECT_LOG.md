@@ -1,3 +1,69 @@
+## 2026-04-25 -- Multi-Model Documentation Audit (~27 rounds, ~65+ fixes)
+
+**What changed:**
+- Ran iterative Gemini 2.5 Pro cold-start audit across all 5 core agent docs (SOUL.md, CLAUDE.md, ONBOARDING.md, DECISIONS.md, ROADMAP.md).
+- Applied ~65+ genuine documentation fixes across 27 rounds. Key improvements:
+
+**Critical fixes:**
+- Added `data/people.json` to vault `.gitignore` -- PII (phone/email) was unprotected from `git add -A`.
+- Clarified that `data/people.json` must never be committed (vault .gitignore now enforces this).
+- Resolved contradiction: ONBOARDING.md "no git" comment vs SOUL.md `git commit` step -- vault IS a git repo (no remote), description updated.
+- Fixed CLAUDE.md pitfall table `.git/` recovery -- was truncated to 3 words; now has full 7-step command.
+
+**Workflow fixes (SOUL.md):**
+- Step 2 (grill-me): added Discord notify step -- "post note to Alex after writing grillme file".
+- Step 3 (lazlo invocation): clarified pre-existing brief prompt variant; replaced ambiguous `[...]` bracket with separate note.
+- Step 4 (cache-bust): changed to explicit `cd "$PREVIEW" &&` prefix so cwd is unambiguous.
+- Step 6 (handback): added DECISIONS.md to post-session log steps; added "new page = add to sed list" reminder.
+- Step 7: added SQL to non-trivial trigger list (CSS/JS/Python/SQL); added pre-existing brief exception inline.
+- Tester tracking: clarified Alex relays tester reports (testers are on iMessage, not in #branson-2026).
+- delegate_task restriction: expanded to explicitly permit Council of Minds reasoning roles.
+- export `VAULT=`/`PREVIEW=` (was `set`).
+- Lazlo cd command: changed `~/vaults/Vacation/Branson\ 2026` to quoted absolute path.
+
+**ONBOARDING.md fixes:**
+- Added SOUL.md conflict-rule blockquote to Sources of Truth table.
+- Added ONBOARDING.md itself to Sources of Truth table.
+- Fixed `web/*.html` permission table: "Delegate all changes to lazlo; do not write directly".
+- Clarified CLAUDE.md update rule: propose + Alex approves (was self-contradictory).
+- Changed VACATION-AGENT-ONBOARDING.md write permission from YES to "With Alex approval".
+- Unified non-trivial trigger definition (CSS/JS/Python/SQL, matches SOUL.md).
+- Added entry-point link requirement to Pre-Launch Checklist `help.html` item.
+- Added `(run from $PREVIEW -- script modifies files in cwd)` to cache_bust step.
+- Updated lazlo prompt to match SOUL.md (pre-existing brief OR grill-me clause).
+- Unified grill-me trigger wording (matches SOUL.md exactly).
+- Fixed frozen file layout: `generate_attractions.py` guard wording -- removed "PREVENTS" claim; added "do not rely on this guard".
+- Fixed "it will NOT overwrite files" -- changed to "it will not execute".
+
+**DECISIONS.md:**
+- ADR-003: struck through superseded blacklist inline JS array entry.
+- ADR-007 add-new-page rule: expanded from 4 to 6 steps.
+
+**ROADMAP.md:**
+- Removed redundant `(branson26.family or similar)` from struck-through custom domain item.
+- Last updated date updated to 2026-04-25.
+
+---
+
+## 2026-04-24 -- Sort + Visible Data-Layer Architecture
+
+**What changed:**
+- Created `scripts/export_data.py`: reads `data/attractions.json` + `data/blacklist.json`, computes `sort_key` (article-stripped lowercase name), sets `visible` boolean (false if slug in blacklist), stable-sorts by `sort_key`, writes all 139 records to `web/data.json`.
+- `web/data.json` regenerated: 139 total | 132 visible | 7 hidden. Pre-sorted alphabetically by sort_key.
+- `web/attractions.html`: removed 24-slug inline BLACKLIST Set; render filter changed to `if (a.visible === false) return`.
+- `web/quick-pick.html`: added `a.visible === false` guard in `filterAttractions()` (fixes 132 vs 139 count bug) and `updateDeckCount()` (fixes denominator inflation).
+- `CLAUDE.md` updated: data flow diagram, canonical sources table, render loop section, quick pick section, pitfall table.
+
+**Bugs fixed:**
+1. Sort: attractions now render in library alphabetical order (articles stripped) on both pages.
+2. Count: browse view and quick pick now show identical 132 cards.
+
+**Architecture decision:**
+Sort logic and blacklist filtering moved from client-side JS into the export script (single source of truth). HTML files are now dumb renderers -- they read pre-sorted, pre-filtered data.json and iterate it.
+
+**Process:** Council of Minds analysis -> Hermes self-check audit -> CodeMaster implementation -> CodeMaster review (APPROVED, 0 issues) -> CLAUDE.md update -> deploy.
+
+
 # Branson 2026 Dashboard — Project Log
 
 **Purpose:** Timestamped, newest-first record of meaningful state changes. Future-Hermes reads this first after a context compression. Humans read it to understand where the project actually stands vs. where any single session thought it was.

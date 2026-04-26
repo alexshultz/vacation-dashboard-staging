@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """
+generate_attractions.py - FROZEN. Do not run.
+
+This script overwrites web/attractions.html from scratch. attractions.html contains
+hand-edited fetch(data.json) render loop code, Quick Pick integration, and visible
+filtering that this generator does NOT reproduce. Running it destroys that code.
+
+Same freeze applies as generate_dashboard.py. See CLAUDE.md and docs/DECISIONS.md.
+
+To update attraction data: edit data/attractions.json, then run export_data.py.
+"""
+import sys
+sys.exit(1)  # FROZEN -- see docstring above
+
+"""
+ORIGINAL DOCSTRING (preserved for reference):
 generate_attractions.py - Generates attractions.html from data/attractions.json
 
 Follows CLAUDE.md: JSON is canonical. Produces self-contained HTML with the same
