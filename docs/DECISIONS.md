@@ -126,3 +126,27 @@
 **Canonical pre-push safety check (supersedes ADR-002):** Run both before every push:
 1. `grep -c 'pointerdown' web/quick-pick.html` must return 1. If 0: STOP. Quick Pick swipe code is missing.
 2. `grep -c 'fetch.*data.json' web/attractions.html` must return ≥ 1. If 0: STOP. Render loop is missing.
+
+---
+
+## ADR-009 · help.html content sourced from runtime JSON fetch (2026-04-26)
+
+**Decision:** `web/help.html` renders its FAQ sections from `web/help.json` via a runtime `fetch()` call, not from hard-coded HTML markup.
+
+**Alternatives considered:**
+1. **Hard-coded HTML** -- initial approach. Rejected because editing HTML is more error-prone than editing JSON, and any LLM-assisted HTML edit introduces formatting risk. Content changes require touching markup, not just text.
+2. **Build-time generator script** (`export_help.py` -> `help.html`) -- rejected for the same reason `generate_dashboard.py` was frozen. A third generator that overwrites `help.html` repeats a risk pattern we have already been burned by twice. Editing a Markdown source and running a script adds steps Alex does not want.
+3. **Markdown source file** -- rejected because Alex explicitly does not want to edit content files directly. A Markdown file would be too tempting to edit by hand, and converting it to JSON adds a step with no benefit over editing JSON directly.
+
+**Why runtime fetch:**
+- `web/help.json` is the sole edit surface. To update help content: edit the JSON, push, done. No HTML touched, no script run, no generator frozen.
+- Consistent with the existing `data.json` pattern already established for attractions. Same `fetch()` idiom, same error handling pattern, nothing new to learn.
+- Deterministic rendering -- the JS renderer in `help.html` handles all formatting. LLMs write the content tokens in JSON; the renderer applies structure uniformly. No formatting drift possible.
+- Lazlo edits JSON content tokens only; formatting logic lives in the renderer and is not touched per content update.
+
+**Consequences:**
+- `web/help.json` is the canonical source for all help content. Never hand-edit the HTML sections in `help.html`.
+- `help.json` must ship alongside `help.html` in the rsync deploy step (it lives under `web/` so this is automatic).
+- A JS render failure (network, parse error) must show a fallback message -- do not leave `<main>` empty on error.
+- Adding, removing, or reordering help sections = edit `help.json` only.
+- `body` strings in `help.json` support minimal Markdown: `**bold**` -> `<strong>`, `- item` lines -> `<ul><li>`, `\n\n` -> paragraph break. No other Markdown constructs are supported or needed. The renderer in `help.html` handles these three cases only -- no external Markdown library required.

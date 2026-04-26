@@ -1,0 +1,59 @@
+{
+  "sections": [
+    {
+      "id": "section-whatisthis",
+      "heading": "What is this?",
+      "body": "This is the Shultz family's planning board for the Branson trip. Browse shows, attractions, and activities, then mark what you want so we can figure out what to book and when.\n\nNo account or password needed. Just pick your name and you're in."
+    },
+    {
+      "id": "section-start",
+      "heading": "Get started",
+      "body": "First thing: set your name:\n\n- Tap the **person icon** in the top-right corner (or go to **Profile** in the menu)\n- Pick your name from the list\n- The dashboard remembers you and saves your picks automatically"
+    },
+    {
+      "id": "section-activities",
+      "heading": "Activities",
+      "body": "Tap **Activities** to browse everything to do in Branson. Use the chips at the top to filter by type (shows, outdoors, food, and more). Tap the heart on any card to save it to your Wishlist."
+    },
+    {
+      "id": "section-quickpick",
+      "heading": "Quick Pick",
+      "body": "A fast way to sort through activities without reading every one. Swipe right (or tap ✓) if you're interested. Swipe left (or tap ✕) to skip. You'll find it via the **Quick Pick** button inside Activities."
+    },
+    {
+      "id": "section-wishlist",
+      "heading": "Wishlist",
+      "body": "Everything you've hearted shows up here. Tap the heart again to remove something. You can also see other family members' wishlists. It's a great way to find out what everyone wants to do."
+    },
+    {
+      "id": "section-suggested",
+      "heading": "Suggested",
+      "body": "The dashboard looks at the interests you set in Profile and suggests activities you haven't seen yet. Set your interests in **Profile** to get better suggestions."
+    },
+    {
+      "id": "section-timeline",
+      "heading": "Timeline",
+      "body": "See what's scheduled for each day of the trip. Tap a day to expand it. Great for spotting which days are already packed."
+    },
+    {
+      "id": "section-people",
+      "heading": "People",
+      "body": "Shows when each family member is in Branson. If you set your arrival and departure dates in **Profile**, you'll show up on this chart too."
+    },
+    {
+      "id": "section-profile",
+      "heading": "Profile",
+      "body": "Your settings home base. Set your name, pick a color theme (there are 14 to choose from!), choose light or dark mode, set your trip dates, and choose your interests. Everything saves automatically. No sign-in needed."
+    },
+    {
+      "id": "section-privacy",
+      "heading": "Privacy",
+      "body": "Right now, everyone in the family can see everyone else's wishlist. That's on purpose. It's the easiest way to spot when a bunch of people want the same thing. Think of it like a shared whiteboard, not a private diary. If you heart something embarrassing, own it. 😄"
+    },
+    {
+      "id": "section-contact",
+      "heading": "Questions or problems?",
+      "body": "Ask Alex. He built this and is happy to help."
+    }
+  ]
+}
