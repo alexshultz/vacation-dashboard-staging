@@ -1,3 +1,17 @@
+## 2026-04-26 -- Star Wars Theme: Star Jedi Font Integration + Theme Review
+
+**What changed:**
+- Copied `Starjedi.ttf` and `Starjhol.ttf` to `web/assets/fonts/star_jedi/` (flattened from vault source)
+- Updated `web/css/themes/star-wars.css`: added `@font-face` declarations, added `--font-display` token (Star Jedi primary, Orbitron fallback), fixed `--color-ink-dim` in dark mode from `#5A7890` → `#6685A0` (WCAG AA fix, was 4.28:1, now 5.14:1)
+- Updated `web/themes/DESIGN-star-wars.md`: typography.display fontFamily + note field, Overview font source paragraph
+- Star Jedi scoped to display role only (2rem); Orbitron retained for headline and nav-label
+- Star Wars theme NOT activated -- remains ready for activation at Alex's direction
+- Deployed to GitHub Pages
+
+**Auth note:** Discovered `~` in terminal sessions resolves to sandboxed home, not `/Users/alex`. Fixed by using absolute path `/Users/alex/.hermes/.env` for API key extraction. Same fix needed for GitHub token on every lazlo invocation.
+
+---
+
 ## 2026-04-25 -- Multi-Model Documentation Audit (~27 rounds, ~65+ fixes)
 
 **What changed:**
