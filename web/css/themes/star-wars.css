@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
 
+@font-face {
+  font-family: 'Star Jedi';
+  src: url('../../assets/fonts/star_jedi/Starjedi.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Star Jedi Hollow';
+  src: url('../../assets/fonts/star_jedi/Starjhol.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /*
  * star-wars.css -- Star Wars theme
  * Vibe: A galaxy far, far away -- deep space black with iconic Star Wars
@@ -32,6 +48,8 @@
   --force-glow:    #88CCFF;   /* Pale Force blue aura */
 
   /* ── Font Stack ──────────────────────────────────────────────────── */
+  /* Star Jedi is display-only (2rem page titles). Orbitron handles headlines + nav labels. */
+  --font-display: 'Star Jedi', 'Orbitron', 'Eurostile', sans-serif;
   --font-heading: 'Orbitron', 'Eurostile', sans-serif;
   --font-body:    'Share Tech Mono', 'Courier New', monospace;
 
@@ -63,7 +81,7 @@
   --color-bg:       #050A0F;   /* Deep space */
   --color-surface:  #0D1520;   /* Slightly lighter space panel */
   --color-ink:      #E8F4FF;   /* Force-glow near-white */
-  --color-ink-dim:  #5A7890;   /* Muted space-blue dim text */
+  --color-ink-dim:  #6685A0;   /* Space-blue dim text -- brightened to meet WCAG AA 4.5:1 on #050A0F */
   --color-line:     #1A2030;   /* Deep space rule -- barely visible */
 
   --status-yes:      #00FF41;   /* Green saber -- may the Force be with you */
@@ -83,7 +101,7 @@
     --color-bg:       #050A0F;
     --color-surface:  #0D1520;
     --color-ink:      #E8F4FF;
-    --color-ink-dim:  #5A7890;
+    --color-ink-dim:  #6685A0;
     --color-line:     #1A2030;
 
     --status-yes:      #00FF41;
