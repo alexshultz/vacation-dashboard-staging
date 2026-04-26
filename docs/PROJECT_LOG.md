@@ -1,3 +1,20 @@
+## 2026-04-26 -- help.html: runtime JSON renderer + content + profile Help link
+
+**What changed:**
+- Created `web/help.json` with 11 sections of family-facing help content (JSON with minimal Markdown in body strings per ADR-009)
+- Rewrote `web/help.html` `<main>`: stripped hard-coded sections, added fetch+IIFE renderer supporting `\n\n` paragraphs, `- ` bullets, and `**bold**`
+- Added Help entry-point link to `web/profile.html` (plain `<a>` -- `btn-secondary` class not present in components.css)
+- Updated CLAUDE.md pre-push safety checks: added `grep -c 'fetch.*help.json' web/help.html` must return 1
+- ADR-009 written (runtime JSON fetch over hard-coded HTML and build-time generator)
+- Deployed to GitHub Pages
+
+**Known cosmetic issue (non-blocking, fix next lazlo pass on help.html):**
+Code reviewer flagged WARN item 12: the `<script>` renderer block sits after `</main>` rather than inside `<main>`, and the `<div class="page-hero">` is inside `<main>` alongside the render target. Both are functionally correct but deviate slightly from the brief spec. Fix on next help.html touch.
+
+**Writing note:** All prose in help.json uses active voice with no dash-based pauses. Double-hyphen substitutes for em dash are prohibited per Alex's style guidance -- the spirit is clean, direct sentences, not just character substitution.
+
+---
+
 ## 2026-04-26 -- Star Wars Theme: Star Jedi Font Integration + Theme Review
 
 **What changed:**

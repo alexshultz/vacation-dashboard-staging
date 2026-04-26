@@ -49,7 +49,7 @@
 
   /* ── Font Stack ──────────────────────────────────────────────────── */
   /* Star Jedi is display-only (2rem page titles). Orbitron handles headlines + nav labels. */
-  --font-display: 'Star Jedi', 'Orbitron', 'Eurostile', sans-serif;
+  --font-display: 'Orbitron', 'Eurostile', sans-serif;
   --font-heading: 'Orbitron', 'Eurostile', sans-serif;
   --font-body:    'Share Tech Mono', 'Courier New', monospace;
 
