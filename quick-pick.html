@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en" data-mode="system">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Quick Pick swipe deck for Branson 2026">
+<title>Quick Pick -- Branson &#x27;26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="preload" href="js/site.js?v=202604260112" as="script">
+<link rel="stylesheet" href="css/tokens.css?v=202604260112">
+<link rel="stylesheet" href="css/themes/trail.css?v=202604260112" id="theme-css">
+<link rel="stylesheet" href="css/components.css?v=202604260112">
+<script>/* Theme loader -- inline to prevent flash-of-wrong-theme */
+(function(){
+  var m = localStorage.getItem('vacdash:v1:mode') || 'system';
+  document.documentElement.setAttribute('data-mode', m);
+  var t = localStorage.getItem('vacdash:v1:theme');
+  if (t && t !== 'trail') {
+    var link = document.getElementById('theme-css');
+    if (link) link.setAttribute('href', link.getAttribute('href').replace(/themes\/[^/]+\.css/, 'themes/' + t + '.css'));
+  }
+})();
+</script>
+<style>
+/* Page-specific: full-focus swipe layout */
+body.qp-page { overflow: hidden; }
+body.qp-page .page-main {
+  display: flex; flex-direction: column;
+  height: calc(100dvh - 56px - 56px); /* 56px header + 56px bottom tabs */
+  overflow: hidden;
+  padding-bottom: 0;
+}
+body.qp-page .deck-wrap {
+  flex: 1; min-height: 0;
+  display: flex; flex-direction: column;
+  gap: var(--sp-2);
+  margin-bottom: 0;
+}
+body.qp-page .deck-stage {
+  flex: 1; min-height: 0;
+  height: auto !important;
+}
+.qp-back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 16px; border-radius: var(--radius-pill);
+  background: var(--color-surface); color: var(--color-ink);
+  border: 1.5px solid var(--color-line);
+  font-family: var(--font-display); font-weight: 700; font-size: 13px;
+  text-decoration: none; min-height: 44px; white-space: nowrap;
+  cursor: pointer;
+}
+.qp-back-link:hover { background: var(--color-bg); }
+</style>
+</head>
+<body class="qp-page">
+<script src="js/site.js?v=202604260112"></script>
+<main class="page-main">
+  <div class="filter-popover-wrap" id="filter-popover-wrap">
+    <div class="filter-row">
+      <button class="filter-toggle-btn" id="filter-toggle"
+              aria-haspopup="true" aria-expanded="false">Filter &#9662;</button>
+      <a class="qp-back-link" href="attractions.html" aria-label="Back to Browse">&larr; Back to Browse</a>
+    </div>
+    <div class="filter-popover" id="filter-popover" role="group" aria-label="Filter by tag">
+      <div class="filter-strip">
+        <button class="chip" aria-pressed="true" data-tag="">All</button>
+<button class="chip" aria-pressed="false" data-tag="1-2hr">1-2hr</button>
+<button class="chip" aria-pressed="false" data-tag="2-3hr">2-3hr</button>
+<button class="chip" aria-pressed="false" data-tag="active">active</button>
+<button class="chip" aria-pressed="false" data-tag="adult-humor">adult-humor</button>
+<button class="chip" aria-pressed="false" data-tag="all-day">all-day</button>
+<button class="chip" aria-pressed="false" data-tag="animals">animals</button>
+<button class="chip" aria-pressed="false" data-tag="bluegrass">bluegrass</button>
+<button class="chip" aria-pressed="false" data-tag="classical">classical</button>
+<button class="chip" aria-pressed="false" data-tag="comedy">comedy</button>
+<button class="chip" aria-pressed="false" data-tag="country">country</button>
+<button class="chip" aria-pressed="false" data-tag="date-night">date-night</button>
+<button class="chip" aria-pressed="false" data-tag="drama">drama</button>
+<button class="chip" aria-pressed="false" data-tag="educational">educational</button>
+<button class="chip" aria-pressed="false" data-tag="family">family</button>
+<button class="chip" aria-pressed="false" data-tag="food">food</button>
+<button class="chip" aria-pressed="false" data-tag="gospel">gospel</button>
+<button class="chip" aria-pressed="false" data-tag="half-day">half-day</button>
+<button class="chip" aria-pressed="false" data-tag="history">history</button>
+<button class="chip" aria-pressed="false" data-tag="indoor">indoor</button>
+<button class="chip" aria-pressed="false" data-tag="kid-focused">kid-focused</button>
+<button class="chip" aria-pressed="false" data-tag="magic">magic</button>
+<button class="chip" aria-pressed="false" data-tag="museum">museum</button>
+<button class="chip" aria-pressed="false" data-tag="music">music</button>
+<button class="chip" aria-pressed="false" data-tag="oldies-50s">oldies-50s</button>
+<button class="chip" aria-pressed="false" data-tag="oldies-60s">oldies-60s</button>
+<button class="chip" aria-pressed="false" data-tag="oldies-70s">oldies-70s</button>
+<button class="chip" aria-pressed="false" data-tag="oldies-80s">oldies-80s</button>
+<button class="chip" aria-pressed="false" data-tag="outdoor">outdoor</button>
+<button class="chip" aria-pressed="false" data-tag="pop">pop</button>
+<button class="chip" aria-pressed="false" data-tag="relaxed">relaxed</button>
+<button class="chip" aria-pressed="false" data-tag="religious">religious</button>
+<button class="chip" aria-pressed="false" data-tag="ride">ride</button>
+<button class="chip" aria-pressed="false" data-tag="rock">rock</button>
+<button class="chip" aria-pressed="false" data-tag="shopping">shopping</button>
+<button class="chip" aria-pressed="false" data-tag="thrill">thrill</button>
+<button class="chip" aria-pressed="false" data-tag="tribute">tribute</button>
+<button class="chip" aria-pressed="false" data-tag="under-1hr">under-1hr</button>
+<button class="chip" aria-pressed="false" data-tag="variety">variety</button>
+<button class="chip" aria-pressed="false" data-tag="water">water</button>
+      </div>
+    </div>
+  </div>
+  <section class="deck-wrap" id="deck-wrap" aria-labelledby="deck-heading">
+    <h2 id="deck-heading" class="sr-only">Quick Pick deck</h2>
+    <p class="deck-count" id="deck-count">Loading&hellip;</p>
+    <div class="deck-stage" id="deck-stage" role="region" aria-label="Card deck. Swipe right to wishlist, left to skip."></div>
+    <div class="deck-actions">
+      <div class="deck-act-col">
+        <button type="button" class="deck-act-btn deck-act-btn--skip" id="deck-skip" aria-label="Skip">&#x2715;</button>
+        <span class="deck-act-label">Skip</span>
+      </div>
+      <div class="deck-act-col">
+        <button type="button" class="deck-act-btn deck-act-btn--undo" id="deck-undo" aria-label="Undo" disabled>&#x21B6;</button>
+        <span class="deck-act-label">Undo</span>
+      </div>
+      <div class="deck-act-col">
+        <button type="button" class="deck-act-btn deck-act-btn--wishlist" id="deck-wishlist" aria-label="Wishlist">&#x2661;</button>
+        <span class="deck-act-label">Wishlist</span>
+      </div>
+    </div>
+    <p class="deck-kbd-hint" aria-hidden="true">
+      <span class="kbd">&larr;</span> Skip
+      <span class="kbd">&rarr;</span> Wishlist
+      <span class="kbd">Z</span> Undo
+    </p>
+    <div class="deck-empty" id="deck-empty" hidden>
+      <h2>No cards to show</h2>
+      <p>Either the active filter has no matches, or you've already wishlisted them all. Try clearing filters.</p>
+    </div>
+    <div class="deck-end" id="deck-end" hidden>
+      <div class="deck-end__emoji">&#x1F389;</div>
+      <h2>Deck complete!</h2>
+      <p id="deck-end-summary">You wishlisted 0 things.</p>
+      <div class="deck-end__btns">
+        <a class="deck-end__primary" href="wishlist.html">Review wishlist</a>
+        <button type="button" id="deck-restart">Restart deck</button>
+        <a href="attractions.html">Back to Browse</a>
+      </div>
+    </div>
+  </section>
+  <div class="toast-wrap" id="deck-toast-wrap" aria-live="polite" aria-atomic="true"></div>
+  <div class="sr-only" id="deck-announce" aria-live="polite" aria-atomic="true"></div>
+</main>
+<script src="js/picks.js?v=202604260112"></script>
+<script>
+/* Filter popover open/close + chip selection */
+(function(){
+  'use strict';
+  var toggleBtn = document.getElementById('filter-toggle');
+  var popover = document.getElementById('filter-popover');
+  var chips = document.querySelectorAll('.filter-strip .chip');
+  var allBtn = document.querySelector('.chip[data-tag=""]');
+  if (!toggleBtn || !popover) return;
+
+  /* Restore shared filter state from localStorage */
+  try {
+    var saved = localStorage.getItem('vacdash:v1:filter');
+    var targetChip = null;
+    if (saved != null) {
+      chips.forEach(function(c){ if (c.dataset.tag === saved) targetChip = c; });
+    }
+    if (!targetChip) targetChip = allBtn;
+    chips.forEach(function(c){ c.setAttribute('aria-pressed', c === targetChip ? 'true' : 'false'); });
+  } catch(e){}
+
+  function openPopover() { popover.classList.add('open'); toggleBtn.setAttribute('aria-expanded', 'true'); }
+  function closePopover() { popover.classList.remove('open'); toggleBtn.setAttribute('aria-expanded', 'false'); }
+  function isOpen() { return popover.classList.contains('open'); }
+
+  toggleBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    isOpen() ? closePopover() : openPopover();
+  });
+  document.addEventListener('click', function(e){
+    if (isOpen() && !popover.contains(e.target) && e.target !== toggleBtn) closePopover();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && isOpen()) { closePopover(); toggleBtn.focus(); }
+  });
+
+  function updateToggleLabel() {
+    var anyPressed = document.querySelectorAll('.filter-strip .chip[aria-pressed="true"]:not([data-tag=""])').length > 0;
+    if (anyPressed) {
+      toggleBtn.textContent = 'Filtered \u25cf';
+      toggleBtn.classList.add('is-filtered');
+    } else {
+      toggleBtn.textContent = 'Filter \u25be';
+      toggleBtn.classList.remove('is-filtered');
+    }
+  }
+
+  chips.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var tag = btn.dataset.tag;
+      try { localStorage.setItem('vacdash:v1:filter', tag); } catch(e){}
+      chips.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      updateToggleLabel();
+      closePopover();
+    });
+  });
+
+  /* Initialize toggle label from restored state */
+  updateToggleLabel();
+})();
+</script>
+<script>
+/* Quick Pick deck -- standalone page, data sourced from data.json */
+(function(){
+  'use strict';
+
+  var DATA_URL = 'data.json';
+  var PROGRESS_KEY = 'vacdash:swipe:progress';
+  var REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var OVERLAY_THRESHOLD = 40;
+  var COMMIT_THRESHOLD = 100;
+
+  var deckWrap   = document.getElementById('deck-wrap');
+  var deckStage  = document.getElementById('deck-stage');
+  var deckCount  = document.getElementById('deck-count');
+  var deckEmpty  = document.getElementById('deck-empty');
+  var deckEnd    = document.getElementById('deck-end');
+  var deckEndSum = document.getElementById('deck-end-summary');
+  var skipBtn    = document.getElementById('deck-skip');
+  var undoBtn    = document.getElementById('deck-undo');
+  var wishBtn    = document.getElementById('deck-wishlist');
+  var restartBtn = document.getElementById('deck-restart');
+  var toastWrap  = document.getElementById('deck-toast-wrap');
+  var announceEl = document.getElementById('deck-announce');
+
+  if (!deckWrap || !deckStage) {
+    console.error('[quick-pick] required elements missing; aborting init');
+    return;
+  }
+
+  var ATTRACTIONS = [];
+
+  function currentFilterKey(){
+    var pressed = Array.prototype.slice.call(
+      document.querySelectorAll('.filter-strip .chip[aria-pressed="true"]')
+    ).map(function(c){ return c.dataset.tag || ''; }).filter(Boolean);
+    if (pressed.length === 0) return 'all';
+    pressed.sort();
+    return pressed.join('+');
+  }
+
+  function loadProgress(){
+    try {
+      var raw = localStorage.getItem(PROGRESS_KEY);
+      if (!raw) return { filter: currentFilterKey(), seen: [] };
+      var obj = JSON.parse(raw);
+      if (!obj || typeof obj !== 'object' || !Array.isArray(obj.seen)) {
+        return { filter: currentFilterKey(), seen: [] };
+      }
+      return { filter: obj.filter || 'all', seen: obj.seen.slice() };
+    } catch(e){ return { filter: currentFilterKey(), seen: [] }; }
+  }
+  function saveProgress(p){
+    try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(p)); } catch(e){}
+  }
+  var progress = loadProgress();
+  if (progress.filter !== currentFilterKey()) {
+    progress = { filter: currentFilterKey(), seen: [] };
+    saveProgress(progress);
+  }
+  var wishlistedThisSession = 0;
+
+  function letterFor(name){
+    if (!name) return '?';
+    var m = name.match(/[A-Za-z]/);
+    return m ? m[0].toLowerCase() : '?';
+  }
+  function svgFallback(name){
+    var letter = letterFor(name).toUpperCase();
+    var hue = 0;
+    for (var i = 0; i < name.length; i++) hue = (hue * 31 + name.charCodeAt(i)) % 360;
+    var c1 = 'hsl(' + hue + ', 55%, 45%)';
+    var c2 = 'hsl(' + ((hue + 40) % 360) + ', 55%, 30%)';
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">' +
+      '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">' +
+      '<stop offset="0%" stop-color="' + c1 + '"/><stop offset="100%" stop-color="' + c2 + '"/>' +
+      '</linearGradient></defs>' +
+      '<rect width="200" height="200" fill="url(#g)"/>' +
+      '<text x="100" y="128" font-family="Lexend, sans-serif" font-size="110" font-weight="800" ' +
+      'text-anchor="middle" fill="rgba(255,255,255,0.88)">' + letter + '</text></svg>';
+  }
+
+  function stripMarkdown(text) {
+    if (!text) return '';
+    return String(text).replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+               .replace(/https?:\/\/\S+/g, '')
+               .trim();
+  }
+
+  function formatPrice(p) {
+    if (p == null || p === '') return '';
+    if (typeof p === 'number') return '$' + p;
+    return String(p);
+  }
+
+  function formatDuration(h) {
+    if (h == null || h === '') return '';
+    if (typeof h === 'number') return h + 'h';
+    return String(h);
+  }
+
+  function filterAttractions(){
+    var key = currentFilterKey();
+    var tags = key === 'all' ? [] : key.split('+');
+    var seen = new Set(progress.seen);
+    var deck = [];
+    ATTRACTIONS.forEach(function(a){
+      if (a.visible === false) return;
+      if (!a.slug || seen.has(a.slug)) return;
+      try { if (window.picks && picks.get && picks.get(a.slug) === 'wishlist') return; } catch(e){}
+      if (tags.length) {
+        var cardTags = Array.isArray(a.tags) ? a.tags : [];
+        var match = tags.some(function(t){ return cardTags.indexOf(t) !== -1; });
+        if (!match) return;
+      }
+      deck.push(a);
+    });
+    return deck;
+  }
+
+  var currentDeck = [];
+  var topCardEl = null;
+
+  function cardHtml(a, depth){
+    var slug = a.slug;
+    var title = a.name || '';
+    var desc = a.description || '';
+    var duration = formatDuration(a.duration_hours);
+    var rating = a.rating != null ? String(a.rating) : '';
+    var priceAdult = formatPrice(a.price_adult);
+    var tagsArr = Array.isArray(a.tags) ? a.tags : [];
+    var badge = tagsArr[0] || '';
+    var thumb = a.image && String(a.image).trim() ? a.image : '';
+
+    var el = document.createElement('article');
+    el.className = 'deck-card';
+    if (depth === 1) el.classList.add('stack-2');
+    if (depth === 2) el.classList.add('stack-3');
+    el.setAttribute('data-slug', slug);
+    el.setAttribute('tabindex', depth === 0 ? '0' : '-1');
+    el.setAttribute('aria-hidden', depth === 0 ? 'false' : 'true');
+
+    var thumbDiv = document.createElement('div');
+    thumbDiv.className = 'deck-card__thumb';
+    if (thumb) {
+      var img = document.createElement('img');
+      img.alt = title;
+      img.src = thumb;
+      img.loading = depth === 0 ? 'eager' : 'lazy';
+      img.addEventListener('error', function(){
+        thumbDiv.innerHTML = svgFallback(title);
+      }, { once: true });
+      thumbDiv.appendChild(img);
+    } else {
+      thumbDiv.innerHTML = svgFallback(title);
+    }
+    if (badge) {
+      var b = document.createElement('span');
+      b.className = 'deck-card__badge';
+      b.textContent = badge;
+      thumbDiv.appendChild(b);
+    }
+    if (duration) {
+      var du = document.createElement('span');
+      du.className = 'deck-card__duration';
+      du.textContent = '\u23F1 ' + duration;
+      thumbDiv.appendChild(du);
+    }
+    el.appendChild(thumbDiv);
+
+    var body = document.createElement('div');
+    body.className = 'deck-card__body';
+    var h3 = document.createElement('h3');
+    h3.textContent = title;
+    body.appendChild(h3);
+    var meta = document.createElement('div');
+    meta.className = 'deck-card__meta';
+    if (priceAdult) {
+      var pm = document.createElement('span'); pm.textContent = priceAdult; meta.appendChild(pm);
+    }
+    if (rating) {
+      var rm = document.createElement('span'); rm.className = 'rating'; rm.textContent = '\u2605 ' + rating; meta.appendChild(rm);
+    }
+    if (meta.hasChildNodes()) body.appendChild(meta);
+    if (desc) {
+      var dp = document.createElement('p');
+      dp.className = 'deck-card__desc';
+      dp.textContent = stripMarkdown(desc);
+      body.appendChild(dp);
+    }
+    el.appendChild(body);
+
+    if (depth === 0) {
+      var ovW = document.createElement('div');
+      ovW.className = 'deck-overlay deck-overlay--wishlist';
+      ovW.textContent = 'WISHLIST';
+      el.appendChild(ovW);
+      var ovS = document.createElement('div');
+      ovS.className = 'deck-overlay deck-overlay--skip';
+      ovS.textContent = 'SKIP';
+      el.appendChild(ovS);
+    }
+    return el;
+  }
+
+  function renderStage(){
+    deckStage.innerHTML = '';
+    deckEmpty.hidden = true;
+    deckEnd.hidden = true;
+    deckStage.hidden = false;
+    updateDeckCount();
+
+    if (currentDeck.length === 0) {
+      if (progress.seen.length === 0) {
+        deckStage.hidden = true;
+        deckEmpty.hidden = false;
+      } else {
+        deckStage.hidden = true;
+        deckEndSum.textContent = 'You wishlisted ' + wishlistedThisSession + ' ' +
+          (wishlistedThisSession === 1 ? 'thing' : 'things') + '.';
+        deckEnd.hidden = false;
+      }
+      topCardEl = null;
+      disableActions(true);
+      return;
+    }
+
+    var layers = currentDeck.slice(0, 3);
+    for (var i = layers.length - 1; i >= 0; i--) {
+      var el = cardHtml(layers[i], i);
+      deckStage.appendChild(el);
+      if (i === 0) topCardEl = el;
+    }
+    disableActions(false);
+    attachSwipe(topCardEl);
+  }
+
+  function disableActions(disabled){
+    skipBtn.disabled = disabled;
+    wishBtn.disabled = disabled;
+    undoBtn.disabled = progress.seen.length === 0;
+  }
+
+  function updateDeckCount(){
+    if (!deckCount) return;
+    var key = currentFilterKey();
+    var tags = key === 'all' ? [] : key.split('+');
+    var total = ATTRACTIONS.filter(function(a){
+      if (a.visible === false) return false;
+      if (tags.length === 0) return true;
+      var ct = Array.isArray(a.tags) ? a.tags : [];
+      return tags.some(function(t){ return ct.indexOf(t) !== -1; });
+    }).length;
+    var remaining = currentDeck.length;
+    deckCount.textContent = remaining + ' remaining of ' + total;
+  }
+
+  function attachSwipe(card){
+    if (!card) return;
+    var startX = 0, startY = 0, curX = 0, curY = 0, dragging = false, pointerId = null;
+    var ovW = card.querySelector('.deck-overlay--wishlist');
+    var ovS = card.querySelector('.deck-overlay--skip');
+
+    card.addEventListener('pointerdown', function(e){
+      if (e.target.closest('.deck-overlay')) return;
+      dragging = true;
+      pointerId = e.pointerId;
+      startX = e.clientX; startY = e.clientY;
+      curX = 0; curY = 0;
+      card.classList.add('dragging');
+      try { card.setPointerCapture(pointerId); } catch(err){}
+    });
+    card.addEventListener('pointermove', function(e){
+      if (!dragging || e.pointerId !== pointerId) return;
+      curX = e.clientX - startX;
+      curY = e.clientY - startY;
+      var rot = curX * 0.08;
+      card.style.transform = 'translate(' + curX + 'px, ' + curY + 'px) rotate(' + rot + 'deg)';
+      var absX = Math.abs(curX);
+      if (ovW && ovS) {
+        if (curX > OVERLAY_THRESHOLD) {
+          ovW.style.opacity = Math.min(1, (absX - OVERLAY_THRESHOLD) / 60);
+          ovS.style.opacity = 0;
+        } else if (curX < -OVERLAY_THRESHOLD) {
+          ovS.style.opacity = Math.min(1, (absX - OVERLAY_THRESHOLD) / 60);
+          ovW.style.opacity = 0;
+        } else {
+          ovW.style.opacity = 0;
+          ovS.style.opacity = 0;
+        }
+      }
+    });
+    function endDrag(e){
+      if (!dragging || (e && e.pointerId !== pointerId)) return;
+      dragging = false;
+      card.classList.remove('dragging');
+      try { card.releasePointerCapture(pointerId); } catch(err){}
+      if (Math.abs(curX) > COMMIT_THRESHOLD) {
+        if (curX > 0) commit('wishlist', card);
+        else commit('skip', card);
+      } else {
+        snapBack(card);
+      }
+    }
+    card.addEventListener('pointerup', endDrag);
+    card.addEventListener('pointercancel', endDrag);
+  }
+
+  function snapBack(card){
+    card.classList.add('returning');
+    card.style.transform = '';
+    var ovW = card.querySelector('.deck-overlay--wishlist');
+    var ovS = card.querySelector('.deck-overlay--skip');
+    if (ovW) ovW.style.opacity = 0;
+    if (ovS) ovS.style.opacity = 0;
+    setTimeout(function(){ card.classList.remove('returning'); }, 260);
+  }
+
+  function flyOff(card, direction, after){
+    var dx = direction === 'right' ? window.innerWidth + 200 : -(window.innerWidth + 200);
+    var rot = direction === 'right' ? 24 : -24;
+    if (REDUCED_MOTION) {
+      if (after) after();
+      return;
+    }
+    card.classList.add('flying');
+    card.style.transform = 'translate(' + dx + 'px, 40px) rotate(' + rot + 'deg)';
+    card.style.opacity = '0';
+    setTimeout(function(){ if (after) after(); }, 280);
+  }
+
+  function commit(decision, card){
+    if (!card) card = topCardEl;
+    if (!card) return;
+    var slug = card.dataset.slug;
+    if (!slug) return;
+    var title = card.querySelector('h3') ? card.querySelector('h3').textContent : slug;
+
+    progress.seen.push(slug);
+    saveProgress(progress);
+
+    if (decision === 'wishlist') {
+      try { picks.set(slug, 'wishlist'); } catch(e){ console.error('[quick-pick] picks.set failed', e); }
+      wishlistedThisSession++;
+      showToast('Wishlisted: ' + title);
+      announce('Wishlisted ' + title);
+    } else {
+      announce('Skipped ' + title);
+    }
+    flyOff(card, decision === 'wishlist' ? 'right' : 'left', function(){
+      currentDeck = filterAttractions();
+      renderStage();
+    });
+  }
+
+  function undo(){
+    if (progress.seen.length === 0) return;
+    var lastSlug = progress.seen.pop();
+    saveProgress(progress);
+    try {
+      if (picks.get(lastSlug) === 'wishlist') {
+        picks.set(lastSlug, null);
+        if (wishlistedThisSession > 0) wishlistedThisSession--;
+      }
+    } catch(e){}
+    announce('Undo');
+    currentDeck = filterAttractions();
+    renderStage();
+  }
+
+  var toastTimer = null;
+  function showToast(msg){
+    if (!toastWrap) return;
+    toastWrap.innerHTML = '';
+    var t = document.createElement('div');
+    t.className = 'toast';
+    t.textContent = msg;
+    toastWrap.appendChild(t);
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){
+      t.classList.add('leaving');
+      setTimeout(function(){ if (t.parentNode) t.parentNode.removeChild(t); }, 220);
+    }, 2000);
+  }
+  function announce(msg){ if (announceEl) announceEl.textContent = msg; }
+
+  /* React to filter chip clicks */
+  document.querySelectorAll('.filter-strip .chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      Promise.resolve().then(function(){
+        var key = currentFilterKey();
+        if (key !== progress.filter) {
+          progress = { filter: key, seen: [] };
+          wishlistedThisSession = 0;
+          saveProgress(progress);
+        }
+        currentDeck = filterAttractions();
+        renderStage();
+      });
+    });
+  });
+
+  skipBtn.addEventListener('click', function(){ if (topCardEl) commit('skip', topCardEl); });
+  wishBtn.addEventListener('click', function(){ if (topCardEl) commit('wishlist', topCardEl); });
+  undoBtn.addEventListener('click', undo);
+  restartBtn.addEventListener('click', function(){
+    progress = { filter: currentFilterKey(), seen: [] };
+    wishlistedThisSession = 0;
+    saveProgress(progress);
+    currentDeck = filterAttractions();
+    renderStage();
+  });
+
+  document.addEventListener('keydown', function(e){
+    var t = e.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'SELECT' || t.tagName === 'TEXTAREA')) return;
+    if (e.key === 'ArrowLeft') { e.preventDefault(); if (topCardEl) commit('skip', topCardEl); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); if (topCardEl) commit('wishlist', topCardEl); }
+    else if (e.key === 'z' || e.key === 'Z') { e.preventDefault(); undo(); }
+  });
+
+  /* Bootstrap: fetch data.json then render */
+  fetch(DATA_URL)
+    .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function(data){
+      ATTRACTIONS = Array.isArray(data.attractions) ? data.attractions : [];
+      currentDeck = filterAttractions();
+      renderStage();
+    })
+    .catch(function(err){
+      console.error('[quick-pick] failed to load data.json:', err);
+      if (deckCount) deckCount.textContent = 'Failed to load attractions.';
+    });
+})();
+</script>
+</body>
+</html>

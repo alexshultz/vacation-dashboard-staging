@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+/*
+ * minecraft.css -- Minecraft theme
+ * Vibe: Blocky pixel world -- grass block green on dirt brown, stone gray UI panels,
+ *       a crisp blue sky in light mode and a starfield night sky in dark mode.
+ *       Ore accents: diamond blue, gold, redstone red, emerald green.
+ *       No gradients -- Minecraft is flat and pixelated by nature.
+ *
+ * Light mode: Overworld daytime -- clear blue sky, grass, sunlight
+ * Dark mode:  Underground at night -- stone, cave darkness, glowing ores
+ *
+ * Best for: Gamers of all ages. Tayden, Jacob, David, Jackson, McKinley.
+ *           Honestly most of the family has played Minecraft.
+ */
+
+:root {
+  --font-heading: 'Press Start 2P', 'Courier New', monospace;
+  --font-body: 'VT323', 'Courier New', monospace;
+
+  /* ── Private Palette: The Overworld ─────────────────────────── */
+
+  /* Grass & nature */
+  --grass:      #5AAA00;   /* Grass block top -- iconic Minecraft green */
+  --grass-dark: #3D7A00;   /* Darker grass for hover/active states */
+  --leaf:       #4A9800;   /* Leaf block green */
+  --sapling:    #7BC420;   /* Lighter leaf / sapling green */
+
+  /* Dirt & wood */
+  --dirt:       #8B5E3C;   /* Dirt block brown */
+  --dirt-dark:  #5C3A1E;   /* Dark dirt / deep soil */
+  --oak:        #A07840;   /* Oak wood plank */
+  --bark:       #6B4820;   /* Tree bark */
+
+  /* Stone & cave */
+  --stone:      #8C8C8C;   /* Standard stone gray */
+  --stone-dark: #5A5A5A;   /* Darker stone / cobblestone shadow */
+  --cobble:     #707070;   /* Cobblestone */
+  --bedrock:    #2A2A2A;   /* Bedrock -- near-black */
+  --obsidian:   #1A0A28;   /* Obsidian -- very dark purple-black */
+
+  /* Sky */
+  --sky:        #78B4FF;   /* Overworld daytime sky */
+  --sky-deep:   #1A4488;   /* Deep night sky */
+  --sky-dawn:   #FFB870;   /* Dawn/sunset orange sky */
+
+  /* Ore accents -- the real color story */
+  --diamond:    #00ECFF;   /* Diamond ore -- pale cyan glow */
+  --diamond-bg: #00B8CC;   /* Diamond -- slightly deeper */
+  --gold-ore:   #FFD700;   /* Gold ore -- classic yellow */
+  --redstone:   #FF1A00;   /* Redstone -- vivid red */
+  --emerald:    #00CC44;   /* Emerald ore -- bright green */
+  --lapis:      #2244CC;   /* Lapis lazuli -- deep blue */
+  --iron:       #D4B8A0;   /* Iron ingot -- warm gray */
+  --amethyst:   #9960D4;   /* Amethyst geode -- purple */
+
+  /* Creeper green (danger!) */
+  --creeper:    #44CC00;   /* Creeper body green */
+
+  /* ── Light Mode: Overworld Daytime ──────────────────────────── */
+  --color-bg:       #E8F4E0;   /* Soft grass-green tinted white -- sunny overworld */
+  --color-surface:  #F4FAF0;   /* Near-white surface, clean like birch planks */
+  --color-ink:      #1A1208;   /* Deep dark dirt ink */
+  --color-ink-dim:  #5C4A30;   /* Muted bark-brown dim text */
+  --color-line:     #C4D8B0;   /* Subtle grass-green divider */
+
+  /* ── Light Mode: Semantic tokens ────────────────────────────── */
+  --status-yes:       #2A7A00;   /* Grass dark green -- confirmed going */
+  --status-no:        #CC1400;   /* Redstone red (muted) -- not going */
+  --status-wishlist:  #1A44A0;   /* Lapis blue (muted) -- on the wishlist */
+  --status-neutral:   #5A5A5A;   /* Stone gray -- neutral */
+  --status-lock:      #6644AA;   /* Amethyst (muted) -- locked/booked */
+  --warn:             #AA8800;   /* Gold ore (muted) -- warning */
+
+  --accent-sand:  var(--gold-ore);  /* Gold ore as warm accent */
+  --accent-clay:  var(--redstone);  /* Redstone as the danger/clay accent */
+  --accent-dusk:  var(--amethyst);  /* Amethyst as the dusk/purple accent */
+}
+
+/* ── Dark Mode: Underground Cave Night ──────────────────────────── */
+/* Bedrock darkness with glowing ore accents -- the real Minecraft feel */
+[data-mode="dark"] {
+  --color-bg:       #1A1A1A;   /* Deep underground -- near bedrock dark */
+  --color-surface:  #242424;   /* Stone surface slightly lighter */
+  --color-ink:      #F0F0E8;   /* Slightly warm white -- torchlight */
+  --color-ink-dim:  #909090;   /* Stone gray dim text */
+  --color-line:     #383838;   /* Dark cobblestone divider */
+
+  /* Ores glow in the dark */
+  --status-yes:       var(--emerald);    /* #00CC44 -- emerald green, confirmed */
+  --status-no:        var(--redstone);   /* #FF1A00 -- redstone red, danger */
+  --status-wishlist:  var(--diamond);    /* #00ECFF -- diamond cyan, wishlist */
+  --status-neutral:   var(--stone);      /* #8C8C8C -- stone gray neutral */
+  --status-lock:      var(--amethyst);   /* #9960D4 -- amethyst locked */
+  --warn:             var(--gold-ore);   /* #FFD700 -- gold ore warning */
+
+  --accent-sand:  var(--gold-ore);    /* #FFD700 */
+  --accent-clay:  var(--redstone);    /* #FF1A00 */
+  --accent-dusk:  var(--amethyst);    /* #9960D4 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:       #1A1A1A;
+    --color-surface:  #242424;
+    --color-ink:      #F0F0E8;
+    --color-ink-dim:  #909090;
+    --color-line:     #383838;
+
+    --status-yes:       #00CC44;
+    --status-no:        #FF1A00;
+    --status-wishlist:  #00ECFF;
+    --status-neutral:   #8C8C8C;
+    --status-lock:      #9960D4;
+    --warn:             #FFD700;
+
+    --accent-sand:  #FFD700;
+    --accent-clay:  #FF1A00;
+    --accent-dusk:  #9960D4;
+  }
+}

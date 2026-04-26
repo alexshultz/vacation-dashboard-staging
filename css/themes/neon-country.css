@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=Arvo:wght@400;700&display=swap');
+
+/*
+ * neon-country.css -- Neon Country theme (Wildcard / unexpected fun)
+ * Vibe: A honky-tonk bar at midnight — warm wood grain meets blinking neon signs,
+ *       like the strip in Branson come alive at night. Unexpected but totally on-brand.
+ * Best for: Country music fans, adults who like something bold and surprising.
+ *           "Why does this look like the outside of The Grand Palace at 11pm? Perfect."
+ */
+
+:root {
+  --font-heading: 'Rye', 'Georgia', serif;
+  --font-body: 'Arvo', 'Georgia', serif;
+
+  /* ── Private Palette ──────────────────────────────────────── */
+  --barwood:  #2A1508;   /* dark weathered wood planks */
+  --cedar:    #3D2010;   /* cedar plank surface */
+  --sawdust:  #8C5A28;   /* raw sawdust warm brown */
+  --marquee:  #FF8C00;   /* orange marquee neon bulbs */
+  --signred:  #FF2040;   /* red neon cursive-sign glow */
+  --signblue: #00C8FF;   /* ice-blue neon sign */
+  --signpink: #FF50B0;   /* hot-pink neon sign */
+  --butter:   #FFE880;   /* warm incandescent bulb glow */
+  --straw:    #F5E8C0;   /* dry straw light color */
+  --leather:  #6B3820;   /* dark leather red-brown */
+
+  /* ── Light Mode: bg / surface / ink ──────────────────────── */
+  /* Light mode = day time on the strip (sun-baked tan + warm wood) */
+  --color-bg:      #F2E6C8;   /* sun-baked sand — warm tan */
+  --color-surface: #FAF0D8;   /* lighter warm straw */
+  --color-ink:     #1C0C04;   /* deep dark wood ink */
+  --color-ink-dim: #6B4820;   /* warm leather brown */
+  --color-line:    #D4B870;   /* golden hay line */
+
+  /* ── Light Mode: semantic + accent tokens ─────────────────── */
+  --status-yes:      #1E6830;   /* deep forest green — going */
+  --status-no:       #B82820;   /* deep sign-red */
+  --status-wishlist: #1A5080;   /* deep night-sky blue */
+  --status-neutral:  #7A6040;   /* worn leather neutral */
+  --status-lock:     #7A2878;   /* deep neon-purple */
+  --warn:            #B86800;   /* dark amber */
+  --accent-sand:     var(--marquee);   /* #FF8C00 — orange marquee */
+  --accent-clay:     #B82820;         /* deep sign-red */
+  --accent-dusk:     #7A2878;         /* deep neon-purple */
+}
+
+/* ── Dark Mode: the real magic — honky-tonk at midnight ──── */
+@media (prefers-color-scheme: dark) {
+  :root[data-mode="system"],
+  :root:not([data-mode]) {
+    --color-bg:      #180C04;   /* near-black worn wood */
+    --color-surface: #2A1508;   /* dark cedar plank */
+    --color-ink:     #F5E8C0;   /* warm straw — like incandescent light */
+    --color-ink-dim: #B09060;   /* muted sawdust */
+    --color-line:    #3D2010;   /* dark cedar rule */
+
+    --status-yes:      #50FF80;   /* neon green — going! */
+    --status-no:       #FF2040;   /* red neon sign */
+    --status-wishlist: #00C8FF;   /* ice-blue neon */
+    --status-neutral:  #A08060;   /* warm leather */
+    --status-lock:     #FF50B0;   /* hot-pink neon */
+    --warn:            #FF8C00;   /* orange marquee */
+    --accent-sand:     #FF8C00;   /* orange marquee neon */
+    --accent-clay:     #FF2040;   /* red neon */
+    --accent-dusk:     #FF50B0;   /* hot-pink neon */
+  }
+}
+
+:root[data-mode="dark"] {
+  --color-bg:      #180C04;
+  --color-surface: #2A1508;
+  --color-ink:     #F5E8C0;
+  --color-ink-dim: #B09060;
+  --color-line:    #3D2010;
+
+  --status-yes:      #50FF80;
+  --status-no:       #FF2040;
+  --status-wishlist: #00C8FF;
+  --status-neutral:  #A08060;
+  --status-lock:     #FF50B0;
+  --warn:            #FF8C00;
+  --accent-sand:     #FF8C00;
+  --accent-clay:     #FF2040;
+  --accent-dusk:     #FF50B0;
+}
+
+:root[data-mode="light"] {
+  --color-bg:      #F2E6C8;
+  --color-surface: #FAF0D8;
+  --color-ink:     #1C0C04;
+  --color-ink-dim: #6B4820;
+  --color-line:    #D4B870;
+  /* Light mode semantic tokens already set at :root above */
+}

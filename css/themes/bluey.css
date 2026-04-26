@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap');
+/*
+ * bluey.css -- Bluey theme (Australian animated TV show)
+ * Vibe: Sunny Queensland backyard by day; cosy bedroom after bedtime by night.
+ *       Bluey's bold primary colours — blue heeler fur, warm Bingo orange, yard
+ *       grass green — in a dashboard palette that feels playful but readable.
+ *       Light mode evokes the Heeler family's bright, sky-blue home. Dark mode
+ *       is the warm, safe feeling of tucking in after a big day of imagination.
+ *
+ * Character colour key (private palette):
+ *   --bluey       #4A8FD4  Bluey's blue heeler fur (primary identity colour)
+ *   --sky-light   #6DB3F2  Lighter blue / highlight (open Queensland sky)
+ *   --bingo       #F28444  Bingo's warm orange coat
+ *   --rust        #D4602A  Deeper Bingo orange / backyard dirt
+ *   --bandit      #C04A2A  Dad's red-brown coat
+ *   --chilli      #D4562A  Mum's red-orange coat (between bandit & rust)
+ *   --yard        #5AAA3C  Backyard grass green (also Judo's dad's shirt)
+ *   --judo        #2A9090  Judo's teal — calm, grounded friend energy
+ *   --luckys-dad  #E8B830  Lucky's Dad's yellow (warm, upbeat, slightly goofy)
+ *   --chloe       #8844C0  Chloe's purple — a bit fancy, a bit "locked in"
+ *   --walls       #FFF8F0  The Heeler family home walls — warm white
+ *   --nightsky    #1A2844  The night sky outside Bluey's bedroom window
+ *
+ * Best for: Young kids (Georgie, Bug/Buggy, Adrian), parents who watch it WITH
+ *           their kids. This is the Bluey-fan household theme. ❤️🐾
+ */
+
+:root {
+  --font-heading: 'Fredoka One', 'Verdana', sans-serif;
+  --font-body: 'Nunito', 'Arial', sans-serif;
+
+  /* ── Private Palette: The Heeler Family Colours ───────────────── */
+
+  /* Bluey (blue heeler protagonist) */
+  --bluey:      #4A8FD4;   /* Bluey's iconic blue fur — clear, confident primary */
+  --sky-light:  #6DB3F2;   /* Lighter blue for highlights, links, accents */
+
+  /* Bingo (Bluey's little sister) */
+  --bingo:      #F28444;   /* Bingo's warm orange — cheerful, energetic */
+  --rust:       #D4602A;   /* Deeper orange, earthy backyard dirt tones */
+
+  /* Parents */
+  --bandit:     #C04A2A;   /* Bandit (Dad) — red-brown coat, laid-back but bold */
+  --chilli:     #D4562A;   /* Chilli (Mum) — red-orange, warm and grounding */
+
+  /* Friends & environment */
+  --yard:       #5AAA3C;   /* Backyard grass — vivid Queensland garden green */
+  --judo:       #2A9090;   /* Judo — cool, steady teal (best-friend energy) */
+  --luckys-dad: #E8B830;   /* Lucky's Dad — bright yellow, the excitable neighbour */
+  --chloe:      #8844C0;   /* Chloe — a touch of purple class and mystery */
+
+  /* Home & sky */
+  --walls:      #FFF8F0;   /* Heeler family home walls — warm, safe off-white */
+  --nightsky:   #1A2844;   /* Night sky outside Bluey's window (bedtime deep blue) */
+
+  /* ── Light Mode: Sunny Queensland Backyard ────────────────────── */
+  /* Think: Saturday morning, back door open, sunlight across the garden.       */
+  --color-bg:      #F0F8FF;   /* Clean Australian sky blue-white — clear & bright */
+  --color-surface: #FAFEFF;   /* Near-pure white, slightly sky-washed */
+  --color-ink:     #0A1420;   /* Deep blue-black — strong readable text */
+  --color-ink-dim: #3A5878;   /* Muted blue-grey for secondary labels & captions */
+  --color-line:    #BDD8F0;   /* Soft blue rule — like shadows on a sunny lawn */
+
+  /* ── Light Mode: Semantic + Accent Tokens ─────────────────────── */
+
+  /* Status: yard green (darker for contrast on light bg — "Yeah-nah, we're going!") */
+  --status-yes:      #2A7A1A;   /* Deep yard green — confirmed, happening */
+
+  /* Status: Bingo rust (darkened — "Nah-yeah, not this one") */
+  --status-no:       #A03018;   /* Dark Bingo rust — declined, not going */
+
+  /* Status: Bluey blue (darkened for legibility — "Ooh, maybe...") */
+  --status-wishlist: #2A6AAA;   /* Deep Bluey blue — on the wishlist */
+
+  /* Status: cool blue-grey neutral */
+  --status-neutral:  #4A6880;   /* Slate blue-grey — undecided / no status */
+
+  /* Status: Chloe purple (darkened — "Locked in, already booked") */
+  --status-lock:     #6030A0;   /* Deep Chloe purple — reserved / locked */
+
+  /* Warn: Lucky's Dad yellow (darkened for light-bg contrast) */
+  --warn:            #A07818;   /* Dark gold-yellow — heads up, check this */
+
+  /* Accent passthroughs: full-saturation palette colours for decorative use */
+  --accent-sand: var(--bingo);    /* #F28444 — Bingo's warm orange (sand equivalent) */
+  --accent-clay: var(--bandit);   /* #C04A2A — Bandit's red-brown (clay equivalent) */
+  --accent-dusk: var(--chloe);    /* #8844C0 — Chloe's purple (dusk equivalent) */
+}
+
+/* ── Dark Mode: After Bedtime — Cosy Night Sky ────────────────────── */
+/* Think: Bluey and Bingo in their beds, the window showing a deep navy sky.   */
+/* Stars are out. Mum and Dad are talking quietly downstairs. Everything is ok. */
+@media (prefers-color-scheme: dark) {
+  :root[data-mode="system"],
+  :root:not([data-mode]) {
+    --color-bg:      #0E1C2E;   /* Deep night sky — safe and still */
+    --color-surface: #162436;   /* Slightly lighter — bedroom walls in moonlight */
+    --color-ink:     #E8F4FF;   /* Soft cool white — like starlight on a page */
+    --color-ink-dim: #5A7890;   /* Muted slate — secondary text, hushed */
+    --color-line:    #1E304A;   /* Dark blue rule — barely-there divider */
+
+    /* Full-saturation colours read well against the deep night bg */
+    --status-yes:      #5AAA3C;   /* Yard green — vivid, "we're going!" */
+    --status-no:       #D4602A;   /* Bingo rust — warm, soft "nope" */
+    --status-wishlist: #6DB3F2;   /* Bluey highlight blue — hopeful, curious */
+    --status-neutral:  #5A7890;   /* Slate — calm indecision */
+    --status-lock:     #8844C0;   /* Chloe purple — "already locked in" */
+    --warn:            #E8B830;   /* Lucky's Dad yellow — bright warning beacon */
+
+    --accent-sand: #F28444;       /* Bingo orange — warm pop against dark bg */
+    --accent-clay: #C04A2A;       /* Bandit red-brown */
+    --accent-dusk: #8844C0;       /* Chloe purple */
+  }
+}
+
+/* Explicit dark-mode toggle (user picks "Dark" in the theme switcher) */
+:root[data-mode="dark"] {
+  --color-bg:      #0E1C2E;
+  --color-surface: #162436;
+  --color-ink:     #E8F4FF;
+  --color-ink-dim: #5A7890;
+  --color-line:    #1E304A;
+
+  --status-yes:      #5AAA3C;   /* yard green — vivid on dark bg */
+  --status-no:       #D4602A;   /* Bingo rust */
+  --status-wishlist: #6DB3F2;   /* Bluey sky-light blue */
+  --status-neutral:  #5A7890;   /* slate blue-grey */
+  --status-lock:     #8844C0;   /* Chloe purple */
+  --warn:            #E8B830;   /* Lucky's Dad yellow */
+
+  --accent-sand: #F28444;
+  --accent-clay: #C04A2A;
+  --accent-dusk: #8844C0;
+}
+
+/* Explicit light-mode toggle (user picks "Light" in the theme switcher) */
+:root[data-mode="light"] {
+  --color-bg:      #F0F8FF;
+  --color-surface: #FAFEFF;
+  --color-ink:     #0A1420;
+  --color-ink-dim: #3A5878;
+  --color-line:    #BDD8F0;
+  /* Light mode semantic tokens already set at :root above */
+}

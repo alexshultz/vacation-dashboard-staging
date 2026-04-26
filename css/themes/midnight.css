@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@400;600&display=swap');
+
+/*
+ * midnight.css -- Midnight theme (Teens / night-owl aesthetic)
+ * Vibe: Electric dark — neon-infused like Ozarks midnight sky meets gaming HUD.
+ *       Clean cool-indigo in light mode; neon plasma in dark mode.
+ * Best for: Teenagers, gamers, night owls, anyone who thinks the default is "too earthy".
+ */
+
+:root {
+  --font-heading: 'Orbitron', 'Eurostile', sans-serif;
+  --font-body: 'Exo 2', 'Segoe UI', sans-serif;
+
+  /* ── Private Palette ──────────────────────────────────────── */
+  --night:  #0B0D17;   /* near-black indigo background */
+  --cave:   #141828;   /* card surface (dark) */
+  --rift:   #1D2238;   /* divider lines (dark) */
+  --neon:   #2CFFAA;   /* electric teal-green — "yes / going" */
+  --arc:    #6040FF;   /* electric indigo-violet — wishlist */
+  --zap:    #FF3A70;   /* hot magenta-red — "no / danger" */
+  --hum:    #FFD426;   /* neon amber — warn / neutral highlight */
+  --ghost:  #8B95B4;   /* cool slate gray — dimmed text */
+  --pulse:  #B860FF;   /* soft neon purple — locked/booked */
+
+  /* ── Light Mode: bg / surface / ink ──────────────────────── */
+  --color-bg:      #ECEEF8;   /* cool blue-tinted near-white */
+  --color-surface: #F8F9FF;   /* clean white with indigo wash */
+  --color-ink:     #0B0D17;   /* same as --night for ink */
+  --color-ink-dim: #4A5178;   /* muted indigo-gray */
+  --color-line:    #CDD0E3;   /* subtle cool divider */
+
+  /* ── Light Mode: semantic + accent tokens ─────────────────── */
+  /* Use readable muted versions (not raw neon — low contrast on white) */
+  --status-yes:      #1A7A44;   /* deep emerald — readable on light */
+  --status-no:       #B82050;   /* deep magenta-red */
+  --status-wishlist: #2A45C8;   /* deep electric blue */
+  --status-neutral:  #5A6080;   /* cool gray */
+  --status-lock:     #5830B0;   /* deep violet */
+  --warn:            #8C6C00;   /* dark amber */
+  --accent-sand:     #A88C30;   /* muted gold */
+  --accent-clay:     #B82050;
+  --accent-dusk:     #5830B0;
+}
+
+/* ── Dark Mode: override bg/surface/ink + unleash neon ─────── */
+@media (prefers-color-scheme: dark) {
+  :root[data-mode="system"],
+  :root:not([data-mode]) {
+    --color-bg:      #0B0D17;
+    --color-surface: #141828;
+    --color-ink:     #E8EAF8;
+    --color-ink-dim: #8B95B4;
+    --color-line:    #1D2238;
+
+    --status-yes:      #2CFFAA;   /* neon teal-green */
+    --status-no:       #FF3A70;   /* hot magenta */
+    --status-wishlist: #6040FF;   /* electric indigo */
+    --status-neutral:  #8B95B4;   /* ghost gray */
+    --status-lock:     #B860FF;   /* soft neon purple */
+    --warn:            #FFD426;   /* neon amber */
+    --accent-sand:     #FFD426;
+    --accent-clay:     #FF3A70;
+    --accent-dusk:     #6040FF;
+  }
+}
+
+:root[data-mode="dark"] {
+  --color-bg:      #0B0D17;
+  --color-surface: #141828;
+  --color-ink:     #E8EAF8;
+  --color-ink-dim: #8B95B4;
+  --color-line:    #1D2238;
+
+  --status-yes:      #2CFFAA;
+  --status-no:       #FF3A70;
+  --status-wishlist: #6040FF;
+  --status-neutral:  #8B95B4;
+  --status-lock:     #B860FF;
+  --warn:            #FFD426;
+  --accent-sand:     #FFD426;
+  --accent-clay:     #FF3A70;
+  --accent-dusk:     #6040FF;
+}
+
+:root[data-mode="light"] {
+  --color-bg:      #ECEEF8;
+  --color-surface: #F8F9FF;
+  --color-ink:     #0B0D17;
+  --color-ink-dim: #4A5178;
+  --color-line:    #CDD0E3;
+  /* Light mode semantic tokens already set at :root above */
+}

@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+
+/*
+ * dungeon-crawler-carl.css -- Dungeon Crawler Carl theme
+ * Vibe: LitRPG System UI meets grimy dungeon crawl -- dark near-black stone with
+ *       electric cyan System notification glow, bioluminescent teal accents, gold loot,
+ *       arcane purple, and Carl's iconic blue bandana as a subtle nod.
+ *       Based on the aesthetic of Jason Dinniman's DCC series (Aethon Books) and the
+ *       Renegade Game Studios RPG campaign artwork.
+ *
+ * The SYSTEM's signature color is #00D4FF -- electric cyan-blue.
+ * Light mode: dungeon stone at midday torchlight (desaturated warm-gray)
+ * Dark mode:  full midnight dungeon -- the real DCC experience
+ *
+ * Best for: DCC fans, gamers, teenagers, anyone who has read the books.
+ * Family shortlist: Mycah, any teenager who's heard of LitRPG.
+ */
+
+:root {
+  --font-heading: 'Orbitron', 'Eurostile', sans-serif;
+  --font-body: 'Share Tech Mono', 'Courier New', monospace;
+
+  /* ── Private Palette: The Dungeon ────────────────────────────── */
+
+  /* Dungeon stone / environment */
+  --stone-void:    #080B10;   /* deepest dungeon darkness (true black-blue) */
+  --stone-deep:    #0D1017;   /* main dungeon bg */
+  --stone-dark:    #161820;   /* dark stone panel / card surface */
+  --stone-mid:     #1E2028;   /* standard stone surface */
+  --stone-light:   #2C2C35;   /* highlighted/raised stone */
+  --stone-gray:    #4A4A58;   /* cool blue-gray stone highlight */
+  --stone-dim:     #6A7890;   /* muted system text, dimmed labels */
+
+  /* The System (signature cyan -- THE DCC color) */
+  --sys-cyan:      #00D4FF;   /* Primary System notification color */
+  --sys-cyan-glow: #00ECFF;   /* Border/glow variant -- slightly icier */
+  --sys-cyan-dim:  #006888;   /* Inactive/muted cyan */
+  --sys-bio:       #00FFC8;   /* Bioluminescent cave teal-cyan */
+  --sys-bio-green: #44FF88;   /* Cave moss / bio-green */
+
+  /* Magic / Achievement (purple) */
+  --sys-purple:    #9B30FF;   /* Achievement unlocked, arcane magic */
+  --sys-purple-deep: #7B00FF; /* Deeper arcane purple */
+
+  /* Loot / Gold (level-up, treasure, Donut's crown) */
+  --loot-gold:     #FFB800;   /* Standard loot gold */
+  --loot-bright:   #FFD700;   /* Level-up gold (Donut's tiara) */
+  --loot-amber:    #FF8C00;   /* Torchlight / fire amber */
+  --loot-xp:       #AAFF00;   /* XP bar / experience gain yellow-green */
+
+  /* Danger / Damage */
+  --sys-red:       #FF3A1A;   /* Danger, damage, "no" status */
+  --sys-red-deep:  #8B0000;   /* Critical / death state */
+
+  /* Shop / Merchant (positive / "yes" status) */
+  --sys-green:     #00CC66;   /* Shop, merchant, confirmed positive */
+
+  /* Carl's iconic blue bandana (subtle accent) */
+  --carl-blue:     #3D7CC9;   /* Mid blue -- Carl's bandana */
+
+  /* Donut (cream + pink) -- for light mode warmth */
+  --donut-fur:     #F5E6C8;   /* Cream-white fur */
+  --donut-pink:    #FFB6C1;   /* Pastel pink bow/accent */
+
+  /* ── Light Mode: Stone-by-Torchlight ────────────────────────── */
+  /* (Imagine the dungeon lit by warm amber torches -- desaturated stone, warm ink) */
+  --color-bg:       #ECEEF4;   /* Cool parchment -- dungeon stone in indirect light */
+  --color-surface:  #F4F5FA;   /* Near-white stone face */
+  --color-ink:      #0D1017;   /* Deep dungeon ink -- same as void */
+  --color-ink-dim:  #4A4A58;   /* --stone-gray for dimmed text */
+  --color-line:     #C8CAD8;   /* Subtle stone-cold divider */
+
+  /* ── Light Mode: Semantic tokens ────────────────────────────── */
+  /* Readable muted versions for light bg -- not raw neon */
+  --status-yes:       #007744;   /* Deep dungeon green (merchant positive) */
+  --status-no:        #C42010;   /* Dark dungeon red (damage) */
+  --status-wishlist:  #0076AA;   /* Muted System cyan (readable on light) */
+  --status-neutral:   #545868;   /* Stone gray neutral */
+  --status-lock:      #6820C0;   /* Muted arcane purple */
+  --warn:             #C06800;   /* Dark amber / torchlight warn */
+
+  /* Accent passthrough to semantic layer */
+  --accent-sand:  var(--loot-amber);     /* Torchlight amber as sand equivalent */
+  --accent-clay:  var(--sys-red);        /* Damage red as clay equivalent */
+  --accent-dusk:  var(--sys-purple);     /* Arcane purple as dusk equivalent */
+}
+
+/* ── Dark Mode: Midnight Dungeon ─────────────────────────────────── */
+/* The REAL DCC experience -- this is where the theme comes alive     */
+[data-mode="dark"] {
+  --color-bg:       var(--stone-deep);   /* #0D1017 -- true dungeon darkness */
+  --color-surface:  var(--stone-dark);   /* #161820 -- stone panel surface */
+  --color-ink:      #E8F4FF;             /* Slightly cool white (System text) */
+  --color-ink-dim:  var(--stone-dim);    /* #6A7890 -- muted labels */
+  --color-line:     var(--stone-mid);    /* #1E2028 -- barely visible stone seam */
+
+  /* Neon full-power in dark mode */
+  --status-yes:       var(--sys-bio);        /* #00FFC8 -- bioluminescent "going" */
+  --status-no:        var(--sys-red);        /* #FF3A1A -- damage red "nope" */
+  --status-wishlist:  var(--sys-cyan);       /* #00D4FF -- THE System blue (wishlist) */
+  --status-neutral:   var(--stone-dim);      /* #6A7890 -- dimmed stone neutral */
+  --status-lock:      var(--sys-purple);     /* #9B30FF -- achievement purple "locked" */
+  --warn:             var(--loot-amber);     /* #FF8C00 -- torchfire warn */
+
+  --accent-sand:  var(--loot-gold);          /* #FFB800 -- gold loot accent */
+  --accent-clay:  var(--sys-red);            /* #FF3A1A -- damage red */
+  --accent-dusk:  var(--sys-purple);         /* #9B30FF -- arcane purple */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:       var(--stone-deep);
+    --color-surface:  var(--stone-dark);
+    --color-ink:      #E8F4FF;
+    --color-ink-dim:  var(--stone-dim);
+    --color-line:     var(--stone-mid);
+
+    --status-yes:       var(--sys-bio);
+    --status-no:        var(--sys-red);
+    --status-wishlist:  var(--sys-cyan);
+    --status-neutral:   var(--stone-dim);
+    --status-lock:      var(--sys-purple);
+    --warn:             var(--loot-amber);
+
+    --accent-sand:  var(--loot-gold);
+    --accent-clay:  var(--sys-red);
+    --accent-dusk:  var(--sys-purple);
+  }
+}

@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Patrick+Hand&display=swap');
+/*
+ * spongebob.css -- SpongeBob SquarePants theme
+ * Vibe: Sunny Bikini Bottom above the waves — SpongeBob yellow, Patrick pink,
+ *       Sandy's teal dome, and Squidward purple on warm sandy backgrounds.
+ *       Light mode is a bright sun-baked beach day at Goo Lagoon.
+ *       Dark mode is the deep ocean floor at night, lit by bioluminescent glow.
+ *
+ * Key characters mapped to colors:
+ *   SpongeBob SquarePants → #FFE033 (sponge-body yellow)
+ *   Patrick Star          → #FF85A2 (starfish pink)
+ *   Sandy Cheeks          → #00B4C8 (air dome / ocean teal)
+ *   Squidward Tentacles   → #7B4FA0 (clarinet purple)
+ *   Mr. Krabs             → #E84B1A (shell red-orange)
+ *   Gary the Snail        → #DEB887 (sea-floor sand)
+ *   Jellyfish Fields      → #FF3AA0 (jellyfish magenta)
+ *   Barnacle/Seaweed      → #1A6B3C (dark ocean green)
+ *   Krabby Patty          → #7B3F0E (patty bun brown)
+ *   SpongeBob's house     → #4DB34D (pineapple green)
+ *   Deep ocean backdrop   → #003B6F (Bikini Bottom blue)
+ *   Surface water / sky   → #00AEEF (Bikini Bottom daytime sky)
+ *
+ * Best for: Young kids (Georgie, Adrian, Bug/Buggy, Jackson), anyone who loves SpongeBob.
+ */
+
+:root {
+  --font-heading: 'Bangers', 'Impact', sans-serif;
+  --font-body: 'Patrick Hand', 'Comic Sans MS', cursive;
+
+  /* ── Private Palette: Bikini Bottom ────────────────────────────── */
+
+  /* SpongeBob SquarePants — his iconic sponge-body yellow */
+  --sb-yellow:      #FFE033;   /* THE SpongeBob color — bright, warm, unmistakable */
+
+  /* Patrick Star — dumb, loveable, pink */
+  --patrick-pink:   #FF85A2;   /* Patrick's starfish body */
+
+  /* Sandy Cheeks — teal ocean / her air dome above the sand */
+  --sandy-teal:     #00B4C8;   /* Sandy's glass dome, surface ocean water */
+
+  /* Squidward Tentacles — moody clarinet-playing purple */
+  --squidward:      #7B4FA0;   /* Squidward's skin, Easter Island head */
+
+  /* Mr. Krabs — penny-pinching red-orange crab shell */
+  --krabs-red:      #E84B1A;   /* Mr. Krabs' shell and claw color */
+
+  /* Gary / sea floor — sandy bottom of Bikini Bottom */
+  --seafloor-sand:  #DEB887;   /* Ocean-floor sand, Gary the Snail's path */
+
+  /* Jellyfish Fields — wild magenta jellyfish glow */
+  --jellyfish:      #FF3AA0;   /* Jellyfish Fields, SpongeBob's catching net */
+
+  /* Barnacles / seaweed — ocean plant life, dark green */
+  --seaweed:        #1A6B3C;   /* Barnacle-covered rocks, swaying seaweed */
+
+  /* Krabby Patty — the secret formula, bun brown */
+  --krabby-patty:   #7B3F0E;   /* Krabby Patty bun / Krusty Krab interior */
+
+  /* SpongeBob's house — the pineapple under the sea */
+  --pineapple:      #4DB34D;   /* SpongeBob's pineapple house, bright green */
+
+  /* Deep ocean — the vast Bikini Bottom backdrop */
+  --deep-ocean:     #003B6F;   /* Deep ocean blue, the world around Bikini Bottom */
+
+  /* Bikini Bottom sky — daytime surface water / blue sky above */
+  --bb-sky:         #00AEEF;   /* Surface water shimmer, bright daytime sky */
+
+  /* ── Light Mode: Above Water — Sunny Bikini Bottom ─────────────── */
+  /* Imagine a warm beach day at Goo Lagoon — bright sun, white foam,       */
+  /* SpongeBob and Patrick blowing bubbles in the sand.                      */
+  --color-bg:       #FFF9D6;   /* Warm sunny yellow-white — like sunlit sea foam */
+  --color-surface:  #FFFEF0;   /* Near-white with a hint of SpongeBob yellow warmth */
+  --color-ink:      #1A1400;   /* Deep warm near-black — SpongeBob's pupils */
+  --color-ink-dim:  #7B5A00;   /* Warm golden-brown — Krabby Patty wrapper brown */
+  --color-line:     #FFE066;   /* Bright yellow rule — SpongeBob yellow, slightly lighter */
+
+  /* ── Light Mode: Semantic Tokens ───────────────────────────────── */
+  /* Readable values calibrated for light bg — full-saturation only in dark  */
+  --status-yes:      #1A6B3C;   /* Seaweed/barnacle green — "I'm ready!" going */
+  --status-no:       #B83010;   /* Deep Mr. Krabs red — "I don't want to pay!" no */
+  --status-wishlist: #0070A0;   /* Deep Bikini Bottom sky blue — wishlist interest */
+  --status-neutral:  #7B6040;   /* Sea-floor sand neutral — passive / undecided */
+  --status-lock:     #5A2878;   /* Deep Squidward purple — locked / booked */
+  --warn:            #B87A00;   /* Dark SpongeBob amber — warning, like burnt krabby patty */
+
+  /* ── Accent Passthrough to Semantic Layer ──────────────────────── */
+  --accent-sand: var(--sb-yellow);    /* #FFE033 — SpongeBob's sponge-body yellow */
+  --accent-clay: var(--krabs-red);    /* #E84B1A — Mr. Krabs' red-orange shell */
+  --accent-dusk: var(--squidward);    /* #7B4FA0 — Squidward's moody purple */
+}
+
+/* ── Dark Mode: The Deep Ocean — Bikini Bottom at Night ──────────── */
+/* Below the surface, far from the sun. Bioluminescent coral, distant    */
+/* jellyfish glow, and the faint shimmer of SpongeBob's porch light.     */
+[data-mode="dark"] {
+  --color-bg:       #001A33;   /* Deep Bikini Bottom ocean at night — true deep blue */
+  --color-surface:  #002244;   /* Slightly lighter ocean panel — submarine wall */
+  --color-ink:      #E8F8FF;   /* Cool ocean-white text — like seafoam in moonlight */
+  --color-ink-dim:  #6A9ABB;   /* Muted ocean blue-gray — distant current haze */
+  --color-line:     #003366;   /* Dark ocean-blue rule — barely visible depth seam */
+
+  /* Full-saturation character colors come alive in the dark ocean */
+  --status-yes:      #4DB34D;   /* Pineapple green — glowing "I'm ready!" going */
+  --status-no:       #E84B1A;   /* Mr. Krabs red-orange — "no money, no entry!" */
+  --status-wishlist: #00AEEF;   /* Bikini Bottom sky blue — wishlist glow in the deep */
+  --status-neutral:  #6A9ABB;   /* Ocean current blue-gray — neutral, drifting */
+  --status-lock:     #7B4FA0;   /* Squidward purple — "do not disturb my clarinet" */
+  --warn:            #FFE033;   /* SpongeBob yellow — blazing warning, sponge-bright */
+
+  --accent-sand: #FFE033;   /* SpongeBob's body yellow, luminous in the deep */
+  --accent-clay: #E84B1A;   /* Mr. Krabs shell red-orange */
+  --accent-dusk: #7B4FA0;   /* Squidward clarinet purple */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:       #001A33;
+    --color-surface:  #002244;
+    --color-ink:      #E8F8FF;
+    --color-ink-dim:  #6A9ABB;
+    --color-line:     #003366;
+
+    --status-yes:      #4DB34D;   /* Pineapple green */
+    --status-no:       #E84B1A;   /* Mr. Krabs red */
+    --status-wishlist: #00AEEF;   /* Bikini Bottom sky */
+    --status-neutral:  #6A9ABB;   /* Ocean current gray */
+    --status-lock:     #7B4FA0;   /* Squidward purple */
+    --warn:            #FFE033;   /* SpongeBob yellow */
+
+    --accent-sand: #FFE033;
+    --accent-clay: #E84B1A;
+    --accent-dusk: #7B4FA0;
+  }
+}

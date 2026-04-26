@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600&display=swap');
+/*
+ * barbie.css -- Barbie theme (Dreamhouse glamour / movie magic)
+ * Vibe: Bright Barbieland in the light — pink walls, gold accents, every surface
+ *       dripping glamour. Deep magenta-black cinema darkness at night, like the
+ *       opening scene of the 2023 movie with the Barbieland sky turned midnight.
+ *       Iconic hot pink (#E91E8C, Pantone 219 C) is THE color. Ken blue rides
+ *       shotgun on the wishlist. Gold-blonde calls out warnings. Glam purple
+ *       means it's locked and booked, dahling.
+ * Best for: Girls of all ages — Ashlyn, Bee, McKinley, Lucy, Natalie, Simran,
+ *           Skylar, Rachel, Dez. The wildcard pick for anyone who loved the 2023 movie.
+ */
+
+:root {
+  --font-heading: 'Pacifico', 'Comic Sans MS', cursive;
+  --font-body: 'Quicksand', 'Trebuchet MS', sans-serif;
+
+  /* ── Private Palette ──────────────────────────────────────── */
+  --barbie:    #E91E8C;   /* THE iconic Barbie hot pink — Pantone 219 C */
+  --bubblegum: #FF69B4;   /* lighter bubblegum pink */
+  --petal:     #FFB6D9;   /* soft pastel pink */
+  --magenta:   #C2006A;   /* deeper magenta for dark mode vibrancy */
+  --ken:       #0099CC;   /* Ken's classic blue outfits */
+  --ken-bright:#33C3FF;   /* bright Ken blue */
+  --gold:      #FFD700;   /* Barbie's iconic golden blonde hair */
+  --gold-warm: #FFBA00;   /* warm amber-gold */
+  --dreamhouse:#FFF0F5;   /* pink-tinted white — the Dreamhouse walls */
+  --glam:      #CC44DD;   /* glam purple — accessories, locked, booked */
+  --coral:     #FF6B6B;   /* playful coral */
+  --silver:    #C8C8D8;   /* silver accessories */
+
+  /* ── Light Mode: bg / surface / ink ──────────────────────── */
+  /* Light mode = inside the Dreamhouse — bright, glamorous, every wall pink */
+  --color-bg:      #FFF0F8;   /* pink-tinted white — the Dreamhouse walls */
+  --color-surface: #FFF8FC;   /* slightly cooler, cleaner surface white */
+  --color-ink:     #1A0010;   /* near-black with deep magenta undertone */
+  --color-ink-dim: #882255;   /* muted Barbie pink-rose — secondary text */
+  --color-line:    #FFB6D9;   /* pastel pink petal — dividers */
+
+  /* ── Light Mode: semantic + accent tokens ─────────────────── */
+  /* Status greens/reds tuned for legibility against all the pink */
+  --status-yes:      #007744;           /* deep emerald — pops beautifully on pink */
+  --status-no:       #AA0044;           /* deep rose-red — "no thanks, Ken" */
+  --status-wishlist: #0070AA;           /* Ken blue — on MY wishlist! */
+  --status-neutral:  #885566;           /* muted mauve-pink — noncommittal */
+  --status-lock:     #8800BB;           /* deep glam purple — locked and booked */
+  --warn:            #AA7700;           /* darkened gold — Barbie's hair, warns */
+  --accent-sand:     var(--gold);       /* #FFD700 — golden blonde hair */
+  --accent-clay:     var(--coral);      /* #FF6B6B — playful coral */
+  --accent-dusk:     var(--glam);       /* #CC44DD — glam purple */
+}
+
+/* ── Dark Mode: Barbie movie night — deep magenta-black sky ── */
+@media (prefers-color-scheme: dark) {
+  :root[data-mode="system"],
+  :root:not([data-mode]) {
+    --color-bg:      #1A0018;   /* deep magenta-black — the Barbieland night sky */
+    --color-surface: #280028;   /* slightly lighter deep purple-black */
+    --color-ink:     #FFE8F8;   /* warm pink-white — like Barbie's closing credits */
+    --color-ink-dim: #CC88BB;   /* muted dusty rose — dimmed secondary text */
+    --color-line:    #3D0033;   /* very dark magenta — barely-there divider */
+
+    --status-yes:      #44CC88;   /* bright emerald — visible against the dark */
+    --status-no:       #E91E8C;   /* THE Barbie pink — "no" never looked this good */
+    --status-wishlist: #33C3FF;   /* bright Ken blue */
+    --status-neutral:  #CC88BB;   /* muted dusty rose */
+    --status-lock:     #CC44DD;   /* full glam purple — it's booked, girl */
+    --warn:            #FFD700;   /* full gold hair — hard to miss */
+    --accent-sand:     #FFD700;   /* golden blonde */
+    --accent-clay:     #FF6B6B;   /* coral */
+    --accent-dusk:     #CC44DD;   /* glam purple */
+  }
+}
+
+:root[data-mode="dark"] {
+  --color-bg:      #1A0018;
+  --color-surface: #280028;
+  --color-ink:     #FFE8F8;
+  --color-ink-dim: #CC88BB;
+  --color-line:    #3D0033;
+
+  --status-yes:      #44CC88;
+  --status-no:       #E91E8C;
+  --status-wishlist: #33C3FF;
+  --status-neutral:  #CC88BB;
+  --status-lock:     #CC44DD;
+  --warn:            #FFD700;
+  --accent-sand:     #FFD700;
+  --accent-clay:     #FF6B6B;
+  --accent-dusk:     #CC44DD;
+}
+
+:root[data-mode="light"] {
+  --color-bg:      #FFF0F8;
+  --color-surface: #FFF8FC;
+  --color-ink:     #1A0010;
+  --color-ink-dim: #882255;
+  --color-line:    #FFB6D9;
+  /* Light mode semantic tokens already set at :root above */
+}

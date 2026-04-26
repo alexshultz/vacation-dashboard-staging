@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap');
+
+/*
+ * sunshine.css -- Sunshine theme (Kids / pure joy aesthetic)
+ * Vibe: Summer carnival, candy-bright, lemon + coral + sky-blue on warm white.
+ *       Maximum happiness energy. Dark mode is warm and cozy, not harsh.
+ * Best for: Young kids (5–10), anyone who wants pure summer-vacation happy energy.
+ */
+
+:root {
+  --font-heading: 'Fredoka One', 'Verdana', sans-serif;
+  --font-body: 'Nunito', 'Arial', sans-serif;
+
+  /* ── Private Palette ──────────────────────────────────────── */
+  --lemon:  #FFC800;   /* bright warm yellow */
+  --coral:  #FF5E3A;   /* vivid coral-orange */
+  --sky:    #00AEFF;   /* bright sky blue */
+  --lime:   #44CC30;   /* vivid lime green */
+  --grape:  #C040E8;   /* bubbly grape purple */
+  --peach:  #FFB070;   /* warm peachy orange */
+  --cotton: #FFF8D6;   /* pale lemon cotton candy */
+  --blush:  #FFF3F0;   /* warm near-white with peach tint */
+
+  /* ── Light Mode: bg / surface / ink ──────────────────────── */
+  --color-bg:      #FFF8D6;   /* warm lemon cotton candy */
+  --color-surface: #FFFDF0;   /* near-white with yellow warmth */
+  --color-ink:     #261800;   /* rich warm near-black */
+  --color-ink-dim: #6B4820;   /* warm medium brown */
+  --color-line:    #FFDC60;   /* bright yellow rule (fun!) */
+
+  /* ── Light Mode: semantic + accent tokens ─────────────────── */
+  --status-yes:      var(--lime);    /* #44CC30 — vivid lime green for "going!" */
+  --status-no:       var(--coral);   /* #FF5E3A — coral for "no thanks" */
+  --status-wishlist: var(--sky);     /* #00AEFF — bright sky blue for wishlist */
+  --status-neutral:  #888060;        /* warm olive-gray */
+  --status-lock:     var(--grape);   /* #C040E8 — grape purple for booked */
+  --warn:            var(--peach);   /* #FFB070 — peachy orange */
+  --accent-sand:     var(--lemon);   /* #FFC800 — lemon yellow */
+  --accent-clay:     var(--coral);   /* #FF5E3A */
+  --accent-dusk:     var(--grape);   /* #C040E8 */
+}
+
+/* ── Dark Mode: warm cozy evening, not harsh ───────────────── */
+@media (prefers-color-scheme: dark) {
+  :root[data-mode="system"],
+  :root:not([data-mode]) {
+    --color-bg:      #1C1400;   /* warm dark chocolate */
+    --color-surface: #261C04;   /* slightly lighter warm dark */
+    --color-ink:     #FFF8D6;   /* lemon cotton candy text */
+    --color-ink-dim: #C8A860;   /* muted warm gold */
+    --color-line:    #3A2C08;   /* warm dark border */
+
+    --status-yes:      #60E040;   /* bright lime, visible on dark */
+    --status-no:       #FF6C4A;   /* slightly lighter coral */
+    --status-wishlist: #30C8FF;   /* bright sky */
+    --status-neutral:  #A09050;   /* muted gold-gray */
+    --status-lock:     #D860FF;   /* bright grape */
+    --warn:            #FFB070;   /* peachy orange stays */
+    --accent-sand:     #FFD040;   /* bright lemon */
+    --accent-clay:     #FF6C4A;
+    --accent-dusk:     #D860FF;
+  }
+}
+
+:root[data-mode="dark"] {
+  --color-bg:      #1C1400;
+  --color-surface: #261C04;
+  --color-ink:     #FFF8D6;
+  --color-ink-dim: #C8A860;
+  --color-line:    #3A2C08;
+
+  --status-yes:      #60E040;
+  --status-no:       #FF6C4A;
+  --status-wishlist: #30C8FF;
+  --status-neutral:  #A09050;
+  --status-lock:     #D860FF;
+  --warn:            #FFB070;
+  --accent-sand:     #FFD040;
+  --accent-clay:     #FF6C4A;
+  --accent-dusk:     #D860FF;
+}
+
+:root[data-mode="light"] {
+  --color-bg:      #FFF8D6;
+  --color-surface: #FFFDF0;
+  --color-ink:     #261800;
+  --color-ink-dim: #6B4820;
+  --color-line:    #FFDC60;
+  /* Light mode semantic tokens already set at :root above */
+}
