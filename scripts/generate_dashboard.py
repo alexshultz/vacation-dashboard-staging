@@ -22,7 +22,7 @@ import sys
 print("ERROR: generate_dashboard.py is permanently frozen.")
 print("Running it overwrites hand-edited Quick Pick code in attractions.html.")
 print("See CLAUDE.md (ADR-002) and docs/DECISIONS.md for context.")
-print("To add attractions: edit data/attractions.json, copy to web/data.json, deploy.")
+print("To add attractions: edit data/attractions.json, run 'python3 scripts/export_data.py', then deploy.")
 sys.exit(1)
 
 import json

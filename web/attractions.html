@@ -107,32 +107,6 @@
 /*   dolly-parton-s-stampede, dublin-s-irish-tenors-the-celtic-ladies, fritz-s-adventure, */
 /*   parakeet-pete-s, ripley-s-believe-it-or-not, world-s-largest-toy-museum-complex */
 (function(){
-  var BLACKLIST = new Set([
-    'a-christmas-story-dinner-show',
-    'a-shepherds-christmas-carol',
-    'americana-new-years-eve-show',
-    'branson-music-fest',
-    'bransonand8217-s-christmas-wonderland',
-    'bransons-christmas-wonderland',
-    'bransons-famous-baldknobbers',
-    'cassandre-the-voice-of-an-angel-christmas-spectacular',
-    'cassandreand8217-the-voice-of-an-angel-christmas-spectacular',
-    'clay-goods-jambor-eve',
-    'hamners-all-american-new-years-eve-celebration',
-    'hamners-new-years-eve-fiesta',
-    'hamnersand8217-all-american-new-yearand8217-s-eve-celebration',
-    'hughes-brothers-christmas-show',
-    'miracle-of-christmas',
-    'retro-christmas-spectacular',
-    'sanders-family-christmas',
-    'shepherd-of-the-hills-spring-fest',
-    'shepherds-great-american-chuckwagon-dinner-show',
-    'shepherds-wild-west-showdown',
-    'ultimate-elvis-contest-headliner-cote-deonath',
-    'ultimate-elvis-tribute-contest',
-    'yakov-smirnoff-show',
-    'shepherd-of-the-hills-north-pole-adventure'
-  ]);
   var HOOK_MAX = 120;
 
   function escAttr(s){
@@ -221,7 +195,7 @@
     var count = 0;
     list.forEach(function(a){
       if (!a || !a.slug) return;
-      if (BLACKLIST.has(a.slug)) return;
+      if (a.visible === false) return;
       frag.appendChild(buildCard(a));
       count++;
     });

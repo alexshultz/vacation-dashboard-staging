@@ -15,8 +15,8 @@ const picks = (function() {
   'use strict';
 
   // ---- Config ----
-  const SUPABASE_URL = '';   // fill in Phase 2
-  const SUPABASE_ANON_KEY = '';  // fill in Phase 2
+  const SUPABASE_URL = 'https://quebfbvfuwbncpexlylu.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_yLlf7qoMZMfiZhNsyudX7g_HnZ8clgt';
   const STORAGE_KEY = 'vacdash:v1:picks';
   const USER_KEY = 'vacdash:v1:user';
 
@@ -48,6 +48,33 @@ const picks = (function() {
 
   // ---- Supabase backend (Phase 2 -- stub) ----
   function sbEnabled() { return !!(SUPABASE_URL && SUPABASE_ANON_KEY && currentUser); }
+
+  // ---- Wishlist aggregation (all users) ----
+  async function fetchAllWishlists() {
+    const url = `${SUPABASE_URL}/rest/v1/picks?state=eq.wishlist&select=user_id,slug`;
+    const headers = {
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+    };
+    try {
+      const r = await fetch(url, { headers });
+      if (!r.ok) {
+        const text = await r.text();
+        console.error('[picks] fetchAllWishlists HTTP error', r.status, r.statusText, text);
+        return {};
+      }
+      const rows = await r.json();
+      const grouped = {};
+      rows.forEach(function(row) {
+        if (!grouped[row.slug]) grouped[row.slug] = [];
+        grouped[row.slug].push(row.user_id);
+      });
+      return grouped;
+    } catch(e) {
+      console.error('[picks] fetchAllWishlists failed', e);
+      return {};
+    }
+  }
 
   async function sbSet(slug, state) {
     if (!sbEnabled()) return false;
@@ -103,6 +130,7 @@ const picks = (function() {
       if (!listeners[slug]) listeners[slug] = [];
       listeners[slug].push(callback);
     },
+    fetchAllWishlists,
     // Listen to storage events from other tabs
     _initStorageSync() {
       window.addEventListener('storage', function(e) {

@@ -4,37 +4,43 @@
 
 ---
 
-## ADR-001 · JSON as canonical data source (2026-04-18)
+## ADR-001 · JSON as canonical data source (2026-04-18) [SUPERSEDED by ADR-008 re: update rule]
 
 **Decision:** `data/attractions.json` is the single edit source of truth. HTML is generated from JSON; HTML is never the canonical record.
 
 **Why:** Hand-editing HTML leads to drift when the generator runs. JSON is diffable, scriptable, and safe to commit.
 
-**Consequences:** Any data change goes to JSON first. The generator reads JSON. Direct HTML edits that must persist across generations are forbidden (or must be handled by a post-generation injection step).
+**Consequences:** Any data change goes to JSON first. ~~The generator reads JSON.~~ (Generator is frozen per ADR-002. Use `export_data.py` per ADR-008 instead.) Direct HTML edits that must persist across generations are forbidden.
 
 ---
 
-## ADR-002 · generate_dashboard.py frozen (2026-04-22)
+## ADR-002 · generate_dashboard.py frozen (2026-04-22) [SUPERSEDED by ADR-008 re: safety check file]
 
-**Decision:** `scripts/generate_dashboard.py` must never be run in a normal workflow. It is effectively frozen.
+**Decision:** `scripts/generate_dashboard.py` must never be run in a normal workflow. It is effectively frozen. A `sys.exit(1)` guard was added -- it exits immediately with an error if run.
 
-**Context:** The generator overwrites `web/attractions.html`, `web/wishlist.html`, and `web/suggested.html` from scratch. As of 2026-04-22, `attractions.html` contains hand-edited Quick Pick swipe mode code (deck-mode-toggle, deck-stage, full pointer-events JS) that the generator does NOT reproduce. Running the generator destroys that code. **This happened twice in one day.** Total recovery cost: one ~$6.31 rate-limit interruption + one full codemaster recovery pass.
+**Context:** The generator overwrites `web/attractions.html`, `web/wishlist.html`, and `web/suggested.html` from scratch. As of 2026-04-22, `attractions.html` contains hand-edited Quick Pick swipe mode code (deck-mode-toggle, deck-stage, full pointer-events JS) that the generator does NOT reproduce. Running the generator destroys that code. **This happened twice in one day.** Total recovery cost: one ~$6.31 rate-limit interruption + one full lazlo recovery pass.
 
-**Rule:** Pre-push safety check `grep -c 'pointerdown' web/attractions.html` must return 1. If 0: STOP and recover before pushing.
+**Also frozen:** `scripts/generate_attractions.py` -- overwrites `web/attractions.html` from scratch. Also has a `sys.exit(1)` guard. Same rationale: it would destroy the hand-edited render loop and Quick Pick integration. Never run or modify either frozen script.
 
-**If regeneration is ever necessary:** Plan a codemaster pass to re-inject all Quick Pick additions afterward. Document it as a new ADR entry.
+**Rule:** Pre-push safety check -- see ADR-008 for correct command. (Original command below was wrong after Quick Pick moved to quick-pick.html in ADR-003.)
+
+~~**Original (wrong after ADR-003):** `grep -c 'pointerdown' web/attractions.html` must return 1.~~
+
+**Correct (per ADR-008):** `grep -c 'pointerdown' web/quick-pick.html` must return 1. If 0: STOP and recover before pushing.
+
+**If regeneration is ever necessary:** Plan a lazlo pass to re-inject all Quick Pick additions afterward. Document it as a new ADR entry.
 
 ---
 
-## ADR-003 · fetch(data.json) render loop replaces baked card HTML (2026-04-23)
+## ADR-003 · fetch(data.json) render loop replaces baked card HTML (2026-04-23) [SUPERSEDED by ADR-008 re: update rule]
 
 **Decision:** `web/attractions.html` switched from ~130+ statically baked `<article>` card elements to a dynamic JavaScript `fetch('data.json')` render loop via `renderCatalog()`.
 
-**Context:** The sync-triple-change task removed 10 stale duplicate cards and then converted the entire `#catalog-grid` from server-rendered HTML to a client-side render loop. The source data is `web/data.json` (a copy of `data/attractions.json`). Blacklisted slugs are inlined as a JS array in `attractions.html` to avoid a second fetch.
+**Context:** The sync-triple-change task removed 10 stale duplicate cards and then converted the entire `#catalog-grid` from server-rendered HTML to a client-side render loop. The source data is `web/data.json` (a copy of `data/attractions.json`). ~~Blacklisted slugs are inlined as a JS array in `attractions.html` to avoid a second fetch.~~ **SUPERSEDED by ADR-008:** The inline JS blacklist was replaced by a pre-computed `visible` boolean field on each record in `web/data.json`, set by `export_data.py` from `data/blacklist.json`. No inline array exists in `attractions.html`.
 
 **Why `web/data.json` not `../data/attractions.json`:** The `web/` directory must be self-contained for both GitHub Pages serving (no parent-traversal) and local `file://` loading. `web/data.json` is the served copy; `data/attractions.json` is the edit copy.
 
-**Update rule:** After editing `data/attractions.json`, copy it to `web/data.json` before pushing. Do not use the generator.
+**Update rule:** ~~After editing data/attractions.json, copy it to web/data.json before pushing.~~ **SUPERSEDED by ADR-008:** Run `python3 scripts/export_data.py` instead. A plain copy omits `sort_key` and `visible` fields that export_data.py adds, breaking blacklist filtering and sort order.
 
 **Consequences:**
 - Card HTML lives in a JS template literal inside `renderCatalog()` in `attractions.html`. To change card layout: edit that template literal directly.
@@ -97,6 +103,26 @@
 
 **Failure mode:** If site.js fails to load, every page renders without a nav bar. Mitigation: `<link rel="preload">` reduces this risk; site is a private family tool on GitHub Pages where this scenario is extremely unlikely.
 
-**Rule for adding a new page:** (1) Do NOT copy-paste header/nav HTML. (2) Add `<link rel="preload" href="js/site.js" as="script">` to `<head>`. (3) Add `<script src="js/site.js"></script>` as first child of `<body>`. (4) If the page needs its own nav alias, add it to `NAV_ALIASES` in site.js.
+**Rule for adding a new page:** (1) Do NOT copy-paste header/nav HTML. (2) Add `<link rel="preload" href="js/site.js" as="script">` to `<head>`. (3) Add `<script src="js/site.js"></script>` as first child of `<body>`. (4) If the page needs its own nav alias, add it to `NAV_ALIASES` in site.js. (5) Add the new filename to the `sed` path-fix list in the deploy workflow. (6) Add an ADR entry to `docs/DECISIONS.md`.
 
 ---
+
+## ADR-008 · export_data.py as data-layer -- sort + visible architecture (2026-04-24)
+
+**Context:** Both bugs (wrong sort order, 132 vs 139 card count mismatch) had client-side JS as the single point of failure. Inline BLACKLIST in attractions.html had drifted from quick-pick.html. Sort logic would have needed to be duplicated across pages.
+
+**Why export_data.py:** Sorting and visibility are data concerns, not rendering concerns. Pushing them to the export layer means both HTML files become dumb renderers reading pre-computed fields. Single source of logic, zero drift risk.
+
+**New fields in web/data.json:**
+- `sort_key` (string): article-stripped lowercase name for stable alphabetical sort
+- `visible` (boolean): false if slug in data/blacklist.json, true otherwise
+
+**Update rule:** After editing data/attractions.json OR data/blacklist.json, run `python3 scripts/export_data.py` from vault root before pushing. Never hand-edit web/data.json.
+
+**Affects:** web/data.json schema, attractions.html render filter, quick-pick.html filterAttractions() and updateDeckCount(), CLAUDE.md.
+
+**Canonical update rule (supersedes ADR-001 and ADR-003):** After editing `data/attractions.json` OR `data/blacklist.json`, run `python3 scripts/export_data.py` from vault root. Never copy attractions.json directly to data.json -- the export script adds `sort_key` and `visible` fields that a raw copy omits.
+
+**Canonical pre-push safety check (supersedes ADR-002):** Run both before every push:
+1. `grep -c 'pointerdown' web/quick-pick.html` must return 1. If 0: STOP. Quick Pick swipe code is missing.
+2. `grep -c 'fetch.*data.json' web/attractions.html` must return ≥ 1. If 0: STOP. Render loop is missing.
