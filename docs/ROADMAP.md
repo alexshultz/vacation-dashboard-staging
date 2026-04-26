@@ -217,3 +217,25 @@ These decisions were open before Phase 1 coding started and are now resolved:
 3. **Custom domain:** Not pursued. GitHub Pages URL is used directly.
 
 Everything else I can make progress on without blocking.
+
+---
+
+## Post-Launch Documentation Tasks (after May 8)
+
+Low-priority doc work that does not affect user-visible behavior. Do not pull into the pre-launch sprint.
+
+### Dark Mode Tokens in DESIGN.md
+
+**Current state:** Dark mode is handled exclusively via CSS (`prefers-color-scheme` + `data-mode` attribute on `<html>`). The `web/DESIGN.md` spec intentionally omits dark palette values (line 192, line 427). The 23 companion `DESIGN-*.md` files are also light-theme-only.
+
+**Decision deferred:** The Google DESIGN.md spec has no formal dark mode section. A custom convention must be defined before implementation.
+
+**Proposed approach (ready to execute post-launch):**
+1. Decide on YAML convention -- e.g., a `colors-dark:` parallel block in the frontmatter. One decision, Alex approves.
+2. Update the `design-md-theme-system` Hermes skill with the convention so lazlo knows the format.
+3. Lazlo updates `web/DESIGN.md` (Trail, active theme) first as the canonical template.
+4. Lazlo batch-updates the 23 companion `web/themes/DESIGN-*.md` files, extracting dark palette values from paired CSS files and validating accuracy.
+
+**Files affected:** `web/DESIGN.md` + all 23 `web/themes/DESIGN-*.md` files.  
+**Blocking anything?** No. CSS dark mode is fully functional. This is documentation completeness only.  
+**Owner:** Lazlo (batch task). Alex approves the YAML convention in step 1 before any file is touched.

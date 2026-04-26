@@ -25,10 +25,11 @@ colors:
   on-neutral: "#FFFFFF"
 typography:
   display:
-    fontFamily: Orbitron
+    fontFamily: "Star Jedi, Orbitron, Eurostile, sans-serif"
     fontSize: 2rem
-    fontWeight: 800
+    fontWeight: 400
     lineHeight: 1.1
+    note: "Local @font-face font. Served from web/assets/fonts/star_jedi/Starjedi.ttf"
   headline:
     fontFamily: Orbitron
     fontSize: 1.375rem
@@ -161,6 +162,8 @@ components:
 ## Overview
 
 Light mode is the Rebel Alliance briefing room -- warm stone walls, tactical holodisplays. Dark mode is the Death Star control room -- space black with green saber glow, Sith red danger, title-crawl yellow for locked events, and rebel orange warnings. The Force is strong in both modes.
+
+**Fonts:** `Star Jedi` (display role only, ≥2rem page titles) is served locally from `web/assets/fonts/star_jedi/Starjedi.ttf` via `@font-face` in `star-wars.css`. `Orbitron` (headlines, nav labels) and `Share Tech Mono` (body) are loaded from Google Fonts. `Star Jedi Hollow` is also bundled (`Starjhol.ttf`) but not applied in CSS -- reserved for future decorative use.
 
 ## Colors
 
