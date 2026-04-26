@@ -161,9 +161,19 @@ scripts/
 
 ## GitHub Pages Sync (Canonical Workflow)
 
+**Two deploy targets as of 2026-04-26:**
+
+| Target | Repo | URL | Purpose |
+|---|---|---|---|
+| Production | `vacation-dashboard-previews` | https://alexshultz.github.io/vacation-dashboard-previews/ | Family-facing. Only push tested, reviewed work here. |
+| Staging | `vacation-dashboard-staging` | https://alexshultz.github.io/vacation-dashboard-staging/ | Dev/testing. All new feature work goes here first. |
+
+**Rule:** After May 8 (family launch), never push untested work to production. Always deploy to staging first, verify, then deploy to production.
+
 ```bash
 VAULT="/Users/alex/vaults/Vacation/Branson 2026"
 PREVIEW="/Users/alex/code/vacation-dashboard-previews"
+STAGING="/Users/alex/code/vacation-dashboard-staging"
 
 # 0. SAFETY CHECK — never skip
 grep -c 'pointerdown' "$VAULT/web/quick-pick.html"
@@ -200,6 +210,13 @@ sed -i '' 's|../assets/thumbs/|assets/thumbs/|g' \
 python3 "$VAULT/scripts/cache_bust.py"
 
 # 4. Commit and push
+# Deploy to STAGING:
+git add -A && \
+  git -c user.email="alexshultz@users.noreply.github.com" commit -m "MESSAGE" && \
+  git -c credential.helper=osxkeychain push origin main
+
+# Deploy to PRODUCTION (only after staging verified):
+# Run steps 2-3b again with $PREVIEW instead of $STAGING, then:
 git add -A && \
   git -c user.email="alexshultz@users.noreply.github.com" commit -m "MESSAGE" && \
   git -c credential.helper=osxkeychain push --force origin main
