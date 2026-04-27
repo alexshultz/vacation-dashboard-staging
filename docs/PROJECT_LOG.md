@@ -1,3 +1,17 @@
+## 2026-04-26 -- index.html progressive disclosure (Priority 2)
+
+**What changed:**
+- `web/index.html`: first `INITIAL_VISIBLE` (default: 6) events visible on load
+- Remaining 22 events in `<div id="events-overflow" hidden>` -- revealed by "Show all 22 more ↓" button
+- `INITIAL_VISIBLE` declared as `let` (not const) -- easy to change without code edit
+- Hero subtitle updates dynamically from `eventsData.length` after fetch (no longer hardcoded "28")
+- Button uses `btn.style.display = 'none'` in click handler (not `btn.hidden` -- CLAUDE.md pitfall avoided)
+- No collapse-back behavior -- once revealed, stays revealed
+- All existing render functions (`toggleAll`, `setupMobileCollapse`) unchanged
+- Deployed to GitHub Pages
+
+---
+
 ## 2026-04-26 -- schedule.json: single source of truth for 28 trip events
 
 **What changed:**
