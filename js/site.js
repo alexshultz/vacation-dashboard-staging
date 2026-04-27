@@ -2,12 +2,14 @@
  * site.js -- Branson '26 shared site chrome
  *
  * Loaded as a SYNCHRONOUS <script> as the FIRST child of <body> on all pages.
- * Injects <header> and <nav class="bottom-tabs"> into the DOM during body
- * parsing, before any <main> content renders -- no flash of missing nav.
+ * Injects <header>, <nav class="bottom-tabs">, and #hamburger-panel into the
+ * DOM during body parsing, before any <main> content renders -- no flash of
+ * missing nav.
  *
  * Owns:
- *   - Header injection (logo, 7-link desktop nav, profile-btn, theme-toggle)
- *   - Bottom tab bar injection (6 mobile tabs)
+ *   - Header injection (logo, hamburger-btn, 7-link desktop nav, profile-btn, theme-toggle)
+ *   - Bottom tab bar injection (3 mobile tabs)
+ *   - Hamburger panel injection (7-link mobile dropdown)
  *   - aria-current="page" auto-detection from window.location.pathname
  *   - Dark mode toggle click handler
  *   - Cross-tab storage sync for vacdash:v1:mode and vacdash:v1:user
@@ -34,6 +36,7 @@
   var NAV_LINKS = [
     { href: 'index.html',           label: 'Home'       },
     { href: 'attractions.html',     label: 'Activities' },
+    { href: 'quick-pick.html',      label: 'Quick Pick' },
     { href: 'wishlist.html',        label: 'Wishlist'   },
     { href: 'suggested.html',       label: 'Suggested'  },
     { href: 'event-timeline.html',  label: 'Timeline'   },
@@ -42,18 +45,14 @@
   ];
 
   var BOTTOM_TABS = [
-    { href: 'index.html',           label: 'Home',       emoji: '🏠' },
-    { href: 'attractions.html',     label: 'Activities', emoji: '🎡' },
-    { href: 'wishlist.html',        label: 'Wishlist',   emoji: '♡'  },
-    { href: 'suggested.html',       label: 'Suggested',  emoji: '💡' },
-    { href: 'event-timeline.html',  label: 'Timeline',   emoji: '📅' },
-    { href: 'people-timeline.html', label: 'People',     emoji: '👥' },
+    { href: 'index.html',       label: 'Home',       emoji: '🏠' },
+    { href: 'attractions.html', label: 'Activities',  emoji: '🎡' },
+    { href: 'wishlist.html',    label: 'Wishlist',    emoji: '♡'  },
   ];
 
   /* Sub-page aliases: these filenames highlight a parent nav/tab entry */
   var NAV_ALIASES = {
-    'quick-pick.html': 'attractions.html',
-    'shows.html':      'attractions.html',
+    'shows.html': 'attractions.html',
   };
 
   /* ── Active page detection ───────────────────────────────────────────────── */
@@ -76,22 +75,15 @@
       return '<a href="' + l.href + '" class="nav-link"' + cur + '>' + l.label + '</a>';
     }).join('');
 
-    var profCur = isProfile ? ' aria-current="page"' : '';
-    var profileBtn =
-      '<a class="header-profile-btn" href="profile.html"' +
-      ' aria-label="Profile"' + profCur + ' id="profile-btn">' +
-      '<span aria-hidden="true">\uD83D\uDC64</span>' +
-      '<span class="profile-nudge-dot" aria-hidden="true"></span></a>';
-
-    var toggle =
-      '<button class="theme-toggle" id="site-theme-toggle"' +
-      ' aria-label="Toggle dark mode">\u2600\uFE0F</button>';
+    var hamburger =
+      '<button class="hamburger-btn" id="site-hamburger"' +
+      ' aria-label="Menu" aria-expanded="false">&#9776;</button>';
 
     return (
       '<header class="site-header"><div class="site-header__inner">' +
       '<a class="site-logo" href="index.html">' + SITE_NAME + '</a>' +
+      hamburger +
       '<nav class="site-nav" aria-label="Main">' + links + '</nav>' +
-      toggle + profileBtn +
       '</div></header>'
     );
   }
@@ -107,10 +99,110 @@
     return '<nav class="bottom-tabs" aria-label="Main navigation">' + tabs + '</nav>';
   }
 
+  function buildHamburgerPanel() {
+    var links = NAV_LINKS.map(function (l) {
+      var cur = (l.href === activeHref) ? ' aria-current="page"' : '';
+      return '<a href="' + l.href + '" class="hamburger-link"' + cur + '>' + l.label + '</a>';
+    }).join('');
+    var profCur = isProfile ? ' aria-current="page"' : '';
+    return (
+      '<div id="hamburger-panel" role="navigation" aria-label="Menu" style="display:none">' +
+      links +
+      '<hr style="margin: 8px 24px; border-color: var(--color-line)">' +
+      '<button class="hamburger-link hamburger-theme-toggle" id="site-theme-toggle" aria-label="Toggle dark mode">\u2699\uFE0F System</button>' +
+      '<a class="hamburger-link" href="profile.html" id="profile-btn" aria-label="Profile"' + profCur + '>\uD83D\uDC64 Profile<span class="profile-nudge-dot" aria-hidden="true"></span></a>' +
+      '</div>'
+    );
+  }
+
+  function modeLabel(m) {
+    if (m === 'light') return '\u2600\uFE0F Light';
+    if (m === 'dark')  return '\uD83C\uDF19 Dark';
+    return '\u2699\uFE0F System';
+  }
+
   /* ── Inject chrome (synchronous -- runs during body parsing) ─────────────── */
   var cs = document.currentScript;
   if (cs && !document.querySelector('.site-header')) {
-    cs.insertAdjacentHTML('afterend', buildHeader() + buildTabs());
+    cs.insertAdjacentHTML('afterend', buildHeader() + buildTabs() + buildHamburgerPanel());
+
+    /* Set initial theme-toggle label from stored mode */
+    var initToggle = document.getElementById('site-theme-toggle');
+    if (initToggle) {
+      var initMode = 'system';
+      try { initMode = localStorage.getItem(MODE_KEY) || 'system'; } catch (e) {}
+      initToggle.textContent = modeLabel(initMode);
+    }
+
+    if (!document.getElementById('site-hamburger-styles')) {
+      var styleEl = document.createElement('style');
+      styleEl.id = 'site-hamburger-styles';
+      styleEl.textContent =
+        '.hamburger-btn {\n' +
+        '  display: flex;\n' +
+        '  align-items: center;\n' +
+        '  background: none;\n' +
+        '  border: none;\n' +
+        '  font-size: 22px;\n' +
+        '  cursor: pointer;\n' +
+        '  color: var(--color-ink);\n' +
+        '  padding: 6px 10px;\n' +
+        '  border-radius: var(--radius-btn);\n' +
+        '  line-height: 1;\n' +
+        '}\n' +
+        '#hamburger-panel {\n' +
+        '  position: fixed;\n' +
+        '  top: var(--header-h, 56px);\n' +
+        '  left: 0;\n' +
+        '  right: 0;\n' +
+        '  background: var(--color-surface);\n' +
+        '  border-bottom: 1.5px solid var(--color-line);\n' +
+        '  z-index: 999;\n' +
+        '  padding: 8px 0;\n' +
+        '  box-shadow: var(--shadow-2, 0 4px 16px rgba(0,0,0,.15));\n' +
+        '}\n' +
+        '.hamburger-link {\n' +
+        '  display: block;\n' +
+        '  padding: 14px 24px;\n' +
+        '  font-family: var(--font-display);\n' +
+        '  font-size: var(--text-base);\n' +
+        '  font-weight: 700;\n' +
+        '  color: var(--color-ink);\n' +
+        '  text-decoration: none;\n' +
+        '}\n' +
+        '.hamburger-link:hover,\n' +
+        '.hamburger-link:focus { background: var(--color-bg); }\n' +
+        '.hamburger-link[aria-current="page"] { color: var(--accent-moss, var(--moss)); }\n' +
+        '@media (min-width: 720px) {\n' +
+        '  #hamburger-panel { display: none !important; }\n' +
+        '}';
+      document.head.appendChild(styleEl);
+    }
+  }
+
+  /* ── Hamburger toggle ────────────────────────────────────────────────────── */
+  var hamburgerBtn   = document.getElementById('site-hamburger');
+  var hamburgerPanel = document.getElementById('hamburger-panel');
+  if (hamburgerBtn && hamburgerPanel) {
+    hamburgerBtn.addEventListener('click', function () {
+      var isOpen = hamburgerPanel.style.display !== 'none';
+      hamburgerPanel.style.display = isOpen ? 'none' : 'block';
+      hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    });
+    // B. Outside click — close panel
+    document.addEventListener('click', function (e) {
+      if (hamburgerPanel.style.display === 'none') return;
+      if (hamburgerPanel.contains(e.target) || hamburgerBtn.contains(e.target)) return;
+      hamburgerPanel.style.display = 'none';
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    });
+    // C. Escape key — close panel
+    document.addEventListener('keydown', function (e) {
+      if ((e.key === 'Escape' || e.key === 'Esc') && hamburgerPanel.style.display !== 'none') {
+        hamburgerPanel.style.display = 'none';
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
   }
 
   /* ── Dark mode toggle ────────────────────────────────────────────────────── */
@@ -122,6 +214,7 @@
       var next  = modes[(modes.indexOf(m) + 1) % 3];
       document.documentElement.setAttribute('data-mode', next);
       try { localStorage.setItem(MODE_KEY, next); } catch (e) {}
+      toggleBtn.textContent = modeLabel(next);
     });
   }
 
