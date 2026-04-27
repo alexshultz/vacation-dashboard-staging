@@ -72,7 +72,7 @@
 
 ## ADR-006 · GitHub Pages preview repo is separate from vault (2026-04-21)
 
-**Decision:** The vault at `~/vaults/Vacation/Branson 2026/` has no git remote and is local-only. GitHub Pages deployments go through the separate clone at `~/code/vacation-dashboard-previews/`.
+**Decision:** The vault at `~/vaults/Vacation/Branson 2026/` has no git remote and is local-only. GitHub Pages deployments go through the separate clone at `~/code/vacation-dashboard/`.
 
 **Sync workflow:** rsync from `vault/web/` → preview repo root, then path-fix `../assets/thumbs/` → `assets/thumbs/` across all HTML files, then commit + push.
 
