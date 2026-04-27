@@ -36,6 +36,7 @@
   var NAV_LINKS = [
     { href: 'index.html',           label: 'Home'       },
     { href: 'attractions.html',     label: 'Activities' },
+    { href: 'quick-pick.html',      label: 'Quick Pick' },
     { href: 'wishlist.html',        label: 'Wishlist'   },
     { href: 'suggested.html',       label: 'Suggested'  },
     { href: 'event-timeline.html',  label: 'Timeline'   },
@@ -51,8 +52,7 @@
 
   /* Sub-page aliases: these filenames highlight a parent nav/tab entry */
   var NAV_ALIASES = {
-    'quick-pick.html': 'attractions.html',
-    'shows.html':      'attractions.html',
+    'shows.html': 'attractions.html',
   };
 
   /* ── Active page detection ───────────────────────────────────────────────── */
@@ -75,17 +75,6 @@
       return '<a href="' + l.href + '" class="nav-link"' + cur + '>' + l.label + '</a>';
     }).join('');
 
-    var profCur = isProfile ? ' aria-current="page"' : '';
-    var profileBtn =
-      '<a class="header-profile-btn" href="profile.html"' +
-      ' aria-label="Profile"' + profCur + ' id="profile-btn">' +
-      '<span aria-hidden="true">\uD83D\uDC64</span>' +
-      '<span class="profile-nudge-dot" aria-hidden="true"></span></a>';
-
-    var toggle =
-      '<button class="theme-toggle" id="site-theme-toggle"' +
-      ' aria-label="Toggle dark mode">\u2600\uFE0F</button>';
-
     var hamburger =
       '<button class="hamburger-btn" id="site-hamburger"' +
       ' aria-label="Menu" aria-expanded="false">&#9776;</button>';
@@ -95,7 +84,6 @@
       '<a class="site-logo" href="index.html">' + SITE_NAME + '</a>' +
       hamburger +
       '<nav class="site-nav" aria-label="Main">' + links + '</nav>' +
-      toggle + profileBtn +
       '</div></header>'
     );
   }
@@ -116,11 +104,21 @@
       var cur = (l.href === activeHref) ? ' aria-current="page"' : '';
       return '<a href="' + l.href + '" class="hamburger-link"' + cur + '>' + l.label + '</a>';
     }).join('');
+    var profCur = isProfile ? ' aria-current="page"' : '';
     return (
       '<div id="hamburger-panel" role="navigation" aria-label="Menu" style="display:none">' +
       links +
+      '<hr style="margin: 8px 24px; border-color: var(--color-line)">' +
+      '<button class="hamburger-link hamburger-theme-toggle" id="site-theme-toggle" aria-label="Toggle dark mode">\u2699\uFE0F System</button>' +
+      '<a class="hamburger-link" href="profile.html" id="profile-btn" aria-label="Profile"' + profCur + '>\uD83D\uDC64 Profile<span class="profile-nudge-dot" aria-hidden="true"></span></a>' +
       '</div>'
     );
+  }
+
+  function modeLabel(m) {
+    if (m === 'light') return '\u2600\uFE0F Light';
+    if (m === 'dark')  return '\uD83C\uDF19 Dark';
+    return '\u2699\uFE0F System';
   }
 
   /* ── Inject chrome (synchronous -- runs during body parsing) ─────────────── */
@@ -128,12 +126,21 @@
   if (cs && !document.querySelector('.site-header')) {
     cs.insertAdjacentHTML('afterend', buildHeader() + buildTabs() + buildHamburgerPanel());
 
+    /* Set initial theme-toggle label from stored mode */
+    var initToggle = document.getElementById('site-theme-toggle');
+    if (initToggle) {
+      var initMode = 'system';
+      try { initMode = localStorage.getItem(MODE_KEY) || 'system'; } catch (e) {}
+      initToggle.textContent = modeLabel(initMode);
+    }
+
     if (!document.getElementById('site-hamburger-styles')) {
       var styleEl = document.createElement('style');
       styleEl.id = 'site-hamburger-styles';
       styleEl.textContent =
         '.hamburger-btn {\n' +
-        '  display: none;\n' +
+        '  display: flex;\n' +
+        '  align-items: center;\n' +
         '  background: none;\n' +
         '  border: none;\n' +
         '  font-size: 22px;\n' +
@@ -142,9 +149,6 @@
         '  padding: 6px 10px;\n' +
         '  border-radius: var(--radius-btn);\n' +
         '  line-height: 1;\n' +
-        '}\n' +
-        '@media (max-width: 719px) {\n' +
-        '  .hamburger-btn { display: flex; align-items: center; }\n' +
         '}\n' +
         '#hamburger-panel {\n' +
         '  position: fixed;\n' +
@@ -210,6 +214,7 @@
       var next  = modes[(modes.indexOf(m) + 1) % 3];
       document.documentElement.setAttribute('data-mode', next);
       try { localStorage.setItem(MODE_KEY, next); } catch (e) {}
+      toggleBtn.textContent = modeLabel(next);
     });
   }
 
