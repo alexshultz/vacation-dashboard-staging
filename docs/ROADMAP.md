@@ -3,15 +3,15 @@
 > ⚠️ **ARCHITECTURE SECTIONS PARTIALLY SUPERSEDED** -- The Phase 2 architecture decisions (Vite, Alpine.js) were evaluated and rejected. The Phase 3 nav approach (Python script) was also superseded. Current stack is vanilla JS + static HTML + site.js for nav. See `docs/DECISIONS.md` and the "What We Tried" table in `VACATION-AGENT-ONBOARDING.md` for the binding decisions. Do not treat Phase 1-2 technical specs as current.
 
 
-**Last updated:** 2026-04-25 (data-layer architecture per ADR-008 live, help.html pending, tester pass pending)
+**Last updated:** 2026-04-27
 **Family starts using dashboard:** ~2026-05-08
 **Trip:** 2026-05-22 → 05-29
 
 ---
 
-## Current Status (2026-04-25)
+## Current Status (2026-04-27)
 
-Phase 1 core features are complete and live on GitHub Pages. Phase 2 frontend is complete (localStorage picks); Supabase backend NOT YET ACTIVE (schema written, not activated).
+Phase 1 core features are complete and live on GitHub Pages. Phase 2 frontend is complete (localStorage picks); Supabase backend NOT YET ACTIVE (schema written, not activated). Staging repo is in sync with production.
 
 **What's done:**
 - Design system (tokens.css, trail.css, components.css)
@@ -19,12 +19,16 @@ Phase 1 core features are complete and live on GitHub Pages. Phase 2 frontend is
 - Quick Pick swipe deck (quick-pick.html) -- separate page, same data source
 - Wishlist, Suggested, Profile, Timeline, People pages
 - Supabase Phase 2 schema written (picks table NOT YET ACTIVE -- currently Phase 1, localStorage only)
-- GitHub Pages deploy pipeline established
+- GitHub Pages deploy pipeline established (production + staging repos in sync)
+- help.html -- COMPLETE (fetches help.json, all 5 required sections present, entry point on Profile page)
+- Hamburger menu, eyebrow fix, nav consolidation shipped
 
-**What's pending before May 8:**
-- [ ] `web/help.html` -- plain-language user guide for family (see Phase: Help Page below)
-- [ ] Final tester pass with Ashlyn, Jordan, Mycah
-- [ ] Send family the link with a one-paragraph plain-English intro
+**Active sprint -- next up:**
+- [ ] Activate Supabase Phase 2 -- wire picks/suggestions to live database instead of localStorage only (schema already written at `data/supabase-phase2-schema.sql`)
+- [ ] Coordinator admin editor page -- Alex can edit schedule data, manage RSVPs, and push content live (deferred from prior sprint; GitHub-API-backed so edits go live without manual deploy)
+- [ ] INITIAL_VISIBLE setting in admin UI -- expose the home page event count as a live-configurable value (no code change needed to adjust it)
+
+**Tester pass -- DEFERRED:** Family unavailable for formal sign-off. Removed from May 8 gate. Dashboard ships May 8 on schedule without tester approval round.
 
 ---
 
