@@ -168,14 +168,14 @@ scripts/
 | Target | Repo | URL | Purpose |
 |---|---|---|---|
 | Production | `vacation-dashboard` | https://vacation.creeperbomb.com/ | Family-facing. Only push tested, reviewed work here. |
-| Staging | `vacation-dashboard-staging` | https://vacation-dev.creeperbomb.com/ | Dev/testing. All new feature work goes here first. |
+| Staging | `vacation-dashboard-dev` | https://vacation-dev.creeperbomb.com/ | Dev/testing. All new feature work goes here first. |
 
 **Rule:** After May 8 (family launch), never push untested work to production. Always deploy to staging first, verify, then deploy to production.
 
 ```bash
 VAULT="/Users/alex/vaults/Vacation/Branson 2026"
 PRODUCTION="/Users/alex/code/vacation-dashboard"
-STAGING="/Users/alex/code/vacation-dashboard-staging"
+STAGING="/Users/alex/code/vacation-dashboard-dev"
 
 # 0. SAFETY CHECK — never skip
 grep -c 'pointerdown' "$VAULT/web/quick-pick.html"
