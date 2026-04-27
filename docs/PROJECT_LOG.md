@@ -1,3 +1,23 @@
+## 2026-04-26 -- schedule.json: single source of truth for 28 trip events
+
+**What changed:**
+- Created `web/schedule.json` with 28 events migrated from inline JS arrays in event-timeline.html and index.html
+- Schema: id, title, date, duration, priority, catalogRef (null), startTime (null), travelMinutes (null), interested, undecided, notInterested, noResponse
+- Corrected two title errors: "Knife" → "Knife Forge", "Simon & Garfield" → "Simon & Garfunkel"
+- 24 events matched for duration; 4 events received default durations (Dogwood 6.0, Dogwood Canyon Horse 1.5, Dogwood Canyon Tram 1.5, Go Karts 1.5); 1 event-timeline-only title dropped ("Dogwood Canyon (all)")
+- `web/event-timeline.html`: replaced inline const eventsData array with fetch('schedule.json')
+- `web/index.html`: replaced inline const eventsData array with fetch('schedule.json')
+- CLAUDE.md: added safety check -- grep -c 'fetch.*schedule.json' web/event-timeline.html must return >= 1
+- catalogRef candidates identified for 11 events (set to null; Priority 9 coordinator tool will populate)
+- Deployed to GitHub Pages
+
+**Nullable forward-compat fields (all null, populated by future tasks):**
+- catalogRef: slug link to data/attractions.json catalog entry
+- startTime: "HH:MM" 24h string (Priority 9 coordinator tool)
+- travelMinutes: drive minutes from Watermill Cove (Priority 9 coordinator tool)
+
+---
+
 ## 2026-04-26 -- Staging environment created + font bug fixes deployed
 
 **What changed:**
