@@ -1,3 +1,19 @@
+## 2026-04-26 -- Menu refactor: profile + theme toggle move to hamburger, Quick Pick promoted
+
+**What changed:**
+- `web/js/site.js`: NAV_LINKS expanded to 8 items (Quick Pick added between Activities and Wishlist)
+- `web/js/site.js`: buildHeader() stripped to site-logo + hamburger-btn + site-nav only
+- `web/js/site.js`: buildHamburgerPanel() now includes all 8 nav links + hr separator + theme-toggle button + profile link at bottom
+- `web/js/site.js`: hamburger-btn display:flex always (no mobile-only restriction -- hamburger is now universal settings access)
+- `web/js/site.js`: dark mode handler sets button textContent after each cycle (⚙️ System / ☀️ Light / 🌙 Dark)
+- `web/js/site.js`: modeLabel() helper added; initial label set from localStorage after panel injection
+- `web/js/site.js`: NAV_ALIASES quick-pick.html entry removed (matches directly to Quick Pick nav item now)
+- `web/attractions.html`: removed <a class="qp-nav-btn"> Quick Pick shortcut from filter row
+- syncBadge() unchanged -- getElementById('profile-btn') still resolves in panel
+- Deployed to GitHub Pages
+
+---
+
 ## 2026-04-26 -- Mobile hamburger menu (Priority 4)
 
 **What changed:**
