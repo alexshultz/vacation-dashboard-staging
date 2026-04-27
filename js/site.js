@@ -173,8 +173,12 @@
         '.hamburger-link:hover,\n' +
         '.hamburger-link:focus { background: var(--color-bg); }\n' +
         '.hamburger-link[aria-current="page"] { color: var(--accent-moss, var(--moss)); }\n' +
-        '@media (min-width: 720px) {\n' +
+        '.site-header .site-nav { display: none; }\n' +
+        '@media (min-width: 960px) {\n' +
+        '  .hamburger-btn   { display: none; }\n' +
         '  #hamburger-panel { display: none !important; }\n' +
+        '  .site-header .site-nav { display: flex; gap: 4px; }\n' +
+        '  .bottom-tabs     { display: none; }\n' +
         '}';
       document.head.appendChild(styleEl);
     }
