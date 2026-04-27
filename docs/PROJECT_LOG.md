@@ -1,3 +1,17 @@
+## 2026-04-26 -- Mobile hamburger menu (Priority 4)
+
+**What changed:**
+- `web/js/site.js`: BOTTOM_TABS trimmed from 6 to 3 (Home, Activities, Wishlist)
+- Hamburger ☰ button added to header (desktop hidden, mobile visible <720px)
+- Full 7-item dropdown panel injected below header, initially hidden
+- CSS injected once into document.head (guarded by site-hamburger-styles id)
+- Panel closes on: second hamburger tap, outside click, Escape key
+- aria-expanded tracks open/closed state for accessibility
+- Suggested, Timeline, People now accessible via hamburger menu on mobile
+- Deployed to GitHub Pages
+
+---
+
 ## 2026-04-26 -- index.html day-section banding + Show All/Show Fewer toggle
 
 **What changed:**
