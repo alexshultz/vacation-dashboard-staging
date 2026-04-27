@@ -21,6 +21,8 @@ grep -c 'fetch.*data.json' web/attractions.html
 # Must return >= 1. If 0: STOP. Render loop is missing.
 grep -c 'fetch.*help.json' web/help.html
 # Must return 1. If 0: STOP. Help renderer is missing.
+grep -c 'fetch.*schedule.json' web/event-timeline.html
+# Must return >= 1. If 0: STOP. Event timeline data source is missing.
 ```
 
 **To add new attractions or update blacklist:** edit `data/attractions.json` or `data/blacklist.json`, then run `python3 scripts/export_data.py` from the vault root to regenerate `web/data.json`. Do NOT use the generator. Do NOT regenerate any HTML file from scratch. Do NOT hand-edit `web/data.json` directly -- it is always produced by export_data.py.

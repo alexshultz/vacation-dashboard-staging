@@ -97,33 +97,7 @@
             });
         }
 
-        const eventsData = [
-            {title: "Cave", date: "2026-05-23", priority: "medium", duration: 1.5, interested: ['Alex'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Ashlyn','Bee','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Mycah','Natalie','Rachel','Ray','Simran','Skylar','Tayden','Zach']},
-            {title: "Ripley’s", date: "2026-05-23", priority: "high", duration: 1, interested: ['Ashlyn','Mycah','Tayden'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Bee','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Natalie','Rachel','Ray','Simran','Skylar','Zach']},
-            {title: "Five & Dime", date: "2026-05-23", priority: "low", duration: 1, interested: ['Ashlyn','Jordan','Natalie'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Bee','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Josh','Kevin','Lucy','McKinley','Mel','Mycah','Rachel','Ray','Simran','Skylar','Tayden','Zach']},
-            {title: "Sight & Sound", date: "2026-05-23", priority: "high", duration: 3, interested: ['Bee','Jordan','Josh','McKinley','Natalie','Simran','Skylar','Zach'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Ashlyn','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Kevin','Lucy','Mel','Mycah','Rachel','Ray','Tayden']},
-            {title: "Car Museum", date: "2026-05-24", priority: "low", duration: 1, interested: ['Bee','Skylar'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Ashlyn','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Mycah','Natalie','Rachel','Ray','Simran','Tayden','Zach']},
-            {title: "Escape Room", date: "2026-05-24", priority: "high", duration: 1.5, interested: ['Ashlyn','Bee','Dez','Josh','Mycah','Rachel','Ray','Tayden'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Brian','Bug','David','Georgie','Jackson','Jacob','Jordan','Kevin','Lucy','McKinley','Mel','Natalie','Simran','Skylar','Zach']},
-            {title: "Paintball", date: "2026-05-24", priority: "low", duration: 2, interested: ['Bee'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Ashlyn','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Mycah','Natalie','Rachel','Ray','Simran','Skylar','Tayden','Zach']},
-            {title: "Silver Dollar City", date: "2026-05-24", priority: "high", duration: 6, interested: ['Bee','Dez','Mycah','Skylar'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Ashlyn','Brian','Bug','David','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Natalie','Rachel','Ray','Simran','Tayden','Zach']},
-            {title: "Butterfly Palace", date: "2026-05-25", priority: "medium", duration: 1.5, interested: ['Ashlyn','Rachel','Simran','Skylar'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Bee','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Mycah','Natalie','Ray','Tayden','Zach']},
-            {title: "Dogwood Canyon (all)", date: "2026-05-25", priority: "medium", duration: 6, interested: ['Ashlyn','Bee','Brian','Dez','Jordan','Josh','Kevin','McKinley','Mel','Natalie','Simran','Skylar'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Bug','David','Georgie','Jackson','Jacob','Lucy','Mycah','Rachel','Ray','Tayden','Zach']},
-            {title: "Titanic", date: "2026-05-25", priority: "high", duration: 1.5, interested: ['Ashlyn','Skylar'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Bee','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Mycah','Natalie','Rachel','Ray','Simran','Tayden','Zach']},
-            {title: "Water Park", date: "2026-05-25", priority: "high", duration: 3, interested: ['Bee','Mycah','Tayden'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Ashlyn','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Natalie','Rachel','Ray','Simran','Skylar','Zach']},
-            {title: "Wax Museum", date: "2026-05-26", priority: "medium", duration: 0.75, interested: ['Rachel'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Ashlyn','Bee','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Mycah','Natalie','Ray','Simran','Skylar','Tayden','Zach']},
-            {title: "ATV", date: "2026-05-26", priority: "high", duration: 4, interested: ['Dez','Kevin','McKinley','Natalie','Rachel','Ray','Simran','Skylar'], undecided: ['Adrian','Alex','Brian'], notInterested: ['Evie'], noResponse: ['Ashlyn','Bee','Bug','David','Georgie','Jackson','Jacob','Jordan','Josh','Lucy','Mel','Mycah','Tayden','Zach']},
-            {title: "Horseback", date: "2026-05-26", priority: "medium", duration: 3, interested: ['Bee','Natalie','Rachel','Simran','Skylar'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Ashlyn','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Mycah','Ray','Tayden','Zach']},
-            {title: "Zip Line", date: "2026-05-27", priority: "medium", duration: 1, interested: ['Skylar'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Ashlyn','Bee','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Mycah','Natalie','Rachel','Ray','Simran','Tayden','Zach']},
-            {title: "Branson Belle Showboat", date: "2026-05-27", priority: "medium", duration: 2.5, interested: ['Bee','Dez','Jordan','Josh','Kevin','Mycah','Natalie','Simran','Skylar','Tayden'], undecided: ['Adrian'], notInterested: ['Evie'], noResponse: ['Alex','Ashlyn','Brian','Bug','David','Georgie','Jackson','Jacob','Lucy','McKinley','Mel','Rachel','Ray','Zach']},
-            {title: "Fishing", date: "2026-05-27", priority: "low", duration: 4, interested: ['Josh'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Ashlyn','Bee','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Kevin','Lucy','McKinley','Mel','Mycah','Natalie','Rachel','Ray','Simran','Skylar','Tayden','Zach']},
-            {title: "Knife Forge", date: "2026-05-27", priority: "medium", duration: 1.5, interested: ['David','Dez','Jackson','Jacob','Josh','Kevin','Lucy','Zach'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Ashlyn','Bee','Brian','Bug','Georgie','Jordan','McKinley','Mel','Mycah','Natalie','Rachel','Ray','Simran','Skylar','Tayden']},
-            {title: "Simon & Garfunkel", date: "2026-05-27", priority: "medium", duration: 1.5, interested: ['Bee','Josh'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Ashlyn','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Kevin','Lucy','McKinley','Mel','Mycah','Natalie','Rachel','Ray','Simran','Skylar','Tayden','Zach']},
-            {title: "Cat Cafe", date: "2026-05-28", priority: "low", duration: 1, interested: [], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Ashlyn','Bee','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Mycah','Natalie','Rachel','Ray','Simran','Skylar','Tayden','Zach']},
-            {title: "Dolly Parton", date: "2026-05-28", priority: "high", duration: 2, interested: ['Bee','Bug','Georgie','Jacob','Jordan','Josh','McKinley','Natalie','Rachel','Tayden'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Ashlyn','Brian','David','Dez','Jackson','Kevin','Lucy','Mel','Mycah','Ray','Simran','Skylar','Zach']},
-            {title: "Mini Golf", date: "2026-05-28", priority: "low", duration: 0.75, interested: ['Ashlyn'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Bee','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Mycah','Natalie','Rachel','Ray','Simran','Skylar','Tayden','Zach']},
-            {title: "Riverfront", date: "2026-05-28", priority: "medium", duration: 2, interested: [], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Ashlyn','Bee','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Mycah','Natalie','Rachel','Ray','Simran','Skylar','Tayden','Zach']},
-            {title: "Thrift Shop", date: "2026-05-28", priority: "low", duration: 2, interested: ['Ashlyn'], undecided: [], notInterested: ['Evie'], noResponse: ['Adrian','Alex','Bee','Brian','Bug','David','Dez','Georgie','Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Mycah','Natalie','Rachel','Ray','Simran','Skylar','Tayden','Zach']}
-        ];
+        let eventsData = [];
 
         function render() {
             const container = document.getElementById('timeline-list');
@@ -211,8 +185,14 @@
         }
 
         window.onload = () => {
-            render();
-            setupMobileCollapse();
+            fetch('schedule.json')
+                .then(r => r.json())
+                .then(data => {
+                    eventsData = data.events;
+                    render();
+                    setupMobileCollapse();
+                })
+                .catch(err => console.error('Failed to load schedule.json:', err));
             window.addEventListener('resize', setupMobileCollapse);
         };
     </script>
