@@ -1,3 +1,19 @@
+## 2026-04-26 -- index.html day-section banding + Show All/Show Fewer toggle
+
+**What changed:**
+- `web/index.html`: render() rewritten to group events into day-section container divs
+- Alternating Trail-palette backgrounds: even days moss 8% tint, odd days sand 10% tint (both blended against --color-bg, works in light + dark mode)
+- Day label spans at 45% opacity above each day's cards ("📅 May 23 — Saturday" etc.)
+- New `applyVisibilityState(showAll)` function -- single source of truth for card/section visibility
+- First INITIAL_VISIBLE (6) cards visible on load; remaining cards and empty day-sections hidden
+- "Show All ↓" button -- persists in DOM, toggles to "Show Fewer ↑" on click, never hidden
+- Old events-overflow/show-more-btn architecture fully removed (grep -c events-overflow = 0)
+- `showingAll` module-level boolean tracks toggle state
+- toggleAll() and setupMobileCollapse() unchanged
+- Deployed to GitHub Pages
+
+---
+
 ## 2026-04-26 -- index.html progressive disclosure (Priority 2)
 
 **What changed:**
