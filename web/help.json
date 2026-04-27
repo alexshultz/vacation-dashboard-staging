@@ -8,7 +8,7 @@
     {
       "id": "section-start",
       "heading": "Get started",
-      "body": "First thing: set your name:\n\n- Tap the **person icon** in the top-right corner (or go to **Profile** in the menu)\n- Pick your name from the list\n- The dashboard remembers you and saves your picks automatically"
+      "body": "First thing: set your name:\n\n- Choose **Profile** from the menu\n- Pick your name from the list\n- The dashboard remembers you and saves your picks automatically"
     },
     {
       "id": "section-activities",
@@ -43,7 +43,7 @@
     {
       "id": "section-profile",
       "heading": "Profile",
-      "body": "Your settings home base. Set your name, pick a color theme (there are 14 to choose from!), choose light or dark mode, set your trip dates, and choose your interests. Everything saves automatically. No sign-in needed."
+      "body": "Your settings home base. Set your name, pick a color theme (there are several to choose from!), choose light or dark mode, set your trip dates, and choose your interests. Everything saves automatically. No sign-in needed."
     },
     {
       "id": "section-privacy",
