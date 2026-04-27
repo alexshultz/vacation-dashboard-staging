@@ -86,6 +86,7 @@
 
     <script>
         let INITIAL_VISIBLE = 6;
+        let showingAll = false;
 
         const attendees = ["Adrian","Alex","Ashlyn","Bee","Brian","Bug","David","Dez","Evie","Georgie","Jackson","Jacob","Jordan","Josh","Kevin","Lucy","McKinley","Mel","Mycah","Natalie","Rachel","Ray","Simran","Skylar","Tayden","Zach"].sort();
 
@@ -103,26 +104,80 @@
             });
         }
 
+        function applyVisibilityState(showAll) {
+            const cards = document.querySelectorAll('details.event-card');
+            if (showAll) {
+                cards.forEach(card => card.hidden = false);
+                document.querySelectorAll('.day-section').forEach(sec => sec.hidden = false);
+            } else {
+                cards.forEach((card, i) => card.hidden = i >= INITIAL_VISIBLE);
+                document.querySelectorAll('.day-section').forEach(sec => {
+                    const sectionCards = sec.querySelectorAll('.event-card');
+                    sec.hidden = Array.from(sectionCards).every(c => c.hidden);
+                });
+            }
+        }
+
         function render() {
+            const existingBtn = document.getElementById('show-all-btn');
+            if (existingBtn) existingBtn.parentNode.remove();
+
             const eventsDiv = document.getElementById('events-list');
-            const cards = eventsData.map(event => {
-                const yesStyle = 'color:var(--status-yes);border-color:color-mix(in srgb,var(--status-yes) 35%,var(--color-line))';
-                const warnStyle = 'color:var(--warn);border-color:color-mix(in srgb,var(--warn) 35%,var(--color-line))';
-                const noStyle = 'color:var(--status-no);border-color:color-mix(in srgb,var(--status-no) 35%,var(--color-line))';
-                const nameCell = (n) => `<div class="event-card__name">${n}</div>`;
-                const noneCell = '<div class="event-card__none">(none)</div>';
-                return `
-                    <details class="event-card" open>
+            eventsDiv.innerHTML = '';
+
+            const DATE_LABELS = {
+                '2026-05-23': 'May 23 \u2014 Saturday',
+                '2026-05-24': 'May 24 \u2014 Sunday',
+                '2026-05-25': 'May 25 \u2014 Monday',
+                '2026-05-26': 'May 26 \u2014 Tuesday',
+                '2026-05-27': 'May 27 \u2014 Wednesday',
+                '2026-05-28': 'May 28 \u2014 Thursday'
+            };
+
+            const groups = [];
+            const dateMap = new Map();
+            eventsData.forEach(event => {
+                if (!dateMap.has(event.date)) {
+                    dateMap.set(event.date, []);
+                    groups.push([event.date, dateMap.get(event.date)]);
+                }
+                dateMap.get(event.date).push(event);
+            });
+
+            groups.forEach(([date, dayEvents], idx) => {
+                const section = document.createElement('div');
+                section.className = 'day-section';
+                const bgColor = idx % 2 === 0
+                    ? 'color-mix(in srgb, var(--moss) 8%, var(--color-bg))'
+                    : 'color-mix(in srgb, var(--sand) 10%, var(--color-bg))';
+                section.style.cssText = `background: ${bgColor}; border-radius: var(--radius-card); padding: 16px 12px 8px; margin-bottom: 20px`;
+
+                const label = document.createElement('span');
+                label.textContent = `\uD83D\uDCC5 ${DATE_LABELS[date] || date}`;
+                label.style.cssText = 'font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; opacity: 0.45; display: block; margin-bottom: 10px; padding-left: 2px';
+                section.appendChild(label);
+
+                dayEvents.forEach(event => {
+                    const yesStyle = 'color:var(--status-yes);border-color:color-mix(in srgb,var(--status-yes) 35%,var(--color-line))';
+                    const warnStyle = 'color:var(--warn);border-color:color-mix(in srgb,var(--warn) 35%,var(--color-line))';
+                    const noStyle = 'color:var(--status-no);border-color:color-mix(in srgb,var(--status-no) 35%,var(--color-line))';
+                    const nameCell = (n) => `<div class="event-card__name">${n}</div>`;
+                    const noneCell = '<div class="event-card__none">(none)</div>';
+
+                    const cardEl = document.createElement('details');
+                    cardEl.className = 'event-card';
+                    cardEl.setAttribute('open', '');
+                    cardEl.innerHTML = `
                         <summary>
                             <div>
                                 <div class="event-card__title">${event.title}</div>
-                                <div class="event-card__meta">${event.date} • ${event.priority} priority</div>
+                                <div class="event-card__meta">${event.date} \u2022 ${event.priority} priority</div>
                             </div>
                             <div class="event-card__chips">
-                                <span class="minichip" style="${yesStyle}">✓ ${event.interested.length}</span>
+                                <span class="minichip" style="${yesStyle}">\u2713 ${event.interested.length}</span>
                                 <span class="minichip" style="${warnStyle}">? ${event.undecided.length}</span>
-                                <span class="minichip" style="${noStyle}">✗ ${event.notInterested.length}</span>
-                                <span class="minichip">– ${event.noResponse.length}</span>
+                                <span class="minichip" style="${noStyle}">\u2717 ${event.notInterested.length}</span>
+                                <span class="minichip">\u2013 ${event.noResponse.length}</span>
                             </div>
                         </summary>
                         <div class="event-card__body">
@@ -143,31 +198,30 @@
                                 ${event.noResponse.map(nameCell).join('') || noneCell}
                             </div>
                         </div>
-                    </details>
-                `;
-            });
-            eventsDiv.innerHTML = cards.slice(0, INITIAL_VISIBLE).join('');
-
-            if (eventsData.length > INITIAL_VISIBLE) {
-                const overflowDiv = document.createElement('div');
-                overflowDiv.id = 'events-overflow';
-                overflowDiv.hidden = true;
-                overflowDiv.innerHTML = cards.slice(INITIAL_VISIBLE).join('');
-                eventsDiv.insertAdjacentElement('afterend', overflowDiv);
-
-                const btn = document.createElement('button');
-                btn.id = 'show-more-btn';
-                btn.textContent = `Show all ${eventsData.length - INITIAL_VISIBLE} more ↓`;
-                btn.style.cssText = 'display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:14px;cursor:pointer;color:var(--color-ink)';
-                btn.addEventListener('click', () => {
-                    document.getElementById('events-overflow').removeAttribute('hidden');
-                    btn.style.display = 'none';
+                    `;
+                    section.appendChild(cardEl);
                 });
 
-                const showMoreWrapper = document.createElement('div');
-                showMoreWrapper.style.cssText = 'margin-top:12px;';
-                showMoreWrapper.appendChild(btn);
-                overflowDiv.insertAdjacentElement('afterend', showMoreWrapper);
+                eventsDiv.appendChild(section);
+            });
+
+            applyVisibilityState(false);
+
+            if (eventsData.length > INITIAL_VISIBLE) {
+                const showAllBtn = document.createElement('button');
+                showAllBtn.id = 'show-all-btn';
+                showAllBtn.textContent = 'Show All \u2193';
+                showAllBtn.style.cssText = 'display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:14px;cursor:pointer;color:var(--color-ink);';
+                showAllBtn.addEventListener('click', () => {
+                    showingAll = !showingAll;
+                    applyVisibilityState(showingAll);
+                    showAllBtn.textContent = showingAll ? 'Show Fewer \u2191' : 'Show All \u2193';
+                });
+
+                const wrapper = document.createElement('div');
+                wrapper.style.cssText = 'margin-top:12px;';
+                wrapper.appendChild(showAllBtn);
+                eventsDiv.insertAdjacentElement('afterend', wrapper);
             }
         }
 
