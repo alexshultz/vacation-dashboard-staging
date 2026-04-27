@@ -85,6 +85,8 @@
   <div id="events-list"></div>
 
     <script>
+        let INITIAL_VISIBLE = 6;
+
         const attendees = ["Adrian","Alex","Ashlyn","Bee","Brian","Bug","David","Dez","Evie","Georgie","Jackson","Jacob","Jordan","Josh","Kevin","Lucy","McKinley","Mel","Mycah","Natalie","Rachel","Ray","Simran","Skylar","Tayden","Zach"].sort();
 
         let eventsData = [];
@@ -103,7 +105,7 @@
 
         function render() {
             const eventsDiv = document.getElementById('events-list');
-            eventsDiv.innerHTML = eventsData.map(event => {
+            const cards = eventsData.map(event => {
                 const yesStyle = 'color:var(--status-yes);border-color:color-mix(in srgb,var(--status-yes) 35%,var(--color-line))';
                 const warnStyle = 'color:var(--warn);border-color:color-mix(in srgb,var(--warn) 35%,var(--color-line))';
                 const noStyle = 'color:var(--status-no);border-color:color-mix(in srgb,var(--status-no) 35%,var(--color-line))';
@@ -143,7 +145,30 @@
                         </div>
                     </details>
                 `;
-            }).join('');
+            });
+            eventsDiv.innerHTML = cards.slice(0, INITIAL_VISIBLE).join('');
+
+            if (eventsData.length > INITIAL_VISIBLE) {
+                const overflowDiv = document.createElement('div');
+                overflowDiv.id = 'events-overflow';
+                overflowDiv.hidden = true;
+                overflowDiv.innerHTML = cards.slice(INITIAL_VISIBLE).join('');
+                eventsDiv.insertAdjacentElement('afterend', overflowDiv);
+
+                const btn = document.createElement('button');
+                btn.id = 'show-more-btn';
+                btn.textContent = `Show all ${eventsData.length - INITIAL_VISIBLE} more ↓`;
+                btn.style.cssText = 'display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:14px;cursor:pointer;color:var(--color-ink)';
+                btn.addEventListener('click', () => {
+                    document.getElementById('events-overflow').removeAttribute('hidden');
+                    btn.style.display = 'none';
+                });
+
+                const showMoreWrapper = document.createElement('div');
+                showMoreWrapper.style.cssText = 'margin-top:12px;';
+                showMoreWrapper.appendChild(btn);
+                overflowDiv.insertAdjacentElement('afterend', showMoreWrapper);
+            }
         }
 
         // Collapse by default on mobile only
@@ -163,6 +188,8 @@
                 .then(data => {
                     eventsData = data.events;
                     render();
+                    document.querySelector('.hero-sub').textContent =
+                        `${eventsData.length} events across May 23–28. Tap any event to see who's in.`;
                     setupMobileCollapse();
                 })
                 .catch(err => console.error('Failed to load schedule.json:', err));
