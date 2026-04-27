@@ -273,11 +273,11 @@ Per deploy rules: "Before May 8, production and staging can stay in sync." This 
 ### Fix (run before May 8)
 
 ```bash
-export PREVIEW="/Users/alex/code/vacation-dashboard-previews"
+export PRODUCTION="/Users/alex/code/vacation-dashboard"
 export STAGING="/Users/alex/code/vacation-dashboard-staging"
 
 # Rsync production to staging (--exclude=".git" is MANDATORY)
-rsync -av --delete --exclude=".git" "$PREVIEW/" "$STAGING/"
+rsync -av --delete --exclude=".git" "$PRODUCTION/" "$STAGING/"
 
 # Commit and push
 GITHUB_TOKEN=$(grep '^GITHUB_TOKEN=' /Users/alex/.hermes/.env | cut -d'=' -f2)
@@ -292,7 +292,7 @@ Run git push as `background=True, notify_on_complete=True`.
 ### Verify
 ```bash
 cd /Users/alex/code/vacation-dashboard-staging && git log --oneline -3
-cd /Users/alex/code/vacation-dashboard-previews && git log --oneline -3
+cd /Users/alex/code/vacation-dashboard && git log --oneline -3
 # First commit hashes should match after sync
 ```
 
@@ -360,7 +360,7 @@ grep 'grillme' /Users/alex/.hermes/skills/software-development/grill-me/SKILL.md
 
 # GAP 5: staging sync (run before May 8)
 cd /Users/alex/code/vacation-dashboard-staging && git log --oneline -3
-cd /Users/alex/code/vacation-dashboard-previews && git log --oneline -3
+cd /Users/alex/code/vacation-dashboard && git log --oneline -3
 
 # GAP 7: Ollama running
 curl -s http://localhost:11434/api/tags | python3 -c "import sys, json; print([m['name'] for m in json.load(sys.stdin).get('models', [])][:5])"

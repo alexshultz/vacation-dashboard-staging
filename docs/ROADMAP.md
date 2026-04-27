@@ -217,7 +217,7 @@ Time budget fits 2-3 week ceiling if we cut auto-scheduler as proposed.
 These decisions were open before Phase 1 coding started and are now resolved:
 
 1. **Visual direction:** Trail theme (Airbnb meets National Parks, dark green / charcoal / sand) -- chosen and locked.
-2. **Hosting:** GitHub Pages -- deployed and live at https://alexshultz.github.io/vacation-dashboard-previews/
+2. **Hosting:** GitHub Pages -- deployed and live at https://alexshultz.github.io/vacation-dashboard/
 3. **Custom domain:** Not pursued. GitHub Pages URL is used directly.
 
 Everything else I can make progress on without blocking.

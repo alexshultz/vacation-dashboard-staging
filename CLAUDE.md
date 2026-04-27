@@ -38,7 +38,7 @@ grep -c 'fetch.*schedule.json' web/event-timeline.html
 data/attractions.json  ──(edit)──►  scripts/export_data.py  ──(generates)──►  web/data.json
 data/blacklist.json    ──(read)──►  scripts/export_data.py
 web/data.json          ──(fetch)──► web/attractions.html   (runtime JS render loop)
-web/attractions.html   ──(rsync)──► ~/code/vacation-dashboard-previews/
+web/attractions.html   ──(rsync)──► ~/code/vacation-dashboard/
 ```
 
 ### Canonical Sources
@@ -167,14 +167,14 @@ scripts/
 
 | Target | Repo | URL | Purpose |
 |---|---|---|---|
-| Production | `vacation-dashboard-previews` | https://alexshultz.github.io/vacation-dashboard-previews/ | Family-facing. Only push tested, reviewed work here. |
+| Production | `vacation-dashboard` | https://alexshultz.github.io/vacation-dashboard/ | Family-facing. Only push tested, reviewed work here. |
 | Staging | `vacation-dashboard-staging` | https://alexshultz.github.io/vacation-dashboard-staging/ | Dev/testing. All new feature work goes here first. |
 
 **Rule:** After May 8 (family launch), never push untested work to production. Always deploy to staging first, verify, then deploy to production.
 
 ```bash
 VAULT="/Users/alex/vaults/Vacation/Branson 2026"
-PREVIEW="/Users/alex/code/vacation-dashboard-previews"
+PRODUCTION="/Users/alex/code/vacation-dashboard"
 STAGING="/Users/alex/code/vacation-dashboard-staging"
 
 # 0. SAFETY CHECK — never skip
@@ -198,10 +198,10 @@ python3 scripts/export_data.py
 # 2. rsync — --exclude=".git" is MANDATORY (omitting it destroys the .git dir)
 rsync -av --delete \
   --exclude=".git" --exclude="DESIGN.md" --exclude="mockups" \
-  "$VAULT/web/" "$PREVIEW/"
+  "$VAULT/web/" "$PRODUCTION/"
 
 # 3. Fix vault-relative paths → Pages-root paths
-cd "$PREVIEW"
+cd "$PRODUCTION"
 sed -i '' 's|../assets/thumbs/|assets/thumbs/|g' \
   attractions.html shows.html index.html event-timeline.html people-timeline.html \
   wishlist.html suggested.html profile.html quick-pick.html help.html
@@ -218,7 +218,7 @@ git add -A && \
   git -c credential.helper=osxkeychain push origin main
 
 # Deploy to PRODUCTION (only after staging verified):
-# Run steps 2-3b again with $PREVIEW instead of $STAGING, then:
+# Run steps 2-3b again with $PRODUCTION instead of $STAGING, then:
 git add -A && \
   git -c user.email="alexshultz@users.noreply.github.com" commit -m "MESSAGE" && \
   git -c credential.helper=osxkeychain push --force origin main
@@ -250,7 +250,7 @@ git add -A && \
 | `naturalWidth===0` on all images | Timing artifact. Cross-check with `curl -sI`. |
 | `CREATE POLICY IF NOT EXISTS` | Doesn't exist in Postgres. Drop + recreate. |
 | GitHub email privacy block on push | `git config user.email "alexshultz@users.noreply.github.com"` then `git commit --amend --reset-author --no-edit` |
-| `.git/` deleted by rsync | Full recovery: `cd "$PREVIEW" && git init && git remote add origin https://github.com/alexshultz/vacation-dashboard-previews.git && git -c credential.helper=osxkeychain fetch origin main && git config user.email "alexshultz@users.noreply.github.com" && git config user.name "Alex Shultz" && git checkout -b main && git add -A && git commit -m "restore" && git -c credential.helper=osxkeychain push --force origin main` |
+| `.git/` deleted by rsync | Full recovery: `cd "$PRODUCTION" && git init && git remote add origin https://github.com/alexshultz/vacation-dashboard.git && git -c credential.helper=osxkeychain fetch origin main && git config user.email "alexshultz@users.noreply.github.com" && git config user.name "Alex Shultz" && git checkout -b main && git add -A && git commit -m "restore" && git -c credential.helper=osxkeychain push --force origin main` |
 
 ---
 

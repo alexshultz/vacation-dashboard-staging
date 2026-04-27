@@ -84,12 +84,12 @@ Vault: `~/vaults/Vacation/Branson 2026/`. Hosted on GitHub Pages. Supabase backe
   .claude/                            <- task briefs for lazlo sessions
     *.md
 
-~/code/vacation-dashboard-previews/   <- GitHub Pages deploy repo (separate from vault)
+~/code/vacation-dashboard/   <- GitHub Pages deploy repo (separate from vault)
   *.html                              <- rsync'd from vault/web/ at deploy time
   assets/, css/, js/, svg-fallbacks/
 ```
 
-**GitHub Pages URL:** https://alexshultz.github.io/vacation-dashboard-previews/
+**GitHub Pages URL:** https://alexshultz.github.io/vacation-dashboard/
 
 ---
 
@@ -261,7 +261,7 @@ grep -c 'fetch.*data.json' web/attractions.html  # must return >= 1
 Full deploy sequence:
 ```bash
 VAULT="/Users/alex/vaults/Vacation/Branson 2026"
-PREVIEW="/Users/alex/code/vacation-dashboard-previews"
+PRODUCTION="/Users/alex/code/vacation-dashboard"
 
 # 0a. Safety check -- NEVER skip
 grep -c 'pointerdown' "$VAULT/web/quick-pick.html"    # must return 1 -- if 0: STOP
@@ -273,15 +273,15 @@ python3 "$VAULT/scripts/export_data.py"
 # 1. rsync (--exclude=".git" is MANDATORY -- omitting it silently destroys the repo)
 rsync -av --delete \
   --exclude=".git" --exclude="DESIGN.md" --exclude="mockups" \
-  "$VAULT/web/" "$PREVIEW/"
+  "$VAULT/web/" "$PRODUCTION/"
 
 # 2. Fix vault-relative paths -> GitHub Pages root paths (all 10 HTML files)
-cd "$PREVIEW"
+cd "$PRODUCTION"
 sed -i '' 's|../assets/thumbs/|assets/thumbs/|g' \
   attractions.html shows.html index.html event-timeline.html people-timeline.html \
   wishlist.html suggested.html profile.html quick-pick.html help.html
 
-# 3. Cache-bust CSS/JS asset URLs (run from $PREVIEW -- script modifies files in cwd)
+# 3. Cache-bust CSS/JS asset URLs (run from $PRODUCTION -- script modifies files in cwd)
 python3 "$VAULT/scripts/cache_bust.py"
 
 # 4. Commit and push
@@ -295,9 +295,9 @@ Always use `-c credential.helper=osxkeychain` explicitly.
 
 **If .git is gone** (rsync --delete without --exclude=".git"):
 ```bash
-cd "$PREVIEW"
+cd "$PRODUCTION"
 git init
-git remote add origin https://github.com/alexshultz/vacation-dashboard-previews.git
+git remote add origin https://github.com/alexshultz/vacation-dashboard.git
 git -c credential.helper=osxkeychain fetch origin main
 git config user.email "alexshultz@users.noreply.github.com"
 git config user.name "Alex Shultz"

@@ -1,3 +1,13 @@
+## 2026-04-27 -- index.html h1 renamed; ROADMAP updated; staging synced
+
+**What changed:**
+- `web/index.html`: h1 changed from "Events" to "Upcoming Activities"
+- `docs/ROADMAP.md`: status updated to 2026-04-27; help.html and hamburger work marked done; new sprint items added (Supabase activation, admin editor, INITIAL_VISIBLE in admin); tester pass deferred
+- Staging repo synced to production (GAP 5 resolved)
+- Deployed to GitHub Pages (production + staging)
+
+---
+
 ## 2026-04-26 -- Menu refactor: profile + theme toggle move to hamburger, Quick Pick promoted
 
 **What changed:**
