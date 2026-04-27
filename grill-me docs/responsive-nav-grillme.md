@@ -9,6 +9,9 @@ Current bug: on iPad, both `.hamburger-btn` and `.site-nav` (full nav links) are
 
 Alex's request: if there is room for all 8 nav items, show them; otherwise hide them and show only the hamburger.
 
+> ```note! 
+> ```
+
 ---
 
 ## Q1: CSS breakpoint or JS overflow detection?
