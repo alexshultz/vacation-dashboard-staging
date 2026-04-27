@@ -89,7 +89,7 @@ Vault: `~/vaults/Vacation/Branson 2026/`. Hosted on GitHub Pages. Supabase backe
   assets/, css/, js/, svg-fallbacks/
 ```
 
-**GitHub Pages URL:** https://alexshultz.github.io/vacation-dashboard/
+**GitHub Pages URL:** https://vacation.creeperbomb.com/
 
 ---
 

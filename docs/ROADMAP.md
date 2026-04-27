@@ -27,6 +27,7 @@ Phase 1 core features are complete and live on GitHub Pages. Phase 2 frontend is
 - [ ] Activate Supabase Phase 2 -- wire picks/suggestions to live database instead of localStorage only (schema already written at `data/supabase-phase2-schema.sql`)
 - [ ] Coordinator admin editor page -- Alex can edit schedule data, manage RSVPs, and push content live (deferred from prior sprint; GitHub-API-backed so edits go live without manual deploy)
 - [ ] INITIAL_VISIBLE setting in admin UI -- expose the home page event count as a live-configurable value (no code change needed to adjust it)
+- [x] Custom domain -- `vacation.creeperbomb.com` (production) and `vacation-dev.creeperbomb.com` (staging) -- CNAME files in both repos, DNS records in Cloudflare (DNS only, no proxy), HTTPS auto-provisions via Let's Encrypt
 
 **Tester pass -- DEFERRED:** Family unavailable for formal sign-off. Removed from May 8 gate. Dashboard ships May 8 on schedule without tester approval round.
 
@@ -217,7 +218,7 @@ Time budget fits 2-3 week ceiling if we cut auto-scheduler as proposed.
 These decisions were open before Phase 1 coding started and are now resolved:
 
 1. **Visual direction:** Trail theme (Airbnb meets National Parks, dark green / charcoal / sand) -- chosen and locked.
-2. **Hosting:** GitHub Pages -- deployed and live at https://alexshultz.github.io/vacation-dashboard/
+2. **Hosting:** GitHub Pages -- deployed and live at https://vacation.creeperbomb.com/
 3. **Custom domain:** Not pursued. GitHub Pages URL is used directly.
 
 Everything else I can make progress on without blocking.

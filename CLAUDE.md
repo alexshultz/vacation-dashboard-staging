@@ -167,8 +167,8 @@ scripts/
 
 | Target | Repo | URL | Purpose |
 |---|---|---|---|
-| Production | `vacation-dashboard` | https://alexshultz.github.io/vacation-dashboard/ | Family-facing. Only push tested, reviewed work here. |
-| Staging | `vacation-dashboard-staging` | https://alexshultz.github.io/vacation-dashboard-staging/ | Dev/testing. All new feature work goes here first. |
+| Production | `vacation-dashboard` | https://vacation.creeperbomb.com/ | Family-facing. Only push tested, reviewed work here. |
+| Staging | `vacation-dashboard-staging` | https://vacation-dev.creeperbomb.com/ | Dev/testing. All new feature work goes here first. |
 
 **Rule:** After May 8 (family launch), never push untested work to production. Always deploy to staging first, verify, then deploy to production.
 
