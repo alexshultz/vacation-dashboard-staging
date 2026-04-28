@@ -24,7 +24,7 @@ Phase 1 core features are complete and live on GitHub Pages. Phase 2 frontend is
 - Hamburger menu, eyebrow fix, nav consolidation shipped
 
 **Active sprint -- next up:**
-- [ ] Activate Supabase Phase 2 -- wire picks/suggestions to live database instead of localStorage only (schema already written at `data/supabase-phase2-schema.sql`)
+- [x] Activate Supabase Phase 2 -- picks/suggestions wired to live database (schema applied 2026-04-28; picks hydration, write error banner, fetchAllWishlists query fix shipped; keepalive cron running every 3 days)
 - [ ] Coordinator admin editor page -- Alex can edit schedule data, manage RSVPs, and push content live (deferred from prior sprint; GitHub-API-backed so edits go live without manual deploy)
 - [ ] INITIAL_VISIBLE setting in admin UI -- expose the home page event count as a live-configurable value (no code change needed to adjust it)
 - [x] Custom domain -- `vacation.creeperbomb.com` (production) and `vacation-dev.creeperbomb.com` (staging) -- CNAME files in both repos, DNS records in Cloudflare (DNS only, no proxy), HTTPS auto-provisions via Let's Encrypt
