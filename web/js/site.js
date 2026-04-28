@@ -112,7 +112,7 @@
       '<div id="hamburger-panel" role="navigation" aria-label="Menu" style="display:none">' +
       links +
       '<hr style="margin: 8px 24px; border-color: var(--color-line)">' +
-      '<button class="hamburger-link hamburger-theme-toggle" id="site-theme-toggle" aria-label="Toggle dark mode">\u2699\uFE0F System</button>' +
+      '<button class="hamburger-link hamburger-theme-toggle" id="site-theme-toggle" aria-label="Toggle appearance">\uD83C\uDF13 Auto</button>' +
       '<a class="hamburger-link" href="profile.html" id="profile-btn" aria-label="Profile"' + profCur + '>\uD83D\uDC64 Profile<span class="profile-nudge-dot" aria-hidden="true"></span></a>' +
       '</div>'
     );
@@ -121,7 +121,7 @@
   function modeLabel(m) {
     if (m === 'light') return '\u2600\uFE0F Light';
     if (m === 'dark')  return '\uD83C\uDF19 Dark';
-    return '\u2699\uFE0F System';
+    return '\uD83C\uDF13 Auto';
   }
 
   /* ── Inject chrome (synchronous -- runs during body parsing) ─────────────── */
@@ -192,6 +192,7 @@
         '  font-weight: 700;\n' +
         '  color: var(--color-ink);\n' +
         '  text-decoration: none;\n' +
+        '  background: none;\n' +
         '}\n' +
         '.hamburger-link:hover,\n' +
         '.hamburger-link:focus { background: var(--color-bg); }\n' +
