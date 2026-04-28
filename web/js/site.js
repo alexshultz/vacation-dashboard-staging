@@ -75,6 +75,11 @@
       return '<a href="' + l.href + '" class="nav-link"' + cur + '>' + l.label + '</a>';
     }).join('');
 
+    var profNavCur = isProfile ? ' aria-current="page"' : '';
+    var profileLink =
+      '<a href="profile.html" id="profile-btn-nav" class="nav-link" aria-label="Profile"' +
+      profNavCur + '>\uD83D\uDC64 Profile<span class="profile-nudge-dot" aria-hidden="true"></span></a>';
+
     var hamburger =
       '<button class="hamburger-btn" id="site-hamburger"' +
       ' aria-label="Menu" aria-expanded="false">&#9776;</button>';
@@ -82,7 +87,7 @@
     return (
       '<header class="site-header"><div class="site-header__inner">' +
       '<a class="site-logo" href="index.html">' + SITE_NAME + '</a>' +
-      '<nav class="site-nav" aria-label="Main">' + links + '</nav>' +
+      '<nav class="site-nav" aria-label="Main">' + links + profileLink + '</nav>' +
       hamburger +
       '</div></header>'
     );
@@ -113,7 +118,7 @@
       links +
       '<hr style="margin: 8px 24px; border-color: var(--color-line)">' +
       '<button class="hamburger-link hamburger-theme-toggle" id="site-theme-toggle" aria-label="Toggle appearance">\uD83C\uDF13 Auto</button>' +
-      '<a class="hamburger-link" href="profile.html" id="profile-btn" aria-label="Profile"' + profCur + '>\uD83D\uDC64 Profile<span class="profile-nudge-dot" aria-hidden="true"></span></a>' +
+      '<a class="hamburger-link" href="profile.html" id="profile-btn-hamburger" aria-label="Profile"' + profCur + '>\uD83D\uDC64 Profile<span class="profile-nudge-dot" aria-hidden="true"></span></a>' +
       '</div>'
     );
   }
@@ -305,11 +310,10 @@
 
   /* ── Profile badge sync ──────────────────────────────────────────────────── */
   function syncBadge() {
-    var btn = document.getElementById('profile-btn');
-    if (!btn) return;
+    var btns = document.querySelectorAll('#profile-btn-nav, #profile-btn-hamburger');
     var u = '';
     try { u = localStorage.getItem(USER_KEY) || ''; } catch (e) {}
-    btn.setAttribute('data-unset', u ? 'false' : 'true');
+    btns.forEach(function(btn) { btn.setAttribute('data-unset', u ? 'false' : 'true'); });
   }
   syncBadge();   /* set initial badge state on every page load */
 
