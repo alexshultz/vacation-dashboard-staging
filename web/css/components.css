@@ -304,9 +304,8 @@ h3 { font-size: 19px; font-weight: 700; }
 }
 .seg button .ico { font-size: 14px; }
 .seg button[aria-checked="true"] {
-  background: var(--color-surface);
+  border: 2px solid var(--status-yes);
   color: var(--color-ink);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.18);
 }
 .seg button[aria-pressed="true"][data-v="committing"] { background: var(--status-yes); color: white; }
 .seg button[aria-pressed="true"][data-v="not-going"]  { background: var(--accent-clay); color: white; }
