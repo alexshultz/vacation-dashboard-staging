@@ -1090,8 +1090,7 @@ h3 { font-size: 19px; font-weight: 700; }
 .profile-radio-row .text .row-label { font-family: var(--font-body); font-size: 15px; color: var(--color-ink); font-weight: 600; }
 .profile-radio-row .text .row-sub { font-size: 13px; color: var(--color-ink-dim); }
 
-.profile-date-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
-@media (max-width: 639px) { .profile-date-row { grid-template-columns: 1fr; } }
+.profile-date-row { display: grid; grid-template-columns: 1fr; gap: var(--sp-3); }
 
 .profile-interests { display: flex; flex-wrap: wrap; gap: 8px; }
 
