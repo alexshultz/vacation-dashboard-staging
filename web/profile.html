@@ -149,7 +149,6 @@
   </section>
 </main>
 
-<div class="toast-wrap" id="toasts" aria-live="polite"></div>
 
 <script src="js/picks.js"></script>
 <script>
@@ -165,25 +164,6 @@
   var DEPARTURE_KEY = 'vacdash:v1:departure';
   var INTERESTS_KEY = 'vacdash:v1:interests';
   var COLOR_THEME_KEY = 'vacdash:v1:theme';
-
-  /* ===== Toast (debounced) ===== */
-  var toastTimer = null;
-  function toast(msg){
-    if (toastTimer) { clearTimeout(toastTimer); toastTimer = null; }
-    toastTimer = setTimeout(function(){
-      var wrap = document.getElementById('toasts');
-      var el = document.createElement('div');
-      el.className = 'toast';
-      el.textContent = msg;
-      wrap.appendChild(el);
-      setTimeout(function(){
-        el.classList.add('leaving');
-        setTimeout(function(){ el.remove(); }, 220);
-      }, 2000);
-      toastTimer = null;
-    }, 180);
-  }
-  function saved(){ toast('Saved ✓'); }
 
   /* ===== Profile button badge (reflects current user state) ===== */
   function updateProfileBtnBadge(){
@@ -238,7 +218,6 @@
       } else {
         setUser(v);
       }
-      saved();
     });
   }
 
@@ -300,7 +279,6 @@
       btn.addEventListener('click', function() {
         applyColorTheme(t.id);
         renderColorTheme(t.id);
-        saved();
       });
       grid.appendChild(btn);
     });
@@ -331,7 +309,6 @@
         var mode = b.getAttribute('data-theme');
         applyTheme(mode);
         renderTheme(mode);
-        saved();
       });
     });
   }
@@ -347,7 +324,6 @@
       r.addEventListener('change', function(){
         if (r.checked) {
           try { localStorage.setItem(PRIVACY_KEY, r.value); } catch(e){}
-          saved();
         }
       });
     });
@@ -363,11 +339,9 @@
     } catch(e){}
     arr.addEventListener('change', function(){
       try { localStorage.setItem(ARRIVAL_KEY, arr.value || ''); } catch(e){}
-      saved();
     });
     dep.addEventListener('change', function(){
       try { localStorage.setItem(DEPARTURE_KEY, dep.value || ''); } catch(e){}
-      saved();
     });
   }
 
@@ -392,7 +366,6 @@
         if (active.has(k)) { active.delete(k); chip.setAttribute('aria-pressed','false'); }
         else                { active.add(k);   chip.setAttribute('aria-pressed','true');  }
         writeInterests([...active]);
-        saved();
       });
     });
   }
