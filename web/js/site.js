@@ -202,6 +202,7 @@
         '.hamburger-link:hover,\n' +
         '.hamburger-link:focus { background: var(--color-bg); }\n' +
         '.hamburger-link[aria-current="page"] { color: var(--accent-moss, var(--moss)); }\n' +
+        '.hamburger-theme-toggle:focus:not(:focus-visible) { outline: none; }\n' +
         '\n' +
         '/* Icon + label alignment inside hamburger links */\n' +
         '.nav-icon {\n' +
