@@ -1,3 +1,21 @@
+## 2026-04-27 -- UI polish batch: appearance controls, nav, profile fixes
+
+**What changed:**
+- `web/css/components.css`: profile date row always-stacked (grid-template-columns: 1fr, media query removed)
+- `web/profile.html`: Help/FAQ link removed from bottom of profile page
+- `web/js/site.js`: Appearance toggle -- ⚙️ System -> 🌓 Auto, button UA background fixed (background: none)
+- `web/js/site.js`: Profile link added to desktop nav bar (id=profile-btn-nav); hamburger profile link renamed id=profile-btn-hamburger; syncBadge() updated to querySelectorAll both
+- `web/profile.html` + `web/js/site.js` + `web/css/components.css`: "Mode" -> "Appearance" label; icons added to seg buttons (🌓/☀️/🌙); hamburger label always reads "[icon] Appearance"; active pill gets green border (var(--status-yes))
+- `web/profile.html`: Saved toast removed (toast(), saved(), toast-wrap div, all 7 call sites)
+- `web/js/site.js`: hamburger-link border: none added (removed UA button border box around Appearance)
+- `web/js/site.js`: :focus:not(:focus-visible) outline suppression on hamburger-theme-toggle
+- CNAME bug fixed: rsync --exclude="CNAME" added to all deploy commands (SOUL.md + skill patched)
+- GitHub token extraction corrected: sed -n 's/^GITHUB_TOKEN=//p' instead of cut (base64 = truncation)
+
+**Promoted to production:** vacation.creeperbomb.com
+
+---
+
 ## 2026-04-27 -- index.html h1 renamed; ROADMAP updated; staging synced
 
 **What changed:**
