@@ -82,8 +82,8 @@
     return (
       '<header class="site-header"><div class="site-header__inner">' +
       '<a class="site-logo" href="index.html">' + SITE_NAME + '</a>' +
-      hamburger +
       '<nav class="site-nav" aria-label="Main">' + links + '</nav>' +
+      hamburger +
       '</div></header>'
     );
   }
@@ -153,6 +153,7 @@
         '  padding: 6px 10px;\n' +
         '  border-radius: var(--radius-btn);\n' +
         '  line-height: 1;\n' +
+        '  margin-left: auto;\n' +
         '}\n' +
         '\n' +
         '/* Default: hamburger mode (nav links hidden) */\n' +
