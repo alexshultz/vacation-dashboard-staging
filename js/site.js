@@ -198,6 +198,7 @@
         '  color: var(--color-ink);\n' +
         '  text-decoration: none;\n' +
         '  background: none;\n' +
+        '  border: none;\n' +
         '}\n' +
         '.hamburger-link:hover,\n' +
         '.hamburger-link:focus { background: var(--color-bg); }\n' +
