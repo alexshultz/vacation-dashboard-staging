@@ -113,12 +113,19 @@
         '</a>';
     }).join('');
     var profCur = isProfile ? ' aria-current="page"' : '';
+    var adminLink = '';
+    try {
+      if (localStorage.getItem(USER_KEY) === 'Alex') {
+        adminLink = '<a href="admin.html" class="hamburger-link"><span class="nav-icon">\u2699\uFE0F</span><span class="nav-label">Admin</span></a>';
+      }
+    } catch (e) {}
     return (
       '<div id="hamburger-panel" role="navigation" aria-label="Menu" style="display:none">' +
       links +
       '<hr style="margin: 8px 24px; border-color: var(--color-line)">' +
       '<button class="hamburger-link hamburger-theme-toggle" id="site-theme-toggle" aria-label="Toggle appearance">\uD83C\uDF13 Auto</button>' +
       '<a class="hamburger-link" href="profile.html" id="profile-btn-hamburger" aria-label="Profile"' + profCur + '>\uD83D\uDC64 Profile<span class="profile-nudge-dot" aria-hidden="true"></span></a>' +
+      adminLink +
       '</div>'
     );
   }

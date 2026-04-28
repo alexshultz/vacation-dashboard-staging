@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="system">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin — Branson &#x27;26</title>
+<link rel="stylesheet" href="css/tokens.css?v=202604281405">
+<link rel="stylesheet" href="css/themes/trail.css?v=202604281405" id="theme-css">
+<link rel="stylesheet" href="css/components.css?v=202604281405">
+<script>/* Theme loader -- inline to prevent flash-of-wrong-theme */
+(function(){
+  var m = localStorage.getItem('vacdash:v1:mode') || 'system';
+  document.documentElement.setAttribute('data-mode', m);
+  var t = localStorage.getItem('vacdash:v1:theme');
+  if (t && t !== 'trail') {
+    var link = document.getElementById('theme-css');
+    if (link) link.setAttribute('href', link.getAttribute('href').replace(/themes\/[^/]+\.css/, 'themes/' + t + '.css'));
+  }
+})();
+</script>
+</head>
+<body style="margin:0;background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body,sans-serif);">
+
+  <!-- Header: no nav, no hamburger -->
+  <header style="background:var(--color-surface);border-bottom:1.5px solid var(--color-line);padding:14px 20px;display:flex;align-items:center;gap:12px;">
+    <a href="index.html" style="color:var(--color-ink-dim);text-decoration:none;font-size:13px;">← Home</a>
+    <span style="font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--color-ink);">Branson &#x27;26 Admin</span>
+  </header>
+
+  <!-- Offline banner (hidden by default, shown if Supabase unreachable) -->
+  <div id="offline-banner" style="display:none;background:#FFF3CD;color:#856404;border:1px solid #FFECB5;padding:12px 16px;font-size:14px;">
+    Supabase unreachable — saves may fail. Check connection.
+  </div>
+
+  <!-- Passcode gate -->
+  <section id="passcode-section" style="max-width:400px;margin:60px auto;padding:0 20px;">
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin-bottom:16px;">Coordinator passcode</h2>
+    <form id="passcode-form">
+      <input type="password" id="passcode-input" placeholder="Enter passcode" autocomplete="current-password"
+        style="padding:10px 14px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:16px;width:100%;box-sizing:border-box;">
+      <div style="margin-top:10px;display:flex;align-items:center;gap:10px;">
+        <button type="submit"
+          style="padding:10px 20px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:14px;cursor:pointer;color:var(--color-ink);">
+          Unlock
+        </button>
+        <span id="passcode-error" style="display:none;color:#c0392b;font-size:14px;">Incorrect passcode.</span>
+      </div>
+    </form>
+  </section>
+
+  <!-- Editor section (hidden until passcode unlocked) -->
+  <section id="editor-section" style="display:none;max-width:640px;margin:0 auto;padding:24px 20px;">
+
+    <!-- Sort controls -->
+    <div style="margin-bottom:16px;">
+      <div style="font-size:12px;color:var(--color-ink-dim);margin-bottom:6px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Sort events</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="sort-btn" data-sort="date"
+          style="padding:7px 13px;border-radius:var(--radius-btn);background:var(--color-surface);border:2px solid var(--color-ink);font-family:var(--font-display);font-weight:bold;font-size:13px;cursor:pointer;color:var(--color-ink);">
+          By Date
+        </button>
+        <button class="sort-btn" data-sort="title"
+          style="padding:7px 13px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-family:var(--font-display);font-weight:normal;font-size:13px;cursor:pointer;color:var(--color-ink);">
+          By Title
+        </button>
+        <button class="sort-btn" data-sort="duration"
+          style="padding:7px 13px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-family:var(--font-display);font-weight:normal;font-size:13px;cursor:pointer;color:var(--color-ink);">
+          By Duration
+        </button>
+        <button class="sort-btn" data-sort="interest"
+          style="padding:7px 13px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-family:var(--font-display);font-weight:normal;font-size:13px;cursor:pointer;color:var(--color-ink);">
+          By Interest
+        </button>
+      </div>
+    </div>
+
+    <!-- Event selector -->
+    <div style="margin-bottom:24px;">
+      <label for="event-select" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Event</label>
+      <select id="event-select"
+        style="width:100%;padding:10px 14px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
+        <option value="">— select an event —</option>
+      </select>
+    </div>
+
+    <!-- Event detail form (hidden until an event is selected) -->
+    <div id="event-form" style="display:none;">
+
+      <!-- Title -->
+      <div style="margin-bottom:18px;">
+        <label for="input-title" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Title</label>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <input type="text" id="input-title"
+            style="flex:1;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
+          <button id="reset-title" onclick="resetField('title')"
+            style="display:none;padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink-dim);white-space:nowrap;">
+            Reset
+          </button>
+        </div>
+        <div id="orig-title" style="display:none;color:var(--color-ink-dim);font-size:12px;margin-top:4px;"></div>
+        <div id="saved-title" style="display:none;color:var(--status-yes);font-size:12px;margin-top:4px;">Saved</div>
+      </div>
+
+      <!-- Date -->
+      <div style="margin-bottom:18px;">
+        <label for="input-date" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Date</label>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <input type="date" id="input-date"
+            style="flex:1;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
+          <button id="reset-date" onclick="resetField('date')"
+            style="display:none;padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink-dim);white-space:nowrap;">
+            Reset
+          </button>
+        </div>
+        <div id="orig-date" style="display:none;color:var(--color-ink-dim);font-size:12px;margin-top:4px;"></div>
+        <div id="saved-date" style="display:none;color:var(--status-yes);font-size:12px;margin-top:4px;">Saved</div>
+      </div>
+
+      <!-- Start Time -->
+      <div style="margin-bottom:18px;">
+        <label for="input-startTime" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Start Time</label>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <input type="time" id="input-startTime"
+            style="flex:1;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
+          <button id="reset-startTime" onclick="resetField('startTime')"
+            style="display:none;padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink-dim);white-space:nowrap;">
+            Reset
+          </button>
+        </div>
+        <div id="orig-startTime" style="display:none;color:var(--color-ink-dim);font-size:12px;margin-top:4px;"></div>
+        <div id="saved-startTime" style="display:none;color:var(--status-yes);font-size:12px;margin-top:4px;">Saved</div>
+      </div>
+
+      <!-- Duration -->
+      <div style="margin-bottom:24px;">
+        <label for="input-duration" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Duration (hours)</label>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <input type="number" id="input-duration" step="0.5" min="0"
+            style="flex:1;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
+          <button id="reset-duration" onclick="resetField('duration')"
+            style="display:none;padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink-dim);white-space:nowrap;">
+            Reset
+          </button>
+        </div>
+        <div id="orig-duration" style="display:none;color:var(--color-ink-dim);font-size:12px;margin-top:4px;"></div>
+        <div id="saved-duration" style="display:none;color:var(--status-yes);font-size:12px;margin-top:4px;">Saved</div>
+      </div>
+
+      <!-- Error banner -->
+      <div id="error-banner"
+        style="display:none;background:#F8DDD5;color:#6A1F17;border:1px solid #C1553B;padding:12px 16px;font-size:14px;border-radius:4px;margin-bottom:14px;">
+      </div>
+
+      <!-- Save + Reset All buttons -->
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px;">
+        <button id="save-btn" onclick="saveOverrides()"
+          style="padding:10px 20px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:14px;cursor:pointer;color:var(--color-ink);">
+          Save Changes
+        </button>
+        <button id="reset-all-btn" onclick="resetAllOverrides()"
+          style="padding:10px 20px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink-dim);">
+          Reset All Overrides for This Event
+        </button>
+      </div>
+
+    </div><!-- /event-form -->
+  </section><!-- /editor-section -->
+
+  <script>
+    const SUPABASE_URL = 'https://quebfbvfuwbncpexlylu.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_yLlf7qoMZMfiZhNsyudX7g_HnZ8clgt';
+    const ADMIN_TOKEN='override-token-3141';
+
+    const FIELDS = ['title', 'date', 'startTime', 'duration'];
+
+    let allEvents = [];
+    let currentEvent = null;
+    let currentOverrides = {};
+    let loadedValues = {};
+    let currentSort = 'date';
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const parts = dateStr.split('-');
+      if (parts.length !== 3) return dateStr;
+      const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      return months[parseInt(parts[1], 10) - 1] + ' ' + parseInt(parts[2], 10);
+    }
+
+    function getSortedEvents() {
+      const sorted = [...allEvents];
+      if (currentSort === 'date') {
+        sorted.sort((a, b) => a.date.localeCompare(b.date) || a.title.localeCompare(b.title));
+      } else if (currentSort === 'title') {
+        sorted.sort((a, b) => a.title.localeCompare(b.title));
+      } else if (currentSort === 'duration') {
+        sorted.sort((a, b) => b.duration - a.duration);
+      } else if (currentSort === 'interest') {
+        sorted.sort((a, b) => b.interested.length - a.interested.length);
+      }
+      return sorted;
+    }
+
+    function renderEventSelect() {
+      const sel = document.getElementById('event-select');
+      const prevVal = sel.value;
+      const sorted = getSortedEvents();
+      sel.innerHTML = '<option value="">— select an event —</option>' +
+        sorted.map(e => `<option value="${e.id}">${formatDate(e.date)} — ${e.title}</option>`).join('');
+      if (prevVal && sorted.find(e => e.id === prevVal)) {
+        sel.value = prevVal;
+      }
+    }
+
+    function populateField(field, scheduleValue) {
+      const input = document.getElementById('input-' + field);
+      const origDiv = document.getElementById('orig-' + field);
+      const resetBtn = document.getElementById('reset-' + field);
+      if (currentOverrides.hasOwnProperty(field)) {
+        input.value = currentOverrides[field];
+        origDiv.textContent = '(originally ' + (scheduleValue !== '' ? scheduleValue : '(empty)') + ')';
+        origDiv.style.display = 'block';
+        resetBtn.style.display = 'inline-block';
+      } else {
+        input.value = scheduleValue;
+        origDiv.style.display = 'none';
+        resetBtn.style.display = 'none';
+      }
+    }
+
+    async function loadEventForm() {
+      if (!currentEvent) return;
+      currentOverrides = {};
+      document.getElementById('error-banner').style.display = 'none';
+
+      try {
+        const r = await fetch(
+          `${SUPABASE_URL}/rest/v1/schedule_overrides?event_id=eq.${currentEvent.id}&select=field,new_value`,
+          { headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` } }
+        );
+        if (r.ok) {
+          const rows = await r.json();
+          rows.forEach(row => { currentOverrides[row.field] = row.new_value; });
+        }
+      } catch (e) {
+        console.error('[admin] fetch overrides failed', e);
+      }
+
+      populateField('title', currentEvent.title != null ? String(currentEvent.title) : '');
+      populateField('date', currentEvent.date != null ? String(currentEvent.date) : '');
+      populateField('startTime', currentEvent.startTime != null ? String(currentEvent.startTime) : '');
+      populateField('duration', currentEvent.duration != null ? String(currentEvent.duration) : '');
+
+      loadedValues = {};
+      FIELDS.forEach(f => { loadedValues[f] = document.getElementById('input-' + f).value; });
+
+      FIELDS.forEach(f => { document.getElementById('saved-' + f).style.display = 'none'; });
+      document.getElementById('event-form').style.display = 'block';
+    }
+
+    async function resetField(field) {
+      if (!currentEvent) return;
+      try {
+        const r = await fetch(
+          `${SUPABASE_URL}/rest/v1/schedule_overrides?event_id=eq.${currentEvent.id}&field=eq.${field}`,
+          {
+            method: 'DELETE',
+            headers: {
+              'apikey': SUPABASE_ANON_KEY,
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+              'X-Admin-Token': ADMIN_TOKEN
+            }
+          }
+        );
+        if (!r.ok) {
+          const text = await r.text();
+          showErrorBanner('Reset failed: ' + r.status + ' ' + text);
+          return;
+        }
+        await loadEventForm();
+      } catch (e) {
+        showErrorBanner('Reset failed: ' + e.message);
+      }
+    }
+
+    async function resetAllOverrides() {
+      if (!currentEvent) return;
+      try {
+        const r = await fetch(
+          `${SUPABASE_URL}/rest/v1/schedule_overrides?event_id=eq.${currentEvent.id}`,
+          {
+            method: 'DELETE',
+            headers: {
+              'apikey': SUPABASE_ANON_KEY,
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+              'X-Admin-Token': ADMIN_TOKEN
+            }
+          }
+        );
+        if (!r.ok) {
+          const text = await r.text();
+          showErrorBanner('Reset all failed: ' + r.status + ' ' + text);
+          return;
+        }
+        await loadEventForm();
+      } catch (e) {
+        showErrorBanner('Reset all failed: ' + e.message);
+      }
+    }
+
+    async function saveOverrides() {
+      if (!currentEvent) return;
+      document.getElementById('error-banner').style.display = 'none';
+
+      const rows = [];
+      FIELDS.forEach(f => {
+        const input = document.getElementById('input-' + f);
+        if (input.value !== loadedValues[f]) {
+          rows.push({ event_id: currentEvent.id, field: f, new_value: input.value, updated_by: 'Alex' });
+        }
+      });
+
+      if (rows.length === 0) return;
+
+      try {
+        const r = await fetch(
+          `${SUPABASE_URL}/rest/v1/schedule_overrides`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': SUPABASE_ANON_KEY,
+              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+              'Prefer': 'resolution=merge-duplicates',
+              'X-Admin-Token': ADMIN_TOKEN
+            },
+            body: JSON.stringify(rows)
+          }
+        );
+        if (!r.ok) {
+          const text = await r.text();
+          showErrorBanner('Save failed: ' + r.status + ' ' + text);
+          return;
+        }
+        // Reload form first to update override state, then show saved indicators
+        const savedFields = rows.map(row => row.field);
+        await loadEventForm();
+        savedFields.forEach(f => {
+          const savedEl = document.getElementById('saved-' + f);
+          if (savedEl) {
+            savedEl.style.display = 'block';
+            setTimeout(() => { savedEl.style.display = 'none'; }, 2000);
+          }
+        });
+      } catch (e) {
+        showErrorBanner('Save failed: ' + e.message);
+      }
+    }
+
+    function showErrorBanner(msg) {
+      const el = document.getElementById('error-banner');
+      el.textContent = msg;
+      el.style.display = 'block';
+    }
+
+    async function checkSupabase() {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3000);
+        const r = await fetch(
+          `${SUPABASE_URL}/rest/v1/schedule_overrides?select=event_id&limit=1`,
+          {
+            headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` },
+            signal: controller.signal
+          }
+        );
+        clearTimeout(timeoutId);
+      } catch (e) {
+        document.getElementById('offline-banner').style.display = 'block';
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', async () => {
+      // Passcode gate
+      if (sessionStorage.getItem('vacdash:admin:unlocked') === 'true') {
+        document.getElementById('passcode-section').style.display = 'none';
+        document.getElementById('editor-section').style.display = 'block';
+      }
+
+      document.getElementById('passcode-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = document.getElementById('passcode-input').value;
+        if (val === '3141') {
+          sessionStorage.setItem('vacdash:admin:unlocked', 'true');
+          document.getElementById('passcode-section').style.display = 'none';
+          document.getElementById('editor-section').style.display = 'block';
+        } else {
+          document.getElementById('passcode-error').style.display = 'inline';
+        }
+      });
+
+      // Supabase connectivity check
+      checkSupabase();
+
+      // Load schedule.json and populate event selector
+      try {
+        const r = await fetch('schedule.json');
+        const data = await r.json();
+        allEvents = data.events;
+        renderEventSelect();
+      } catch (e) {
+        console.error('[admin] Failed to load schedule.json:', e);
+      }
+
+      // Sort buttons
+      document.querySelectorAll('.sort-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentSort = btn.dataset.sort;
+          document.querySelectorAll('.sort-btn').forEach(b => {
+            if (b === btn) {
+              b.style.fontWeight = 'bold';
+              b.style.border = '2px solid var(--color-ink)';
+            } else {
+              b.style.fontWeight = 'normal';
+              b.style.border = '1px solid var(--color-line)';
+            }
+          });
+          renderEventSelect();
+        });
+      });
+
+      // Event selector
+      document.getElementById('event-select').addEventListener('change', async () => {
+        const eventId = document.getElementById('event-select').value;
+        if (!eventId) {
+          document.getElementById('event-form').style.display = 'none';
+          currentEvent = null;
+          return;
+        }
+        currentEvent = allEvents.find(e => e.id === eventId) || null;
+        if (currentEvent) await loadEventForm();
+      });
+    });
+  </script>
+
+</body>
+</html>
