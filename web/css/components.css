@@ -303,6 +303,10 @@ h3 { font-size: 19px; font-weight: 700; }
   transition: background 150ms, color 150ms;
 }
 .seg button .ico { font-size: 14px; }
+.seg button[aria-checked="true"] {
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
 .seg button[aria-pressed="true"][data-v="committing"] { background: var(--status-yes); color: white; }
 .seg button[aria-pressed="true"][data-v="not-going"]  { background: var(--accent-clay); color: white; }
 .seg button[aria-pressed="true"][data-v="neutral"]    { background: var(--status-neutral); color: white; }
