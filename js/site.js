@@ -124,9 +124,9 @@
   }
 
   function modeLabel(m) {
-    if (m === 'light') return '\u2600\uFE0F Light';
-    if (m === 'dark')  return '\uD83C\uDF19 Dark';
-    return '\uD83C\uDF13 Auto';
+    if (m === 'light') return '\u2600\uFE0F Appearance';
+    if (m === 'dark')  return '\uD83C\uDF19 Appearance';
+    return '\uD83C\uDF13 Appearance';
   }
 
   /* ── Inject chrome (synchronous -- runs during body parsing) ─────────────── */
