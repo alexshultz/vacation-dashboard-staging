@@ -332,7 +332,7 @@
               'Content-Type': 'application/json',
               'apikey': SUPABASE_ANON_KEY,
               'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-              'Prefer': 'return=minimal',
+              'Prefer': 'return=minimal,resolution=merge-duplicates',
               'X-Admin-Token': ADMIN_TOKEN
             },
             body: JSON.stringify(rows)
