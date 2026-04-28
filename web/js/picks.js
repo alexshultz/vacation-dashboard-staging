@@ -46,12 +46,12 @@ const picks = (function() {
     catch(e) { return {}; }
   }
 
-  // ---- Supabase backend (Phase 2 -- stub) ----
+  // ---- Supabase backend (Phase 2) ----
   function sbEnabled() { return !!(SUPABASE_URL && SUPABASE_ANON_KEY && currentUser); }
 
   // ---- Wishlist aggregation (all users) ----
   async function fetchAllWishlists() {
-    const url = `${SUPABASE_URL}/rest/v1/picks?state=eq.wishlist&select=user_id,slug`;
+    const url = `${SUPABASE_URL}/rest/v1/picks?state=in.(wishlist,committing)&select=user_id,slug,state`;
     const headers = {
       'apikey': SUPABASE_ANON_KEY,
       'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
@@ -85,14 +85,48 @@ const picks = (function() {
       'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
       'Prefer': 'resolution=merge-duplicates'
     };
-    try {
+    // localStorage write already occurred before sbSet() was called -- pick is not lost
+    async function attempt() {
+      let r;
       if (state === null) {
-        await fetch(`${url}?user_id=eq.${encodeURIComponent(currentUser)}&slug=eq.${encodeURIComponent(slug)}`, {method:'DELETE', headers});
+        r = await fetch(`${url}?user_id=eq.${encodeURIComponent(currentUser)}&slug=eq.${encodeURIComponent(slug)}`, {method:'DELETE', headers});
       } else {
-        await fetch(url, {method:'POST', headers, body: JSON.stringify({user_id:currentUser, slug, state})});
+        r = await fetch(url, {method:'POST', headers, body: JSON.stringify({user_id:currentUser, slug, state})});
       }
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+    }
+    function showBanner() {
+      if (typeof document === 'undefined') return;
+      if (document.getElementById('sb-error-banner')) return;
+      const banner = document.createElement('div');
+      banner.id = 'sb-error-banner';
+      banner.style.cssText = 'background:#F8DDD5;color:#6A1F17;border:1px solid #C1553B;' +
+        'padding:12px 16px;font-size:14px;z-index:9999;position:relative;';
+      banner.innerHTML = "Your pick couldn\u2019t be saved to the server. It\u2019s saved on this device only. " +
+        '<button id="sb-retry-btn" style="margin-left:8px;padding:3px 10px;cursor:pointer;' +
+        'border:1px solid #C1553B;background:transparent;color:#6A1F17;border-radius:4px;">[Retry]</button>' +
+        ' or check your connection.';
+      document.body.insertBefore(banner, document.body.firstChild);
+      document.getElementById('sb-retry-btn').addEventListener('click', async function() {
+        try {
+          await attempt();
+          const b = document.getElementById('sb-error-banner');
+          if (b) b.remove();
+        } catch(retryErr) {
+          console.error('[picks] Supabase retry failed', retryErr);
+          const b = document.getElementById('sb-error-banner');
+          if (b) b.textContent = "Your pick couldn\u2019t be saved to the server. It\u2019s saved on this device only. Retry also failed \u2014 check your connection.";
+        }
+      });
+    }
+    try {
+      await attempt();
       return true;
-    } catch(e) { console.error('[picks] Supabase write failed', e); return false; }
+    } catch(e) {
+      console.error('[picks] Supabase write failed', e);
+      showBanner();
+      return false;
+    }
   }
 
   async function sbGet(slug) {
@@ -116,6 +150,30 @@ const picks = (function() {
     init(userName) {
       currentUser = userName || '';
       if (currentUser) localStorage.setItem(USER_KEY, currentUser);
+      // Non-blocking server hydration -- Supabase wins for any slug it returns
+      if (sbEnabled()) {
+        const hydrateUser = currentUser;
+        (async function() {
+          try {
+            const url = `${SUPABASE_URL}/rest/v1/picks?user_id=eq.${encodeURIComponent(hydrateUser)}&select=slug,state`;
+            const headers = { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` };
+            const r = await fetch(url, { headers });
+            if (!r.ok) {
+              console.error('[picks] hydration HTTP error', r.status, r.statusText);
+              return;
+            }
+            const rows = await r.json();
+            rows.forEach(function(row) {
+              if (!row || !row.slug) return;
+              const prev = lsGet(row.slug);
+              lsSet(row.slug, row.state);
+              if (prev !== row.state) notify(row.slug, row.state);
+            });
+          } catch(e) {
+            console.error('[picks] hydration failed', e);
+          }
+        })();
+      }
     },
     getUser() { return currentUser; },
     get(slug) { return lsGet(slug); },
