@@ -9,14 +9,11 @@ Current bug: on iPad, both `.hamburger-btn` and `.site-nav` (full nav links) are
 
 Alex's request: if there is room for all 8 nav items, show them; otherwise hide them and show only the hamburger.
 
-> ```note! 
-> ```
-
 ---
 
 ## Q1: CSS breakpoint or JS overflow detection?
 
-**Alex's Thoughts:**
+**Alex's Thoughts:** Don’t think about the navbar as “all 8 nav items”. Think about it as “all nav items”. Let’s make this more dynamic. Instead of setting a pixel value, see if you can fit all the menu items on the screen. If you can then do so. If you can’t then swap to the hamburger menu system.
 
 Two options:
 
@@ -30,7 +27,7 @@ Two options:
 
 **Q2: What breakpoint value?**
 
-**Alex's Thoughts:**
+**Alex's Thoughts:** see my note in Q1 about this.
 
 8 items: Home, Activities, Quick Pick, Wishlist, Suggested, Timeline, People, Help. At the current font/padding, each link is roughly 80-110px wide. 8 × ~95px = ~760px of nav links plus ~160px of logo/padding = ~920px total header space needed.
 
@@ -40,7 +37,7 @@ Two options:
 
 **Q3: What exactly changes at each breakpoint?**
 
-**Alex's Thoughts:**
+**Alex's Thoughts:** On a large screen the bottom icons become useless. Maybe could possibly be useful on a tablet with a quick poke of the finger but a system with a mouse or large screen isn’t useful and just takes up valuable vertical real estate. If you think about a screen that is wider than it is high then the vertical real estate is the most valuable. See Q1 for my thoughts on dynamic rather than hard-coded breakpoint.
 
 **Below 960px (hamburger mode):**
 - `.hamburger-btn` -- `display: flex` (visible)
@@ -60,7 +57,7 @@ Two options:
 
 **Q4: How do we handle profile badge sync?**
 
-**Alex's Thoughts:**
+**Alex's Thoughts:** I say to remove all icons from the top menu except the hamburger. Put all menu items in the menu. Also, if the user is an admin (currently only Alex is an admin) then also add in the admin-only links to the menu.
 
 `#profile-btn` and `#site-theme-toggle` live inside `#hamburger-panel`. `syncBadge()` calls `getElementById('profile-btn')`. When the panel is in the DOM but hidden via CSS `display: none`, `getElementById` still finds the element -- badge sync continues to work regardless of visibility. No change needed.
 
@@ -99,7 +96,7 @@ The missing `.site-nav { display: none; }` default is the root cause of the bug.
 
 **Q6: Does `.site-nav` have its own display rule in components.css that might conflict?**
 
-**Alex's Thoughts:**
+**Alex's Thoughts:** I’m thinking that if we are going to keep little icons at the bottom of the screen (whether phone or tablet or computer) then we should add those icons in front of the menu names on the hamburger menu. That helps define what those icons mean. That also means we’ll need an icon for each menu item. Just make a simple icon that indicates “admin-only” when an admin menu shows the extra items.
 
 Need to check. If components.css sets `.site-nav { display: flex }` unconditionally, adding `display: none` in the injected site-hamburger-styles block may be overridden by specificity. The injected `<style>` tag goes in `<head>` after the `<link>` stylesheet loads -- so it should win on equal specificity. But worth confirming.
 
@@ -109,7 +106,7 @@ Need to check. If components.css sets `.site-nav { display: flex }` unconditiona
 
 **Q7: Should the hamburger panel style change at all for wide screens?**
 
-**Alex's Thoughts:**
+**Alex's Thoughts:** I want to keep the hamburger (when used) in the upper-right corner all the time as the only icon on the top. 
 
 No. The panel is `position: fixed`, drops below the header, full-width. That behavior is fine for the narrow screens where it will appear. On wide screens it's hidden entirely. No style change needed for the panel itself.
 
@@ -144,6 +141,7 @@ CLAUDE.md warns: Browser UA `[hidden]{display:none}` is overridden by `display:f
 ## Alex's Thoughts
 
 *(Leave blank = full approval. Write anything to flag for discussion.)*
+I’ve written several notes. Let’s continue this discussion in the chat and then if we need a new file for more questions we can do that.
 
 ---
 
