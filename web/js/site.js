@@ -34,14 +34,14 @@
 
   /* ── Nav definition (single source of truth) ─────────────────────────────── */
   var NAV_LINKS = [
-    { href: 'index.html',           label: 'Home'       },
-    { href: 'attractions.html',     label: 'Activities' },
-    { href: 'quick-pick.html',      label: 'Quick Pick' },
-    { href: 'wishlist.html',        label: 'Wishlist'   },
-    { href: 'suggested.html',       label: 'Suggested'  },
-    { href: 'event-timeline.html',  label: 'Timeline'   },
-    { href: 'people-timeline.html', label: 'People'     },
-    { href: 'help.html',            label: 'Help'       },
+    { href: 'index.html',           label: 'Home',       icon: '🏠' },
+    { href: 'attractions.html',     label: 'Activities', icon: '🎡' },
+    { href: 'quick-pick.html',      label: 'Quick Pick', icon: '🃏' },
+    { href: 'wishlist.html',        label: 'Wishlist',   icon: '♡'  },
+    { href: 'suggested.html',       label: 'Suggested',  icon: '✨' },
+    { href: 'event-timeline.html',  label: 'Timeline',   icon: '📅' },
+    { href: 'people-timeline.html', label: 'People',     icon: '👥' },
+    { href: 'help.html',            label: 'Help',       icon: '❓' },
   ];
 
   var BOTTOM_TABS = [
@@ -102,7 +102,10 @@
   function buildHamburgerPanel() {
     var links = NAV_LINKS.map(function (l) {
       var cur = (l.href === activeHref) ? ' aria-current="page"' : '';
-      return '<a href="' + l.href + '" class="hamburger-link"' + cur + '>' + l.label + '</a>';
+      return '<a href="' + l.href + '" class="hamburger-link"' + cur + '>' +
+        '<span class="nav-icon">' + l.icon + '</span>' +
+        '<span class="nav-label">' + l.label + '</span>' +
+        '</a>';
     }).join('');
     var profCur = isProfile ? ' aria-current="page"' : '';
     return (
@@ -138,6 +141,7 @@
       var styleEl = document.createElement('style');
       styleEl.id = 'site-hamburger-styles';
       styleEl.textContent =
+        '/* Hamburger button */\n' +
         '.hamburger-btn {\n' +
         '  display: flex;\n' +
         '  align-items: center;\n' +
@@ -150,6 +154,19 @@
         '  border-radius: var(--radius-btn);\n' +
         '  line-height: 1;\n' +
         '}\n' +
+        '\n' +
+        '/* Default: hamburger mode (nav links hidden) */\n' +
+        '.site-header .site-nav { display: none; }\n' +
+        '\n' +
+        '/* Full nav mode (when JS adds nav-fits class to body) */\n' +
+        'body.nav-fits .site-header .site-nav {\n' +
+        '  display: flex;\n' +
+        '  gap: 4px;\n' +
+        '}\n' +
+        'body.nav-fits .hamburger-btn { display: none; }\n' +
+        'body.nav-fits .bottom-tabs   { display: none; }\n' +
+        '\n' +
+        '/* Hamburger panel */\n' +
         '#hamburger-panel {\n' +
         '  position: fixed;\n' +
         '  top: var(--header-h, 56px);\n' +
@@ -161,8 +178,11 @@
         '  padding: 8px 0;\n' +
         '  box-shadow: var(--shadow-2, 0 4px 16px rgba(0,0,0,.15));\n' +
         '}\n' +
+        '\n' +
+        '/* Hamburger links */\n' +
         '.hamburger-link {\n' +
-        '  display: block;\n' +
+        '  display: flex;\n' +
+        '  align-items: center;\n' +
         '  padding: 14px 24px;\n' +
         '  font-family: var(--font-display);\n' +
         '  font-size: var(--text-base);\n' +
@@ -173,12 +193,17 @@
         '.hamburger-link:hover,\n' +
         '.hamburger-link:focus { background: var(--color-bg); }\n' +
         '.hamburger-link[aria-current="page"] { color: var(--accent-moss, var(--moss)); }\n' +
-        '.site-header .site-nav { display: none; }\n' +
-        '@media (min-width: 960px) {\n' +
-        '  .hamburger-btn   { display: none; }\n' +
-        '  #hamburger-panel { display: none !important; }\n' +
-        '  .site-header .site-nav { display: flex; gap: 4px; }\n' +
-        '  .bottom-tabs     { display: none; }\n' +
+        '\n' +
+        '/* Icon + label alignment inside hamburger links */\n' +
+        '.nav-icon {\n' +
+        '  display: inline-block;\n' +
+        '  width: 2em;\n' +
+        '  text-align: center;\n' +
+        '  flex-shrink: 0;\n' +
+        '  font-style: normal;\n' +
+        '}\n' +
+        '.nav-label {\n' +
+        '  flex: 1;\n' +
         '}';
       document.head.appendChild(styleEl);
     }
@@ -207,6 +232,58 @@
         hamburgerBtn.setAttribute('aria-expanded', 'false');
       }
     });
+  }
+
+  /* ── Responsive nav: show full links if they fit, hamburger if not ──────── */
+  function checkNavFit() {
+    var nav = document.querySelector('.site-nav');
+    var inner = document.querySelector('.site-header__inner');
+    if (!nav || !inner) return;
+
+    // Temporarily reveal nav to measure its natural width
+    var wasHidden = nav.style.display === 'none' || !document.body.classList.contains('nav-fits');
+    if (wasHidden) {
+      nav.style.visibility = 'hidden';
+      nav.style.display = 'flex';
+    }
+    var navWidth = nav.scrollWidth;
+    if (wasHidden) {
+      nav.style.display = '';
+      nav.style.visibility = '';
+    }
+
+    // Available width = header inner width minus logo and hamburger button budget
+    var logo = document.querySelector('.site-logo');
+    var btn  = document.querySelector('.hamburger-btn');
+    var logoWidth = logo ? logo.offsetWidth : 120;
+    var btnWidth  = btn  ? btn.offsetWidth  : 48;
+    var available = inner.clientWidth - logoWidth - btnWidth - 32; // 32px padding buffer
+
+    if (navWidth <= available) {
+      document.body.classList.add('nav-fits');
+    } else {
+      document.body.classList.remove('nav-fits');
+      // Close panel if open when switching to hamburger mode
+      var panel = document.getElementById('hamburger-panel');
+      if (panel && panel.style.display !== 'none') {
+        panel.style.display = 'none';
+        var hBtn = document.getElementById('site-hamburger');
+        if (hBtn) hBtn.setAttribute('aria-expanded', 'false');
+      }
+    }
+  }
+
+  // Run on load
+  checkNavFit();
+
+  // Run on every resize
+  if (typeof ResizeObserver !== 'undefined') {
+    var navObserver = new ResizeObserver(function() { checkNavFit(); });
+    var observeTarget = document.querySelector('.site-header__inner');
+    if (observeTarget) navObserver.observe(observeTarget);
+  } else {
+    // Fallback for browsers without ResizeObserver (rare)
+    window.addEventListener('resize', checkNavFit);
   }
 
   /* ── Dark mode toggle ────────────────────────────────────────────────────── */
