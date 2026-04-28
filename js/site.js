@@ -171,10 +171,12 @@
         '#hamburger-panel {\n' +
         '  position: fixed;\n' +
         '  top: var(--header-h, 56px);\n' +
-        '  left: 0;\n' +
         '  right: 0;\n' +
+        '  width: max-content;\n' +
+        '  max-width: calc(100vw - 16px);\n' +
         '  background: var(--color-surface);\n' +
-        '  border-bottom: 1.5px solid var(--color-line);\n' +
+        '  border: 1.5px solid var(--color-line);\n' +
+        '  border-radius: 0 0 0 var(--radius-btn);\n' +
         '  z-index: 999;\n' +
         '  padding: 8px 0;\n' +
         '  box-shadow: var(--shadow-2, 0 4px 16px rgba(0,0,0,.15));\n' +
