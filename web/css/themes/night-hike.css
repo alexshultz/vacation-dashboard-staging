@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;700;800&display=swap');
+
+/*
+ * night-hike.css -- Night Hike theme
+ * Vibe:  Stars through pine canopy, moonlit trails, glowing trail markers.
+ *        Cool, focused, electric -- cyan replaces amber. After-dark adventure.
+ *
+ * Light: Cool silver-white with deep navy, steel teal, and phosphorescent cyan
+ * Dark:  Deep trail-night navy with bioluminescent cyan and electric highlights
+ *
+ * Best for: Adventure mood, night owls, cool-focused planning sessions.
+ */
+
+:root {
+  /* ── Private Palette: Moonlit Trail ─────────────────────────────── */
+
+  --moonlit-blue:     #1E5FA8;   /* Trail marker blue in darkness */
+  --moonlit-dim:      #144080;   /* Deeper night blue */
+  --phospho-teal:     #1A7A6E;   /* Phosphorescent secondary teal */
+  --night-purple:     #5B2D8E;   /* Night sky purple committed */
+  --silver-surface:   #F4F6F9;   /* Cool silver-white surface */
+  --silver-bg:        #EBF0F5;   /* Crisp focused background */
+  --night-ink:        #0D1A2E;   /* Deep trail-night ink */
+  --night-ink-dim:    #3A5060;   /* Steel dim text */
+  --night-line:       #C8D8E8;   /* Silver-blue divider */
+  --starlight-cyan:   #7EC8D4;   /* Starlight bioluminescent cyan */
+  --alert-red:        #B83A35;   /* Alert danger red */
+  --night-warn:       #6B4A0A;   /* Amber warn */
+  --night-neutral:    #4A5A6A;   /* Steel neutral */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Lexend', 'Helvetica Neue', sans-serif;
+  --font-body:    'Atkinson Hyperlegible', 'Georgia', serif;
+
+  /* ── Light Mode: Trail Silver ────────────────────────────────────── */
+  --color-bg:       #EBF0F5;
+  --color-surface:  #F4F6F9;
+  --color-ink:      #0D1A2E;
+  --color-ink-dim:  #3A5060;
+  --color-line:     #C8D8E8;
+
+  --status-yes:      #1A5A2A;
+  --status-no:       #B83A35;
+  --status-wishlist: #1E5FA8;
+  --status-neutral:  #4A5A6A;
+  --status-lock:     #6B4A0A;
+  --warn:            #6B4A0A;
+
+  --accent-1: #7EC8D4;   /* Starlight cyan -- bioluminescent glow */
+  --accent-2: #B83A35;   /* Alert red -- danger actions */
+  --accent-3: #1A7A6E;   /* Phosphorescent teal -- tertiary accent */
+}
+
+/* ── Dark Mode: Night Trail ──────────────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(212, 6%,  9%);
+  --color-surface: hsl(212, 6%, 14%);
+  --color-ink:     hsl(212, 8%, 92%);
+  --color-ink-dim: hsl(212, 6%, 65%);
+  --color-line:    hsl(212, 8%, 22%);
+
+  --status-yes:      #4ACA6A;
+  --status-no:       #E05050;
+  --status-wishlist: #5A9AEE;
+  --status-neutral:  #6A7A8A;
+  --status-lock:     #C8A030;
+  --warn:            #C8A030;
+
+  --accent-1: hsl(186, 65%, 60%);   /* Brightened starlight cyan */
+  --accent-2: hsl(2,   60%, 60%);   /* Brightened alert red */
+  --accent-3: hsl(173, 60%, 45%);   /* Brightened phosphorescent teal */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(212, 6%,  9%);
+    --color-surface: hsl(212, 6%, 14%);
+    --color-ink:     hsl(212, 8%, 92%);
+    --color-ink-dim: hsl(212, 6%, 65%);
+    --color-line:    hsl(212, 8%, 22%);
+
+    --status-yes:      #4ACA6A;
+    --status-no:       #E05050;
+    --status-wishlist: #5A9AEE;
+    --status-neutral:  #6A7A8A;
+    --status-lock:     #C8A030;
+    --warn:            #C8A030;
+
+    --accent-1: hsl(186, 65%, 60%);
+    --accent-2: hsl(2,   60%, 60%);
+    --accent-3: hsl(173, 60%, 45%);
+  }
+}

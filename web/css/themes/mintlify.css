@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/*
+ * mintlify.css -- Mintlify theme
+ * Vibe:  Clean, green-accented, content-forward. Focused like a well-designed
+ *        documentation site -- every element earns its place.
+ *
+ * Light: Crisp white cards on cool off-white with emerald-green primary actions
+ * Dark:  Deep cool-dark with bright emerald and cyan highlights
+ *
+ * Best for: Content-heavy pages, careful planners, clean minimalist preference.
+ */
+
+:root {
+  /* ── Private Palette: Mintlify Docs ─────────────────────────────── */
+
+  --mint-green:       #0D9373;   /* Primary emerald -- Mintlify signature */
+  --mint-green-dim:   #097A60;   /* Deeper emerald hover */
+  --mint-cyan:        #0891B2;   /* Secondary cyan-teal */
+  --mint-violet:      #7C3AED;   /* Tertiary violet */
+  --mint-surface:     #FFFFFF;   /* Clean white card */
+  --mint-bg:          #F9FAFB;   /* Cool neutral off-white */
+  --mint-ink:         #111827;   /* Deep near-black ink */
+  --mint-ink-dim:     #6B7280;   /* Medium gray dim text */
+  --mint-line:        #E5E7EB;   /* Light gray rule */
+  --mint-red:         #DC2626;   /* Error / danger */
+  --mint-amber:       #B45309;   /* Warn */
+  --mint-neutral:     #6B7280;   /* Status neutral */
+  --mint-bright:      #10B981;   /* Brighter mint for accent-1 */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  /* ── Light Mode: Documentation Clean ────────────────────────────── */
+  --color-bg:       #F9FAFB;
+  --color-surface:  #FFFFFF;
+  --color-ink:      #111827;
+  --color-ink-dim:  #6B7280;
+  --color-line:     #E5E7EB;
+
+  --status-yes:      #059669;
+  --status-no:       #DC2626;
+  --status-wishlist: #0D9373;
+  --status-neutral:  #6B7280;
+  --status-lock:     #B45309;
+  --warn:            #B45309;
+
+  --accent-1: #10B981;   /* Bright mint -- primary highlight */
+  --accent-2: #DC2626;   /* Red -- danger/remove */
+  --accent-3: #0891B2;   /* Cyan -- tertiary accent */
+}
+
+/* ── Dark Mode: Dark Documentation ──────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(166, 6%,  9%);
+  --color-surface: hsl(166, 6%, 14%);
+  --color-ink:     hsl(166, 8%, 92%);
+  --color-ink-dim: hsl(166, 6%, 65%);
+  --color-line:    hsl(166, 8%, 22%);
+
+  --status-yes:      #34D399;
+  --status-no:       #EF4444;
+  --status-wishlist: #34D399;
+  --status-neutral:  #9CA3AF;
+  --status-lock:     #D97706;
+  --warn:            #D97706;
+
+  --accent-1: hsl(160, 70%, 55%);   /* Brightened mint green */
+  --accent-2: hsl(0,   75%, 60%);   /* Brightened red */
+  --accent-3: hsl(199, 75%, 52%);   /* Brightened cyan */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(166, 6%,  9%);
+    --color-surface: hsl(166, 6%, 14%);
+    --color-ink:     hsl(166, 8%, 92%);
+    --color-ink-dim: hsl(166, 6%, 65%);
+    --color-line:    hsl(166, 8%, 22%);
+
+    --status-yes:      #34D399;
+    --status-no:       #EF4444;
+    --status-wishlist: #34D399;
+    --status-neutral:  #9CA3AF;
+    --status-lock:     #D97706;
+    --warn:            #D97706;
+
+    --accent-1: hsl(160, 70%, 55%);
+    --accent-2: hsl(0,   75%, 60%);
+    --accent-3: hsl(199, 75%, 52%);
+  }
+}

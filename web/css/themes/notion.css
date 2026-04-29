@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/*
+ * notion.css -- Notion theme
+ * Vibe:  Warm minimalism, off-white document surfaces, comfortable reading.
+ *        Calm and focused -- every element earns its presence.
+ *
+ * Light: Warm off-white page with white cards, warm near-black ink, blue accent
+ * Dark:  Warm near-black document surfaces with soft blue and purple accents
+ *
+ * Best for: Detail-oriented planners, reading-heavy use, calm low-noise preference.
+ */
+
+:root {
+  /* ── Private Palette: Notion Documents ──────────────────────────── */
+
+  --notion-ink:       #37352F;   /* Notion's warm near-black */
+  --notion-ink-deep:  #1A1917;   /* Deeper warm dark */
+  --notion-blue:      #0F7BFF;   /* Interactive accent blue */
+  --notion-purple:    #9065B0;   /* Committed / tertiary purple */
+  --notion-surface:   #FFFFFF;   /* Pure white card */
+  --notion-bg:        #F7F6F3;   /* Warm off-white -- Notion's signature background */
+  --notion-ink-dim:   #787774;   /* Gray-warm dim text */
+  --notion-line:      #E3E2E0;   /* Warm light gray rule */
+  --notion-red:       #E16259;   /* Error / danger */
+  --notion-amber:     #CB912F;   /* Warn amber */
+  --notion-green:     #458262;   /* Success green */
+  --notion-neutral:   #787774;   /* Status neutral */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  /* ── Light Mode: Warm Document ───────────────────────────────────── */
+  --color-bg:       #F7F6F3;
+  --color-surface:  #FFFFFF;
+  --color-ink:      #37352F;
+  --color-ink-dim:  #787774;
+  --color-line:     #E3E2E0;
+
+  --status-yes:      #458262;
+  --status-no:       #E16259;
+  --status-wishlist: #0F7BFF;
+  --status-neutral:  #787774;
+  --status-lock:     #CB912F;
+  --warn:            #CB912F;
+
+  --accent-1: #0F7BFF;   /* Notion blue -- primary interactive */
+  --accent-2: #E16259;   /* Notion red -- danger/remove */
+  --accent-3: #9065B0;   /* Notion purple -- committed events */
+}
+
+/* ── Dark Mode: Warm Dark Document ──────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(45, 6%,  9%);
+  --color-surface: hsl(45, 6%, 14%);
+  --color-ink:     hsl(45, 8%, 92%);
+  --color-ink-dim: hsl(45, 6%, 65%);
+  --color-line:    hsl(45, 8%, 22%);
+
+  --status-yes:      #4AC88A;
+  --status-no:       #E87060;
+  --status-wishlist: #5A9AFF;
+  --status-neutral:  #908E8A;
+  --status-lock:     #D4AA40;
+  --warn:            #D4AA40;
+
+  --accent-1: hsl(214, 90%, 65%);   /* Brightened Notion blue */
+  --accent-2: hsl(4,   70%, 62%);   /* Brightened Notion red */
+  --accent-3: hsl(281, 50%, 65%);   /* Brightened Notion purple */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(45, 6%,  9%);
+    --color-surface: hsl(45, 6%, 14%);
+    --color-ink:     hsl(45, 8%, 92%);
+    --color-ink-dim: hsl(45, 6%, 65%);
+    --color-line:    hsl(45, 8%, 22%);
+
+    --status-yes:      #4AC88A;
+    --status-no:       #E87060;
+    --status-wishlist: #5A9AFF;
+    --status-neutral:  #908E8A;
+    --status-lock:     #D4AA40;
+    --warn:            #D4AA40;
+
+    --accent-1: hsl(214, 90%, 65%);
+    --accent-2: hsl(4,   70%, 62%);
+    --accent-3: hsl(281, 50%, 65%);
+  }
+}

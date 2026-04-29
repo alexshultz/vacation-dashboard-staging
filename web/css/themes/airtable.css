@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/*
+ * airtable.css -- Airtable theme
+ * Vibe:  Colorful, structured, friendly. Confident blue with vivid multi-color
+ *        status system. Organized and bright without being childish.
+ *
+ * Light: Clean white cards on pale blue-tinted background with vivid accent spectrum
+ * Dark:  Deep blue-tinted dark with bright multi-color status chips
+ *
+ * Best for: Structured planning, color-coded itineraries, organized families.
+ */
+
+:root {
+  /* ── Private Palette: Airtable Grid ─────────────────────────────── */
+
+  --at-blue:          #166EE1;   /* Airtable primary blue */
+  --at-blue-dim:      #0E57BA;   /* Deeper blue hover */
+  --at-green:         #20C933;   /* Airtable success green */
+  --at-purple:        #8B46FF;   /* Airtable purple */
+  --at-surface:       #FFFFFF;   /* Clean white card */
+  --at-bg:            #F4F6FF;   /* Pale blue-tinted background */
+  --at-ink:           #171717;   /* Near-black ink */
+  --at-ink-dim:       #5C6474;   /* Slate gray dim text */
+  --at-line:          #D9DDE8;   /* Cool gray-blue divider */
+  --at-pink:          #F82B60;   /* Airtable error/danger pink */
+  --at-orange:        #FF6F2C;   /* Airtable warn orange */
+  --at-neutral:       #5C6474;   /* Status neutral */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  /* ── Light Mode: Structured Grid ────────────────────────────────── */
+  --color-bg:       #F4F6FF;
+  --color-surface:  #FFFFFF;
+  --color-ink:      #171717;
+  --color-ink-dim:  #5C6474;
+  --color-line:     #D9DDE8;
+
+  --status-yes:      #20C933;
+  --status-no:       #F82B60;
+  --status-wishlist: #166EE1;
+  --status-neutral:  #5C6474;
+  --status-lock:     #FF6F2C;
+  --warn:            #FF6F2C;
+
+  --accent-1: #20C933;   /* Airtable green -- success / yes */
+  --accent-2: #F82B60;   /* Airtable pink -- danger/remove */
+  --accent-3: #8B46FF;   /* Airtable purple -- committed */
+}
+
+/* ── Dark Mode: Dark Grid ────────────────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(215, 6%,  9%);
+  --color-surface: hsl(215, 6%, 14%);
+  --color-ink:     hsl(215, 8%, 92%);
+  --color-ink-dim: hsl(215, 6%, 65%);
+  --color-line:    hsl(215, 8%, 22%);
+
+  --status-yes:      #40D850;
+  --status-no:       #FF4880;
+  --status-wishlist: #4A8AFF;
+  --status-neutral:  #7A8494;
+  --status-lock:     #FF8A4A;
+  --warn:            #FF8A4A;
+
+  --accent-1: hsl(126, 75%, 58%);   /* Brightened Airtable green */
+  --accent-2: hsl(341, 90%, 62%);   /* Brightened Airtable pink */
+  --accent-3: hsl(264, 85%, 70%);   /* Brightened Airtable purple */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(215, 6%,  9%);
+    --color-surface: hsl(215, 6%, 14%);
+    --color-ink:     hsl(215, 8%, 92%);
+    --color-ink-dim: hsl(215, 6%, 65%);
+    --color-line:    hsl(215, 8%, 22%);
+
+    --status-yes:      #40D850;
+    --status-no:       #FF4880;
+    --status-wishlist: #4A8AFF;
+    --status-neutral:  #7A8494;
+    --status-lock:     #FF8A4A;
+    --warn:            #FF8A4A;
+
+    --accent-1: hsl(126, 75%, 58%);
+    --accent-2: hsl(341, 90%, 62%);
+    --accent-3: hsl(264, 85%, 70%);
+  }
+}

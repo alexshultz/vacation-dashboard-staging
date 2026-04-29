@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+/*
+ * clay.css -- Clay theme
+ * Vibe:  Organic, warm, textural -- sun-baked terracotta and handmade ceramic.
+ *        Feels like a pottery studio, not a tech product.
+ *
+ * Light: Warm linen background with cream cards, terracotta primary, muted sage
+ * Dark:  Deep warm-earth night with glowing terracotta and sage highlights
+ *
+ * Best for: Warm organic aesthetic, users who find blue-dominant themes cold.
+ */
+
+:root {
+  /* ── Private Palette: Terracotta Earth ──────────────────────────── */
+
+  --terracotta:       #C4603A;   /* Sun-baked clay-orange primary */
+  --terracotta-dim:   #A04A2A;   /* Deeper clay shadow */
+  --sage:             #5B8A6E;   /* Muted organic sage green */
+  --warm-brown:       #8A6040;   /* Warm brown tertiary */
+  --clay-surface:     #FEF9F5;   /* Cream-white card */
+  --linen-bg:         #FAF0E6;   /* Warm linen background */
+  --clay-ink:         #2C1A0E;   /* Deep earth ink */
+  --clay-ink-dim:     #7A5A40;   /* Muted sienna dim text */
+  --clay-line:        #E8D5C0;   /* Sand-cream divider */
+  --light-clay:       #E8A87C;   /* Light terracotta tile accent */
+  --clay-danger:      #B83020;   /* Deep clay danger */
+  --clay-warn:        #8A5200;   /* Amber warn */
+  --clay-neutral:     #7A5A40;   /* Warm sienna neutral */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'DM Sans', system-ui, sans-serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  /* ── Light Mode: Pottery Studio ─────────────────────────────────── */
+  --color-bg:       #FAF0E6;
+  --color-surface:  #FEF9F5;
+  --color-ink:      #2C1A0E;
+  --color-ink-dim:  #7A5A40;
+  --color-line:     #E8D5C0;
+
+  --status-yes:      #2E6B3A;
+  --status-no:       #B83020;
+  --status-wishlist: #C4603A;
+  --status-neutral:  #7A5A40;
+  --status-lock:     #8A5200;
+  --warn:            #8A5200;
+
+  --accent-1: #E8A87C;   /* Light clay tile -- warm sun-baked highlight */
+  --accent-2: #B83020;   /* Deep clay danger -- remove actions */
+  --accent-3: #5B8A6E;   /* Muted sage -- organic counterpoint */
+}
+
+/* ── Dark Mode: Candlelit Pottery Night ─────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(17, 6%,  9%);
+  --color-surface: hsl(17, 6%, 14%);
+  --color-ink:     hsl(17, 8%, 92%);
+  --color-ink-dim: hsl(17, 6%, 65%);
+  --color-line:    hsl(17, 8%, 22%);
+
+  --status-yes:      #4AC87A;
+  --status-no:       #E05040;
+  --status-wishlist: #E8804A;
+  --status-neutral:  #9A7A5A;
+  --status-lock:     #D4A030;
+  --warn:            #D4A030;
+
+  --accent-1: hsl(24,  75%, 62%);   /* Brightened light clay */
+  --accent-2: hsl(5,   65%, 55%);   /* Brightened clay danger */
+  --accent-3: hsl(150, 40%, 52%);   /* Brightened sage */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(17, 6%,  9%);
+    --color-surface: hsl(17, 6%, 14%);
+    --color-ink:     hsl(17, 8%, 92%);
+    --color-ink-dim: hsl(17, 6%, 65%);
+    --color-line:    hsl(17, 8%, 22%);
+
+    --status-yes:      #4AC87A;
+    --status-no:       #E05040;
+    --status-wishlist: #E8804A;
+    --status-neutral:  #9A7A5A;
+    --status-lock:     #D4A030;
+    --warn:            #D4A030;
+
+    --accent-1: hsl(24,  75%, 62%);
+    --accent-2: hsl(5,   65%, 55%);
+    --accent-3: hsl(150, 40%, 52%);
+  }
+}

@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/*
+ * wise.css -- Wise theme
+ * Vibe:  Bright lime-green accent, clear, friendly, modern.
+ *        Confident transparency aesthetic -- the green is the star.
+ *
+ * Light: Clean white on slightly green-tinted off-white, deep navy ink, vivid lime
+ * Dark:  Deep navy-teal dark -- lime green actually improves in dark mode
+ *
+ * Best for: Modern preference, unexpected lime accent, clarity-first planning.
+ */
+
+:root {
+  /* ── Private Palette: Wise Finance ──────────────────────────────── */
+
+  --wise-navy:        #183544;   /* Deep navy ink -- confident dark primary */
+  --wise-navy-dim:    #0F2330;   /* Deeper navy */
+  --wise-lime:        #9FE870;   /* Signature lime-green accent */
+  --wise-teal:        #00A3B4;   /* Teal tertiary complement */
+  --wise-surface:     #FFFFFF;   /* Clean white card */
+  --wise-bg:          #F5F7F5;   /* Slightly green-tinted neutral off-white */
+  --wise-ink-dim:     #56697A;   /* Steel blue-gray dim text */
+  --wise-line:        #DDE3E8;   /* Cool blue-gray divider */
+  --wise-red:         #D9322B;   /* Error / danger */
+  --wise-amber:       #9B7200;   /* Warn */
+  --wise-neutral:     #56697A;   /* Status neutral */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  /* ── Light Mode: Clear and Confident ────────────────────────────── */
+  --color-bg:       #F5F7F5;
+  --color-surface:  #FFFFFF;
+  --color-ink:      #183544;
+  --color-ink-dim:  #56697A;
+  --color-line:     #DDE3E8;
+
+  --status-yes:      #2E7D32;
+  --status-no:       #D9322B;
+  --status-wishlist: #0070C0;
+  --status-neutral:  #56697A;
+  --status-lock:     #9B7200;
+  --warn:            #9B7200;
+
+  --accent-1: #9FE870;   /* Wise lime -- signature green highlight */
+  --accent-2: #D9322B;   /* Wise red -- danger/remove */
+  --accent-3: #00A3B4;   /* Wise teal -- tertiary accent */
+}
+
+/* ── Dark Mode: Navy Command Center ─────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(201, 6%,  9%);
+  --color-surface: hsl(201, 6%, 14%);
+  --color-ink:     hsl(201, 8%, 92%);
+  --color-ink-dim: hsl(201, 6%, 65%);
+  --color-line:    hsl(201, 8%, 22%);
+
+  --status-yes:      #4AC87A;
+  --status-no:       #E05050;
+  --status-wishlist: #4A90E0;
+  --status-neutral:  #7A8A9A;
+  --status-lock:     #C8A830;
+  --warn:            #C8A830;
+
+  --accent-1: hsl(95,  75%, 65%);   /* Lime maintains strong contrast on dark */
+  --accent-2: hsl(3,   70%, 60%);   /* Brightened red */
+  --accent-3: hsl(186, 80%, 45%);   /* Brightened teal */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(201, 6%,  9%);
+    --color-surface: hsl(201, 6%, 14%);
+    --color-ink:     hsl(201, 8%, 92%);
+    --color-ink-dim: hsl(201, 6%, 65%);
+    --color-line:    hsl(201, 8%, 22%);
+
+    --status-yes:      #4AC87A;
+    --status-no:       #E05050;
+    --status-wishlist: #4A90E0;
+    --status-neutral:  #7A8A9A;
+    --status-lock:     #C8A830;
+    --warn:            #C8A830;
+
+    --accent-1: hsl(95,  75%, 65%);
+    --accent-2: hsl(3,   70%, 60%);
+    --accent-3: hsl(186, 80%, 45%);
+  }
+}

@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;700;800&display=swap');
+
+/*
+ * autumn-ozarks.css -- Autumn Ozarks theme
+ * Vibe:  The Ozarks in October -- maple ridgelines at peak color.
+ *        Deep burgundy, burnt orange, and harvest gold. Rich, warm, slightly dramatic.
+ *
+ * Light: Harvest cream with deep burgundy, burnt orange, and autumn gold accents
+ * Dark:  Deep autumn night with warm harvest highlights
+ *
+ * Best for: Fall trips, warm mood, families who love the changing leaves.
+ */
+
+:root {
+  /* ── Private Palette: October Ozarks ────────────────────────────── */
+
+  --maple-burgundy:   #7B1F3C;   /* Dominant maple color at peak fall */
+  --burgundy-dim:     #5A1528;   /* Deeper burgundy shadow */
+  --burnt-orange:     #9B4C0A;   /* Ridge-line oak late afternoon */
+  --twilight-purple:  #4A2D7A;   /* Autumn twilight for committed events */
+  --harvest-surface:  #FFF8F0;   /* Harvest cream surface */
+  --harvest-bg:       #FFF0DC;   /* Warm rich harvest background */
+  --autumn-ink:       #2A1A0A;   /* Deep warm-brown ink */
+  --autumn-ink-dim:   #6B4A2A;   /* Muted sienna dim text */
+  --autumn-line:      #F0D8B0;   /* Golden divider */
+  --autumn-gold:      #C8980A;   /* Ginkgo and sweetgum gold */
+  --clay-brown:       #8B3A2A;   /* Deep clay-brown danger */
+  --autumn-warn:      #7A4D0E;   /* Amber warn */
+  --autumn-neutral:   #7A6A5A;   /* Warm tan neutral */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Lexend', 'Helvetica Neue', sans-serif;
+  --font-body:    'Atkinson Hyperlegible', 'Georgia', serif;
+
+  /* ── Light Mode: October Afternoon ──────────────────────────────── */
+  --color-bg:       #FFF0DC;
+  --color-surface:  #FFF8F0;
+  --color-ink:      #2A1A0A;
+  --color-ink-dim:  #6B4A2A;
+  --color-line:     #F0D8B0;
+
+  --status-yes:      #1A5A2A;
+  --status-no:       #8B1A1A;
+  --status-wishlist: #7B1F3C;
+  --status-neutral:  #7A6A5A;
+  --status-lock:     #7A4D0E;
+  --warn:            #7A4D0E;
+
+  --accent-1: #C8980A;   /* Autumn gold -- ginkgo and sweetgum */
+  --accent-2: #8B3A2A;   /* Deep clay-brown -- danger actions */
+  --accent-3: #9B4C0A;   /* Burnt orange -- tertiary accent */
+}
+
+/* ── Dark Mode: Autumn Evening ───────────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(341, 6%,  9%);
+  --color-surface: hsl(341, 6%, 14%);
+  --color-ink:     hsl(341, 8%, 92%);
+  --color-ink-dim: hsl(341, 6%, 65%);
+  --color-line:    hsl(341, 8%, 22%);
+
+  --status-yes:      #4ACA6A;
+  --status-no:       #E05050;
+  --status-wishlist: #C05060;
+  --status-neutral:  #8A7A6A;
+  --status-lock:     #D4AA30;
+  --warn:            #D4AA30;
+
+  --accent-1: hsl(40,  80%, 55%);   /* Brightened autumn gold */
+  --accent-2: hsl(10,  60%, 58%);   /* Brightened clay-brown */
+  --accent-3: hsl(24,  75%, 52%);   /* Brightened burnt orange */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(341, 6%,  9%);
+    --color-surface: hsl(341, 6%, 14%);
+    --color-ink:     hsl(341, 8%, 92%);
+    --color-ink-dim: hsl(341, 6%, 65%);
+    --color-line:    hsl(341, 8%, 22%);
+
+    --status-yes:      #4ACA6A;
+    --status-no:       #E05050;
+    --status-wishlist: #C05060;
+    --status-neutral:  #8A7A6A;
+    --status-lock:     #D4AA30;
+    --warn:            #D4AA30;
+
+    --accent-1: hsl(40,  80%, 55%);
+    --accent-2: hsl(10,  60%, 58%);
+    --accent-3: hsl(24,  75%, 52%);
+  }
+}
