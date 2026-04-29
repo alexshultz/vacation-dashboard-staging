@@ -1,5 +1,5 @@
 # Next Session Kickoff -- Branson '26 Dashboard
-**Written:** 2026-04-28 end of session
+**Written:** 2026-04-28 end of session (updated: docs pass before Hermes update)
 **Production:** vacation.creeperbomb.com
 **Staging:** vacation-dev.creeperbomb.com
 **Launch target:** May 8, 2026
@@ -13,7 +13,7 @@ Staging (`2cb8a2b`) has changes that are NOT yet in production:
 - index.html: same three changes
 
 Column order in staging is correct: Interested | Not Interested | Undecided | No Response.
-Production still has old order. This is the first thing to do next session -- run production promotion from branson-lazlo-delegation skill Step 6b.
+Production still has old order. Run production promotion from branson-lazlo-delegation skill Step 6b.
 
 ---
 
@@ -23,24 +23,32 @@ Production still has old order. This is the first thing to do next session -- ru
 - [x] Responsive nav v2
 - [x] Appearance controls unified
 - [x] Profile page polished
-- [x] help.html complete (verified earlier this session)
+- [x] help.html complete (verified 2026-04-28: fetches help.json; all 5 required sections present; entry point via site.js NAV_LINKS)
 - [x] Admin screen (admin.html) -- upsert 409 bug fixed, live in production
-- [ ] Tester pass (Ashlyn, Jordan, Mycah) -- **NEXT BLOCKER after promotion**
+- [ ] Tester pass (Ashlyn, Jordan, Mycah) -- DEFERRED (removed from May 8 gate per ROADMAP.md 2026-04-27). Do not block launch on this.
 - [ ] Family link sent
 
 ---
 
-## Priority 1: Tester pass
+## Priority 1 (admin editor): 3 decisions BLOCKED on Alex
 
-Send to Ashlyn, Jordan, Mycah. No formal script -- ask them to click around and report anything broken or confusing. URL: https://vacation.creeperbomb.com/
+The Council of Minds (2026-04-28 morning session) evaluated coordinator admin editor architecture. Two approaches eliminated. Three decisions outstanding:
 
-When testers report completion, Alex relays it in #branson-2026. Acknowledge and note it.
+1. **Accept "Option Zero"?** -- GitHub.com's built-in web editor (pencil icon on schedule.json in browser) is already a zero-code admin interface. Real GitHub auth, no PAT in client code, edits go live after ~60s Pages build. Zero implementation. Alex was reviewing what the raw schedule.json entry format looks like when the session ended.
+
+2. **ADR-002 ruling** -- does a Supabase write-back via a human-triggered web form violate the "no automated code modifying vault files" intent of ADR-002? Alex needs to make a call.
+
+3. **Keepalive cron sufficiency** -- the every-3-days keepalive cron (job ID: 4c0261d2d5bc) should prevent Supabase auto-pause. Verify it is sufficient before May 22 trip start.
+
+**Eliminated:**
+- GitHub API write-back (PAT auto-revoked by GitHub secret scanning on any public repo)
+- Hybrid Supabase + GitHub (split-truth, event ID drift)
 
 ---
 
 ## Priority 2: Phase 2 Supabase -- wishlist social counts
 
-When wishlist.html is wired to Supabase picks table, add "X others also wishlisted this" count to each wishlisted card. Feature deferred from this session -- localStorage has no cross-user state. Requires Phase 2 picks activation first.
+When wishlist.html is wired to Supabase picks table, add "X others also wishlisted this" count to each wishlisted card. Feature deferred from prior session -- localStorage has no cross-user state. Requires Phase 2 picks activation first.
 
 Phase 2 schema is written (data/supabase-phase2-schema.sql). Grill-me docs already exist (grill-me docs/supabase-phase2-activation-grillme.md, supabase-phase2-lazlo-grillme.md). Review before proceeding.
 
@@ -63,17 +71,20 @@ Alex wants to adjust the home page "show N events" count (currently hardcoded as
 - "System" (hamburger) vs "Auto" (original toggle) terminology inconsistency -- minor, Alex has not flagged it
 - Wishlist page social counts -- deferred to Phase 2 (noted above)
 - `web/mockups/README.md` still exists in the vault (not the production repo) -- harmless, vault-only
+- help.html cosmetic issue (WARN-12): `<script>` renderer block sits after `</main>` rather than inside `<main>`. Functionally correct. Fix on next help.html touch.
 
 ---
 
 ## Session summary (2026-04-28)
 
-Key accomplishments this session:
+Key accomplishments across sessions today:
 
-1. **Admin upsert 409 fixed** -- T3 Council of Minds identified missing Prefer: resolution=merge-duplicates header. One-line fix, shipped to production.
+1. **Admin upsert 409 fixed** -- T3 Council identified missing `Prefer: resolution=merge-duplicates` header. One-line fix, shipped to production.
 2. **Stale web/mockups/ cleaned** -- T2 verified safe, deleted from production, rsync warning eliminated.
-3. **UI polish batch (event-timeline + index)** -- legend boxed + centered + symmetrical; "No Response" chip outline fixed; card body column order corrected (Interested / Not Interested / Undecided / No Response). In staging, pending production promotion.
-4. **Notes sync** -- "Ideas for Changes.md" note confirmed received from Obsidian (was a sync delay, not missing). All 5 items addressed (item 2 / wishlist social counts deferred to Phase 2).
+3. **UI polish batch (event-timeline + index)** -- legend boxed + centered + symmetrical; "No Response" chip outline fixed; card body column order corrected. In staging, pending production promotion.
+4. **Admin editor architecture Council** -- 5-role Council ran, two options eliminated, three blocking decisions surfaced for Alex.
+5. **Supabase Phase 2 activated** -- picks hydration, write error banner, fetchAllWishlists fix shipped to production.
+6. **Notes sync** -- "Ideas for Changes.md" confirmed received from Obsidian. All 5 items addressed (wishlist social counts deferred to Phase 2).
 
 ---
 

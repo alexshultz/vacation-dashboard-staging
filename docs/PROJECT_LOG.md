@@ -1,3 +1,49 @@
+## 2026-04-28 -- session: docs/handoff before Hermes update (updated)
+
+**Status:** Documentation session. No code changes.
+
+**What this session did:**
+1. Documented the admin editor Council session (morning 20260428_102157) -- was absent from PROJECT_LOG.md
+2. Updated ROADMAP.md admin editor item -- removed stale "GitHub-API-backed" wording; added Council findings and 3 blocking decisions for Alex
+3. Updated NEXT-SESSION.md for new session pickup
+4. Confirmed staging `2cb8a2b` still pending production promotion (event-timeline + index UI polish)
+
+**Known state of blocking decisions on admin editor:**
+- Alex reviewing "Option Zero" (GitHub.com web editor on schedule.json) -- no decision recorded
+- ADR-002 Supabase ruling -- no decision recorded
+- Keepalive cron sufficiency -- no decision recorded
+
+**ROADMAP tester pass discrepancy resolved:** ROADMAP says deferred (correct); NEXT-SESSION was wrong -- tester pass is deferred, NOT the next blocker. Promotion of `2cb8a2b` is the next blocker.
+
+---
+
+---
+
+## 2026-04-28 -- architecture: admin editor Council of Minds session
+
+**Session:** 20260428_102157 (morning, ~10:21 AM)
+
+**Task:** Evaluate architecture options for the coordinator admin editor page (Priority 9 coordinator tool -- Alex edits schedule data and RSVPs without terminal deploy).
+
+**Process:** T3 Council of Minds. Five roles (Explorer, Verifier, Skeptic, Weaver, Archivist) + Refiner synthesis.
+
+**Council result (CAVEAT):** Supabase-backed schedule storage + JS-layer password access control recommended. Medium confidence.
+
+**Eliminated approaches:**
+- GitHub API write-back -- HARD BLOCKER: GitHub secret scanning auto-revokes any PAT pushed to a public repo's client-side JS
+- Hybrid (Supabase + GitHub) -- split-truth / event ID drift with no arbiter
+
+**"Option Zero" surfaced:** GitHub.com's built-in web editor (pencil icon on schedule.json) -- zero code, real auth, 60-90 second deploy. Alex was reviewing what schedule.json entries look like when the session ended.
+
+**Three decisions BLOCKED on Alex (unresolved at session end):**
+1. Accept "Option Zero"? -- Use GitHub.com built-in editor instead of building anything
+2. ADR-002 ruling -- does a human-triggered Supabase write-back violate the "no automated code modifying vault files" intent?
+3. Keepalive cron sufficiency -- is the every-3-days cron enough to prevent Supabase auto-pause before May 22 trip start?
+
+**No implementation started. No code written.**
+
+---
+
 ## 2026-04-28 -- UI polish: event-timeline.html + index.html
 
 **Commits:** vault `ea92f71` (event-timeline), `6ea423e` (index)
