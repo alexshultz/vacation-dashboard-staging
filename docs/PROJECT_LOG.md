@@ -1,3 +1,23 @@
+## 2026-04-29 -- promote: theme system sprint to production
+
+**Staging commit:** 8c0a60f  
+**Production commit:** 8f9a66d  
+**Status:** Live at https://vacation.creeperbomb.com/
+
+**What shipped:**
+- 16 new theme CSS files (airbnb, airtable, autumn-ozarks, cabin-fire, clay, desert-sky, dusk-gold, lake-day, mint-forest, mintlify, night-hike, notion, storm-watch, sunrise, wildflower, wise)
+- 14 existing theme CSS files updated (token rename + dark mode fixes from sprint)
+- css/tokens.css updated (--accent-sand/clay/dusk renamed to --accent-1/2/3)
+- All 30 DESIGN.md spec files added to themes/
+- Stale web/mockups/ deleted from vault, staging, and production
+- All HTML pages updated (from earlier sprints pending this promotion)
+
+**Safety checks:** All 5 passed pre-promotion.  
+**Mockups:** Deleted from all three locations (vault, staging, production) -- not excluded, not special-cased.
+
+---
+
+
 ## 2026-04-28 -- session: docs/handoff before Hermes update (updated)
 
 **Status:** Documentation session. No code changes.

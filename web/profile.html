@@ -198,6 +198,7 @@
     }
     renderGreeting(name);
     updateProfileBtnBadge();
+    if (typeof window.vacdashRebuildHamburger === 'function') window.vacdashRebuildHamburger();
   }
 
   function initIdentity(){

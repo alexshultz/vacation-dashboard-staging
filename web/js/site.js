@@ -29,8 +29,9 @@
 
   /* ── Constants ───────────────────────────────────────────────────────────── */
   var SITE_NAME = "Branson \u201926";   /* Branson '26 — U+2019 RIGHT SINGLE QUOTATION MARK */
-  var MODE_KEY  = 'vacdash:v1:mode';
-  var USER_KEY  = 'vacdash:v1:user';
+  var MODE_KEY    = 'vacdash:v1:mode';
+  var USER_KEY    = 'vacdash:v1:user';
+  var ADMIN_USERS = ['Alex'];
 
   /* ── Nav definition (single source of truth) ─────────────────────────────── */
   var NAV_LINKS = [
@@ -104,7 +105,7 @@
     return '<nav class="bottom-tabs" aria-label="Main navigation">' + tabs + '</nav>';
   }
 
-  function buildHamburgerPanel() {
+  function buildHamburgerInnerHTML() {
     var links = NAV_LINKS.map(function (l) {
       var cur = (l.href === activeHref) ? ' aria-current="page"' : '';
       return '<a href="' + l.href + '" class="hamburger-link"' + cur + '>' +
@@ -115,17 +116,23 @@
     var profCur = isProfile ? ' aria-current="page"' : '';
     var adminLink = '';
     try {
-      if (localStorage.getItem(USER_KEY) === 'Alex') {
+      if (ADMIN_USERS.includes(localStorage.getItem(USER_KEY) || '')) {
         adminLink = '<a href="admin.html" class="hamburger-link"><span class="nav-icon">\u2699\uFE0F</span><span class="nav-label">Admin</span></a>';
       }
     } catch (e) {}
     return (
-      '<div id="hamburger-panel" role="navigation" aria-label="Menu" style="display:none">' +
       links +
       '<hr style="margin: 8px 24px; border-color: var(--color-line)">' +
       '<button class="hamburger-link hamburger-theme-toggle" id="site-theme-toggle" aria-label="Toggle appearance">\uD83C\uDF13 Auto</button>' +
       '<a class="hamburger-link" href="profile.html" id="profile-btn-hamburger" aria-label="Profile"' + profCur + '>\uD83D\uDC64 Profile<span class="profile-nudge-dot" aria-hidden="true"></span></a>' +
-      adminLink +
+      adminLink
+    );
+  }
+
+  function buildHamburgerPanel() {
+    return (
+      '<div id="hamburger-panel" role="navigation" aria-label="Menu" style="display:none">' +
+      buildHamburgerInnerHTML() +
       '</div>'
     );
   }
@@ -148,6 +155,18 @@
       try { initMode = localStorage.getItem(MODE_KEY) || 'system'; } catch (e) {}
       initToggle.textContent = modeLabel(initMode);
     }
+
+    /* Inject Admin link into desktop .site-nav if user is in ADMIN_USERS */
+    try {
+      if (ADMIN_USERS.includes(localStorage.getItem(USER_KEY) || '')) {
+        var initAdminEl = document.createElement('a');
+        initAdminEl.href = 'admin.html';
+        initAdminEl.className = 'nav-link';
+        initAdminEl.textContent = '\u2699\uFE0F Admin';
+        var initSiteNav = document.querySelector('.site-nav');
+        if (initSiteNav) initSiteNav.appendChild(initAdminEl);
+      }
+    } catch (e) {}
 
     if (!document.getElementById('site-hamburger-styles')) {
       var styleEl = document.createElement('style');
@@ -335,5 +354,50 @@
       syncBadge();
     }
   });
+
+  /* ── vacdashRebuildHamburger -- called by profile.html after user change ── */
+  window.vacdashRebuildHamburger = function () {
+    var panel = document.getElementById('hamburger-panel');
+    if (!panel) return;
+
+    /* Rebuild inner content (fresh DOM nodes -- no duplicate listener risk) */
+    panel.innerHTML = buildHamburgerInnerHTML();
+
+    /* Re-attach theme toggle handler and reset its label */
+    var newToggle = document.getElementById('site-theme-toggle');
+    if (newToggle) {
+      var rebuildMode = 'system';
+      try { rebuildMode = localStorage.getItem(MODE_KEY) || 'system'; } catch (e) {}
+      newToggle.textContent = modeLabel(rebuildMode);
+      newToggle.addEventListener('click', function () {
+        var modes = ['system', 'light', 'dark'];
+        var m = document.documentElement.getAttribute('data-mode') || 'system';
+        var next = modes[(modes.indexOf(m) + 1) % 3];
+        document.documentElement.setAttribute('data-mode', next);
+        try { localStorage.setItem(MODE_KEY, next); } catch (e) {}
+        newToggle.textContent = modeLabel(next);
+      });
+    }
+
+    /* Refresh Admin link in desktop nav when nav-fits is active */
+    if (document.body.classList.contains('nav-fits')) {
+      var nav = document.querySelector('.site-nav');
+      if (nav) {
+        var existingAdmin = nav.querySelector('a[href="admin.html"]');
+        if (existingAdmin) existingAdmin.parentNode.removeChild(existingAdmin);
+        try {
+          if (ADMIN_USERS.includes(localStorage.getItem(USER_KEY) || '')) {
+            var rebuildAdminEl = document.createElement('a');
+            rebuildAdminEl.href = 'admin.html';
+            rebuildAdminEl.className = 'nav-link';
+            rebuildAdminEl.textContent = '\u2699\uFE0F Admin';
+            nav.appendChild(rebuildAdminEl);
+          }
+        } catch (e) {}
+      }
+    }
+
+    syncBadge();
+  };
 
 })();
