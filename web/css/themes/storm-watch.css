@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;700;800&display=swap');
+
+/*
+ * storm-watch.css -- Storm Watch theme
+ * Vibe:  Dramatic approaching thunderstorm -- electric, atmospheric tension.
+ *        Cold slate blues and deep indigo before the storm breaks.
+ *
+ * Light: Overcast gray-white with storm-blue and deep indigo accents
+ * Dark:  Deep slate night with electric blue highlights
+ *
+ * Best for: Planning-focused sessions, dramatic mood, older kids and adults.
+ */
+
+:root {
+  /* ── Private Palette: The Approaching Storm ─────────────────────── */
+
+  --storm-blue:       #1A4A8A;   /* Primary storm blue */
+  --storm-blue-dim:   #0F3060;   /* Deeper pressure-front blue */
+  --indigo-deep:      #2A2A6A;   /* Deep indigo horizon */
+  --thunder-purple:   #4A1A6B;   /* Thunder purple committed */
+  --storm-surface:    #F4F5F8;   /* Overcast gray-white */
+  --storm-bg:         #ECEEF4;   /* Diffused overcast background */
+  --storm-ink:        #0D1020;   /* Deep storm-night ink */
+  --storm-ink-dim:    #3A4060;   /* Cool muted blue-gray */
+  --storm-line:       #C0C8E0;   /* Sky-blue divider */
+  --electric-blue:    #2A5AAA;   /* Lightning shimmer */
+  --storm-clay:       #8B3A2A;   /* Deep clay danger */
+  --storm-warn:       #6A4A0A;   /* Muted amber warn */
+  --storm-neutral:    #4A5060;   /* Concrete neutral */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Lexend', 'Helvetica Neue', sans-serif;
+  --font-body:    'Atkinson Hyperlegible', 'Georgia', serif;
+
+  /* ── Light Mode: Overcast Sky ────────────────────────────────────── */
+  --color-bg:       #ECEEF4;
+  --color-surface:  #F4F5F8;
+  --color-ink:      #0D1020;
+  --color-ink-dim:  #3A4060;
+  --color-line:     #C0C8E0;
+
+  --status-yes:      #1A5A2A;
+  --status-no:       #8B1A1A;
+  --status-wishlist: #1A4A8A;
+  --status-neutral:  #4A5060;
+  --status-lock:     #6A4A0A;
+  --warn:            #6A4A0A;
+
+  --accent-1: #2A5AAA;   /* Electric blue -- lightning shimmer */
+  --accent-2: #8B3A2A;   /* Deep clay -- danger actions */
+  --accent-3: #4A1A6B;   /* Thunder purple -- tertiary accent */
+}
+
+/* ── Dark Mode: Storm at Night ───────────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(215, 6%,  9%);
+  --color-surface: hsl(215, 6%, 14%);
+  --color-ink:     hsl(215, 8%, 92%);
+  --color-ink-dim: hsl(215, 6%, 65%);
+  --color-line:    hsl(215, 8%, 22%);
+
+  --status-yes:      #4ACA6A;
+  --status-no:       #E05050;
+  --status-wishlist: #4A8AEE;
+  --status-neutral:  #6A7080;
+  --status-lock:     #C8A030;
+  --warn:            #C8A030;
+
+  --accent-1: hsl(215, 70%, 65%);   /* Brightened electric blue */
+  --accent-2: hsl(10,  60%, 60%);   /* Brightened clay red */
+  --accent-3: hsl(270, 55%, 65%);   /* Brightened thunder purple */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(215, 6%,  9%);
+    --color-surface: hsl(215, 6%, 14%);
+    --color-ink:     hsl(215, 8%, 92%);
+    --color-ink-dim: hsl(215, 6%, 65%);
+    --color-line:    hsl(215, 8%, 22%);
+
+    --status-yes:      #4ACA6A;
+    --status-no:       #E05050;
+    --status-wishlist: #4A8AEE;
+    --status-neutral:  #6A7080;
+    --status-lock:     #C8A030;
+    --warn:            #C8A030;
+
+    --accent-1: hsl(215, 70%, 65%);
+    --accent-2: hsl(10,  60%, 60%);
+    --accent-3: hsl(270, 55%, 65%);
+  }
+}

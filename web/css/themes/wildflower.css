@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;700;800&display=swap');
+
+/*
+ * wildflower.css -- Wildflower theme
+ * Vibe:  Redbud trees and wild violets blooming across the Ozark hillsides in April.
+ *        Lavender-purple with sage green -- fresh, botanical, warm without being precious.
+ *
+ * Light: Soft petal-white with wild violet, sage green, and honey gold accents
+ * Dark:  Deep violet night with botanical highlights
+ *
+ * Best for: Spring trips, families with young kids, nature lovers, romantic mood.
+ */
+
+:root {
+  /* ── Private Palette: Ozark Spring Meadow ───────────────────────── */
+
+  --wild-violet:      #5E3A8A;   /* Bold purple of Ozark wildflowers */
+  --violet-dim:       #3F2060;   /* Deeper violet shadow */
+  --sage-meadow:      #3A6B4A;   /* Sage meadow green */
+  --wildflower-rose:  #8B2A5A;   /* Deep wildflower rose */
+  --petal-surface:    #FDFCFF;   /* Soft lavender-tinted near-white */
+  --petal-bg:         #F8F4FF;   /* Lavender-washed background */
+  --wildflower-ink:   #1A0F2E;   /* Deep violet-black ink */
+  --wildflower-dim:   #5A4A6A;   /* Muted violet dim text */
+  --petal-line:       #E8D8F5;   /* Lavender divider */
+  --honey-gold:       #C8A060;   /* Warm amber among the purples */
+  --rose-clay:        #8B2A5A;   /* Deep rose danger */
+  --flower-warn:      #7A4D0E;   /* Amber warn */
+  --flower-neutral:   #6A5A7A;   /* Violet-tinted neutral */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Lexend', 'Helvetica Neue', sans-serif;
+  --font-body:    'Atkinson Hyperlegible', 'Georgia', serif;
+
+  /* ── Light Mode: Spring Meadow ───────────────────────────────────── */
+  --color-bg:       #F8F4FF;
+  --color-surface:  #FDFCFF;
+  --color-ink:      #1A0F2E;
+  --color-ink-dim:  #5A4A6A;
+  --color-line:     #E8D8F5;
+
+  --status-yes:      #1A5A2A;
+  --status-no:       #8B1A1A;
+  --status-wishlist: #5E3A8A;
+  --status-neutral:  #6A5A7A;
+  --status-lock:     #7A4D0E;
+  --warn:            #7A4D0E;
+
+  --accent-1: #C8A060;   /* Honey gold -- warm amber contrast */
+  --accent-2: #8B2A5A;   /* Deep rose-clay -- danger actions */
+  --accent-3: #3A6B4A;   /* Sage meadow green -- tertiary accent */
+}
+
+/* ── Dark Mode: Violet Night ─────────────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(267, 6%,  9%);
+  --color-surface: hsl(267, 6%, 14%);
+  --color-ink:     hsl(267, 8%, 92%);
+  --color-ink-dim: hsl(267, 6%, 65%);
+  --color-line:    hsl(267, 8%, 22%);
+
+  --status-yes:      #4ACA6A;
+  --status-no:       #E05050;
+  --status-wishlist: #9A70EE;
+  --status-neutral:  #8A7A9A;
+  --status-lock:     #C8AA40;
+  --warn:            #C8AA40;
+
+  --accent-1: hsl(36,  70%, 60%);   /* Brightened honey gold */
+  --accent-2: hsl(330, 60%, 62%);   /* Brightened rose-clay */
+  --accent-3: hsl(148, 50%, 48%);   /* Brightened sage green */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(267, 6%,  9%);
+    --color-surface: hsl(267, 6%, 14%);
+    --color-ink:     hsl(267, 8%, 92%);
+    --color-ink-dim: hsl(267, 6%, 65%);
+    --color-line:    hsl(267, 8%, 22%);
+
+    --status-yes:      #4ACA6A;
+    --status-no:       #E05050;
+    --status-wishlist: #9A70EE;
+    --status-neutral:  #8A7A9A;
+    --status-lock:     #C8AA40;
+    --warn:            #C8AA40;
+
+    --accent-1: hsl(36,  70%, 60%);
+    --accent-2: hsl(330, 60%, 62%);
+    --accent-3: hsl(148, 50%, 48%);
+  }
+}

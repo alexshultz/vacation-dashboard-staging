@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;700;800&display=swap');
+
+/*
+ * dusk-gold.css -- Dusk Gold theme
+ * Vibe:  Magic hour -- the 20 minutes when the sky goes deep indigo and everything glows gold.
+ *        Sophisticated, elegant, most refined theme in the set.
+ *
+ * Light: Warm dusk cream with deep indigo, burnished gold, and soft rose accents
+ * Dark:  Deep indigo night with golden highlights and rose tones
+ *
+ * Best for: Romantic evenings, elegant mood, adult-focused planning.
+ */
+
+:root {
+  /* ── Private Palette: Magic Hour ────────────────────────────────── */
+
+  --dusk-indigo:      #2A1A6B;   /* Deep indigo sky at magic hour */
+  --dusk-indigo-dim:  #1A0A4A;   /* Deeper dusk pressure */
+  --dusk-gold-dark:   #8B6A1A;   /* Burnished gold last light */
+  --dusk-rose:        #8B2A4A;   /* Deep rose cloud layer */
+  --dusk-surface:     #FEFCF8;   /* Warm dusk cream surface */
+  --dusk-bg:          #FAF5EC;   /* Golden-tinted background */
+  --dusk-ink:         #120A1E;   /* Deep violet-black ink */
+  --dusk-ink-dim:     #4A3A6A;   /* Muted violet dim text */
+  --dusk-line:        #E0D8F8;   /* Lavender rule line */
+  --golden-accent:    #C89820;   /* Rich amber sunset light */
+  --rose-clay:        #8B2A4A;   /* Rose-clay danger */
+  --dusk-warn:        #7A4D0E;   /* Amber warn */
+  --dusk-neutral:     #6A5A8A;   /* Violet neutral */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Lexend', 'Helvetica Neue', sans-serif;
+  --font-body:    'Atkinson Hyperlegible', 'Georgia', serif;
+
+  /* ── Light Mode: Magic Hour ──────────────────────────────────────── */
+  --color-bg:       #FAF5EC;
+  --color-surface:  #FEFCF8;
+  --color-ink:      #120A1E;
+  --color-ink-dim:  #4A3A6A;
+  --color-line:     #E0D8F8;
+
+  --status-yes:      #1A5A2A;
+  --status-no:       #8B1A1A;
+  --status-wishlist: #2A1A6B;
+  --status-neutral:  #6A5A8A;
+  --status-lock:     #7A4D0E;
+  --warn:            #7A4D0E;
+
+  --accent-1: #C89820;   /* Golden dusk -- rich warm amber */
+  --accent-2: #8B2A4A;   /* Deep rose-clay -- danger actions */
+  --accent-3: #8B6A1A;   /* Burnished gold -- secondary accent */
+}
+
+/* ── Dark Mode: Deep Indigo Night ────────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(252, 6%,  9%);
+  --color-surface: hsl(252, 6%, 14%);
+  --color-ink:     hsl(252, 8%, 92%);
+  --color-ink-dim: hsl(252, 6%, 65%);
+  --color-line:    hsl(252, 8%, 22%);
+
+  --status-yes:      #4ACA6A;
+  --status-no:       #E05050;
+  --status-wishlist: #8A70FF;
+  --status-neutral:  #8A7AAA;
+  --status-lock:     #D4AA40;
+  --warn:            #D4AA40;
+
+  --accent-1: hsl(44,  75%, 60%);   /* Brightened golden dusk */
+  --accent-2: hsl(340, 60%, 65%);   /* Brightened rose-clay */
+  --accent-3: hsl(38,  65%, 55%);   /* Brightened burnished gold */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(252, 6%,  9%);
+    --color-surface: hsl(252, 6%, 14%);
+    --color-ink:     hsl(252, 8%, 92%);
+    --color-ink-dim: hsl(252, 6%, 65%);
+    --color-line:    hsl(252, 8%, 22%);
+
+    --status-yes:      #4ACA6A;
+    --status-no:       #E05050;
+    --status-wishlist: #8A70FF;
+    --status-neutral:  #8A7AAA;
+    --status-lock:     #D4AA40;
+    --warn:            #D4AA40;
+
+    --accent-1: hsl(44,  75%, 60%);
+    --accent-2: hsl(340, 60%, 65%);
+    --accent-3: hsl(38,  65%, 55%);
+  }
+}

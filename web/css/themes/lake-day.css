@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;700;800&display=swap');
+
+/*
+ * lake-day.css -- Lake Day theme
+ * Vibe:  Floating on Table Rock Lake on a cloudless May afternoon.
+ *        Deep water blues, shore greens, and sandy amber on pale sky-white.
+ *
+ * Light: Pale sky-white with deep lake blue, shore green, and sandy shore amber
+ * Dark:  Deep lake navy with turquoise highlights
+ *
+ * Best for: Families, outdoor itineraries, water activities, breezy summer mood.
+ */
+
+:root {
+  /* ── Private Palette: Table Rock Lake ───────────────────────────── */
+
+  --lake-blue:        #1A6B8A;   /* Deep lake water blue */
+  --lake-blue-dim:    #0F4D66;   /* Deeper water shadow */
+  --shore-green:      #2E7D4F;   /* Lake shore green */
+  --twilight-purple:  #6B4C8F;   /* Dusk on the lake */
+  --sky-surface:      #F8FBFF;   /* Pale sky-white surface */
+  --sky-bg:           #F0F6FF;   /* Cool airy background */
+  --lake-ink:         #0A1F2E;   /* Deep water-blue ink */
+  --lake-ink-dim:     #3A5A6A;   /* Muted blue-green dim text */
+  --lake-line:        #C5DFF0;   /* Sky-blue divider */
+  --sandy-amber:      #D8A660;   /* Sandy shore warm contrast */
+  --lake-clay:        #8B3A2A;   /* Clay danger */
+  --lake-warn:        #7A4D0E;   /* Amber warn */
+  --lake-neutral:     #5A6B7A;   /* Blue-gray neutral */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Lexend', 'Helvetica Neue', sans-serif;
+  --font-body:    'Atkinson Hyperlegible', 'Georgia', serif;
+
+  /* ── Light Mode: Lakeside Morning ────────────────────────────────── */
+  --color-bg:       #F0F6FF;
+  --color-surface:  #F8FBFF;
+  --color-ink:      #0A1F2E;
+  --color-ink-dim:  #3A5A6A;
+  --color-line:     #C5DFF0;
+
+  --status-yes:      #1A5A2A;
+  --status-no:       #8B1A1A;
+  --status-wishlist: #1A6B8A;
+  --status-neutral:  #5A6B7A;
+  --status-lock:     #7A4D0E;
+  --warn:            #7A4D0E;
+
+  --accent-1: #D8A660;   /* Sandy shore amber -- warm contrast */
+  --accent-2: #8B3A2A;   /* Deep clay -- danger actions */
+  --accent-3: #6B4C8F;   /* Twilight purple -- tertiary accent */
+}
+
+/* ── Dark Mode: Lake at Night ────────────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(197, 6%,  9%);
+  --color-surface: hsl(197, 6%, 14%);
+  --color-ink:     hsl(197, 8%, 92%);
+  --color-ink-dim: hsl(197, 6%, 65%);
+  --color-line:    hsl(197, 8%, 22%);
+
+  --status-yes:      #4ACA6A;
+  --status-no:       #E05050;
+  --status-wishlist: #4AAACA;
+  --status-neutral:  #7A8A9A;
+  --status-lock:     #D4A840;
+  --warn:            #D4A840;
+
+  --accent-1: hsl(36,  70%, 60%);   /* Brightened sandy amber */
+  --accent-2: hsl(10,  60%, 58%);   /* Brightened clay */
+  --accent-3: hsl(270, 50%, 65%);   /* Brightened twilight purple */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(197, 6%,  9%);
+    --color-surface: hsl(197, 6%, 14%);
+    --color-ink:     hsl(197, 8%, 92%);
+    --color-ink-dim: hsl(197, 6%, 65%);
+    --color-line:    hsl(197, 8%, 22%);
+
+    --status-yes:      #4ACA6A;
+    --status-no:       #E05050;
+    --status-wishlist: #4AAACA;
+    --status-neutral:  #7A8A9A;
+    --status-lock:     #D4A840;
+    --warn:            #D4A840;
+
+    --accent-1: hsl(36,  70%, 60%);
+    --accent-2: hsl(10,  60%, 58%);
+    --accent-3: hsl(270, 50%, 65%);
+  }
+}
