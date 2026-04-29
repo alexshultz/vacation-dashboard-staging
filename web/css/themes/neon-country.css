@@ -39,9 +39,9 @@
   --status-neutral:  #7A6040;   /* worn leather neutral */
   --status-lock:     #7A2878;   /* deep neon-purple */
   --warn:            #B86800;   /* dark amber */
-  --accent-sand:     var(--marquee);   /* #FF8C00 — orange marquee */
-  --accent-clay:     #B82820;         /* deep sign-red */
-  --accent-dusk:     #7A2878;         /* deep neon-purple */
+  --accent-1:     var(--marquee);   /* #FF8C00 — orange marquee */
+  --accent-2:     #B82820;         /* deep sign-red */
+  --accent-3:     #7A2878;         /* deep neon-purple */
 }
 
 /* ── Dark Mode: the real magic — honky-tonk at midnight ──── */
@@ -60,9 +60,9 @@
     --status-neutral:  #A08060;   /* warm leather */
     --status-lock:     #FF50B0;   /* hot-pink neon */
     --warn:            #FF8C00;   /* orange marquee */
-    --accent-sand:     #FF8C00;   /* orange marquee neon */
-    --accent-clay:     #FF2040;   /* red neon */
-    --accent-dusk:     #FF50B0;   /* hot-pink neon */
+    --accent-1:     #FF8C00;   /* orange marquee neon */
+    --accent-2:     #FF2040;   /* red neon */
+    --accent-3:     #FF50B0;   /* hot-pink neon */
   }
 }
 
@@ -79,9 +79,9 @@
   --status-neutral:  #A08060;
   --status-lock:     #FF50B0;
   --warn:            #FF8C00;
-  --accent-sand:     #FF8C00;
-  --accent-clay:     #FF2040;
-  --accent-dusk:     #FF50B0;
+  --accent-1:     #FF8C00;
+  --accent-2:     #FF2040;
+  --accent-3:     #FF50B0;
 }
 
 :root[data-mode="light"] {

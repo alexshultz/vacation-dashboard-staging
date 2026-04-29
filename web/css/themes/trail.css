@@ -17,7 +17,7 @@
   --status-lock:     var(--dusk);
 
   /* Trail overrides for accent tokens */
-  --accent-sand: var(--sand);
-  --accent-clay: var(--clay);
-  --accent-dusk: var(--dusk);
+  --accent-1: var(--sand);
+  --accent-2: var(--clay);
+  --accent-3: var(--dusk);
 }

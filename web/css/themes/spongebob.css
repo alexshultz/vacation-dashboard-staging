@@ -84,9 +84,9 @@
   --warn:            #B87A00;   /* Dark SpongeBob amber — warning, like burnt krabby patty */
 
   /* ── Accent Passthrough to Semantic Layer ──────────────────────── */
-  --accent-sand: var(--sb-yellow);    /* #FFE033 — SpongeBob's sponge-body yellow */
-  --accent-clay: var(--krabs-red);    /* #E84B1A — Mr. Krabs' red-orange shell */
-  --accent-dusk: var(--squidward);    /* #7B4FA0 — Squidward's moody purple */
+  --accent-1: var(--sb-yellow);    /* #FFE033 — SpongeBob's sponge-body yellow */
+  --accent-2: var(--krabs-red);    /* #E84B1A — Mr. Krabs' red-orange shell */
+  --accent-3: var(--squidward);    /* #7B4FA0 — Squidward's moody purple */
 }
 
 /* ── Dark Mode: The Deep Ocean — Bikini Bottom at Night ──────────── */
@@ -107,9 +107,9 @@
   --status-lock:     #7B4FA0;   /* Squidward purple — "do not disturb my clarinet" */
   --warn:            #FFE033;   /* SpongeBob yellow — blazing warning, sponge-bright */
 
-  --accent-sand: #FFE033;   /* SpongeBob's body yellow, luminous in the deep */
-  --accent-clay: #E84B1A;   /* Mr. Krabs shell red-orange */
-  --accent-dusk: #7B4FA0;   /* Squidward clarinet purple */
+  --accent-1: #FFE033;   /* SpongeBob's body yellow, luminous in the deep */
+  --accent-2: #E84B1A;   /* Mr. Krabs shell red-orange */
+  --accent-3: #7B4FA0;   /* Squidward clarinet purple */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -127,8 +127,8 @@
     --status-lock:     #7B4FA0;   /* Squidward purple */
     --warn:            #FFE033;   /* SpongeBob yellow */
 
-    --accent-sand: #FFE033;
-    --accent-clay: #E84B1A;
-    --accent-dusk: #7B4FA0;
+    --accent-1: #FFE033;
+    --accent-2: #E84B1A;
+    --accent-3: #7B4FA0;
   }
 }

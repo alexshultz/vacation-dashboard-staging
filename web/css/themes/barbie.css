@@ -45,9 +45,9 @@
   --status-neutral:  #885566;           /* muted mauve-pink — noncommittal */
   --status-lock:     #8800BB;           /* deep glam purple — locked and booked */
   --warn:            #AA7700;           /* darkened gold — Barbie's hair, warns */
-  --accent-sand:     var(--gold);       /* #FFD700 — golden blonde hair */
-  --accent-clay:     var(--coral);      /* #FF6B6B — playful coral */
-  --accent-dusk:     var(--glam);       /* #CC44DD — glam purple */
+  --accent-1:     var(--gold);       /* #FFD700 — golden blonde hair */
+  --accent-2:     var(--coral);      /* #FF6B6B — playful coral */
+  --accent-3:     var(--glam);       /* #CC44DD — glam purple */
 }
 
 /* ── Dark Mode: Barbie movie night — deep magenta-black sky ── */
@@ -66,9 +66,9 @@
     --status-neutral:  #CC88BB;   /* muted dusty rose */
     --status-lock:     #CC44DD;   /* full glam purple — it's booked, girl */
     --warn:            #FFD700;   /* full gold hair — hard to miss */
-    --accent-sand:     #FFD700;   /* golden blonde */
-    --accent-clay:     #FF6B6B;   /* coral */
-    --accent-dusk:     #CC44DD;   /* glam purple */
+    --accent-1:     #FFD700;   /* golden blonde */
+    --accent-2:     #FF6B6B;   /* coral */
+    --accent-3:     #CC44DD;   /* glam purple */
   }
 }
 
@@ -85,9 +85,9 @@
   --status-neutral:  #CC88BB;
   --status-lock:     #CC44DD;
   --warn:            #FFD700;
-  --accent-sand:     #FFD700;
-  --accent-clay:     #FF6B6B;
-  --accent-dusk:     #CC44DD;
+  --accent-1:     #FFD700;
+  --accent-2:     #FF6B6B;
+  --accent-3:     #CC44DD;
 }
 
 :root[data-mode="light"] {

@@ -34,12 +34,12 @@
   --warn:            #A86A1C;
 
   /* Accent tokens for component references */
-  --accent-sand: #D8A660;
-  --accent-clay: #C1553B;
-  --accent-dusk: #6B4C8F;
+  --accent-1: #D8A660;
+  --accent-2: #C1553B;
+  --accent-3: #6B4C8F;
 
   --shadow-1: 0 1px 2px rgba(32,40,30,0.05), 0 6px 18px rgba(32,40,30,0.06);
-  --shadow-2: 0 2px 4px rgba(32,40,30,0.08), 0 20px 40px rgba(63,107,58,0.14);
+  --shadow-2: 0 2px 4px rgba(32,40,30,0.08), 0 20px 40px rgba(0,0,0,0.10);
 }
 
 /* System dark mode */

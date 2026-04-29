@@ -195,7 +195,7 @@ h3 { font-size: 19px; font-weight: 700; }
   color: var(--color-ink-dim);
 }
 .minichip.price { color: var(--status-yes); border-color: color-mix(in srgb, var(--status-yes) 35%, var(--color-line)); }
-.minichip.rating { color: var(--accent-sand); border-color: color-mix(in srgb, var(--accent-sand) 45%, var(--color-line)); }
+.minichip.rating { color: var(--accent-1); border-color: color-mix(in srgb, var(--accent-1) 45%, var(--color-line)); }
 
 /* ===== Heart Overlay ===== */
 .heart-overlay {
@@ -237,7 +237,7 @@ h3 { font-size: 19px; font-weight: 700; }
 }
 .card--dense[data-state="not-going"] {
   border-color: color-mix(in srgb, var(--status-no) 40%, var(--color-line));
-  background: linear-gradient(180deg, color-mix(in srgb, var(--accent-clay) 6%, transparent), transparent 45%), var(--color-surface);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent-2) 6%, transparent), transparent 45%), var(--color-surface);
   opacity: 0.9;
 }
 .card--dense.removing {
@@ -274,7 +274,7 @@ h3 { font-size: 19px; font-weight: 700; }
   padding: 0; margin: 0;
   min-width: 44px; min-height: 44px;
 }
-.card--dense .remove-x:hover { background: var(--accent-clay); color: white; border-color: var(--accent-clay); }
+.card--dense .remove-x:hover { background: var(--accent-2); color: white; border-color: var(--accent-2); }
 .card--dense .remove-x:active { transform: scale(0.92); }
 
 .card--dense__body {
@@ -308,7 +308,7 @@ h3 { font-size: 19px; font-weight: 700; }
   color: var(--color-ink);
 }
 .seg button[aria-pressed="true"][data-v="committing"] { background: var(--status-yes); color: white; }
-.seg button[aria-pressed="true"][data-v="not-going"]  { background: var(--accent-clay); color: white; }
+.seg button[aria-pressed="true"][data-v="not-going"]  { background: var(--accent-2); color: white; }
 .seg button[aria-pressed="true"][data-v="neutral"]    { background: var(--status-neutral); color: white; }
 
 /* ===== Tags and Chips ===== */
@@ -412,7 +412,7 @@ h3 { font-size: 19px; font-weight: 700; }
 .avatar:first-child { margin-left: 0; }
 .avatar[data-s="committing"] { box-shadow: 0 0 0 2px var(--status-yes); }
 .avatar[data-s="wishlist"]   { box-shadow: 0 0 0 2px var(--status-wishlist); }
-.avatar[data-s="not-going"]  { box-shadow: 0 0 0 2px var(--accent-clay); opacity: 0.7; }
+.avatar[data-s="not-going"]  { box-shadow: 0 0 0 2px var(--accent-2); opacity: 0.7; }
 
 /* ===== Key-Value Rows ===== */
 .kv-row {
@@ -634,7 +634,7 @@ h3 { font-size: 19px; font-weight: 700; }
 }
 .detail-modal__rating {
   font-family: var(--font-display); font-weight: 800;
-  color: var(--accent-sand); font-size: 17px; white-space: nowrap;
+  color: var(--accent-1); font-size: 17px; white-space: nowrap;
   flex-shrink: 0;
 }
 
@@ -769,9 +769,9 @@ h3 { font-size: 19px; font-weight: 700; }
 /* ===== Form States ===== */
 .error {
   margin-top: 10px; padding: 10px 14px; border-radius: 10px;
-  background: color-mix(in srgb, var(--accent-clay) 14%, transparent);
-  border: 1.5px solid color-mix(in srgb, var(--accent-clay) 50%, var(--color-line));
-  color: var(--accent-clay);
+  background: color-mix(in srgb, var(--accent-2) 14%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--accent-2) 50%, var(--color-line));
+  color: var(--accent-2);
   font-size: 17px; display: none;
 }
 .error.show { display: block; }
@@ -873,7 +873,7 @@ h3 { font-size: 19px; font-weight: 700; }
 .deck-card__body { padding: 16px 18px; flex: 1; display: flex; flex-direction: column; gap: 8px; min-height: 0; }
 .deck-card__body h3 { font-size: 22px; line-height: 1.2; }
 .deck-card__meta { display: flex; gap: 10px; flex-wrap: wrap; font-size: 13px; color: var(--color-ink-dim); }
-.deck-card__meta .rating { color: var(--accent-sand); font-weight: 700; }
+.deck-card__meta .rating { color: var(--accent-1); font-weight: 700; }
 .deck-card__desc {
   font-size: 17px; color: var(--color-ink); line-height: 1.45;
   display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;
@@ -897,7 +897,7 @@ h3 { font-size: 19px; font-weight: 700; }
   letter-spacing: 0.06em;
 }
 .deck-overlay--wishlist { left: 24px; color: var(--status-yes); transform: rotate(-12deg); }
-.deck-overlay--skip     { right: 24px; color: var(--accent-clay); transform: rotate(12deg); }
+.deck-overlay--skip     { right: 24px; color: var(--accent-2); transform: rotate(12deg); }
 @media (prefers-reduced-motion: reduce) { .deck-overlay { transform: none !important; } }
 
 .deck-actions { display: flex; justify-content: center; align-items: flex-start; gap: 16px; margin-top: var(--sp-4); }
@@ -918,8 +918,8 @@ h3 { font-size: 19px; font-weight: 700; }
 .deck-act-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: var(--shadow-2); }
 .deck-act-btn:active:not(:disabled) { transform: translateY(0) scale(0.96); }
 .deck-act-btn:disabled { opacity: 0.35; cursor: not-allowed; }
-.deck-act-btn--skip { color: var(--accent-clay); border-color: color-mix(in srgb, var(--accent-clay) 40%, var(--color-line)); }
-.deck-act-btn--skip:hover:not(:disabled) { border-color: var(--accent-clay); background: color-mix(in srgb, var(--accent-clay) 8%, var(--color-surface)); }
+.deck-act-btn--skip { color: var(--accent-2); border-color: color-mix(in srgb, var(--accent-2) 40%, var(--color-line)); }
+.deck-act-btn--skip:hover:not(:disabled) { border-color: var(--accent-2); background: color-mix(in srgb, var(--accent-2) 8%, var(--color-surface)); }
 .deck-act-btn--wishlist {
   color: var(--status-yes);
   border-color: color-mix(in srgb, var(--status-yes) 40%, var(--color-line));
@@ -1011,12 +1011,12 @@ h3 { font-size: 19px; font-weight: 700; }
   font-size: 13px; color: var(--color-ink-dim);
   margin-bottom: 12px;
 }
-.deck-sheet__meta .rating { color: var(--accent-sand); font-weight: 700; }
+.deck-sheet__meta .rating { color: var(--accent-1); font-weight: 700; }
 .deck-sheet__desc { font-size: 17px; line-height: 1.55; color: var(--color-ink); margin: 0 0 16px; }
 .deck-sheet__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
 .deck-sheet__notes {
   font-size: 17px; color: var(--color-ink-dim);
-  background: color-mix(in srgb, var(--accent-sand) 12%, var(--color-bg));
+  background: color-mix(in srgb, var(--accent-1) 12%, var(--color-bg));
   border-radius: 8px; padding: 10px 12px; margin-bottom: 20px;
 }
 .deck-sheet__footer {
@@ -1030,8 +1030,8 @@ h3 { font-size: 19px; font-weight: 700; }
 }
 .deck-sheet__skip {
   background: var(--color-bg);
-  border-color: color-mix(in srgb, var(--accent-clay) 40%, var(--color-line)) !important;
-  color: var(--accent-clay);
+  border-color: color-mix(in srgb, var(--accent-2) 40%, var(--color-line)) !important;
+  color: var(--accent-2);
 }
 .deck-sheet__wishlist {
   background: var(--status-yes);

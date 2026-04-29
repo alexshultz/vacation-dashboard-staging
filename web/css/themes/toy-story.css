@@ -71,9 +71,9 @@
   --status-neutral:  #6A5A40;   /* Woody brown neutral */
   --status-lock:     #5A2878;   /* Pizza Planet purple -- locked */
   --warn:            #8A6800;   /* Slinky gold muted -- heads up */
-  --accent-sand:     var(--woody-hat);    /* #C8A84B -- Woody's hat gold */
-  --accent-clay:     var(--woody-vest);   /* #C0392B -- Woody's vest red */
-  --accent-dusk:     var(--buzz-purple);  /* #6C3483 -- Buzz purple */
+  --accent-1:     var(--woody-hat);    /* #C8A84B -- Woody's hat gold */
+  --accent-2:     var(--woody-vest);   /* #C0392B -- Woody's vest red */
+  --accent-3:     var(--buzz-purple);  /* #6C3483 -- Buzz purple */
 }
 
 /* ── Dark Mode: Toys Alive at Night -- Living Room Lamp Glow ── */
@@ -93,9 +93,9 @@
   --status-neutral:  #7090B0;   /* muted blue-gray neutral */
   --status-lock:     #8844C0;   /* Buzz purple lit up in the dark */
   --warn:            #D4AC0D;   /* Slinky gold -- glinting coil */
-  --accent-sand:     #C8A84B;   /* Woody hat gold -- warm lamp glow */
-  --accent-clay:     #C0392B;   /* vest red */
-  --accent-dusk:     #8844C0;   /* Buzz purple */
+  --accent-1:     #C8A84B;   /* Woody hat gold -- warm lamp glow */
+  --accent-2:     #C0392B;   /* vest red */
+  --accent-3:     #8844C0;   /* Buzz purple */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -113,8 +113,8 @@
     --status-lock:     #8844C0;   /* Buzz purple lit up */
     --warn:            #D4AC0D;   /* Slinky gold */
 
-    --accent-sand: #C8A84B;
-    --accent-clay: #C0392B;
-    --accent-dusk: #8844C0;
+    --accent-1: #C8A84B;
+    --accent-2: #C0392B;
+    --accent-3: #8844C0;
   }
 }
