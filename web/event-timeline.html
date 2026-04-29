@@ -55,6 +55,7 @@
   font-size: var(--text-sm);
 }
 @media (min-width: 720px) { .event-card__body { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 480px) { .legend-grid { grid-template-columns: repeat(4, auto); } }
 .event-card__group-title { font-weight: 700; margin-bottom: 6px; }
 .event-card__name { padding: 2px 0; color: var(--color-ink-dim); }
 .event-card__none { color: var(--color-ink-dim); opacity: 0.5; font-style: italic; }
@@ -69,11 +70,11 @@
     <p class="hero-sub">25 events grouped by date, May 23–28. Duration bars scale to 6 hours max.</p>
   </div>
 
-  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+  <div class="legend-grid" style="display:grid;grid-template-columns:repeat(2,auto);gap:8px;width:fit-content;margin:0 auto 16px;padding:12px 18px;background:var(--color-surface);border:1px solid var(--color-line);border-radius:var(--radius-card);">
     <span class="minichip" style="color:var(--status-yes);border-color:color-mix(in srgb,var(--status-yes) 35%,var(--color-line))">✓ Interested</span>
     <span class="minichip" style="color:var(--warn);border-color:color-mix(in srgb,var(--warn) 35%,var(--color-line))">? Undecided</span>
     <span class="minichip" style="color:var(--status-no);border-color:color-mix(in srgb,var(--status-no) 35%,var(--color-line))">✗ Not Interested</span>
-    <span class="minichip">– No Response</span>
+    <span class="minichip" style="color:var(--color-ink-dim);border-color:color-mix(in srgb,var(--color-ink-dim) 35%,var(--color-line))">– No Response</span>
   </div>
 
   <div style="margin-bottom:18px;">
@@ -139,7 +140,7 @@
                                 <span class="minichip" style="${yesStyle};font-size:13px;font-weight:800;">✓ ${event.interested.length}</span>
                                 <span class="minichip" style="${warnStyle}">? ${event.undecided.length}</span>
                                 <span class="minichip" style="${noStyle}">✗ ${event.notInterested.length}</span>
-                                <span class="minichip">– ${event.noResponse.length}</span>
+                                <span class="minichip" style="color:var(--color-ink-dim);border-color:color-mix(in srgb,var(--color-ink-dim) 35%,var(--color-line))">– ${event.noResponse.length}</span>
                             </div>
                         </summary>
                         <div class="event-card__body">
@@ -148,12 +149,12 @@
                                 ${event.interested.map(nameCell).join('') || noneCell}
                             </div>
                             <div>
-                                <div class="event-card__group-title" style="color:var(--warn)">Undecided (${event.undecided.length})</div>
-                                ${event.undecided.map(nameCell).join('') || noneCell}
-                            </div>
-                            <div>
                                 <div class="event-card__group-title" style="color:var(--status-no)">Not Interested (${event.notInterested.length})</div>
                                 ${event.notInterested.map(nameCell).join('') || noneCell}
+                            </div>
+                            <div style="border-left:1px solid var(--color-line);padding-left:16px">
+                                <div class="event-card__group-title" style="color:var(--warn)">Undecided (${event.undecided.length})</div>
+                                ${event.undecided.map(nameCell).join('') || noneCell}
                             </div>
                             <div>
                                 <div class="event-card__group-title" style="color:var(--color-ink-dim)">No Response (${event.noResponse.length})</div>
