@@ -69,9 +69,9 @@
   --status-lock:     #7A6000;   /* C-3PO gold muted -- locked */
   --warn:            #AA7700;   /* Dark amber warn */
 
-  --accent-sand: #D4AF37;   /* C-3PO gold */
-  --accent-clay: #AA1100;   /* Sith red muted */
-  --accent-dusk: #6600AA;   /* Force purple */
+  --accent-1: #D4AF37;   /* C-3PO gold */
+  --accent-2: #AA1100;   /* Sith red muted */
+  --accent-3: #6600AA;   /* Force purple */
 }
 
 /* ── Dark Mode: Death Star / Deep Space ──────────────────────────────── */
@@ -91,9 +91,9 @@
   --status-lock:     #FFE81F;   /* Title crawl yellow -- booked! */
   --warn:            #FF6B00;   /* Rebel orange -- heads up */
 
-  --accent-sand: #FFE81F;   /* Title crawl yellow */
-  --accent-clay: #FF2200;   /* Sith red */
-  --accent-dusk: #9B00FF;   /* Mace Windu purple */
+  --accent-1: #FFE81F;   /* Title crawl yellow */
+  --accent-2: #FF2200;   /* Sith red */
+  --accent-3: #9B00FF;   /* Mace Windu purple */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -111,8 +111,8 @@
     --status-lock:     #FFE81F;
     --warn:            #FF6B00;
 
-    --accent-sand: #FFE81F;
-    --accent-clay: #FF2200;
-    --accent-dusk: #9B00FF;
+    --accent-1: #FFE81F;
+    --accent-2: #FF2200;
+    --accent-3: #9B00FF;
   }
 }
