@@ -1,78 +1,19 @@
 # Next Session Kickoff -- Branson '26 Dashboard
-**Written:** 2026-04-27 end of session
+**Written:** 2026-04-28 end of session
 **Production:** vacation.creeperbomb.com
 **Staging:** vacation-dev.creeperbomb.com
+**Launch target:** May 8, 2026
 
 ---
 
-## Session 1 Completed (promote confirmed)
+## FIRST ACTION: Promote staging to production
 
-All UI polish promoted to production. No staging debt.
+Staging (`2cb8a2b`) has changes that are NOT yet in production:
+- event-timeline.html: legend box, chip colors, card column order fix
+- index.html: same three changes
 
----
-
-## Priority 1: help.html -- BLOCKER
-
-Read `web/help.html` and check for the five required content sections:
-1. "What is this"
-2. "Setting your name"
-3. "Browsing and wishlisting"
-4. "Quick Pick"
-5. "Privacy"
-
-Also check: is there an entry-point link ("?" or "Help") on the Profile page and/or index.html?
-
-If file is a stub (empty `<main>`, nav-only), invoke lazlo with `.claude/help-html-task.md` (pre-existing brief -- verify it is still current before running). This is the last blocker before testers.
-
----
-
-## Priority 2: Tester pass
-
-Once help.html is complete, send the link to:
-- Ashlyn
-- Jordan
-- Mycah
-
-No formal test script needed -- ask them to click around and report anything broken or confusing.
-
----
-
-## Priority 3: Admin screen (coordinator tool)
-
-Alex wants to edit trip data without touching raw files on a computer. Scope:
-
-**Minimum viable admin:**
-- Edit `web/schedule.json` (28 events) -- add/edit/delete events, RSVP data
-- Edit `INITIAL_VISIBLE` (home page event count) -- currently hardcoded; wire to a config value editable in the admin UI
-
-**Approach decision needed (grill-me before building):**
-- Option A: A separate `admin.html` page, password-protected via a simple localStorage PIN, reads/writes via a GitHub API call (PAT stored in admin localStorage on first use)
-- Option B: Inline edit mode on existing pages (click to edit)
-- Option C: Supabase Phase 2 -- but schema not yet active; skip for now
-
-Alex's stated preference: be able to edit on a computer with the raw files as a fallback. Admin screen is the upgrade path.
-
-**INITIAL_VISIBLE config note (from memory):** Alex wants this wired to a config value in the admin UI so he can change it live if family asks for more/fewer events on the home page.
-
----
-
-## Priority 4: Phase 2 Supabase activation (deferred)
-
-Schema is written, not yet active. Currently Phase 1 (localStorage only). Do not start this until admin screen is working and testers have signed off.
-
----
-
-## Priority 5: Theme activation (lazlo batch review)
-
-13 themes are committed but not yet user-selectable -- pending batch review. Low priority pre-launch. Alex has not asked for this yet this session.
-
----
-
-## Known open issues (non-blocking)
-
-- "System" (hamburger) vs "Auto" (original toggle) terminology inconsistency -- profile page says "System," hamburger says "🌓 Appearance" cycling through Auto/Light/Dark. Minor. Alex has not flagged it.
-- help.json: person icon reference + "several themes" copy fixes -- verify these landed in the last session or queue for next pass.
-- `docs/vacation-coordinator-repair-guide.md` needs a conversation log entry from this session (Vacation to add).
+Column order in staging is correct: Interested | Not Interested | Undecided | No Response.
+Production still has old order. This is the first thing to do next session -- run production promotion from branson-lazlo-delegation skill Step 6b.
 
 ---
 
@@ -82,8 +23,62 @@ Schema is written, not yet active. Currently Phase 1 (localStorage only). Do not
 - [x] Responsive nav v2
 - [x] Appearance controls unified
 - [x] Profile page polished
-- [ ] help.html complete -- **NEXT ACTION**
-- [ ] Tester pass (Ashlyn, Jordan, Mycah)
+- [x] help.html complete (verified earlier this session)
+- [x] Admin screen (admin.html) -- upsert 409 bug fixed, live in production
+- [ ] Tester pass (Ashlyn, Jordan, Mycah) -- **NEXT BLOCKER after promotion**
 - [ ] Family link sent
 
-**Target:** May 8 family launch. ~10 days out.
+---
+
+## Priority 1: Tester pass
+
+Send to Ashlyn, Jordan, Mycah. No formal script -- ask them to click around and report anything broken or confusing. URL: https://vacation.creeperbomb.com/
+
+When testers report completion, Alex relays it in #branson-2026. Acknowledge and note it.
+
+---
+
+## Priority 2: Phase 2 Supabase -- wishlist social counts
+
+When wishlist.html is wired to Supabase picks table, add "X others also wishlisted this" count to each wishlisted card. Feature deferred from this session -- localStorage has no cross-user state. Requires Phase 2 picks activation first.
+
+Phase 2 schema is written (data/supabase-phase2-schema.sql). Grill-me docs already exist (grill-me docs/supabase-phase2-activation-grillme.md, supabase-phase2-lazlo-grillme.md). Review before proceeding.
+
+---
+
+## Priority 3: Admin INITIAL_VISIBLE config (coordinator tool)
+
+Alex wants to adjust the home page "show N events" count (currently hardcoded as INITIAL_VISIBLE = 6 in index.html) via the admin UI without touching code. Wire it to a config value editable in admin.html so he can change it live if family asks for more/fewer events.
+
+---
+
+## Priority 4: Theme activation
+
+13 themes committed but not yet user-selectable -- pending lazlo batch review. Low priority pre-launch.
+
+---
+
+## Known open issues (non-blocking)
+
+- "System" (hamburger) vs "Auto" (original toggle) terminology inconsistency -- minor, Alex has not flagged it
+- Wishlist page social counts -- deferred to Phase 2 (noted above)
+- `web/mockups/README.md` still exists in the vault (not the production repo) -- harmless, vault-only
+
+---
+
+## Session summary (2026-04-28)
+
+Key accomplishments this session:
+
+1. **Admin upsert 409 fixed** -- T3 Council of Minds identified missing Prefer: resolution=merge-duplicates header. One-line fix, shipped to production.
+2. **Stale web/mockups/ cleaned** -- T2 verified safe, deleted from production, rsync warning eliminated.
+3. **UI polish batch (event-timeline + index)** -- legend boxed + centered + symmetrical; "No Response" chip outline fixed; card body column order corrected (Interested / Not Interested / Undecided / No Response). In staging, pending production promotion.
+4. **Notes sync** -- "Ideas for Changes.md" note confirmed received from Obsidian (was a sync delay, not missing). All 5 items addressed (item 2 / wishlist social counts deferred to Phase 2).
+
+---
+
+## Vault commits this session
+
+- `a1c9c8b` -- fix: admin save -- add resolution=merge-duplicates to Prefer header for upsert
+- `ea92f71` -- feat: event-timeline UI polish -- legend box, chip colors, card column grouping
+- `6ea423e` -- feat: index.html UI polish -- legend box, chip colors, card column grouping
