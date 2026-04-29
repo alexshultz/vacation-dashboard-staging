@@ -3,15 +3,15 @@
 > ⚠️ **ARCHITECTURE SECTIONS PARTIALLY SUPERSEDED** -- The Phase 2 architecture decisions (Vite, Alpine.js) were evaluated and rejected. The Phase 3 nav approach (Python script) was also superseded. Current stack is vanilla JS + static HTML + site.js for nav. See `docs/DECISIONS.md` and the "What We Tried" table in `VACATION-AGENT-ONBOARDING.md` for the binding decisions. Do not treat Phase 1-2 technical specs as current.
 
 
-**Last updated:** 2026-04-27
+**Last updated:** 2026-04-28
 **Family starts using dashboard:** ~2026-05-08
 **Trip:** 2026-05-22 → 05-29
 
 ---
 
-## Current Status (2026-04-27)
+## Current Status (2026-04-28)
 
-Phase 1 core features are complete and live on GitHub Pages. Phase 2 frontend is complete (localStorage picks); Supabase backend NOT YET ACTIVE (schema written, not activated). Staging repo is in sync with production.
+Phase 1 and Phase 2 core features are complete and live. Supabase backend IS ACTIVE in production as of 2026-04-28 (picks.js hydration from Supabase, write error banner, fetchAllWishlists expanded). admin.html is deployed to production with the upsert 409 fix (merge-duplicates header). HTTPS enforced on both custom domains. Tester pass removed from May 8 gate. Staging repo is in sync with production.
 
 **What's done:**
 - Design system (tokens.css, trail.css, components.css)
@@ -25,7 +25,7 @@ Phase 1 core features are complete and live on GitHub Pages. Phase 2 frontend is
 
 **Active sprint -- next up:**
 - [x] Activate Supabase Phase 2 -- picks/suggestions wired to live database (schema applied 2026-04-28; picks hydration, write error banner, fetchAllWishlists query fix shipped; keepalive cron running every 3 days)
-- [ ] Coordinator admin editor page -- Alex can edit schedule data, manage RSVPs, and push content live (deferred from prior sprint; GitHub-API-backed so edits go live without manual deploy)
+- [ ] Coordinator admin editor page -- Alex can edit schedule data, manage RSVPs, and push content live. Architecture: Council of Minds (2026-04-28) eliminated GitHub API write-back (PAT secret-scanning hard blocker). Current recommendation: Supabase-backed + JS-layer password (medium confidence). "Option Zero" (GitHub.com built-in web editor on schedule.json) also presented -- zero code, real auth. BLOCKED on Alex: (1) accept Option Zero? (2) ADR-002 ruling on Supabase write-back vs. no-automated-code intent; (3) keepalive cron sufficient to prevent auto-pause before May 22?
 - [ ] INITIAL_VISIBLE setting in admin UI -- expose the home page event count as a live-configurable value (no code change needed to adjust it)
 - [x] Custom domain -- `vacation.creeperbomb.com` (production) and `vacation-dev.creeperbomb.com` (staging) -- CNAME files in both repos, DNS records in Cloudflare (DNS only, no proxy), HTTPS auto-provisions via Let's Encrypt
 
