@@ -35,9 +35,9 @@
   --status-neutral:  #888060;        /* warm olive-gray */
   --status-lock:     var(--grape);   /* #C040E8 — grape purple for booked */
   --warn:            var(--peach);   /* #FFB070 — peachy orange */
-  --accent-sand:     var(--lemon);   /* #FFC800 — lemon yellow */
-  --accent-clay:     var(--coral);   /* #FF5E3A */
-  --accent-dusk:     var(--grape);   /* #C040E8 */
+  --accent-1:     var(--lemon);   /* #FFC800 — lemon yellow */
+  --accent-2:     var(--coral);   /* #FF5E3A */
+  --accent-3:     var(--grape);   /* #C040E8 */
 }
 
 /* ── Dark Mode: warm cozy evening, not harsh ───────────────── */
@@ -56,9 +56,9 @@
     --status-neutral:  #A09050;   /* muted gold-gray */
     --status-lock:     #D860FF;   /* bright grape */
     --warn:            #FFB070;   /* peachy orange stays */
-    --accent-sand:     #FFD040;   /* bright lemon */
-    --accent-clay:     #FF6C4A;
-    --accent-dusk:     #D860FF;
+    --accent-1:     #FFD040;   /* bright lemon */
+    --accent-2:     #FF6C4A;
+    --accent-3:     #D860FF;
   }
 }
 
@@ -75,9 +75,9 @@
   --status-neutral:  #A09050;
   --status-lock:     #D860FF;
   --warn:            #FFB070;
-  --accent-sand:     #FFD040;
-  --accent-clay:     #FF6C4A;
-  --accent-dusk:     #D860FF;
+  --accent-1:     #FFD040;
+  --accent-2:     #FF6C4A;
+  --accent-3:     #D860FF;
 }
 
 :root[data-mode="light"] {

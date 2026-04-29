@@ -48,9 +48,9 @@
   --status-lock:     #7A5000;             /* Gold/bronze locked */
   --warn:            #AA8000;             /* Muted S-shield yellow -- warn */
 
-  --accent-sand: var(--super-yellow);   /* #FCD116 -- S-shield yellow */
-  --accent-clay: var(--super-red);      /* #CC0000 -- Superman cape red */
-  --accent-dusk: #7A5000;               /* Gold-bronze dusk */
+  --accent-1: var(--super-yellow);   /* #FCD116 -- S-shield yellow */
+  --accent-2: var(--super-red);      /* #CC0000 -- Superman cape red */
+  --accent-3: #7A5000;               /* Gold-bronze dusk */
 }
 
 /* ── Dark Mode: Metropolis at Night ─────────────────────────────────── */
@@ -70,9 +70,9 @@
   --status-lock:     #FCD116;   /* S-shield yellow -- locked/lit up */
   --warn:            #FCD116;   /* S-shield yellow -- neon warn */
 
-  --accent-sand: #FCD116;   /* S-shield yellow */
-  --accent-clay: #E31414;   /* Bright cape red */
-  --accent-dusk: #4A8FFF;   /* Lighter Superman blue */
+  --accent-1: #FCD116;   /* S-shield yellow */
+  --accent-2: #E31414;   /* Bright cape red */
+  --accent-3: #4A8FFF;   /* Lighter Superman blue */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -90,8 +90,8 @@
     --status-lock:     #FCD116;
     --warn:            #FCD116;
 
-    --accent-sand: #FCD116;
-    --accent-clay: #E31414;
-    --accent-dusk: #4A8FFF;
+    --accent-1: #FCD116;
+    --accent-2: #E31414;
+    --accent-3: #4A8FFF;
   }
 }

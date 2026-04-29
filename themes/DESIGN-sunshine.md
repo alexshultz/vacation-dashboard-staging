@@ -19,7 +19,7 @@ colors:
   on-error: "#FFFFFF"
   warn: "#8A6000"
   on-warn: "#FFFFFF"
-  accent-sand: "#7A5000"
+  accent-1: "#7A5000"
   on-accent: "#FFFFFF"
   status-neutral: "#5A5030"
   on-neutral: "#FFFFFF"
@@ -151,7 +151,7 @@ components:
     rounded: "{rounded.md}"
     padding: "{spacing.sm}"
   accent-chip:
-    backgroundColor: "{colors.accent-sand}"
+    backgroundColor: "{colors.accent-1}"
     textColor: "{colors.on-accent}"
     typography: "{typography.label}"
     rounded: "{rounded.pill}"

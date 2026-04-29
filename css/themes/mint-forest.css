@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;700;800&display=swap');
+
+/*
+ * mint-forest.css -- Mint Forest theme
+ * Vibe:  Rain-washed emerald forest after a morning shower -- clean, crisp, refreshing.
+ *        The cleanest theme in the set. Consistently cool, no amber.
+ *
+ * Light: Mint-tinted near-white with deep emerald and spring-green accents
+ * Dark:  Deep forest night with phosphorescent green highlights
+ *
+ * Best for: Outdoor itineraries, nature lovers, spring trips.
+ */
+
+:root {
+  /* ── Private Palette: Ozark Forest ──────────────────────────────── */
+
+  --forest-emerald:   #1A6B4A;   /* Deep emerald forest green */
+  --forest-dim:       #0F4A30;   /* Deeper forest shadow */
+  --forest-teal:      #1F6B5A;   /* Cool teal undergrowth */
+  --forest-slate:     #3A4A6A;   /* Slate blue committed */
+  --mint-surface:     #F4FDF8;   /* Mint-tinted near-white */
+  --mint-bg:          #ECFAF2;   /* Rain-washed mint background */
+  --forest-ink:       #0A1E14;   /* Deep forest-night ink */
+  --forest-ink-dim:   #2A5040;   /* Muted forest dim text */
+  --mint-line:        #C0E8D0;   /* Mint divider */
+  --spring-green:     #8AC840;   /* Spring green sunlight accent */
+  --olive-green:      #4A6A1A;   /* Olive danger accent */
+  --forest-warn:      #7A4D0E;   /* Amber warn */
+  --forest-neutral:   #4A6A5A;   /* Green-tinted neutral */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Lexend', 'Helvetica Neue', sans-serif;
+  --font-body:    'Atkinson Hyperlegible', 'Georgia', serif;
+
+  /* ── Light Mode: Morning Forest ─────────────────────────────────── */
+  --color-bg:       #ECFAF2;
+  --color-surface:  #F4FDF8;
+  --color-ink:      #0A1E14;
+  --color-ink-dim:  #2A5040;
+  --color-line:     #C0E8D0;
+
+  --status-yes:      #1A6B4A;
+  --status-no:       #8B1A1A;
+  --status-wishlist: #1F6B5A;
+  --status-neutral:  #4A6A5A;
+  --status-lock:     #6A4A10;
+  --warn:            #7A4D0E;
+
+  --accent-1: #8AC840;   /* Spring green-yellow -- sunlight through leaves */
+  --accent-2: #4A6A1A;   /* Olive green -- danger actions */
+  --accent-3: #1F6B5A;   /* Forest teal -- tertiary accent */
+}
+
+/* ── Dark Mode: Deep Forest Night ────────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(156, 6%,  9%);
+  --color-surface: hsl(156, 6%, 14%);
+  --color-ink:     hsl(156, 8%, 92%);
+  --color-ink-dim: hsl(156, 6%, 65%);
+  --color-line:    hsl(156, 8%, 22%);
+
+  --status-yes:      #4ADA8A;
+  --status-no:       #E05050;
+  --status-wishlist: #4ABA8A;
+  --status-neutral:  #6A8A7A;
+  --status-lock:     #C8A030;
+  --warn:            #C8A030;
+
+  --accent-1: hsl(90,  65%, 55%);   /* Brightened spring green */
+  --accent-2: hsl(90,  45%, 45%);   /* Brightened olive green */
+  --accent-3: hsl(168, 60%, 45%);   /* Brightened forest teal */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(156, 6%,  9%);
+    --color-surface: hsl(156, 6%, 14%);
+    --color-ink:     hsl(156, 8%, 92%);
+    --color-ink-dim: hsl(156, 6%, 65%);
+    --color-line:    hsl(156, 8%, 22%);
+
+    --status-yes:      #4ADA8A;
+    --status-no:       #E05050;
+    --status-wishlist: #4ABA8A;
+    --status-neutral:  #6A8A7A;
+    --status-lock:     #C8A030;
+    --warn:            #C8A030;
+
+    --accent-1: hsl(90,  65%, 55%);
+    --accent-2: hsl(90,  45%, 45%);
+    --accent-3: hsl(168, 60%, 45%);
+  }
+}

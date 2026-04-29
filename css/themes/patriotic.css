@@ -69,9 +69,9 @@
   --status-neutral:  #5A5A6A;   /* muted blue-gray neutral */
   --status-lock:     #7A6000;   /* gold muted -- locked/booked */
   --warn:            #8B5E00;   /* eagle brown muted -- warning */
-  --accent-sand:     var(--parchment);    /* #F5E6C8 -- Declaration parchment */
-  --accent-clay:     var(--glory-red);    /* #B22234 -- Old Glory Red */
-  --accent-dusk:     var(--glory-blue);   /* #3C3B6E -- Old Glory Blue */
+  --accent-1:     var(--parchment);    /* #F5E6C8 -- Declaration parchment */
+  --accent-2:     var(--glory-red);    /* #B22234 -- Old Glory Red */
+  --accent-3:     var(--glory-blue);   /* #3C3B6E -- Old Glory Blue */
 }
 
 /* ── Dark Mode: Fireworks at Midnight -- July 4th Night Sky ── */
@@ -92,9 +92,9 @@
   --status-neutral:  #8090C0;   /* muted blue-gray neutral */
   --status-lock:     #FFD700;   /* fireworks gold burst -- locked/booked */
   --warn:            #FF6B00;   /* fireworks ember orange -- warning */
-  --accent-sand:     #FFD700;   /* fireworks gold */
-  --accent-clay:     #B22234;   /* Old Glory Red */
-  --accent-dusk:     #3C3B6E;   /* Old Glory Blue */
+  --accent-1:     #FFD700;   /* fireworks gold */
+  --accent-2:     #B22234;   /* Old Glory Red */
+  --accent-3:     #3C3B6E;   /* Old Glory Blue */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -112,8 +112,8 @@
     --status-lock:     #FFD700;   /* fireworks gold burst */
     --warn:            #FF6B00;   /* fireworks ember orange */
 
-    --accent-sand: #FFD700;
-    --accent-clay: #B22234;
-    --accent-dusk: #3C3B6E;
+    --accent-1: #FFD700;
+    --accent-2: #B22234;
+    --accent-3: #3C3B6E;
   }
 }

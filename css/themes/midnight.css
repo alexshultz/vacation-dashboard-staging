@@ -37,9 +37,9 @@
   --status-neutral:  #5A6080;   /* cool gray */
   --status-lock:     #5830B0;   /* deep violet */
   --warn:            #8C6C00;   /* dark amber */
-  --accent-sand:     #A88C30;   /* muted gold */
-  --accent-clay:     #B82050;
-  --accent-dusk:     #5830B0;
+  --accent-1:     #A88C30;   /* muted gold */
+  --accent-2:     #B82050;
+  --accent-3:     #5830B0;
 }
 
 /* ── Dark Mode: override bg/surface/ink + unleash neon ─────── */
@@ -58,9 +58,9 @@
     --status-neutral:  #8B95B4;   /* ghost gray */
     --status-lock:     #B860FF;   /* soft neon purple */
     --warn:            #FFD426;   /* neon amber */
-    --accent-sand:     #FFD426;
-    --accent-clay:     #FF3A70;
-    --accent-dusk:     #6040FF;
+    --accent-1:     #FFD426;
+    --accent-2:     #FF3A70;
+    --accent-3:     #6040FF;
   }
 }
 
@@ -77,9 +77,9 @@
   --status-neutral:  #8B95B4;
   --status-lock:     #B860FF;
   --warn:            #FFD426;
-  --accent-sand:     #FFD426;
-  --accent-clay:     #FF3A70;
-  --accent-dusk:     #6040FF;
+  --accent-1:     #FFD426;
+  --accent-2:     #FF3A70;
+  --accent-3:     #6040FF;
 }
 
 :root[data-mode="light"] {

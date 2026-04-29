@@ -1,0 +1,92 @@
+/* system fonts only -- Airbnb Cereal is not available on Google Fonts */
+
+/*
+ * airbnb.css -- Airbnb theme
+ * Vibe:  Warm coral, photography-forward travel aesthetic.
+ *        Familiar warmth of Airbnb -- friendly, optimistic, travel-ready.
+ *
+ * Light: Clean white photography canvas with coral, teal, and gold accents
+ * Dark:  Warm near-black with vivid coral and teal highlights
+ *
+ * Best for: Photography-forward mood, travel inspiration, warm and familiar.
+ */
+
+:root {
+  /* ── Private Palette: Airbnb Travel ─────────────────────────────── */
+
+  --rausch-coral:     #FF5A5F;   /* Airbnb's signature red-coral */
+  --coral-dim:        #E04A50;   /* Deeper coral hover */
+  --kazan-teal:       #008489;   /* Airbnb teal-green */
+  --arches-gold:      #FFB400;   /* Airbnb gold/yellow */
+  --airbnb-surface:   #FFFFFF;   /* Clean white card */
+  --airbnb-bg:        #FFF8F6;   /* Barely warm off-white */
+  --airbnb-ink:       #333333;   /* Warm charcoal text */
+  --airbnb-ink-dim:   #717171;   /* Gray dim text */
+  --airbnb-line:      #DDDDDD;   /* Neutral divider */
+  --rausch-dark:      #C13515;   /* Error / danger */
+  --airbnb-warn:      #8A5000;   /* Amber warn */
+  --hof-gray:         #717171;   /* Neutral gray */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: system-ui, 'Inter', sans-serif;
+  --font-body:    system-ui, 'Inter', sans-serif;
+
+  /* ── Light Mode: Clean Travel Canvas ────────────────────────────── */
+  --color-bg:       #FFF8F6;
+  --color-surface:  #FFFFFF;
+  --color-ink:      #333333;
+  --color-ink-dim:  #717171;
+  --color-line:     #DDDDDD;
+
+  --status-yes:      #1A6B2A;
+  --status-no:       #C13515;
+  --status-wishlist: #0070C0;
+  --status-neutral:  #717171;
+  --status-lock:     #8A5000;
+  --warn:            #8A5000;
+
+  --accent-1: #FF5A5F;   /* Rausch coral -- primary brand */
+  --accent-2: #008489;   /* Kazan teal -- secondary brand */
+  --accent-3: #FFB400;   /* Arches gold -- wishlist/highlight */
+}
+
+/* ── Dark Mode: Warm Travel Night ────────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(3, 6%,  9%);
+  --color-surface: hsl(3, 6%, 14%);
+  --color-ink:     hsl(3, 8%, 92%);
+  --color-ink-dim: hsl(3, 6%, 65%);
+  --color-line:    hsl(3, 8%, 22%);
+
+  --status-yes:      #4ACA6A;
+  --status-no:       #FF6060;
+  --status-wishlist: #4A90E0;
+  --status-neutral:  #909090;
+  --status-lock:     #D4A030;
+  --warn:            #D4A030;
+
+  --accent-1: hsl(358, 90%, 68%);   /* Brightened coral */
+  --accent-2: hsl(182, 80%, 45%);   /* Brightened teal */
+  --accent-3: hsl(43,  95%, 55%);   /* Brightened gold */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(3, 6%,  9%);
+    --color-surface: hsl(3, 6%, 14%);
+    --color-ink:     hsl(3, 8%, 92%);
+    --color-ink-dim: hsl(3, 6%, 65%);
+    --color-line:    hsl(3, 8%, 22%);
+
+    --status-yes:      #4ACA6A;
+    --status-no:       #FF6060;
+    --status-wishlist: #4A90E0;
+    --status-neutral:  #909090;
+    --status-lock:     #D4A030;
+    --warn:            #D4A030;
+
+    --accent-1: hsl(358, 90%, 68%);
+    --accent-2: hsl(182, 80%, 45%);
+    --accent-3: hsl(43,  95%, 55%);
+  }
+}

@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;700;800&display=swap');
+
+/*
+ * sunrise.css -- Sunrise theme
+ * Vibe:  Golden hour over the Ozarks before anyone else is awake.
+ *        Deep crimson dawn and saddlebrown earth on warm morning cream.
+ *
+ * Light: Warm morning cream with sunrise crimson, saddlebrown, and golden sunbeam
+ * Dark:  Deep pre-dawn darkness with crimson and amber highlights
+ *
+ * Best for: Morning energy, earthy warmth, energizing without being harsh.
+ */
+
+:root {
+  /* ── Private Palette: Ozark Dawn ────────────────────────────────── */
+
+  --sunrise-crimson:  #8B1A1A;   /* Deep red-dawn primary */
+  --crimson-dim:      #6B1010;   /* Deeper dawn shadow */
+  --earth-brown:      #8B4513;   /* Saddlebrown earth */
+  --predawn-purple:   #6B3A8B;   /* Sky just before first light */
+  --morning-surface:  #FFFBF0;   /* Warm morning cream surface */
+  --morning-bg:       #FFF5DC;   /* Golden morning light background */
+  --sunrise-ink:      #2C1810;   /* Deep warm ink */
+  --sunrise-ink-dim:  #6B4A35;   /* Muted sienna dim text */
+  --sunrise-line:     #F5DEB3;   /* Wheat divider */
+  --golden-beam:      #C8860A;   /* Bright grounded amber sunbeam */
+  --sunrise-clay:     #8B3A2A;   /* Deep clay danger */
+  --sunrise-warn:     #7A4D0E;   /* Amber warn */
+  --sunrise-neutral:  #7A6A5A;   /* Warm tan neutral */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Lexend', 'Helvetica Neue', sans-serif;
+  --font-body:    'Atkinson Hyperlegible', 'Georgia', serif;
+
+  /* ── Light Mode: Morning Glow ────────────────────────────────────── */
+  --color-bg:       #FFF5DC;
+  --color-surface:  #FFFBF0;
+  --color-ink:      #2C1810;
+  --color-ink-dim:  #6B4A35;
+  --color-line:     #F5DEB3;
+
+  --status-yes:      #1A5A2A;
+  --status-no:       #8B1A1A;
+  --status-wishlist: #6B3A8B;   /* Pre-dawn purple -- distinct from crimson no-status */
+  --status-neutral:  #7A6A5A;
+  --status-lock:     #7A4D0E;
+  --warn:            #7A4D0E;
+
+  --accent-1: #C8860A;   /* Golden sunbeam -- bright grounded amber */
+  --accent-2: #8B3A2A;   /* Deep clay -- danger actions */
+  --accent-3: #6B3A8B;   /* Pre-dawn purple -- tertiary accent */
+}
+
+/* ── Dark Mode: Pre-Dawn ─────────────────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(0, 6%,  9%);
+  --color-surface: hsl(0, 6%, 14%);
+  --color-ink:     hsl(0, 8%, 92%);
+  --color-ink-dim: hsl(0, 6%, 65%);
+  --color-line:    hsl(0, 8%, 22%);
+
+  --status-yes:      #4ACA6A;
+  --status-no:       #E05050;
+  --status-wishlist: #9B6ADD;   /* Brightened pre-dawn purple */
+  --status-neutral:  #8A7A6A;
+  --status-lock:     #D4AA30;
+  --warn:            #D4AA30;
+
+  --accent-1: hsl(36,  80%, 55%);   /* Brightened golden beam */
+  --accent-2: hsl(10,  60%, 58%);   /* Brightened deep clay */
+  --accent-3: hsl(274, 55%, 62%);   /* Brightened pre-dawn purple */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(0, 6%,  9%);
+    --color-surface: hsl(0, 6%, 14%);
+    --color-ink:     hsl(0, 8%, 92%);
+    --color-ink-dim: hsl(0, 6%, 65%);
+    --color-line:    hsl(0, 8%, 22%);
+
+    --status-yes:      #4ACA6A;
+    --status-no:       #E05050;
+    --status-wishlist: #9B6ADD;   /* Brightened pre-dawn purple */
+    --status-neutral:  #8A7A6A;
+    --status-lock:     #D4AA30;
+    --warn:            #D4AA30;
+
+    --accent-1: hsl(36,  80%, 55%);
+    --accent-2: hsl(10,  60%, 58%);
+    --accent-3: hsl(274, 55%, 62%);
+  }
+}

@@ -82,9 +82,9 @@
   --warn:            #A07818;   /* Dark gold-yellow — heads up, check this */
 
   /* Accent passthroughs: full-saturation palette colours for decorative use */
-  --accent-sand: var(--bingo);    /* #F28444 — Bingo's warm orange (sand equivalent) */
-  --accent-clay: var(--bandit);   /* #C04A2A — Bandit's red-brown (clay equivalent) */
-  --accent-dusk: var(--chloe);    /* #8844C0 — Chloe's purple (dusk equivalent) */
+  --accent-1: var(--bingo);    /* #F28444 — Bingo's warm orange (sand equivalent) */
+  --accent-2: var(--bandit);   /* #C04A2A — Bandit's red-brown (clay equivalent) */
+  --accent-3: var(--chloe);    /* #8844C0 — Chloe's purple (dusk equivalent) */
 }
 
 /* ── Dark Mode: After Bedtime — Cosy Night Sky ────────────────────── */
@@ -107,9 +107,9 @@
     --status-lock:     #8844C0;   /* Chloe purple — "already locked in" */
     --warn:            #E8B830;   /* Lucky's Dad yellow — bright warning beacon */
 
-    --accent-sand: #F28444;       /* Bingo orange — warm pop against dark bg */
-    --accent-clay: #C04A2A;       /* Bandit red-brown */
-    --accent-dusk: #8844C0;       /* Chloe purple */
+    --accent-1: #F28444;       /* Bingo orange — warm pop against dark bg */
+    --accent-2: #C04A2A;       /* Bandit red-brown */
+    --accent-3: #8844C0;       /* Chloe purple */
   }
 }
 
@@ -128,9 +128,9 @@
   --status-lock:     #8844C0;   /* Chloe purple */
   --warn:            #E8B830;   /* Lucky's Dad yellow */
 
-  --accent-sand: #F28444;
-  --accent-clay: #C04A2A;
-  --accent-dusk: #8844C0;
+  --accent-1: #F28444;
+  --accent-2: #C04A2A;
+  --accent-3: #8844C0;
 }
 
 /* Explicit light-mode toggle (user picks "Light" in the theme switcher) */

@@ -80,9 +80,9 @@
   --warn:             #C06800;   /* Dark amber / torchlight warn */
 
   /* Accent passthrough to semantic layer */
-  --accent-sand:  var(--loot-amber);     /* Torchlight amber as sand equivalent */
-  --accent-clay:  var(--sys-red);        /* Damage red as clay equivalent */
-  --accent-dusk:  var(--sys-purple);     /* Arcane purple as dusk equivalent */
+  --accent-1:  var(--loot-amber);     /* Torchlight amber as sand equivalent */
+  --accent-2:  var(--sys-red);        /* Damage red as clay equivalent */
+  --accent-3:  var(--sys-purple);     /* Arcane purple as dusk equivalent */
 }
 
 /* ── Dark Mode: Midnight Dungeon ─────────────────────────────────── */
@@ -102,9 +102,9 @@
   --status-lock:      var(--sys-purple);     /* #9B30FF -- achievement purple "locked" */
   --warn:             var(--loot-amber);     /* #FF8C00 -- torchfire warn */
 
-  --accent-sand:  var(--loot-gold);          /* #FFB800 -- gold loot accent */
-  --accent-clay:  var(--sys-red);            /* #FF3A1A -- damage red */
-  --accent-dusk:  var(--sys-purple);         /* #9B30FF -- arcane purple */
+  --accent-1:  var(--loot-gold);          /* #FFB800 -- gold loot accent */
+  --accent-2:  var(--sys-red);            /* #FF3A1A -- damage red */
+  --accent-3:  var(--sys-purple);         /* #9B30FF -- arcane purple */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -122,8 +122,8 @@
     --status-lock:      var(--sys-purple);
     --warn:             var(--loot-amber);
 
-    --accent-sand:  var(--loot-gold);
-    --accent-clay:  var(--sys-red);
-    --accent-dusk:  var(--sys-purple);
+    --accent-1:  var(--loot-gold);
+    --accent-2:  var(--sys-red);
+    --accent-3:  var(--sys-purple);
   }
 }

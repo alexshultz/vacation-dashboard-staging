@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;700;800&display=swap');
+
+/*
+ * desert-sky.css -- Desert Sky theme
+ * Vibe:  High desert horizon -- infinite turquoise sky above a warm mesa.
+ *        Striking contrast of vivid teal with warm saddlebrown earth.
+ *
+ * Light: Desert cream with turquoise sky, terra cotta earth, and gold accents
+ * Dark:  Deep teal night with warm amber highlights over dark earth
+ *
+ * Best for: Adventure planning, outdoor families, unexpected and striking mood.
+ */
+
+:root {
+  /* ── Private Palette: High Desert ───────────────────────────────── */
+
+  --desert-teal:      #1A7A8A;   /* Turquoise sky at noon */
+  --desert-teal-dim:  #0F5A66;   /* Deeper sky pressure */
+  --terra-cotta:      #8B4513;   /* Saddlebrown earth */
+  --desert-brown:     #6B3A0A;   /* Deep earth committed */
+  --desert-surface:   #FFFCF0;   /* Desert cream surface */
+  --desert-bg:        #FFF8E0;   /* Dry heat warm sand */
+  --desert-ink:       #1E1408;   /* Deep earth ink */
+  --desert-ink-dim:   #5A3A1A;   /* Muted sienna dim text */
+  --desert-line:      #F0E0C0;   /* Sand divider */
+  --desert-gold:      #C89A10;   /* Sunbaked sandstone shimmer */
+  --terracotta-clay:  #8B4513;   /* Terra cotta danger */
+  --desert-warn:      #7A4D0E;   /* Amber warn */
+  --desert-neutral:   #7A6A5A;   /* Sand-tan neutral */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Lexend', 'Helvetica Neue', sans-serif;
+  --font-body:    'Atkinson Hyperlegible', 'Georgia', serif;
+
+  /* ── Light Mode: Desert Afternoon ───────────────────────────────── */
+  --color-bg:       #FFF8E0;
+  --color-surface:  #FFFCF0;
+  --color-ink:      #1E1408;
+  --color-ink-dim:  #5A3A1A;
+  --color-line:     #F0E0C0;
+
+  --status-yes:      #1A5A2A;
+  --status-no:       #8B1A1A;
+  --status-wishlist: #1A7A8A;
+  --status-neutral:  #7A6A5A;
+  --status-lock:     #7A4D0E;
+  --warn:            #7A4D0E;
+
+  --accent-1: #C89A10;   /* Desert gold -- sunbaked sandstone */
+  --accent-2: #8B4513;   /* Terra cotta -- danger actions */
+  --accent-3: #1A7A8A;   /* Turquoise sky -- tertiary accent */
+}
+
+/* ── Dark Mode: Desert Night Sky ─────────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(189, 6%,  9%);
+  --color-surface: hsl(189, 6%, 14%);
+  --color-ink:     hsl(189, 8%, 92%);
+  --color-ink-dim: hsl(189, 6%, 65%);
+  --color-line:    hsl(189, 8%, 22%);
+
+  --status-yes:      #4ACA6A;
+  --status-no:       #E05050;
+  --status-wishlist: #4ABACA;
+  --status-neutral:  #8A7A6A;
+  --status-lock:     #D4AA30;
+  --warn:            #D4AA30;
+
+  --accent-1: hsl(44,  80%, 55%);   /* Brightened desert gold */
+  --accent-2: hsl(20,  65%, 55%);   /* Brightened terra cotta */
+  --accent-3: hsl(189, 65%, 50%);   /* Brightened turquoise sky */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(189, 6%,  9%);
+    --color-surface: hsl(189, 6%, 14%);
+    --color-ink:     hsl(189, 8%, 92%);
+    --color-ink-dim: hsl(189, 6%, 65%);
+    --color-line:    hsl(189, 8%, 22%);
+
+    --status-yes:      #4ACA6A;
+    --status-no:       #E05050;
+    --status-wishlist: #4ABACA;
+    --status-neutral:  #8A7A6A;
+    --status-lock:     #D4AA30;
+    --warn:            #D4AA30;
+
+    --accent-1: hsl(44,  80%, 55%);
+    --accent-2: hsl(20,  65%, 55%);
+    --accent-3: hsl(189, 65%, 50%);
+  }
+}

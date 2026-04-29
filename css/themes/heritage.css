@@ -38,9 +38,9 @@
   --status-neutral:  var(--pewter);    /* #7A7060 — warm pewter */
   --status-lock:     var(--amethyst);  /* #5A3D6B — Victorian purple */
   --warn:            var(--gold);      /* #B07A00 — antique gold */
-  --accent-sand:     var(--gold);      /* #B07A00 */
-  --accent-clay:     var(--garnet);    /* #8B1A1A */
-  --accent-dusk:     var(--amethyst);  /* #5A3D6B */
+  --accent-1:     var(--gold);      /* #B07A00 */
+  --accent-2:     var(--garnet);    /* #8B1A1A */
+  --accent-3:     var(--amethyst);  /* #5A3D6B */
 }
 
 /* ── Dark Mode: evening lamp-light — deep warm brown, cream text ── */
@@ -60,9 +60,9 @@
     --status-neutral:  #9A8A6A;   /* warm medium tan */
     --status-lock:     #8A60A8;   /* lighter Victorian purple */
     --warn:            #D4A040;   /* bright antique gold */
-    --accent-sand:     #D4A040;
-    --accent-clay:     #C84040;
-    --accent-dusk:     #8A60A8;
+    --accent-1:     #D4A040;
+    --accent-2:     #C84040;
+    --accent-3:     #8A60A8;
   }
 }
 
@@ -79,9 +79,9 @@
   --status-neutral:  #9A8A6A;
   --status-lock:     #8A60A8;
   --warn:            #D4A040;
-  --accent-sand:     #D4A040;
-  --accent-clay:     #C84040;
-  --accent-dusk:     #8A60A8;
+  --accent-1:     #D4A040;
+  --accent-2:     #C84040;
+  --accent-3:     #8A60A8;
 }
 
 :root[data-mode="light"] {

@@ -71,9 +71,9 @@
   --status-lock:      #6644AA;   /* Amethyst (muted) -- locked/booked */
   --warn:             #AA8800;   /* Gold ore (muted) -- warning */
 
-  --accent-sand:  var(--gold-ore);  /* Gold ore as warm accent */
-  --accent-clay:  var(--redstone);  /* Redstone as the danger/clay accent */
-  --accent-dusk:  var(--amethyst);  /* Amethyst as the dusk/purple accent */
+  --accent-1:  var(--gold-ore);  /* Gold ore as warm accent */
+  --accent-2:  var(--redstone);  /* Redstone as the danger/clay accent */
+  --accent-3:  var(--amethyst);  /* Amethyst as the dusk/purple accent */
 }
 
 /* ── Dark Mode: Underground Cave Night ──────────────────────────── */
@@ -93,9 +93,9 @@
   --status-lock:      var(--amethyst);   /* #9960D4 -- amethyst locked */
   --warn:             var(--gold-ore);   /* #FFD700 -- gold ore warning */
 
-  --accent-sand:  var(--gold-ore);    /* #FFD700 */
-  --accent-clay:  var(--redstone);    /* #FF1A00 */
-  --accent-dusk:  var(--amethyst);    /* #9960D4 */
+  --accent-1:  var(--gold-ore);    /* #FFD700 */
+  --accent-2:  var(--redstone);    /* #FF1A00 */
+  --accent-3:  var(--amethyst);    /* #9960D4 */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -113,8 +113,8 @@
     --status-lock:      #9960D4;
     --warn:             #FFD700;
 
-    --accent-sand:  #FFD700;
-    --accent-clay:  #FF1A00;
-    --accent-dusk:  #9960D4;
+    --accent-1:  #FFD700;
+    --accent-2:  #FF1A00;
+    --accent-3:  #9960D4;
   }
 }

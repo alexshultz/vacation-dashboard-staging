@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;700;800&display=swap');
+
+/*
+ * cabin-fire.css -- Cabin Fire theme
+ * Vibe:  Stone fireplace, wood paneling, and the smell of cedar.
+ *        Coziest theme in the set -- mahogany, leather, and amber firelight.
+ *
+ * Light: Warm firelit cream with deep mahogany and ember amber accents
+ * Dark:  Deep lodge night with glowing firelight highlights
+ *
+ * Best for: Evening planning sessions, cozy indoor feel, family cabin vibes.
+ */
+
+:root {
+  /* ── Private Palette: Lodge Fire ────────────────────────────────── */
+
+  --mahogany:         #7A3A0A;   /* Deep mahogany wood */
+  --mahogany-dim:     #5A2A08;   /* Darker mahogany shadow */
+  --saddlebrown:      #8B4513;   /* Well-worn leather */
+  --ember-red:        #6B1A1A;   /* Deep ember fireplace red */
+  --cabin-surface:    #FFFBF0;   /* Firelit cream surface */
+  --cabin-bg:         #FFF5E0;   /* Warm candlelight background */
+  --cabin-ink:        #1C1008;   /* Deep lodge ink */
+  --cabin-ink-dim:    #5A3A1A;   /* Muted warm dim text */
+  --cabin-line:       #F0D8A0;   /* Amber divider */
+  --ember-amber:      #D8900A;   /* Firelight ember glow */
+  --deep-clay:        #8B3A2A;   /* Clay danger accent */
+  --cabin-warn:       #7A4D0E;   /* Amber warn */
+  --cabin-neutral:    #6A5040;   /* Wood-tone neutral */
+
+  /* ── Font Stack ──────────────────────────────────────────────────── */
+  --font-heading: 'Lexend', 'Helvetica Neue', sans-serif;
+  --font-body:    'Atkinson Hyperlegible', 'Georgia', serif;
+
+  /* ── Light Mode: Firelit Lodge ───────────────────────────────────── */
+  --color-bg:       #FFF5E0;
+  --color-surface:  #FFFBF0;
+  --color-ink:      #1C1008;
+  --color-ink-dim:  #5A3A1A;
+  --color-line:     #F0D8A0;
+
+  --status-yes:      #1A5A2A;
+  --status-no:       #8B1A1A;
+  --status-wishlist: #7A3A0A;
+  --status-neutral:  #6A5040;
+  --status-lock:     #7A4D0E;
+  --warn:            #7A4D0E;
+
+  --accent-1: #D8900A;   /* Ember amber -- firelight glow */
+  --accent-2: #8B3A2A;   /* Deep clay -- danger actions */
+  --accent-3: #6B1A1A;   /* Fireplace ember red -- tertiary accent */
+}
+
+/* ── Dark Mode: Lodge at Night ───────────────────────────────────────── */
+[data-mode="dark"] {
+  --color-bg:      hsl(26, 6%,  9%);
+  --color-surface: hsl(26, 6%, 14%);
+  --color-ink:     hsl(26, 8%, 92%);
+  --color-ink-dim: hsl(26, 6%, 65%);
+  --color-line:    hsl(26, 8%, 22%);
+
+  --status-yes:      #4ACA6A;
+  --status-no:       #E05050;
+  --status-wishlist: #D4900A;
+  --status-neutral:  #8A7060;
+  --status-lock:     #D4AA30;
+  --warn:            #D4AA30;
+
+  --accent-1: hsl(36,  85%, 55%);   /* Brightened ember amber */
+  --accent-2: hsl(10,  60%, 58%);   /* Brightened deep clay */
+  --accent-3: hsl(0,   55%, 50%);   /* Brightened ember red */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode="light"]) {
+    --color-bg:      hsl(26, 6%,  9%);
+    --color-surface: hsl(26, 6%, 14%);
+    --color-ink:     hsl(26, 8%, 92%);
+    --color-ink-dim: hsl(26, 6%, 65%);
+    --color-line:    hsl(26, 8%, 22%);
+
+    --status-yes:      #4ACA6A;
+    --status-no:       #E05050;
+    --status-wishlist: #D4900A;
+    --status-neutral:  #8A7060;
+    --status-lock:     #D4AA30;
+    --warn:            #D4AA30;
+
+    --accent-1: hsl(36,  85%, 55%);
+    --accent-2: hsl(10,  60%, 58%);
+    --accent-3: hsl(0,   55%, 50%);
+  }
+}

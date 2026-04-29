@@ -19,8 +19,8 @@ colors:
   on-error: "#FFFFFF"
   warn: "#7A4D0E"
   on-warn: "#FFFFFF"
-  accent-sand: "#C89A10"
-  accent-clay: "#8B4513"
+  accent-1: "#C89A10"
+  accent-2: "#8B4513"
   status-neutral: "#7A6A5A"
   on-neutral: "#FFFFFF"
 typography:
@@ -150,14 +150,14 @@ components:
     typography: "{typography.label}"
     rounded: "{rounded.md}"
     padding: "{spacing.sm}"
-  accent-sand-chip:
-    backgroundColor: "{colors.accent-sand}"
+  accent-1-chip:
+    backgroundColor: "{colors.accent-1}"
     textColor: "{colors.on-surface}"
     typography: "{typography.label}"
     rounded: "{rounded.pill}"
     padding: "{spacing.xs}"
-  accent-clay-chip:
-    backgroundColor: "{colors.accent-clay}"
+  accent-2-chip:
+    backgroundColor: "{colors.accent-2}"
     textColor: "{colors.on-primary}"
     typography: "{typography.label}"
     rounded: "{rounded.pill}"
