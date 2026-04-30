@@ -1,3 +1,57 @@
+## 2026-04-29 -- Theme System Sprint -- shipped to production
+
+**Production commit:** 8f9a66d (already live when ship-it issued -- prior session promoted)
+**Vault commits:** e75d2d6, 21f7df8, cebfa24, 4f8a0a8
+**Status:** Live at https://vacation.creeperbomb.com/
+
+**What shipped:**
+- Token rename: --accent-sand/clay/dusk -> --accent-1/2/3 across all 16 active CSS files
+- Shadow tint fix: Trail-green rgba(63,107,58,0.14) -> neutral rgba(0,0,0,0.10) in tokens.css
+- DESIGN-trail.md created; 23 existing DESIGN.md files updated with renamed tokens
+- 10 orphaned theme CSS files written from existing specs (storm-watch, dusk-gold, mint-forest, desert-sky, cabin-fire, wildflower, autumn-ozarks, lake-day, sunrise, night-hike)
+- 6 catalog theme CSS files written from real-world design systems (airbnb, notion, airtable, mintlify, clay, wise) + 6 companion DESIGN.md files
+- profile.html THEMES array expanded from 14 to 30 entries
+- Reviewer catch: sunrise.css wishlist/no-status collision (both crimson) -- fixed with pre-dawn purple (#6B3A8B / #9B6ADD)
+
+**4 briefs, 4 code reviews, 1 surgical PM patch. All reviewer checks passed.**
+
+---
+
+## 2026-04-29 -- promote: dynamic admin menu visibility to production
+
+**Production commit:** d8961b1  
+**Status:** Live at https://vacation.creeperbomb.com/
+
+**What shipped:**
+- ADMIN_USERS array in site.js -- extendable, currently ['Alex']
+- Admin link (⚙️ Admin) in both hamburger panel AND desktop .site-nav when logged in as Alex
+- vacdashRebuildHamburger() -- instant menu refresh when name is set on profile.html, no reload needed
+- admin.html passcode gate (3141) unchanged
+
+**Next up:** Add site.js nav to admin.html so it's not a stranded island (no way back home).
+
+---
+
+
+## 2026-04-29 -- feat: dynamic admin menu visibility
+
+**Vault commit:** 57be67e  
+**Staging commit:** 10ccc99  
+**Status:** In staging. Awaiting 'ship it' for production.
+
+**What shipped:**
+- `ADMIN_USERS = ['Alex']` array constant in site.js (extendable -- just add names)
+- Admin link appears in BOTH hamburger panel AND desktop .site-nav when logged in as Alex
+- `window.vacdashRebuildHamburger()` exposed -- rebuilds panel + desktop nav + re-attaches theme toggle handler + calls syncBadge()
+- profile.html calls rebuildHamburger() immediately after setUser() -- Admin link appears the instant you pick your name, no page reload needed
+- admin.html untouched -- passcode gate (3141) unchanged
+
+**Code review:** 10/10 PASS (cold reviewer)  
+**Lazlo flag:** Stale updateProfileBtnBadge() call in profile.html queries non-existent #profile-btn, silently no-ops. Not removed. Low-priority cleanup candidate.
+
+---
+
+
 ## 2026-04-29 -- promote: theme system sprint to production
 
 **Staging commit:** 8c0a60f  
