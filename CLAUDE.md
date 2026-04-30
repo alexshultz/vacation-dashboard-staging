@@ -100,8 +100,9 @@ scripts/
 
 ## CSS Architecture
 
-- **Components** (`components.css`) reference semantic tokens only: `--color-bg`, `--accent-sand`, etc. Never `--moss` or `--lake` directly.
-- Private palette lives in `css/themes/trail.css`. To expose a palette color to components, add a passthrough token in `tokens.css` (e.g., `--accent-sand: var(--sand)`) and use that in components.
+- **Components** (`components.css`) reference semantic tokens only: `--color-bg`, `--accent-1`, `--accent-2`, `--accent-3`, etc. Never `--moss` or `--lake` directly.
+- Private palette lives in `css/themes/trail.css`. To expose a palette color to components, add a passthrough token in `tokens.css` (e.g., `--accent-1: var(--sand)`) and use that in components.
+- **Accent token names (post-2026-04-29 rename):** `--accent-sand`, `--accent-clay`, `--accent-dusk` are GONE. Use `--accent-1`, `--accent-2`, `--accent-3` everywhere.
 - **`[hidden]` + `display:flex` pitfall:** Browser UA `[hidden]{display:none}` is overridden by author `display:flex`. Fix: add `.element[hidden] { display: none; }` companion rule in `components.css` for every element toggled via JS `.hidden = true`.
 
 ---
