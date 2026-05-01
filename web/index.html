@@ -66,6 +66,12 @@
 <body>
 <script src="js/site.js"></script>
 <main class="page-main">
+  <div id="vacdash-iv-bar" style="display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--color-surface);border:1px solid var(--color-line);border-radius:var(--radius-btn);margin-bottom:16px;">
+    <button id="vacdash-iv-minus" type="button" style="width:2rem;height:2rem;font-size:1.2rem;background:none;border:1px solid var(--color-line);border-radius:4px;cursor:pointer;">−</button>
+    <input id="vacdash-iv-input" type="number" min="1" style="width:3.5rem;text-align:center;font-size:1.2rem;border:1px solid var(--color-line);border-radius:4px;padding:2px 4px;">
+    <button id="vacdash-iv-plus" type="button" style="width:2rem;height:2rem;font-size:1.2rem;background:none;border:1px solid var(--color-line);border-radius:4px;cursor:pointer;">+</button>
+    <span style="font-size:13px;color:var(--color-ink-dim);">Visible on load</span>
+  </div>
   <div class="page-hero">
     <h1>Upcoming Activities</h1>
     <p class="hero-sub">28 events across May 23–28. Tap any event to see who's in.</p>
@@ -168,6 +174,8 @@
 
                     const cardEl = document.createElement('details');
                     cardEl.className = 'event-card';
+                    cardEl.style.position = 'relative';
+                    cardEl.setAttribute('data-event-id', event.id);
                     cardEl.setAttribute('open', '');
                     cardEl.innerHTML = `
                         <summary>
@@ -201,6 +209,10 @@
                             </div>
                         </div>
                     `;
+                    cardEl.insertAdjacentHTML('beforeend',
+                      '<button class="admin-edit-btn" data-event-id="' + event.id +
+                      '" aria-label="Edit event" onclick="vacdashOpenEdit(this)">✏\uFE0F</button>'
+                    );
                     section.appendChild(cardEl);
                 });
 
@@ -253,6 +265,7 @@
                     const data = await resp.json();
                     if (Array.isArray(data) && data.length > 0) {
                         eventsData = data;
+                        window._vacdashEvents = eventsData;
                         loaded = true;
                     }
                 }
@@ -263,6 +276,7 @@
                     const r = await fetch('schedule.json');
                     const json = await r.json();
                     eventsData = json.events;
+                    window._vacdashEvents = eventsData;
                     loaded = true;
                 } catch (e) {}
             }
@@ -351,13 +365,6 @@
             window.addEventListener('resize', setupMobileCollapse);
         };
     </script>
-  <div id="vacdash-iv-bar">
-    <button id="vacdash-iv-minus" type="button">−</button>
-    <input id="vacdash-iv-input" type="number" min="1" />
-    <button id="vacdash-iv-plus" type="button">+</button>
-    <span>Visible on load</span>
-  </div>
 </main>
-<script src="js/admin-overlay.js"></script>
 </body>
 </html>

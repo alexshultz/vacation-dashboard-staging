@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  // Bail out gracefully on pages that don't load the Supabase CDN
+  if (!window.supabase) { return; }
+
   /* ── Supabase credentials (same values as event-timeline.html) ─────────── */
   var SUPABASE_URL      = 'https://quebfbvfuwbncpexlylu.supabase.co';
   var SUPABASE_ANON_KEY = 'sb_publishable_yLlf7qoMZMfiZhNsyudX7g_HnZ8clgt';
@@ -12,20 +15,17 @@
   /* ── Module state ──────────────────────────────────────────────────────── */
   var _editingId = null;
 
-  /* ── Inject sign-out badge (synchronously on script load) ─────────────── */
-  // Injected before session resolves; hidden by default via CSS.
-  var _badge = document.createElement('div');
-  _badge.id = 'vacdash-admin-badge';
-  _badge.setAttribute('style',
-    'display:none;position:fixed;top:64px;right:12px;z-index:500;' +
-    'background:var(--warn,#e67e22);color:#fff;padding:6px 12px;' +
-    'border-radius:var(--radius-btn,6px);font-size:13px;cursor:pointer;font-weight:600;'
-  );
-  _badge.textContent = '🔒 Admin — Sign Out';
-  _badge.addEventListener('click', function () {
-    _sb.auth.signOut().then(function () { location.reload(); });
+  /* ── Inject sign-out button into site header (synchronously on script load) */
+  var _btn = document.createElement('button');
+  _btn.id = 'vacdash-signout-btn';
+  _btn.textContent = '🔒 Sign Out';
+  _btn.addEventListener('click', function() {
+    _sb.auth.signOut().then(function() { location.reload(); });
   });
-  document.body.appendChild(_badge);
+  document.body.appendChild(_btn); // fallback -- will be moved to header
+  // Try to place in site header
+  var headerInner = document.querySelector('.site-header__inner');
+  if (headerInner) { headerInner.appendChild(_btn); }
 
   /* ── Inject edit modal (synchronously on script load) ──────────────────── */
   var _modalEl = document.createElement('div');
@@ -129,12 +129,12 @@
   /* ── Admin state functions ─────────────────────────────────────────────── */
   function _activateAdmin() {
     document.body.classList.add('is-admin');
-    document.getElementById('vacdash-admin-badge').style.display = 'block';
+    document.getElementById('vacdash-signout-btn').style.display = 'inline-flex';
   }
 
   function _deactivateAdmin() {
     document.body.classList.remove('is-admin');
-    document.getElementById('vacdash-admin-badge').style.display = 'none';
+    document.getElementById('vacdash-signout-btn').style.display = 'none';
   }
 
   /* ── Auth subscription ─────────────────────────────────────────────────── */

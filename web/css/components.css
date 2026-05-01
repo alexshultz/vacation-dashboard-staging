@@ -1176,26 +1176,20 @@ h3 { font-size: 19px; font-weight: 700; }
 }
 .admin-edit-btn[hidden] { display: none; }
 body.is-admin .admin-edit-btn { display: inline-flex; }
-#vacdash-admin-badge { display: none; }
-body.is-admin #vacdash-admin-badge { display: block; }
+#vacdash-signout-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-btn);
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--color-ink);
+  margin-left: 8px;
+  white-space: nowrap;
+}
+body.is-admin #vacdash-signout-btn { display: inline-flex; align-items: center; }
 
 /* ===== Admin INITIAL_VISIBLE bar ===== */
-#vacdash-iv-bar {
-  display: none;
-  position: fixed;
-  bottom: 64px;
-  left: 50%;
-  transform: translateX(-50%);
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-line);
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-2);
-  z-index: 300;
-  font-family: var(--font-display);
-  font-size: 14px;
-  font-weight: 700;
-}
-body.is-admin #vacdash-iv-bar { display: flex; }
+#vacdash-iv-bar { display: none !important; }
+body.is-admin #vacdash-iv-bar { display: flex !important; }
