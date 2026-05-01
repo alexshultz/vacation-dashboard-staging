@@ -1160,3 +1160,21 @@ h3 { font-size: 19px; font-weight: 700; }
     font-size: 18px;
   }
 }
+
+/* Admin overlay -- session-gated edit controls */
+.admin-edit-btn {
+  display: none;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 2px;
+  line-height: 1;
+}
+.admin-edit-btn[hidden] { display: none; }
+body.is-admin .admin-edit-btn { display: inline-flex; }
+#vacdash-admin-badge { display: none; }
+body.is-admin #vacdash-admin-badge { display: block; }
