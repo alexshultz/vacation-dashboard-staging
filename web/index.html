@@ -293,6 +293,7 @@
                     }
                 }
             } catch (e) {}
+            document.getElementById('vacdash-iv-input').value = INITIAL_VISIBLE;
 
             const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
@@ -302,15 +303,61 @@
                 const newVal = parseInt(payload.new?.value, 10)
                 if (!isNaN(newVal)) {
                   INITIAL_VISIBLE = newVal
+                  document.getElementById('vacdash-iv-input').value = INITIAL_VISIBLE;
                   applyVisibilityState(showingAll);
                 }
               })
               .subscribe()
 
+            // Admin INITIAL_VISIBLE controls (visible only when body.is-admin)
+            document.getElementById('vacdash-iv-minus').addEventListener('click', async () => {
+              if (INITIAL_VISIBLE <= 1) return;
+              INITIAL_VISIBLE -= 1;
+              document.getElementById('vacdash-iv-input').value = INITIAL_VISIBLE;
+              await supabase.from('app_config').upsert(
+                { key: 'initial_visible', value: String(INITIAL_VISIBLE) },
+                { onConflict: 'key' }
+              );
+              applyVisibilityState(false);
+            });
+
+            document.getElementById('vacdash-iv-plus').addEventListener('click', async () => {
+              INITIAL_VISIBLE += 1;
+              document.getElementById('vacdash-iv-input').value = INITIAL_VISIBLE;
+              await supabase.from('app_config').upsert(
+                { key: 'initial_visible', value: String(INITIAL_VISIBLE) },
+                { onConflict: 'key' }
+              );
+              applyVisibilityState(false);
+            });
+
+            let _ivDebounce = null;
+            document.getElementById('vacdash-iv-input').addEventListener('input', () => {
+              clearTimeout(_ivDebounce);
+              _ivDebounce = setTimeout(async () => {
+                const raw = document.getElementById('vacdash-iv-input').value;
+                const parsed = parseInt(raw, 10);
+                if (isNaN(parsed) || parsed < 1 || String(parsed) !== String(raw).trim()) return;
+                INITIAL_VISIBLE = parsed;
+                await supabase.from('app_config').upsert(
+                  { key: 'initial_visible', value: String(INITIAL_VISIBLE) },
+                  { onConflict: 'key' }
+                );
+                applyVisibilityState(false);
+              }, 500);
+            });
+
             await loadSchedule();
             window.addEventListener('resize', setupMobileCollapse);
         };
     </script>
+  <div id="vacdash-iv-bar">
+    <button id="vacdash-iv-minus" type="button">−</button>
+    <input id="vacdash-iv-input" type="number" min="1" />
+    <button id="vacdash-iv-plus" type="button">+</button>
+    <span>Visible on load</span>
+  </div>
 </main>
+<script src="js/admin-overlay.js"></script>
 </body>
 </html>
