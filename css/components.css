@@ -1178,3 +1178,24 @@ h3 { font-size: 19px; font-weight: 700; }
 body.is-admin .admin-edit-btn { display: inline-flex; }
 #vacdash-admin-badge { display: none; }
 body.is-admin #vacdash-admin-badge { display: block; }
+
+/* ===== Admin INITIAL_VISIBLE bar ===== */
+#vacdash-iv-bar {
+  display: none;
+  position: fixed;
+  bottom: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-2);
+  z-index: 300;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+}
+body.is-admin #vacdash-iv-bar { display: flex; }
