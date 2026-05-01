@@ -199,7 +199,7 @@
   <script>
     const SUPABASE_URL = 'https://quebfbvfuwbncpexlylu.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_yLlf7qoMZMfiZhNsyudX7g_HnZ8clgt';
-    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { auth: { experimental: { passkey: true } } });
 
     async function getAdminToken() {
       const { data: { session } } = await supabaseClient.auth.getSession();

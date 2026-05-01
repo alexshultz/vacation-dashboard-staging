@@ -1,3 +1,26 @@
+## 2026-05-01 -- Admin Sprint -- staged, awaiting Alex review
+
+**Vault commit:** a004ecc
+**Staging commit:** pending push
+**Status:** Live at https://vacation-dev.creeperbomb.com/ (staging only -- production requires "ship it")
+
+**Scope shipped:**
+- Brief 1: Supabase schema -- schedule_events table, app_config table, RLS policies, Realtime on app_config. Alex ran SQL manually in Supabase dashboard.
+- Brief 2: event-timeline.html + index.html -- 3-tier Supabase primary / schedule.json fallback / retry UI. Supabase JS CDN added. INITIAL_VISIBLE fetched live from app_config. Realtime subscription on index.html for live INITIAL_VISIBLE propagation.
+- Brief 3: admin.html -- replaced 3141 passcode with Supabase Auth passkey (WebAuthn / Face ID). Import schedule button. Hub nav to admin-event-timeline.html and admin-index.html.
+- Brief 4: admin-event-timeline.html (new) -- session guard, pencil-per-card edit modal, full upsert to schedule_events. admin-index.html (new) -- session guard, sticky +/- INITIAL_VISIBLE control bar, upserts to app_config.
+
+**Architectural decisions:**
+- duration column changed NUMERIC (ALTER TABLE after Brief 1) -- schedule.json has decimal durations (0.75, 1.5, etc.)
+- Supabase JS CDN added to index.html and event-timeline.html (raw REST kept for data fetches; SDK used for auth + Realtime only)
+- renderCard hoisted to module scope in admin-event-timeline.html so save handler can reuse it for single-card re-render
+- Q14a (site.js admin nav gate switch to Supabase session) deferred to post-launch cleanup sprint
+
+**Next:** Alex reviews staging, says "ship it" to promote to production.
+**Playwright test suite:** cron job scheduled overnight (builds + runs against staging).
+
+---
+
 ## 2026-04-29 -- Theme System Sprint -- shipped to production
 
 **Production commit:** 8f9a66d (already live when ship-it issued -- prior session promoted)
