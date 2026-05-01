@@ -36,23 +36,24 @@
 
   <!-- Auth gate -->
   <section id="passcode-section" style="max-width:400px;margin:60px auto;padding:0 20px;">
-    <div id="auth-register" style="display:none;">
+    <div id="auth-email-login" style="display:none;">
       <h2 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin-bottom:12px;">Admin Access</h2>
-      <p style="font-size:14px;color:var(--color-ink-dim);margin:0 0 20px;">Register your device to access admin tools.</p>
-      <button id="register-btn"
+      <p style="font-size:14px;color:var(--color-ink-dim);margin:0 0 20px;">Sign in to access admin tools.</p>
+      <div style="margin-bottom:12px;">
+        <label for="login-email" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Email</label>
+        <input type="email" id="login-email" autocomplete="email"
+          style="width:100%;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
+      </div>
+      <div style="margin-bottom:20px;">
+        <label for="login-password" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Password</label>
+        <input type="password" id="login-password" autocomplete="current-password"
+          style="width:100%;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
+      </div>
+      <button id="login-btn"
         style="padding:12px 22px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:15px;cursor:pointer;color:var(--color-ink);width:100%;">
-        Set up Face ID / Touch ID
+        Sign In
       </button>
-      <div id="auth-error" style="display:none;color:#c0392b;font-size:14px;margin-top:12px;"></div>
-    </div>
-    <div id="auth-signin" style="display:none;">
-      <h2 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin-bottom:12px;">Admin Access</h2>
-      <p style="font-size:14px;color:var(--color-ink-dim);margin:0 0 20px;">Authenticate to access admin tools.</p>
-      <button id="signin-btn"
-        style="padding:12px 22px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:15px;cursor:pointer;color:var(--color-ink);width:100%;">
-        Sign in with Face ID / Touch ID
-      </button>
-      <div id="auth-error-signin" style="display:none;color:#c0392b;font-size:14px;margin-top:12px;"></div>
+      <div id="auth-error-email" style="display:none;color:#c0392b;font-size:14px;margin-top:12px;"></div>
     </div>
   </section>
 
@@ -69,6 +70,10 @@
         style="display:inline-block;padding:14px 22px;border-radius:var(--radius-btn);background:var(--color-ink);color:var(--color-bg);font-family:var(--font-display);font-weight:700;font-size:15px;text-decoration:none;">
         Edit Home View
       </a>
+      <button id="signout-btn"
+        style="padding:14px 22px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:15px;cursor:pointer;color:var(--color-ink);">
+        Sign Out
+      </button>
     </div>
 
     <!-- Import block -->
@@ -199,7 +204,7 @@
   <script>
     const SUPABASE_URL = 'https://quebfbvfuwbncpexlylu.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_yLlf7qoMZMfiZhNsyudX7g_HnZ8clgt';
-    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { auth: { experimental: { passkey: true } } });
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     async function getAdminToken() {
       const { data: { session } } = await supabaseClient.auth.getSession();
@@ -212,9 +217,7 @@
     }
 
     function showAuthUI() {
-      const registered = localStorage.getItem('branson_passkey_registered');
-      document.getElementById('auth-register').style.display = registered ? 'none' : 'block';
-      document.getElementById('auth-signin').style.display = registered ? 'block' : 'none';
+      document.getElementById('auth-email-login').style.display = 'block';
     }
 
     const FIELDS = ['title', 'date', 'startTime', 'duration'];
@@ -432,33 +435,26 @@
         showAuthUI();
       }
 
-      // Register passkey button
-      document.getElementById('register-btn').addEventListener('click', async () => {
-        const errEl = document.getElementById('auth-error');
+      // Email/password login button
+      document.getElementById('login-btn').addEventListener('click', async () => {
+        const errEl = document.getElementById('auth-error-email');
         errEl.style.display = 'none';
+        const email = document.getElementById('login-email').value.trim();
+        const password = document.getElementById('login-password').value;
         try {
-          const { error } = await supabaseClient.auth.signInWithPasskey();
-          if (error) throw error;
-          localStorage.setItem('branson_passkey_registered', '1');
-          showEditor();
-        } catch (e) {
-          errEl.textContent = e.message || 'Registration failed.';
-          errEl.style.display = 'block';
-        }
-      });
-
-      // Sign-in passkey button
-      document.getElementById('signin-btn').addEventListener('click', async () => {
-        const errEl = document.getElementById('auth-error-signin');
-        errEl.style.display = 'none';
-        try {
-          const { error } = await supabaseClient.auth.signInWithPasskey();
+          const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
           if (error) throw error;
           showEditor();
         } catch (e) {
           errEl.textContent = e.message || 'Sign-in failed.';
           errEl.style.display = 'block';
         }
+      });
+
+      // Sign-out button
+      document.getElementById('signout-btn').addEventListener('click', async () => {
+        await supabaseClient.auth.signOut();
+        location.reload();
       });
 
       // Import button: restore label if already run
