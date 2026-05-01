@@ -245,6 +245,22 @@
         '}';
       document.head.appendChild(styleEl);
     }
+
+    // Load admin overlay on every page that uses site.js
+    (function() {
+      var overlayScript = document.createElement('script');
+      overlayScript.src = (function() {
+        var scripts = document.getElementsByTagName('script');
+        for (var i = 0; i < scripts.length; i++) {
+          if (scripts[i].src && scripts[i].src.indexOf('site.js') !== -1) {
+            return scripts[i].src.replace('site.js', 'admin-overlay.js');
+          }
+        }
+        return 'js/admin-overlay.js';
+      })();
+      overlayScript.async = false;
+      document.head.appendChild(overlayScript);
+    })();
   }
 
   /* ── Hamburger toggle ────────────────────────────────────────────────────── */
