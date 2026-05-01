@@ -19,15 +19,11 @@
   }
 })();
 </script>
+<link rel="preload" href="js/site.js" as="script">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body style="margin:0;background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body,sans-serif);">
-
-  <!-- Header: no nav, no hamburger -->
-  <header style="background:var(--color-surface);border-bottom:1.5px solid var(--color-line);padding:14px 20px;display:flex;align-items:center;gap:12px;">
-    <a href="index.html" style="color:var(--color-ink-dim);text-decoration:none;font-size:13px;">← Home</a>
-    <span style="font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--color-ink);">Branson &#x27;26 Admin</span>
-  </header>
+<script src="js/site.js"></script>
 
   <!-- Offline banner (hidden by default, shown if Supabase unreachable) -->
   <div id="offline-banner" style="display:none;background:#FFF3CD;color:#856404;border:1px solid #FFECB5;padding:12px 16px;font-size:14px;">

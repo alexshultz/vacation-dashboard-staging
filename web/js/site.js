@@ -54,6 +54,7 @@
   /* Sub-page aliases: these filenames highlight a parent nav/tab entry */
   var NAV_ALIASES = {
     'shows.html': 'attractions.html',
+    'admin.html': null,
   };
 
   /* ── Active page detection ───────────────────────────────────────────────── */

@@ -46,21 +46,13 @@ test('smoke: admin.html -- auth gate is present (not editor)', async ({ page: pw
   await pw.waitForLoadState('domcontentloaded');
 
   // Should show #passcode-section (the auth container)
-  // Either #auth-register or #auth-signin will be visible inside it
   const passcodeSection = pw.locator('#passcode-section');
   await expect(passcodeSection, 'admin.html: #passcode-section should be present').toBeVisible({ timeout: 5000 });
 
-  // Verify we are NOT seeing the editor section (should not be authenticated)
-  // The editor is hidden behind authentication -- verify the auth register OR signin is visible
-  const authRegister = pw.locator('#auth-register');
-  const authSignin = pw.locator('#auth-signin');
-
-  // At least one of register/signin must be displayed (not display:none)
-  const registerDisplayed = await authRegister.evaluate(el => el.style.display !== 'none' && window.getComputedStyle(el).display !== 'none').catch(() => false);
-  const signinDisplayed = await authSignin.evaluate(el => el.style.display !== 'none' && window.getComputedStyle(el).display !== 'none').catch(() => false);
-
-  expect(
-    registerDisplayed || signinDisplayed,
-    'admin.html: #auth-register or #auth-signin should be visible (auth gate active)'
-  ).toBe(true);
+  // #auth-email-login starts display:none and is shown after async Supabase session check
+  const authEmailLogin = pw.locator('#auth-email-login');
+  await expect(
+    authEmailLogin,
+    'admin.html: #auth-email-login should be visible (auth gate active)'
+  ).toBeVisible({ timeout: 8000 });
 });
