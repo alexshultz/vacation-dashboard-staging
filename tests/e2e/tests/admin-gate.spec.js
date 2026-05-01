@@ -41,25 +41,14 @@ test('admin-gate: admin.html shows auth gate (not editor)', async ({ page: pw })
   await pw.goto('/admin.html');
   await pw.waitForLoadState('domcontentloaded');
 
-  // #passcode-section contains #auth-register and #auth-signin
-  // Only one is shown at a time depending on registration state
+  // #passcode-section contains #auth-email-login (email/password auth)
   const passcodeSection = pw.locator('#passcode-section');
   await expect(passcodeSection, 'admin.html: #passcode-section should be visible').toBeVisible({ timeout: 5000 });
 
-  // Verify auth gate is showing register or signin section
-  const authRegister = pw.locator('#auth-register');
-  const authSignin = pw.locator('#auth-signin');
-
-  const registerDisplayed = await authRegister.evaluate(
-    el => el.style.display !== 'none'
-  ).catch(() => false);
-
-  const signinDisplayed = await authSignin.evaluate(
-    el => el.style.display !== 'none'
-  ).catch(() => false);
-
-  expect(
-    registerDisplayed || signinDisplayed,
-    'admin.html: #auth-register or #auth-signin must be visible (auth gate must be active, not editor)'
-  ).toBe(true);
+  // #auth-email-login starts display:none and is shown after async Supabase session check
+  const authEmailLogin = pw.locator('#auth-email-login');
+  await expect(
+    authEmailLogin,
+    'admin.html: #auth-email-login must be visible (auth gate must be active, not editor)'
+  ).toBeVisible({ timeout: 8000 });
 });
