@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Admin — Branson &#x27;26</title>
-<link rel="stylesheet" href="css/tokens.css?v=202604291425">
-<link rel="stylesheet" href="css/themes/trail.css?v=202604291425" id="theme-css">
-<link rel="stylesheet" href="css/components.css?v=202604291425">
+<link rel="stylesheet" href="css/tokens.css?v=202605010148">
+<link rel="stylesheet" href="css/themes/trail.css?v=202605010148" id="theme-css">
+<link rel="stylesheet" href="css/components.css?v=202605010148">
 <script>/* Theme loader -- inline to prevent flash-of-wrong-theme */
 (function(){
   var m = localStorage.getItem('vacdash:v1:mode') || 'system';
@@ -19,6 +19,7 @@
   }
 })();
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body style="margin:0;background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body,sans-serif);">
 
@@ -33,24 +34,52 @@
     Supabase unreachable — saves may fail. Check connection.
   </div>
 
-  <!-- Passcode gate -->
+  <!-- Auth gate -->
   <section id="passcode-section" style="max-width:400px;margin:60px auto;padding:0 20px;">
-    <h2 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin-bottom:16px;">Coordinator passcode</h2>
-    <form id="passcode-form">
-      <input type="password" id="passcode-input" placeholder="Enter passcode" autocomplete="current-password"
-        style="padding:10px 14px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:16px;width:100%;box-sizing:border-box;">
-      <div style="margin-top:10px;display:flex;align-items:center;gap:10px;">
-        <button type="submit"
-          style="padding:10px 20px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:14px;cursor:pointer;color:var(--color-ink);">
-          Unlock
-        </button>
-        <span id="passcode-error" style="display:none;color:#c0392b;font-size:14px;">Incorrect passcode.</span>
-      </div>
-    </form>
+    <div id="auth-register" style="display:none;">
+      <h2 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin-bottom:12px;">Admin Access</h2>
+      <p style="font-size:14px;color:var(--color-ink-dim);margin:0 0 20px;">Register your device to access admin tools.</p>
+      <button id="register-btn"
+        style="padding:12px 22px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:15px;cursor:pointer;color:var(--color-ink);width:100%;">
+        Set up Face ID / Touch ID
+      </button>
+      <div id="auth-error" style="display:none;color:#c0392b;font-size:14px;margin-top:12px;"></div>
+    </div>
+    <div id="auth-signin" style="display:none;">
+      <h2 style="font-family:var(--font-display);font-weight:700;font-size:20px;margin-bottom:12px;">Admin Access</h2>
+      <p style="font-size:14px;color:var(--color-ink-dim);margin:0 0 20px;">Authenticate to access admin tools.</p>
+      <button id="signin-btn"
+        style="padding:12px 22px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:15px;cursor:pointer;color:var(--color-ink);width:100%;">
+        Sign in with Face ID / Touch ID
+      </button>
+      <div id="auth-error-signin" style="display:none;color:#c0392b;font-size:14px;margin-top:12px;"></div>
+    </div>
   </section>
 
-  <!-- Editor section (hidden until passcode unlocked) -->
+  <!-- Editor section (hidden until authenticated) -->
   <section id="editor-section" style="display:none;max-width:640px;margin:0 auto;padding:24px 20px;">
+
+    <!-- Admin hub nav -->
+    <div id="admin-hub-nav" style="margin-bottom:24px;display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="admin-event-timeline.html"
+        style="display:inline-block;padding:14px 22px;border-radius:var(--radius-btn);background:var(--color-ink);color:var(--color-bg);font-family:var(--font-display);font-weight:700;font-size:15px;text-decoration:none;">
+        Edit Schedule
+      </a>
+      <a href="admin-index.html"
+        style="display:inline-block;padding:14px 22px;border-radius:var(--radius-btn);background:var(--color-ink);color:var(--color-bg);font-family:var(--font-display);font-weight:700;font-size:15px;text-decoration:none;">
+        Edit Home View
+      </a>
+    </div>
+
+    <!-- Import block -->
+    <div id="import-block" style="margin-bottom:24px;padding:16px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);">
+      <div style="font-size:12px;color:var(--color-ink-dim);margin-bottom:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Schedule Data</div>
+      <button id="import-btn"
+        style="padding:10px 20px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:14px;cursor:pointer;color:var(--color-ink);">
+        Import schedule from file
+      </button>
+      <div id="import-status" style="margin-top:10px;font-size:14px;"></div>
+    </div>
 
     <!-- Sort controls -->
     <div style="margin-bottom:16px;">
@@ -170,7 +199,23 @@
   <script>
     const SUPABASE_URL = 'https://quebfbvfuwbncpexlylu.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_yLlf7qoMZMfiZhNsyudX7g_HnZ8clgt';
-    const ADMIN_TOKEN='override-token-3141';
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function getAdminToken() {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      return session ? session.access_token : SUPABASE_ANON_KEY;
+    }
+
+    function showEditor() {
+      document.getElementById('passcode-section').style.display = 'none';
+      document.getElementById('editor-section').style.display = 'block';
+    }
+
+    function showAuthUI() {
+      const registered = localStorage.getItem('branson_passkey_registered');
+      document.getElementById('auth-register').style.display = registered ? 'none' : 'block';
+      document.getElementById('auth-signin').style.display = registered ? 'block' : 'none';
+    }
 
     const FIELDS = ['title', 'date', 'startTime', 'duration'];
 
@@ -268,8 +313,7 @@
             method: 'DELETE',
             headers: {
               'apikey': SUPABASE_ANON_KEY,
-              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-              'X-Admin-Token': ADMIN_TOKEN
+              'Authorization': `Bearer ${await getAdminToken()}`
             }
           }
         );
@@ -293,8 +337,7 @@
             method: 'DELETE',
             headers: {
               'apikey': SUPABASE_ANON_KEY,
-              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-              'X-Admin-Token': ADMIN_TOKEN
+              'Authorization': `Bearer ${await getAdminToken()}`
             }
           }
         );
@@ -331,9 +374,8 @@
             headers: {
               'Content-Type': 'application/json',
               'apikey': SUPABASE_ANON_KEY,
-              'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-              'Prefer': 'return=minimal,resolution=merge-duplicates',
-              'X-Admin-Token': ADMIN_TOKEN
+              'Authorization': `Bearer ${await getAdminToken()}`,
+              'Prefer': 'return=minimal,resolution=merge-duplicates'
             },
             body: JSON.stringify(rows)
           }
@@ -382,21 +424,88 @@
     }
 
     window.addEventListener('DOMContentLoaded', async () => {
-      // Passcode gate
-      if (sessionStorage.getItem('vacdash:admin:unlocked') === 'true') {
-        document.getElementById('passcode-section').style.display = 'none';
-        document.getElementById('editor-section').style.display = 'block';
+      // Session check
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if (session) {
+        showEditor();
+      } else {
+        showAuthUI();
       }
 
-      document.getElementById('passcode-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const val = document.getElementById('passcode-input').value;
-        if (val === '3141') {
-          sessionStorage.setItem('vacdash:admin:unlocked', 'true');
-          document.getElementById('passcode-section').style.display = 'none';
-          document.getElementById('editor-section').style.display = 'block';
-        } else {
-          document.getElementById('passcode-error').style.display = 'inline';
+      // Register passkey button
+      document.getElementById('register-btn').addEventListener('click', async () => {
+        const errEl = document.getElementById('auth-error');
+        errEl.style.display = 'none';
+        try {
+          const { error } = await supabaseClient.auth.signInWithPasskey();
+          if (error) throw error;
+          localStorage.setItem('branson_passkey_registered', '1');
+          showEditor();
+        } catch (e) {
+          errEl.textContent = e.message || 'Registration failed.';
+          errEl.style.display = 'block';
+        }
+      });
+
+      // Sign-in passkey button
+      document.getElementById('signin-btn').addEventListener('click', async () => {
+        const errEl = document.getElementById('auth-error-signin');
+        errEl.style.display = 'none';
+        try {
+          const { error } = await supabaseClient.auth.signInWithPasskey();
+          if (error) throw error;
+          showEditor();
+        } catch (e) {
+          errEl.textContent = e.message || 'Sign-in failed.';
+          errEl.style.display = 'block';
+        }
+      });
+
+      // Import button: restore label if already run
+      if (localStorage.getItem('branson_import_done')) {
+        document.getElementById('import-btn').textContent = 'Re-import';
+      }
+      document.getElementById('import-btn').addEventListener('click', async () => {
+        const statusEl = document.getElementById('import-status');
+        const importBtn = document.getElementById('import-btn');
+        statusEl.style.cssText = 'margin-top:10px;font-size:14px;';
+        statusEl.textContent = 'Importing\u2026';
+        try {
+          const r = await fetch('schedule.json');
+          const scheduleData = await r.json();
+          const events = scheduleData.events;
+          const actualCount = events.length;
+          const expectedCount = 28;
+          const mappedRows = events.map(e => ({
+            id: e.id,
+            title: e.title,
+            date: e.date,
+            duration: e.duration,
+            priority: e.priority,
+            catalogRef: e.catalogRef,
+            startTime: e.startTime,
+            travelMinutes: e.travelMinutes,
+            interested: e.interested,
+            undecided: e.undecided,
+            notInterested: e.notInterested,
+            noResponse: e.noResponse
+          }));
+          const { error } = await supabaseClient
+            .from('schedule_events')
+            .upsert(mappedRows, { onConflict: 'id' });
+          if (error) throw error;
+          localStorage.setItem('branson_import_done', '1');
+          importBtn.textContent = 'Re-import';
+          if (actualCount === expectedCount) {
+            statusEl.style.cssText = 'margin-top:10px;font-size:14px;color:#27ae60;';
+            statusEl.textContent = `${actualCount} events imported`;
+          } else {
+            statusEl.style.cssText = 'margin-top:10px;font-size:14px;background:#FFF3CD;color:#856404;padding:8px 12px;border-radius:4px;';
+            statusEl.textContent = `Warning: expected ${expectedCount} events, got ${actualCount}`;
+          }
+        } catch (e) {
+          statusEl.style.cssText = 'margin-top:10px;font-size:14px;color:#c0392b;';
+          statusEl.textContent = e.message || String(e);
         }
       });
 
