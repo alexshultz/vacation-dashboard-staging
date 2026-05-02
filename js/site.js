@@ -248,6 +248,13 @@
 
     // Load admin overlay on every page that uses site.js
     (function() {
+      // Inject Supabase CDN if not already loaded (pages without CDN <script> in <head>)
+      if (!window.supabase) {
+        var sbScript = document.createElement('script');
+        sbScript.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+        sbScript.async = false;
+        document.head.appendChild(sbScript);
+      }
       var overlayScript = document.createElement('script');
       overlayScript.src = (function() {
         var scripts = document.getElementsByTagName('script');
