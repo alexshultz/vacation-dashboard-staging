@@ -66,10 +66,6 @@
         style="display:inline-block;padding:14px 22px;border-radius:var(--radius-btn);background:var(--color-ink);color:var(--color-bg);font-family:var(--font-display);font-weight:700;font-size:15px;text-decoration:none;">
         Edit Home View
       </a>
-      <button id="signout-btn"
-        style="padding:14px 22px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:15px;cursor:pointer;color:var(--color-ink);">
-        Sign Out
-      </button>
     </div>
 
     <!-- Import block -->
@@ -447,11 +443,6 @@
         }
       });
 
-      // Sign-out button
-      document.getElementById('signout-btn').addEventListener('click', async () => {
-        await supabaseClient.auth.signOut();
-        location.reload();
-      });
 
       // Import button: restore label if already run
       if (localStorage.getItem('branson_import_done')) {
