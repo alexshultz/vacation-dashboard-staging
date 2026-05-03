@@ -2215,7 +2215,7 @@
       "rating": 4.5,
       "description": "From branson.com source: The Duttons",
       "image": "assets/thumbs/the-duttons-thumb.jpg",
-      "official_url": "https://media.branson.com/images/bcom/shows/duttons",
+      "official_url": "https://www.branson.com/shows/duttons/",
       "notes": "Thumbnail from source HTML div. Added during full parse.",
       "tags": [
         "1-2hr",
@@ -2730,7 +2730,7 @@
       "rating": 4.5,
       "description": "From branson.com source: The Haygoods",
       "image": "assets/thumbs/the-haygoods-thumb.jpg",
-      "official_url": "https://media.branson.com/images/bcom/shows/haygoods",
+      "official_url": "https://www.branson.com/shows/haygoods/",
       "notes": "Thumbnail from source HTML div. Added during full parse.",
       "tags": [
         "1-2hr",
@@ -2929,7 +2929,7 @@
       "rating": 4.5,
       "description": "From branson.com source: Hughes Brothers Country Show",
       "image": "assets/thumbs/hughes-brothers-country-show-thumb.jpg",
-      "official_url": "https://media.branson.com/images/bcom/shows/hughes-brothers-country-show",
+      "official_url": "https://www.branson.com/shows/hughes-brothers-country-show/",
       "notes": "Thumbnail from source HTML div. Added during full parse.",
       "tags": [
         "1-2hr",
@@ -2977,7 +2977,7 @@
       "rating": 4.5,
       "description": "From branson.com source: Hughes Music Show",
       "image": "assets/thumbs/hughes-music-show-thumb.jpg",
-      "official_url": "https://media.branson.com/images/bcom/shows/hughes-music-show",
+      "official_url": "https://www.branson.com/shows/hughes-music-show/",
       "notes": "Thumbnail from source HTML div. Added during full parse.",
       "tags": [
         "1-2hr",
@@ -4717,7 +4717,7 @@
       "rating": 4.5,
       "description": "From branson.com source: The Revollusionists",
       "image": "assets/thumbs/the-revollusionists-thumb.jpg",
-      "official_url": "https://media.branson.com/images/bcom/shows/the-revollusionists",
+      "official_url": "https://www.branson.com/shows/the-revollusionists/",
       "notes": "Thumbnail from source HTML div. Added during full parse.",
       "tags": [
         "1-2hr",
@@ -5583,7 +5583,7 @@
       "rating": 4.5,
       "description": "From branson.com source: SIX",
       "image": "assets/thumbs/six-thumb.jpg",
-      "official_url": "https://media.branson.com/images/bcom/shows/six",
+      "official_url": "https://www.branson.com/shows/six/",
       "notes": "Thumbnail from source HTML div. Added during full parse.",
       "tags": [
         "1-2hr",
