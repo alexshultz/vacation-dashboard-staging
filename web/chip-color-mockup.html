@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chip Color Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700;800&family=Atkinson+Hyperlegible:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg:      #FBF6EC;
+      --color-surface: #FFFDF7;
+      --color-ink:     #20281E;
+      --color-ink-dim: #5E6B58;
+      --color-line:    #E4DCC6;
+      --radius-pill:   999px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      background: var(--color-bg);
+      color: var(--color-ink);
+      padding: 28px 32px;
+      max-width: 860px;
+    }
+
+    .page-title {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+    .page-sub {
+      font-size: 13px;
+      color: var(--color-ink-dim);
+      margin-bottom: 28px;
+    }
+
+    section { margin-bottom: 32px; }
+
+    h2 {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--color-ink-dim);
+      margin-bottom: 12px;
+    }
+
+    hr { border: none; border-top: 1px solid var(--color-line); margin: 28px 0; }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: flex-start;
+    }
+
+    .col-label {
+      font-size: 11px;
+      color: var(--color-ink-dim);
+    }
+    .col-label .warn { color: #B83A35; font-weight: 600; }
+
+    /* --- Base chip --- */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      font-weight: 400;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* Neutral (duration / area tags) */
+    .chip-neutral {
+      background: var(--color-surface);
+      color: var(--color-ink-dim);
+      outline: 1.5px solid var(--color-line);
+    }
+
+    /* Active filter state (the existing selected-chip style) */
+    .chip-active {
+      background: var(--color-ink);
+      color: var(--color-surface);
+    }
+
+    /* Shows -- warm amber */
+    .chip-shows { background: #D4860A; color: #fff; }
+
+    /* Rides/Thrills -- teal */
+    .chip-rides { background: #2A7A7A; color: #fff; }
+
+    /* Shopping -- dusty purple */
+    .chip-shopping { background: #7A4A8A; color: #fff; }
+
+    /* Food -- orange clay */
+    .chip-food { background: #C4601A; color: #fff; }
+
+    /* Outdoor OLD (moss = status-yes collision) */
+    .chip-outdoor-old { background: #3F6B3A; color: #fff; }
+
+    /* Outdoor NEW -- forest green #3A7A5A */
+    .chip-outdoor-new { background: #3A7A5A; color: #fff; }
+
+    /* Culture / History / Art -- blue slate */
+    .chip-culture { background: #3A5A8A; color: #fff; }
+
+    /* Audience -- light sage */
+    .chip-audience { background: #6A8A5A; color: #fff; }
+
+    /* specialty-food: diagonal split Food(orange) + Shopping(purple) */
+    .chip-specialty {
+      background: linear-gradient(135deg, #C4601A 50%, #7A4A8A 50%);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Full strip layout */
+    .strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 14px 16px;
+      background: var(--color-surface);
+      border-radius: 14px;
+      border: 1px solid var(--color-line);
+    }
+
+    /* Group divider inside strip */
+    .strip-divider {
+      width: 1px;
+      height: 28px;
+      background: var(--color-line);
+      align-self: center;
+      margin: 0 2px;
+    }
+
+    .note {
+      font-size: 12px;
+      color: var(--color-ink-dim);
+      border-left: 3px solid var(--color-line);
+      padding: 6px 10px;
+      margin-bottom: 14px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .badge-new  { background: #3A7A5A; color: #fff; }
+    .badge-old  { background: #E4DCC6; color: #5E6B58; }
+    .badge-warn { background: #B83A35; color: #fff; }
+  </style>
+</head>
+<body>
+
+<div class="page-title">Chip Color Mockup</div>
+<div class="page-sub">specialty-food diagonal split + outdoor replacement green -- for Alex review</div>
+
+
+<!-- SPECIALTY-FOOD COMPARISON -->
+<section>
+  <h2>specialty-food chip -- diagonal split</h2>
+  <div class="note">specialty-food spans two categories (Food + Shopping). Diagonal signals dual membership without adding a second chip.</div>
+  <div class="row">
+    <div class="col">
+      <button class="chip chip-food">specialty-food</button>
+      <span class="col-label">Solid Food color <span class="badge badge-old">before</span></span>
+    </div>
+    <div class="col">
+      <button class="chip chip-specialty">specialty-food</button>
+      <span class="col-label">Diagonal split: Food → Shopping <span class="badge badge-new">proposal</span></span>
+    </div>
+    <div class="col">
+      <button class="chip chip-shopping">specialty-food</button>
+      <span class="col-label">Solid Shopping color (alt)</span>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- OUTDOOR COMPARISON -->
+<section>
+  <h2>outdoor chip -- replacement green</h2>
+  <div class="note">Old moss green (#3F6B3A) = same hue as the active/selected chip state. Visually ambiguous -- looks selected when it isn't.</div>
+  <div class="row">
+    <div class="col">
+      <button class="chip chip-outdoor-old">outdoor</button>
+      <span class="col-label">OLD: #3F6B3A <span class="col-label warn">(collision)</span></span>
+    </div>
+    <div class="col">
+      <button class="chip chip-active">outdoor</button>
+      <span class="col-label">Active/selected chip state (same moss)</span>
+    </div>
+    <div class="col" style="border-left: 2px solid #3A7A5A; padding-left: 12px;">
+      <button class="chip chip-outdoor-new">outdoor</button>
+      <span class="col-label">NEW: #3A7A5A <span class="badge badge-new">proposal</span></span>
+    </div>
+    <div class="col">
+      <button class="chip chip-active">outdoor</button>
+      <span class="col-label">Active state (near-black) -- clearly distinct now</span>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- FULL SYSTEM -->
+<section>
+  <h2>Full chip strip -- all categories together</h2>
+  <div class="note">Shows | Rides | Shopping | Food | specialty-food | Outdoor | Culture | Audience || Duration (neutral) | Area tags (neutral)</div>
+  <div class="strip">
+    <!-- Shows -->
+    <button class="chip chip-shows">music</button>
+    <button class="chip chip-shows">comedy</button>
+    <button class="chip chip-shows">magic</button>
+    <button class="chip chip-shows">variety</button>
+    <button class="chip chip-shows">tribute</button>
+    <div class="strip-divider"></div>
+    <!-- Rides -->
+    <button class="chip chip-rides">ride</button>
+    <button class="chip chip-rides">thrill</button>
+    <button class="chip chip-rides">water</button>
+    <div class="strip-divider"></div>
+    <!-- Shopping -->
+    <button class="chip chip-shopping">shopping</button>
+    <div class="strip-divider"></div>
+    <!-- Food -->
+    <button class="chip chip-food">food</button>
+    <button class="chip chip-specialty">specialty-food</button>
+    <div class="strip-divider"></div>
+    <!-- Outdoor -->
+    <button class="chip chip-outdoor-new">outdoor</button>
+    <button class="chip chip-outdoor-new">animals</button>
+    <button class="chip chip-outdoor-new">active</button>
+    <div class="strip-divider"></div>
+    <!-- Culture -->
+    <button class="chip chip-culture">museum</button>
+    <button class="chip chip-culture">history</button>
+    <button class="chip chip-culture">educational</button>
+    <div class="strip-divider"></div>
+    <!-- Audience -->
+    <button class="chip chip-audience">family</button>
+    <button class="chip chip-audience">kid-focused</button>
+    <button class="chip chip-audience">adult-humor</button>
+    <button class="chip chip-audience">date-night</button>
+    <div class="strip-divider"></div>
+    <!-- Duration (neutral) -->
+    <button class="chip chip-neutral">under-1hr</button>
+    <button class="chip chip-neutral">1-2hr</button>
+    <button class="chip chip-neutral">2-3hr</button>
+    <button class="chip chip-neutral">half-day</button>
+    <button class="chip chip-neutral">all-day</button>
+    <div class="strip-divider"></div>
+    <!-- Area (neutral) -->
+    <button class="chip chip-neutral">@branson-landing</button>
+    <button class="chip chip-neutral">@sdc</button>
+    <button class="chip chip-neutral">@tanger-outlets</button>
+    <button class="chip chip-neutral">@dickson-st</button>
+  </div>
+</section>
+
+<hr>
+
+<!-- ACTIVE STATE CHECK -->
+<section>
+  <h2>Collision check -- outdoor (new) next to active state</h2>
+  <div class="note">New outdoor green (#3A7A5A) and the selected chip state (near-black #20281E) must read as clearly different.</div>
+  <div class="strip" style="max-width: 500px;">
+    <button class="chip chip-active">outdoor ✓</button>
+    <button class="chip chip-outdoor-new">outdoor</button>
+    <button class="chip chip-outdoor-new">animals</button>
+    <button class="chip chip-active">animals ✓</button>
+  </div>
+</section>
+
+</body>
+</html>
