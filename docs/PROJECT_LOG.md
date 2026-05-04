@@ -1,3 +1,44 @@
+## 2026-05-03 -- Data Sprint: Area Tags + Store/Food/Craft Cards -- staged, awaiting review
+
+**Vault commit:** b3971b6
+**Staging commit:** c0ad70a
+**Status:** Staged at https://vacation-dev.creeperbomb.com/ -- production requires "ship it"
+**Total attractions:** 317 (310 visible, 7 hidden by blacklist)
+
+**What was added (82 new entries):**
+
+- **Tanger Outlets (25 new):** Coach, Gap Factory, Banana Republic Factory, Levi's, Polo Ralph Lauren, Tommy Hilfiger, Calvin Klein, GUESS Factory, Chico's, Lane Bryant, Torrid, Old Navy, The Children's Place, Carter's, adidas, New Balance, Skechers, Steve Madden, Sunglass Hut, Yankee Candle, Book Warehouse, Hallmark, Kitchen Collection, rue21, Justice. All tagged `at-tanger-outlets`. (3 already existed: Nike, Under Armour, American Eagle)
+- **Branson Landing (14 new):** Bath & Body Works, Pandora, Francesca's, Victoria's Secret, Belk, H&M, Lids, Spencer's, Claire's, Justice, White House Black Market, Torrid, plus the Fountain Show and Boardwalk cards as attraction-type entries. All tagged `at-branson-landing`.
+- **Dickson Street, Fayetteville (18 new):** George's Majestic Lounge, Walton Arts Center, Dickson Street Bookshop, Nightbird Books, Maxine's Tap Room, Smoke & Barrel Tavern, Bordino's, Hugo's, Hammontree's Grilled Cheese, Gusano's Pizza, Yeyo's, Powerhouse Seafood, Arsaga's at the Depot, Penguin Ed's BBQ, Sassy's Red House BBQ, Dickson Street Ballroom, Underwood's Fine Jewelers, JJ's Grill. All tagged `at-dickson-street`.
+- **Silver Dollar City -- shops, food, crafts (25 new):** Brown Sugar's Bakery, Candy Kitchen, Lumbercamp Restaurant, Molly's Mill, Fred's Old Southern Bar-B-Que, Florentina's Ristorante Italiano, Miss Lizzie's Boarding House, Prairie Kettle Corn, Giant Smoked Turkey Legs, Sorghum Mill, Cobbler & Ice Cream Stand; Dazzle Glass Studio, Ozark Pottery, Blacksmith Shop, Woodcarver's Shop, Candle Shop, Broom Maker, Silversmith & Jewelry Studio, Leatherworks, Soap Shop; Silver Dollar City General Store, Rock Shop & Gem Mine, Wilson Brothers Music, The Christmas Shop, Marvel Cave Gift Shop. All tagged `at-sdc` AND `sdc`.
+
+**Design pattern established:**
+- Area tag chips (`at-branson-landing`, `at-tanger-outlets`, `at-dickson-street`, `at-sdc`) let the family filter to all entries in one complex from Browse. No new UI code needed -- filter chip system handles grouping automatically.
+- SDC entries get both `sdc` (matches existing SDC overview card) and `at-sdc` (area filter).
+
+**Known caveats:**
+- All 82 new entries carry a `notes` flag: *"Training-knowledge entry -- verify store is still open at official site before visiting."* Web search tools were offline this session (auth token failure, session-wide). Names and descriptions drawn from training data -- recommend spot-checking Tanger and SDC lists against official directories before promoting to production.
+- Flea markets near Branson (May 23-28) were NOT researched -- web tools were down. Pick this up next session.
+- War Eagle Craft Fair excluded -- outside May 23-28 window (October event).
+
+**Still deferred / not started:**
+- Flea markets: need web access to confirm open dates
+- Production promotion: waiting for "ship it"
+
+**Context decisions from this session (Alex instructions):**
+- Branson Landing individual store cards: yes, all of them
+- Tanger individual store cards: yes, all of them
+- Dickson Street individual businesses: yes, all of them
+- SDC shops/food/crafts: yes, all -- with `sdc` tag on all SDC entries
+- Art galleries: list as activity (not shopping)
+- Winery tasting experiences: add as activity (not retail)
+- Specialty food shops: yes
+- Farmers markets: add if confirmed open during May 23-28
+- Flea markets: add if confirmed open during May 23-28
+- Winery retail stores: skip
+
+---
+
 ## 2026-05-01 -- Admin Sprint -- staged, awaiting Alex review
 
 **Vault commit:** a004ecc
