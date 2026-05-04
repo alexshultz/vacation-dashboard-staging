@@ -644,6 +644,30 @@
       "visible": true
     },
     {
+      "slug": "bass-pro-shops-grandaddy",
+      "name": "Bass Pro Shops Grandaddy Store",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.6,
+      "description": "The original Bass Pro Shops flagship -- 'The Grandaddy of All Outdoor Stores' -- spans nearly 500,000 square feet in Springfield MO and draws 4 million visitors per year, making it Missouri's #1 tourist destination. Features seven aquariums with native Missouri fish, live alligators and turtles in an in-store swamp, a restaurant, archery range, and the largest assortment of outdoor gear in the country.",
+      "image": "",
+      "official_url": "https://stores.basspro.com/us/mo/springfield/1935-s-campbell-ave.html",
+      "notes": "1 Bass Pro Dr, Springfield MO 65807. ~45 miles north of Branson (~45 min drive). Free admission. Adjacent to Wonders of Wildlife -- pair both for a full day. Dining at Hemingway's Blue Water Cafe inside.",
+      "tags": [
+        "free",
+        "educational",
+        "family",
+        "kid-focused",
+        "indoor",
+        "animals",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "bass pro shops grandaddy store",
+      "visible": true
+    },
+    {
       "slug": "the-bellamy-brothers",
       "name": "The Bellamy Brothers",
       "category": "show",
@@ -763,6 +787,29 @@
         "1-2hr"
       ],
       "sort_key": "big sugar creek state park",
+      "visible": true
+    },
+    {
+      "slug": "blanchard-springs-caverns",
+      "name": "Blanchard Springs Caverns",
+      "category": "attraction",
+      "price_adult": 14.0,
+      "duration_hours": 1.5,
+      "rating": 4.8,
+      "description": "A US Forest Service-managed cave system in the Ozark-St. Francis National Forest near Mountain View, Arkansas. Considered one of the most spectacular caverns in the US. Offers two guided walking tours -- the Dripstone Trail (moderate, 0.7 miles) and the Discovery Trail (easy, 0.2 miles) -- plus a wild cave tour for adventurous visitors. Constant 58°F temperature year-round.",
+      "image": "",
+      "official_url": "https://www.fs.usda.gov/recarea/osfnf/recarea/?recid=21462",
+      "notes": "Blanchard Springs Rd, Mountain View AR 72560. ~90 miles south of Branson (~1 hr 45 min drive). Managed by USDA Forest Service. Admission ~$14 adult. Tours depart regularly -- reserve in advance. Closed Tuesdays. Constant 58°F inside -- bring a jacket.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "educational",
+        "family",
+        "active",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "blanchard springs caverns",
       "visible": true
     },
     {
@@ -992,7 +1039,7 @@
       "rating": 4.5,
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/branson-duck-tours-thumb.jpg",
-      "official_url": "https://www.branson.com/attractions/branson-duck-tours/",
+      "official_url": "https://www.bransonducktours.com/",
       "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
       "tags": [
         "1-2hr",
@@ -2195,6 +2242,29 @@
         "day-trip"
       ],
       "sort_key": "dickerson park zoo",
+      "visible": true
+    },
+    {
+      "slug": "discovery-center-springfield",
+      "name": "Discovery Center of Springfield",
+      "category": "attraction",
+      "price_adult": 17.0,
+      "duration_hours": 3,
+      "rating": 4.5,
+      "description": "Springfield's hands-on science center features 60,000 square feet of interactive exhibits across 6 floors including the largest collection of giant animatronic dinosaurs in the Midwest, a real Merlin aircraft cockpit, the HighWire Bike, a LEGO Brickyard, and the only Lu Digital Interactive Playground open to the public in North America. A genuine full-afternoon destination for kids and curious adults.",
+      "image": "",
+      "official_url": "https://www.discoverycenter.org/",
+      "notes": "438 E St Louis St, Springfield MO 65806. ~45 miles north of Branson (~45 min drive). Adults $17, Children 3-15 $12, Under 2 free. Open Tue-Sun 10am-5pm, closed Mondays. Closed Memorial Day (May 25).",
+      "tags": [
+        "educational",
+        "family",
+        "kid-focused",
+        "indoor",
+        "active",
+        "day-trip",
+        "2-3hr"
+      ],
+      "sort_key": "discovery center of springfield",
       "visible": true
     },
     {
@@ -5639,6 +5709,29 @@
         "1-2hr"
       ],
       "sort_key": "ruth and paul henning conservation area",
+      "visible": true
+    },
+    {
+      "slug": "amazeum",
+      "name": "Scott Family Amazeum",
+      "category": "attraction",
+      "price_adult": 17.0,
+      "duration_hours": 3,
+      "rating": 4.7,
+      "description": "Bentonville's hands-on children's museum features interactive exhibits including a Water Amazements gallery, the Nickelodeon Play Lab, Canopy Climber, an Outdoor Playscape, Art Studio, Homestead Cabin & Farm, and a Cloud Theater. The 54,000 square-foot facility invites curiosity and creativity for all ages from toddlers through adults.",
+      "image": "",
+      "official_url": "https://www.amazeum.org/",
+      "notes": "1009 Museum Way, Bentonville AR 72712. ~100 miles south of Branson (~2 hr drive). Adults and children 2+ $17, under 2 free. Open daily -- check current hours at amazeum.org. Pairs well with Crystal Bridges on a Bentonville day trip.",
+      "tags": [
+        "educational",
+        "family",
+        "kid-focused",
+        "indoor",
+        "active",
+        "day-trip",
+        "2-3hr"
+      ],
+      "sort_key": "scott family amazeum",
       "visible": true
     },
     {
