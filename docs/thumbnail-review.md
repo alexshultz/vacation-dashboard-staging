@@ -1,63 +1,94 @@
 # Thumbnail Review -- Branson '26 Dashboard
 
-> Last updated: 2026-05-03
-> **242 thumbs total** | 🌐 real photo | 🤖 Grok AI | 88 chain stores using SVG fallback
-> To flag for replacement: add a comment below the row with the slug and what to change.
+> Last updated: 2026-05-04 | Staging: https://vacation-dev.creeperbomb.com
+> **Key:** 🖼️ = reference-guided Grok (real venue photo used) | 🤖 = text-only Grok | 🌐 = scraped real photo
+> Flag bad thumbs: add a comment below the row with the slug. I will regenerate with a better prompt.
 
 ---
 
-## Real Photos (Scraped)
+## Reference-Guided Regens (19 entries)
 
-| Source | Name | Slug | Thumbnail |
-|--------|------|------|-----------|
-| 🌐 | **Apple Tree Mall (Flea Market)** | `apple-tree-mall-flea-market` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/apple-tree-mall-flea-market-thumb.jpg) |
-| 🌐 | **Main Street Flea Market** | `main-street-flea-market` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/main-street-flea-market-thumb.jpg) |
-| 🌐 | **The Classy Flea** | `classy-flea-branson` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/classy-flea-branson-thumb.jpg) |
-| 🌐 | **Branson Landing Farmers Market** | `branson-landing-farmers-market` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/branson-landing-farmers-market-thumb.jpg) |
-| 🌐 | **Branson Farmers Market (Hwy 76)** | `branson-farmers-market-hwy76` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/branson-farmers-market-hwy76-thumb.jpg) |
-| 🌐 | **Branson Summer Street Fair & Market** | `branson-summer-street-fair` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/branson-summer-street-fair-thumb.jpg) |
-| 🌐 | **Peter Engler Designs** | `peter-engler-designs` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/peter-engler-designs-thumb.jpg) |
-| 🌐 | **Branson Art Shop (Convention Center Gallery)** | `branson-art-shop` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/branson-art-shop-thumb.jpg) |
-| 🌐 | **Table Rock Art Guild & Gallery** | `table-rock-art-guild` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/table-rock-art-guild-thumb.jpg) |
-| 🌐 | **Reflections Art Gallery** | `reflections-art-gallery-branson` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/reflections-art-gallery-branson-thumb.jpg) |
-| 🌐 | **St. James Winery & Restaurant (Branson)** | `st-james-winery-branson` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/st-james-winery-branson-thumb.jpg) |
-| 🌐 | **Bear Creek Wine Company & Brewery** | `bear-creek-winery-branson` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/bear-creek-winery-branson-thumb.jpg) |
-| 🌐 | **Ozark Hills Winery** | `ozark-hills-winery-branson` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/ozark-hills-winery-branson-thumb.jpg) |
+> These used a real photo scraped from the official venue website as a reference image for Grok /edits.
+> Generally higher quality -- real formations, real architecture, real setting.
+
+| | Name | Slug | Thumbnail |
+|--|------|------|-----------|
+| 🖼️ | **Bridal Cave & Thunder Mountain Park** | `bridal-cave` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/bridal-cave-thumb.jpg) |
+| 🖼️ | **Cosmic Cavern** | `cosmic-cavern` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/cosmic-cavern-thumb.jpg) |
+| 🖼️ | **Blanchard Springs Caverns** | `blanchard-springs-caverns` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/blanchard-springs-caverns-thumb.jpg) |
+| 🖼️ | **Buffalo National River** | `buffalo-national-river` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/buffalo-national-river-thumb.jpg) |
+| 🖼️ | **Top of the Rock** | `top-of-the-rock` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/top-of-the-rock-thumb.jpg) |
+| 🖼️ | **Big Cedar Lodge** | `big-cedar-lodge` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/big-cedar-lodge-thumb.jpg) |
+| 🖼️ | **1886 Crescent Hotel Ghost Tour** | `crescent-hotel-ghost-tour` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/crescent-hotel-ghost-tour-thumb.jpg) |
+| 🖼️ | **Ozark Folk Center State Park** | `ozark-folk-center` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/ozark-folk-center-thumb.jpg) |
+| 🖼️ | **Turpentine Creek Wildlife Refuge** | `turpentine-creek-wildlife-refuge` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/turpentine-creek-wildlife-refuge-thumb.jpg) |
+| 🖼️ | **Shepherd of the Hills Adventure Park** | `shepherd-hills-adventure-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/shepherd-hills-adventure-park-thumb.jpg) |
+| 🖼️ | **Ancient Ozarks Natural History Museum** | `ancient-ozarks-natural-history-museum` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/ancient-ozarks-natural-history-museum-thumb.jpg) |
+| 🖼️ | **Buffalo Outdoor Center** | `buffalo-outdoor-center` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/buffalo-outdoor-center-thumb.jpg) |
+| 🖼️ | **Fun Mountain at Big Cedar** | `fun-mountain-big-cedar` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/fun-mountain-big-cedar-thumb.jpg) |
+| 🖼️ | **Scott Family Amazeum** | `amazeum` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/amazeum-thumb.jpg) |
+| 🖼️ | **Walmart Museum** | `walmart-museum` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/walmart-museum-thumb.jpg) |
+| 🖼️ | **Grand Village Shops** | `grand-village-shops` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/grand-village-shops-thumb.jpg) |
+| 🖼️ | **Kringles Christmas Store** | `kringles-christmas-store` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/kringles-christmas-store-thumb.jpg) |
+| 🖼️ | **Eureka Springs Downtown Shopping District** | `eureka-springs-downtown-shops` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/eureka-springs-downtown-shops-thumb.jpg) |
+| 🖼️ | **Botanical Garden of the Ozarks** | `botanical-garden-of-the-ozarks` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/botanical-garden-of-the-ozarks-thumb.jpg) |
 
 ---
 
-## Grok AI Generated -- Session 1 (High-visibility entries)
+## Text-Only Regens (21 entries)
 
-| Source | Name | Slug | Thumbnail |
-|--------|------|------|-----------|
-| 🤖 | **Lady Liberty Lake Cruises** | `lady-liberty-lake-cruises` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/lady-liberty-lake-cruises-thumb.jpg) |
-| 🤖 | **1886 Crescent Hotel Ghost Tour** | `crescent-hotel-ghost-tour` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/crescent-hotel-ghost-tour-thumb.jpg) |
+> These venues' sites blocked image scraping (Squarespace CDN gates, etc.).
+> Pure text-to-image Grok generation. Flag any that look generic or wrong.
+
+| | Name | Slug | Thumbnail |
+|--|------|------|-----------|
+| 🤖 | **Talking Rocks Cavern** | `talking-rocks-cavern` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/talking-rocks-cavern-thumb.jpg) |
+| 🤖 | **Fantastic Caverns** | `fantastic-caverns` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/fantastic-caverns-thumb.jpg) |
+| 🤖 | **Table Rock State Park** | `table-rock-state-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/table-rock-state-park-thumb.jpg) |
+| 🤖 | **Ha Ha Tonka State Park** | `ha-ha-tonka-state-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/ha-ha-tonka-state-park-thumb.jpg) |
+| 🤖 | **Roaring River State Park** | `roaring-river-state-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/roaring-river-state-park-thumb.jpg) |
+| 🤖 | **Blue Spring Heritage Center** | `blue-spring-heritage-center` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/blue-spring-heritage-center-thumb.jpg) |
+| 🤖 | **Pythian Castle** | `pythian-castle` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/pythian-castle-thumb.jpg) |
 | 🤖 | **War Eagle Mill** | `war-eagle-mill` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/war-eagle-mill-thumb.jpg) |
+| 🤖 | **Eureka Springs & North Arkansas Railway** | `eureka-springs-north-arkansas-railway` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/eureka-springs-north-arkansas-railway-thumb.jpg) |
+| 🤖 | **Christ of the Ozarks** | `christ-of-the-ozarks` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/christ-of-the-ozarks-thumb.jpg) |
+| 🤖 | **Wilson's Creek National Battlefield** | `wilsons-creek-national-battlefield` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/wilsons-creek-national-battlefield-thumb.jpg) |
 | 🤖 | **Terra Studios** | `terra-studios` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/terra-studios-thumb.jpg) |
-| 🤖 | **Bass Pro Shops Grandaddy Store** | `bass-pro-shops-grandaddy` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/bass-pro-shops-grandaddy-thumb.jpg) |
-| 🤖 | **Presleys' Country Jubilee** | `presleys-country-jubilee` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/presleys-country-jubilee-thumb.jpg) |
-| 🤖 | **Bigfoot Fun Park** | `bigfoot-fun-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/bigfoot-fun-park-thumb.jpg) |
+| 🤖 | **Lost Canyon Cave and Nature Trail** | `lost-canyon-cave-nature-trail` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/lost-canyon-cave-nature-trail-thumb.jpg) |
 | 🤖 | **Branson Helicopter Tours** | `branson-helicopter-tours` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/branson-helicopter-tours-thumb.jpg) |
-| 🤖 | **Eureka Springs Dinner Train** | `eureka-springs-dinner-train` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/eureka-springs-dinner-train-thumb.jpg) |
-| 🤖 | **Ozark Folk Center State Park** | `ozark-folk-center` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/ozark-folk-center-thumb.jpg) |
-| 🤖 | **Big Cedar Lodge** | `big-cedar-lodge` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/big-cedar-lodge-thumb.jpg) |
+| 🤖 | **Lady Liberty Lake Cruises** | `lady-liberty-lake-cruises` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/lady-liberty-lake-cruises-thumb.jpg) |
+| 🤖 | **Lake Taneycomo Trout Fishing** | `lake-taneycomo` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/lake-taneycomo-thumb.jpg) |
+| 🤖 | **Table Rock Lake** | `table-rock-lake-boating` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/table-rock-lake-boating-thumb.jpg) |
+| 🤖 | **Walton Arts Center** | `walton-arts-center` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/walton-arts-center-thumb.jpg) |
+| 🤖 | **Branson Antique Mall** | `branson-antique-mall` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/branson-antique-mall-thumb.jpg) |
+| 🤖 | **War Eagle Mill Country Store** | `war-eagle-mill-store` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/war-eagle-mill-store-thumb.jpg) |
+| 🤖 | **Dickson Street, Fayetteville** | `dickson-street-fayetteville` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/dickson-street-fayetteville-thumb.jpg) |
+
+---
+
+## Original Grok Batch (session 1 -- 22 high-visibility entries)
+
+| | Name | Slug | Thumbnail |
+|--|------|------|-----------|
 | 🤖 | **Branson Landing** | `branson-landing` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/branson-landing-thumb.jpg) |
-| 🤖 | **Grand Village Shops** | `grand-village-shops` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/grand-village-shops-thumb.jpg) |
 | 🤖 | **Tanger Outlets Branson** | `tanger-outlets-branson` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/tanger-outlets-branson-thumb.jpg) |
 | 🤖 | **Downtown Branson Historic District** | `downtown-branson-historic-district` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/downtown-branson-historic-district-thumb.jpg) |
-| 🤖 | **Branson Antique Mall** | `branson-antique-mall` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/branson-antique-mall-thumb.jpg) |
-| 🤖 | **Kringles Christmas Store** | `kringles-christmas-store` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/kringles-christmas-store-thumb.jpg) |
-| 🤖 | **Branson Farmers Market** | `branson-farmers-market` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/branson-farmers-market-thumb.jpg) |
 | 🤖 | **7D Dark Ride Adventure** | `7d-dark-ride-adventure` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/7d-dark-ride-adventure-thumb.jpg) |
 | 🤖 | **Andy B's Bowl Social** | `andy-bs-bowl-social` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/andy-bs-bowl-social-thumb.jpg) |
 | 🤖 | **Arcade City** | `arcade-city-branson-landing` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/arcade-city-branson-landing-thumb.jpg) |
+| 🤖 | **Branson Farmers Market** | `branson-farmers-market` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/branson-farmers-market-thumb.jpg) |
+| 🤖 | **Bigfoot Fun Park** | `bigfoot-fun-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/bigfoot-fun-park-thumb.jpg) |
+| 🤖 | **Presleys' Country Jubilee** | `presleys-country-jubilee` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/presleys-country-jubilee-thumb.jpg) |
+| 🤖 | **Bass Pro Shops Grandaddy Store** | `bass-pro-shops-grandaddy` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/bass-pro-shops-grandaddy-thumb.jpg) |
+| 🤖 | **Eureka Springs Dinner Train** | `eureka-springs-dinner-train` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/eureka-springs-dinner-train-thumb.jpg) |
+| 🤖 | **Branson Art Shop (Convention Center Gallery)** | `branson-art-shop` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/branson-art-shop-thumb.jpg) |
 
 ---
 
-## Grok AI Generated -- Batch (Parks, Caves, Shows, Experiences, Shopping)
+## Remaining Entries with Thumbs (bulk batch 2)
 
-| Source | Name | Slug | Thumbnail |
-|--------|------|------|-----------|
+| | Name | Slug | Thumbnail |
+|--|------|------|-----------|
 | 🤖 | **#1 Hits of the 60s (and 50s Too!)** | `1-hits-of-the-60s-and-50s-too` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/1-hits-of-the-60s-and-50s-too-thumb.jpg) |
 | 🤖 | **A Garth Tribute** | `a-garth-tribute` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/a-garth-tribute-thumb.jpg) |
 | 🤖 | **A Neil Diamond Tribute ft. Keith Allynn** | `a-neil-diamond-tribute-ft-keith-allynn` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/a-neil-diamond-tribute-ft-keith-allynn-thumb.jpg) |
@@ -134,7 +165,7 @@
 | 🤖 | **Reza Edge of Illusion** | `reza-edge-of-illusion` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/reza-edge-of-illusion-thumb.jpg) |
 | 🤖 | **Rick McEwen Presents The Gambler** | `rick-mcewen-presents-the-gambler` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/rick-mcewen-presents-the-gambler-thumb.jpg) |
 | 🤖 | **Riga-Tony’s Murder Mystery Dinner Show** | `riga-tonys-murder-mystery-dinner-show` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/riga-tonys-murder-mystery-dinner-show-thumb.jpg) |
-| 🌐 | **Ripley's Believe It or Not** | `ripley-s-believe-it-or-not` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/ripley-s-believe-it-or-not-thumb.jpg) |
+| 🤖 | **Ripley's Believe It or Not** | `ripley-s-believe-it-or-not` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/ripley-s-believe-it-or-not-thumb.jpg) |
 | 🤖 | **Rock N Roll Sunrise** | `rock-n-roll-sunrise` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/rock-n-roll-sunrise-thumb.jpg) |
 | 🤖 | **Separate Journeys** | `separate-journeys` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/separate-journeys-thumb.jpg) |
 | 🤖 | **Shanghai Circus** | `shanghai-circus` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/shanghai-circus-thumb.jpg) |
@@ -203,56 +234,28 @@
 | 🤖 | **The Momentary** | `the-momentary` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/the-momentary-thumb.jpg) |
 | 🤖 | **Dogwood Canyon Nature Park** | `dogwood-canyon` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/dogwood-canyon-thumb.jpg) |
 | 🤖 | **The Great Passion Play** | `great-passion-play` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/great-passion-play-thumb.jpg) |
-| 🤖 | **Talking Rocks Cavern** | `talking-rocks-cavern` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/talking-rocks-cavern-thumb.jpg) |
-| 🤖 | **Table Rock State Park** | `table-rock-state-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/table-rock-state-park-thumb.jpg) |
-| 🤖 | **Top of the Rock** | `top-of-the-rock` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/top-of-the-rock-thumb.jpg) |
-| 🤖 | **Ancient Ozarks Natural History Museum** | `ancient-ozarks-natural-history-museum` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/ancient-ozarks-natural-history-museum-thumb.jpg) |
-| 🤖 | **Lost Canyon Cave and Nature Trail** | `lost-canyon-cave-nature-trail` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/lost-canyon-cave-nature-trail-thumb.jpg) |
 | 🤖 | **Thunder Ridge Nature Arena** | `thunder-ridge-nature-arena` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/thunder-ridge-nature-arena-thumb.jpg) |
 | 🤖 | **Ruth and Paul Henning Conservation Area** | `ruth-and-paul-henning-conservation-area` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/ruth-and-paul-henning-conservation-area-thumb.jpg) |
-| 🤖 | **Roaring River State Park** | `roaring-river-state-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/roaring-river-state-park-thumb.jpg) |
 | 🤖 | **Big Sugar Creek State Park** | `big-sugar-creek-state-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/big-sugar-creek-state-park-thumb.jpg) |
-| 🤖 | **Fantastic Caverns** | `fantastic-caverns` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/fantastic-caverns-thumb.jpg) |
 | 🤖 | **Dickerson Park Zoo** | `dickerson-park-zoo` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/dickerson-park-zoo-thumb.jpg) |
 | 🤖 | **History Museum on the Square** | `history-museum-on-the-square` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/history-museum-on-the-square-thumb.jpg) |
-| 🤖 | **Pythian Castle** | `pythian-castle` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/pythian-castle-thumb.jpg) |
-| 🤖 | **Wilson's Creek National Battlefield** | `wilsons-creek-national-battlefield` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/wilsons-creek-national-battlefield-thumb.jpg) |
-| 🤖 | **Ha Ha Tonka State Park** | `ha-ha-tonka-state-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/ha-ha-tonka-state-park-thumb.jpg) |
-| 🤖 | **Bridal Cave & Thunder Mountain Park** | `bridal-cave` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/bridal-cave-thumb.jpg) |
 | 🤖 | **Lake of the Ozarks State Park** | `lake-of-the-ozarks-state-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/lake-of-the-ozarks-state-park-thumb.jpg) |
 | 🤖 | **Eureka Springs Historical Museum** | `eureka-springs-historical-museum` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/eureka-springs-historical-museum-thumb.jpg) |
-| 🤖 | **Turpentine Creek Wildlife Refuge** | `turpentine-creek-wildlife-refuge` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/turpentine-creek-wildlife-refuge-thumb.jpg) |
-| 🤖 | **Eureka Springs & North Arkansas Railway** | `eureka-springs-north-arkansas-railway` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/eureka-springs-north-arkansas-railway-thumb.jpg) |
-| 🤖 | **Christ of the Ozarks** | `christ-of-the-ozarks` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/christ-of-the-ozarks-thumb.jpg) |
-| 🤖 | **Cosmic Cavern** | `cosmic-cavern` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/cosmic-cavern-thumb.jpg) |
-| 🤖 | **Walmart Museum** | `walmart-museum` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/walmart-museum-thumb.jpg) |
-| 🤖 | **Botanical Garden of the Ozarks** | `botanical-garden-of-the-ozarks` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/botanical-garden-of-the-ozarks-thumb.jpg) |
 | 🤖 | **Arkansas Air and Military Museum** | `arkansas-air-and-military-museum` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/arkansas-air-and-military-museum-thumb.jpg) |
 | 🤖 | **Pea Ridge National Military Park** | `pea-ridge-national-military-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/pea-ridge-national-military-park-thumb.jpg) |
 | 🤖 | **George Washington Carver National Monument** | `george-washington-carver-national-monument` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/george-washington-carver-national-monument-thumb.jpg) |
-| 🤖 | **Buffalo National River** | `buffalo-national-river` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/buffalo-national-river-thumb.jpg) |
 | 🤖 | **Discovery Center of Springfield** | `discovery-center-springfield` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/discovery-center-springfield-thumb.jpg) |
-| 🤖 | **Scott Family Amazeum** | `amazeum` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/amazeum-thumb.jpg) |
-| 🤖 | **Blanchard Springs Caverns** | `blanchard-springs-caverns` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/blanchard-springs-caverns-thumb.jpg) |
 | 🤖 | **Springfield Conservation Nature Center** | `springfield-conservation-nature-center` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/springfield-conservation-nature-center-thumb.jpg) |
 | 🤖 | **Stockton State Park** | `stockton-state-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/stockton-state-park-thumb.jpg) |
 | 🤖 | **Pomme de Terre State Park** | `pomme-de-terre-state-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/pomme-de-terre-state-park-thumb.jpg) |
 | 🤖 | **Clinton House Museum** | `clinton-house-museum` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/clinton-house-museum-thumb.jpg) |
-| 🤖 | **Walton Arts Center** | `walton-arts-center` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/walton-arts-center-thumb.jpg) |
-| 🤖 | **Buffalo Outdoor Center** | `buffalo-outdoor-center` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/buffalo-outdoor-center-thumb.jpg) |
 | 🤖 | **Eureka Springs Trolley** | `eureka-springs-trolley` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/eureka-springs-trolley-thumb.jpg) |
-| 🤖 | **Lake Taneycomo Trout Fishing** | `lake-taneycomo` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/lake-taneycomo-thumb.jpg) |
-| 🤖 | **Table Rock Lake** | `table-rock-lake-boating` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/table-rock-lake-boating-thumb.jpg) |
 | 🤖 | **Mark Twain National Forest** | `mark-twain-national-forest` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/mark-twain-national-forest-thumb.jpg) |
 | 🤖 | **Roaring River Trout Hatchery** | `roaring-river-trout-hatchery` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/roaring-river-trout-hatchery-thumb.jpg) |
 | 🤖 | **Bentonville Mountain Bike Trails** | `bentonville-mountain-biking` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/bentonville-mountain-biking-thumb.jpg) |
 | 🤖 | **Fayetteville Arts District** | `fayetteville-arts-district` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/fayetteville-arts-district-thumb.jpg) |
-| 🤖 | **Shepherd of the Hills Adventure Park** | `shepherd-hills-adventure-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/shepherd-hills-adventure-park-thumb.jpg) |
-| 🤖 | **Fun Mountain at Big Cedar** | `fun-mountain-big-cedar` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/fun-mountain-big-cedar-thumb.jpg) |
 | 🤖 | **Pivot Rock and Natural Bridge** | `pivot-rock-natural-bridge` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/pivot-rock-natural-bridge-thumb.jpg) |
 | 🤖 | **Lake Leatherwood City Park** | `lake-leatherwood-city-park` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/lake-leatherwood-city-park-thumb.jpg) |
-| 🤖 | **Blue Spring Heritage Center** | `blue-spring-heritage-center` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/blue-spring-heritage-center-thumb.jpg) |
-| 🤖 | **Eureka Springs Downtown Shopping District** | `eureka-springs-downtown-shops` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/eureka-springs-downtown-shops-thumb.jpg) |
 | 🤖 | **Eureka Springs Art Galleries** | `eureka-springs-art-galleries` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/eureka-springs-art-galleries-thumb.jpg) |
 | 🤖 | **Springfield Antique Malls** | `springfield-antique-malls` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/springfield-antique-malls-thumb.jpg) |
 | 🤖 | **C-Street Arts District, Springfield** | `c-street-arts-district-springfield` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/c-street-arts-district-springfield-thumb.jpg) |
@@ -267,18 +270,27 @@
 | 🤖 | **Branson Candy Factory** | `branson-candy-factory` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/branson-candy-factory-thumb.jpg) |
 | 🤖 | **8th Street Market** | `8th-street-market-bentonville` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/8th-street-market-bentonville-thumb.jpg) |
 | 🤖 | **Ozark Mountain Country Store** | `ozark-mountain-country-store` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/ozark-mountain-country-store-thumb.jpg) |
-| 🤖 | **War Eagle Mill Country Store** | `war-eagle-mill-store` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/war-eagle-mill-store-thumb.jpg) |
+| 🤖 | **Apple Tree Mall (Flea Market)** | `apple-tree-mall-flea-market` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/apple-tree-mall-flea-market-thumb.jpg) |
+| 🤖 | **Main Street Flea Market** | `main-street-flea-market` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/main-street-flea-market-thumb.jpg) |
+| 🤖 | **The Classy Flea** | `classy-flea-branson` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/classy-flea-branson-thumb.jpg) |
+| 🤖 | **Branson Farmers Market (Hwy 76)** | `branson-farmers-market-hwy76` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/branson-farmers-market-hwy76-thumb.jpg) |
+| 🤖 | **Branson Summer Street Fair & Market** | `branson-summer-street-fair` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/branson-summer-street-fair-thumb.jpg) |
+| 🤖 | **Peter Engler Designs** | `peter-engler-designs` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/peter-engler-designs-thumb.jpg) |
+| 🤖 | **Table Rock Art Guild & Gallery** | `table-rock-art-guild` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/table-rock-art-guild-thumb.jpg) |
+| 🤖 | **Reflections Art Gallery** | `reflections-art-gallery-branson` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/reflections-art-gallery-branson-thumb.jpg) |
+| 🤖 | **St. James Winery & Restaurant (Branson)** | `st-james-winery-branson` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/st-james-winery-branson-thumb.jpg) |
+| 🤖 | **Bear Creek Wine Company & Brewery** | `bear-creek-winery-branson` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/bear-creek-winery-branson-thumb.jpg) |
+| 🤖 | **Ozark Hills Winery** | `ozark-hills-winery-branson` | ![](https://vacation-dev.creeperbomb.com/assets/thumbs/ozark-hills-winery-branson-thumb.jpg) |
 
 ---
 
-## Chain Stores -- SVG Fallback (No Thumbnail)
+## Chain Stores -- SVG Fallback (88 entries)
 
-These 88 entries use the SVG letter fallback by design.
-Individual brand chain stores don't benefit from AI-generated photos.
+Individual brand chain stores use the SVG letter fallback by design.
 
-| Group | Entries |
-|-------|---------|
-| Tanger Outlets stores (29) | `tanger-outlets-branson`, `tanger-outlets-nike`, `tanger-outlets-under-armour`, ... |
-| Branson Landing stores (15) | `branson-landing-bath-body-works`, `branson-landing-pandora`, `branson-landing-francescas`, ... |
-| Dickson Street venues (19) | `dickson-street-fayetteville`, `dickson-georges-majestic-lounge`, `dickson-walton-arts-center`, ... |
-| Silver Dollar City venues (25) | `sdc-brown-sugars-bakery`, `sdc-candy-kitchen`, `sdc-lumbercamp-restaurant`, ... |
+| Group | Count |
+|-------|-------|
+| Tanger Outlets | 29 |
+| Branson Landing | 15 |
+| Dickson Street | 19 |
+| Silver Dollar City | 25 |
