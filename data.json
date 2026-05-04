@@ -716,6 +716,30 @@
       "visible": true
     },
     {
+      "slug": "bentonville-farmers-market",
+      "name": "Bentonville Farmers Market",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.7,
+      "description": "An award-winning farmers market on Bentonville's historic town square, operating Tuesdays and Saturdays from April through November. Features Arkansas produce, artisan bread, local honey, handmade crafts, specialty foods, and flowers. One of the most beautiful market settings in the region -- fresh produce within steps of world-class art at Crystal Bridges.",
+      "image": "",
+      "official_url": "https://downtownbentonville.org/farmers-market",
+      "notes": "Town Square, Bentonville AR 72712. ~100 miles south of Branson (~2 hr drive). Free to attend. Tuesdays and Saturdays, roughly 7am-2pm, April through November. Combine with Crystal Bridges for a perfect Bentonville Saturday.",
+      "tags": [
+        "free",
+        "shopping",
+        "outdoor",
+        "family",
+        "relaxed",
+        "educational",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "bentonville farmers market",
+      "visible": true
+    },
+    {
       "slug": "bentonville-mountain-biking",
       "name": "Bentonville Mountain Bike Trails",
       "category": "attraction",
@@ -1029,6 +1053,28 @@
       "visible": true
     },
     {
+      "slug": "branson-antique-mall",
+      "name": "Branson Antique Mall",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.3,
+      "description": "Multi-dealer antique mall with hundreds of booths spread across a large showroom. Features furniture, glassware, vintage clothing, coins, militaria, tools, jewelry, Ozark folk art, and collectibles from dozens of individual vendors. One of the area's largest antique concentrations under one roof.",
+      "image": "",
+      "official_url": "https://www.downtownbranson.com/",
+      "notes": "Downtown Branson MO 65616. Free to browse. Hours approximately 10am-5pm. Multiple booths from independent dealers. Cash and card accepted. Pricing set by individual vendors -- negotiating is part of the experience.",
+      "tags": [
+        "free",
+        "shopping",
+        "history",
+        "relaxed",
+        "indoor",
+        "1-2hr"
+      ],
+      "sort_key": "branson antique mall",
+      "visible": true
+    },
+    {
       "slug": "branson-comedy-bash-dinner-show",
       "name": "Branson Comedy Bash Dinner Show",
       "category": "show",
@@ -1166,6 +1212,29 @@
       "visible": true
     },
     {
+      "slug": "branson-farmers-market",
+      "name": "Branson Farmers Market",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.4,
+      "description": "A seasonal outdoor farmers market featuring local produce, Ozark honey, handmade crafts, baked goods, jams and preserves, and artisan goods from local vendors. A great spot to pick up fresh Missouri strawberries, local honey, homemade pie, and unique Ozark souvenirs.",
+      "image": "",
+      "official_url": "https://www.bransonmo.gov/",
+      "notes": "Branson MO. Seasonal -- typically operates May through October on weekend mornings. Check bransonmo.gov for current location, days, and hours. Bring cash -- some vendors cash-only.",
+      "tags": [
+        "free",
+        "shopping",
+        "outdoor",
+        "family",
+        "relaxed",
+        "educational",
+        "1-2hr"
+      ],
+      "sort_key": "branson farmers market",
+      "visible": true
+    },
+    {
       "slug": "branson-helicopter-tours",
       "name": "Branson Helicopter Tours",
       "category": "attraction",
@@ -1228,6 +1297,29 @@
         "classified": "2026-04-21"
       },
       "sort_key": "branson hills golf club",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing",
+      "name": "Branson Landing",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.5,
+      "description": "Branson's signature waterfront shopping and entertainment district on Lake Taneycomo features a 1-mile boardwalk, an iconic 400-foot musical fountain show, and over 100 shops and restaurants. A mix of national chains and local shops with lakefront dining and live entertainment. The fountain shows run every hour and are free to watch.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the Branson waterfront, downtown. Free to visit. Hours 10am-8pm (extended on weekends). Chains include: Bass Pro Shops, Bath & Body Works, Belk, Pandora, H&M, Lids, White House Black Market, Torrid, Francesca's, Spencer's, Victoria's Secret, Justice, Claire's, and more. Unique stops: Andy B's Bowl Social, 7D Dark Ride Adventure, Arcade City.",
+      "tags": [
+        "free",
+        "outdoor",
+        "family",
+        "shopping",
+        "relaxed",
+        "date-night",
+        "1-2hr"
+      ],
+      "sort_key": "branson landing",
       "visible": true
     },
     {
@@ -1772,6 +1864,30 @@
         "classified": "2026-04-21"
       },
       "sort_key": "butterfly palace & rainforest adventure",
+      "visible": true
+    },
+    {
+      "slug": "c-street-arts-district-springfield",
+      "name": "C-Street Arts District, Springfield",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.4,
+      "description": "Springfield's historic Commercial Street (C-Street) corridor features a walkable stretch of independent boutiques, vintage shops, art galleries, record stores, bookshops, and locally owned restaurants in a revitalized early-20th-century streetscape. The heart of Springfield's independent creative community.",
+      "image": "",
+      "official_url": "https://www.cstreetspringfield.com/",
+      "notes": "Commercial St, Springfield MO 65803. ~45 miles north of Branson (~45 min drive). Free to explore. Most shops open Tue-Sat, 11am-6pm. Parking on-street or in nearby lots. A genuine local neighborhood -- not a tourist district.",
+      "tags": [
+        "free",
+        "shopping",
+        "art",
+        "history",
+        "relaxed",
+        "outdoor",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "c-street arts district, springfield",
       "visible": true
     },
     {
@@ -2405,6 +2521,30 @@
       "visible": true
     },
     {
+      "slug": "dickson-street-fayetteville",
+      "name": "Dickson Street, Fayetteville",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.5,
+      "description": "Fayetteville's main entertainment and shopping strip, anchored by the University of Arkansas. Dickson Street is lined with independent bookstores (Nightbird Books), vintage clothing shops, record stores, boutiques, and bars. The Fayetteville Farmers Market (one of Arkansas's largest) runs on the downtown square on Saturdays. A genuine college-town main street with strong local independent culture.",
+      "image": "",
+      "official_url": "https://www.experiencefayetteville.com/things-to-do/",
+      "notes": "Dickson St, Fayetteville AR 72701. ~105 miles south of Branson (~2 hr drive). Free to explore. Most shops open 11am-6pm. Fayetteville Farmers Market on the downtown square Sat 7am-2pm (May-Nov). Pairs well with Walton Arts Center or Crystal Bridges.",
+      "tags": [
+        "free",
+        "shopping",
+        "art",
+        "family",
+        "outdoor",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "dickson street, fayetteville",
+      "visible": true
+    },
+    {
       "slug": "discovery-center-springfield",
       "name": "Discovery Center of Springfield",
       "category": "attraction",
@@ -2656,6 +2796,53 @@
       "visible": true
     },
     {
+      "slug": "downtown-bentonville-shops",
+      "name": "Downtown Bentonville Shops",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.6,
+      "description": "Downtown Bentonville has transformed into one of the most vibrant small-city shopping districts in the South, centered on the historic town square. Features locally owned boutiques (All Things Kindred, Beautiful Lives, Bella Emilia), the Bentonville Mercantile, a vinyl record shop (Block Street Records), bike shops, art galleries, specialty food, and local makers. The farmers market runs on the square every Tuesday and Saturday.",
+      "image": "",
+      "official_url": "https://downtownbentonville.org/",
+      "notes": "Town Square, Bentonville AR 72712. ~100 miles south of Branson (~2 hr drive). Free to explore. Most shops open Mon-Sat 10am-6pm. Farmers Market on the square Tue and Sat mornings. Pairs perfectly with Crystal Bridges (0.5 miles away).",
+      "tags": [
+        "free",
+        "shopping",
+        "art",
+        "family",
+        "outdoor",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "downtown bentonville shops",
+      "visible": true
+    },
+    {
+      "slug": "downtown-branson-historic-district",
+      "name": "Downtown Branson Historic District",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.4,
+      "description": "Historic downtown Branson on Commercial Street is the original heart of the city, lined with antique shops, vintage stores, local boutiques, candy shops, and fudge makers. Far removed from the Hwy 76 strip crowds, it retains genuine small-town Ozark charm. The Branson City Hall, old railroad depot, and century-old storefronts create a walkable browsing experience.",
+      "image": "",
+      "official_url": "https://www.downtownbranson.com/",
+      "notes": "Commercial St, downtown Branson MO 65616. ~5 min drive from Branson Landing. Free to explore. Most shops open 10am-5pm. Antique and vintage focus. Much quieter than Hwy 76 -- ideal for a slower-paced morning browse.",
+      "tags": [
+        "free",
+        "shopping",
+        "history",
+        "family",
+        "relaxed",
+        "outdoor",
+        "1-2hr"
+      ],
+      "sort_key": "downtown branson historic district",
+      "visible": true
+    },
+    {
       "slug": "dublin-s-irish-tenors-the-celtic-ladies",
       "name": "Dublin's Irish Tenors & The Celtic Ladies",
       "category": "show",
@@ -2773,6 +2960,30 @@
       "visible": true
     },
     {
+      "slug": "eureka-springs-art-galleries",
+      "name": "Eureka Springs Art Galleries",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.6,
+      "description": "With 300 working artists in a town of 2,000, Eureka Springs has one of the highest concentrations of working artists per capita in the US. Galleries line Spring Street, Main Street, and the surrounding Victorian blocks -- featuring paintings, sculpture, ceramics, photography, blown glass, and mixed media. All original works by Arkansas artists. Many galleries offer studio visits by appointment.",
+      "image": "",
+      "official_url": "https://eurekasprings.org/things-to-do/shops-galleries/",
+      "notes": "Throughout downtown Eureka Springs AR. ~60 miles south of Branson (~1 hr drive). Free to browse galleries. Most open 10am-5pm daily in season. Spring Street and Center Street have the highest gallery concentration. No cover charge -- just walk in.",
+      "tags": [
+        "free",
+        "shopping",
+        "art",
+        "educational",
+        "relaxed",
+        "date-night",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "eureka springs art galleries",
+      "visible": true
+    },
+    {
       "slug": "eureka-springs-dinner-train",
       "name": "Eureka Springs Dinner Train",
       "category": "show",
@@ -2797,6 +3008,31 @@
       "visible": true
     },
     {
+      "slug": "eureka-springs-downtown-shops",
+      "name": "Eureka Springs Downtown Shopping District",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.7,
+      "description": "One of the most unique shopping experiences in the Ozarks -- Eureka Springs' entire downtown is a National Historic District with no chain stores, no malls, and no big-box retailers. Shop for kites and kaleidoscopes, hand-poured candles, locally made hot sauce, fresh herbs, handwoven quilts, antique furniture, log furniture, artisan jewelry, and handmade crafts -- all in Victorian buildings on steep, winding streets. With 300 working artists among 2,000 residents, the galleries are consistently exceptional.",
+      "image": "",
+      "official_url": "https://eurekasprings.org/things-to-do/shops-galleries/",
+      "notes": "Downtown Eureka Springs AR 72632. ~60 miles south of Branson (~1 hr drive). Free to explore. Most shops open 10am-5pm. Use the trolley to navigate the steep streets. No chain stores -- everything is local, artisan, or antique.",
+      "tags": [
+        "free",
+        "shopping",
+        "art",
+        "history",
+        "family",
+        "outdoor",
+        "relaxed",
+        "day-trip",
+        "2-3hr"
+      ],
+      "sort_key": "eureka springs downtown shopping district",
+      "visible": true
+    },
+    {
       "slug": "eureka-springs-historical-museum",
       "name": "Eureka Springs Historical Museum",
       "category": "attraction",
@@ -2815,6 +3051,30 @@
         "day-trip"
       ],
       "sort_key": "eureka springs historical museum",
+      "visible": true
+    },
+    {
+      "slug": "eureka-springs-may-festival-arts",
+      "name": "Eureka Springs May Festival of the Arts",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.6,
+      "description": "An annual arts celebration in downtown Eureka Springs throughout May, featuring gallery exhibitions, live music at Basin Spring Park, juried art sales, and street performers. Local and regional artists display and sell original works throughout the month. The Basin Park Concert Series runs concurrent with the festival on Saturdays. Specifically during your May 22-29 trip window.",
+      "image": "",
+      "official_url": "https://eurekasprings.org/things-to-do/",
+      "notes": "Downtown Eureka Springs AR. ~60 miles south of Branson (~1 hr drive). Free to attend. Runs throughout May including your trip window (May 22-29). Basin Park Concert Series every Saturday. The entire downtown is alive during May Festival.",
+      "tags": [
+        "free",
+        "shopping",
+        "art",
+        "music",
+        "outdoor",
+        "family",
+        "day-trip",
+        "2-3hr"
+      ],
+      "sort_key": "eureka springs may festival of the arts",
       "visible": true
     },
     {
@@ -2884,6 +3144,30 @@
         "free"
       ],
       "sort_key": "fayetteville arts district",
+      "visible": true
+    },
+    {
+      "slug": "finley-farms",
+      "name": "Finley Farms",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.5,
+      "description": "A working farm, market, and event venue near Ozark, Missouri that combines local farm products with a specialty retail and dining experience. Finley Farms sells fresh produce, locally raised meats, artisan cheeses, preserves, and Ozark honey alongside a farm-to-table restaurant. One of the 'day trip' recommendations from Big Cedar Lodge itself.",
+      "image": "",
+      "official_url": "https://www.finleyfarms.com/",
+      "notes": "1559 W Finley Farms Ln, Ozark MO 65721. ~35 miles northeast of Branson (~35 min drive). Free to visit the market. Restaurant on site. Open Wed-Sun. Check finleyfarms.com for current hours and seasonal availability.",
+      "tags": [
+        "free",
+        "shopping",
+        "outdoor",
+        "family",
+        "educational",
+        "relaxed",
+        "nature",
+        "1-2hr"
+      ],
+      "sort_key": "finley farms",
       "visible": true
     },
     {
@@ -3308,6 +3592,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "grand jubilee",
+      "visible": true
+    },
+    {
+      "slug": "grand-village-shops",
+      "name": "Grand Village Shops",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.6,
+      "description": "Branson's award-winning boutique shopping village featuring locally owned shops, specialty boutiques, and gift stores in an outdoor village setting. Home to Kringles (Missouri's largest Christmas store), Mulberry Mill (gourmet foods and decor), Sugar Leaf Bakery, and other local favorites. Winner of Best of Branson 2024 and Best of SWMO 2025.",
+      "image": "",
+      "official_url": "https://www.grandvillageshops.com/",
+      "notes": "2800 W Hwy 76, Branson MO 65616. On the Branson entertainment strip. Free to visit. Open daily. All locally owned shops -- no chain stores. Kringles alone is worth a visit year-round. Sugar Leaf Bakery serves fresh pastries.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "relaxed",
+        "indoor",
+        "1-2hr"
+      ],
+      "sort_key": "grand village shops",
       "visible": true
     },
     {
@@ -4104,6 +4410,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "kentucky headhunters",
+      "visible": true
+    },
+    {
+      "slug": "kringles-christmas-store",
+      "name": "Kringles Christmas Store",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.7,
+      "description": "Missouri's largest Christmas store, open year-round at the Grand Village in Branson. Thousands of ornaments, themed trees, nativity scenes, and holiday decor from around the world. A must-visit for anyone who loves Christmas -- even in May. Family members have been known to spend an hour or more browsing the floor-to-ceiling displays.",
+      "image": "",
+      "official_url": "https://www.grandvillageshops.com/",
+      "notes": "2800 W Hwy 76, Branson MO 65616 (inside Grand Village Shops). Free to browse. Open daily year-round -- Christmas in May is very much a thing here. Missouri's largest Christmas shop.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "relaxed",
+        "1-2hr"
+      ],
+      "sort_key": "kringles christmas store",
       "visible": true
     },
     {
@@ -7075,6 +7403,29 @@
       "visible": true
     },
     {
+      "slug": "springfield-antique-malls",
+      "name": "Springfield Antique Malls",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.4,
+      "description": "Springfield hosts several of the largest antique malls in southwest Missouri, with thousands of dealer booths under one roof. The Route 66 Antique Mall, Relics Antique Marketplace, and other mega-dealers draw collectors from across the region. Furniture, vintage clothing, mid-century modern, glassware, vinyl records, tools, art, and more.",
+      "image": "",
+      "official_url": "https://www.visitspringfieldmo.com/",
+      "notes": "Multiple locations in Springfield MO. ~45 miles north of Branson (~45 min drive). Free to browse. Most open 10am-6pm. Relics Antique Marketplace (1336 E Battlefield Rd) is one of the largest. Cash or card accepted at most.",
+      "tags": [
+        "free",
+        "shopping",
+        "history",
+        "relaxed",
+        "indoor",
+        "day-trip",
+        "2-3hr"
+      ],
+      "sort_key": "springfield antique malls",
+      "visible": true
+    },
+    {
       "slug": "springfield-conservation-nature-center",
       "name": "Springfield Conservation Nature Center",
       "category": "attraction",
@@ -7098,6 +7449,30 @@
         "1-2hr"
       ],
       "sort_key": "springfield conservation nature center",
+      "visible": true
+    },
+    {
+      "slug": "springfield-farmers-market",
+      "name": "Springfield Farmers Market",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.6,
+      "description": "One of Missouri's premier farmers markets, running every Saturday morning spring through fall at Farmers Park. Features 200+ local vendors selling fresh produce, artisan cheese, Missouri wines, locally roasted coffee, handmade crafts, cut flowers, and prepared foods. A beloved Springfield institution drawing thousands each weekend.",
+      "image": "",
+      "official_url": "https://www.springfieldfarmersmkt.com/",
+      "notes": "Farmers Park, 2144 E Republic Rd, Springfield MO 65804. ~45 miles north of Branson (~45 min drive). Free to attend. Saturdays 7:30am-12:30pm, May through October. Arrive early for best selection. Bring a bag and cash.",
+      "tags": [
+        "free",
+        "shopping",
+        "outdoor",
+        "family",
+        "relaxed",
+        "educational",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "springfield farmers market",
       "visible": true
     },
     {
@@ -7282,6 +7657,28 @@
         "1-2hr"
       ],
       "sort_key": "talking rocks cavern",
+      "visible": true
+    },
+    {
+      "slug": "tanger-outlets-branson",
+      "name": "Tanger Outlets Branson",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.2,
+      "description": "A full factory outlet mall with 60+ brand-name stores offering discounted merchandise. Features outlets for Nike, Coach, Gap, Levi's, Under Armour, Pottery Barn, Crate & Barrel, and many more. A dedicated shopping day destination for deal hunters in the group.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "300 Tanger Blvd, Branson MO 65616. Off Hwy 76, ~5 min from the main strip. Free to visit. Hours typically 10am-8pm Mon-Sat, 11am-6pm Sun. 60+ outlet stores. Dedicated outlet mall -- bring the shopping list.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "1-2hr",
+        "2-3hr"
+      ],
+      "sort_key": "tanger outlets branson",
       "visible": true
     },
     {
@@ -7774,6 +8171,30 @@
         "1-2hr"
       ],
       "sort_key": "walton arts center",
+      "visible": true
+    },
+    {
+      "slug": "war-eagle-craft-fair",
+      "name": "War Eagle Craft Fair",
+      "category": "attraction",
+      "price_adult": 5.0,
+      "duration_hours": 4,
+      "rating": 4.7,
+      "description": "One of the oldest and largest juried craft fairs in the US, held along the banks of War Eagle Creek near Rogers, Arkansas since 1954. Nearly 300 booths display only handmade, handcrafted goods by their creators -- quilts, woodwork, pottery, jewelry, leather goods, folk art, and traditional Ozark crafts. A true living tradition of Ozark artisanship. Note: the 2026 fair runs October 15-18 -- outside your trip window -- but the War Eagle Mill (already in the DB) is open year-round.",
+      "image": "",
+      "official_url": "https://www.wareaglefair.com/",
+      "notes": "11037 High Sky Inn Rd, Hindsville AR 72738. ~90 miles south of Branson (~1 hr 45 min drive). 2026 fair: Oct 15-18 (outside May trip). War Eagle Mill nearby is open year-round. $5 admission per person when fair is running.",
+      "tags": [
+        "shopping",
+        "art",
+        "history",
+        "outdoor",
+        "family",
+        "educational",
+        "day-trip",
+        "all-day"
+      ],
+      "sort_key": "war eagle craft fair",
       "visible": true
     },
     {
