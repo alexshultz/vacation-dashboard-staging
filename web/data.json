@@ -51,6 +51,75 @@
       "visible": true
     },
     {
+      "slug": "crescent-hotel-ghost-tour",
+      "name": "1886 Crescent Hotel Ghost Tour",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1.5,
+      "rating": 4.5,
+      "description": "Designated America's Most Haunted Hotel, this National Historic Registry landmark perched above the Victorian Village of Eureka Springs has been creating guest experiences since 1886. Evening ghost tours explore the hotel's famously spirited corridors, sharing documented paranormal encounters and the building's colorful history as an academy, luxury resort, and controversial hospital.",
+      "image": "",
+      "official_url": "https://crescent-hotel.com",
+      "notes": "75 Prospect Ave, Eureka Springs, AR 72632. ~60 mi from Branson MO, ~70 min drive. Ghost tour prices not listed online; contact 855-725-5720. Open to non-overnight guests.",
+      "tags": [
+        "history",
+        "indoor",
+        "date-night",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "1886 crescent hotel ghost tour",
+      "visible": true
+    },
+    {
+      "slug": "7d-dark-ride-adventure",
+      "name": "7D Dark Ride Adventure",
+      "category": "attraction",
+      "price_adult": 12.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "An immersive interactive shooting ride at Branson Landing where riders compete to blast on-screen targets in a moving theater-style experience. Multiple themes and difficulty levels make it replayable. A fun 15-30 minute activity for competitive families.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/stores/7d-dark-ride-adventure/",
+      "notes": "Branson Landing, Branson MO 65616. Inside Branson Landing complex. 417-203-4158. No drive needed -- at the Landing itself.",
+      "tags": [
+        "active",
+        "family",
+        "kid-focused",
+        "indoor",
+        "1-2hr",
+        "shopping",
+        "at-branson-landing"
+      ],
+      "sort_key": "7d dark ride adventure",
+      "visible": true
+    },
+    {
+      "slug": "8th-street-market-bentonville",
+      "name": "8th Street Market",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.6,
+      "description": "A curated specialty grocery and local food market in downtown Bentonville featuring locally sourced produce, Arkansas artisan products, craft cheeses, house-made prepared foods, local honey, regional hot sauces, and specialty pantry items. A favorite stop for picking up quality local food gifts and edibles.",
+      "image": "",
+      "official_url": "https://www.8thstmarketbentonville.com/",
+      "notes": "801 SE 8th St, Bentonville AR 72712. ~100 miles south of Branson (~2 hr drive). Free to browse. Open daily. In downtown Bentonville -- combine with Crystal Bridges and the town square.",
+      "tags": [
+        "free",
+        "shopping",
+        "specialty-food",
+        "family",
+        "indoor",
+        "relaxed",
+        "day-trip",
+        "1-2hr",
+        "at-downtown-bentonville"
+      ],
+      "sort_key": "8th street market",
+      "visible": true
+    },
+    {
       "slug": "aaron-wayne-comedy-hypnosis-show",
       "name": "Aaron Wayne Comedy Hypnosis Show",
       "category": "show",
@@ -193,6 +262,28 @@
       "visible": true
     },
     {
+      "slug": "tanger-adidas",
+      "name": "adidas Factory Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "adidas Factory Outlet with discounted athletic footwear, apparel, and accessories.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "active"
+      ],
+      "sort_key": "adidas factory outlet (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "adventure-seekers",
       "name": "Adventure Seekers",
       "category": "attraction",
@@ -274,6 +365,28 @@
       "visible": true
     },
     {
+      "slug": "tanger-outlets-american-eagle",
+      "name": "American Eagle Outfitters (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "American Eagle factory outlet at Tanger Outlets Branson with significant discounts on casual apparel, denim, and accessories for teens and young adults.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. Free parking. Hours: Mon-Thu 10am-7pm, Fri-Sat 10am-8pm, Sun 10am-6pm.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "kid-focused",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "american eagle outfitters (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "americana-new-years-eve-show",
       "name": "Americana New Year’s Eve Show",
       "category": "show",
@@ -328,6 +441,51 @@
       },
       "sort_key": "americana new year’s eve show",
       "visible": false
+    },
+    {
+      "slug": "ancient-ozarks-natural-history-museum",
+      "name": "Ancient Ozarks Natural History Museum",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.5,
+      "rating": 4.0,
+      "description": "Located within the Top of the Rock heritage preserve at Big Cedar Lodge, this museum features exhibits exploring the natural and cultural heritage of the Ozark region from prehistoric times to the present. Housed in a striking limestone structure, the museum celebrates the unique ecology and history of the Ozarks through curated collections and interactive displays.",
+      "image": "",
+      "official_url": "https://bigcedar.com/top-of-the-rock",
+      "notes": "150 Top of the Rock Road, Ridgedale, MO 65739. ~8 mi from Branson MO, ~15 min drive. Included with Top of the Rock $10/vehicle entry. Open daily 9:30am–7pm.",
+      "tags": [
+        "educational",
+        "history",
+        "indoor",
+        "family",
+        "1-2hr",
+        "free"
+      ],
+      "sort_key": "ancient ozarks natural history museum",
+      "visible": true
+    },
+    {
+      "slug": "andy-bs-bowl-social",
+      "name": "Andy B's Bowl Social",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2,
+      "rating": 4.5,
+      "description": "A modern bowling and entertainment venue at Branson Landing combining boutique bowling lanes with arcade games, private event spaces, and a full bar and restaurant. One of the most popular evening entertainment options at the Landing.",
+      "image": "",
+      "official_url": "https://www.andybs.com/",
+      "notes": "Branson Landing, Branson MO 65616. 417-213-8631. Evening atmosphere -- great for the adults in the group. Reservations recommended for bowling lanes.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "date-night",
+        "1-2hr",
+        "shopping",
+        "at-branson-landing"
+      ],
+      "sort_key": "andy b's bowl social",
+      "visible": true
     },
     {
       "slug": "anthems-of-rock",
@@ -422,6 +580,71 @@
         "classified": "2026-04-21"
       },
       "sort_key": "aquarium at the boardwalk",
+      "visible": true
+    },
+    {
+      "slug": "arcade-city-branson-landing",
+      "name": "Arcade City",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1,
+      "rating": 4.3,
+      "description": "A large family arcade at Branson Landing with redemption games, video games, and prize redemption. A go-to stop when the kids need a break from the shows and outdoor activities.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing, Branson MO 65616. 417-203-4150. Inside the Landing complex. Pay-to-play -- bring quarters or buy a game card.",
+      "tags": [
+        "active",
+        "kid-focused",
+        "family",
+        "indoor",
+        "1-2hr",
+        "shopping",
+        "at-branson-landing"
+      ],
+      "sort_key": "arcade city",
+      "visible": true
+    },
+    {
+      "slug": "arkansas-air-and-military-museum",
+      "name": "Arkansas Air and Military Museum",
+      "category": "attraction",
+      "price_adult": 11.0,
+      "duration_hours": 2,
+      "rating": 4.0,
+      "description": "An aviation and military history museum in Fayetteville, Arkansas inviting visitors to experience flight and military heritage through aircraft exhibits, artifacts, and educational programming. The museum hosts special events including an annual Warbird Weekend celebration and provides discounted admission for veterans and active military personnel. Open Tuesday–Saturday.",
+      "image": "",
+      "official_url": "https://www.arkansasairandmilitary.com",
+      "notes": "4290 S. School Ave, Fayetteville, AR 72701. ~94 mi from Branson MO, ~105 min drive. Adult admission $11. Hours: Tue–Sat 9am–4pm; closed Sun–Mon.",
+      "tags": [
+        "history",
+        "educational",
+        "indoor",
+        "family",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "arkansas air and military museum",
+      "visible": true
+    },
+    {
+      "slug": "dickson-arsagas",
+      "name": "Arsaga's at the Depot (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.6,
+      "description": "Artisan coffee roaster and café in a historic train depot building near Dickson Street. Specialty coffee, pastries, and light breakfast/lunch.",
+      "image": "",
+      "official_url": "https://arsagas.com",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "arsaga's at the depot (dickson st)",
       "visible": true
     },
     {
@@ -579,6 +802,116 @@
       "visible": true
     },
     {
+      "slug": "tanger-banana-republic",
+      "name": "Banana Republic Factory (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Banana Republic Factory Store with deep discounts on workwear, casual styles, and accessories for men and women.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "banana republic factory (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "bass-pro-shops-branson-landing",
+      "name": "Bass Pro Shops at Branson Landing",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.5,
+      "description": "The Branson Landing location of Bass Pro Shops, an anchor tenant of the waterfront district. Features full outdoor gear, clothing, and fishing equipment with the signature Bass Pro aquarium and wildlife displays. A smaller but still impressive version of the Springfield Grandaddy, right on the Taneycomo waterfront.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing, Branson MO 65616. 417-243-5200. Free to browse. Anchor tenant at the Landing. Different from the Springfield Grandaddy Store (~45 miles north).",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "1-2hr",
+        "at-branson-landing"
+      ],
+      "sort_key": "bass pro shops at branson landing",
+      "visible": true
+    },
+    {
+      "slug": "bass-pro-shops-grandaddy",
+      "name": "Bass Pro Shops Grandaddy Store",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.6,
+      "description": "The original Bass Pro Shops flagship -- 'The Grandaddy of All Outdoor Stores' -- spans nearly 500,000 square feet in Springfield MO and draws 4 million visitors per year, making it Missouri's #1 tourist destination. Features seven aquariums with native Missouri fish, live alligators and turtles in an in-store swamp, a restaurant, archery range, and the largest assortment of outdoor gear in the country.",
+      "image": "",
+      "official_url": "https://stores.basspro.com/us/mo/springfield/1935-s-campbell-ave.html",
+      "notes": "1 Bass Pro Dr, Springfield MO 65807. ~45 miles north of Branson (~45 min drive). Free admission. Adjacent to Wonders of Wildlife -- pair both for a full day. Dining at Hemingway's Blue Water Cafe inside.",
+      "tags": [
+        "free",
+        "educational",
+        "family",
+        "kid-focused",
+        "indoor",
+        "animals",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "bass pro shops grandaddy store",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-bath-body-works",
+      "name": "Bath & Body Works (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Bath & Body Works at Branson Landing with full selection of candles, soaps, lotions, and seasonal collections.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "date-night"
+      ],
+      "sort_key": "bath & body works (branson landing)",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-belk",
+      "name": "Belk Department Store (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Belk department store at Branson Landing -- the Landing's anchor department store with clothing, shoes, and home goods for the whole family.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing"
+      ],
+      "sort_key": "belk department store (branson landing)",
+      "visible": true
+    },
+    {
       "slug": "the-bellamy-brothers",
       "name": "The Bellamy Brothers",
       "category": "show",
@@ -624,6 +957,53 @@
         "classified": "2026-04-21"
       },
       "sort_key": "bellamy brothers",
+      "visible": true
+    },
+    {
+      "slug": "bentonville-farmers-market",
+      "name": "Bentonville Farmers Market",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.7,
+      "description": "An award-winning farmers market on Bentonville's historic town square, operating Tuesdays and Saturdays from April through November. Features Arkansas produce, artisan bread, local honey, handmade crafts, specialty foods, and flowers. One of the most beautiful market settings in the region -- fresh produce within steps of world-class art at Crystal Bridges.",
+      "image": "",
+      "official_url": "https://downtownbentonville.org/farmers-market",
+      "notes": "Town Square, Bentonville AR 72712. ~100 miles south of Branson (~2 hr drive). Free to attend. Tuesdays and Saturdays, roughly 7am-2pm, April through November. Combine with Crystal Bridges for a perfect Bentonville Saturday.",
+      "tags": [
+        "free",
+        "shopping",
+        "outdoor",
+        "family",
+        "relaxed",
+        "educational",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "bentonville farmers market",
+      "visible": true
+    },
+    {
+      "slug": "bentonville-mountain-biking",
+      "name": "Bentonville Mountain Bike Trails",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.9,
+      "description": "Bentonville, Arkansas has emerged as one of the top mountain biking destinations in North America, with over 200 miles of free, purpose-built singletrack trails through the Ozark hills. The Slaughter Pen trail system (downtown Bentonville) and Coler Mountain Bike Preserve offer beginner through expert flow trails, natural features, and pump tracks. Bike rentals available downtown near the trailheads.",
+      "image": "",
+      "official_url": "https://www.nwatrails.org/",
+      "notes": "Multiple trailheads in Bentonville AR. ~100 miles south of Branson (~2 hr drive). Free trail access. Bike rentals available downtown (~$40-60/day). Slaughter Pen trailhead: 200 SE A St, Bentonville. Coler Preserve: 2109 SW I St. Best combined with Crystal Bridges visit.",
+      "tags": [
+        "free",
+        "active",
+        "outdoor",
+        "nature",
+        "day-trip",
+        "all-day",
+        "family"
+      ],
+      "sort_key": "bentonville mountain bike trails",
       "visible": true
     },
     {
@@ -676,6 +1056,144 @@
         "classified": "2026-04-21"
       },
       "sort_key": "best of dean martin tribute",
+      "visible": true
+    },
+    {
+      "slug": "big-cedar-lodge",
+      "name": "Big Cedar Lodge",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.8,
+      "description": "America's Premier Wilderness Resort on Table Rock Lake, just 10 miles south of Branson. Even without staying the night, Big Cedar is a destination -- visitors can dine at multiple restaurants, stroll the lakeside grounds, browse the bass-log main lodge, and access day-use activities. Adjacent to Top of the Rock (separate admission) and Long Creek Marina for boat rentals. The main lodge and grounds are free to explore.",
+      "image": "",
+      "official_url": "https://www.bigcedar.com/",
+      "notes": "612 Devil's Pool Rd, Ridgedale MO 65739. ~10 miles south of Branson (~15 min drive). Free to visit the grounds and browse. Dining reservations recommended. Top of the Rock ($10 admission) and marina rentals nearby. Part of Johnny Morris' Bass Pro empire -- same ownership as Dogwood Canyon and Wonders of Wildlife.",
+      "tags": [
+        "free",
+        "outdoor",
+        "nature",
+        "relaxed",
+        "family",
+        "water",
+        "date-night",
+        "1-2hr"
+      ],
+      "sort_key": "big cedar lodge",
+      "visible": true
+    },
+    {
+      "slug": "big-sugar-creek-state-park",
+      "name": "Big Sugar Creek State Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.0,
+      "description": "A rugged southwest Missouri park featuring scenic hiking trails through woodlands and glades where visitors encounter distinctive Ozark flora including Ozark chinquapin trees and prickly pear cacti. The rocky terrain supports diverse wildlife including armadillos and scarlet tanagers, and interpretive programs complement the natural history experience. One of the most biologically diverse landscapes in the Missouri Ozarks.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/big-sugar-creek-state-park",
+      "notes": "6727 Big Sugar Creek Road, Pineville, MO 64856. ~40 mi from Branson MO, ~55 min drive. Free; open daily.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "hiking",
+        "family",
+        "free",
+        "1-2hr"
+      ],
+      "sort_key": "big sugar creek state park",
+      "visible": true
+    },
+    {
+      "slug": "bigfoot-fun-park",
+      "name": "Bigfoot Fun Park",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2,
+      "rating": 4.4,
+      "description": "Branson's favorite indoor entertainment complex featuring 18-hole mini golf, a full arcade, and themed escape rooms. A go-to option for families seeking indoor fun, rainy-day activities, or evening entertainment. Staff-run escape rooms accommodate groups of all sizes.",
+      "image": "",
+      "official_url": "https://www.bigfootfunpark.com/",
+      "notes": "Branson MO -- check website for current address, hours, and pricing. Each activity (mini golf, arcade, escape rooms) ticketed separately. Book escape rooms in advance.",
+      "tags": [
+        "active",
+        "comedy",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1-2hr"
+      ],
+      "sort_key": "bigfoot fun park",
+      "visible": true
+    },
+    {
+      "slug": "sdc-blacksmith-shop",
+      "name": "The Blacksmith Shop (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Traditional ironworking and blacksmithing demonstrations. Watch red-hot iron shaped into tools, hooks, and decorative pieces. Handmade iron goods for sale.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts",
+        "history"
+      ],
+      "sort_key": "blacksmith shop (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "blanchard-springs-caverns",
+      "name": "Blanchard Springs Caverns",
+      "category": "attraction",
+      "price_adult": 14.0,
+      "duration_hours": 1.5,
+      "rating": 4.8,
+      "description": "A US Forest Service-managed cave system in the Ozark-St. Francis National Forest near Mountain View, Arkansas. Considered one of the most spectacular caverns in the US. Offers two guided walking tours -- the Dripstone Trail (moderate, 0.7 miles) and the Discovery Trail (easy, 0.2 miles) -- plus a wild cave tour for adventurous visitors. Constant 58°F temperature year-round.",
+      "image": "",
+      "official_url": "https://www.fs.usda.gov/recarea/osfnf/recarea/?recid=21462",
+      "notes": "Blanchard Springs Rd, Mountain View AR 72560. ~90 miles south of Branson (~1 hr 45 min drive). Managed by USDA Forest Service. Admission ~$14 adult. Tours depart regularly -- reserve in advance. Closed Tuesdays. Constant 58°F inside -- bring a jacket.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "educational",
+        "family",
+        "active",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "blanchard springs caverns",
+      "visible": true
+    },
+    {
+      "slug": "blue-spring-heritage-center",
+      "name": "Blue Spring Heritage Center",
+      "category": "attraction",
+      "price_adult": 7.0,
+      "duration_hours": 1,
+      "rating": 4.5,
+      "description": "A stunning natural spring in the Ozarks that flows 38 million gallons of 58°F water daily -- one of the largest springs in Arkansas. Surrounded by heritage gardens featuring native plants, wildflowers, and Native American cultural displays. The intense blue-green color of the spring pool is otherworldly. A peaceful, beautiful 45-minute stop that surprises most visitors.",
+      "image": "",
+      "official_url": "https://bluespring.com/",
+      "notes": "1552 Hwy 62 W, Eureka Springs AR 72632. ~60 miles south of Branson (~1 hr drive). Admission ~$7 adult. Open seasonally spring through fall. Short paved walking path around the spring. Wheelchair accessible. Easy to combine with other Eureka Springs stops.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "educational",
+        "family",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "blue spring heritage center",
       "visible": true
     },
     {
@@ -781,6 +1299,117 @@
       "visible": true
     },
     {
+      "slug": "tanger-book-warehouse",
+      "name": "Book Warehouse (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Book Warehouse outlet with deeply discounted hardcovers, paperbacks, and specialty titles. Great browsing stop.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "art"
+      ],
+      "sort_key": "book warehouse (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "dickson-bordinos",
+      "name": "Bordino's Restaurant & Winery (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.7,
+      "description": "Upscale Italian restaurant and wine bar. One of Fayetteville's top fine dining destinations. Handmade pastas, wood-fired dishes, and an excellent wine list.",
+      "image": "",
+      "official_url": "https://bordinos.com",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "date-night",
+        "specialty-food"
+      ],
+      "sort_key": "bordino's restaurant & winery (dickson st)",
+      "visible": true
+    },
+    {
+      "slug": "botanical-garden-of-the-ozarks",
+      "name": "Botanical Garden of the Ozarks",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2,
+      "rating": 4.0,
+      "description": "A member-supported public garden near the Razorback Greenway in Fayetteville, Arkansas dedicated to education and environmental awareness through themed garden areas, a butterfly house, and community events. The nonprofit works to connect visitors with the natural world through educational programming and seasonally changing displays.",
+      "image": "",
+      "official_url": "https://www.bgozarks.org",
+      "notes": "4703 N Crossover Rd, Fayetteville, AR 72764. ~94 mi from Branson MO, ~105 min drive. Hours: 9am–5pm daily, closed Thursdays. Admission prices not listed online.",
+      "tags": [
+        "nature",
+        "outdoor",
+        "educational",
+        "family",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "botanical garden of the ozarks",
+      "visible": true
+    },
+    {
+      "slug": "branson-antique-mall",
+      "name": "Branson Antique Mall",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.3,
+      "description": "Multi-dealer antique mall with hundreds of booths spread across a large showroom. Features furniture, glassware, vintage clothing, coins, militaria, tools, jewelry, Ozark folk art, and collectibles from dozens of individual vendors. One of the area's largest antique concentrations under one roof.",
+      "image": "",
+      "official_url": "https://www.downtownbranson.com/",
+      "notes": "Downtown Branson MO 65616. Free to browse. Hours approximately 10am-5pm. Multiple booths from independent dealers. Cash and card accepted. Pricing set by individual vendors -- negotiating is part of the experience.",
+      "tags": [
+        "free",
+        "shopping",
+        "history",
+        "relaxed",
+        "indoor",
+        "1-2hr"
+      ],
+      "sort_key": "branson antique mall",
+      "visible": true
+    },
+    {
+      "slug": "branson-candy-factory",
+      "name": "Branson Candy Factory",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.5,
+      "description": "A hand-crafted candy shop in Branson where you can watch taffy being pulled, fudge being made, and chocolates being dipped right in front of you. Dozens of flavors of hand-pulled taffy, old-fashioned fudge, peanut brittle, and seasonal candies. A treat-yourself stop the kids (and adults) will love.",
+      "image": "",
+      "official_url": "https://www.bransoncandy.com/",
+      "notes": "Branson MO -- check bransoncandy.com for current location and hours. Free to watch the candy-making process. Cash and card accepted. Popular stop -- can be crowded on weekends.",
+      "tags": [
+        "free",
+        "shopping",
+        "specialty-food",
+        "family",
+        "kid-focused",
+        "indoor",
+        "relaxed",
+        "1-2hr"
+      ],
+      "sort_key": "branson candy factory",
+      "visible": true
+    },
+    {
       "slug": "branson-comedy-bash-dinner-show",
       "name": "Branson Comedy Bash Dinner Show",
       "category": "show",
@@ -883,7 +1512,7 @@
       "rating": 4.5,
       "description": "From 2026 Branson Attractions source listing.",
       "image": "assets/thumbs/branson-duck-tours-thumb.jpg",
-      "official_url": "https://www.branson.com/attractions/branson-duck-tours/",
+      "official_url": "https://www.bransonducktours.com/",
       "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
       "tags": [
         "1-2hr",
@@ -915,6 +1544,51 @@
         "classified": "2026-04-21"
       },
       "sort_key": "branson duck tours",
+      "visible": true
+    },
+    {
+      "slug": "branson-farmers-market",
+      "name": "Branson Farmers Market",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.4,
+      "description": "A seasonal outdoor farmers market featuring local produce, Ozark honey, handmade crafts, baked goods, jams and preserves, and artisan goods from local vendors. A great spot to pick up fresh Missouri strawberries, local honey, homemade pie, and unique Ozark souvenirs.",
+      "image": "",
+      "official_url": "https://www.bransonmo.gov/",
+      "notes": "Branson MO. Seasonal -- typically operates May through October on weekend mornings. Check bransonmo.gov for current location, days, and hours. Bring cash -- some vendors cash-only.",
+      "tags": [
+        "free",
+        "shopping",
+        "outdoor",
+        "family",
+        "relaxed",
+        "educational",
+        "1-2hr"
+      ],
+      "sort_key": "branson farmers market",
+      "visible": true
+    },
+    {
+      "slug": "branson-helicopter-tours",
+      "name": "Branson Helicopter Tours",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 0.5,
+      "rating": 4.6,
+      "description": "Aerial helicopter tours over Branson, the Ozark hills, Table Rock Lake, and the tri-lakes region. Operated by Chopper Charter Branson (FAA Certified Air Carrier). Tours range from short scenic hops to extended aerial photography flights -- a unique way to see the Ozarks from above and a memorable experience for the whole family.",
+      "image": "",
+      "official_url": "https://www.bransonhelicopterride.com/",
+      "notes": "469 Blue Sky Lane, Hollister MO 65672 (~5 miles from Branson strip, ~10 min drive). Adjacent to Hwy 76 near Hall of Fame Hotel. Call 417-332-1545. Pricing varies by tour length. Reservations recommended. FAA Certificate #D03A893I.",
+      "tags": [
+        "active",
+        "outdoor",
+        "family",
+        "date-night",
+        "1-2hr",
+        "nature"
+      ],
+      "sort_key": "branson helicopter tours",
       "visible": true
     },
     {
@@ -958,6 +1632,76 @@
         "classified": "2026-04-21"
       },
       "sort_key": "branson hills golf club",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing",
+      "name": "Branson Landing",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.5,
+      "description": "Branson's signature waterfront shopping and entertainment district on Lake Taneycomo features a 1-mile boardwalk, an iconic 400-foot musical fountain show, and over 100 shops and restaurants. A mix of national chains and local shops with lakefront dining and live entertainment. The fountain shows run every hour and are free to watch.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the Branson waterfront, downtown. Free to visit. Hours 10am-8pm (extended on weekends). Chains include: Bass Pro Shops, Bath & Body Works, Belk, Pandora, H&M, Lids, White House Black Market, Torrid, Francesca's, Spencer's, Victoria's Secret, Justice, Claire's, and more. Unique stops: Andy B's Bowl Social, 7D Dark Ride Adventure, Arcade City.",
+      "tags": [
+        "free",
+        "outdoor",
+        "family",
+        "shopping",
+        "relaxed",
+        "date-night",
+        "1-2hr",
+        "at-branson-landing"
+      ],
+      "sort_key": "branson landing",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-waterfront-walk",
+      "name": "Branson Landing Boardwalk (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.6,
+      "description": "The 1-mile lakefront boardwalk along Lake Taneycomo connecting all shops, restaurants, and entertainment at Branson Landing. Free to walk. Great for morning strolls or an evening wind-down.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "outdoor",
+        "relaxed"
+      ],
+      "sort_key": "branson landing boardwalk (branson landing)",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-fountain-show",
+      "name": "Branson Landing Fountain Show (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.8,
+      "description": "The iconic 400-foot fire-and-water musical fountain show on the Lake Taneycomo waterfront. Free shows run approximately every hour. A signature Branson experience the whole family will love.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "outdoor",
+        "relaxed"
+      ],
+      "sort_key": "branson landing fountain show (branson landing)",
       "visible": true
     },
     {
@@ -1287,6 +2031,28 @@
       "visible": true
     },
     {
+      "slug": "bridal-cave",
+      "name": "Bridal Cave & Thunder Mountain Park",
+      "category": "attraction",
+      "price_adult": 30.0,
+      "duration_hours": 1.0,
+      "rating": 4.5,
+      "description": "Missouri's most beautiful cave, featuring majestic formations and ancient mysteries at Lake of the Ozarks with over 75 years of visitor experience. The only Missouri cave accessible by boat, Bridal Cave offers standard tours, lantern tours, and black light adventure tours for a variety of ways to experience the underground world.",
+      "image": "",
+      "official_url": "https://www.bridalcave.com",
+      "notes": "526 Bridal Cave Rd, Camdenton, MO 65020. ~82 mi from Branson MO, ~90 min drive. Standard cave tour $30/adult (ages 13+).",
+      "tags": [
+        "nature",
+        "educational",
+        "indoor",
+        "family",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "bridal cave & thunder mountain park",
+      "visible": true
+    },
+    {
       "slug": "british-invasion",
       "name": "British Invasion",
       "category": "show",
@@ -1391,6 +2157,99 @@
       "visible": true
     },
     {
+      "slug": "sdc-broom-maker",
+      "name": "The Broom Maker (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Traditional Ozark broom making demonstration -- one of SDC's most distinctive crafts. Handmade corn brooms and decorative pieces using century-old techniques.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts",
+        "history"
+      ],
+      "sort_key": "broom maker (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-brown-sugars-bakery",
+      "name": "Brown Sugar's Bakery (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Famous SDC bakery known for giant fresh-baked cinnamon bread loaves sold by the half-loaf. One of SDC's most beloved traditions -- the smell alone is worth stopping. Also serves pastries and coffee.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food"
+      ],
+      "sort_key": "brown sugar's bakery (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "buffalo-national-river",
+      "name": "Buffalo National River",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 6,
+      "rating": 4.5,
+      "description": "One of the few remaining undammed rivers in the lower 48 states, flowing freely for 135 miles through dramatic Ozark Mountain bluffs and landscapes ranging from whitewater rapids to peaceful pools. Established in 1972, this National Park Service river offers paddling, hiking, fishing, and camping from free backcountry to developed campgrounds.",
+      "image": "",
+      "official_url": "https://www.nps.gov/buff/index.htm",
+      "notes": "Headquarters: 402 N. Walnut St Suite 136, Harrison, AR 72601. ~65 mi from Branson MO, ~75 min drive. No entrance fee; camping fees $16–$50/night. Contact 870-439-2502.",
+      "tags": [
+        "nature",
+        "outdoor",
+        "water",
+        "hiking",
+        "free",
+        "all-day",
+        "day-trip"
+      ],
+      "sort_key": "buffalo national river",
+      "visible": true
+    },
+    {
+      "slug": "buffalo-outdoor-center",
+      "name": "Buffalo Outdoor Center",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 6,
+      "rating": 4.8,
+      "description": "The premier outfitter for Buffalo National River adventures near Ponca, Arkansas. Offers float trips (canoe, kayak, raft rentals), guided zipline tours, mountain biking, elk and wildlife viewing tours, hiking, fishing, and swimming holes. In business 50 years, with cabin lodging and a base camp store. The go-to launch point for a true Ozark river adventure.",
+      "image": "",
+      "official_url": "https://www.buffaloriver.com/",
+      "notes": "4699 Hwy 43, Ponca AR 72670. ~65 miles south of Branson (~1 hr 15 min drive). Activity pricing varies -- float trips from ~$30/person. Book in advance especially for summer weekends. Cell service limited in the canyon.",
+      "tags": [
+        "active",
+        "outdoor",
+        "water",
+        "nature",
+        "hiking",
+        "family",
+        "day-trip",
+        "all-day"
+      ],
+      "sort_key": "buffalo outdoor center",
+      "visible": true
+    },
+    {
       "slug": "butterfly-palace-rainforest-adventure",
       "name": "Butterfly Palace & Rainforest Adventure",
       "category": "attraction",
@@ -1433,6 +2292,97 @@
         "classified": "2026-04-21"
       },
       "sort_key": "butterfly palace & rainforest adventure",
+      "visible": true
+    },
+    {
+      "slug": "c-street-arts-district-springfield",
+      "name": "C-Street Arts District, Springfield",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.4,
+      "description": "Springfield's historic Commercial Street (C-Street) corridor features a walkable stretch of independent boutiques, vintage shops, art galleries, record stores, bookshops, and locally owned restaurants in a revitalized early-20th-century streetscape. The heart of Springfield's independent creative community.",
+      "image": "",
+      "official_url": "https://www.cstreetspringfield.com/",
+      "notes": "Commercial St, Springfield MO 65803. ~45 miles north of Branson (~45 min drive). Free to explore. Most shops open Tue-Sat, 11am-6pm. Parking on-street or in nearby lots. A genuine local neighborhood -- not a tourist district.",
+      "tags": [
+        "free",
+        "shopping",
+        "art",
+        "history",
+        "relaxed",
+        "outdoor",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "c-street arts district, springfield",
+      "visible": true
+    },
+    {
+      "slug": "tanger-calvin-klein",
+      "name": "Calvin Klein Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Calvin Klein outlet with discounted jeans, underwear, fragrances, and casual apparel.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "calvin klein outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-candle-shop",
+      "name": "The Candle Shop (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Dipped and molded candle-making demonstrations at SDC. Hand-dipped taper candles in dozens of colors and scents.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts"
+      ],
+      "sort_key": "candle shop (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-candy-kitchen",
+      "name": "The Candy Kitchen (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Live candy-making demonstrations and a full shop of handmade sweets -- fudge, taffy, rock candy, and old-fashioned confections. Kids love watching the candy makers at work.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food",
+        "kid-focused"
+      ],
+      "sort_key": "candy kitchen (silver dollar city)",
       "visible": true
     },
     {
@@ -1485,6 +2435,136 @@
         "classified": "2026-04-21"
       },
       "sort_key": "carpenters once more",
+      "visible": true
+    },
+    {
+      "slug": "tanger-carter",
+      "name": "Carter's Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Carter's Outlet with baby and toddler clothing at outlet prices -- great for the littles in the group.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "carter's outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "tanger-chicos",
+      "name": "Chico's Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Chico's Outlet featuring women's clothing, accessories, and jewelry at discounted prices. Popular with women in the group.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "chico's outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "tanger-childrens-place",
+      "name": "The Children's Place Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Children's Place outlet with affordable kids' clothing, accessories, and shoes.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "children's place outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "christ-of-the-ozarks",
+      "name": "Christ of the Ozarks",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.5,
+      "description": "An iconic statue of Jesus Christ rising above the Ozark hills on the Great Passion Play's 667-acre grounds in Eureka Springs, accessible free to the public 365 days a year from 8am to 8pm. Visitors can also explore the adjacent landmark known as 'The Cross' on the surrounding grounds. Visible from miles around, the statue serves as a beloved spiritual pilgrimage destination in the Ozarks.",
+      "image": "",
+      "official_url": "https://www.greatpassionplay.org",
+      "notes": "935 Passion Play Rd, Eureka Springs, AR 72632. ~60 mi from Branson MO, ~70 min drive. Open daily 8am–8pm (11pm on Passion Play performance nights). Free admission.",
+      "tags": [
+        "religious",
+        "spiritual",
+        "outdoor",
+        "free",
+        "day-trip"
+      ],
+      "sort_key": "christ of the ozarks",
+      "visible": true
+    },
+    {
+      "slug": "sdc-christmas-shop",
+      "name": "The Christmas Shop (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Year-round Christmas ornament and holiday décor shop inside SDC. SDC-exclusive ornaments, keepsakes, and handmade decorations.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "kid-focused"
+      ],
+      "sort_key": "christmas shop (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-claires",
+      "name": "Claire's (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Claire's at Branson Landing with jewelry, accessories, and ear piercing. A must-stop for the younger girls.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "kid-focused"
+      ],
+      "sort_key": "claire's (branson landing)",
       "visible": true
     },
     {
@@ -1628,6 +2708,73 @@
       "visible": true
     },
     {
+      "slug": "clinton-house-museum",
+      "name": "Clinton House Museum",
+      "category": "attraction",
+      "price_adult": 10.0,
+      "duration_hours": 1,
+      "rating": 4.3,
+      "description": "The historic Fayetteville home where Bill and Hillary Clinton married in 1975 and began their political careers. A 1931 Tudor-revival cottage filled with memorabilia from Clinton's early Arkansas campaigns. Exhibits chronicle the couple's rise from Fayetteville law professors to the White House, with personal artifacts and photographs from their time in this home.",
+      "image": "",
+      "official_url": "https://www.clintonhousemuseum.org/",
+      "notes": "930 W Clinton Dr, Fayetteville AR 72701. ~105 miles south of Branson (~2 hr drive). Open Wed-Sun 10am-4pm. Small admission fee (~$10). Pairs well with Crystal Bridges or The Momentary on a Fayetteville/Bentonville day trip.",
+      "tags": [
+        "history",
+        "educational",
+        "indoor",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "clinton house museum",
+      "visible": true
+    },
+    {
+      "slug": "tanger-coach",
+      "name": "Coach Factory Store (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Coach Factory Store at Tanger Outlets offering handbags, wallets, and accessories at outlet prices. Full selection of classic and modern Coach leather goods.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "date-night"
+      ],
+      "sort_key": "coach factory store (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-cobbler-stand",
+      "name": "Cobbler & Ice Cream Stand (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Fresh fruit cobbler -- peach, apple, berry -- served warm with hand-dipped ice cream.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food",
+        "kid-focused"
+      ],
+      "sort_key": "cobbler & ice cream stand (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "comedy-jamboree",
       "name": "Comedy Jamboree",
       "category": "family",
@@ -1754,6 +2901,53 @@
         "classified": "2026-04-21"
       },
       "sort_key": "coral reef mini golf",
+      "visible": true
+    },
+    {
+      "slug": "cosmic-cavern",
+      "name": "Cosmic Cavern",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1.5,
+      "rating": 4.5,
+      "description": "Arkansas's largest privately owned show cave, located 30 minutes south of Branson near Berryville, featuring the longest known soda straw formation in the Ozarks at 9 feet and two bottomless underground lakes. The pristine North Lake Passage, discovered in 1993, showcases translucent formations in an untouched environment maintained at a constant 64 degrees year-round. Tour duration approximately 80 minutes.",
+      "image": "",
+      "official_url": "https://www.cosmiccavern.com",
+      "notes": "6386 AR-21, Berryville, AR 72616. ~32 mi from Branson MO, ~40 min drive via US-62. Adult admission prices not listed online; contact 870-749-2298.",
+      "tags": [
+        "nature",
+        "educational",
+        "indoor",
+        "family",
+        "1-2hr"
+      ],
+      "sort_key": "cosmic cavern",
+      "visible": true
+    },
+    {
+      "slug": "crystal-bridges",
+      "name": "Crystal Bridges Museum of American Art",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.9,
+      "description": "World-class art museum in Bentonville, Arkansas, founded by the Walton family. General admission is free. Houses American masterworks spanning five centuries alongside Moshe Safdie's stunning architecture -- and includes a relocated Frank Lloyd Wright-designed house (Bachman-Wilson House, 1954) on the grounds. 600+ acres of trails connect indoor galleries to outdoor sculpture. Special exhibitions may require separate tickets. One of the great art museums in the country -- rivals any major city institution.",
+      "image": "assets/thumbs/crystal-bridges-thumb.jpg",
+      "official_url": "https://www.crystalbridges.org/",
+      "notes": "600 Museum Way, Bentonville AR. About 110 miles south of Branson (~2 hr drive). Free general admission. Open Wed-Mon (closed Tuesdays). Check calendar for special exhibitions. Pairs well with The Momentary (same campus family).",
+      "tags": [
+        "free",
+        "art",
+        "educational",
+        "family",
+        "date-night",
+        "indoor",
+        "outdoor",
+        "relaxed",
+        "day-trip",
+        "all-day"
+      ],
+      "sort_key": "crystal bridges museum of american art",
       "visible": true
     },
     {
@@ -1903,6 +3097,29 @@
       "visible": true
     },
     {
+      "slug": "sdc-dazzle-glass",
+      "name": "Dazzle Glass Studio (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Working hot glass studio with master glassblowers demonstrating the art of lampworking and glassblowing live. Handmade ornaments, sculptures, and art glass for sale. One of SDC's most unique artisan experiences.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts"
+      ],
+      "sort_key": "dazzle glass studio (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "dean-z-the-ultimate-elvis",
       "name": "Dean Z - The Ultimate Elvis",
       "category": "show",
@@ -1951,6 +3168,142 @@
         "classified": "2026-04-21"
       },
       "sort_key": "dean z - the ultimate elvis",
+      "visible": true
+    },
+    {
+      "slug": "dickerson-park-zoo",
+      "name": "Dickerson Park Zoo",
+      "category": "attraction",
+      "price_adult": 19.0,
+      "duration_hours": 3,
+      "rating": 4.0,
+      "description": "A beloved Springfield institution featuring over 500 animals from different corners of the world, with interactive experiences including giraffe feeding, a petting zoo, and miniature train rides. The zoo emphasizes connecting visitors with wildlife to inspire curiosity and conservation action through engaging educational programs for all ages. Open daily 9am–5pm.",
+      "image": "",
+      "official_url": "https://www.dickersonparkzoo.org",
+      "notes": "3043 North Fort, Springfield, MO 65803. ~50 mi from Branson MO, ~55 min drive. Adult admission $19; open 9am–5pm daily.",
+      "tags": [
+        "animals",
+        "family",
+        "outdoor",
+        "educational",
+        "2-3hr",
+        "day-trip"
+      ],
+      "sort_key": "dickerson park zoo",
+      "visible": true
+    },
+    {
+      "slug": "dickson-dickson-street-ballroom",
+      "name": "Dickson Street Ballroom (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.2,
+      "description": "Multi-room music and event venue with rotating DJs, live bands, and a large dance floor. Popular evening spot.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "date-night",
+        "music"
+      ],
+      "sort_key": "dickson street ballroom (dickson st)",
+      "visible": true
+    },
+    {
+      "slug": "dickson-dickson-street-bookshop",
+      "name": "Dickson Street Bookshop (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.7,
+      "description": "Beloved independent used bookstore crammed floor to ceiling with thousands of used paperbacks and hardcovers. Cash-only. A true literary treasure hunt.",
+      "image": "",
+      "official_url": "https://www.dicksonstreetbookshop.com",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "art"
+      ],
+      "sort_key": "dickson street bookshop (dickson st)",
+      "visible": true
+    },
+    {
+      "slug": "dickson-street-fayetteville",
+      "name": "Dickson Street, Fayetteville",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.5,
+      "description": "Fayetteville's main entertainment and shopping strip, anchored by the University of Arkansas. Dickson Street is lined with independent bookstores (Nightbird Books), vintage clothing shops, record stores, boutiques, and bars. The Fayetteville Farmers Market (one of Arkansas's largest) runs on the downtown square on Saturdays. A genuine college-town main street with strong local independent culture.",
+      "image": "",
+      "official_url": "https://www.experiencefayetteville.com/things-to-do/",
+      "notes": "Dickson St, Fayetteville AR 72701. ~105 miles south of Branson (~2 hr drive). Free to explore. Most shops open 11am-6pm. Fayetteville Farmers Market on the downtown square Sat 7am-2pm (May-Nov). Pairs well with Walton Arts Center or Crystal Bridges.",
+      "tags": [
+        "free",
+        "shopping",
+        "art",
+        "family",
+        "outdoor",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "dickson street, fayetteville",
+      "visible": true
+    },
+    {
+      "slug": "discovery-center-springfield",
+      "name": "Discovery Center of Springfield",
+      "category": "attraction",
+      "price_adult": 17.0,
+      "duration_hours": 3,
+      "rating": 4.5,
+      "description": "Springfield's hands-on science center features 60,000 square feet of interactive exhibits across 6 floors including the largest collection of giant animatronic dinosaurs in the Midwest, a real Merlin aircraft cockpit, the HighWire Bike, a LEGO Brickyard, and the only Lu Digital Interactive Playground open to the public in North America. A genuine full-afternoon destination for kids and curious adults.",
+      "image": "",
+      "official_url": "https://www.discoverycenter.org/",
+      "notes": "438 E St Louis St, Springfield MO 65806. ~45 miles north of Branson (~45 min drive). Adults $17, Children 3-15 $12, Under 2 free. Open Tue-Sun 10am-5pm, closed Mondays. Closed Memorial Day (May 25).",
+      "tags": [
+        "educational",
+        "family",
+        "kid-focused",
+        "indoor",
+        "active",
+        "day-trip",
+        "2-3hr"
+      ],
+      "sort_key": "discovery center of springfield",
+      "visible": true
+    },
+    {
+      "slug": "dogwood-canyon",
+      "name": "Dogwood Canyon Nature Park",
+      "category": "attraction",
+      "price_adult": 19.95,
+      "duration_hours": 4,
+      "rating": 4.8,
+      "description": "A stunning 10,000-acre nature park in Lampe, Missouri -- practically next door to Branson at just 25 miles. Features towering canyon walls, crystal-clear streams, waterfalls, and abundant wildlife. Activities include tram tours through the canyon, trout fishing, horseback trail rides, hiking and biking trails, and the historic Mill. Park admission includes trails, the Nature & Conservation Center, and the Treehouse Masters treehouse. Reserve tram tours and activities in advance.",
+      "image": "assets/thumbs/dogwood-canyon-thumb.jpg",
+      "official_url": "https://www.dogwoodcanyon.org/",
+      "notes": "2038 W State Hwy 86, Lampe MO. About 25 miles from Branson (~30 min drive). Open daily 9am-5pm. Admission pricing varies by day (pick-a-day model -- book earlier = cheaper). Tram tours, horseback riding, and fishing require separate activity tickets. Reserve in advance -- can sell out. Limited cell service on property.",
+      "tags": [
+        "outdoor",
+        "active",
+        "animals",
+        "family",
+        "kid-focused",
+        "nature",
+        "relaxed",
+        "1-2hr",
+        "all-day",
+        "hiking"
+      ],
+      "sort_key": "dogwood canyon nature park",
       "visible": true
     },
     {
@@ -2156,6 +3509,54 @@
       "visible": true
     },
     {
+      "slug": "downtown-bentonville-shops",
+      "name": "Downtown Bentonville Shops",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.6,
+      "description": "Downtown Bentonville has transformed into one of the most vibrant small-city shopping districts in the South, centered on the historic town square. Features locally owned boutiques (All Things Kindred, Beautiful Lives, Bella Emilia), the Bentonville Mercantile, a vinyl record shop (Block Street Records), bike shops, art galleries, specialty food, and local makers. The farmers market runs on the square every Tuesday and Saturday.",
+      "image": "",
+      "official_url": "https://downtownbentonville.org/",
+      "notes": "Town Square, Bentonville AR 72712. ~100 miles south of Branson (~2 hr drive). Free to explore. Most shops open Mon-Sat 10am-6pm. Farmers Market on the square Tue and Sat mornings. Pairs perfectly with Crystal Bridges (0.5 miles away).",
+      "tags": [
+        "free",
+        "shopping",
+        "art",
+        "family",
+        "outdoor",
+        "relaxed",
+        "day-trip",
+        "1-2hr",
+        "at-downtown-bentonville"
+      ],
+      "sort_key": "downtown bentonville shops",
+      "visible": true
+    },
+    {
+      "slug": "downtown-branson-historic-district",
+      "name": "Downtown Branson Historic District",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.4,
+      "description": "Historic downtown Branson on Commercial Street is the original heart of the city, lined with antique shops, vintage stores, local boutiques, candy shops, and fudge makers. Far removed from the Hwy 76 strip crowds, it retains genuine small-town Ozark charm. The Branson City Hall, old railroad depot, and century-old storefronts create a walkable browsing experience.",
+      "image": "",
+      "official_url": "https://www.downtownbranson.com/",
+      "notes": "Commercial St, downtown Branson MO 65616. ~5 min drive from Branson Landing. Free to explore. Most shops open 10am-5pm. Antique and vintage focus. Much quieter than Hwy 76 -- ideal for a slower-paced morning browse.",
+      "tags": [
+        "free",
+        "shopping",
+        "history",
+        "family",
+        "relaxed",
+        "outdoor",
+        "1-2hr"
+      ],
+      "sort_key": "downtown branson historic district",
+      "visible": true
+    },
+    {
       "slug": "dublin-s-irish-tenors-the-celtic-ladies",
       "name": "Dublin's Irish Tenors & The Celtic Ladies",
       "category": "show",
@@ -2215,7 +3616,7 @@
       "rating": 4.5,
       "description": "From branson.com source: The Duttons",
       "image": "assets/thumbs/the-duttons-thumb.jpg",
-      "official_url": "https://media.branson.com/images/bcom/shows/duttons",
+      "official_url": "https://www.branson.com/shows/duttons/",
       "notes": "Thumbnail from source HTML div. Added during full parse.",
       "tags": [
         "1-2hr",
@@ -2249,6 +3650,302 @@
         "classified": "2026-04-21"
       },
       "sort_key": "duttons",
+      "visible": true
+    },
+    {
+      "slug": "eureka-springs-north-arkansas-railway",
+      "name": "Eureka Springs & North Arkansas Railway",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2,
+      "rating": 4.5,
+      "description": "A historic excursion railway stepping passengers back in time aboard 1940s-era diesel locomotives through the scenic Ozark landscape. The railway features stationary steam exhibits, demonstrations of authentic railroad equipment including a working turntable, and dining excursions aboard the Eurekan Dining Car. Season runs April through October with special holiday runs.",
+      "image": "",
+      "official_url": "https://www.esnarailway.com",
+      "notes": "299 North Main Street, Eureka Springs, AR 72632. ~60 mi from Branson MO, ~70 min drive. Depot opens 9:30am. Season: April–October. Adult prices not listed online; contact 479-253-9623.",
+      "tags": [
+        "history",
+        "outdoor",
+        "family",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "eureka springs & north arkansas railway",
+      "visible": true
+    },
+    {
+      "slug": "eureka-springs-art-galleries",
+      "name": "Eureka Springs Art Galleries",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.6,
+      "description": "With 300 working artists in a town of 2,000, Eureka Springs has one of the highest concentrations of working artists per capita in the US. Galleries line Spring Street, Main Street, and the surrounding Victorian blocks -- featuring paintings, sculpture, ceramics, photography, blown glass, and mixed media. All original works by Arkansas artists. Many galleries offer studio visits by appointment.",
+      "image": "",
+      "official_url": "https://eurekasprings.org/things-to-do/shops-galleries/",
+      "notes": "Throughout downtown Eureka Springs AR. ~60 miles south of Branson (~1 hr drive). Free to browse galleries. Most open 10am-5pm daily in season. Spring Street and Center Street have the highest gallery concentration. No cover charge -- just walk in.",
+      "tags": [
+        "free",
+        "art",
+        "educational",
+        "relaxed",
+        "date-night",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "eureka springs art galleries",
+      "visible": true
+    },
+    {
+      "slug": "eureka-springs-dinner-train",
+      "name": "Eureka Springs Dinner Train",
+      "category": "show",
+      "price_adult": 65.0,
+      "family_pass": null,
+      "duration_hours": 2,
+      "rating": 4.7,
+      "description": "Dine in 1920s-style luxury aboard the Eureka Springs & North Arkansas Railway's elegant dining car as a vintage 1940s diesel locomotive winds through the Ozark hills. Specially prepared cuisine is served as the clickety-clack takes you back in time. Also offers excursion and lunch train options on the same historic line, which features a working turntable and steam locomotive exhibits at the depot.",
+      "image": "",
+      "official_url": "https://www.esnarailway.com/",
+      "notes": "299 N Main St (Hwy 23 N), Eureka Springs AR 72632. ~60 miles south of Branson (~1 hr drive). Call 479-253-9623. 2026 season: open Tue, Wed, Fri, Sat from May 9; open Memorial Day Sunday May 24. Depot opens at 9:30am. Reservations required for dinner train.",
+      "tags": [
+        "date-night",
+        "history",
+        "family",
+        "indoor",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "eureka springs dinner train",
+      "visible": true
+    },
+    {
+      "slug": "eureka-springs-downtown-shops",
+      "name": "Eureka Springs Downtown Shopping District",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.7,
+      "description": "One of the most unique shopping experiences in the Ozarks -- Eureka Springs' entire downtown is a National Historic District with no chain stores, no malls, and no big-box retailers. Shop for kites and kaleidoscopes, hand-poured candles, locally made hot sauce, fresh herbs, handwoven quilts, antique furniture, log furniture, artisan jewelry, and handmade crafts -- all in Victorian buildings on steep, winding streets. With 300 working artists among 2,000 residents, the galleries are consistently exceptional.",
+      "image": "",
+      "official_url": "https://eurekasprings.org/things-to-do/shops-galleries/",
+      "notes": "Downtown Eureka Springs AR 72632. ~60 miles south of Branson (~1 hr drive). Free to explore. Most shops open 10am-5pm. Use the trolley to navigate the steep streets. No chain stores -- everything is local, artisan, or antique.",
+      "tags": [
+        "free",
+        "shopping",
+        "art",
+        "history",
+        "family",
+        "outdoor",
+        "relaxed",
+        "day-trip",
+        "2-3hr"
+      ],
+      "sort_key": "eureka springs downtown shopping district",
+      "visible": true
+    },
+    {
+      "slug": "eureka-springs-historical-museum",
+      "name": "Eureka Springs Historical Museum",
+      "category": "attraction",
+      "price_adult": 5.0,
+      "duration_hours": 1.0,
+      "rating": 4.0,
+      "description": "Named USA Today's 4th Best Small Town Museum, this award-winning institution guides visitors through the fascinating history of Eureka Springs from indigenous heritage and pioneer experiences through Victorian-era development as a health resort and the city's modern artistic renaissance. The self-guided tour also operates as an official visitor center with maps and regional travel information.",
+      "image": "",
+      "official_url": "https://eshmuseum.org",
+      "notes": "95 S. Main Street, Eureka Springs, AR 72632. ~60 mi from Branson MO, ~70 min drive. Adult admission $5. Open 9:30am–4pm; closed Sunday and Wednesday.",
+      "tags": [
+        "history",
+        "educational",
+        "indoor",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "eureka springs historical museum",
+      "visible": true
+    },
+    {
+      "slug": "eureka-springs-may-festival-arts",
+      "name": "Eureka Springs May Festival of the Arts",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.6,
+      "description": "An annual arts celebration in downtown Eureka Springs throughout May, featuring gallery exhibitions, live music at Basin Spring Park, juried art sales, and street performers. Local and regional artists display and sell original works throughout the month. The Basin Park Concert Series runs concurrent with the festival on Saturdays. Specifically during your May 22-29 trip window.",
+      "image": "",
+      "official_url": "https://eurekasprings.org/things-to-do/",
+      "notes": "Downtown Eureka Springs AR. ~60 miles south of Branson (~1 hr drive). Free to attend. Runs throughout May including your trip window (May 22-29). Basin Park Concert Series every Saturday. The entire downtown is alive during May Festival.",
+      "tags": [
+        "free",
+        "art",
+        "music",
+        "outdoor",
+        "family",
+        "day-trip",
+        "2-3hr"
+      ],
+      "sort_key": "eureka springs may festival of the arts",
+      "visible": true
+    },
+    {
+      "slug": "eureka-springs-trolley",
+      "name": "Eureka Springs Trolley",
+      "category": "attraction",
+      "price_adult": 10.0,
+      "duration_hours": 1,
+      "rating": 4.5,
+      "description": "The beloved narrated trolley tour of Eureka Springs -- one of the most charming ways to see the entire Victorian city without worrying about Eureka's notoriously steep and winding streets. Color-coded routes cover historic downtown, the Crescent Hotel, the Great Passion Play grounds, residential neighborhoods, and scenic overlooks. All-day passes let you hop on and off at any stop.",
+      "image": "",
+      "official_url": "https://eurekaspringsar.gov/",
+      "notes": "Multiple stops throughout Eureka Springs AR. ~60 miles south of Branson (~1 hr drive). All-day pass ~$10. Trolleys run regularly during daylight hours in season. Best way to navigate Eureka Springs without driving the steep streets. Check schedule at city website.",
+      "tags": [
+        "history",
+        "educational",
+        "family",
+        "relaxed",
+        "day-trip",
+        "1-2hr",
+        "outdoor"
+      ],
+      "sort_key": "eureka springs trolley",
+      "visible": true
+    },
+    {
+      "slug": "fantastic-caverns",
+      "name": "Fantastic Caverns",
+      "category": "attraction",
+      "price_adult": 36.0,
+      "duration_hours": 1.0,
+      "rating": 4.5,
+      "description": "America's only ride-through cave, where visitors board jeep-drawn trams to explore massive natural chambers without ever leaving their seats. Missouri's most unique underground attraction maintains a comfortable 60-degree temperature year-round and features dramatic stalactite and stalagmite formations developed over millions of years.",
+      "image": "",
+      "official_url": "https://www.missouriscave.com",
+      "notes": "4872 North Farm Road 125, Springfield, MO 65803. ~50 mi from Branson MO, ~60 min drive. Adult admission $36.",
+      "tags": [
+        "nature",
+        "educational",
+        "family",
+        "indoor",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "fantastic caverns",
+      "visible": true
+    },
+    {
+      "slug": "fayetteville-arts-district",
+      "name": "Fayetteville Arts District",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.6,
+      "description": "Northwest Arkansas's thriving arts scene centers on Fayetteville and Bentonville. The Walton Arts Center hosts Broadway tours and major concerts. Crystal Bridges Museum and The Momentary anchor world-class visual arts. The Fayetteville Dickson Street corridor offers galleries, live music venues, and the University of Arkansas performing arts facilities -- all within a short walk of each other.",
+      "image": "",
+      "official_url": "https://www.experiencefayetteville.com/",
+      "notes": "Dickson St corridor, Fayetteville AR 72701. ~105 miles south of Branson (~2 hr drive). Free to explore the district. Walton Arts Center tickets vary by show. Best paired with Crystal Bridges and The Momentary on a full NWA day trip.",
+      "tags": [
+        "art",
+        "educational",
+        "indoor",
+        "relaxed",
+        "family",
+        "day-trip",
+        "1-2hr",
+        "free"
+      ],
+      "sort_key": "fayetteville arts district",
+      "visible": true
+    },
+    {
+      "slug": "finley-farms",
+      "name": "Finley Farms",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.5,
+      "description": "A working farm, market, and event venue near Ozark, Missouri that combines local farm products with a specialty retail and dining experience. Finley Farms sells fresh produce, locally raised meats, artisan cheeses, preserves, and Ozark honey alongside a farm-to-table restaurant. One of the 'day trip' recommendations from Big Cedar Lodge itself.",
+      "image": "",
+      "official_url": "https://www.finleyfarms.com/",
+      "notes": "1559 W Finley Farms Ln, Ozark MO 65721. ~35 miles northeast of Branson (~35 min drive). Free to visit the market. Restaurant on site. Open Wed-Sun. Check finleyfarms.com for current hours and seasonal availability.",
+      "tags": [
+        "free",
+        "shopping",
+        "outdoor",
+        "family",
+        "educational",
+        "relaxed",
+        "nature",
+        "1-2hr"
+      ],
+      "sort_key": "finley farms",
+      "visible": true
+    },
+    {
+      "slug": "sdc-florentinas",
+      "name": "Florentina's Ristorante Italiano (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Italian restaurant inside SDC with pasta, pizza, and Italian entrees. Good dinner option for those wanting something different.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food"
+      ],
+      "sort_key": "florentina's ristorante italiano (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-francescas",
+      "name": "Francesca's (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Francesca's boutique at Branson Landing with women's clothing, jewelry, accessories, and gifts at approachable prices.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "date-night"
+      ],
+      "sort_key": "francesca's (branson landing)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-fred-smokehouse",
+      "name": "Fred's Old Southern Bar-B-Que (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "SDC's dedicated BBQ restaurant with slow-smoked meats, beans, coleslaw, and cornbread.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food"
+      ],
+      "sort_key": "fred's old southern bar-b-que (silver dollar city)",
       "visible": true
     },
     {
@@ -2292,6 +3989,50 @@
         "classified": "2026-04-21"
       },
       "sort_key": "fritz's adventure",
+      "visible": true
+    },
+    {
+      "slug": "fun-mountain-big-cedar",
+      "name": "Fun Mountain at Big Cedar",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2,
+      "rating": 4.4,
+      "description": "An outdoor activity complex at Big Cedar Lodge on Table Rock Lake featuring water slides, a lazy river, pools, mini golf, and lawn games. Open seasonally in summer. A great option for families already visiting the Big Cedar area who want a full afternoon of outdoor water fun without driving back to Branson.",
+      "image": "",
+      "official_url": "https://www.bigcedar.com/things-to-do/",
+      "notes": "Big Cedar Lodge, 612 Devil's Pool Rd, Ridgedale MO 65739. ~10 miles south of Branson (~15 min drive). Seasonal operation (summer months). Day pass pricing varies -- check bigcedar.com. Adjacent to Top of the Rock and Long Creek Marina.",
+      "tags": [
+        "active",
+        "water",
+        "family",
+        "kid-focused",
+        "outdoor",
+        "1-2hr"
+      ],
+      "sort_key": "fun mountain at big cedar",
+      "visible": true
+    },
+    {
+      "slug": "tanger-gap",
+      "name": "Gap Factory (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Gap Factory Store with outlet pricing on casual apparel, denim, and basics for all ages. Great stop for kids and adults.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "gap factory (tanger outlets)",
       "visible": true
     },
     {
@@ -2533,6 +4274,70 @@
       "visible": true
     },
     {
+      "slug": "george-washington-carver-national-monument",
+      "name": "George Washington Carver National Monument",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.5,
+      "rating": 4.5,
+      "description": "The birthplace and childhood home of George Washington Carver, celebrating the life of the renowned agricultural scientist, educator, and humanitarian who began as a 'Plant Doctor' tending a secret garden on a 19th-century Missouri farm. Visitors explore the museum, discovery area, and original farm grounds while learning about Carver's extraordinary contributions to American agriculture and science.",
+      "image": "",
+      "official_url": "https://www.nps.gov/gwca/index.htm",
+      "notes": "5646 Carver Road, Diamond, MO 64840. ~75 mi from Branson MO, ~85 min drive. Free admission. Contact 417-325-4151.",
+      "tags": [
+        "history",
+        "educational",
+        "outdoor",
+        "free",
+        "1-2hr"
+      ],
+      "sort_key": "george washington carver national monument",
+      "visible": true
+    },
+    {
+      "slug": "dickson-georges-majestic-lounge",
+      "name": "George's Majestic Lounge (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.6,
+      "description": "Fayetteville's legendary live music venue and bar on Dickson Street, open since 1927. Multiple stages with local and touring acts nightly. One of the best live music bars in the region.",
+      "image": "",
+      "official_url": "https://georgesmajesticlounge.com",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "date-night",
+        "music"
+      ],
+      "sort_key": "george's majestic lounge (dickson st)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-turkey-leg-cart",
+      "name": "Giant Smoked Turkey Legs (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Iconic giant smoked turkey legs sold by carts throughout Silver Dollar City. A theme park tradition everyone in the group will try.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food"
+      ],
+      "sort_key": "giant smoked turkey legs (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "golden-sounds-of-the-platters",
       "name": "Golden Sounds of the Platters",
       "category": "show",
@@ -2633,6 +4438,183 @@
       "visible": true
     },
     {
+      "slug": "grand-village-shops",
+      "name": "Grand Village Shops",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.6,
+      "description": "Branson's award-winning boutique shopping village featuring locally owned shops, specialty boutiques, and gift stores in an outdoor village setting. Home to Kringles (Missouri's largest Christmas store), Mulberry Mill (gourmet foods and decor), Sugar Leaf Bakery, and other local favorites. Winner of Best of Branson 2024 and Best of SWMO 2025.",
+      "image": "",
+      "official_url": "https://www.grandvillageshops.com/",
+      "notes": "2800 W Hwy 76, Branson MO 65616. On the Branson entertainment strip. Free to visit. Open daily. All locally owned shops -- no chain stores. Kringles alone is worth a visit year-round. Sugar Leaf Bakery serves fresh pastries.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "relaxed",
+        "indoor",
+        "1-2hr"
+      ],
+      "sort_key": "grand village shops",
+      "visible": true
+    },
+    {
+      "slug": "great-passion-play",
+      "name": "The Great Passion Play",
+      "category": "show",
+      "duration_hours": 2,
+      "price_adult": 21.95,
+      "family_pass": null,
+      "rating": 4.6,
+      "description": "The largest outdoor drama in the United States, performed in a massive outdoor amphitheater in Eureka Springs, Arkansas. Depicts the last week of Jesus' life with a cast of hundreds, live animals, and elaborate sets. Beyond the play itself, the grounds include the Christ of the Ozarks statue, a Holy Land walking tour, Bible Museum, Sacred Arts Museum, and History Museum -- many free to explore. Runs seasonally spring through fall.",
+      "image": "assets/thumbs/great-passion-play-thumb.jpg",
+      "official_url": "https://greatpassionplay.org/",
+      "notes": "4040 Passion Play Rd, Eureka Springs AR. About 60 miles south of Branson (~1 hr drive). Check 2026 season schedule at greatpassionplay.org for May performance dates and times. Call 479-253-9200. Grounds attractions partially free.",
+      "tags": [
+        "outdoor",
+        "spiritual",
+        "drama",
+        "educational",
+        "family",
+        "date-night",
+        "day-trip",
+        "1-2hr",
+        "religious"
+      ],
+      "sort_key": "great passion play",
+      "visible": true
+    },
+    {
+      "slug": "tanger-guess",
+      "name": "GUESS Factory Store (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "GUESS Factory Store with outlet deals on denim, casual wear, and accessories with the signature GUESS aesthetic.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "teen"
+      ],
+      "sort_key": "guess factory store (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "dickson-gusanos-pizza",
+      "name": "Gusano's Chicago Style Pizzeria (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.4,
+      "description": "Chicago-style deep dish and tavern-cut pizza. Popular late-night spot with a full bar.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "gusano's chicago style pizzeria (dickson st)",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-h-and-m",
+      "name": "H&M (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "H&M at Branson Landing offering affordable fashion for men, women, and kids.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "kid-focused"
+      ],
+      "sort_key": "h&m (branson landing)",
+      "visible": true
+    },
+    {
+      "slug": "ha-ha-tonka-state-park",
+      "name": "Ha Ha Tonka State Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.5,
+      "description": "A stunning Missouri state park featuring the picturesque ruins of a turn-of-the-century stone castle perched above the Lake of the Ozarks, offering impressive views of the lake and the brilliant blue Ha Ha Tonka Spring. Trails and boardwalks explore diverse geological formations including sinkholes, caves, and a natural bridge, with activities including hiking, fishing, boating, kayaking, and picnicking.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/ha-ha-tonka-state-park",
+      "notes": "1491 State Road D, Camdenton, MO 65020. ~82 mi from Branson MO, ~90 min drive. Free admission; camping fees apply.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "hiking",
+        "history",
+        "architecture",
+        "free",
+        "all-day",
+        "day-trip"
+      ],
+      "sort_key": "ha ha tonka state park",
+      "visible": true
+    },
+    {
+      "slug": "tanger-hallmark",
+      "name": "Hallmark Gold Crown (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Hallmark Gold Crown store for greeting cards, gifts, Keepsake ornaments, and seasonal items.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "hallmark gold crown (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "dickson-hammontrees",
+      "name": "Hammontree's Grilled Cheese (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.6,
+      "description": "Artisan grilled cheese sandwich shop with creative combinations, homemade soups, and local ingredients. A Fayetteville cult favorite.",
+      "image": "",
+      "official_url": "https://hammontreescheese.com",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "hammontree's grilled cheese (dickson st)",
+      "visible": true
+    },
+    {
       "slug": "hamners-unbelievable-variety-show",
       "name": "Hamners' Unbelievable Variety Show",
       "category": "family",
@@ -2730,7 +4712,7 @@
       "rating": 4.5,
       "description": "From branson.com source: The Haygoods",
       "image": "assets/thumbs/the-haygoods-thumb.jpg",
-      "official_url": "https://media.branson.com/images/bcom/shows/haygoods",
+      "official_url": "https://www.branson.com/shows/haygoods/",
       "notes": "Thumbnail from source HTML div. Added during full parse.",
       "tags": [
         "1-2hr",
@@ -2822,6 +4804,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "heatherlys hits on route 66",
+      "visible": true
+    },
+    {
+      "slug": "history-museum-on-the-square",
+      "name": "History Museum on the Square",
+      "category": "attraction",
+      "price_adult": 16.0,
+      "duration_hours": 1.5,
+      "rating": 4.0,
+      "description": "Named USA Today's 4th Best Small Town Museum, this award-winning Springfield institution features eight interactive galleries exploring regional American history from the Civil War to Route 66. Highlights include a Wild Bill Hickok shootout reenactment, restored vintage vehicles, and exhibits celebrating Springfield as the birthplace of Route 66.",
+      "image": "",
+      "official_url": "https://www.historymuseumonthesquare.org",
+      "notes": "154 Park Central Square, Springfield, MO 65806. ~50 mi from Branson MO, ~55 min drive. Adult admission $16.",
+      "tags": [
+        "history",
+        "educational",
+        "indoor",
+        "family",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "history museum on the square",
       "visible": true
     },
     {
@@ -2929,7 +4933,7 @@
       "rating": 4.5,
       "description": "From branson.com source: Hughes Brothers Country Show",
       "image": "assets/thumbs/hughes-brothers-country-show-thumb.jpg",
-      "official_url": "https://media.branson.com/images/bcom/shows/hughes-brothers-country-show",
+      "official_url": "https://www.branson.com/shows/hughes-brothers-country-show/",
       "notes": "Thumbnail from source HTML div. Added during full parse.",
       "tags": [
         "1-2hr",
@@ -2977,7 +4981,7 @@
       "rating": 4.5,
       "description": "From branson.com source: Hughes Music Show",
       "image": "assets/thumbs/hughes-music-show-thumb.jpg",
-      "official_url": "https://media.branson.com/images/bcom/shows/hughes-music-show",
+      "official_url": "https://www.branson.com/shows/hughes-music-show/",
       "notes": "Thumbnail from source HTML div. Added during full parse.",
       "tags": [
         "1-2hr",
@@ -3019,6 +5023,26 @@
         "classified": "2026-04-21"
       },
       "sort_key": "hughes music show",
+      "visible": true
+    },
+    {
+      "slug": "dickson-hugos",
+      "name": "Hugo's (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.5,
+      "description": "A Dickson Street institution serving handcrafted burgers, sandwiches, and salads since 1977. A beloved Fayetteville landmark.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "hugo's (dickson st)",
       "visible": true
     },
     {
@@ -3167,6 +5191,27 @@
       "visible": true
     },
     {
+      "slug": "dickson-jjs-grill",
+      "name": "JJ's Grill (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.3,
+      "description": "Sports bar and grill with American pub food, burgers, wings, and multiple screens showing sports.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "date-night",
+        "specialty-food"
+      ],
+      "sort_key": "jj's grill (dickson st)",
+      "visible": true
+    },
+    {
       "slug": "joe-nichols",
       "name": "Joe Nichols",
       "category": "show",
@@ -3258,6 +5303,50 @@
         "classified": "2026-04-21"
       },
       "sort_key": "josh turner",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-justice",
+      "name": "Justice (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Justice girls' clothing and accessories boutique at Branson Landing. Tween-focused styles.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "kid-focused"
+      ],
+      "sort_key": "justice (branson landing)",
+      "visible": true
+    },
+    {
+      "slug": "tanger-justice",
+      "name": "Justice Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Justice girls' clothing and accessories outlet at Tanger. Tween-focused styles at outlet prices.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "justice outlet (tanger outlets)",
       "visible": true
     },
     {
@@ -3357,6 +5446,188 @@
       "visible": true
     },
     {
+      "slug": "tanger-kitchen-collection",
+      "name": "Kitchen Collection (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Kitchen Collection outlet store with discounted cookware, small appliances, and kitchen gadgets. Good for foodies in the group.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "specialty-food"
+      ],
+      "sort_key": "kitchen collection (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "kringles-christmas-store",
+      "name": "Kringles Christmas Store",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.7,
+      "description": "Missouri's largest Christmas store, open year-round at the Grand Village in Branson. Thousands of ornaments, themed trees, nativity scenes, and holiday decor from around the world. A must-visit for anyone who loves Christmas -- even in May. Family members have been known to spend an hour or more browsing the floor-to-ceiling displays.",
+      "image": "",
+      "official_url": "https://www.grandvillageshops.com/",
+      "notes": "2800 W Hwy 76, Branson MO 65616 (inside Grand Village Shops). Free to browse. Open daily year-round -- Christmas in May is very much a thing here. Missouri's largest Christmas shop.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "relaxed",
+        "1-2hr"
+      ],
+      "sort_key": "kringles christmas store",
+      "visible": true
+    },
+    {
+      "slug": "lady-liberty-lake-cruises",
+      "name": "Lady Liberty Lake Cruises",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1.5,
+      "rating": 4.0,
+      "description": "A custom-built 62-foot luxury yacht inspired by 1920s steamboat design, offering intimate scenic cruises on Table Rock Lake from Long Creek Marina at Big Cedar Lodge. Approximately 90 minutes of cruising with options ranging from brunch and sunset experiences to mixology classes and bourbon tastings for up to 36 guests. Open to the public and Big Cedar Lodge guests alike; reservations required.",
+      "image": "",
+      "official_url": "https://bigcedar.com/attractions/lady-liberty",
+      "notes": "Long Creek Marina, 1368 Long Creek Rd, Ridgedale, MO 65739. ~8 mi from Branson MO, ~15 min drive. Max 36 guests. Prices not listed online; call (800) 225-6343.",
+      "tags": [
+        "water",
+        "relaxed",
+        "date-night",
+        "family",
+        "1-2hr"
+      ],
+      "sort_key": "lady liberty lake cruises",
+      "visible": true
+    },
+    {
+      "slug": "lake-leatherwood-city-park",
+      "name": "Lake Leatherwood City Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.7,
+      "description": "A 1,600-acre city park surrounding a gorgeous 85-acre lake just outside downtown Eureka Springs. Home to nationally recognized mountain bike trails (the Leatherwood trail system), swimming at the lake beach, pedal boat and kayak rentals, fishing, and peaceful woodland hiking. Mountain bikers travel from across the country to ride the flowy singletrack through Ozark cedar glades.",
+      "image": "",
+      "official_url": "https://www.cityofeureka.net/",
+      "notes": "1303 CR 204, Eureka Springs AR 72632. ~60 miles south of Branson (~1 hr drive). Free park access; boat rentals and camping fees extra. Open year-round dawn to dusk. Mountain bike trails range beginner to advanced. Swimming area open seasonally.",
+      "tags": [
+        "free",
+        "outdoor",
+        "active",
+        "nature",
+        "hiking",
+        "water",
+        "family",
+        "day-trip",
+        "2-3hr"
+      ],
+      "sort_key": "lake leatherwood city park",
+      "visible": true
+    },
+    {
+      "slug": "lake-of-the-ozarks-state-park",
+      "name": "Lake of the Ozarks State Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.0,
+      "description": "The park offers water-based recreation including swimming at designated beaches, fishing for catfish and bass, and boating with rentals on the Lake of the Ozarks. Trails through woodland bluffs serve hikers, backpackers, equestrians, and bicyclists. Year-round lodging ranges from campsites to cabins and yurts for a complete outdoor getaway.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/lake-ozarks-state-park",
+      "notes": "403 Highway 134, Brumley, MO 65017. ~87 mi from Branson MO, ~95 min drive. Free day use; camping and rental fees apply.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "water",
+        "hiking",
+        "family",
+        "all-day",
+        "free",
+        "day-trip"
+      ],
+      "sort_key": "lake of the ozarks state park",
+      "visible": true
+    },
+    {
+      "slug": "lake-taneycomo",
+      "name": "Lake Taneycomo Trout Fishing",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.6,
+      "description": "Lake Taneycomo is one of America's premier trout fishing destinations, running 22 miles from Table Rock Dam directly through downtown Branson. Cold, clear water released from the bottom of Table Rock Dam creates ideal trout habitat year-round. Missouri fishing license required; multiple outfitters and guide services operate directly from the Branson waterfront. Bank fishing is free; boat and guide rentals available.",
+      "image": "",
+      "official_url": "https://mostateparks.com/lake/lake-taneycomo",
+      "notes": "Runs through downtown Branson MO. Multiple public access points including Branson City Park and Taneycomo waterfront. Missouri fishing license required (~$12 daily). Numerous guide services offer half-day and full-day trips. Best fishing in spring and fall.",
+      "tags": [
+        "free",
+        "outdoor",
+        "water",
+        "active",
+        "nature",
+        "family",
+        "relaxed",
+        "all-day"
+      ],
+      "sort_key": "lake taneycomo trout fishing",
+      "visible": true
+    },
+    {
+      "slug": "tanger-lane-bryant",
+      "name": "Lane Bryant Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Lane Bryant outlet with plus-size women's fashion at outlet prices.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "lane bryant outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-leatherworks",
+      "name": "Leatherworks (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Leather tooling and handmade leather goods shop. Belts, wallets, bags, and custom leather items made by on-site craftspeople.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts"
+      ],
+      "sort_key": "leatherworks (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "legends-in-concert",
       "name": "Legends in Concert",
       "category": "family",
@@ -3417,6 +5688,93 @@
       "visible": true
     },
     {
+      "slug": "tanger-levis",
+      "name": "Levi's Outlet Store (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Levi's Outlet Store with full selection of denim jeans, shorts, jackets, and casual apparel at outlet prices.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "levi's outlet store (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-lids",
+      "name": "Lids (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Lids at Branson Landing with MLB, NFL, NBA hats and fan gear. On-site customization available.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "kid-focused"
+      ],
+      "sort_key": "lids (branson landing)",
+      "visible": true
+    },
+    {
+      "slug": "lost-canyon-cave-nature-trail",
+      "name": "Lost Canyon Cave and Nature Trail",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.0,
+      "description": "A scenic golf cart cave tour through natural limestone formations and winding canyon trails at the Top of the Rock heritage preserve near Big Cedar Lodge. Visitors wind through dramatic underground passages and forested nature paths with views of Table Rock Lake. Friday-Sunday evening Nature at Night tours offer a moonlit canyon experience.",
+      "image": "",
+      "official_url": "https://bigcedar.com/top-of-the-rock",
+      "notes": "150 Top of the Rock Road, Ridgedale, MO 65739. ~8 mi from Branson MO, ~15 min drive. Included with Top of the Rock $10/vehicle entry. Daily 8:30am–8pm; Nature at Night Fri–Sun 7:30–9pm.",
+      "tags": [
+        "nature",
+        "outdoor",
+        "family",
+        "1-2hr",
+        "free"
+      ],
+      "sort_key": "lost canyon cave and nature trail",
+      "visible": true
+    },
+    {
+      "slug": "sdc-lumbercamp-restaurant",
+      "name": "Lumbercamp Restaurant (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Family-style all-you-can-eat buffet with chicken, BBQ, sides, and desserts. One of SDC's most popular dining stops -- arrive early.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food"
+      ],
+      "sort_key": "lumbercamp restaurant (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "malpass-brothers-friends",
       "name": "Malpass Brothers & Friends",
       "category": "show",
@@ -3463,6 +5821,52 @@
       "visible": true
     },
     {
+      "slug": "mark-twain-national-forest",
+      "name": "Mark Twain National Forest",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.5,
+      "description": "The 1.5-million-acre Mark Twain National Forest surrounds the Branson area with hundreds of miles of hiking, mountain biking, and equestrian trails, plus numerous public fishing lakes, campgrounds, and scenic drives. Portions of the forest within 30 miles of Branson include the Caney Mountain Conservation Area and Bull Creek corridor -- popular for hiking, swimming holes, and wildlife viewing.",
+      "image": "",
+      "official_url": "https://www.fs.usda.gov/mtnf",
+      "notes": "Multiple access points within 10-30 miles of Branson MO. Free access. No reservation needed for day use. Nearest trailheads off Hwy 160 and Hwy 76 corridors. Detailed trail maps at fs.usda.gov/mtnf. Missouri hunting/fishing license required for those activities.",
+      "tags": [
+        "free",
+        "outdoor",
+        "hiking",
+        "nature",
+        "active",
+        "family",
+        "all-day"
+      ],
+      "sort_key": "mark twain national forest",
+      "visible": true
+    },
+    {
+      "slug": "sdc-marvel-cave-gift-shop",
+      "name": "Marvel Cave Gift Shop (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Gift shop at the entrance to Marvel Cave featuring cave and geology-themed gifts, minerals, and SDC memorabilia.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "history",
+        "kid-focused"
+      ],
+      "sort_key": "marvel cave gift shop (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "matt-gumm-and-company",
       "name": "Matt Gumm and Company",
       "category": "show",
@@ -3505,6 +5909,26 @@
         "classified": "2026-04-21"
       },
       "sort_key": "matt gumm and company",
+      "visible": true
+    },
+    {
+      "slug": "dickson-maxines-tap-room",
+      "name": "Maxine's Tap Room (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.4,
+      "description": "Historic dive bar -- one of the oldest bars in Fayetteville. Cold beer, no frills, great atmosphere.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "date-night"
+      ],
+      "sort_key": "maxine's tap room (dickson st)",
       "visible": true
     },
     {
@@ -3600,6 +6024,75 @@
         "classified": "2026-04-21"
       },
       "sort_key": "menopause the musical",
+      "visible": true
+    },
+    {
+      "slug": "sdc-miss-lizzies",
+      "name": "Miss Lizzie's Boarding House (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Boarding house-style lunch buffet serving fried chicken, vegetables, biscuits, and pies in a family-style setting.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food"
+      ],
+      "sort_key": "miss lizzie's boarding house (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-molly-mill-restaurant",
+      "name": "Molly's Mill Restaurant (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Sit-down restaurant serving hearty Ozark-style skillet meals, chicken, and comfort food in a historic mill atmosphere.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food"
+      ],
+      "sort_key": "molly's mill restaurant (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "the-momentary",
+      "name": "The Momentary",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.7,
+      "description": "A decommissioned cheese factory turned contemporary art and music venue in downtown Bentonville, Arkansas. Satellite to Crystal Bridges. Free general admission to galleries and outdoor art. Hosts live music concerts, performance art, culinary experiences, festivals, and artist residencies. Active programming year-round -- check calendar for live events during your visit dates.",
+      "image": "assets/thumbs/the-momentary-thumb.jpg",
+      "official_url": "https://themomentary.org/",
+      "notes": "507 SE E St, Bentonville AR. About 110 miles south of Branson (~2 hr drive). Free general admission. Open Tue-Sun (Fri-Sat until 8pm, closed Mondays). Best paired with Crystal Bridges on the same day trip. Check themomentary.org/calendar for May 23-28 programming.",
+      "tags": [
+        "free",
+        "art",
+        "music",
+        "educational",
+        "family",
+        "date-night",
+        "indoor",
+        "outdoor",
+        "day-trip"
+      ],
+      "sort_key": "momentary",
       "visible": true
     },
     {
@@ -3702,6 +6195,29 @@
         "classified": "2026-04-21"
       },
       "sort_key": "mountain hollers family band",
+      "visible": true
+    },
+    {
+      "slug": "mulberry-mill-branson",
+      "name": "Mulberry Mill",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.6,
+      "description": "A beloved specialty shop at Grand Village in Branson featuring gourmet foods, home decor, kitchenware, and Ozark-inspired gifts. Known for its selection of local jams, Missouri honey, flavored oils and vinegars, specialty spices, and unique pantry items you won't find in chain stores. A favorite for edible souvenirs.",
+      "image": "",
+      "official_url": "https://www.grandvillageshops.com/",
+      "notes": "Grand Village Shops, 2800 W Hwy 76, Branson MO 65616. Free to browse. Open daily. Inside the Grand Village complex -- combine with Kringles and Sugar Leaf Bakery.",
+      "tags": [
+        "free",
+        "shopping",
+        "specialty-food",
+        "family",
+        "indoor",
+        "relaxed",
+        "1-2hr"
+      ],
+      "sort_key": "mulberry mill",
       "visible": true
     },
     {
@@ -3861,6 +6377,28 @@
       "visible": true
     },
     {
+      "slug": "tanger-new-balance",
+      "name": "New Balance Factory Store (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "New Balance Factory Store with outlet pricing on athletic and lifestyle footwear and apparel.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "active"
+      ],
+      "sort_key": "new balance factory store (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "new-jersey-nights",
       "name": "New Jersey Nights",
       "category": "show",
@@ -3963,6 +6501,70 @@
       "visible": true
     },
     {
+      "slug": "dickson-nightbird-books",
+      "name": "Nightbird Books (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.6,
+      "description": "Independent new bookstore with carefully curated selections, local author events, and a warm community bookshop atmosphere.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "art"
+      ],
+      "sort_key": "nightbird books (dickson st)",
+      "visible": true
+    },
+    {
+      "slug": "tanger-outlets-nike",
+      "name": "Nike Factory Store (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.4,
+      "description": "Nike Factory Store at Tanger Outlets Branson offering 30-50% off select Nike footwear, apparel, and accessories. Full selection of athletic wear, running shoes, and lifestyle products from Nike, Jordan, and Converse.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Thu 10am-7pm, Fri-Sat 10am-8pm, Sun 10am-6pm.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "active",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "nike factory store (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "tanger-old-navy",
+      "name": "Old Navy (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Old Navy at Tanger Outlets with everyday casual clothing for the whole family at value pricing.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "old navy (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "orbison-still",
       "name": "Orbison Still",
       "category": "show",
@@ -4061,6 +6663,31 @@
       "visible": true
     },
     {
+      "slug": "ozark-folk-center",
+      "name": "Ozark Folk Center State Park",
+      "category": "attraction",
+      "price_adult": 15.0,
+      "duration_hours": 4,
+      "rating": 4.7,
+      "description": "America's only facility dedicated to preserving and presenting traditional Ozark mountain culture. The park features live craft demonstrations (blacksmithing, pottery, weaving, woodworking), traditional Ozark music performances, and native herb gardens in Mountain View, Arkansas. One of the most unique cultural experiences in the region -- artisans demonstrate skills passed down through generations in an authentic Ozark village setting.",
+      "image": "",
+      "official_url": "https://arkansasstateparks.com/parks/ozark-folk-center-state-park",
+      "notes": "1032 Park Ave, Mountain View AR 72560. ~90 miles south of Branson (~1 hr 45 min drive). Open seasonally spring through fall. Admission ~$15 adult. On-site restaurant and cabins available. Pairs well with Blanchard Springs Caverns (10 miles away) for a full Mountain View day trip.",
+      "tags": [
+        "history",
+        "educational",
+        "art",
+        "family",
+        "outdoor",
+        "music",
+        "relaxed",
+        "day-trip",
+        "all-day"
+      ],
+      "sort_key": "ozark folk center state park",
+      "visible": true
+    },
+    {
       "slug": "ozark-hills-winery-wine-tasting",
       "name": "Ozark Hills Winery Wine Tasting",
       "category": "attraction",
@@ -4099,6 +6726,53 @@
         "classified": "2026-04-21"
       },
       "sort_key": "ozark hills winery wine tasting",
+      "visible": true
+    },
+    {
+      "slug": "ozark-mountain-country-store",
+      "name": "Ozark Mountain Country Store",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.4,
+      "description": "A classic Ozark country store experience offering locally made jams and jellies, Missouri honey, Ozark spice blends, cast iron cookware, cornmeal and flour, vintage-style candy, and handmade gifts. The kind of store that smells like wood and vanilla the moment you walk in.",
+      "image": "",
+      "official_url": "https://www.branson.com/shopping/",
+      "notes": "Branson MO area -- multiple locations and pop-up markets on Hwy 76 and downtown. Free to browse. Best found at farmers markets and along the strip.",
+      "tags": [
+        "free",
+        "shopping",
+        "specialty-food",
+        "history",
+        "family",
+        "indoor",
+        "relaxed",
+        "1-2hr"
+      ],
+      "sort_key": "ozark mountain country store",
+      "visible": true
+    },
+    {
+      "slug": "sdc-ozark-pottery",
+      "name": "Ozark Pottery (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Live wheel-throwing and hand-building pottery demonstrations by Ozark artisans. Functional and decorative pottery for sale.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts"
+      ],
+      "sort_key": "ozark pottery (silver dollar city)",
       "visible": true
     },
     {
@@ -4235,6 +6909,28 @@
       "visible": true
     },
     {
+      "slug": "branson-landing-pandora",
+      "name": "Pandora (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Pandora jewelry boutique at Branson Landing with charms, bracelets, necklaces, and rings. A classic date-night stop.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "date-night"
+      ],
+      "sort_key": "pandora (branson landing)",
+      "visible": true
+    },
+    {
       "slug": "parakeet-pete-s",
       "name": "Parakeet Pete's",
       "category": "attraction",
@@ -4319,6 +7015,48 @@
         "classified": "2026-04-21"
       },
       "sort_key": "patsy to patsy",
+      "visible": true
+    },
+    {
+      "slug": "pea-ridge-national-military-park",
+      "name": "Pea Ridge National Military Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.5,
+      "description": "A 4,400-acre Arkansas battlefield commemorating 'The Battle That Saved Missouri for The Union,' the most significant Civil War conflict west of the Mississippi River involving over 23,000 soldiers in March 1862. The park offers a driving tour through preserved battle lines and interpretive programs honoring those who fought and died in this pivotal Trans-Mississippi engagement.",
+      "image": "",
+      "official_url": "https://www.nps.gov/peri/index.htm",
+      "notes": "15930 National Park Drive, Garfield, AR 72732. ~82 mi from Branson MO, ~95 min drive. No entrance fee required. Contact 479-451-8122.",
+      "tags": [
+        "history",
+        "outdoor",
+        "educational",
+        "free",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "pea ridge national military park",
+      "visible": true
+    },
+    {
+      "slug": "dickson-penguin-eds-bbq",
+      "name": "Penguin Ed's Bar-B-Q (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.5,
+      "description": "Legendary Fayetteville BBQ joint with slow-smoked meats, homemade sauces, and classic sides.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "penguin ed's bar-b-q (dickson st)",
       "visible": true
     },
     {
@@ -4565,6 +7303,163 @@
       "visible": true
     },
     {
+      "slug": "pivot-rock-natural-bridge",
+      "name": "Pivot Rock and Natural Bridge",
+      "category": "attraction",
+      "price_adult": 3.0,
+      "duration_hours": 1,
+      "rating": 4.2,
+      "description": "One of Eureka Springs' most unusual natural curiosities -- a 10-ton boulder balanced on a rock point only 18 inches in diameter, plus a nearby natural sandstone bridge. A short self-guided walking trail connects the two formations through a peaceful Ozark woodland. One of Arkansas's oldest tourist attractions, it has been entertaining visitors since the 1890s.",
+      "image": "",
+      "official_url": "https://www.eureka-springs-arkansas.com/eureka-springs-attractions/pivot-rock-and-natural-bridge.htm",
+      "notes": "Pivot Rock Rd, Eureka Springs AR 72632. ~60 miles south of Branson (~1 hr drive). Small admission ($3). Self-guided. Easy short walk. A quirky, family-friendly detour that takes only 30-45 minutes -- pair with other Eureka Springs stops.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "family",
+        "educational",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "pivot rock and natural bridge",
+      "visible": true
+    },
+    {
+      "slug": "tanger-polo-ralph-lauren",
+      "name": "Polo Ralph Lauren Factory Store (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Polo Ralph Lauren Factory Store featuring outlet prices on polo shirts, casual wear, and accessories for the whole family.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "polo ralph lauren factory store (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "pomme-de-terre-state-park",
+      "name": "Pomme de Terre State Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.5,
+      "description": "Missouri state park on beautiful Pomme de Terre Lake offering camping, boating, fishing for muskie and bass, a beach for swimming, and extensive hiking trails. The lake is known as Missouri's muskie capital. Two developed areas -- Nemo Landing and Outlet -- provide marina access, boat rentals, and modern camping facilities.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/pomme-de-terre-state-park",
+      "notes": "HC 77, Pittsburg MO 65724. ~70 miles north of Branson (~1 hr 15 min drive). Free park entry; marina and boat rental fees extra. Open year-round. Fishing license required.",
+      "tags": [
+        "free",
+        "outdoor",
+        "water",
+        "active",
+        "family",
+        "nature",
+        "hiking",
+        "all-day",
+        "day-trip"
+      ],
+      "sort_key": "pomme de terre state park",
+      "visible": true
+    },
+    {
+      "slug": "dickson-powerhouse-seafood",
+      "name": "Powerhouse Seafood & Grill (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.4,
+      "description": "Seafood restaurant with Gulf Coast fish, shrimp, oysters, and Cajun-style dishes.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "powerhouse seafood & grill (dickson st)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-prairie-kettle-corn",
+      "name": "Prairie Kettle Corn (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Fresh-popped kettle corn cart. The sweet and salty snack is a park staple -- you'll smell it before you see it.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food",
+        "kid-focused"
+      ],
+      "sort_key": "prairie kettle corn (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "presleys-country-jubilee",
+      "name": "Presleys' Country Jubilee",
+      "category": "show",
+      "price_adult": 45.0,
+      "family_pass": null,
+      "duration_hours": 2,
+      "rating": 4.6,
+      "description": "Branson's longest-running family show since 1967, Presleys' Country Jubilee blends country, gospel, bluegrass, and hilarious comedy performed by multiple generations of the Presley family. An Ozark institution that has entertained millions over six decades -- the family who played underground caves now headlines on the famous Hwy 76 strip.",
+      "image": "",
+      "official_url": "https://www.presleys.com/",
+      "notes": "2920 W Hwy 76, Branson MO 65616. In the heart of the Branson strip. Check presleys.com for current show schedule and pricing. One of the original Branson family shows.",
+      "tags": [
+        "comedy",
+        "country",
+        "family",
+        "indoor",
+        "music",
+        "1-2hr"
+      ],
+      "sort_key": "presleys' country jubilee",
+      "visible": true
+    },
+    {
+      "slug": "pythian-castle",
+      "name": "Pythian Castle",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2,
+      "rating": 4.0,
+      "description": "A striking historic castle in Springfield built by the Knights of Pythias fraternal organization, now operating as a paranormal and entertainment destination offering ghost tours, murder mystery dinners, escape rooms, and paranormal investigations. Visitors must attend a scheduled event to access the property; advance booking is required.",
+      "image": "",
+      "official_url": "https://www.pythiancastle.com",
+      "notes": "1451 E Pythian Street, Springfield, MO 65802. ~50 mi from Branson MO, ~55 min drive. Admission fee required; ticket prices vary by event. Book via pythiancastle.com.",
+      "tags": [
+        "history",
+        "educational",
+        "indoor",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "pythian castle",
+      "visible": true
+    },
+    {
       "slug": "queens-of-soul",
       "name": "Queens of Soul",
       "category": "show",
@@ -4717,7 +7612,7 @@
       "rating": 4.5,
       "description": "From branson.com source: The Revollusionists",
       "image": "assets/thumbs/the-revollusionists-thumb.jpg",
-      "official_url": "https://media.branson.com/images/bcom/shows/the-revollusionists",
+      "official_url": "https://www.branson.com/shows/the-revollusionists/",
       "notes": "Thumbnail from source HTML div. Added during full parse.",
       "tags": [
         "1-2hr",
@@ -4941,6 +7836,53 @@
       "visible": true
     },
     {
+      "slug": "roaring-river-state-park",
+      "name": "Roaring River State Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.0,
+      "description": "A premier southwest Missouri destination in a scenic Ozark valley, renowned for blue-ribbon rainbow trout fishing in the crystal-clear Roaring River. Seven hiking trails traverse forested ridges and hollows alongside a nature center and picnic facilities. Lodging options include campsites, rustic cabins, the historic CCC Lodge, and the Emory Melton Inn with on-site dining.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/roaring-river-state-park",
+      "notes": "12716 Farm Road 2239, Cassville, MO 65625. ~35 mi from Branson MO, ~45 min drive. Free day use; trout fishing permit required for fishing.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "hiking",
+        "water",
+        "family",
+        "all-day",
+        "free"
+      ],
+      "sort_key": "roaring river state park",
+      "visible": true
+    },
+    {
+      "slug": "roaring-river-trout-hatchery",
+      "name": "Roaring River Trout Hatchery",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.3,
+      "description": "Missouri's premier trout park combines a state fish hatchery with a beautiful spring-fed river in the Ozark hills near Cassville. The hatchery raises over 300,000 rainbow trout annually and offers free self-guided tours. The park is famous for daily trout fishing starting at sunrise -- thousands of freshly stocked trout make this an ideal spot for beginners or families trying fishing for the first time.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/roaring-river-state-park",
+      "notes": "HC 2, Cassville MO 65625. ~40 miles southwest of Branson (~45 min drive). Free park entry; fishing fees apply (daily permit + trout tags). Fish hatchery tours free. Fishing typically from sunrise to 6pm daily. Missouri fishing license required. Popular -- arrive early for best spots.",
+      "tags": [
+        "free",
+        "outdoor",
+        "water",
+        "active",
+        "family",
+        "nature",
+        "educational",
+        "1-2hr"
+      ],
+      "sort_key": "roaring river trout hatchery",
+      "visible": true
+    },
+    {
       "slug": "rock-n-roll-sunrise",
       "name": "Rock N Roll Sunrise",
       "category": "show",
@@ -4993,6 +7935,52 @@
       "visible": true
     },
     {
+      "slug": "sdc-rock-shop",
+      "name": "The Rock Shop & Gem Mine (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Gem and mineral shop plus a sluicing activity where kids pan for gems, fossils, and arrowheads. One of the most popular kid activities inside SDC.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "kid-focused",
+        "active"
+      ],
+      "sort_key": "rock shop & gem mine (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "tanger-rue21",
+      "name": "rue21 Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "rue21 outlet offering trendy affordable fashion for teens and young adults. Great for Ashlyn, Mycah, Evie, and McKinley.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "teen",
+        "kid-focused"
+      ],
+      "sort_key": "rue21 outlet (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "runaway-mountain-coaster",
       "name": "Runaway Mountain Coaster",
       "category": "attraction",
@@ -5033,6 +8021,71 @@
         "classified": "2026-04-21"
       },
       "sort_key": "runaway mountain coaster",
+      "visible": true
+    },
+    {
+      "slug": "ruth-and-paul-henning-conservation-area",
+      "name": "Ruth and Paul Henning Conservation Area",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.0,
+      "description": "A 1,534-acre free conservation area on the western edge of Branson featuring 5.6 miles of hiking trails, a scenic overlook, and a lookout tower across rolling Ozark terrain of glades, oak-hickory forests, and bottomland along Roark Creek. The 3.4-mile Homesteaders Trail includes 14 interpretive stops highlighting natural and historical points of interest.",
+      "image": "",
+      "official_url": "https://mdc.mo.gov/discover-nature/places/ruth-paul-henning-conservation-area",
+      "notes": "Near intersection of Hwy 376 and 76 Country Blvd, Branson, MO. ~2 mi from Branson MO strip, ~5 min drive. Free; open daily sunrise to sunset.",
+      "tags": [
+        "hiking",
+        "nature",
+        "outdoor",
+        "free",
+        "family",
+        "1-2hr"
+      ],
+      "sort_key": "ruth and paul henning conservation area",
+      "visible": true
+    },
+    {
+      "slug": "dickson-sassy-red-house",
+      "name": "Sassy's Red House BBQ (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.4,
+      "description": "Fayetteville BBQ with smoked meats, homemade sides, and Arkansas-style sauce. Casual and family-friendly.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "sassy's red house bbq (dickson st)",
+      "visible": true
+    },
+    {
+      "slug": "amazeum",
+      "name": "Scott Family Amazeum",
+      "category": "attraction",
+      "price_adult": 17.0,
+      "duration_hours": 3,
+      "rating": 4.7,
+      "description": "Bentonville's hands-on children's museum features interactive exhibits including a Water Amazements gallery, the Nickelodeon Play Lab, Canopy Climber, an Outdoor Playscape, Art Studio, Homestead Cabin & Farm, and a Cloud Theater. The 54,000 square-foot facility invites curiosity and creativity for all ages from toddlers through adults.",
+      "image": "",
+      "official_url": "https://www.amazeum.org/",
+      "notes": "1009 Museum Way, Bentonville AR 72712. ~100 miles south of Branson (~2 hr drive). Adults and children 2+ $17, under 2 free. Open daily -- check current hours at amazeum.org. Pairs well with Crystal Bridges on a Bentonville day trip.",
+      "tags": [
+        "educational",
+        "family",
+        "kid-focused",
+        "indoor",
+        "active",
+        "day-trip",
+        "2-3hr"
+      ],
+      "sort_key": "scott family amazeum",
       "visible": true
     },
     {
@@ -5161,6 +8214,29 @@
       },
       "sort_key": "shepherd of the hills - north pole adventure",
       "visible": false
+    },
+    {
+      "slug": "shepherd-hills-adventure-park",
+      "name": "Shepherd of the Hills Adventure Park",
+      "category": "attraction",
+      "price_adult": 35.0,
+      "duration_hours": 4,
+      "rating": 4.6,
+      "description": "A multi-attraction adventure park at the historic Shepherd of the Hills Homestead featuring America's steepest zipline (the Vigilante Extreme), a mountain coaster, off-road ATV tours, a tethered hot air balloon, a ropes course, and ATV rides through the Ozark hills. The property also hosts the Outdoor Drama each summer. Tickets available individually or as packages for maximum value.",
+      "image": "",
+      "official_url": "https://www.theshepherdofthehills.com/",
+      "notes": "5586 W Hwy 76, Branson MO 65616. On the Branson strip. Individual activity pricing from $12-$65; combo packages available. Call 417-334-4191. Adventure park activities operate daily in season. Check site for hours and individual attraction availability.",
+      "tags": [
+        "active",
+        "outdoor",
+        "family",
+        "kid-focused",
+        "nature",
+        "1-2hr",
+        "all-day"
+      ],
+      "sort_key": "shepherd of the hills adventure park",
+      "visible": true
     },
     {
       "slug": "shepherd-of-the-hills-great-woodsman-canopy-tours",
@@ -5574,6 +8650,52 @@
       "visible": true
     },
     {
+      "slug": "sdc-general-store",
+      "name": "Silver Dollar City General Store (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "SDC's main general merchandise and souvenir shop with park-branded goods, Ozark products, candy, and gifts.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "kid-focused"
+      ],
+      "sort_key": "silver dollar city general store (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-silversmith",
+      "name": "The Silversmith & Jewelry Studio (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Handcrafted silver jewelry made on-site. Watch artisans shape, solder, and polish sterling silver into rings, pendants, and bracelets.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts",
+        "date-night"
+      ],
+      "sort_key": "silversmith & jewelry studio (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "six",
       "name": "SIX",
       "category": "show",
@@ -5583,7 +8705,7 @@
       "rating": 4.5,
       "description": "From branson.com source: SIX",
       "image": "assets/thumbs/six-thumb.jpg",
-      "official_url": "https://media.branson.com/images/bcom/shows/six",
+      "official_url": "https://www.branson.com/shows/six/",
       "notes": "Thumbnail from source HTML div. Added during full parse.",
       "tags": [
         "1-2hr",
@@ -5616,6 +8738,48 @@
         "classified": "2026-04-21"
       },
       "sort_key": "six",
+      "visible": true
+    },
+    {
+      "slug": "tanger-skechers",
+      "name": "Skechers Factory Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Skechers Factory Outlet with wide selection of comfort and athletic footwear for all ages.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "skechers factory outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "dickson-smoke-barrel-tavern",
+      "name": "Smoke & Barrel Tavern (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.5,
+      "description": "Whiskey bar and tavern with an extensive bourbon and whiskey list, craft cocktails, and a cozy atmosphere.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "date-night"
+      ],
+      "sort_key": "smoke & barrel tavern (dickson st)",
       "visible": true
     },
     {
@@ -5707,6 +8871,29 @@
         "classified": "2026-04-21"
       },
       "sort_key": "snowflex tubing at wolfe mountain",
+      "visible": true
+    },
+    {
+      "slug": "sdc-soap-shop",
+      "name": "The Soap Shop (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Handcrafted lye soaps and natural soap products with live demonstrations showing the soap-making process.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food",
+        "crafts"
+      ],
+      "sort_key": "soap shop (silver dollar city)",
       "visible": true
     },
     {
@@ -5804,6 +8991,29 @@
         "classified": "2026-04-21"
       },
       "sort_key": "sons of britches",
+      "visible": true
+    },
+    {
+      "slug": "sdc-sorghum-mill",
+      "name": "Sorghum Mill (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Working sorghum mill demonstration where visitors watch sorghum syrup being made the old-fashioned way. Fresh sorghum and apple butter for sale.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food",
+        "history"
+      ],
+      "sort_key": "sorghum mill (silver dollar city)",
       "visible": true
     },
     {
@@ -5908,6 +9118,122 @@
       "visible": true
     },
     {
+      "slug": "branson-landing-spencers",
+      "name": "Spencer's (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Spencer's at Branson Landing with novelty gifts, pop culture merchandise, and accessories.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "teen"
+      ],
+      "sort_key": "spencer's (branson landing)",
+      "visible": true
+    },
+    {
+      "slug": "springfield-antique-malls",
+      "name": "Springfield Antique Malls",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.4,
+      "description": "Springfield hosts several of the largest antique malls in southwest Missouri, with thousands of dealer booths under one roof. The Route 66 Antique Mall, Relics Antique Marketplace, and other mega-dealers draw collectors from across the region. Furniture, vintage clothing, mid-century modern, glassware, vinyl records, tools, art, and more.",
+      "image": "",
+      "official_url": "https://www.visitspringfieldmo.com/",
+      "notes": "Multiple locations in Springfield MO. ~45 miles north of Branson (~45 min drive). Free to browse. Most open 10am-6pm. Relics Antique Marketplace (1336 E Battlefield Rd) is one of the largest. Cash or card accepted at most.",
+      "tags": [
+        "free",
+        "shopping",
+        "history",
+        "relaxed",
+        "indoor",
+        "day-trip",
+        "2-3hr"
+      ],
+      "sort_key": "springfield antique malls",
+      "visible": true
+    },
+    {
+      "slug": "springfield-conservation-nature-center",
+      "name": "Springfield Conservation Nature Center",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.7,
+      "description": "A free Missouri Department of Conservation facility featuring 3 miles of trails through Ozark hardwood forest, glades, and streams. The indoor nature center has live fish and turtle displays, hands-on exhibits, and naturalist-led programs. An ideal morning activity for families who enjoy nature without the crowds.",
+      "image": "",
+      "official_url": "https://nature.mdc.mo.gov/discover-nature/places/springfield-conservation-nature-center",
+      "notes": "4601 S Nature Ave, Springfield MO 65804. ~45 miles north of Branson (~45 min drive). Free admission. Open daily. Trails open dawn to dusk; indoor center has posted hours. Well-maintained paths suitable for all ages.",
+      "tags": [
+        "free",
+        "nature",
+        "outdoor",
+        "family",
+        "educational",
+        "animals",
+        "hiking",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "springfield conservation nature center",
+      "visible": true
+    },
+    {
+      "slug": "springfield-farmers-market",
+      "name": "Springfield Farmers Market",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.6,
+      "description": "One of Missouri's premier farmers markets, running every Saturday morning spring through fall at Farmers Park. Features 200+ local vendors selling fresh produce, artisan cheese, Missouri wines, locally roasted coffee, handmade crafts, cut flowers, and prepared foods. A beloved Springfield institution drawing thousands each weekend.",
+      "image": "",
+      "official_url": "https://www.springfieldfarmersmkt.com/",
+      "notes": "Farmers Park, 2144 E Republic Rd, Springfield MO 65804. ~45 miles north of Branson (~45 min drive). Free to attend. Saturdays 7:30am-12:30pm, May through October. Arrive early for best selection. Bring a bag and cash.",
+      "tags": [
+        "free",
+        "shopping",
+        "outdoor",
+        "family",
+        "relaxed",
+        "educational",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "springfield farmers market",
+      "visible": true
+    },
+    {
+      "slug": "tanger-steve-madden",
+      "name": "Steve Madden Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Steve Madden outlet with discounted fashion footwear, boots, and accessories.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "steve madden outlet (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "steve-sanders-the-mind-spy",
       "name": "Steve Sanders The Mind Spy",
       "category": "show",
@@ -5950,6 +9276,30 @@
         "classified": "2026-04-21"
       },
       "sort_key": "steve sanders the mind spy",
+      "visible": true
+    },
+    {
+      "slug": "stockton-state-park",
+      "name": "Stockton State Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.4,
+      "description": "A Missouri state park on the shores of Stockton Lake offering boating, fishing, camping, and swimming. One of Missouri's premier bass and crappie fishing lakes with a full marina. The park has sandy swimming beaches and rental facilities for boats and pontoons -- a full summer lake day within an hour of Branson.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/stockton-state-park",
+      "notes": "Rt 1, Stockton MO 65785. ~75 miles northwest of Branson (~1 hr 15 min drive). Free park entry; boat rentals and marina fees extra. Open year-round. Fishing license required for fishing.",
+      "tags": [
+        "free",
+        "outdoor",
+        "water",
+        "active",
+        "family",
+        "nature",
+        "all-day",
+        "day-trip"
+      ],
+      "sort_key": "stockton state park",
       "visible": true
     },
     {
@@ -5998,6 +9348,162 @@
         "classified": "2026-04-21"
       },
       "sort_key": "strait to branson - a george strait tribute",
+      "visible": true
+    },
+    {
+      "slug": "sugar-leaf-bakery-branson",
+      "name": "Sugar Leaf Bakery",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.7,
+      "description": "An award-winning artisan bakery and cafe at Grand Village in Branson. Fresh-baked pastries, specialty cakes, handmade chocolates, and artisan breads made in-house daily. The cinnamon rolls alone are worth the stop.",
+      "image": "",
+      "official_url": "https://www.grandvillageshops.com/",
+      "notes": "Grand Village Shops, 2800 W Hwy 76, Branson MO 65616. Free to browse; buy something though. Open daily. Perfect breakfast or mid-afternoon stop while shopping Grand Village.",
+      "tags": [
+        "free",
+        "shopping",
+        "specialty-food",
+        "family",
+        "indoor",
+        "relaxed",
+        "1-2hr"
+      ],
+      "sort_key": "sugar leaf bakery",
+      "visible": true
+    },
+    {
+      "slug": "tanger-sunglass-hut",
+      "name": "Sunglass Hut Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Sunglass Hut outlet with discounted designer sunglasses -- Ray-Ban, Oakley, Prada, and more.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "sunglass hut outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "table-rock-lake-boating",
+      "name": "Table Rock Lake",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 6,
+      "rating": 4.8,
+      "description": "One of the most beautiful lakes in the Ozarks, Table Rock spans 43,100 acres with 857 miles of shoreline just outside Branson. Crystal-clear water makes it ideal for swimming, boating, fishing, scuba diving, and paddleboarding. Multiple marinas rent pontoon boats, jet skis, kayaks, and paddleboards. Table Rock State Park and the Army Corps of Engineers beach areas provide free public access.",
+      "image": "",
+      "official_url": "https://www.nps.gov/ozar/planyourvisit/tablrocklake.htm",
+      "notes": "5 miles west of Branson MO. Free public beach access at Table Rock State Park and Army Corps areas. Multiple marinas for rentals: State Park Marina, Aunts Creek, Indian Point. Pontoon rentals ~$200-400/day. Missouri fishing license required for fishing.",
+      "tags": [
+        "free",
+        "outdoor",
+        "water",
+        "active",
+        "family",
+        "nature",
+        "all-day"
+      ],
+      "sort_key": "table rock lake",
+      "visible": true
+    },
+    {
+      "slug": "table-rock-state-park",
+      "name": "Table Rock State Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.0,
+      "description": "A premier recreational hub on the shores of Table Rock Lake offering water sports including kayaking, paddleboarding, and fishing through the park marina. Land-based pursuits include hiking and mountain biking on paved and rugged trails, with shoreline views through oak and hickory forest. Camping options range from standard sites to premium yurts nestled along the shoreline.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/table-rock-state-park",
+      "notes": "5272 State Highway 165, Branson, MO 65616. ~4 mi from Branson MO, ~10 min drive. Free day use; camping and marina rental fees apply.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "water",
+        "hiking",
+        "family",
+        "all-day",
+        "free"
+      ],
+      "sort_key": "table rock state park",
+      "visible": true
+    },
+    {
+      "slug": "talking-rocks-cavern",
+      "name": "Talking Rocks Cavern",
+      "category": "attraction",
+      "price_adult": 33.95,
+      "duration_hours": 1.5,
+      "rating": 4.0,
+      "description": "A locally-owned cavern offering guided walking tours through pristine underground formations including a distinctive column called 'The Angel' and a chamber known as 'The Cathedral,' led by passionate local guides. Beyond the cave, above-ground activities include gemstone panning, a cave crawl, nature trails, and a family games area. Open daily at 9am with tours departing throughout the day.",
+      "image": "",
+      "official_url": "https://www.talkingrockscavern.com",
+      "notes": "423 Fairy Cave Ln, Branson West, MO 65737. ~5 mi from Branson MO, ~10 min drive. Open daily 9am; last tour 5pm. No reservation required.",
+      "tags": [
+        "nature",
+        "educational",
+        "family",
+        "indoor",
+        "1-2hr"
+      ],
+      "sort_key": "talking rocks cavern",
+      "visible": true
+    },
+    {
+      "slug": "tanger-outlets-branson",
+      "name": "Tanger Outlets Branson",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.2,
+      "description": "A full factory outlet mall with 60+ brand-name stores offering discounted merchandise. Features outlets for Nike, Coach, Gap, Levi's, Under Armour, Pottery Barn, Crate & Barrel, and many more. A dedicated shopping day destination for deal hunters in the group.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "300 Tanger Blvd, Branson MO 65616. Off Hwy 76, ~5 min from the main strip. Free to visit. Hours typically 10am-8pm Mon-Sat, 11am-6pm Sun. 60+ outlet stores. Dedicated outlet mall -- bring the shopping list.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "1-2hr",
+        "2-3hr",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "tanger outlets branson",
+      "visible": true
+    },
+    {
+      "slug": "terra-studios",
+      "name": "Terra Studios",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.5,
+      "rating": 4.0,
+      "description": "A six-acre nonprofit art destination featuring sculpture gardens, murals, and glass art installations contributed by hundreds of artists, with a mission of using art to create a better world. Visitors can explore the outdoor galleries, attend art classes and demonstrations, and browse the gift gallery. A suggested $1 per person donation supports the nonprofit's mission.",
+      "image": "",
+      "official_url": "https://usingart.org",
+      "notes": "Durham, AR. ~80 mi from Branson MO, ~90 min drive via US-62. Hours: Wed–Sun 10am–5pm. Free admission; $1 donation suggested.",
+      "tags": [
+        "art",
+        "outdoor",
+        "free",
+        "family",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "terra studios",
       "visible": true
     },
     {
@@ -6053,6 +9559,50 @@
       "visible": true
     },
     {
+      "slug": "thorncrown-chapel",
+      "name": "Thorncrown Chapel",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.9,
+      "description": "One of America's most celebrated works of architecture, Thorncrown Chapel rises 48 feet into the Ozark woodland of Eureka Springs, Arkansas. Designed by E. Fay Jones and completed in 1980, it features 425 windows and more than 6,000 square feet of glass resting on over 100 tons of native stone. Winner of the AIA Design of the Year Award and the AIA 25 Year Award. Over 9 million visitors. Free to enter -- a serene, unforgettable 30-60 minute stop.",
+      "image": "assets/thumbs/thorncrown-chapel-thumb.jpg",
+      "official_url": "https://www.thorncrown.com/",
+      "notes": "Free admission. Located at 12968 Hwy 62 W, Eureka Springs AR. About 60 miles south of Branson (~1 hr drive). Open seasonally spring through fall. Check site for current hours.",
+      "tags": [
+        "free",
+        "outdoor",
+        "relaxed",
+        "spiritual",
+        "educational",
+        "architecture",
+        "day-trip",
+        "family",
+        "date-night"
+      ],
+      "sort_key": "thorncrown chapel",
+      "visible": true
+    },
+    {
+      "slug": "thunder-ridge-nature-arena",
+      "name": "Thunder Ridge Nature Arena",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 3,
+      "rating": 4.0,
+      "description": "A spectacular 20,000-seat outdoor amphitheater envisioned by Bass Pro Shops founder Johnny Morris, nestled in the Missouri Ozarks overlooking Table Rock Lake. The venue hosts major national touring artists and championship events, with past headliners including The Rolling Stones, Morgan Wallen, and Guns N' Roses. Tickets are sold exclusively through Ticketmaster; dedicated shuttle service available from Big Cedar Lodge.",
+      "image": "",
+      "official_url": "https://bigcedar.com/amenities/thunder-ridge-nature-arena",
+      "notes": "1901 MO-86, Ridgedale, MO 65739. ~8 mi from Branson MO, ~15 min drive. Tickets via Ticketmaster; prices vary by event.",
+      "tags": [
+        "music",
+        "outdoor",
+        "2-3hr"
+      ],
+      "sort_key": "thunder ridge nature arena",
+      "visible": true
+    },
+    {
       "slug": "titanic-museum-attraction",
       "name": "Titanic Museum Attraction",
       "category": "attraction",
@@ -6097,6 +9647,91 @@
         "classified": "2026-04-21"
       },
       "sort_key": "titanic museum attraction",
+      "visible": true
+    },
+    {
+      "slug": "tanger-tommy-hilfiger",
+      "name": "Tommy Hilfiger Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Tommy Hilfiger outlet featuring classic American sportswear, polo shirts, and accessories at factory outlet prices.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "tommy hilfiger outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "top-of-the-rock",
+      "name": "Top of the Rock",
+      "category": "attraction",
+      "price_adult": 10.0,
+      "duration_hours": 3,
+      "rating": 4.5,
+      "description": "Perched at the highest elevation in Taney County near Big Cedar Lodge, this heritage preserve offers world-class attractions including the Ancient Ozarks Natural History Museum, Lost Canyon Cave golf cart tours, fine dining at multiple restaurants, and a par-3 golf course with stunning lake views. A $10/vehicle entry fee grants access to all grounds and a nightly sunset ceremony overlooking Table Rock Lake.",
+      "image": "",
+      "official_url": "https://bigcedar.com/top-of-the-rock",
+      "notes": "150 Top of the Rock Road, Ridgedale, MO 65739. ~8 mi from Branson MO, ~15 min drive. $10/vehicle entry fee (card only). Open daily; cave trail 8:30am–8pm, museum 9:30am–7pm.",
+      "tags": [
+        "nature",
+        "educational",
+        "outdoor",
+        "family",
+        "all-day"
+      ],
+      "sort_key": "top of the rock",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-torrid",
+      "name": "Torrid (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Torrid at Branson Landing specializing in plus-size fashion, pop culture styles, and trendy looks for women.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing"
+      ],
+      "sort_key": "torrid (branson landing)",
+      "visible": true
+    },
+    {
+      "slug": "tanger-torrid",
+      "name": "Torrid Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Torrid outlet specializing in plus-size fashion, pop culture tees, and edgy styles for women.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "teen"
+      ],
+      "sort_key": "torrid outlet (tanger outlets)",
       "visible": true
     },
     {
@@ -6186,6 +9821,27 @@
         "classified": "2026-04-21"
       },
       "sort_key": "truth traveler",
+      "visible": true
+    },
+    {
+      "slug": "turpentine-creek-wildlife-refuge",
+      "name": "Turpentine Creek Wildlife Refuge",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2.5,
+      "rating": 4.5,
+      "description": "Founded in 1992, this globally accredited rescue sanctuary provides lifelong homes for over 600 big cats rescued from private owners and roadside zoos while working through education to end the exotic cat trade. Guided tram tours depart on the hour, offering close-up views of lions, tigers, leopards, and other rescued residents in spacious naturalistic habitats.",
+      "image": "",
+      "official_url": "https://www.turpentinecreek.org",
+      "notes": "239 Turpentine Creek Lane, Eureka Springs, AR 72632. ~60 mi from Branson MO, ~70 min drive. Hours: 8:30am–4pm (5pm during Daylight Saving Time). Admission prices not listed online; book at turpentinecreek.org.",
+      "tags": [
+        "animals",
+        "outdoor",
+        "educational",
+        "2-3hr",
+        "day-trip"
+      ],
+      "sort_key": "turpentine creek wildlife refuge",
       "visible": true
     },
     {
@@ -6293,6 +9949,47 @@
       "visible": true
     },
     {
+      "slug": "tanger-outlets-under-armour",
+      "name": "Under Armour Factory Store (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Under Armour Factory Store at Tanger Outlets offering up to 40% off performance apparel, footwear, and accessories. Good selection for athletic kids and adults in the group.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. Free parking. Hours: Mon-Thu 10am-7pm, Fri-Sat 10am-8pm, Sun 10am-6pm.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "active",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "under armour factory store (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "dickson-underwoods-jewelers",
+      "name": "Underwood's Fine Jewelers (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.5,
+      "description": "Fine jewelry store with a wide selection of diamond jewelry, engagement rings, and watches.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family"
+      ],
+      "sort_key": "underwood's fine jewelers (dickson st)",
+      "visible": true
+    },
+    {
       "slug": "veterans-memorial-museum",
       "name": "Veterans Memorial Museum",
       "category": "attraction",
@@ -6336,6 +10033,141 @@
         "warnings": "audience_vibe: unknown 'educational'"
       },
       "sort_key": "veterans memorial museum",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-victorias-secret",
+      "name": "Victoria's Secret (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Victoria's Secret at Branson Landing with full lingerie, beauty, and Pink brand collections.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing"
+      ],
+      "sort_key": "victoria's secret (branson landing)",
+      "visible": true
+    },
+    {
+      "slug": "walmart-museum",
+      "name": "Walmart Museum",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.5,
+      "rating": 4.0,
+      "description": "The original Walton's 5&10 dime store where Sam Walton launched what became the world's largest retailer, now preserved as a free public museum in downtown Bentonville, Arkansas. Gallery exhibits trace Walmart's evolution from a small-town store into a global business, celebrating Sam Walton's vision of helping people save money and live better.",
+      "image": "",
+      "official_url": "https://corporate.walmart.com/about/walmart-museum",
+      "notes": "105 N. Main St, Bentonville, AR 72712. ~92 mi from Branson MO, ~100 min drive. Free admission. Hours: Mon–Thu 10am–9pm, Fri–Sat 10am–10pm, Sun 12pm–6pm. Closed Easter, Thanksgiving, Christmas.",
+      "tags": [
+        "history",
+        "educational",
+        "indoor",
+        "free",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "walmart museum",
+      "visible": true
+    },
+    {
+      "slug": "walton-arts-center",
+      "name": "Walton Arts Center",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2,
+      "rating": 4.7,
+      "description": "Northwest Arkansas's premier performing arts venue in Fayetteville, presenting Broadway tours, concerts, dance, and comedy. The 1,200-seat Baum Walker Hall hosts major touring productions year-round. The adjacent Walmart AMP outdoor amphitheater draws major national acts. Check the calendar for May 23-28 programming during your trip dates.",
+      "image": "",
+      "official_url": "https://waltonartscenter.org/",
+      "notes": "495 W Dickson St, Fayetteville AR 72701. ~105 miles south of Branson (~2 hr drive). Ticket prices vary by show. Check waltonartscenter.org/calendar for May programming. Pairs well with Crystal Bridges for a full Fayetteville/Bentonville day.",
+      "tags": [
+        "art",
+        "music",
+        "indoor",
+        "date-night",
+        "family",
+        "drama",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "walton arts center",
+      "visible": true
+    },
+    {
+      "slug": "dickson-walton-arts-center",
+      "name": "Walton Arts Center (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.7,
+      "description": "Major performing arts center on Dickson Street hosting Broadway touring shows, concerts, dance, and comedy. Home venue for the Northwest Arkansas arts scene.",
+      "image": "",
+      "official_url": "https://www.waltonartscenter.org",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "art"
+      ],
+      "sort_key": "walton arts center (dickson st)",
+      "visible": true
+    },
+    {
+      "slug": "war-eagle-mill",
+      "name": "War Eagle Mill",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.5,
+      "rating": 4.0,
+      "description": "A historic water-powered grist mill that has been the heart of the War Eagle valley for nearly 200 years, offering visitors a glimpse into the region's pioneer heritage and Civil War history along scenic War Eagle Creek. The restored mill operates a general store selling organic stone-ground flours and a café serving brunch and lunch with creek views.",
+      "image": "",
+      "official_url": "https://visitwareaglemill.com",
+      "notes": "11045 War Eagle Road, Rogers, AR 72756. ~90 mi from Branson MO, ~100 min drive. Free to visit. General store 9am–5pm daily; café 11am–3pm daily.",
+      "tags": [
+        "history",
+        "outdoor",
+        "family",
+        "relaxed",
+        "1-2hr",
+        "day-trip",
+        "free"
+      ],
+      "sort_key": "war eagle mill",
+      "visible": true
+    },
+    {
+      "slug": "war-eagle-mill-store",
+      "name": "War Eagle Mill Country Store",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.6,
+      "description": "The country store at the 1873 War Eagle Mill grist mill in Rogers, Arkansas sells stone-ground whole grain flours, cornmeal, grits, pancake mixes, and baking mixes ground on site by the original mill stones. Everything is organic, non-GMO, and milled fresh. Pick up a bag of War Eagle Mill cornmeal -- it's the real Ozark thing.",
+      "image": "",
+      "official_url": "https://visitwareaglemill.com/",
+      "notes": "11045 War Eagle Rd, Rogers AR 72756. ~90 miles south of Branson (~1 hr 45 min drive). Free to browse. Open daily. The mill itself is the attraction -- store is adjacent. War Eagle Mill already in the DB.",
+      "tags": [
+        "free",
+        "shopping",
+        "specialty-food",
+        "history",
+        "educational",
+        "outdoor",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "war eagle mill country store",
       "visible": true
     },
     {
@@ -6383,6 +10215,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "where jesus walked immersive",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-white-house-black-market",
+      "name": "White House Black Market (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "White House Black Market at Branson Landing with women's workwear and chic casual styles.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "date-night"
+      ],
+      "sort_key": "white house black market (branson landing)",
       "visible": true
     },
     {
@@ -6481,6 +10335,74 @@
       "visible": true
     },
     {
+      "slug": "sdc-wilson-brothers-music",
+      "name": "Wilson Brothers Music (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "SDC's music shop specializing in Ozark folk instruments -- dulcimers, fiddles, banjos, and harmonicas. CDs and sheet music too.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "music"
+      ],
+      "sort_key": "wilson brothers music (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "wilsons-creek-national-battlefield",
+      "name": "Wilson's Creek National Battlefield",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.0,
+      "description": "The site of the first major Civil War battle fought west of the Mississippi River, where Confederate forces defeated Union troops on August 10, 1861 in a pivotal engagement that drew national attention to the Trans-Mississippi theater. The visitor center is open daily 9am–5pm with exhibits and programs about the approximately 23,000 soldiers who fought in this decisive struggle.",
+      "image": "",
+      "official_url": "https://www.nps.gov/wicr/index.htm",
+      "notes": "5242 S. State Hwy ZZ, Republic, MO 65738. ~45 mi from Branson MO, ~50 min drive. No entrance fee required. Contact 417-732-2662.",
+      "tags": [
+        "history",
+        "outdoor",
+        "educational",
+        "free",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "wilson's creek national battlefield",
+      "visible": true
+    },
+    {
+      "slug": "wonders-of-wildlife",
+      "name": "Wonders of Wildlife National Museum & Aquarium",
+      "category": "attraction",
+      "price_adult": 34.95,
+      "duration_hours": 4,
+      "rating": 4.8,
+      "description": "America's #1 museum and aquarium (USA Today 10Best), Johnny Morris' Wonders of Wildlife features over 1.5 miles of immersive exhibits, 800+ species, wildlife galleries, and an aquarium adventure. Located adjacent to Bass Pro Shops headquarters in Springfield, MO. A full-day experience that pairs perfectly with the Bass Pro flagship store next door.",
+      "image": "assets/thumbs/wonders-of-wildlife-thumb.jpg",
+      "official_url": "https://www.wondersofwildlife.org/",
+      "notes": "500 W Sunshine St, Springfield MO. About 45 miles north of Branson (~45 min drive). Open daily 10am-6pm. Pricing varies -- check site for current rates. Explorer Pass combo available.",
+      "tags": [
+        "animals",
+        "educational",
+        "family",
+        "kid-focused",
+        "indoor",
+        "all-day",
+        "day-trip"
+      ],
+      "sort_key": "wonders of wildlife national museum & aquarium",
+      "visible": true
+    },
+    {
       "slug": "wonderworks",
       "name": "WonderWorks",
       "category": "attraction",
@@ -6526,6 +10448,29 @@
       "visible": true
     },
     {
+      "slug": "sdc-woodcarver",
+      "name": "The Woodcarver's Shop (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Live wood carving demonstrations by Ozark craftspeople. Carved wildlife, figures, walking sticks, and folk art for sale.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts"
+      ],
+      "sort_key": "woodcarver's shop (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "world-s-largest-toy-museum-complex",
       "name": "World's Largest Toy Museum Complex",
       "category": "attraction",
@@ -6568,6 +10513,48 @@
         "classified": "2026-04-21"
       },
       "sort_key": "world's largest toy museum complex",
+      "visible": true
+    },
+    {
+      "slug": "tanger-yankee-candle",
+      "name": "Yankee Candle Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Yankee Candle outlet with discounted candles, home fragrances, and gifts.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "specialty-food"
+      ],
+      "sort_key": "yankee candle outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "dickson-yeyos",
+      "name": "Yeyo's El Alma de Mexico (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.6,
+      "description": "Authentic Mexican restaurant from a Oaxacan family. Known for moles, tamales, and mezcal.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "yeyo's el alma de mexico (dickson st)",
       "visible": true
     },
     {
@@ -6625,7 +10612,7 @@
       "visible": true
     }
   ],
-  "last_updated": "2026-04-19T03:34:07.090437",
+  "last_updated": "2026-05-03",
   "source": "Full parse of source HTML with 125+ shows-listing__image divs",
   "note": "Duplicates removed on 2026-04-19. Removed 3 duplicates. Final count: 140",
   "_metadata": {
