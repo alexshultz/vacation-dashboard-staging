@@ -262,6 +262,28 @@
       "visible": true
     },
     {
+      "slug": "tanger-adidas",
+      "name": "adidas Factory Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "adidas Factory Outlet with discounted athletic footwear, apparel, and accessories.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "active"
+      ],
+      "sort_key": "adidas factory outlet (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "adventure-seekers",
       "name": "Adventure Seekers",
       "category": "attraction",
@@ -606,6 +628,26 @@
       "visible": true
     },
     {
+      "slug": "dickson-arsagas",
+      "name": "Arsaga's at the Depot (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.6,
+      "description": "Artisan coffee roaster and café in a historic train depot building near Dickson Street. Specialty coffee, pastries, and light breakfast/lunch.",
+      "image": "",
+      "official_url": "https://arsagas.com",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "arsaga's at the depot (dickson st)",
+      "visible": true
+    },
+    {
       "slug": "awesome-80-s",
       "name": "Awesome 80's",
       "category": "show",
@@ -760,6 +802,27 @@
       "visible": true
     },
     {
+      "slug": "tanger-banana-republic",
+      "name": "Banana Republic Factory (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Banana Republic Factory Store with deep discounts on workwear, casual styles, and accessories for men and women.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "banana republic factory (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "bass-pro-shops-branson-landing",
       "name": "Bass Pro Shops at Branson Landing",
       "category": "attraction",
@@ -803,6 +866,49 @@
         "1-2hr"
       ],
       "sort_key": "bass pro shops grandaddy store",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-bath-body-works",
+      "name": "Bath & Body Works (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Bath & Body Works at Branson Landing with full selection of candles, soaps, lotions, and seasonal collections.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "date-night"
+      ],
+      "sort_key": "bath & body works (branson landing)",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-belk",
+      "name": "Belk Department Store (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Belk department store at Branson Landing -- the Landing's anchor department store with clothing, shoes, and home goods for the whole family.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing"
+      ],
+      "sort_key": "belk department store (branson landing)",
       "visible": true
     },
     {
@@ -1021,6 +1127,30 @@
       "visible": true
     },
     {
+      "slug": "sdc-blacksmith-shop",
+      "name": "The Blacksmith Shop (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Traditional ironworking and blacksmithing demonstrations. Watch red-hot iron shaped into tools, hooks, and decorative pieces. Handmade iron goods for sale.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts",
+        "history"
+      ],
+      "sort_key": "blacksmith shop (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "blanchard-springs-caverns",
       "name": "Blanchard Springs Caverns",
       "category": "attraction",
@@ -1166,6 +1296,49 @@
         "classified": "2026-04-21"
       },
       "sort_key": "bohemian queen",
+      "visible": true
+    },
+    {
+      "slug": "tanger-book-warehouse",
+      "name": "Book Warehouse (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Book Warehouse outlet with deeply discounted hardcovers, paperbacks, and specialty titles. Great browsing stop.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "art"
+      ],
+      "sort_key": "book warehouse (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "dickson-bordinos",
+      "name": "Bordino's Restaurant & Winery (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.7,
+      "description": "Upscale Italian restaurant and wine bar. One of Fayetteville's top fine dining destinations. Handmade pastas, wood-fired dishes, and an excellent wine list.",
+      "image": "",
+      "official_url": "https://bordinos.com",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "date-night",
+        "specialty-food"
+      ],
+      "sort_key": "bordino's restaurant & winery (dickson st)",
       "visible": true
     },
     {
@@ -1483,6 +1656,52 @@
         "at-branson-landing"
       ],
       "sort_key": "branson landing",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-waterfront-walk",
+      "name": "Branson Landing Boardwalk (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.6,
+      "description": "The 1-mile lakefront boardwalk along Lake Taneycomo connecting all shops, restaurants, and entertainment at Branson Landing. Free to walk. Great for morning strolls or an evening wind-down.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "outdoor",
+        "relaxed"
+      ],
+      "sort_key": "branson landing boardwalk (branson landing)",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-fountain-show",
+      "name": "Branson Landing Fountain Show (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.8,
+      "description": "The iconic 400-foot fire-and-water musical fountain show on the Lake Taneycomo waterfront. Free shows run approximately every hour. A signature Branson experience the whole family will love.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "outdoor",
+        "relaxed"
+      ],
+      "sort_key": "branson landing fountain show (branson landing)",
       "visible": true
     },
     {
@@ -1938,6 +2157,52 @@
       "visible": true
     },
     {
+      "slug": "sdc-broom-maker",
+      "name": "The Broom Maker (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Traditional Ozark broom making demonstration -- one of SDC's most distinctive crafts. Handmade corn brooms and decorative pieces using century-old techniques.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts",
+        "history"
+      ],
+      "sort_key": "broom maker (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-brown-sugars-bakery",
+      "name": "Brown Sugar's Bakery (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Famous SDC bakery known for giant fresh-baked cinnamon bread loaves sold by the half-loaf. One of SDC's most beloved traditions -- the smell alone is worth stopping. Also serves pastries and coffee.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food"
+      ],
+      "sort_key": "brown sugar's bakery (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "buffalo-national-river",
       "name": "Buffalo National River",
       "category": "attraction",
@@ -2054,6 +2319,73 @@
       "visible": true
     },
     {
+      "slug": "tanger-calvin-klein",
+      "name": "Calvin Klein Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Calvin Klein outlet with discounted jeans, underwear, fragrances, and casual apparel.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "calvin klein outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-candle-shop",
+      "name": "The Candle Shop (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Dipped and molded candle-making demonstrations at SDC. Hand-dipped taper candles in dozens of colors and scents.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts"
+      ],
+      "sort_key": "candle shop (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-candy-kitchen",
+      "name": "The Candy Kitchen (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Live candy-making demonstrations and a full shop of handmade sweets -- fudge, taffy, rock candy, and old-fashioned confections. Kids love watching the candy makers at work.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food",
+        "kid-focused"
+      ],
+      "sort_key": "candy kitchen (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "carpenters-once-more",
       "name": "Carpenters Once More",
       "category": "show",
@@ -2106,6 +2438,71 @@
       "visible": true
     },
     {
+      "slug": "tanger-carter",
+      "name": "Carter's Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Carter's Outlet with baby and toddler clothing at outlet prices -- great for the littles in the group.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "carter's outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "tanger-chicos",
+      "name": "Chico's Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Chico's Outlet featuring women's clothing, accessories, and jewelry at discounted prices. Popular with women in the group.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "chico's outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "tanger-childrens-place",
+      "name": "The Children's Place Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Children's Place outlet with affordable kids' clothing, accessories, and shoes.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "children's place outlet (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "christ-of-the-ozarks",
       "name": "Christ of the Ozarks",
       "category": "attraction",
@@ -2124,6 +2521,50 @@
         "day-trip"
       ],
       "sort_key": "christ of the ozarks",
+      "visible": true
+    },
+    {
+      "slug": "sdc-christmas-shop",
+      "name": "The Christmas Shop (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Year-round Christmas ornament and holiday décor shop inside SDC. SDC-exclusive ornaments, keepsakes, and handmade decorations.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "kid-focused"
+      ],
+      "sort_key": "christmas shop (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-claires",
+      "name": "Claire's (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Claire's at Branson Landing with jewelry, accessories, and ear piercing. A must-stop for the younger girls.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "kid-focused"
+      ],
+      "sort_key": "claire's (branson landing)",
       "visible": true
     },
     {
@@ -2286,6 +2727,51 @@
         "1-2hr"
       ],
       "sort_key": "clinton house museum",
+      "visible": true
+    },
+    {
+      "slug": "tanger-coach",
+      "name": "Coach Factory Store (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Coach Factory Store at Tanger Outlets offering handbags, wallets, and accessories at outlet prices. Full selection of classic and modern Coach leather goods.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "date-night"
+      ],
+      "sort_key": "coach factory store (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-cobbler-stand",
+      "name": "Cobbler & Ice Cream Stand (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Fresh fruit cobbler -- peach, apple, berry -- served warm with hand-dipped ice cream.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food",
+        "kid-focused"
+      ],
+      "sort_key": "cobbler & ice cream stand (silver dollar city)",
       "visible": true
     },
     {
@@ -2611,6 +3097,29 @@
       "visible": true
     },
     {
+      "slug": "sdc-dazzle-glass",
+      "name": "Dazzle Glass Studio (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Working hot glass studio with master glassblowers demonstrating the art of lampworking and glassblowing live. Handmade ornaments, sculptures, and art glass for sale. One of SDC's most unique artisan experiences.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts"
+      ],
+      "sort_key": "dazzle glass studio (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "dean-z-the-ultimate-elvis",
       "name": "Dean Z - The Ultimate Elvis",
       "category": "show",
@@ -2681,6 +3190,47 @@
         "day-trip"
       ],
       "sort_key": "dickerson park zoo",
+      "visible": true
+    },
+    {
+      "slug": "dickson-dickson-street-ballroom",
+      "name": "Dickson Street Ballroom (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.2,
+      "description": "Multi-room music and event venue with rotating DJs, live bands, and a large dance floor. Popular evening spot.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "date-night",
+        "music"
+      ],
+      "sort_key": "dickson street ballroom (dickson st)",
+      "visible": true
+    },
+    {
+      "slug": "dickson-dickson-street-bookshop",
+      "name": "Dickson Street Bookshop (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.7,
+      "description": "Beloved independent used bookstore crammed floor to ceiling with thousands of used paperbacks and hardcovers. Cash-only. A true literary treasure hunt.",
+      "image": "",
+      "official_url": "https://www.dicksonstreetbookshop.com",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "art"
+      ],
+      "sort_key": "dickson street bookshop (dickson st)",
       "visible": true
     },
     {
@@ -3333,6 +3883,72 @@
       "visible": true
     },
     {
+      "slug": "sdc-florentinas",
+      "name": "Florentina's Ristorante Italiano (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Italian restaurant inside SDC with pasta, pizza, and Italian entrees. Good dinner option for those wanting something different.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food"
+      ],
+      "sort_key": "florentina's ristorante italiano (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-francescas",
+      "name": "Francesca's (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Francesca's boutique at Branson Landing with women's clothing, jewelry, accessories, and gifts at approachable prices.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "date-night"
+      ],
+      "sort_key": "francesca's (branson landing)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-fred-smokehouse",
+      "name": "Fred's Old Southern Bar-B-Que (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "SDC's dedicated BBQ restaurant with slow-smoked meats, beans, coleslaw, and cornbread.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food"
+      ],
+      "sort_key": "fred's old southern bar-b-que (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "fritz-s-adventure",
       "name": "Fritz's Adventure",
       "category": "attraction",
@@ -3395,6 +4011,28 @@
         "1-2hr"
       ],
       "sort_key": "fun mountain at big cedar",
+      "visible": true
+    },
+    {
+      "slug": "tanger-gap",
+      "name": "Gap Factory (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Gap Factory Store with outlet pricing on casual apparel, denim, and basics for all ages. Great stop for kids and adults.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "gap factory (tanger outlets)",
       "visible": true
     },
     {
@@ -3657,6 +4295,49 @@
       "visible": true
     },
     {
+      "slug": "dickson-georges-majestic-lounge",
+      "name": "George's Majestic Lounge (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.6,
+      "description": "Fayetteville's legendary live music venue and bar on Dickson Street, open since 1927. Multiple stages with local and touring acts nightly. One of the best live music bars in the region.",
+      "image": "",
+      "official_url": "https://georgesmajesticlounge.com",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "date-night",
+        "music"
+      ],
+      "sort_key": "george's majestic lounge (dickson st)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-turkey-leg-cart",
+      "name": "Giant Smoked Turkey Legs (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Iconic giant smoked turkey legs sold by carts throughout Silver Dollar City. A theme park tradition everyone in the group will try.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food"
+      ],
+      "sort_key": "giant smoked turkey legs (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "golden-sounds-of-the-platters",
       "name": "Golden Sounds of the Platters",
       "category": "show",
@@ -3805,6 +4486,70 @@
       "visible": true
     },
     {
+      "slug": "tanger-guess",
+      "name": "GUESS Factory Store (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "GUESS Factory Store with outlet deals on denim, casual wear, and accessories with the signature GUESS aesthetic.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "teen"
+      ],
+      "sort_key": "guess factory store (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "dickson-gusanos-pizza",
+      "name": "Gusano's Chicago Style Pizzeria (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.4,
+      "description": "Chicago-style deep dish and tavern-cut pizza. Popular late-night spot with a full bar.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "gusano's chicago style pizzeria (dickson st)",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-h-and-m",
+      "name": "H&M (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "H&M at Branson Landing offering affordable fashion for men, women, and kids.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "kid-focused"
+      ],
+      "sort_key": "h&m (branson landing)",
+      "visible": true
+    },
+    {
       "slug": "ha-ha-tonka-state-park",
       "name": "Ha Ha Tonka State Park",
       "category": "attraction",
@@ -3826,6 +4571,47 @@
         "day-trip"
       ],
       "sort_key": "ha ha tonka state park",
+      "visible": true
+    },
+    {
+      "slug": "tanger-hallmark",
+      "name": "Hallmark Gold Crown (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Hallmark Gold Crown store for greeting cards, gifts, Keepsake ornaments, and seasonal items.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "hallmark gold crown (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "dickson-hammontrees",
+      "name": "Hammontree's Grilled Cheese (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.6,
+      "description": "Artisan grilled cheese sandwich shop with creative combinations, homemade soups, and local ingredients. A Fayetteville cult favorite.",
+      "image": "",
+      "official_url": "https://hammontreescheese.com",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "hammontree's grilled cheese (dickson st)",
       "visible": true
     },
     {
@@ -4240,6 +5026,26 @@
       "visible": true
     },
     {
+      "slug": "dickson-hugos",
+      "name": "Hugo's (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.5,
+      "description": "A Dickson Street institution serving handcrafted burgers, sandwiches, and salads since 1977. A beloved Fayetteville landmark.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "hugo's (dickson st)",
+      "visible": true
+    },
+    {
       "slug": "illusionist-rick-thomas",
       "name": "Illusionist Rick Thomas",
       "category": "show",
@@ -4385,6 +5191,27 @@
       "visible": true
     },
     {
+      "slug": "dickson-jjs-grill",
+      "name": "JJ's Grill (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.3,
+      "description": "Sports bar and grill with American pub food, burgers, wings, and multiple screens showing sports.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "date-night",
+        "specialty-food"
+      ],
+      "sort_key": "jj's grill (dickson st)",
+      "visible": true
+    },
+    {
       "slug": "joe-nichols",
       "name": "Joe Nichols",
       "category": "show",
@@ -4476,6 +5303,50 @@
         "classified": "2026-04-21"
       },
       "sort_key": "josh turner",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-justice",
+      "name": "Justice (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Justice girls' clothing and accessories boutique at Branson Landing. Tween-focused styles.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "kid-focused"
+      ],
+      "sort_key": "justice (branson landing)",
+      "visible": true
+    },
+    {
+      "slug": "tanger-justice",
+      "name": "Justice Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Justice girls' clothing and accessories outlet at Tanger. Tween-focused styles at outlet prices.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "justice outlet (tanger outlets)",
       "visible": true
     },
     {
@@ -4572,6 +5443,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "kentucky headhunters",
+      "visible": true
+    },
+    {
+      "slug": "tanger-kitchen-collection",
+      "name": "Kitchen Collection (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Kitchen Collection outlet store with discounted cookware, small appliances, and kitchen gadgets. Good for foodies in the group.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "specialty-food"
+      ],
+      "sort_key": "kitchen collection (tanger outlets)",
       "visible": true
     },
     {
@@ -4691,6 +5584,50 @@
       "visible": true
     },
     {
+      "slug": "tanger-lane-bryant",
+      "name": "Lane Bryant Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Lane Bryant outlet with plus-size women's fashion at outlet prices.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "lane bryant outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-leatherworks",
+      "name": "Leatherworks (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Leather tooling and handmade leather goods shop. Belts, wallets, bags, and custom leather items made by on-site craftspeople.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts"
+      ],
+      "sort_key": "leatherworks (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "legends-in-concert",
       "name": "Legends in Concert",
       "category": "family",
@@ -4751,6 +5688,50 @@
       "visible": true
     },
     {
+      "slug": "tanger-levis",
+      "name": "Levi's Outlet Store (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Levi's Outlet Store with full selection of denim jeans, shorts, jackets, and casual apparel at outlet prices.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "levi's outlet store (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-lids",
+      "name": "Lids (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Lids at Branson Landing with MLB, NFL, NBA hats and fan gear. On-site customization available.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "kid-focused"
+      ],
+      "sort_key": "lids (branson landing)",
+      "visible": true
+    },
+    {
       "slug": "lost-canyon-cave-nature-trail",
       "name": "Lost Canyon Cave and Nature Trail",
       "category": "attraction",
@@ -4769,6 +5750,28 @@
         "free"
       ],
       "sort_key": "lost canyon cave and nature trail",
+      "visible": true
+    },
+    {
+      "slug": "sdc-lumbercamp-restaurant",
+      "name": "Lumbercamp Restaurant (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Family-style all-you-can-eat buffet with chicken, BBQ, sides, and desserts. One of SDC's most popular dining stops -- arrive early.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food"
+      ],
+      "sort_key": "lumbercamp restaurant (silver dollar city)",
       "visible": true
     },
     {
@@ -4841,6 +5844,29 @@
       "visible": true
     },
     {
+      "slug": "sdc-marvel-cave-gift-shop",
+      "name": "Marvel Cave Gift Shop (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Gift shop at the entrance to Marvel Cave featuring cave and geology-themed gifts, minerals, and SDC memorabilia.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "history",
+        "kid-focused"
+      ],
+      "sort_key": "marvel cave gift shop (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "matt-gumm-and-company",
       "name": "Matt Gumm and Company",
       "category": "show",
@@ -4883,6 +5909,26 @@
         "classified": "2026-04-21"
       },
       "sort_key": "matt gumm and company",
+      "visible": true
+    },
+    {
+      "slug": "dickson-maxines-tap-room",
+      "name": "Maxine's Tap Room (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.4,
+      "description": "Historic dive bar -- one of the oldest bars in Fayetteville. Cold beer, no frills, great atmosphere.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "date-night"
+      ],
+      "sort_key": "maxine's tap room (dickson st)",
       "visible": true
     },
     {
@@ -4978,6 +6024,50 @@
         "classified": "2026-04-21"
       },
       "sort_key": "menopause the musical",
+      "visible": true
+    },
+    {
+      "slug": "sdc-miss-lizzies",
+      "name": "Miss Lizzie's Boarding House (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Boarding house-style lunch buffet serving fried chicken, vegetables, biscuits, and pies in a family-style setting.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food"
+      ],
+      "sort_key": "miss lizzie's boarding house (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-molly-mill-restaurant",
+      "name": "Molly's Mill Restaurant (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Sit-down restaurant serving hearty Ozark-style skillet meals, chicken, and comfort food in a historic mill atmosphere.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food"
+      ],
+      "sort_key": "molly's mill restaurant (silver dollar city)",
       "visible": true
     },
     {
@@ -5287,6 +6377,28 @@
       "visible": true
     },
     {
+      "slug": "tanger-new-balance",
+      "name": "New Balance Factory Store (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "New Balance Factory Store with outlet pricing on athletic and lifestyle footwear and apparel.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "active"
+      ],
+      "sort_key": "new balance factory store (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "new-jersey-nights",
       "name": "New Jersey Nights",
       "category": "show",
@@ -5389,6 +6501,26 @@
       "visible": true
     },
     {
+      "slug": "dickson-nightbird-books",
+      "name": "Nightbird Books (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.6,
+      "description": "Independent new bookstore with carefully curated selections, local author events, and a warm community bookshop atmosphere.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "art"
+      ],
+      "sort_key": "nightbird books (dickson st)",
+      "visible": true
+    },
+    {
       "slug": "tanger-outlets-nike",
       "name": "Nike Factory Store (Tanger Outlets)",
       "category": "attraction",
@@ -5408,6 +6540,28 @@
         "at-tanger-outlets"
       ],
       "sort_key": "nike factory store (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "tanger-old-navy",
+      "name": "Old Navy (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Old Navy at Tanger Outlets with everyday casual clothing for the whole family at value pricing.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "old navy (tanger outlets)",
       "visible": true
     },
     {
@@ -5599,6 +6753,29 @@
       "visible": true
     },
     {
+      "slug": "sdc-ozark-pottery",
+      "name": "Ozark Pottery (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Live wheel-throwing and hand-building pottery demonstrations by Ozark artisans. Functional and decorative pottery for sale.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts"
+      ],
+      "sort_key": "ozark pottery (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "ozarks-aglow-nighttime-walk",
       "name": "Ozarks Aglow Nighttime Walk",
       "category": "attraction",
@@ -5732,6 +6909,28 @@
       "visible": true
     },
     {
+      "slug": "branson-landing-pandora",
+      "name": "Pandora (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Pandora jewelry boutique at Branson Landing with charms, bracelets, necklaces, and rings. A classic date-night stop.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "date-night"
+      ],
+      "sort_key": "pandora (branson landing)",
+      "visible": true
+    },
+    {
       "slug": "parakeet-pete-s",
       "name": "Parakeet Pete's",
       "category": "attraction",
@@ -5838,6 +7037,26 @@
         "day-trip"
       ],
       "sort_key": "pea ridge national military park",
+      "visible": true
+    },
+    {
+      "slug": "dickson-penguin-eds-bbq",
+      "name": "Penguin Ed's Bar-B-Q (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.5,
+      "description": "Legendary Fayetteville BBQ joint with slow-smoked meats, homemade sauces, and classic sides.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "penguin ed's bar-b-q (dickson st)",
       "visible": true
     },
     {
@@ -6107,6 +7326,28 @@
       "visible": true
     },
     {
+      "slug": "tanger-polo-ralph-lauren",
+      "name": "Polo Ralph Lauren Factory Store (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Polo Ralph Lauren Factory Store featuring outlet prices on polo shirts, casual wear, and accessories for the whole family.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "polo ralph lauren factory store (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "pomme-de-terre-state-park",
       "name": "Pomme de Terre State Park",
       "category": "attraction",
@@ -6129,6 +7370,49 @@
         "day-trip"
       ],
       "sort_key": "pomme de terre state park",
+      "visible": true
+    },
+    {
+      "slug": "dickson-powerhouse-seafood",
+      "name": "Powerhouse Seafood & Grill (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.4,
+      "description": "Seafood restaurant with Gulf Coast fish, shrimp, oysters, and Cajun-style dishes.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "powerhouse seafood & grill (dickson st)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-prairie-kettle-corn",
+      "name": "Prairie Kettle Corn (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Fresh-popped kettle corn cart. The sweet and salty snack is a park staple -- you'll smell it before you see it.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food",
+        "kid-focused"
+      ],
+      "sort_key": "prairie kettle corn (silver dollar city)",
       "visible": true
     },
     {
@@ -6651,6 +7935,52 @@
       "visible": true
     },
     {
+      "slug": "sdc-rock-shop",
+      "name": "The Rock Shop & Gem Mine (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Gem and mineral shop plus a sluicing activity where kids pan for gems, fossils, and arrowheads. One of the most popular kid activities inside SDC.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "kid-focused",
+        "active"
+      ],
+      "sort_key": "rock shop & gem mine (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "tanger-rue21",
+      "name": "rue21 Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "rue21 outlet offering trendy affordable fashion for teens and young adults. Great for Ashlyn, Mycah, Evie, and McKinley.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "teen",
+        "kid-focused"
+      ],
+      "sort_key": "rue21 outlet (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "runaway-mountain-coaster",
       "name": "Runaway Mountain Coaster",
       "category": "attraction",
@@ -6713,6 +8043,26 @@
         "1-2hr"
       ],
       "sort_key": "ruth and paul henning conservation area",
+      "visible": true
+    },
+    {
+      "slug": "dickson-sassy-red-house",
+      "name": "Sassy's Red House BBQ (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.4,
+      "description": "Fayetteville BBQ with smoked meats, homemade sides, and Arkansas-style sauce. Casual and family-friendly.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "sassy's red house bbq (dickson st)",
       "visible": true
     },
     {
@@ -7300,6 +8650,52 @@
       "visible": true
     },
     {
+      "slug": "sdc-general-store",
+      "name": "Silver Dollar City General Store (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "SDC's main general merchandise and souvenir shop with park-branded goods, Ozark products, candy, and gifts.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "kid-focused"
+      ],
+      "sort_key": "silver dollar city general store (silver dollar city)",
+      "visible": true
+    },
+    {
+      "slug": "sdc-silversmith",
+      "name": "The Silversmith & Jewelry Studio (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Handcrafted silver jewelry made on-site. Watch artisans shape, solder, and polish sterling silver into rings, pendants, and bracelets.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts",
+        "date-night"
+      ],
+      "sort_key": "silversmith & jewelry studio (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "six",
       "name": "SIX",
       "category": "show",
@@ -7342,6 +8738,48 @@
         "classified": "2026-04-21"
       },
       "sort_key": "six",
+      "visible": true
+    },
+    {
+      "slug": "tanger-skechers",
+      "name": "Skechers Factory Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Skechers Factory Outlet with wide selection of comfort and athletic footwear for all ages.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "kid-focused"
+      ],
+      "sort_key": "skechers factory outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "dickson-smoke-barrel-tavern",
+      "name": "Smoke & Barrel Tavern (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.5,
+      "description": "Whiskey bar and tavern with an extensive bourbon and whiskey list, craft cocktails, and a cozy atmosphere.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "date-night"
+      ],
+      "sort_key": "smoke & barrel tavern (dickson st)",
       "visible": true
     },
     {
@@ -7433,6 +8871,29 @@
         "classified": "2026-04-21"
       },
       "sort_key": "snowflex tubing at wolfe mountain",
+      "visible": true
+    },
+    {
+      "slug": "sdc-soap-shop",
+      "name": "The Soap Shop (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Handcrafted lye soaps and natural soap products with live demonstrations showing the soap-making process.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food",
+        "crafts"
+      ],
+      "sort_key": "soap shop (silver dollar city)",
       "visible": true
     },
     {
@@ -7530,6 +8991,29 @@
         "classified": "2026-04-21"
       },
       "sort_key": "sons of britches",
+      "visible": true
+    },
+    {
+      "slug": "sdc-sorghum-mill",
+      "name": "Sorghum Mill (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Working sorghum mill demonstration where visitors watch sorghum syrup being made the old-fashioned way. Fresh sorghum and apple butter for sale.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "specialty-food",
+        "history"
+      ],
+      "sort_key": "sorghum mill (silver dollar city)",
       "visible": true
     },
     {
@@ -7634,6 +9118,28 @@
       "visible": true
     },
     {
+      "slug": "branson-landing-spencers",
+      "name": "Spencer's (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Spencer's at Branson Landing with novelty gifts, pop culture merchandise, and accessories.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "teen"
+      ],
+      "sort_key": "spencer's (branson landing)",
+      "visible": true
+    },
+    {
       "slug": "springfield-antique-malls",
       "name": "Springfield Antique Malls",
       "category": "attraction",
@@ -7704,6 +9210,27 @@
         "1-2hr"
       ],
       "sort_key": "springfield farmers market",
+      "visible": true
+    },
+    {
+      "slug": "tanger-steve-madden",
+      "name": "Steve Madden Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Steve Madden outlet with discounted fashion footwear, boots, and accessories.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "steve madden outlet (tanger outlets)",
       "visible": true
     },
     {
@@ -7844,6 +9371,27 @@
         "1-2hr"
       ],
       "sort_key": "sugar leaf bakery",
+      "visible": true
+    },
+    {
+      "slug": "tanger-sunglass-hut",
+      "name": "Sunglass Hut Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Sunglass Hut outlet with discounted designer sunglasses -- Ray-Ban, Oakley, Prada, and more.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "sunglass hut outlet (tanger outlets)",
       "visible": true
     },
     {
@@ -8102,6 +9650,27 @@
       "visible": true
     },
     {
+      "slug": "tanger-tommy-hilfiger",
+      "name": "Tommy Hilfiger Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Tommy Hilfiger outlet featuring classic American sportswear, polo shirts, and accessories at factory outlet prices.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "tommy hilfiger outlet (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "top-of-the-rock",
       "name": "Top of the Rock",
       "category": "attraction",
@@ -8120,6 +9689,49 @@
         "all-day"
       ],
       "sort_key": "top of the rock",
+      "visible": true
+    },
+    {
+      "slug": "branson-landing-torrid",
+      "name": "Torrid (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Torrid at Branson Landing specializing in plus-size fashion, pop culture styles, and trendy looks for women.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing"
+      ],
+      "sort_key": "torrid (branson landing)",
+      "visible": true
+    },
+    {
+      "slug": "tanger-torrid",
+      "name": "Torrid Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Torrid outlet specializing in plus-size fashion, pop culture tees, and edgy styles for women.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "teen"
+      ],
+      "sort_key": "torrid outlet (tanger outlets)",
       "visible": true
     },
     {
@@ -8359,6 +9971,25 @@
       "visible": true
     },
     {
+      "slug": "dickson-underwoods-jewelers",
+      "name": "Underwood's Fine Jewelers (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.5,
+      "description": "Fine jewelry store with a wide selection of diamond jewelry, engagement rings, and watches.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family"
+      ],
+      "sort_key": "underwood's fine jewelers (dickson st)",
+      "visible": true
+    },
+    {
       "slug": "veterans-memorial-museum",
       "name": "Veterans Memorial Museum",
       "category": "attraction",
@@ -8405,6 +10036,27 @@
       "visible": true
     },
     {
+      "slug": "branson-landing-victorias-secret",
+      "name": "Victoria's Secret (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Victoria's Secret at Branson Landing with full lingerie, beauty, and Pink brand collections.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing"
+      ],
+      "sort_key": "victoria's secret (branson landing)",
+      "visible": true
+    },
+    {
       "slug": "walmart-museum",
       "name": "Walmart Museum",
       "category": "attraction",
@@ -8448,6 +10100,26 @@
         "1-2hr"
       ],
       "sort_key": "walton arts center",
+      "visible": true
+    },
+    {
+      "slug": "dickson-walton-arts-center",
+      "name": "Walton Arts Center (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.7,
+      "description": "Major performing arts center on Dickson Street hosting Broadway touring shows, concerts, dance, and comedy. Home venue for the Northwest Arkansas arts scene.",
+      "image": "",
+      "official_url": "https://www.waltonartscenter.org",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "art"
+      ],
+      "sort_key": "walton arts center (dickson st)",
       "visible": true
     },
     {
@@ -8546,6 +10218,28 @@
       "visible": true
     },
     {
+      "slug": "branson-landing-white-house-black-market",
+      "name": "White House Black Market (Branson Landing)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "White House Black Market at Branson Landing with women's workwear and chic casual styles.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing Blvd, Branson MO 65616. On the waterfront. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-branson-landing",
+        "date-night"
+      ],
+      "sort_key": "white house black market (branson landing)",
+      "visible": true
+    },
+    {
       "slug": "white-water",
       "name": "White Water",
       "category": "attraction",
@@ -8641,6 +10335,29 @@
       "visible": true
     },
     {
+      "slug": "sdc-wilson-brothers-music",
+      "name": "Wilson Brothers Music (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "SDC's music shop specializing in Ozark folk instruments -- dulcimers, fiddles, banjos, and harmonicas. CDs and sheet music too.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "music"
+      ],
+      "sort_key": "wilson brothers music (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "wilsons-creek-national-battlefield",
       "name": "Wilson's Creek National Battlefield",
       "category": "attraction",
@@ -8731,6 +10448,29 @@
       "visible": true
     },
     {
+      "slug": "sdc-woodcarver",
+      "name": "The Woodcarver's Shop (Silver Dollar City)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "Live wood carving demonstrations by Ozark craftspeople. Carved wildlife, figures, walking sticks, and folk art for sale.",
+      "image": "",
+      "official_url": "https://www.silverdollarcity.com",
+      "notes": "Silver Dollar City, 399 Silver Dollar City Pkwy, Branson MO 65616. ~15 min from Watermill Cove. Included with SDC admission. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "sdc",
+        "at-sdc",
+        "family",
+        "indoor",
+        "free",
+        "art",
+        "crafts"
+      ],
+      "sort_key": "woodcarver's shop (silver dollar city)",
+      "visible": true
+    },
+    {
       "slug": "world-s-largest-toy-museum-complex",
       "name": "World's Largest Toy Museum Complex",
       "category": "attraction",
@@ -8773,6 +10513,48 @@
         "classified": "2026-04-21"
       },
       "sort_key": "world's largest toy museum complex",
+      "visible": true
+    },
+    {
+      "slug": "tanger-yankee-candle",
+      "name": "Yankee Candle Outlet (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "Yankee Candle outlet with discounted candles, home fragrances, and gifts.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Sat 10am-8pm, Sun 11am-6pm. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "at-tanger-outlets",
+        "specialty-food"
+      ],
+      "sort_key": "yankee candle outlet (tanger outlets)",
+      "visible": true
+    },
+    {
+      "slug": "dickson-yeyos",
+      "name": "Yeyo's El Alma de Mexico (Dickson St)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.6,
+      "description": "Authentic Mexican restaurant from a Oaxacan family. Known for moles, tamales, and mezcal.",
+      "image": "",
+      "official_url": "",
+      "notes": "Dickson Street, Fayetteville AR. ~1.5 hr drive from Watermill Cove. Training-knowledge entry -- verify store is still open at official site before visiting.",
+      "tags": [
+        "free",
+        "at-dickson-street",
+        "family",
+        "specialty-food"
+      ],
+      "sort_key": "yeyo's el alma de mexico (dickson st)",
       "visible": true
     },
     {
@@ -8830,7 +10612,7 @@
       "visible": true
     }
   ],
-  "last_updated": "2026-04-19T03:34:07.090437",
+  "last_updated": "2026-05-03",
   "source": "Full parse of source HTML with 125+ shows-listing__image divs",
   "note": "Duplicates removed on 2026-04-19. Removed 3 duplicates. Final count: 140",
   "_metadata": {
