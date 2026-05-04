@@ -9976,6 +9976,265 @@
         "history",
         "kid-focused"
       ]
+    },
+    {
+      "slug": "apple-tree-mall-flea-market",
+      "name": "Apple Tree Mall (Flea Market)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2.0,
+      "rating": 4.1,
+      "description": "The largest flea market in Branson -- 55,000 sq ft with 350+ vendor booths in a repurposed grocery store on Hwy 76. Vintage, collectibles, antiques, clothing, crafts, and more. Open every day of the trip.",
+      "image": "",
+      "official_url": "https://www.tripadvisor.com/Attraction_Review-g44160-d9710441-Reviews-Apple_Tree_Mall-Branson_Missouri.html",
+      "notes": "1830 W 76 Country Blvd, Branson MO 65616. Right on the Hwy 76 strip -- no meaningful drive from Watermill Cove. Hours: Daily 8am-10pm.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "flea-market",
+        "relaxed"
+      ]
+    },
+    {
+      "slug": "main-street-flea-market",
+      "name": "Main Street Flea Market",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.5,
+      "rating": 3.9,
+      "description": "A beloved Downtown Branson flea market with small-vendor booths, antiques, collectibles, and local crafts. Tucked into Historic Downtown -- combine with a downtown stroll.",
+      "image": "",
+      "official_url": "https://www.tripadvisor.com/Attraction_Review-g44160-d10113414-Reviews-Main_Street_Flea_Market-Branson_Missouri.html",
+      "notes": "106 E Main St, Branson MO 65616. Historic Downtown Branson. ~10 min from Watermill Cove. Hours: Tue-Sun 9am-5:30pm (closed Monday).",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "flea-market",
+        "relaxed"
+      ]
+    },
+    {
+      "slug": "classy-flea-branson",
+      "name": "The Classy Flea",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 3.7,
+      "description": "A boutique flea market in Historic Downtown Branson with new and unusual items daily. More curated than a traditional flea market -- think eclectic finds and daily new inventory.",
+      "image": "",
+      "official_url": "https://www.theclassyflea.net",
+      "notes": "107 E Main St, Branson MO 65616. Next door to Main Street Flea Market. ~10 min from Watermill Cove. Verify hours before visiting.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "flea-market",
+        "relaxed"
+      ]
+    },
+    {
+      "slug": "branson-landing-farmers-market",
+      "name": "Branson Landing Farmers Market",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.5,
+      "rating": 4.5,
+      "description": "Weekly outdoor farmers market on the Branson Landing waterfront featuring local produce, artisan goods, baked treats, food trucks, and live music. Runs every Tuesday from May through October. May 26 is the trip date that hits this market.",
+      "image": "",
+      "official_url": "https://bransonlanding.com/events/branson-landing-branson-farmers-market-at-branson-landing",
+      "notes": "100 Branson Landing Blvd, Branson MO 65616. On the Lake Taneycomo waterfront. ~10 min from Watermill Cove. Hours: Tuesdays 2:30-6:30pm (April-October). Trip date: Tuesday May 26.",
+      "tags": [
+        "free",
+        "outdoor",
+        "family",
+        "specialty-food",
+        "farmers-market",
+        "relaxed",
+        "at-branson-landing"
+      ]
+    },
+    {
+      "slug": "branson-farmers-market-hwy76",
+      "name": "Branson Farmers Market (Hwy 76)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.3,
+      "description": "Daily farmers market on the Branson strip open every day of the trip. Fresh produce, local goods, and Ozark specialty foods. Open 8am-8pm -- easy to work into any day.",
+      "image": "",
+      "official_url": "https://www.branson.com/farmers-market-in-branson/",
+      "notes": "1209 W 76 Country Blvd, Branson MO 65616. On the Hwy 76 strip. Minimal drive from Watermill Cove. Hours: Daily 8am-8pm. Phone: 417-334-2360.",
+      "tags": [
+        "free",
+        "outdoor",
+        "family",
+        "specialty-food",
+        "farmers-market",
+        "relaxed"
+      ]
+    },
+    {
+      "slug": "branson-summer-street-fair",
+      "name": "Branson Summer Street Fair & Market",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.5,
+      "rating": 4.2,
+      "description": "Open-air market and street fair running Tuesdays and Fridays from May through September. Vendors, local food, artisan crafts, and a lively festival atmosphere. Trip dates that hit: Friday May 23, Tuesday May 26, Friday May 27.",
+      "image": "",
+      "official_url": "https://www.explorebranson.com/event/farmers-market-&-summer-street-fair/5474/",
+      "notes": "Branson, MO. Hours: Tuesdays & Fridays 3-7pm, May 20-Sept 30. Verify exact location on explorebranson.com. Trip overlap: May 23 (Fri), May 26 (Tue), May 27 (Fri).",
+      "tags": [
+        "free",
+        "outdoor",
+        "family",
+        "specialty-food",
+        "farmers-market",
+        "relaxed"
+      ]
+    },
+    {
+      "slug": "peter-engler-designs",
+      "name": "Peter Engler Designs",
+      "category": "activity",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.6,
+      "description": "A gallery-quality art shop in Downtown Branson specializing in intricate wood carvings by the late Peter Engler and other local artists. Also features pottery, paintings, and regional fine art. A genuine Ozark art destination worth the downtown detour.",
+      "image": "",
+      "official_url": "https://www.peterengler.com",
+      "notes": "201 S Commercial St, Branson MO 65616. Downtown Branson, ~10 min from Watermill Cove. Hours: Daily 9:30am-6pm. Phone: 417-335-6862. Free to browse.",
+      "tags": [
+        "free",
+        "art",
+        "family",
+        "indoor",
+        "relaxed",
+        "history"
+      ]
+    },
+    {
+      "slug": "branson-art-shop",
+      "name": "Branson Art Shop (Convention Center Gallery)",
+      "category": "activity",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "A rotating fine art exhibition at the Branson Convention Center featuring works by local and regional Missouri and Arkansas artists. Free to visit -- a low-key cultural stop on a quieter day.",
+      "image": "",
+      "official_url": "https://bransonartshop.com",
+      "notes": "Branson Convention Center, Branson MO. ~10 min from Watermill Cove. Free admission. Verify current exhibition before visiting.",
+      "tags": [
+        "free",
+        "art",
+        "family",
+        "indoor",
+        "relaxed"
+      ]
+    },
+    {
+      "slug": "table-rock-art-guild",
+      "name": "Table Rock Art Guild & Gallery",
+      "category": "activity",
+      "price_adult": 0.0,
+      "duration_hours": 0.75,
+      "rating": 4.2,
+      "description": "A cooperative gallery run by local Ozark artists featuring paintings, sculpture, ceramics, fiber arts, and mixed media. An authentic local art experience distinct from the commercial Branson tourist scene.",
+      "image": "",
+      "official_url": "https://grandoakshotel.net/2025/06/04/5-local-art-galleries-in-branson/",
+      "notes": "Branson, MO area. Verify current address and hours at explorebranson.com before visiting. Free to browse.",
+      "tags": [
+        "free",
+        "art",
+        "family",
+        "indoor",
+        "relaxed"
+      ]
+    },
+    {
+      "slug": "reflections-art-gallery-branson",
+      "name": "Reflections Art Gallery",
+      "category": "activity",
+      "price_adult": 0.0,
+      "duration_hours": 0.75,
+      "rating": 4.3,
+      "description": "A fine art gallery in the Branson area with paintings, photography, and mixed media works by Ozark region artists. Good stop for anyone in the group who appreciates original art.",
+      "image": "",
+      "official_url": "https://grandoakshotel.net/2025/06/04/5-local-art-galleries-in-branson/",
+      "notes": "Branson, MO area. Verify current address and hours before visiting -- gallery hours vary seasonally.",
+      "tags": [
+        "free",
+        "art",
+        "family",
+        "indoor",
+        "relaxed"
+      ]
+    },
+    {
+      "slug": "st-james-winery-branson",
+      "name": "St. James Winery & Restaurant (Branson)",
+      "category": "activity",
+      "price_adult": 10.0,
+      "duration_hours": 2.0,
+      "rating": 4.4,
+      "description": "The Branson outpost of the iconic St. James Winery, serving Missouri wines with tastings, a full bar, and brick oven pizza in a relaxed sit-down setting. One of the most accessible winery experiences on the trip -- just off the strip. Good evening option after an early show.",
+      "image": "",
+      "official_url": "https://www.stjamesbranson.com",
+      "notes": "405 State Hwy 165, Branson MO 65616. Just off Hwy 76 strip, ~5 min from Watermill Cove. Hours: Daily 11am-8pm. Wine tastings available; also has full bar and restaurant. No reservations needed for tastings.",
+      "tags": [
+        "winery",
+        "date-night",
+        "family",
+        "indoor",
+        "relaxed",
+        "specialty-food"
+      ]
+    },
+    {
+      "slug": "bear-creek-winery-branson",
+      "name": "Bear Creek Wine Company & Brewery",
+      "category": "activity",
+      "price_adult": 15.0,
+      "duration_hours": 2.0,
+      "rating": 4.5,
+      "description": "A family-operated winery and small-batch brewery 10 miles north of Branson in Walnut Shade. Ozark farm setting with live music on weekends, wine and beer flights, pizza, and a chill outdoor atmosphere. One of the most authentic non-commercial experiences on the trip. Tasting sessions run 45-60 minutes.",
+      "image": "",
+      "official_url": "https://bearcreekwinecompany.com",
+      "notes": "1320 Keithley Rd, Walnut Shade MO 65771. ~15 min north of Watermill Cove. Hours: Tue-Sun 10am-6pm (Mon closed). Live music Fri-Sat-Sun. No reservations -- first come first served. Phone: 417-443-0036.",
+      "tags": [
+        "winery",
+        "date-night",
+        "family",
+        "outdoor",
+        "relaxed",
+        "specialty-food",
+        "music"
+      ]
+    },
+    {
+      "slug": "ozark-hills-winery-branson",
+      "name": "Ozark Hills Winery",
+      "category": "activity",
+      "price_adult": 20.0,
+      "duration_hours": 1.5,
+      "rating": 4.4,
+      "description": "A dedicated wine tasting winery on Hwy 165 in Branson with a full portfolio of Ozark-region wines from sweet to dry. Flight options: 4 half-glass pours for $20, or 6 small pours for $29. Friendly staff and a solid wine selection for the price.",
+      "image": "",
+      "official_url": "https://ozarkhillswinery.com",
+      "notes": "601 State Hwy 165, Branson MO 65616. ~5 min from Watermill Cove. Hours: Tue-Sun 11am-6pm (closed Mon). Phone: 417-334-1897.",
+      "tags": [
+        "winery",
+        "date-night",
+        "family",
+        "indoor",
+        "relaxed",
+        "specialty-food"
+      ]
     }
   ],
   "last_updated": "2026-05-03",
