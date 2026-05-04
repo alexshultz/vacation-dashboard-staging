@@ -1757,6 +1757,32 @@
       "visible": true
     },
     {
+      "slug": "crystal-bridges",
+      "name": "Crystal Bridges Museum of American Art",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.9,
+      "description": "World-class art museum in Bentonville, Arkansas, founded by the Walton family. General admission is free. Houses American masterworks spanning five centuries alongside Moshe Safdie's stunning architecture -- and includes a relocated Frank Lloyd Wright-designed house (Bachman-Wilson House, 1954) on the grounds. 600+ acres of trails connect indoor galleries to outdoor sculpture. Special exhibitions may require separate tickets. One of the great art museums in the country -- rivals any major city institution.",
+      "image": "assets/thumbs/crystal-bridges-thumb.jpg",
+      "official_url": "https://www.crystalbridges.org/",
+      "notes": "600 Museum Way, Bentonville AR. About 110 miles south of Branson (~2 hr drive). Free general admission. Open Wed-Mon (closed Tuesdays). Check calendar for special exhibitions. Pairs well with The Momentary (same campus family).",
+      "tags": [
+        "free",
+        "art",
+        "educational",
+        "family",
+        "date-night",
+        "indoor",
+        "outdoor",
+        "relaxed",
+        "day-trip",
+        "all-day"
+      ],
+      "sort_key": "crystal bridges museum of american art",
+      "visible": true
+    },
+    {
       "slug": "dan-wagners-johnny-cash-friends-tribute",
       "name": "Dan Wagner’s Johnny Cash & Friends Tribute",
       "category": "show",
@@ -1951,6 +1977,32 @@
         "classified": "2026-04-21"
       },
       "sort_key": "dean z - the ultimate elvis",
+      "visible": true
+    },
+    {
+      "slug": "dogwood-canyon",
+      "name": "Dogwood Canyon Nature Park",
+      "category": "attraction",
+      "price_adult": 19.95,
+      "duration_hours": 4,
+      "rating": 4.8,
+      "description": "A stunning 10,000-acre nature park in Lampe, Missouri -- practically next door to Branson at just 25 miles. Features towering canyon walls, crystal-clear streams, waterfalls, and abundant wildlife. Activities include tram tours through the canyon, trout fishing, horseback trail rides, hiking and biking trails, and the historic Mill. Park admission includes trails, the Nature & Conservation Center, and the Treehouse Masters treehouse. Reserve tram tours and activities in advance.",
+      "image": "assets/thumbs/dogwood-canyon-thumb.jpg",
+      "official_url": "https://www.dogwoodcanyon.org/",
+      "notes": "2038 W State Hwy 86, Lampe MO. About 25 miles from Branson (~30 min drive). Open daily 9am-5pm. Admission pricing varies by day (pick-a-day model -- book earlier = cheaper). Tram tours, horseback riding, and fishing require separate activity tickets. Reserve in advance -- can sell out. Limited cell service on property.",
+      "tags": [
+        "outdoor",
+        "active",
+        "animals",
+        "family",
+        "kid-focused",
+        "nature",
+        "relaxed",
+        "1-2hr",
+        "all-day",
+        "hiking"
+      ],
+      "sort_key": "dogwood canyon nature park",
       "visible": true
     },
     {
@@ -2630,6 +2682,32 @@
         "classified": "2026-04-21"
       },
       "sort_key": "grand jubilee",
+      "visible": true
+    },
+    {
+      "slug": "great-passion-play",
+      "name": "The Great Passion Play",
+      "category": "show",
+      "duration_hours": 2,
+      "price_adult": 21.95,
+      "family_pass": null,
+      "rating": 4.6,
+      "description": "The largest outdoor drama in the United States, performed in a massive outdoor amphitheater in Eureka Springs, Arkansas. Depicts the last week of Jesus' life with a cast of hundreds, live animals, and elaborate sets. Beyond the play itself, the grounds include the Christ of the Ozarks statue, a Holy Land walking tour, Bible Museum, Sacred Arts Museum, and History Museum -- many free to explore. Runs seasonally spring through fall.",
+      "image": "assets/thumbs/great-passion-play-thumb.jpg",
+      "official_url": "https://greatpassionplay.org/",
+      "notes": "4040 Passion Play Rd, Eureka Springs AR. About 60 miles south of Branson (~1 hr drive). Check 2026 season schedule at greatpassionplay.org for May performance dates and times. Call 479-253-9200. Grounds attractions partially free.",
+      "tags": [
+        "outdoor",
+        "spiritual",
+        "drama",
+        "educational",
+        "family",
+        "date-night",
+        "day-trip",
+        "1-2hr",
+        "religious"
+      ],
+      "sort_key": "great passion play",
       "visible": true
     },
     {
@@ -3600,6 +3678,31 @@
         "classified": "2026-04-21"
       },
       "sort_key": "menopause the musical",
+      "visible": true
+    },
+    {
+      "slug": "the-momentary",
+      "name": "The Momentary",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.7,
+      "description": "A decommissioned cheese factory turned contemporary art and music venue in downtown Bentonville, Arkansas. Satellite to Crystal Bridges. Free general admission to galleries and outdoor art. Hosts live music concerts, performance art, culinary experiences, festivals, and artist residencies. Active programming year-round -- check calendar for live events during your visit dates.",
+      "image": "assets/thumbs/the-momentary-thumb.jpg",
+      "official_url": "https://themomentary.org/",
+      "notes": "507 SE E St, Bentonville AR. About 110 miles south of Branson (~2 hr drive). Free general admission. Open Tue-Sun (Fri-Sat until 8pm, closed Mondays). Best paired with Crystal Bridges on the same day trip. Check themomentary.org/calendar for May 23-28 programming.",
+      "tags": [
+        "free",
+        "art",
+        "music",
+        "educational",
+        "family",
+        "date-night",
+        "indoor",
+        "outdoor",
+        "day-trip"
+      ],
+      "sort_key": "momentary",
       "visible": true
     },
     {
@@ -6053,6 +6156,31 @@
       "visible": true
     },
     {
+      "slug": "thorncrown-chapel",
+      "name": "Thorncrown Chapel",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.9,
+      "description": "One of America's most celebrated works of architecture, Thorncrown Chapel rises 48 feet into the Ozark woodland of Eureka Springs, Arkansas. Designed by E. Fay Jones and completed in 1980, it features 425 windows and more than 6,000 square feet of glass resting on over 100 tons of native stone. Winner of the AIA Design of the Year Award and the AIA 25 Year Award. Over 9 million visitors. Free to enter -- a serene, unforgettable 30-60 minute stop.",
+      "image": "assets/thumbs/thorncrown-chapel-thumb.jpg",
+      "official_url": "https://www.thorncrown.com/",
+      "notes": "Free admission. Located at 12968 Hwy 62 W, Eureka Springs AR. About 60 miles south of Branson (~1 hr drive). Open seasonally spring through fall. Check site for current hours.",
+      "tags": [
+        "free",
+        "outdoor",
+        "relaxed",
+        "spiritual",
+        "educational",
+        "architecture",
+        "day-trip",
+        "family",
+        "date-night"
+      ],
+      "sort_key": "thorncrown chapel",
+      "visible": true
+    },
+    {
       "slug": "titanic-museum-attraction",
       "name": "Titanic Museum Attraction",
       "category": "attraction",
@@ -6478,6 +6606,29 @@
         "classified": "2026-04-21"
       },
       "sort_key": "whodunnit hoedown murder mystery dinner show",
+      "visible": true
+    },
+    {
+      "slug": "wonders-of-wildlife",
+      "name": "Wonders of Wildlife National Museum & Aquarium",
+      "category": "attraction",
+      "price_adult": 34.95,
+      "duration_hours": 4,
+      "rating": 4.8,
+      "description": "America's #1 museum and aquarium (USA Today 10Best), Johnny Morris' Wonders of Wildlife features over 1.5 miles of immersive exhibits, 800+ species, wildlife galleries, and an aquarium adventure. Located adjacent to Bass Pro Shops headquarters in Springfield, MO. A full-day experience that pairs perfectly with the Bass Pro flagship store next door.",
+      "image": "assets/thumbs/wonders-of-wildlife-thumb.jpg",
+      "official_url": "https://www.wondersofwildlife.org/",
+      "notes": "500 W Sunshine St, Springfield MO. About 45 miles north of Branson (~45 min drive). Open daily 10am-6pm. Pricing varies -- check site for current rates. Explorer Pass combo available.",
+      "tags": [
+        "animals",
+        "educational",
+        "family",
+        "kid-focused",
+        "indoor",
+        "all-day",
+        "day-trip"
+      ],
+      "sort_key": "wonders of wildlife national museum & aquarium",
       "visible": true
     },
     {
