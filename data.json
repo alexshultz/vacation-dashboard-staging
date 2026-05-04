@@ -72,6 +72,54 @@
       "visible": true
     },
     {
+      "slug": "7d-dark-ride-adventure",
+      "name": "7D Dark Ride Adventure",
+      "category": "attraction",
+      "price_adult": 12.0,
+      "duration_hours": 0.5,
+      "rating": 4.4,
+      "description": "An immersive interactive shooting ride at Branson Landing where riders compete to blast on-screen targets in a moving theater-style experience. Multiple themes and difficulty levels make it replayable. A fun 15-30 minute activity for competitive families.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/stores/7d-dark-ride-adventure/",
+      "notes": "Branson Landing, Branson MO 65616. Inside Branson Landing complex. 417-203-4158. No drive needed -- at the Landing itself.",
+      "tags": [
+        "active",
+        "family",
+        "kid-focused",
+        "indoor",
+        "1-2hr",
+        "shopping",
+        "at-branson-landing"
+      ],
+      "sort_key": "7d dark ride adventure",
+      "visible": true
+    },
+    {
+      "slug": "8th-street-market-bentonville",
+      "name": "8th Street Market",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.6,
+      "description": "A curated specialty grocery and local food market in downtown Bentonville featuring locally sourced produce, Arkansas artisan products, craft cheeses, house-made prepared foods, local honey, regional hot sauces, and specialty pantry items. A favorite stop for picking up quality local food gifts and edibles.",
+      "image": "",
+      "official_url": "https://www.8thstmarketbentonville.com/",
+      "notes": "801 SE 8th St, Bentonville AR 72712. ~100 miles south of Branson (~2 hr drive). Free to browse. Open daily. In downtown Bentonville -- combine with Crystal Bridges and the town square.",
+      "tags": [
+        "free",
+        "shopping",
+        "specialty-food",
+        "family",
+        "indoor",
+        "relaxed",
+        "day-trip",
+        "1-2hr",
+        "at-downtown-bentonville"
+      ],
+      "sort_key": "8th street market",
+      "visible": true
+    },
+    {
       "slug": "aaron-wayne-comedy-hypnosis-show",
       "name": "Aaron Wayne Comedy Hypnosis Show",
       "category": "show",
@@ -295,6 +343,28 @@
       "visible": true
     },
     {
+      "slug": "tanger-outlets-american-eagle",
+      "name": "American Eagle Outfitters (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.2,
+      "description": "American Eagle factory outlet at Tanger Outlets Branson with significant discounts on casual apparel, denim, and accessories for teens and young adults.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. Free parking. Hours: Mon-Thu 10am-7pm, Fri-Sat 10am-8pm, Sun 10am-6pm.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "kid-focused",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "american eagle outfitters (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "americana-new-years-eve-show",
       "name": "Americana New Year’s Eve Show",
       "category": "show",
@@ -370,6 +440,29 @@
         "free"
       ],
       "sort_key": "ancient ozarks natural history museum",
+      "visible": true
+    },
+    {
+      "slug": "andy-bs-bowl-social",
+      "name": "Andy B's Bowl Social",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2,
+      "rating": 4.5,
+      "description": "A modern bowling and entertainment venue at Branson Landing combining boutique bowling lanes with arcade games, private event spaces, and a full bar and restaurant. One of the most popular evening entertainment options at the Landing.",
+      "image": "",
+      "official_url": "https://www.andybs.com/",
+      "notes": "Branson Landing, Branson MO 65616. 417-213-8631. Evening atmosphere -- great for the adults in the group. Reservations recommended for bowling lanes.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "date-night",
+        "1-2hr",
+        "shopping",
+        "at-branson-landing"
+      ],
+      "sort_key": "andy b's bowl social",
       "visible": true
     },
     {
@@ -465,6 +558,29 @@
         "classified": "2026-04-21"
       },
       "sort_key": "aquarium at the boardwalk",
+      "visible": true
+    },
+    {
+      "slug": "arcade-city-branson-landing",
+      "name": "Arcade City",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1,
+      "rating": 4.3,
+      "description": "A large family arcade at Branson Landing with redemption games, video games, and prize redemption. A go-to stop when the kids need a break from the shows and outdoor activities.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing, Branson MO 65616. 417-203-4150. Inside the Landing complex. Pay-to-play -- bring quarters or buy a game card.",
+      "tags": [
+        "active",
+        "kid-focused",
+        "family",
+        "indoor",
+        "1-2hr",
+        "shopping",
+        "at-branson-landing"
+      ],
+      "sort_key": "arcade city",
       "visible": true
     },
     {
@@ -641,6 +757,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "back to the bee gees",
+      "visible": true
+    },
+    {
+      "slug": "bass-pro-shops-branson-landing",
+      "name": "Bass Pro Shops at Branson Landing",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.5,
+      "description": "The Branson Landing location of Bass Pro Shops, an anchor tenant of the waterfront district. Features full outdoor gear, clothing, and fishing equipment with the signature Bass Pro aquarium and wildlife displays. A smaller but still impressive version of the Springfield Grandaddy, right on the Taneycomo waterfront.",
+      "image": "",
+      "official_url": "https://www.bransonlanding.com/",
+      "notes": "Branson Landing, Branson MO 65616. 417-243-5200. Free to browse. Anchor tenant at the Landing. Different from the Springfield Grandaddy Store (~45 miles north).",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "indoor",
+        "1-2hr",
+        "at-branson-landing"
+      ],
+      "sort_key": "bass pro shops at branson landing",
       "visible": true
     },
     {
@@ -1075,6 +1213,30 @@
       "visible": true
     },
     {
+      "slug": "branson-candy-factory",
+      "name": "Branson Candy Factory",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.5,
+      "description": "A hand-crafted candy shop in Branson where you can watch taffy being pulled, fudge being made, and chocolates being dipped right in front of you. Dozens of flavors of hand-pulled taffy, old-fashioned fudge, peanut brittle, and seasonal candies. A treat-yourself stop the kids (and adults) will love.",
+      "image": "",
+      "official_url": "https://www.bransoncandy.com/",
+      "notes": "Branson MO -- check bransoncandy.com for current location and hours. Free to watch the candy-making process. Cash and card accepted. Popular stop -- can be crowded on weekends.",
+      "tags": [
+        "free",
+        "shopping",
+        "specialty-food",
+        "family",
+        "kid-focused",
+        "indoor",
+        "relaxed",
+        "1-2hr"
+      ],
+      "sort_key": "branson candy factory",
+      "visible": true
+    },
+    {
       "slug": "branson-comedy-bash-dinner-show",
       "name": "Branson Comedy Bash Dinner Show",
       "category": "show",
@@ -1317,7 +1479,8 @@
         "shopping",
         "relaxed",
         "date-night",
-        "1-2hr"
+        "1-2hr",
+        "at-branson-landing"
       ],
       "sort_key": "branson landing",
       "visible": true
@@ -2814,7 +2977,8 @@
         "outdoor",
         "relaxed",
         "day-trip",
-        "1-2hr"
+        "1-2hr",
+        "at-downtown-bentonville"
       ],
       "sort_key": "downtown bentonville shops",
       "visible": true
@@ -2972,7 +3136,6 @@
       "notes": "Throughout downtown Eureka Springs AR. ~60 miles south of Branson (~1 hr drive). Free to browse galleries. Most open 10am-5pm daily in season. Spring Street and Center Street have the highest gallery concentration. No cover charge -- just walk in.",
       "tags": [
         "free",
-        "shopping",
         "art",
         "educational",
         "relaxed",
@@ -3066,7 +3229,6 @@
       "notes": "Downtown Eureka Springs AR. ~60 miles south of Branson (~1 hr drive). Free to attend. Runs throughout May including your trip window (May 22-29). Basin Park Concert Series every Saturday. The entire downtown is alive during May Festival.",
       "tags": [
         "free",
-        "shopping",
         "art",
         "music",
         "outdoor",
@@ -4946,6 +5108,29 @@
       "visible": true
     },
     {
+      "slug": "mulberry-mill-branson",
+      "name": "Mulberry Mill",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.6,
+      "description": "A beloved specialty shop at Grand Village in Branson featuring gourmet foods, home decor, kitchenware, and Ozark-inspired gifts. Known for its selection of local jams, Missouri honey, flavored oils and vinegars, specialty spices, and unique pantry items you won't find in chain stores. A favorite for edible souvenirs.",
+      "image": "",
+      "official_url": "https://www.grandvillageshops.com/",
+      "notes": "Grand Village Shops, 2800 W Hwy 76, Branson MO 65616. Free to browse. Open daily. Inside the Grand Village complex -- combine with Kringles and Sugar Leaf Bakery.",
+      "tags": [
+        "free",
+        "shopping",
+        "specialty-food",
+        "family",
+        "indoor",
+        "relaxed",
+        "1-2hr"
+      ],
+      "sort_key": "mulberry mill",
+      "visible": true
+    },
+    {
       "slug": "nashville-roadhouse-live",
       "name": "Nashville Roadhouse Live",
       "category": "show",
@@ -5204,6 +5389,28 @@
       "visible": true
     },
     {
+      "slug": "tanger-outlets-nike",
+      "name": "Nike Factory Store (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.4,
+      "description": "Nike Factory Store at Tanger Outlets Branson offering 30-50% off select Nike footwear, apparel, and accessories. Full selection of athletic wear, running shoes, and lifestyle products from Nike, Jordan, and Converse.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. ~5 min from Hwy 76 strip. Free parking. Hours: Mon-Thu 10am-7pm, Fri-Sat 10am-8pm, Sun 10am-6pm.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "active",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "nike factory store (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "orbison-still",
       "name": "Orbison Still",
       "category": "show",
@@ -5365,6 +5572,30 @@
         "classified": "2026-04-21"
       },
       "sort_key": "ozark hills winery wine tasting",
+      "visible": true
+    },
+    {
+      "slug": "ozark-mountain-country-store",
+      "name": "Ozark Mountain Country Store",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.4,
+      "description": "A classic Ozark country store experience offering locally made jams and jellies, Missouri honey, Ozark spice blends, cast iron cookware, cornmeal and flour, vintage-style candy, and handmade gifts. The kind of store that smells like wood and vanilla the moment you walk in.",
+      "image": "",
+      "official_url": "https://www.branson.com/shopping/",
+      "notes": "Branson MO area -- multiple locations and pop-up markets on Hwy 76 and downtown. Free to browse. Best found at farmers markets and along the strip.",
+      "tags": [
+        "free",
+        "shopping",
+        "specialty-food",
+        "history",
+        "family",
+        "indoor",
+        "relaxed",
+        "1-2hr"
+      ],
+      "sort_key": "ozark mountain country store",
       "visible": true
     },
     {
@@ -7593,6 +7824,29 @@
       "visible": true
     },
     {
+      "slug": "sugar-leaf-bakery-branson",
+      "name": "Sugar Leaf Bakery",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.7,
+      "description": "An award-winning artisan bakery and cafe at Grand Village in Branson. Fresh-baked pastries, specialty cakes, handmade chocolates, and artisan breads made in-house daily. The cinnamon rolls alone are worth the stop.",
+      "image": "",
+      "official_url": "https://www.grandvillageshops.com/",
+      "notes": "Grand Village Shops, 2800 W Hwy 76, Branson MO 65616. Free to browse; buy something though. Open daily. Perfect breakfast or mid-afternoon stop while shopping Grand Village.",
+      "tags": [
+        "free",
+        "shopping",
+        "specialty-food",
+        "family",
+        "indoor",
+        "relaxed",
+        "1-2hr"
+      ],
+      "sort_key": "sugar leaf bakery",
+      "visible": true
+    },
+    {
       "slug": "table-rock-lake-boating",
       "name": "Table Rock Lake",
       "category": "attraction",
@@ -7676,7 +7930,8 @@
         "family",
         "indoor",
         "1-2hr",
-        "2-3hr"
+        "2-3hr",
+        "at-tanger-outlets"
       ],
       "sort_key": "tanger outlets branson",
       "visible": true
@@ -8082,6 +8337,28 @@
       "visible": true
     },
     {
+      "slug": "tanger-outlets-under-armour",
+      "name": "Under Armour Factory Store (Tanger Outlets)",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.3,
+      "description": "Under Armour Factory Store at Tanger Outlets offering up to 40% off performance apparel, footwear, and accessories. Good selection for athletic kids and adults in the group.",
+      "image": "",
+      "official_url": "https://www.tangeroutlet.com/branson",
+      "notes": "Tanger Outlets, 300 Tanger Blvd, Branson MO 65616. Free parking. Hours: Mon-Thu 10am-7pm, Fri-Sat 10am-8pm, Sun 10am-6pm.",
+      "tags": [
+        "free",
+        "shopping",
+        "family",
+        "active",
+        "indoor",
+        "at-tanger-outlets"
+      ],
+      "sort_key": "under armour factory store (tanger outlets)",
+      "visible": true
+    },
+    {
       "slug": "veterans-memorial-museum",
       "name": "Veterans Memorial Museum",
       "category": "attraction",
@@ -8174,30 +8451,6 @@
       "visible": true
     },
     {
-      "slug": "war-eagle-craft-fair",
-      "name": "War Eagle Craft Fair",
-      "category": "attraction",
-      "price_adult": 5.0,
-      "duration_hours": 4,
-      "rating": 4.7,
-      "description": "One of the oldest and largest juried craft fairs in the US, held along the banks of War Eagle Creek near Rogers, Arkansas since 1954. Nearly 300 booths display only handmade, handcrafted goods by their creators -- quilts, woodwork, pottery, jewelry, leather goods, folk art, and traditional Ozark crafts. A true living tradition of Ozark artisanship. Note: the 2026 fair runs October 15-18 -- outside your trip window -- but the War Eagle Mill (already in the DB) is open year-round.",
-      "image": "",
-      "official_url": "https://www.wareaglefair.com/",
-      "notes": "11037 High Sky Inn Rd, Hindsville AR 72738. ~90 miles south of Branson (~1 hr 45 min drive). 2026 fair: Oct 15-18 (outside May trip). War Eagle Mill nearby is open year-round. $5 admission per person when fair is running.",
-      "tags": [
-        "shopping",
-        "art",
-        "history",
-        "outdoor",
-        "family",
-        "educational",
-        "day-trip",
-        "all-day"
-      ],
-      "sort_key": "war eagle craft fair",
-      "visible": true
-    },
-    {
       "slug": "war-eagle-mill",
       "name": "War Eagle Mill",
       "category": "attraction",
@@ -8218,6 +8471,31 @@
         "free"
       ],
       "sort_key": "war eagle mill",
+      "visible": true
+    },
+    {
+      "slug": "war-eagle-mill-store",
+      "name": "War Eagle Mill Country Store",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.6,
+      "description": "The country store at the 1873 War Eagle Mill grist mill in Rogers, Arkansas sells stone-ground whole grain flours, cornmeal, grits, pancake mixes, and baking mixes ground on site by the original mill stones. Everything is organic, non-GMO, and milled fresh. Pick up a bag of War Eagle Mill cornmeal -- it's the real Ozark thing.",
+      "image": "",
+      "official_url": "https://visitwareaglemill.com/",
+      "notes": "11045 War Eagle Rd, Rogers AR 72756. ~90 miles south of Branson (~1 hr 45 min drive). Free to browse. Open daily. The mill itself is the attraction -- store is adjacent. War Eagle Mill already in the DB.",
+      "tags": [
+        "free",
+        "shopping",
+        "specialty-food",
+        "history",
+        "educational",
+        "outdoor",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "war eagle mill country store",
       "visible": true
     },
     {
