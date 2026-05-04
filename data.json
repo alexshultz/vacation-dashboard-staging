@@ -51,6 +51,27 @@
       "visible": true
     },
     {
+      "slug": "crescent-hotel-ghost-tour",
+      "name": "1886 Crescent Hotel Ghost Tour",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1.5,
+      "rating": 4.5,
+      "description": "Designated America's Most Haunted Hotel, this National Historic Registry landmark perched above the Victorian Village of Eureka Springs has been creating guest experiences since 1886. Evening ghost tours explore the hotel's famously spirited corridors, sharing documented paranormal encounters and the building's colorful history as an academy, luxury resort, and controversial hospital.",
+      "image": "",
+      "official_url": "https://crescent-hotel.com",
+      "notes": "75 Prospect Ave, Eureka Springs, AR 72632. ~60 mi from Branson MO, ~70 min drive. Ghost tour prices not listed online; contact 855-725-5720. Open to non-overnight guests.",
+      "tags": [
+        "history",
+        "indoor",
+        "date-night",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "1886 crescent hotel ghost tour",
+      "visible": true
+    },
+    {
       "slug": "aaron-wayne-comedy-hypnosis-show",
       "name": "Aaron Wayne Comedy Hypnosis Show",
       "category": "show",
@@ -330,6 +351,28 @@
       "visible": false
     },
     {
+      "slug": "ancient-ozarks-natural-history-museum",
+      "name": "Ancient Ozarks Natural History Museum",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.5,
+      "rating": 4.0,
+      "description": "Located within the Top of the Rock heritage preserve at Big Cedar Lodge, this museum features exhibits exploring the natural and cultural heritage of the Ozark region from prehistoric times to the present. Housed in a striking limestone structure, the museum celebrates the unique ecology and history of the Ozarks through curated collections and interactive displays.",
+      "image": "",
+      "official_url": "https://bigcedar.com/top-of-the-rock",
+      "notes": "150 Top of the Rock Road, Ridgedale, MO 65739. ~8 mi from Branson MO, ~15 min drive. Included with Top of the Rock $10/vehicle entry. Open daily 9:30am–7pm.",
+      "tags": [
+        "educational",
+        "history",
+        "indoor",
+        "family",
+        "1-2hr",
+        "free"
+      ],
+      "sort_key": "ancient ozarks natural history museum",
+      "visible": true
+    },
+    {
       "slug": "anthems-of-rock",
       "name": "Anthems of Rock",
       "category": "show",
@@ -422,6 +465,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "aquarium at the boardwalk",
+      "visible": true
+    },
+    {
+      "slug": "arkansas-air-and-military-museum",
+      "name": "Arkansas Air and Military Museum",
+      "category": "attraction",
+      "price_adult": 11.0,
+      "duration_hours": 2,
+      "rating": 4.0,
+      "description": "An aviation and military history museum in Fayetteville, Arkansas inviting visitors to experience flight and military heritage through aircraft exhibits, artifacts, and educational programming. The museum hosts special events including an annual Warbird Weekend celebration and provides discounted admission for veterans and active military personnel. Open Tuesday–Saturday.",
+      "image": "",
+      "official_url": "https://www.arkansasairandmilitary.com",
+      "notes": "4290 S. School Ave, Fayetteville, AR 72701. ~94 mi from Branson MO, ~105 min drive. Adult admission $11. Hours: Tue–Sat 9am–4pm; closed Sun–Mon.",
+      "tags": [
+        "history",
+        "educational",
+        "indoor",
+        "family",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "arkansas air and military museum",
       "visible": true
     },
     {
@@ -679,6 +744,28 @@
       "visible": true
     },
     {
+      "slug": "big-sugar-creek-state-park",
+      "name": "Big Sugar Creek State Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.0,
+      "description": "A rugged southwest Missouri park featuring scenic hiking trails through woodlands and glades where visitors encounter distinctive Ozark flora including Ozark chinquapin trees and prickly pear cacti. The rocky terrain supports diverse wildlife including armadillos and scarlet tanagers, and interpretive programs complement the natural history experience. One of the most biologically diverse landscapes in the Missouri Ozarks.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/big-sugar-creek-state-park",
+      "notes": "6727 Big Sugar Creek Road, Pineville, MO 64856. ~40 mi from Branson MO, ~55 min drive. Free; open daily.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "hiking",
+        "family",
+        "free",
+        "1-2hr"
+      ],
+      "sort_key": "big sugar creek state park",
+      "visible": true
+    },
+    {
       "slug": "bluegrass-bbq-festival",
       "name": "Bluegrass & BBQ Festival",
       "category": "family",
@@ -778,6 +865,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "bohemian queen",
+      "visible": true
+    },
+    {
+      "slug": "botanical-garden-of-the-ozarks",
+      "name": "Botanical Garden of the Ozarks",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2,
+      "rating": 4.0,
+      "description": "A member-supported public garden near the Razorback Greenway in Fayetteville, Arkansas dedicated to education and environmental awareness through themed garden areas, a butterfly house, and community events. The nonprofit works to connect visitors with the natural world through educational programming and seasonally changing displays.",
+      "image": "",
+      "official_url": "https://www.bgozarks.org",
+      "notes": "4703 N Crossover Rd, Fayetteville, AR 72764. ~94 mi from Branson MO, ~105 min drive. Hours: 9am–5pm daily, closed Thursdays. Admission prices not listed online.",
+      "tags": [
+        "nature",
+        "outdoor",
+        "educational",
+        "family",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "botanical garden of the ozarks",
       "visible": true
     },
     {
@@ -1287,6 +1396,28 @@
       "visible": true
     },
     {
+      "slug": "bridal-cave",
+      "name": "Bridal Cave & Thunder Mountain Park",
+      "category": "attraction",
+      "price_adult": 30.0,
+      "duration_hours": 1.0,
+      "rating": 4.5,
+      "description": "Missouri's most beautiful cave, featuring majestic formations and ancient mysteries at Lake of the Ozarks with over 75 years of visitor experience. The only Missouri cave accessible by boat, Bridal Cave offers standard tours, lantern tours, and black light adventure tours for a variety of ways to experience the underground world.",
+      "image": "",
+      "official_url": "https://www.bridalcave.com",
+      "notes": "526 Bridal Cave Rd, Camdenton, MO 65020. ~82 mi from Branson MO, ~90 min drive. Standard cave tour $30/adult (ages 13+).",
+      "tags": [
+        "nature",
+        "educational",
+        "indoor",
+        "family",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "bridal cave & thunder mountain park",
+      "visible": true
+    },
+    {
       "slug": "british-invasion",
       "name": "British Invasion",
       "category": "show",
@@ -1391,6 +1522,29 @@
       "visible": true
     },
     {
+      "slug": "buffalo-national-river",
+      "name": "Buffalo National River",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 6,
+      "rating": 4.5,
+      "description": "One of the few remaining undammed rivers in the lower 48 states, flowing freely for 135 miles through dramatic Ozark Mountain bluffs and landscapes ranging from whitewater rapids to peaceful pools. Established in 1972, this National Park Service river offers paddling, hiking, fishing, and camping from free backcountry to developed campgrounds.",
+      "image": "",
+      "official_url": "https://www.nps.gov/buff/index.htm",
+      "notes": "Headquarters: 402 N. Walnut St Suite 136, Harrison, AR 72601. ~65 mi from Branson MO, ~75 min drive. No entrance fee; camping fees $16–$50/night. Contact 870-439-2502.",
+      "tags": [
+        "nature",
+        "outdoor",
+        "water",
+        "hiking",
+        "free",
+        "all-day",
+        "day-trip"
+      ],
+      "sort_key": "buffalo national river",
+      "visible": true
+    },
+    {
       "slug": "butterfly-palace-rainforest-adventure",
       "name": "Butterfly Palace & Rainforest Adventure",
       "category": "attraction",
@@ -1485,6 +1639,27 @@
         "classified": "2026-04-21"
       },
       "sort_key": "carpenters once more",
+      "visible": true
+    },
+    {
+      "slug": "christ-of-the-ozarks",
+      "name": "Christ of the Ozarks",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 0.5,
+      "rating": 4.5,
+      "description": "An iconic statue of Jesus Christ rising above the Ozark hills on the Great Passion Play's 667-acre grounds in Eureka Springs, accessible free to the public 365 days a year from 8am to 8pm. Visitors can also explore the adjacent landmark known as 'The Cross' on the surrounding grounds. Visible from miles around, the statue serves as a beloved spiritual pilgrimage destination in the Ozarks.",
+      "image": "",
+      "official_url": "https://www.greatpassionplay.org",
+      "notes": "935 Passion Play Rd, Eureka Springs, AR 72632. ~60 mi from Branson MO, ~70 min drive. Open daily 8am–8pm (11pm on Passion Play performance nights). Free admission.",
+      "tags": [
+        "religious",
+        "spiritual",
+        "outdoor",
+        "free",
+        "day-trip"
+      ],
+      "sort_key": "christ of the ozarks",
       "visible": true
     },
     {
@@ -1757,6 +1932,27 @@
       "visible": true
     },
     {
+      "slug": "cosmic-cavern",
+      "name": "Cosmic Cavern",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1.5,
+      "rating": 4.5,
+      "description": "Arkansas's largest privately owned show cave, located 30 minutes south of Branson near Berryville, featuring the longest known soda straw formation in the Ozarks at 9 feet and two bottomless underground lakes. The pristine North Lake Passage, discovered in 1993, showcases translucent formations in an untouched environment maintained at a constant 64 degrees year-round. Tour duration approximately 80 minutes.",
+      "image": "",
+      "official_url": "https://www.cosmiccavern.com",
+      "notes": "6386 AR-21, Berryville, AR 72616. ~32 mi from Branson MO, ~40 min drive via US-62. Adult admission prices not listed online; contact 870-749-2298.",
+      "tags": [
+        "nature",
+        "educational",
+        "indoor",
+        "family",
+        "1-2hr"
+      ],
+      "sort_key": "cosmic cavern",
+      "visible": true
+    },
+    {
       "slug": "crystal-bridges",
       "name": "Crystal Bridges Museum of American Art",
       "category": "attraction",
@@ -1977,6 +2173,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "dean z - the ultimate elvis",
+      "visible": true
+    },
+    {
+      "slug": "dickerson-park-zoo",
+      "name": "Dickerson Park Zoo",
+      "category": "attraction",
+      "price_adult": 19.0,
+      "duration_hours": 3,
+      "rating": 4.0,
+      "description": "A beloved Springfield institution featuring over 500 animals from different corners of the world, with interactive experiences including giraffe feeding, a petting zoo, and miniature train rides. The zoo emphasizes connecting visitors with wildlife to inspire curiosity and conservation action through engaging educational programs for all ages. Open daily 9am–5pm.",
+      "image": "",
+      "official_url": "https://www.dickersonparkzoo.org",
+      "notes": "3043 North Fort, Springfield, MO 65803. ~50 mi from Branson MO, ~55 min drive. Adult admission $19; open 9am–5pm daily.",
+      "tags": [
+        "animals",
+        "family",
+        "outdoor",
+        "educational",
+        "2-3hr",
+        "day-trip"
+      ],
+      "sort_key": "dickerson park zoo",
       "visible": true
     },
     {
@@ -2304,6 +2522,70 @@
       "visible": true
     },
     {
+      "slug": "eureka-springs-north-arkansas-railway",
+      "name": "Eureka Springs & North Arkansas Railway",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2,
+      "rating": 4.5,
+      "description": "A historic excursion railway stepping passengers back in time aboard 1940s-era diesel locomotives through the scenic Ozark landscape. The railway features stationary steam exhibits, demonstrations of authentic railroad equipment including a working turntable, and dining excursions aboard the Eurekan Dining Car. Season runs April through October with special holiday runs.",
+      "image": "",
+      "official_url": "https://www.esnarailway.com",
+      "notes": "299 North Main Street, Eureka Springs, AR 72632. ~60 mi from Branson MO, ~70 min drive. Depot opens 9:30am. Season: April–October. Adult prices not listed online; contact 479-253-9623.",
+      "tags": [
+        "history",
+        "outdoor",
+        "family",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "eureka springs & north arkansas railway",
+      "visible": true
+    },
+    {
+      "slug": "eureka-springs-historical-museum",
+      "name": "Eureka Springs Historical Museum",
+      "category": "attraction",
+      "price_adult": 5.0,
+      "duration_hours": 1.0,
+      "rating": 4.0,
+      "description": "Named USA Today's 4th Best Small Town Museum, this award-winning institution guides visitors through the fascinating history of Eureka Springs from indigenous heritage and pioneer experiences through Victorian-era development as a health resort and the city's modern artistic renaissance. The self-guided tour also operates as an official visitor center with maps and regional travel information.",
+      "image": "",
+      "official_url": "https://eshmuseum.org",
+      "notes": "95 S. Main Street, Eureka Springs, AR 72632. ~60 mi from Branson MO, ~70 min drive. Adult admission $5. Open 9:30am–4pm; closed Sunday and Wednesday.",
+      "tags": [
+        "history",
+        "educational",
+        "indoor",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "eureka springs historical museum",
+      "visible": true
+    },
+    {
+      "slug": "fantastic-caverns",
+      "name": "Fantastic Caverns",
+      "category": "attraction",
+      "price_adult": 36.0,
+      "duration_hours": 1.0,
+      "rating": 4.5,
+      "description": "America's only ride-through cave, where visitors board jeep-drawn trams to explore massive natural chambers without ever leaving their seats. Missouri's most unique underground attraction maintains a comfortable 60-degree temperature year-round and features dramatic stalactite and stalagmite formations developed over millions of years.",
+      "image": "",
+      "official_url": "https://www.missouriscave.com",
+      "notes": "4872 North Farm Road 125, Springfield, MO 65803. ~50 mi from Branson MO, ~60 min drive. Adult admission $36.",
+      "tags": [
+        "nature",
+        "educational",
+        "family",
+        "indoor",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "fantastic caverns",
+      "visible": true
+    },
+    {
       "slug": "fritz-s-adventure",
       "name": "Fritz's Adventure",
       "category": "attraction",
@@ -2585,6 +2867,27 @@
       "visible": true
     },
     {
+      "slug": "george-washington-carver-national-monument",
+      "name": "George Washington Carver National Monument",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.5,
+      "rating": 4.5,
+      "description": "The birthplace and childhood home of George Washington Carver, celebrating the life of the renowned agricultural scientist, educator, and humanitarian who began as a 'Plant Doctor' tending a secret garden on a 19th-century Missouri farm. Visitors explore the museum, discovery area, and original farm grounds while learning about Carver's extraordinary contributions to American agriculture and science.",
+      "image": "",
+      "official_url": "https://www.nps.gov/gwca/index.htm",
+      "notes": "5646 Carver Road, Diamond, MO 64840. ~75 mi from Branson MO, ~85 min drive. Free admission. Contact 417-325-4151.",
+      "tags": [
+        "history",
+        "educational",
+        "outdoor",
+        "free",
+        "1-2hr"
+      ],
+      "sort_key": "george washington carver national monument",
+      "visible": true
+    },
+    {
       "slug": "golden-sounds-of-the-platters",
       "name": "Golden Sounds of the Platters",
       "category": "show",
@@ -2708,6 +3011,30 @@
         "religious"
       ],
       "sort_key": "great passion play",
+      "visible": true
+    },
+    {
+      "slug": "ha-ha-tonka-state-park",
+      "name": "Ha Ha Tonka State Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.5,
+      "description": "A stunning Missouri state park featuring the picturesque ruins of a turn-of-the-century stone castle perched above the Lake of the Ozarks, offering impressive views of the lake and the brilliant blue Ha Ha Tonka Spring. Trails and boardwalks explore diverse geological formations including sinkholes, caves, and a natural bridge, with activities including hiking, fishing, boating, kayaking, and picnicking.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/ha-ha-tonka-state-park",
+      "notes": "1491 State Road D, Camdenton, MO 65020. ~82 mi from Branson MO, ~90 min drive. Free admission; camping fees apply.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "hiking",
+        "history",
+        "architecture",
+        "free",
+        "all-day",
+        "day-trip"
+      ],
+      "sort_key": "ha ha tonka state park",
       "visible": true
     },
     {
@@ -2900,6 +3227,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "heatherlys hits on route 66",
+      "visible": true
+    },
+    {
+      "slug": "history-museum-on-the-square",
+      "name": "History Museum on the Square",
+      "category": "attraction",
+      "price_adult": 16.0,
+      "duration_hours": 1.5,
+      "rating": 4.0,
+      "description": "Named USA Today's 4th Best Small Town Museum, this award-winning Springfield institution features eight interactive galleries exploring regional American history from the Civil War to Route 66. Highlights include a Wild Bill Hickok shootout reenactment, restored vintage vehicles, and exhibits celebrating Springfield as the birthplace of Route 66.",
+      "image": "",
+      "official_url": "https://www.historymuseumonthesquare.org",
+      "notes": "154 Park Central Square, Springfield, MO 65806. ~50 mi from Branson MO, ~55 min drive. Adult admission $16.",
+      "tags": [
+        "history",
+        "educational",
+        "indoor",
+        "family",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "history museum on the square",
       "visible": true
     },
     {
@@ -3435,6 +3784,51 @@
       "visible": true
     },
     {
+      "slug": "lady-liberty-lake-cruises",
+      "name": "Lady Liberty Lake Cruises",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1.5,
+      "rating": 4.0,
+      "description": "A custom-built 62-foot luxury yacht inspired by 1920s steamboat design, offering intimate scenic cruises on Table Rock Lake from Long Creek Marina at Big Cedar Lodge. Approximately 90 minutes of cruising with options ranging from brunch and sunset experiences to mixology classes and bourbon tastings for up to 36 guests. Open to the public and Big Cedar Lodge guests alike; reservations required.",
+      "image": "",
+      "official_url": "https://bigcedar.com/attractions/lady-liberty",
+      "notes": "Long Creek Marina, 1368 Long Creek Rd, Ridgedale, MO 65739. ~8 mi from Branson MO, ~15 min drive. Max 36 guests. Prices not listed online; call (800) 225-6343.",
+      "tags": [
+        "water",
+        "relaxed",
+        "date-night",
+        "family",
+        "1-2hr"
+      ],
+      "sort_key": "lady liberty lake cruises",
+      "visible": true
+    },
+    {
+      "slug": "lake-of-the-ozarks-state-park",
+      "name": "Lake of the Ozarks State Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.0,
+      "description": "The park offers water-based recreation including swimming at designated beaches, fishing for catfish and bass, and boating with rentals on the Lake of the Ozarks. Trails through woodland bluffs serve hikers, backpackers, equestrians, and bicyclists. Year-round lodging ranges from campsites to cabins and yurts for a complete outdoor getaway.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/lake-ozarks-state-park",
+      "notes": "403 Highway 134, Brumley, MO 65017. ~87 mi from Branson MO, ~95 min drive. Free day use; camping and rental fees apply.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "water",
+        "hiking",
+        "family",
+        "all-day",
+        "free",
+        "day-trip"
+      ],
+      "sort_key": "lake of the ozarks state park",
+      "visible": true
+    },
+    {
       "slug": "legends-in-concert",
       "name": "Legends in Concert",
       "category": "family",
@@ -3492,6 +3886,27 @@
         "classified": "2026-04-21"
       },
       "sort_key": "legends in concert",
+      "visible": true
+    },
+    {
+      "slug": "lost-canyon-cave-nature-trail",
+      "name": "Lost Canyon Cave and Nature Trail",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.0,
+      "rating": 4.0,
+      "description": "A scenic golf cart cave tour through natural limestone formations and winding canyon trails at the Top of the Rock heritage preserve near Big Cedar Lodge. Visitors wind through dramatic underground passages and forested nature paths with views of Table Rock Lake. Friday-Sunday evening Nature at Night tours offer a moonlit canyon experience.",
+      "image": "",
+      "official_url": "https://bigcedar.com/top-of-the-rock",
+      "notes": "150 Top of the Rock Road, Ridgedale, MO 65739. ~8 mi from Branson MO, ~15 min drive. Included with Top of the Rock $10/vehicle entry. Daily 8:30am–8pm; Nature at Night Fri–Sun 7:30–9pm.",
+      "tags": [
+        "nature",
+        "outdoor",
+        "family",
+        "1-2hr",
+        "free"
+      ],
+      "sort_key": "lost canyon cave and nature trail",
       "visible": true
     },
     {
@@ -4425,6 +4840,28 @@
       "visible": true
     },
     {
+      "slug": "pea-ridge-national-military-park",
+      "name": "Pea Ridge National Military Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.5,
+      "description": "A 4,400-acre Arkansas battlefield commemorating 'The Battle That Saved Missouri for The Union,' the most significant Civil War conflict west of the Mississippi River involving over 23,000 soldiers in March 1862. The park offers a driving tour through preserved battle lines and interpretive programs honoring those who fought and died in this pivotal Trans-Mississippi engagement.",
+      "image": "",
+      "official_url": "https://www.nps.gov/peri/index.htm",
+      "notes": "15930 National Park Drive, Garfield, AR 72732. ~82 mi from Branson MO, ~95 min drive. No entrance fee required. Contact 479-451-8122.",
+      "tags": [
+        "history",
+        "outdoor",
+        "educational",
+        "free",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "pea ridge national military park",
+      "visible": true
+    },
+    {
       "slug": "the-petersens",
       "name": "The Petersens",
       "category": "family",
@@ -4665,6 +5102,27 @@
         "classified": "2026-04-21"
       },
       "sort_key": "pink jeep tours",
+      "visible": true
+    },
+    {
+      "slug": "pythian-castle",
+      "name": "Pythian Castle",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2,
+      "rating": 4.0,
+      "description": "A striking historic castle in Springfield built by the Knights of Pythias fraternal organization, now operating as a paranormal and entertainment destination offering ghost tours, murder mystery dinners, escape rooms, and paranormal investigations. Visitors must attend a scheduled event to access the property; advance booking is required.",
+      "image": "",
+      "official_url": "https://www.pythiancastle.com",
+      "notes": "1451 E Pythian Street, Springfield, MO 65802. ~50 mi from Branson MO, ~55 min drive. Admission fee required; ticket prices vary by event. Book via pythiancastle.com.",
+      "tags": [
+        "history",
+        "educational",
+        "indoor",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "pythian castle",
       "visible": true
     },
     {
@@ -5044,6 +5502,29 @@
       "visible": true
     },
     {
+      "slug": "roaring-river-state-park",
+      "name": "Roaring River State Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.0,
+      "description": "A premier southwest Missouri destination in a scenic Ozark valley, renowned for blue-ribbon rainbow trout fishing in the crystal-clear Roaring River. Seven hiking trails traverse forested ridges and hollows alongside a nature center and picnic facilities. Lodging options include campsites, rustic cabins, the historic CCC Lodge, and the Emory Melton Inn with on-site dining.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/roaring-river-state-park",
+      "notes": "12716 Farm Road 2239, Cassville, MO 65625. ~35 mi from Branson MO, ~45 min drive. Free day use; trout fishing permit required for fishing.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "hiking",
+        "water",
+        "family",
+        "all-day",
+        "free"
+      ],
+      "sort_key": "roaring river state park",
+      "visible": true
+    },
+    {
       "slug": "rock-n-roll-sunrise",
       "name": "Rock N Roll Sunrise",
       "category": "show",
@@ -5136,6 +5617,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "runaway mountain coaster",
+      "visible": true
+    },
+    {
+      "slug": "ruth-and-paul-henning-conservation-area",
+      "name": "Ruth and Paul Henning Conservation Area",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.0,
+      "description": "A 1,534-acre free conservation area on the western edge of Branson featuring 5.6 miles of hiking trails, a scenic overlook, and a lookout tower across rolling Ozark terrain of glades, oak-hickory forests, and bottomland along Roark Creek. The 3.4-mile Homesteaders Trail includes 14 interpretive stops highlighting natural and historical points of interest.",
+      "image": "",
+      "official_url": "https://mdc.mo.gov/discover-nature/places/ruth-paul-henning-conservation-area",
+      "notes": "Near intersection of Hwy 376 and 76 Country Blvd, Branson, MO. ~2 mi from Branson MO strip, ~5 min drive. Free; open daily sunrise to sunset.",
+      "tags": [
+        "hiking",
+        "nature",
+        "outdoor",
+        "free",
+        "family",
+        "1-2hr"
+      ],
+      "sort_key": "ruth and paul henning conservation area",
       "visible": true
     },
     {
@@ -6104,6 +6607,72 @@
       "visible": true
     },
     {
+      "slug": "table-rock-state-park",
+      "name": "Table Rock State Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.0,
+      "description": "A premier recreational hub on the shores of Table Rock Lake offering water sports including kayaking, paddleboarding, and fishing through the park marina. Land-based pursuits include hiking and mountain biking on paved and rugged trails, with shoreline views through oak and hickory forest. Camping options range from standard sites to premium yurts nestled along the shoreline.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/table-rock-state-park",
+      "notes": "5272 State Highway 165, Branson, MO 65616. ~4 mi from Branson MO, ~10 min drive. Free day use; camping and marina rental fees apply.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "water",
+        "hiking",
+        "family",
+        "all-day",
+        "free"
+      ],
+      "sort_key": "table rock state park",
+      "visible": true
+    },
+    {
+      "slug": "talking-rocks-cavern",
+      "name": "Talking Rocks Cavern",
+      "category": "attraction",
+      "price_adult": 33.95,
+      "duration_hours": 1.5,
+      "rating": 4.0,
+      "description": "A locally-owned cavern offering guided walking tours through pristine underground formations including a distinctive column called 'The Angel' and a chamber known as 'The Cathedral,' led by passionate local guides. Beyond the cave, above-ground activities include gemstone panning, a cave crawl, nature trails, and a family games area. Open daily at 9am with tours departing throughout the day.",
+      "image": "",
+      "official_url": "https://www.talkingrockscavern.com",
+      "notes": "423 Fairy Cave Ln, Branson West, MO 65737. ~5 mi from Branson MO, ~10 min drive. Open daily 9am; last tour 5pm. No reservation required.",
+      "tags": [
+        "nature",
+        "educational",
+        "family",
+        "indoor",
+        "1-2hr"
+      ],
+      "sort_key": "talking rocks cavern",
+      "visible": true
+    },
+    {
+      "slug": "terra-studios",
+      "name": "Terra Studios",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.5,
+      "rating": 4.0,
+      "description": "A six-acre nonprofit art destination featuring sculpture gardens, murals, and glass art installations contributed by hundreds of artists, with a mission of using art to create a better world. Visitors can explore the outdoor galleries, attend art classes and demonstrations, and browse the gift gallery. A suggested $1 per person donation supports the nonprofit's mission.",
+      "image": "",
+      "official_url": "https://usingart.org",
+      "notes": "Durham, AR. ~80 mi from Branson MO, ~90 min drive via US-62. Hours: Wed–Sun 10am–5pm. Free admission; $1 donation suggested.",
+      "tags": [
+        "art",
+        "outdoor",
+        "free",
+        "family",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "terra studios",
+      "visible": true
+    },
+    {
       "slug": "the-texas-tenors",
       "name": "The Texas Tenors",
       "category": "show",
@@ -6181,6 +6750,25 @@
       "visible": true
     },
     {
+      "slug": "thunder-ridge-nature-arena",
+      "name": "Thunder Ridge Nature Arena",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 3,
+      "rating": 4.0,
+      "description": "A spectacular 20,000-seat outdoor amphitheater envisioned by Bass Pro Shops founder Johnny Morris, nestled in the Missouri Ozarks overlooking Table Rock Lake. The venue hosts major national touring artists and championship events, with past headliners including The Rolling Stones, Morgan Wallen, and Guns N' Roses. Tickets are sold exclusively through Ticketmaster; dedicated shuttle service available from Big Cedar Lodge.",
+      "image": "",
+      "official_url": "https://bigcedar.com/amenities/thunder-ridge-nature-arena",
+      "notes": "1901 MO-86, Ridgedale, MO 65739. ~8 mi from Branson MO, ~15 min drive. Tickets via Ticketmaster; prices vary by event.",
+      "tags": [
+        "music",
+        "outdoor",
+        "2-3hr"
+      ],
+      "sort_key": "thunder ridge nature arena",
+      "visible": true
+    },
+    {
       "slug": "titanic-museum-attraction",
       "name": "Titanic Museum Attraction",
       "category": "attraction",
@@ -6225,6 +6813,27 @@
         "classified": "2026-04-21"
       },
       "sort_key": "titanic museum attraction",
+      "visible": true
+    },
+    {
+      "slug": "top-of-the-rock",
+      "name": "Top of the Rock",
+      "category": "attraction",
+      "price_adult": 10.0,
+      "duration_hours": 3,
+      "rating": 4.5,
+      "description": "Perched at the highest elevation in Taney County near Big Cedar Lodge, this heritage preserve offers world-class attractions including the Ancient Ozarks Natural History Museum, Lost Canyon Cave golf cart tours, fine dining at multiple restaurants, and a par-3 golf course with stunning lake views. A $10/vehicle entry fee grants access to all grounds and a nightly sunset ceremony overlooking Table Rock Lake.",
+      "image": "",
+      "official_url": "https://bigcedar.com/top-of-the-rock",
+      "notes": "150 Top of the Rock Road, Ridgedale, MO 65739. ~8 mi from Branson MO, ~15 min drive. $10/vehicle entry fee (card only). Open daily; cave trail 8:30am–8pm, museum 9:30am–7pm.",
+      "tags": [
+        "nature",
+        "educational",
+        "outdoor",
+        "family",
+        "all-day"
+      ],
+      "sort_key": "top of the rock",
       "visible": true
     },
     {
@@ -6314,6 +6923,27 @@
         "classified": "2026-04-21"
       },
       "sort_key": "truth traveler",
+      "visible": true
+    },
+    {
+      "slug": "turpentine-creek-wildlife-refuge",
+      "name": "Turpentine Creek Wildlife Refuge",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2.5,
+      "rating": 4.5,
+      "description": "Founded in 1992, this globally accredited rescue sanctuary provides lifelong homes for over 600 big cats rescued from private owners and roadside zoos while working through education to end the exotic cat trade. Guided tram tours depart on the hour, offering close-up views of lions, tigers, leopards, and other rescued residents in spacious naturalistic habitats.",
+      "image": "",
+      "official_url": "https://www.turpentinecreek.org",
+      "notes": "239 Turpentine Creek Lane, Eureka Springs, AR 72632. ~60 mi from Branson MO, ~70 min drive. Hours: 8:30am–4pm (5pm during Daylight Saving Time). Admission prices not listed online; book at turpentinecreek.org.",
+      "tags": [
+        "animals",
+        "outdoor",
+        "educational",
+        "2-3hr",
+        "day-trip"
+      ],
+      "sort_key": "turpentine creek wildlife refuge",
       "visible": true
     },
     {
@@ -6467,6 +7097,51 @@
       "visible": true
     },
     {
+      "slug": "walmart-museum",
+      "name": "Walmart Museum",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.5,
+      "rating": 4.0,
+      "description": "The original Walton's 5&10 dime store where Sam Walton launched what became the world's largest retailer, now preserved as a free public museum in downtown Bentonville, Arkansas. Gallery exhibits trace Walmart's evolution from a small-town store into a global business, celebrating Sam Walton's vision of helping people save money and live better.",
+      "image": "",
+      "official_url": "https://corporate.walmart.com/about/walmart-museum",
+      "notes": "105 N. Main St, Bentonville, AR 72712. ~92 mi from Branson MO, ~100 min drive. Free admission. Hours: Mon–Thu 10am–9pm, Fri–Sat 10am–10pm, Sun 12pm–6pm. Closed Easter, Thanksgiving, Christmas.",
+      "tags": [
+        "history",
+        "educational",
+        "indoor",
+        "free",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "walmart museum",
+      "visible": true
+    },
+    {
+      "slug": "war-eagle-mill",
+      "name": "War Eagle Mill",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1.5,
+      "rating": 4.0,
+      "description": "A historic water-powered grist mill that has been the heart of the War Eagle valley for nearly 200 years, offering visitors a glimpse into the region's pioneer heritage and Civil War history along scenic War Eagle Creek. The restored mill operates a general store selling organic stone-ground flours and a café serving brunch and lunch with creek views.",
+      "image": "",
+      "official_url": "https://visitwareaglemill.com",
+      "notes": "11045 War Eagle Road, Rogers, AR 72756. ~90 mi from Branson MO, ~100 min drive. Free to visit. General store 9am–5pm daily; café 11am–3pm daily.",
+      "tags": [
+        "history",
+        "outdoor",
+        "family",
+        "relaxed",
+        "1-2hr",
+        "day-trip",
+        "free"
+      ],
+      "sort_key": "war eagle mill",
+      "visible": true
+    },
+    {
       "slug": "where-jesus-walked-immersive",
       "name": "Where Jesus Walked Immersive",
       "category": "show",
@@ -6606,6 +7281,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "whodunnit hoedown murder mystery dinner show",
+      "visible": true
+    },
+    {
+      "slug": "wilsons-creek-national-battlefield",
+      "name": "Wilson's Creek National Battlefield",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.0,
+      "description": "The site of the first major Civil War battle fought west of the Mississippi River, where Confederate forces defeated Union troops on August 10, 1861 in a pivotal engagement that drew national attention to the Trans-Mississippi theater. The visitor center is open daily 9am–5pm with exhibits and programs about the approximately 23,000 soldiers who fought in this decisive struggle.",
+      "image": "",
+      "official_url": "https://www.nps.gov/wicr/index.htm",
+      "notes": "5242 S. State Hwy ZZ, Republic, MO 65738. ~45 mi from Branson MO, ~50 min drive. No entrance fee required. Contact 417-732-2662.",
+      "tags": [
+        "history",
+        "outdoor",
+        "educational",
+        "free",
+        "1-2hr",
+        "day-trip"
+      ],
+      "sort_key": "wilson's creek national battlefield",
       "visible": true
     },
     {
