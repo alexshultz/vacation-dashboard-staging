@@ -716,6 +716,29 @@
       "visible": true
     },
     {
+      "slug": "bentonville-mountain-biking",
+      "name": "Bentonville Mountain Bike Trails",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.9,
+      "description": "Bentonville, Arkansas has emerged as one of the top mountain biking destinations in North America, with over 200 miles of free, purpose-built singletrack trails through the Ozark hills. The Slaughter Pen trail system (downtown Bentonville) and Coler Mountain Bike Preserve offer beginner through expert flow trails, natural features, and pump tracks. Bike rentals available downtown near the trailheads.",
+      "image": "",
+      "official_url": "https://www.nwatrails.org/",
+      "notes": "Multiple trailheads in Bentonville AR. ~100 miles south of Branson (~2 hr drive). Free trail access. Bike rentals available downtown (~$40-60/day). Slaughter Pen trailhead: 200 SE A St, Bentonville. Coler Preserve: 2109 SW I St. Best combined with Crystal Bridges visit.",
+      "tags": [
+        "free",
+        "active",
+        "outdoor",
+        "nature",
+        "day-trip",
+        "all-day",
+        "family"
+      ],
+      "sort_key": "bentonville mountain bike trails",
+      "visible": true
+    },
+    {
       "slug": "best-of-dean-martin-tribute",
       "name": "Best of Dean Martin Tribute",
       "category": "show",
@@ -768,6 +791,30 @@
       "visible": true
     },
     {
+      "slug": "big-cedar-lodge",
+      "name": "Big Cedar Lodge",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.8,
+      "description": "America's Premier Wilderness Resort on Table Rock Lake, just 10 miles south of Branson. Even without staying the night, Big Cedar is a destination -- visitors can dine at multiple restaurants, stroll the lakeside grounds, browse the bass-log main lodge, and access day-use activities. Adjacent to Top of the Rock (separate admission) and Long Creek Marina for boat rentals. The main lodge and grounds are free to explore.",
+      "image": "",
+      "official_url": "https://www.bigcedar.com/",
+      "notes": "612 Devil's Pool Rd, Ridgedale MO 65739. ~10 miles south of Branson (~15 min drive). Free to visit the grounds and browse. Dining reservations recommended. Top of the Rock ($10 admission) and marina rentals nearby. Part of Johnny Morris' Bass Pro empire -- same ownership as Dogwood Canyon and Wonders of Wildlife.",
+      "tags": [
+        "free",
+        "outdoor",
+        "nature",
+        "relaxed",
+        "family",
+        "water",
+        "date-night",
+        "1-2hr"
+      ],
+      "sort_key": "big cedar lodge",
+      "visible": true
+    },
+    {
       "slug": "big-sugar-creek-state-park",
       "name": "Big Sugar Creek State Park",
       "category": "attraction",
@@ -787,6 +834,28 @@
         "1-2hr"
       ],
       "sort_key": "big sugar creek state park",
+      "visible": true
+    },
+    {
+      "slug": "bigfoot-fun-park",
+      "name": "Bigfoot Fun Park",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2,
+      "rating": 4.4,
+      "description": "Branson's favorite indoor entertainment complex featuring 18-hole mini golf, a full arcade, and themed escape rooms. A go-to option for families seeking indoor fun, rainy-day activities, or evening entertainment. Staff-run escape rooms accommodate groups of all sizes.",
+      "image": "",
+      "official_url": "https://www.bigfootfunpark.com/",
+      "notes": "Branson MO -- check website for current address, hours, and pricing. Each activity (mini golf, arcade, escape rooms) ticketed separately. Book escape rooms in advance.",
+      "tags": [
+        "active",
+        "comedy",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1-2hr"
+      ],
+      "sort_key": "bigfoot fun park",
       "visible": true
     },
     {
@@ -810,6 +879,29 @@
         "1-2hr"
       ],
       "sort_key": "blanchard springs caverns",
+      "visible": true
+    },
+    {
+      "slug": "blue-spring-heritage-center",
+      "name": "Blue Spring Heritage Center",
+      "category": "attraction",
+      "price_adult": 7.0,
+      "duration_hours": 1,
+      "rating": 4.5,
+      "description": "A stunning natural spring in the Ozarks that flows 38 million gallons of 58°F water daily -- one of the largest springs in Arkansas. Surrounded by heritage gardens featuring native plants, wildflowers, and Native American cultural displays. The intense blue-green color of the spring pool is otherworldly. A peaceful, beautiful 45-minute stop that surprises most visitors.",
+      "image": "",
+      "official_url": "https://bluespring.com/",
+      "notes": "1552 Hwy 62 W, Eureka Springs AR 72632. ~60 miles south of Branson (~1 hr drive). Admission ~$7 adult. Open seasonally spring through fall. Short paved walking path around the spring. Wheelchair accessible. Easy to combine with other Eureka Springs stops.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "educational",
+        "family",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "blue spring heritage center",
       "visible": true
     },
     {
@@ -1071,6 +1163,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "branson duck tours",
+      "visible": true
+    },
+    {
+      "slug": "branson-helicopter-tours",
+      "name": "Branson Helicopter Tours",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 0.5,
+      "rating": 4.6,
+      "description": "Aerial helicopter tours over Branson, the Ozark hills, Table Rock Lake, and the tri-lakes region. Operated by Chopper Charter Branson (FAA Certified Air Carrier). Tours range from short scenic hops to extended aerial photography flights -- a unique way to see the Ozarks from above and a memorable experience for the whole family.",
+      "image": "",
+      "official_url": "https://www.bransonhelicopterride.com/",
+      "notes": "469 Blue Sky Lane, Hollister MO 65672 (~5 miles from Branson strip, ~10 min drive). Adjacent to Hwy 76 near Hall of Fame Hotel. Call 417-332-1545. Pricing varies by tour length. Reservations recommended. FAA Certificate #D03A893I.",
+      "tags": [
+        "active",
+        "outdoor",
+        "family",
+        "date-night",
+        "1-2hr",
+        "nature"
+      ],
+      "sort_key": "branson helicopter tours",
       "visible": true
     },
     {
@@ -1592,6 +1706,30 @@
       "visible": true
     },
     {
+      "slug": "buffalo-outdoor-center",
+      "name": "Buffalo Outdoor Center",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 6,
+      "rating": 4.8,
+      "description": "The premier outfitter for Buffalo National River adventures near Ponca, Arkansas. Offers float trips (canoe, kayak, raft rentals), guided zipline tours, mountain biking, elk and wildlife viewing tours, hiking, fishing, and swimming holes. In business 50 years, with cabin lodging and a base camp store. The go-to launch point for a true Ozark river adventure.",
+      "image": "",
+      "official_url": "https://www.buffaloriver.com/",
+      "notes": "4699 Hwy 43, Ponca AR 72670. ~65 miles south of Branson (~1 hr 15 min drive). Activity pricing varies -- float trips from ~$30/person. Book in advance especially for summer weekends. Cell service limited in the canyon.",
+      "tags": [
+        "active",
+        "outdoor",
+        "water",
+        "nature",
+        "hiking",
+        "family",
+        "day-trip",
+        "all-day"
+      ],
+      "sort_key": "buffalo outdoor center",
+      "visible": true
+    },
+    {
       "slug": "butterfly-palace-rainforest-adventure",
       "name": "Butterfly Palace & Rainforest Adventure",
       "category": "attraction",
@@ -1847,6 +1985,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "clay cooper's country express",
+      "visible": true
+    },
+    {
+      "slug": "clinton-house-museum",
+      "name": "Clinton House Museum",
+      "category": "attraction",
+      "price_adult": 10.0,
+      "duration_hours": 1,
+      "rating": 4.3,
+      "description": "The historic Fayetteville home where Bill and Hillary Clinton married in 1975 and began their political careers. A 1931 Tudor-revival cottage filled with memorabilia from Clinton's early Arkansas campaigns. Exhibits chronicle the couple's rise from Fayetteville law professors to the White House, with personal artifacts and photographs from their time in this home.",
+      "image": "",
+      "official_url": "https://www.clintonhousemuseum.org/",
+      "notes": "930 W Clinton Dr, Fayetteville AR 72701. ~105 miles south of Branson (~2 hr drive). Open Wed-Sun 10am-4pm. Small admission fee (~$10). Pairs well with Crystal Bridges or The Momentary on a Fayetteville/Bentonville day trip.",
+      "tags": [
+        "history",
+        "educational",
+        "indoor",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "clinton house museum",
       "visible": true
     },
     {
@@ -2613,6 +2773,30 @@
       "visible": true
     },
     {
+      "slug": "eureka-springs-dinner-train",
+      "name": "Eureka Springs Dinner Train",
+      "category": "show",
+      "price_adult": 65.0,
+      "family_pass": null,
+      "duration_hours": 2,
+      "rating": 4.7,
+      "description": "Dine in 1920s-style luxury aboard the Eureka Springs & North Arkansas Railway's elegant dining car as a vintage 1940s diesel locomotive winds through the Ozark hills. Specially prepared cuisine is served as the clickety-clack takes you back in time. Also offers excursion and lunch train options on the same historic line, which features a working turntable and steam locomotive exhibits at the depot.",
+      "image": "",
+      "official_url": "https://www.esnarailway.com/",
+      "notes": "299 N Main St (Hwy 23 N), Eureka Springs AR 72632. ~60 miles south of Branson (~1 hr drive). Call 479-253-9623. 2026 season: open Tue, Wed, Fri, Sat from May 9; open Memorial Day Sunday May 24. Depot opens at 9:30am. Reservations required for dinner train.",
+      "tags": [
+        "date-night",
+        "history",
+        "family",
+        "indoor",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "eureka springs dinner train",
+      "visible": true
+    },
+    {
       "slug": "eureka-springs-historical-museum",
       "name": "Eureka Springs Historical Museum",
       "category": "attraction",
@@ -2631,6 +2815,29 @@
         "day-trip"
       ],
       "sort_key": "eureka springs historical museum",
+      "visible": true
+    },
+    {
+      "slug": "eureka-springs-trolley",
+      "name": "Eureka Springs Trolley",
+      "category": "attraction",
+      "price_adult": 10.0,
+      "duration_hours": 1,
+      "rating": 4.5,
+      "description": "The beloved narrated trolley tour of Eureka Springs -- one of the most charming ways to see the entire Victorian city without worrying about Eureka's notoriously steep and winding streets. Color-coded routes cover historic downtown, the Crescent Hotel, the Great Passion Play grounds, residential neighborhoods, and scenic overlooks. All-day passes let you hop on and off at any stop.",
+      "image": "",
+      "official_url": "https://eurekaspringsar.gov/",
+      "notes": "Multiple stops throughout Eureka Springs AR. ~60 miles south of Branson (~1 hr drive). All-day pass ~$10. Trolleys run regularly during daylight hours in season. Best way to navigate Eureka Springs without driving the steep streets. Check schedule at city website.",
+      "tags": [
+        "history",
+        "educational",
+        "family",
+        "relaxed",
+        "day-trip",
+        "1-2hr",
+        "outdoor"
+      ],
+      "sort_key": "eureka springs trolley",
       "visible": true
     },
     {
@@ -2653,6 +2860,30 @@
         "day-trip"
       ],
       "sort_key": "fantastic caverns",
+      "visible": true
+    },
+    {
+      "slug": "fayetteville-arts-district",
+      "name": "Fayetteville Arts District",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.6,
+      "description": "Northwest Arkansas's thriving arts scene centers on Fayetteville and Bentonville. The Walton Arts Center hosts Broadway tours and major concerts. Crystal Bridges Museum and The Momentary anchor world-class visual arts. The Fayetteville Dickson Street corridor offers galleries, live music venues, and the University of Arkansas performing arts facilities -- all within a short walk of each other.",
+      "image": "",
+      "official_url": "https://www.experiencefayetteville.com/",
+      "notes": "Dickson St corridor, Fayetteville AR 72701. ~105 miles south of Branson (~2 hr drive). Free to explore the district. Walton Arts Center tickets vary by show. Best paired with Crystal Bridges and The Momentary on a full NWA day trip.",
+      "tags": [
+        "art",
+        "educational",
+        "indoor",
+        "relaxed",
+        "family",
+        "day-trip",
+        "1-2hr",
+        "free"
+      ],
+      "sort_key": "fayetteville arts district",
       "visible": true
     },
     {
@@ -2696,6 +2927,28 @@
         "classified": "2026-04-21"
       },
       "sort_key": "fritz's adventure",
+      "visible": true
+    },
+    {
+      "slug": "fun-mountain-big-cedar",
+      "name": "Fun Mountain at Big Cedar",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2,
+      "rating": 4.4,
+      "description": "An outdoor activity complex at Big Cedar Lodge on Table Rock Lake featuring water slides, a lazy river, pools, mini golf, and lawn games. Open seasonally in summer. A great option for families already visiting the Big Cedar area who want a full afternoon of outdoor water fun without driving back to Branson.",
+      "image": "",
+      "official_url": "https://www.bigcedar.com/things-to-do/",
+      "notes": "Big Cedar Lodge, 612 Devil's Pool Rd, Ridgedale MO 65739. ~10 miles south of Branson (~15 min drive). Seasonal operation (summer months). Day pass pricing varies -- check bigcedar.com. Adjacent to Top of the Rock and Long Creek Marina.",
+      "tags": [
+        "active",
+        "water",
+        "family",
+        "kid-focused",
+        "outdoor",
+        "1-2hr"
+      ],
+      "sort_key": "fun mountain at big cedar",
       "visible": true
     },
     {
@@ -3875,6 +4128,31 @@
       "visible": true
     },
     {
+      "slug": "lake-leatherwood-city-park",
+      "name": "Lake Leatherwood City Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 3,
+      "rating": 4.7,
+      "description": "A 1,600-acre city park surrounding a gorgeous 85-acre lake just outside downtown Eureka Springs. Home to nationally recognized mountain bike trails (the Leatherwood trail system), swimming at the lake beach, pedal boat and kayak rentals, fishing, and peaceful woodland hiking. Mountain bikers travel from across the country to ride the flowy singletrack through Ozark cedar glades.",
+      "image": "",
+      "official_url": "https://www.cityofeureka.net/",
+      "notes": "1303 CR 204, Eureka Springs AR 72632. ~60 miles south of Branson (~1 hr drive). Free park access; boat rentals and camping fees extra. Open year-round dawn to dusk. Mountain bike trails range beginner to advanced. Swimming area open seasonally.",
+      "tags": [
+        "free",
+        "outdoor",
+        "active",
+        "nature",
+        "hiking",
+        "water",
+        "family",
+        "day-trip",
+        "2-3hr"
+      ],
+      "sort_key": "lake leatherwood city park",
+      "visible": true
+    },
+    {
       "slug": "lake-of-the-ozarks-state-park",
       "name": "Lake of the Ozarks State Park",
       "category": "attraction",
@@ -3896,6 +4174,30 @@
         "day-trip"
       ],
       "sort_key": "lake of the ozarks state park",
+      "visible": true
+    },
+    {
+      "slug": "lake-taneycomo",
+      "name": "Lake Taneycomo Trout Fishing",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.6,
+      "description": "Lake Taneycomo is one of America's premier trout fishing destinations, running 22 miles from Table Rock Dam directly through downtown Branson. Cold, clear water released from the bottom of Table Rock Dam creates ideal trout habitat year-round. Missouri fishing license required; multiple outfitters and guide services operate directly from the Branson waterfront. Bank fishing is free; boat and guide rentals available.",
+      "image": "",
+      "official_url": "https://mostateparks.com/lake/lake-taneycomo",
+      "notes": "Runs through downtown Branson MO. Multiple public access points including Branson City Park and Taneycomo waterfront. Missouri fishing license required (~$12 daily). Numerous guide services offer half-day and full-day trips. Best fishing in spring and fall.",
+      "tags": [
+        "free",
+        "outdoor",
+        "water",
+        "active",
+        "nature",
+        "family",
+        "relaxed",
+        "all-day"
+      ],
+      "sort_key": "lake taneycomo trout fishing",
       "visible": true
     },
     {
@@ -4023,6 +4325,29 @@
         "classified": "2026-04-21"
       },
       "sort_key": "malpass brothers & friends",
+      "visible": true
+    },
+    {
+      "slug": "mark-twain-national-forest",
+      "name": "Mark Twain National Forest",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.5,
+      "description": "The 1.5-million-acre Mark Twain National Forest surrounds the Branson area with hundreds of miles of hiking, mountain biking, and equestrian trails, plus numerous public fishing lakes, campgrounds, and scenic drives. Portions of the forest within 30 miles of Branson include the Caney Mountain Conservation Area and Bull Creek corridor -- popular for hiking, swimming holes, and wildlife viewing.",
+      "image": "",
+      "official_url": "https://www.fs.usda.gov/mtnf",
+      "notes": "Multiple access points within 10-30 miles of Branson MO. Free access. No reservation needed for day use. Nearest trailheads off Hwy 160 and Hwy 76 corridors. Detailed trail maps at fs.usda.gov/mtnf. Missouri hunting/fishing license required for those activities.",
+      "tags": [
+        "free",
+        "outdoor",
+        "hiking",
+        "nature",
+        "active",
+        "family",
+        "all-day"
+      ],
+      "sort_key": "mark twain national forest",
       "visible": true
     },
     {
@@ -4649,6 +4974,31 @@
       "visible": true
     },
     {
+      "slug": "ozark-folk-center",
+      "name": "Ozark Folk Center State Park",
+      "category": "attraction",
+      "price_adult": 15.0,
+      "duration_hours": 4,
+      "rating": 4.7,
+      "description": "America's only facility dedicated to preserving and presenting traditional Ozark mountain culture. The park features live craft demonstrations (blacksmithing, pottery, weaving, woodworking), traditional Ozark music performances, and native herb gardens in Mountain View, Arkansas. One of the most unique cultural experiences in the region -- artisans demonstrate skills passed down through generations in an authentic Ozark village setting.",
+      "image": "",
+      "official_url": "https://arkansasstateparks.com/parks/ozark-folk-center-state-park",
+      "notes": "1032 Park Ave, Mountain View AR 72560. ~90 miles south of Branson (~1 hr 45 min drive). Open seasonally spring through fall. Admission ~$15 adult. On-site restaurant and cabins available. Pairs well with Blanchard Springs Caverns (10 miles away) for a full Mountain View day trip.",
+      "tags": [
+        "history",
+        "educational",
+        "art",
+        "family",
+        "outdoor",
+        "music",
+        "relaxed",
+        "day-trip",
+        "all-day"
+      ],
+      "sort_key": "ozark folk center state park",
+      "visible": true
+    },
+    {
       "slug": "ozark-hills-winery-wine-tasting",
       "name": "Ozark Hills Winery Wine Tasting",
       "category": "attraction",
@@ -5175,6 +5525,77 @@
       "visible": true
     },
     {
+      "slug": "pivot-rock-natural-bridge",
+      "name": "Pivot Rock and Natural Bridge",
+      "category": "attraction",
+      "price_adult": 3.0,
+      "duration_hours": 1,
+      "rating": 4.2,
+      "description": "One of Eureka Springs' most unusual natural curiosities -- a 10-ton boulder balanced on a rock point only 18 inches in diameter, plus a nearby natural sandstone bridge. A short self-guided walking trail connects the two formations through a peaceful Ozark woodland. One of Arkansas's oldest tourist attractions, it has been entertaining visitors since the 1890s.",
+      "image": "",
+      "official_url": "https://www.eureka-springs-arkansas.com/eureka-springs-attractions/pivot-rock-and-natural-bridge.htm",
+      "notes": "Pivot Rock Rd, Eureka Springs AR 72632. ~60 miles south of Branson (~1 hr drive). Small admission ($3). Self-guided. Easy short walk. A quirky, family-friendly detour that takes only 30-45 minutes -- pair with other Eureka Springs stops.",
+      "tags": [
+        "outdoor",
+        "nature",
+        "family",
+        "educational",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "pivot rock and natural bridge",
+      "visible": true
+    },
+    {
+      "slug": "pomme-de-terre-state-park",
+      "name": "Pomme de Terre State Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.5,
+      "description": "Missouri state park on beautiful Pomme de Terre Lake offering camping, boating, fishing for muskie and bass, a beach for swimming, and extensive hiking trails. The lake is known as Missouri's muskie capital. Two developed areas -- Nemo Landing and Outlet -- provide marina access, boat rentals, and modern camping facilities.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/pomme-de-terre-state-park",
+      "notes": "HC 77, Pittsburg MO 65724. ~70 miles north of Branson (~1 hr 15 min drive). Free park entry; marina and boat rental fees extra. Open year-round. Fishing license required.",
+      "tags": [
+        "free",
+        "outdoor",
+        "water",
+        "active",
+        "family",
+        "nature",
+        "hiking",
+        "all-day",
+        "day-trip"
+      ],
+      "sort_key": "pomme de terre state park",
+      "visible": true
+    },
+    {
+      "slug": "presleys-country-jubilee",
+      "name": "Presleys' Country Jubilee",
+      "category": "show",
+      "price_adult": 45.0,
+      "family_pass": null,
+      "duration_hours": 2,
+      "rating": 4.6,
+      "description": "Branson's longest-running family show since 1967, Presleys' Country Jubilee blends country, gospel, bluegrass, and hilarious comedy performed by multiple generations of the Presley family. An Ozark institution that has entertained millions over six decades -- the family who played underground caves now headlines on the famous Hwy 76 strip.",
+      "image": "",
+      "official_url": "https://www.presleys.com/",
+      "notes": "2920 W Hwy 76, Branson MO 65616. In the heart of the Branson strip. Check presleys.com for current show schedule and pricing. One of the original Branson family shows.",
+      "tags": [
+        "comedy",
+        "country",
+        "family",
+        "indoor",
+        "music",
+        "1-2hr"
+      ],
+      "sort_key": "presleys' country jubilee",
+      "visible": true
+    },
+    {
       "slug": "pythian-castle",
       "name": "Pythian Castle",
       "category": "attraction",
@@ -5595,6 +6016,30 @@
       "visible": true
     },
     {
+      "slug": "roaring-river-trout-hatchery",
+      "name": "Roaring River Trout Hatchery",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.3,
+      "description": "Missouri's premier trout park combines a state fish hatchery with a beautiful spring-fed river in the Ozark hills near Cassville. The hatchery raises over 300,000 rainbow trout annually and offers free self-guided tours. The park is famous for daily trout fishing starting at sunrise -- thousands of freshly stocked trout make this an ideal spot for beginners or families trying fishing for the first time.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/roaring-river-state-park",
+      "notes": "HC 2, Cassville MO 65625. ~40 miles southwest of Branson (~45 min drive). Free park entry; fishing fees apply (daily permit + trout tags). Fish hatchery tours free. Fishing typically from sunrise to 6pm daily. Missouri fishing license required. Popular -- arrive early for best spots.",
+      "tags": [
+        "free",
+        "outdoor",
+        "water",
+        "active",
+        "family",
+        "nature",
+        "educational",
+        "1-2hr"
+      ],
+      "sort_key": "roaring river trout hatchery",
+      "visible": true
+    },
+    {
       "slug": "rock-n-roll-sunrise",
       "name": "Rock N Roll Sunrise",
       "category": "show",
@@ -5860,6 +6305,29 @@
       },
       "sort_key": "shepherd of the hills - north pole adventure",
       "visible": false
+    },
+    {
+      "slug": "shepherd-hills-adventure-park",
+      "name": "Shepherd of the Hills Adventure Park",
+      "category": "attraction",
+      "price_adult": 35.0,
+      "duration_hours": 4,
+      "rating": 4.6,
+      "description": "A multi-attraction adventure park at the historic Shepherd of the Hills Homestead featuring America's steepest zipline (the Vigilante Extreme), a mountain coaster, off-road ATV tours, a tethered hot air balloon, a ropes course, and ATV rides through the Ozark hills. The property also hosts the Outdoor Drama each summer. Tickets available individually or as packages for maximum value.",
+      "image": "",
+      "official_url": "https://www.theshepherdofthehills.com/",
+      "notes": "5586 W Hwy 76, Branson MO 65616. On the Branson strip. Individual activity pricing from $12-$65; combo packages available. Call 417-334-4191. Adventure park activities operate daily in season. Check site for hours and individual attraction availability.",
+      "tags": [
+        "active",
+        "outdoor",
+        "family",
+        "kid-focused",
+        "nature",
+        "1-2hr",
+        "all-day"
+      ],
+      "sort_key": "shepherd of the hills adventure park",
+      "visible": true
     },
     {
       "slug": "shepherd-of-the-hills-great-woodsman-canopy-tours",
@@ -6607,6 +7075,32 @@
       "visible": true
     },
     {
+      "slug": "springfield-conservation-nature-center",
+      "name": "Springfield Conservation Nature Center",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.7,
+      "description": "A free Missouri Department of Conservation facility featuring 3 miles of trails through Ozark hardwood forest, glades, and streams. The indoor nature center has live fish and turtle displays, hands-on exhibits, and naturalist-led programs. An ideal morning activity for families who enjoy nature without the crowds.",
+      "image": "",
+      "official_url": "https://nature.mdc.mo.gov/discover-nature/places/springfield-conservation-nature-center",
+      "notes": "4601 S Nature Ave, Springfield MO 65804. ~45 miles north of Branson (~45 min drive). Free admission. Open daily. Trails open dawn to dusk; indoor center has posted hours. Well-maintained paths suitable for all ages.",
+      "tags": [
+        "free",
+        "nature",
+        "outdoor",
+        "family",
+        "educational",
+        "animals",
+        "hiking",
+        "relaxed",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "springfield conservation nature center",
+      "visible": true
+    },
+    {
       "slug": "steve-sanders-the-mind-spy",
       "name": "Steve Sanders The Mind Spy",
       "category": "show",
@@ -6649,6 +7143,30 @@
         "classified": "2026-04-21"
       },
       "sort_key": "steve sanders the mind spy",
+      "visible": true
+    },
+    {
+      "slug": "stockton-state-park",
+      "name": "Stockton State Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 4,
+      "rating": 4.4,
+      "description": "A Missouri state park on the shores of Stockton Lake offering boating, fishing, camping, and swimming. One of Missouri's premier bass and crappie fishing lakes with a full marina. The park has sandy swimming beaches and rental facilities for boats and pontoons -- a full summer lake day within an hour of Branson.",
+      "image": "",
+      "official_url": "https://mostateparks.com/park/stockton-state-park",
+      "notes": "Rt 1, Stockton MO 65785. ~75 miles northwest of Branson (~1 hr 15 min drive). Free park entry; boat rentals and marina fees extra. Open year-round. Fishing license required for fishing.",
+      "tags": [
+        "free",
+        "outdoor",
+        "water",
+        "active",
+        "family",
+        "nature",
+        "all-day",
+        "day-trip"
+      ],
+      "sort_key": "stockton state park",
       "visible": true
     },
     {
@@ -6697,6 +7215,29 @@
         "classified": "2026-04-21"
       },
       "sort_key": "strait to branson - a george strait tribute",
+      "visible": true
+    },
+    {
+      "slug": "table-rock-lake-boating",
+      "name": "Table Rock Lake",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 6,
+      "rating": 4.8,
+      "description": "One of the most beautiful lakes in the Ozarks, Table Rock spans 43,100 acres with 857 miles of shoreline just outside Branson. Crystal-clear water makes it ideal for swimming, boating, fishing, scuba diving, and paddleboarding. Multiple marinas rent pontoon boats, jet skis, kayaks, and paddleboards. Table Rock State Park and the Army Corps of Engineers beach areas provide free public access.",
+      "image": "",
+      "official_url": "https://www.nps.gov/ozar/planyourvisit/tablrocklake.htm",
+      "notes": "5 miles west of Branson MO. Free public beach access at Table Rock State Park and Army Corps areas. Multiple marinas for rentals: State Park Marina, Aunts Creek, Indian Point. Pontoon rentals ~$200-400/day. Missouri fishing license required for fishing.",
+      "tags": [
+        "free",
+        "outdoor",
+        "water",
+        "active",
+        "family",
+        "nature",
+        "all-day"
+      ],
+      "sort_key": "table rock lake",
       "visible": true
     },
     {
@@ -7209,6 +7750,30 @@
         "day-trip"
       ],
       "sort_key": "walmart museum",
+      "visible": true
+    },
+    {
+      "slug": "walton-arts-center",
+      "name": "Walton Arts Center",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 2,
+      "rating": 4.7,
+      "description": "Northwest Arkansas's premier performing arts venue in Fayetteville, presenting Broadway tours, concerts, dance, and comedy. The 1,200-seat Baum Walker Hall hosts major touring productions year-round. The adjacent Walmart AMP outdoor amphitheater draws major national acts. Check the calendar for May 23-28 programming during your trip dates.",
+      "image": "",
+      "official_url": "https://waltonartscenter.org/",
+      "notes": "495 W Dickson St, Fayetteville AR 72701. ~105 miles south of Branson (~2 hr drive). Ticket prices vary by show. Check waltonartscenter.org/calendar for May programming. Pairs well with Crystal Bridges for a full Fayetteville/Bentonville day.",
+      "tags": [
+        "art",
+        "music",
+        "indoor",
+        "date-night",
+        "family",
+        "drama",
+        "day-trip",
+        "1-2hr"
+      ],
+      "sort_key": "walton arts center",
       "visible": true
     },
     {
