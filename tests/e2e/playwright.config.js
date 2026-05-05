@@ -7,7 +7,7 @@ module.exports = defineConfig({
   retries: 1,
   reporter: 'list',
   use: {
-    baseURL: 'https://vacation-dev.creeperbomb.com',
+    baseURL: process.env.BASE_URL || 'https://vacation-dev.creeperbomb.com',
     headless: true,
     // Capture console errors for smoke tests
     ignoreHTTPSErrors: false,
