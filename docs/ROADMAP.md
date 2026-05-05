@@ -15,7 +15,7 @@ Phase 1 and Phase 2 core features are complete and live. Supabase backend IS ACT
 
 **What's done:**
 - Design system (tokens.css, trail.css, components.css)
-- Browse page (attractions.html) -- dynamic fetch(data.json), filter chips, wishlist hearts, detail modal
+- Browse page (attractions.html) -- dynamic fetch(data.json), live search bar (phrase+tag: operators), wishlist hearts, detail modal
 - Quick Pick swipe deck (quick-pick.html) -- separate page, same data source
 - Wishlist, Suggested, Profile, Timeline, People pages
 - Supabase Phase 2 schema written (picks table NOT YET ACTIVE -- currently Phase 1, localStorage only)
