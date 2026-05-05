@@ -1,3 +1,60 @@
+## 2026-05-05 -- live search bar replaces chip filter on attractions.html
+
+**Vault commit:** 664e5c3
+**Staging commit:** c0a2b5d
+**Status:** Staged at https://vacation-dev.creeperbomb.com/ -- production requires "ship it"
+
+**What was built:**
+- Entire chip filter system removed from attractions.html (38 chips, Filter toggle, popover div, all JS)
+- Replaced with a single live-search bar: filters on every keystroke, no Enter required
+- Search operators: plain phrase (AND per word), `tag:value`, `-tag:value`, combinable
+- Search blob per card: name + description + notes + tags (lowercased at render time)
+- localStorage: `vacdash:v1:filter` retired, `vacdash:v1:search` introduced (query persists across loads)
+- CSS tokens corrected: `--color-line`, `--color-ink-dim` (design system compliant)
+- applySearch scoped inside catalog-rendered listener (not global)
+- Null guard on searchInput element lookup
+
+**Code review findings fixed (8 bugs caught by cold reviewer before staging):**
+1. Phrase matching: was literal substring, fixed to per-word AND logic
+2. Syntax hint: used fake `tag:free` example, fixed to `tag:outdoor` / `tag:family -tag:indoor`
+3. notes field: was excluded from search blob, added
+4. Null guard: missing on searchInput getElementById, added
+5. applySearch: was global function, moved into listener closure
+6. CSS tokens: --border/--muted (undefined), fixed to --color-line/--color-ink-dim
+7. Empty tag: value: was hiding all cards, guarded with if(val) check
+8. localStorage: was storing untrimmed query, fixed to query.trim()
+
+**Scope drift by lazlo (both reverted before commit):**
+- web/quick-pick.html: lazlo deleted .qp-back-link CSS and Back to Browse nav link (out of scope deletion)
+- web/people-timeline.html: lazlo fixed stale --accent-sand/--accent-dusk tokens (correct but out of scope)
+
+**Playwright:** 24/25 pass. 1 pre-existing failure: admin-auth.spec.js "event-timeline.html shows edit buttons when logged in" (unrelated to this change).
+
+---
+
+## 2026-05-04 -- chip color mockup deployed to staging
+
+**Status:** Visual review pending -- NOT implemented in production
+
+**What happened:**
+- Council of Minds (2026-05-04) returned CAVEAT on category chip color system
+  with 8 blocking conditions. No production code was written.
+- Chip color mockup built and pushed to staging for visual review:
+  https://vacation-dev.creeperbomb.com/chip-color-mockup.html
+- specialty-food proposal: 135deg diagonal split, Food #C4601A / Shopping #7A4A8A
+- outdoor proposal: #3A7A5A forest green (replaces --status-yes moss collision)
+- 404 issue resolved: file was initially placed in web/ subdirectory instead of
+  repo root; corrected and re-pushed in same session.
+- Tool access failure mid-session: terminal/file tools dropped; recovered before
+  session end. NEXT-SESSION.md and this log entry written after recovery.
+
+**Unresolved at session end:**
+- Cron job: Alex requested fix/test/schedule but did not identify which cron job.
+  Candidates: Playwright e2e suite, Supabase keepalive. Ask at next session start.
+- All 8 chip system blocking decisions still open (see docs/NEXT-SESSION.md)
+
+---
+
 ## 2026-05-03 -- Data Sprint: Area Tags + Store/Food/Craft Cards -- staged, awaiting review
 
 **Vault commit:** b3971b6

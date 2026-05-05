@@ -1,95 +1,71 @@
-# Next Session Kickoff -- Branson '26 Dashboard
-**Written:** 2026-04-28 end of session (updated: docs pass before Hermes update)
-**Production:** vacation.creeperbomb.com
-**Staging:** vacation-dev.creeperbomb.com
-**Launch target:** May 8, 2026
+# NEXT-SESSION.md
+Updated: 2026-05-04 (pre-reboot handoff)
+
+## Immediate: Confirm on Arrival
+
+1. **Chip color mockup** -- did Alex see it and approve the proposals?
+   - URL: https://vacation-dev.creeperbomb.com/chip-color-mockup.html
+   - specialty-food: diagonal split Food(#C4601A) / Shopping(#7A4A8A)
+   - outdoor: #3A7A5A forest green (replaces moss/active collision)
+   - If approved: proceed to lazlo brief `.claude/category-chip-system-task.md`
+   - If not seen: ask Alex to review before any brief is written
+
+2. **Unidentified cron job** -- Alex asked to fix, test, and schedule a cron job
+   but session ended before identifying which one.
+   - Candidates: Playwright e2e suite (against staging), Supabase keepalive
+   - Ask Alex which one before touching any code
 
 ---
 
-## FIRST ACTION: Promote staging to production
+## Chip Color System -- NOT Implemented (8 blocking conditions)
 
-Staging (`2cb8a2b`) has changes that are NOT yet in production:
-- event-timeline.html: legend box, chip colors, card column order fix
-- index.html: same three changes
+Council result 2026-05-04: CAVEAT. Do not implement until all resolved.
 
-Column order in staging is correct: Interested | Not Interested | Undecided | No Response.
-Production still has old order. Run production promotion from branson-lazlo-delegation skill Step 6b.
+Alex must answer each before a lazlo brief is written:
+1. **Replaces or augments?** -- Does the category chip strip REPLACE the existing
+   filter popover, or sit above it? Determines HTML structure and JS arch.
+2. **CSS color sourcing** -- Hardcoded hex in components.css (violates token-only
+   rule) OR add 8 new tokens to tokens.css? Needs explicit documented exception
+   if hex is chosen.
+3. **Dark mode variants** -- 8 new chip colors need dark mode overrides. Who
+   defines them and when?
+4. **outdoor green** -- pending mockup review (see above)
+5. **indoor + relaxed** -- 228 and 93 attractions respectively. Assign to a
+   category or explicitly deprecate (they become unreachable with category chips).
+6. **at-downtown-bentonville** -- include or exclude from @-prefix area tag rename?
+7. **free tag** -- Duration or price/status? Determines which chip category it lives in.
+8. **quick-pick.html parity** -- must be updated in parallel with attractions.html.
 
 ---
 
-## Pre-launch checklist status
+## Pre-launch Checklist (May 8 target)
 
-- [x] All 10 pages exist on disk
-- [x] Responsive nav v2
-- [x] Appearance controls unified
-- [x] Profile page polished
-- [x] help.html complete (verified 2026-04-28: fetches help.json; all 5 required sections present; entry point via site.js NAV_LINKS)
-- [x] Admin screen (admin.html) -- upsert 409 bug fixed, live in production
-- [ ] Tester pass (Ashlyn, Jordan, Mycah) -- DEFERRED (removed from May 8 gate per ROADMAP.md 2026-04-27). Do not block launch on this.
+- [ ] Chip color mockup reviewed and approved (or rejected)
+- [x] Search bar on attractions.html -- SHIPPED TO STAGING (2026-05-05, commit 664e5c3). Say "ship it" to promote.
+- [ ] help.html entry-point link on profile.html -- still missing
+- [ ] help.html -- completion state UNKNOWN -- verify before invoking lazlo
+      check: `grep -c 'fetch.*help.json' web/help.html` -- must return 1
+- [ ] Tester pass: Ashlyn, Jordan, Mycah (none confirmed yet)
 - [ ] Family link sent
 
 ---
 
-## Priority 1 (admin editor): 3 decisions BLOCKED on Alex
+## Staging State (as of 2026-05-04)
 
-The Council of Minds (2026-04-28 morning session) evaluated coordinator admin editor architecture. Two approaches eliminated. Three decisions outstanding:
-
-1. **Accept "Option Zero"?** -- GitHub.com's built-in web editor (pencil icon on schedule.json in browser) is already a zero-code admin interface. Real GitHub auth, no PAT in client code, edits go live after ~60s Pages build. Zero implementation. Alex was reviewing what the raw schedule.json entry format looks like when the session ended.
-
-2. **ADR-002 ruling** -- does a Supabase write-back via a human-triggered web form violate the "no automated code modifying vault files" intent of ADR-002? Alex needs to make a call.
-
-3. **Keepalive cron sufficiency** -- the every-3-days keepalive cron (job ID: 4c0261d2d5bc) should prevent Supabase auto-pause. Verify it is sufficient before May 22 trip start.
-
-**Eliminated:**
-- GitHub API write-back (PAT auto-revoked by GitHub secret scanning on any public repo)
-- Hybrid Supabase + GitHub (split-truth, event ID drift)
+- vacation-dev.creeperbomb.com: chip-color-mockup.html at root (review file only)
+- Data sprint (82 new entries, 317 total) staged but NOT promoted to production
+  - All 82 entries carry training-knowledge caveat -- verify before promoting
+  - Flea markets NOT researched (web tools were down that session)
+- Admin sprint (Supabase auth, event editor, index admin) staged but NOT promoted
+- Production is clean at the 2026-05-03 state
 
 ---
 
-## Priority 2: Phase 2 Supabase -- wishlist social counts
+## Deferred Items
 
-When wishlist.html is wired to Supabase picks table, add "X others also wishlisted this" count to each wishlisted card. Feature deferred from prior session -- localStorage has no cross-user state. Requires Phase 2 picks activation first.
-
-Phase 2 schema is written (data/supabase-phase2-schema.sql). Grill-me docs already exist (grill-me docs/supabase-phase2-activation-grillme.md, supabase-phase2-lazlo-grillme.md). Review before proceeding.
-
----
-
-## Priority 3: Admin INITIAL_VISIBLE config (coordinator tool)
-
-Alex wants to adjust the home page "show N events" count (currently hardcoded as INITIAL_VISIBLE = 6 in index.html) via the admin UI without touching code. Wire it to a config value editable in admin.html so he can change it live if family asks for more/fewer events.
-
----
-
-## Priority 4: Theme activation
-
-13 themes committed but not yet user-selectable -- pending lazlo batch review. Low priority pre-launch.
-
----
-
-## Known open issues (non-blocking)
-
-- "System" (hamburger) vs "Auto" (original toggle) terminology inconsistency -- minor, Alex has not flagged it
-- Wishlist page social counts -- deferred to Phase 2 (noted above)
-- `web/mockups/README.md` still exists in the vault (not the production repo) -- harmless, vault-only
-- help.html cosmetic issue (WARN-12): `<script>` renderer block sits after `</main>` rather than inside `<main>`. Functionally correct. Fix on next help.html touch.
-
----
-
-## Session summary (2026-04-28)
-
-Key accomplishments across sessions today:
-
-1. **Admin upsert 409 fixed** -- T3 Council identified missing `Prefer: resolution=merge-duplicates` header. One-line fix, shipped to production.
-2. **Stale web/mockups/ cleaned** -- T2 verified safe, deleted from production, rsync warning eliminated.
-3. **UI polish batch (event-timeline + index)** -- legend boxed + centered + symmetrical; "No Response" chip outline fixed; card body column order corrected. In staging, pending production promotion.
-4. **Admin editor architecture Council** -- 5-role Council ran, two options eliminated, three blocking decisions surfaced for Alex.
-5. **Supabase Phase 2 activated** -- picks hydration, write error banner, fetchAllWishlists fix shipped to production.
-6. **Notes sync** -- "Ideas for Changes.md" confirmed received from Obsidian. All 5 items addressed (wishlist social counts deferred to Phase 2).
-
----
-
-## Vault commits this session
-
-- `a1c9c8b` -- fix: admin save -- add resolution=merge-duplicates to Prefer header for upsert
-- `ea92f71` -- feat: event-timeline UI polish -- legend box, chip colors, card column grouping
-- `6ea423e` -- feat: index.html UI polish -- legend box, chip colors, card column grouping
+- Flea markets near Branson (May 23-28 dates) -- need web research
+- Production promotion of data sprint -- waiting for "ship it"
+- Production promotion of admin sprint -- waiting for "ship it"
+- Star Wars theme font (Star Jedi) -- approved, not implemented
+- Dark mode chip tokens -- post-launch
+- Supabase Q14a (site.js admin nav gate to Supabase session) -- post-launch cleanup
