@@ -40,13 +40,10 @@ Alex must answer each before a lazlo brief is written:
 
 ## Pre-launch Checklist (May 8 target)
 
-- [ ] Chip color mockup reviewed and approved (or rejected)
-- [x] Search bar on attractions.html -- SHIPPED TO STAGING (2026-05-05, commit 664e5c3). Say "ship it" to promote.
+- [x] Search bar on attractions.html -- STAGED (2026-05-05). Say "ship it" to promote.
 - [ ] help.html entry-point link on profile.html -- still missing
-- [ ] help.html -- completion state UNKNOWN -- verify before invoking lazlo
-      check: `grep -c 'fetch.*help.json' web/help.html` -- must return 1
-- [ ] Tester pass: Ashlyn, Jordan, Mycah (none confirmed yet)
-- [ ] Family link sent
+- [~] Tester pass -- DEFERRED (family unavailable, removed from May 8 gate)
+- [x] Chip color system -- REMOVED FROM CONSIDERATION (docs preserved in PROJECT_LOG.md)
 
 ---
 
