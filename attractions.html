@@ -9,10 +9,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
-<link rel="preload" href="js/site.js" as="script">
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/themes/trail.css" id="theme-css">
-<link rel="stylesheet" href="css/components.css">
+<link rel="preload" href="js/site.js?v=202605050014" as="script">
+<link rel="stylesheet" href="css/tokens.css?v=202605050014">
+<link rel="stylesheet" href="css/themes/trail.css?v=202605050014" id="theme-css">
+<link rel="stylesheet" href="css/components.css?v=202605050014">
 <script>/* Theme loader -- inline to prevent flash-of-wrong-theme */
 (function(){
   var m = localStorage.getItem('vacdash:v1:mode') || 'system';
@@ -36,61 +36,24 @@
 </style>
 </head>
 <body>
-<script src="js/site.js"></script>
+<script src="js/site.js?v=202605050014"></script>
 <main class="page-main">
   <div class="page-hero">
     <h1>Activities</h1>
     <p class="hero-sub">Browse activities. Heart anything that looks fun.</p>
   </div>
-  <div class="filter-popover-wrap" id="filter-popover-wrap">
-    <div class="filter-row">
-      <button class="filter-toggle-btn" id="filter-toggle"
-              aria-haspopup="true" aria-expanded="false">Filter &#9662;</button>
-    </div>
-    <div class="filter-popover" id="filter-popover" role="group" aria-label="Filter by tag">
-      <div class="filter-strip">
-        <button class="chip" aria-pressed="true" data-tag="">All</button>
-<button class="chip" aria-pressed="false" data-tag="1-2hr">1-2hr</button>
-<button class="chip" aria-pressed="false" data-tag="2-3hr">2-3hr</button>
-<button class="chip" aria-pressed="false" data-tag="active">active</button>
-<button class="chip" aria-pressed="false" data-tag="adult-humor">adult-humor</button>
-<button class="chip" aria-pressed="false" data-tag="all-day">all-day</button>
-<button class="chip" aria-pressed="false" data-tag="animals">animals</button>
-<button class="chip" aria-pressed="false" data-tag="bluegrass">bluegrass</button>
-<button class="chip" aria-pressed="false" data-tag="classical">classical</button>
-<button class="chip" aria-pressed="false" data-tag="comedy">comedy</button>
-<button class="chip" aria-pressed="false" data-tag="country">country</button>
-<button class="chip" aria-pressed="false" data-tag="date-night">date-night</button>
-<button class="chip" aria-pressed="false" data-tag="drama">drama</button>
-<button class="chip" aria-pressed="false" data-tag="educational">educational</button>
-<button class="chip" aria-pressed="false" data-tag="family">family</button>
-<button class="chip" aria-pressed="false" data-tag="food">food</button>
-<button class="chip" aria-pressed="false" data-tag="gospel">gospel</button>
-<button class="chip" aria-pressed="false" data-tag="half-day">half-day</button>
-<button class="chip" aria-pressed="false" data-tag="history">history</button>
-<button class="chip" aria-pressed="false" data-tag="indoor">indoor</button>
-<button class="chip" aria-pressed="false" data-tag="kid-focused">kid-focused</button>
-<button class="chip" aria-pressed="false" data-tag="magic">magic</button>
-<button class="chip" aria-pressed="false" data-tag="museum">museum</button>
-<button class="chip" aria-pressed="false" data-tag="music">music</button>
-<button class="chip" aria-pressed="false" data-tag="oldies-50s">oldies-50s</button>
-<button class="chip" aria-pressed="false" data-tag="oldies-60s">oldies-60s</button>
-<button class="chip" aria-pressed="false" data-tag="oldies-70s">oldies-70s</button>
-<button class="chip" aria-pressed="false" data-tag="oldies-80s">oldies-80s</button>
-<button class="chip" aria-pressed="false" data-tag="outdoor">outdoor</button>
-<button class="chip" aria-pressed="false" data-tag="pop">pop</button>
-<button class="chip" aria-pressed="false" data-tag="relaxed">relaxed</button>
-<button class="chip" aria-pressed="false" data-tag="religious">religious</button>
-<button class="chip" aria-pressed="false" data-tag="ride">ride</button>
-<button class="chip" aria-pressed="false" data-tag="rock">rock</button>
-<button class="chip" aria-pressed="false" data-tag="shopping">shopping</button>
-<button class="chip" aria-pressed="false" data-tag="thrill">thrill</button>
-<button class="chip" aria-pressed="false" data-tag="tribute">tribute</button>
-<button class="chip" aria-pressed="false" data-tag="under-1hr">under-1hr</button>
-<button class="chip" aria-pressed="false" data-tag="variety">variety</button>
-<button class="chip" aria-pressed="false" data-tag="water">water</button>
-      </div>
-    </div>
+  <div class="search-wrap">
+    <input
+      id="attraction-search"
+      type="search"
+      placeholder="Search attractions…"
+      aria-label="Search attractions"
+      autocomplete="off"
+      style="width:100%;padding:0.5rem 0.75rem;font-size:1rem;border:1px solid var(--color-line,#ccc);border-radius:6px;box-sizing:border-box;"
+    />
+    <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--color-ink-dim,#666);">
+      e.g. <code>tag:outdoor</code> &nbsp;·&nbsp; <code>tag:family -tag:indoor</code>
+    </p>
   </div>
   <p class="live-count" id="live-count">Showing 132 of 132</p>
   <div class="catalog-grid" id="catalog-grid"></div>
@@ -163,6 +126,7 @@
     article.setAttribute('data-url', url);
     article.setAttribute('data-notes', notes);
     article.setAttribute('data-tags-json', tagsJson);
+    article.dataset.search = (name + ' ' + desc + ' ' + (a.notes || '') + ' ' + tagsArr.join(' ')).toLowerCase();
 
     /* Price minichip appears only when price_adult is non-null/non-empty. */
     var priceChip = (priceAdultNum != null)
@@ -217,100 +181,62 @@
 
 <script>
 document.addEventListener('catalog-rendered', function(){
-  var active = new Set();
-  var chips = document.querySelectorAll('.filter-strip .chip');
-  var cards = document.querySelectorAll('.catalog-grid .card--light');
-  var counter = document.getElementById('live-count');
-  var allBtn = document.querySelector('.chip[data-tag=""]');
-  var toggleBtn = document.getElementById('filter-toggle');
-  var popover = document.getElementById('filter-popover');
+  function applySearch(query) {
+    var q = query.trim().toLowerCase();
+    var tagIncludes = [];
+    var tagExcludes = [];
+    var phraseWords = [];
+    q.split(/\s+/).forEach(function(token) {
+      if (!token) return;
+      if (/^-tag:/.test(token)) {
+        var val = token.slice(5);
+        if (val) tagExcludes.push(val);
+      } else if (/^tag:/.test(token)) {
+        var val = token.slice(4);
+        if (val) tagIncludes.push(val);
+      } else {
+        phraseWords.push(token);
+      }
+    });
 
-  if (!toggleBtn || !popover) throw new Error('filter-toggle or filter-popover element missing from DOM');
-
-  /* --- Popover open/close --- */
-  function openPopover() {
-    popover.classList.add('open');
-    toggleBtn.setAttribute('aria-expanded', 'true');
-  }
-  function closePopover() {
-    popover.classList.remove('open');
-    toggleBtn.setAttribute('aria-expanded', 'false');
-  }
-  function isOpen() { return popover.classList.contains('open'); }
-
-  toggleBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    isOpen() ? closePopover() : openPopover();
-  });
-
-  /* Close on outside click */
-  document.addEventListener('click', function(e) {
-    if (isOpen() && !popover.contains(e.target) && e.target !== toggleBtn) {
-      closePopover();
-    }
-  });
-
-  /* Close on Escape */
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && isOpen()) {
-      closePopover();
-      toggleBtn.focus();
-    }
-  });
-
-  /* --- Toggle button label/state --- */
-  function updateToggleBtn() {
-    var hasActiveFilter = active.size > 0;
-    if (hasActiveFilter) {
-      toggleBtn.textContent = 'Filtered \u25cf';
-      toggleBtn.classList.add('is-filtered');
-    } else {
-      toggleBtn.textContent = 'Filter \u25be';
-      toggleBtn.classList.remove('is-filtered');
-    }
-  }
-
-  /* --- Card filtering (unchanged logic) --- */
-  function refilter(){
+    var cards = document.querySelectorAll('.card--light');
     var shown = 0;
-    cards.forEach(function(c){
-      var tags = new Set((c.dataset.tags||'').split(' ').filter(Boolean));
-      var visible = active.size === 0 || [...active].some(function(t){ return tags.has(t); });
-      c.style.display = visible ? '' : 'none';
-      if(visible) shown++;
+    cards.forEach(function(card) {
+      var blob = (card.dataset.search || '').toLowerCase();
+      var tagList = (card.dataset.tags || '').toLowerCase().split(/\s+/).filter(Boolean);
+      var visible = true;
+      for (var i = 0; i < tagIncludes.length; i++) {
+        if (tagList.indexOf(tagIncludes[i]) === -1) { visible = false; break; }
+      }
+      if (visible) {
+        for (var j = 0; j < tagExcludes.length; j++) {
+          if (tagList.indexOf(tagExcludes[j]) !== -1) { visible = false; break; }
+        }
+      }
+      if (visible) {
+        var phraseMatch = phraseWords.every(function(w) { return blob.includes(w); });
+        if (!phraseMatch) visible = false;
+      }
+      card.style.display = visible ? '' : 'none';
+      if (visible) shown++;
     });
-    if(counter) counter.textContent = 'Showing ' + shown + ' of ' + cards.length;
+    var countEl = document.getElementById('live-count');
+    if (countEl) {
+      countEl.textContent = 'Showing ' + shown + ' of ' + cards.length;
+    }
+    try { localStorage.setItem('vacdash:v1:search', query.trim()); } catch(e) {}
   }
 
-  chips.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var tag = btn.dataset.tag;
-      try { localStorage.setItem('vacdash:v1:filter', tag); } catch(e){}
-      active.clear();
-      if (tag !== '') active.add(tag);
-      chips.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
-      refilter();
-      updateToggleBtn();
-      closePopover();
-    });
-  });
-
-  /* Restore shared filter state from localStorage */
-  try {
-    var saved = localStorage.getItem('vacdash:v1:filter');
-    var targetChip = null;
-    if (saved != null) {
-      chips.forEach(function(c){ if (c.dataset.tag === saved) targetChip = c; });
-    }
-    if (!targetChip) targetChip = allBtn;
-    chips.forEach(function(c){ c.setAttribute('aria-pressed', c === targetChip ? 'true' : 'false'); });
-    active.clear();
-    var initTag = targetChip.dataset.tag;
-    if (initTag !== '') active.add(initTag);
-  } catch(e){}
-
-  refilter();
-  updateToggleBtn();
+  var searchInput = document.getElementById('attraction-search');
+  if (!searchInput) {
+    console.error('attraction-search input not found');
+    return;
+  }
+  var savedQuery = '';
+  try { savedQuery = localStorage.getItem('vacdash:v1:search') || ''; } catch(e) {}
+  searchInput.value = savedQuery;
+  applySearch(savedQuery);
+  searchInput.addEventListener('input', function() { applySearch(searchInput.value); });
 });
 </script>
 <!-- Name-chooser modal (shown on first heart tap) -->
@@ -363,7 +289,7 @@ document.addEventListener('catalog-rendered', function(){
     </div>
   </div>
 </div>
-<script src="js/picks.js"></script>
+<script src="js/picks.js?v=202605050014"></script>
 <script>
 /* Heart / wishlist handler */
 document.addEventListener('catalog-rendered', function(){
