@@ -126,6 +126,7 @@
                             <span class="minichip" style="${noStyle}">✗ ${event.notInterested.length}</span>
                             <span class="minichip" style="color:var(--color-ink-dim);border-color:color-mix(in srgb,var(--color-ink-dim) 35%,var(--color-line))">– ${event.noResponse.length}</span>
                         </div>
+                        <button class="admin-edit-btn" data-event-id="${event.id}" aria-label="Edit event" onclick="vacdashOpenEdit(this)">✏️</button>
                     </summary>
                     <div class="event-card__body">
                         <div>
@@ -145,7 +146,6 @@
                             ${event.noResponse.map(nameCell).join('') || noneCell}
                         </div>
                     </div>
-                    <button class="admin-edit-btn" data-event-id="${event.id}" aria-label="Edit event" onclick="vacdashOpenEdit(this)">✏️</button>
                 </details>
             `;
         };
