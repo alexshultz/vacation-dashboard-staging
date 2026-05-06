@@ -201,7 +201,7 @@
                 });
                 if (resp.ok) {
                     const data = await resp.json();
-                    if (Array.isArray(data) && data.length > 0) {
+                    if (Array.isArray(data)) {
                         eventsData = data;
                         window._vacdashEvents = eventsData;
                         loaded = true;
@@ -222,6 +222,11 @@
             if (!loaded) {
                 container.innerHTML = '<p id="retry-msg">Tap to retry</p>';
                 document.getElementById('retry-msg').addEventListener('click', loadSchedule);
+                return;
+            }
+
+            if (eventsData.length === 0) {
+                container.innerHTML = '<p id="timeline-empty-state" style="text-align:center;color:var(--color-ink-dim);padding:32px 0;">No events scheduled yet — check back soon!</p>';
                 return;
             }
 

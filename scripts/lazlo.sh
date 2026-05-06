@@ -67,10 +67,45 @@ export ANTHROPIC_API_KEY
 export PATH='/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/Users/alex/.local/bin'
 
 cd "$VAULT"
-claude --dangerously-skip-permissions \
-  -p "$PROMPT" \
-  --max-turns 100 --output-format json \
-  > "$OUT_JSON" 2>"$OUT_STDERR"
+START_TIME=$(date '+%Y-%m-%d %H:%M:%S')
+ATTEMPT=0
+WARNED_50=false
+
+set +e
+while true; do
+  if [[ "$ATTEMPT" -eq 0 ]]; then
+    claude --dangerously-skip-permissions \
+      -p "$PROMPT" \
+      --max-turns 100 --output-format json \
+      > "$OUT_JSON" 2>"$OUT_STDERR"
+  else
+    SESSION_ID=$(jq -rs 'last | .session_id' "$OUT_JSON" 2>/dev/null)
+    if [[ -z "$SESSION_ID" || "$SESSION_ID" == "null" ]]; then
+      echo "Error: could not extract session_id for retry. Aborting."
+      break
+    fi
+    claude --dangerously-skip-permissions \
+      --resume "$SESSION_ID" \
+      -p "$PROMPT" \
+      --max-turns 100 --output-format json \
+      >> "$OUT_JSON" 2>>"$OUT_STDERR"
+  fi
+
+  IS_OVERLOADED=$(jq -rs 'last | [.. | strings | select(test("overloaded_error"))] | length > 0' "$OUT_JSON" 2>/dev/null)
+  if [[ "$IS_OVERLOADED" == "true" ]]; then
+    ATTEMPT=$((ATTEMPT + 1))
+    if [[ "$ATTEMPT" -eq 50 && "$WARNED_50" == "false" ]]; then
+      echo "Still retrying (attempt $ATTEMPT) -- Anthropic API overloaded. Running since $START_TIME. Kill this process manually to stop."
+      WARNED_50=true
+    fi
+    SLEEP=$(python3 -c "import random; print(random.uniform(0, min(90, 5 * 2**$ATTEMPT)))" 2>/dev/null || echo "5")
+    echo "Overloaded (attempt $ATTEMPT). Retrying in ${SLEEP}s..."
+    sleep "$SLEEP"
+  else
+    break
+  fi
+done
+set -e
 
 echo ""
 echo "Lazlo finished. Run: bash scripts/lazlo-check.sh $BRIEF"
