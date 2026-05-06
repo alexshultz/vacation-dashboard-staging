@@ -9,10 +9,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
-<link rel="preload" href="js/site.js?v=202605050034" as="script">
-<link rel="stylesheet" href="css/tokens.css?v=202605050034">
-<link rel="stylesheet" href="css/themes/trail.css?v=202605050034" id="theme-css">
-<link rel="stylesheet" href="css/components.css?v=202605050034">
+<link rel="preload" href="js/site.js?v=202605052011" as="script">
+<link rel="stylesheet" href="css/tokens.css?v=202605052011">
+<link rel="stylesheet" href="css/themes/trail.css?v=202605052011" id="theme-css">
+<link rel="stylesheet" href="css/components.css?v=202605052011">
 <script>/* Theme loader -- inline to prevent flash-of-wrong-theme */
 (function(){
   var m = localStorage.getItem('vacdash:v1:mode') || 'system';
@@ -43,72 +43,11 @@ body.qp-page .deck-stage {
   flex: 1; min-height: 0;
   height: auto !important;
 }
-.qp-back-link {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 10px 16px; border-radius: var(--radius-pill);
-  background: var(--color-surface); color: var(--color-ink);
-  border: 1.5px solid var(--color-line);
-  font-family: var(--font-display); font-weight: 700; font-size: 13px;
-  text-decoration: none; min-height: 44px; white-space: nowrap;
-  cursor: pointer;
-}
-.qp-back-link:hover { background: var(--color-bg); }
 </style>
 </head>
 <body class="qp-page">
-<script src="js/site.js?v=202605050034"></script>
+<script src="js/site.js?v=202605052011"></script>
 <main class="page-main">
-  <div class="filter-popover-wrap" id="filter-popover-wrap">
-    <div class="filter-row">
-      <button class="filter-toggle-btn" id="filter-toggle"
-              aria-haspopup="true" aria-expanded="false">Filter &#9662;</button>
-      <a class="qp-back-link" href="attractions.html" aria-label="Back to Browse">&larr; Back to Browse</a>
-    </div>
-    <div class="filter-popover" id="filter-popover" role="group" aria-label="Filter by tag">
-      <div class="filter-strip">
-        <button class="chip" aria-pressed="true" data-tag="">All</button>
-<button class="chip" aria-pressed="false" data-tag="1-2hr">1-2hr</button>
-<button class="chip" aria-pressed="false" data-tag="2-3hr">2-3hr</button>
-<button class="chip" aria-pressed="false" data-tag="active">active</button>
-<button class="chip" aria-pressed="false" data-tag="adult-humor">adult-humor</button>
-<button class="chip" aria-pressed="false" data-tag="all-day">all-day</button>
-<button class="chip" aria-pressed="false" data-tag="animals">animals</button>
-<button class="chip" aria-pressed="false" data-tag="bluegrass">bluegrass</button>
-<button class="chip" aria-pressed="false" data-tag="classical">classical</button>
-<button class="chip" aria-pressed="false" data-tag="comedy">comedy</button>
-<button class="chip" aria-pressed="false" data-tag="country">country</button>
-<button class="chip" aria-pressed="false" data-tag="date-night">date-night</button>
-<button class="chip" aria-pressed="false" data-tag="drama">drama</button>
-<button class="chip" aria-pressed="false" data-tag="educational">educational</button>
-<button class="chip" aria-pressed="false" data-tag="family">family</button>
-<button class="chip" aria-pressed="false" data-tag="food">food</button>
-<button class="chip" aria-pressed="false" data-tag="gospel">gospel</button>
-<button class="chip" aria-pressed="false" data-tag="half-day">half-day</button>
-<button class="chip" aria-pressed="false" data-tag="history">history</button>
-<button class="chip" aria-pressed="false" data-tag="indoor">indoor</button>
-<button class="chip" aria-pressed="false" data-tag="kid-focused">kid-focused</button>
-<button class="chip" aria-pressed="false" data-tag="magic">magic</button>
-<button class="chip" aria-pressed="false" data-tag="museum">museum</button>
-<button class="chip" aria-pressed="false" data-tag="music">music</button>
-<button class="chip" aria-pressed="false" data-tag="oldies-50s">oldies-50s</button>
-<button class="chip" aria-pressed="false" data-tag="oldies-60s">oldies-60s</button>
-<button class="chip" aria-pressed="false" data-tag="oldies-70s">oldies-70s</button>
-<button class="chip" aria-pressed="false" data-tag="oldies-80s">oldies-80s</button>
-<button class="chip" aria-pressed="false" data-tag="outdoor">outdoor</button>
-<button class="chip" aria-pressed="false" data-tag="pop">pop</button>
-<button class="chip" aria-pressed="false" data-tag="relaxed">relaxed</button>
-<button class="chip" aria-pressed="false" data-tag="religious">religious</button>
-<button class="chip" aria-pressed="false" data-tag="ride">ride</button>
-<button class="chip" aria-pressed="false" data-tag="rock">rock</button>
-<button class="chip" aria-pressed="false" data-tag="shopping">shopping</button>
-<button class="chip" aria-pressed="false" data-tag="thrill">thrill</button>
-<button class="chip" aria-pressed="false" data-tag="tribute">tribute</button>
-<button class="chip" aria-pressed="false" data-tag="under-1hr">under-1hr</button>
-<button class="chip" aria-pressed="false" data-tag="variety">variety</button>
-<button class="chip" aria-pressed="false" data-tag="water">water</button>
-      </div>
-    </div>
-  </div>
   <section class="deck-wrap" id="deck-wrap" aria-labelledby="deck-heading">
     <h2 id="deck-heading" class="sr-only">Quick Pick deck</h2>
     <p class="deck-count" id="deck-count">Loading&hellip;</p>
@@ -134,7 +73,7 @@ body.qp-page .deck-stage {
     </p>
     <div class="deck-empty" id="deck-empty" hidden>
       <h2>No cards to show</h2>
-      <p>Either the active filter has no matches, or you've already wishlisted them all. Try clearing filters.</p>
+      <p>You've already wishlisted everything -- great choices!</p>
     </div>
     <div class="deck-end" id="deck-end" hidden>
       <div class="deck-end__emoji">&#x1F389;</div>
@@ -143,75 +82,13 @@ body.qp-page .deck-stage {
       <div class="deck-end__btns">
         <a class="deck-end__primary" href="wishlist.html">Review wishlist</a>
         <button type="button" id="deck-restart">Restart deck</button>
-        <a href="attractions.html">Back to Browse</a>
       </div>
     </div>
   </section>
   <div class="toast-wrap" id="deck-toast-wrap" aria-live="polite" aria-atomic="true"></div>
   <div class="sr-only" id="deck-announce" aria-live="polite" aria-atomic="true"></div>
 </main>
-<script src="js/picks.js?v=202605050034"></script>
-<script>
-/* Filter popover open/close + chip selection */
-(function(){
-  'use strict';
-  var toggleBtn = document.getElementById('filter-toggle');
-  var popover = document.getElementById('filter-popover');
-  var chips = document.querySelectorAll('.filter-strip .chip');
-  var allBtn = document.querySelector('.chip[data-tag=""]');
-  if (!toggleBtn || !popover) return;
-
-  /* Restore shared filter state from localStorage */
-  try {
-    var saved = localStorage.getItem('vacdash:v1:filter');
-    var targetChip = null;
-    if (saved != null) {
-      chips.forEach(function(c){ if (c.dataset.tag === saved) targetChip = c; });
-    }
-    if (!targetChip) targetChip = allBtn;
-    chips.forEach(function(c){ c.setAttribute('aria-pressed', c === targetChip ? 'true' : 'false'); });
-  } catch(e){}
-
-  function openPopover() { popover.classList.add('open'); toggleBtn.setAttribute('aria-expanded', 'true'); }
-  function closePopover() { popover.classList.remove('open'); toggleBtn.setAttribute('aria-expanded', 'false'); }
-  function isOpen() { return popover.classList.contains('open'); }
-
-  toggleBtn.addEventListener('click', function(e){
-    e.stopPropagation();
-    isOpen() ? closePopover() : openPopover();
-  });
-  document.addEventListener('click', function(e){
-    if (isOpen() && !popover.contains(e.target) && e.target !== toggleBtn) closePopover();
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && isOpen()) { closePopover(); toggleBtn.focus(); }
-  });
-
-  function updateToggleLabel() {
-    var anyPressed = document.querySelectorAll('.filter-strip .chip[aria-pressed="true"]:not([data-tag=""])').length > 0;
-    if (anyPressed) {
-      toggleBtn.textContent = 'Filtered \u25cf';
-      toggleBtn.classList.add('is-filtered');
-    } else {
-      toggleBtn.textContent = 'Filter \u25be';
-      toggleBtn.classList.remove('is-filtered');
-    }
-  }
-
-  chips.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var tag = btn.dataset.tag;
-      try { localStorage.setItem('vacdash:v1:filter', tag); } catch(e){}
-      chips.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
-      updateToggleLabel();
-      closePopover();
-    });
-  });
-
-  /* Initialize toggle label from restored state */
-  updateToggleLabel();
-})();
-</script>
+<script src="js/picks.js?v=202605052011"></script>
 <script>
 /* Quick Pick deck -- standalone page, data sourced from data.json */
 (function(){
