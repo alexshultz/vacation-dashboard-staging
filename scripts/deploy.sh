@@ -20,7 +20,7 @@ PRODUCTION_LOCAL="/Users/alex/code/vacation-dashboard"
 PRODUCTION_REPO="alexshultz/vacation-dashboard"
 PRODUCTION_CNAME="vacation.creeperbomb.com"
 GIT_EMAIL="alexshultz@users.noreply.github.com"
-HTML_FILES="attractions.html shows.html index.html event-timeline.html people-timeline.html wishlist.html suggested.html profile.html quick-pick.html help.html admin.html admin-event-timeline.html admin-index.html"
+HTML_FILES="attractions.html shows.html index.html event-timeline.html people-timeline.html wishlist.html suggested.html profile.html quick-pick.html help.html admin.html admin-event-timeline.html"
 
 # ============================================================
 # ARGUMENTS
