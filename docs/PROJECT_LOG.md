@@ -1,3 +1,43 @@
+## 2026-05-06 -- Session handoff: full deploy cycle, scripted toolchain
+
+**Production commit:** d968c27 (vacation.creeperbomb.com -- LIVE)
+**Staging commit:** f997618 (vacation-dev.creeperbomb.com -- in sync)
+**All Playwright tests:** 34/34 PASS
+
+### What shipped to production this session
+- Quick Pick filter button + Back to Browse removed (`05db92d`)
+- Event timeline admin-edit-btn moved inside summary (`b7e9c34`)
+- Wishlist runtime fetch(data.json) replaces stale ATTRACTIONS_DATA snapshot (`67416b7`)
+- Picks upsert 409 fix + window.picks export + 409 banner suppression (`a7da0b5`)
+- Quick Pick Fisher-Yates shuffle (`8bdebf3`)
+- Timeline Remove Event button with window.confirm() guard (`e7e3196`)
+- Admin overlay delete handler setTimeout defer (Playwright deadlock fix) (`38dd41e`)
+- CNAME typo fix: vacation.creeperboom.com → vacation.creeperbomb.com (`d968c27`)
+
+### Infrastructure added
+- `scripts/deploy.sh` -- single-command staging/production deploy
+- `scripts/lazlo.sh` -- single-command Lazlo task or review invocation
+- `scripts/lazlo-check.sh` -- output validation for Lazlo runs
+- `scripts/test.sh` -- Playwright suite runner
+- `scripts/safety-check.sh` -- 6 pre-deploy checks, called by deploy.sh
+- `scripts/commit.sh` -- vault git commit with correct email
+
+### Key decisions
+- PM role boundary enforced: PM gives problem, Lazlo owns engineering. No pre-diagnosing, no pre-specifying fixes.
+- TDD mandatory: failing test before fix, always.
+- All hand-typed repetitive bash blocks replaced with scripts.
+- Native window.confirm() kept for delete (not DOM dialog) -- required by Playwright dialog interceptor.
+- Supabase schedule_events seeded with 28 events (was empty -- delete test was draining schedule.json fallback).
+
+### Remaining before May 8 launch
+1. Verify help.html has all 5 content sections
+2. Tighten Supabase RLS (schedule_events write policy -- any auth → Alex UID only)
+3. Alex sends family the URL
+
+See docs/NEXT-SESSION.md for full pick-up guide.
+
+---
+
 ## 2026-05-05 -- fix(wishlist): replace stale ATTRACTIONS_DATA with runtime fetch
 
 **Vault commit:** 67416b7
