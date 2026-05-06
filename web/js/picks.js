@@ -91,9 +91,9 @@ const picks = (function() {
       if (state === null) {
         r = await fetch(`${url}?user_id=eq.${encodeURIComponent(currentUser)}&slug=eq.${encodeURIComponent(slug)}`, {method:'DELETE', headers});
       } else {
-        r = await fetch(url, {method:'POST', headers, body: JSON.stringify({user_id:currentUser, slug, state})});
+        r = await fetch(`${url}?on_conflict=user_id,slug`, {method:'POST', headers, body: JSON.stringify({user_id:currentUser, slug, state})});
       }
-      if (!r.ok) throw new Error('HTTP ' + r.status);
+      if (!r.ok && r.status !== 409) throw new Error('HTTP ' + r.status);
     }
     function showBanner() {
       if (typeof document === 'undefined') return;
@@ -205,5 +205,8 @@ const picks = (function() {
   };
 })();
 
-// Auto-init storage sync
-if (typeof window !== 'undefined') picks._initStorageSync();
+// Auto-init storage sync; expose on window so filter guards (window.picks) resolve correctly
+if (typeof window !== 'undefined') {
+  picks._initStorageSync();
+  window.picks = picks;
+}
