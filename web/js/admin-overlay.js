@@ -213,26 +213,31 @@
   });
 
   /* ── Delete handler ─────────────────────────────────────────────────────── */
-  document.getElementById('vacdash-edit-delete').addEventListener('click', async function () {
-    if (!window.confirm('Remove this event permanently? This cannot be undone.')) { return; }
-    var deleteBtn = document.getElementById('vacdash-edit-delete');
-    var errEl = document.getElementById('vacdash-edit-error');
-    deleteBtn.disabled = true;
-    deleteBtn.textContent = 'Removing…';
-    errEl.style.display = 'none';
+  document.getElementById('vacdash-edit-delete').addEventListener('click', function () {
+    var id = _editingId;
+    // Defer confirm to next tick so page.click() resolves before the dialog fires
+    // (synchronous window.confirm inside a click handler deadlocks Playwright)
+    setTimeout(async function () {
+      if (!window.confirm('Remove this event permanently? This cannot be undone.')) { return; }
+      var deleteBtn = document.getElementById('vacdash-edit-delete');
+      var errEl = document.getElementById('vacdash-edit-error');
+      deleteBtn.disabled = true;
+      deleteBtn.textContent = 'Removing…';
+      errEl.style.display = 'none';
 
-    var result = await _sb.from('schedule_events').delete().eq('id', _editingId);
-    deleteBtn.disabled = false;
-    deleteBtn.textContent = 'Remove Event';
+      var result = await _sb.from('schedule_events').delete().eq('id', id);
+      deleteBtn.disabled = false;
+      deleteBtn.textContent = 'Remove Event';
 
-    if (result.error) {
-      errEl.textContent = 'Delete failed: ' + result.error.message;
-      errEl.style.display = 'block';
-      return;
-    }
+      if (result.error) {
+        errEl.textContent = 'Delete failed: ' + result.error.message;
+        errEl.style.display = 'block';
+        return;
+      }
 
-    _modalEl.style.display = 'none';
-    location.reload();
+      _modalEl.style.display = 'none';
+      location.reload();
+    }, 0);
   });
 
   /* ── Public API ────────────────────────────────────────────────────────── */
