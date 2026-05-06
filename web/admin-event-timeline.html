@@ -297,10 +297,8 @@
               const sbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
               if (_editingId === null) {
-                // Create mode: derive ID from title slug
-                const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-                const { error } = await sbClient.from('schedule_events').upsert({
-                  id: slug, title, date, startTime, duration, travelMinutes,
+                const { error } = await sbClient.from('schedule_events').insert({
+                  title, date, startTime, duration, travelMinutes,
                   priority, catalogRef, interested, undecided, notInterested, noResponse
                 });
                 if (error) {
@@ -349,7 +347,7 @@
 </main>
 
 <div id="edit-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1000;align-items:center;justify-content:center;">
-  <div style="background:#fff;border-radius:8px;padding:24px;width:min(480px,90vw);max-height:90vh;overflow-y:auto;position:relative;">
+  <div style="background:var(--color-surface);border-radius:8px;padding:24px;width:min(480px,90vw);max-height:90vh;overflow-y:auto;position:relative;">
     <form id="edit-form" onsubmit="return false;">
       <h3 id="modal-title" style="margin:0 0 16px;font-family:var(--font-display);font-weight:700;font-size:var(--text-base);color:var(--color-ink);">Edit Event</h3>
       <label style="display:block;margin-bottom:8px;">Title<br><input id="ef-title" type="text" style="width:100%;box-sizing:border-box;"></label>
