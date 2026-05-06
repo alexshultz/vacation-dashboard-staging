@@ -1,3 +1,30 @@
+## 2026-05-05 -- fix(wishlist): replace stale ATTRACTIONS_DATA with runtime fetch
+
+**Vault commit:** 67416b7
+**Status:** Committed to vault -- not yet staged or deployed
+
+Root cause: wishlist.html had a 2800-line hardcoded ATTRACTIONS_DATA snapshot. Slugs present in data.json but absent from the snapshot caused slugToAttr() to silently return null -- buildCard() was never called, page rendered blank with no error. Fix: replaced with runtime fetch('data.json') + O(1) lookup map, matching the pattern in attractions.html and quick-pick.html. picks.onChange wired inside .then() to prevent race. New Playwright regression test added (wishlist-blank-fix.spec.js). Lazlo owned the full TDD cycle: failing test first, fix, passing test.
+
+---
+
+## 2026-05-05 -- fix(event-timeline): admin-edit-btn invisible when card collapsed
+
+**Vault commit:** b7e9c34
+**Status:** Committed to vault -- not yet staged or deployed
+
+Root cause: `admin-edit-btn` was a non-summary child of `<details class="event-card">`. Browser hides all non-summary children when details is collapsed. index.html renders cards with `open` attribute so the bug was invisible there. Fix: moved the button inside `<summary>` so it renders regardless of open/closed state. Fixes the failing admin-auth.spec.js test (will pass once deployed to staging).
+
+---
+
+## 2026-05-05 -- quick-pick: remove filter button and back-to-browse links
+
+**Vault commit:** 05db92d
+**Status:** Committed to vault -- not yet staged or deployed
+
+Removed filter-popover-wrap block (filter toggle, all chips, Back to Browse link), plain Back to Browse anchor from deck-end panel, dead `.qp-back-link` CSS rules, and filter-toggle IIFE script block. Updated deck-empty paragraph to remove stale filter reference. 24/25 Playwright tests pass -- 1 pre-existing admin-auth failure on event-timeline.html, unrelated to this change. Lazlo also modified CLAUDE.md out of scope (added docs/lessons.md reference) -- reverted before commit.
+
+---
+
 ## 2026-05-05 -- live search bar replaces chip filter on attractions.html
 
 **Vault commit:** 664e5c3
