@@ -337,6 +337,7 @@ body.qp-page .deck-stage {
     var tags = key === 'all' ? [] : key.split('+');
     var total = ATTRACTIONS.filter(function(a){
       if (a.visible === false) return false;
+      try { if (window.picks && picks.get && picks.get(a.slug) === 'wishlist') return false; } catch(e){}
       if (tags.length === 0) return true;
       var ct = Array.isArray(a.tags) ? a.tags : [];
       return tags.some(function(t){ return ct.indexOf(t) !== -1; });
