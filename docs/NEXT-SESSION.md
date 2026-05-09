@@ -75,7 +75,6 @@ Launch target: May 13, 2026 -- https://vacation.creeperbomb.com
 - [ ] **help.html entry-point** -- a "?" or "Help" link added to profile.html and/or index.html pointing to help.html. The link was added to profile.html (`ea7cfcb`) but needs verification it is actually visible and tapping it opens help.html correctly. Check live on staging before marking done.
 - [ ] **help.html content** -- verify the page has all 5 required sections: "What is this", "Setting your name", "Browsing and wishlisting", "Quick Pick", "Privacy". Read `web/help.html` before assuming -- the file exists but completion status was UNKNOWN at session start and was not verified this session.
 - [ ] **Supabase RLS tightening** -- write policy on `schedule_events` is currently `WITH CHECK (true)` (any authenticated user). Must be `WITH CHECK (auth.uid() = '<alex-uid>')` before family launch. Alex's UID: Supabase dashboard → Authentication → Users → click user. This is a hard blocker.
-- [ ] **Family link send** -- send the URL to the family with a one-paragraph intro. Not done yet.
 
 ### Soft Gates (nice to have, not blocking)
 
@@ -87,9 +86,8 @@ Launch target: May 13, 2026 -- https://vacation.creeperbomb.com
 
 1. **Verify help.html** -- read `web/help.html` and check for the 5 required content sections. If any are missing or the page is a stub, run Lazlo with `.claude/help-html-task.md`. Check the entry-point link on profile.html works on mobile.
 2. **Tighten Supabase RLS** -- change `schedule_events` write policy from `WITH CHECK (true)` to `WITH CHECK (auth.uid() = '<alex-uid>')`. This requires Alex's Supabase UID. If Alex has it handy, do it first thing -- it's a one-SQL-statement fix.
-3. **Send family the link** -- Alex sends the URL to the family group with a short intro. Not an engineering task, but it's the actual launch gate.
-4. **Supabase `schedule_events` table keep-alive** -- the delete test drained one event per run. 27 events remain. If tests run repeatedly, the table may drain and the delete test will fail. Re-seed with `schedule.json` via upsert if needed (Lazlo has the recipe in the e2e-staging-fix handback).
-5. **Test gap backlog** (post-launch, no urgency):
+3. **Supabase `schedule_events` table keep-alive** -- the delete test drained one event per run. 27 events remain. If tests run repeatedly, the table may drain and the delete test will fail. Re-seed with `schedule.json` via upsert if needed (Lazlo has the recipe in the e2e-staging-fix handback).
+4. **Test gap backlog** (post-launch, no urgency):
    - Attractions search bar regression test (new feature, zero Playwright coverage)
    - Cross-page flow test (wishlist on Activities → appears on Wishlist page)
    - Profile name persists to localStorage
