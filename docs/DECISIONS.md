@@ -283,3 +283,42 @@ security, no server confirmation). Neither tradeoff is acceptable pre-launch.
 - `rsvp.js` is distinct from `admin-overlay.js` and must not be used as a drop-in replacement for either direction.
 
 ---
+
+## ADR-014 · admin.html is a privileged coordinator surface with no privacy restrictions (2026-05-09)
+
+**Decision:** The admin user (Alex) can see all data in the coordinator view with no restrictions -- real pick counts, "I'm in" counts, wishlist counts, and "not interested" counts per attraction and per event. No privacy filter applies to admin-gated surfaces.
+
+**Why:** Alex stated explicitly: "there are no secrets from me. I get to see everything. There are no privacy settings that will keep things from me seeing them, but only if you are an admin do you get to see those things."
+
+**Consequences:**
+- Any coordinator-facing page or section gated behind admin auth must show raw, unfiltered data.
+- Family-facing pages are governed separately; this ADR does not change their privacy behavior.
+- Future coordinator features default to full data visibility unless Alex explicitly restricts a specific field.
+
+---
+
+## ADR-015 · "Conflict-free schedule" scoped to demand-coverage gap detection for coordinator stats v1 (2026-05-09)
+
+**Decision:** The coordinator stats view does not attempt time-overlap conflict detection. "Conflict-free" for v1 means surfacing high-demand wishlist attractions that are not yet represented in the schedule, so Alex can prioritize scheduling them.
+
+**Why:** `startTime` is null on all current schedule events. Precise time-overlap detection (does event A end before event B starts?) requires `startTime` and is currently impossible. Demand-coverage gap detection (which popular attractions have no scheduled slot?) is fully computable from existing data and is the more immediately useful coordinator signal.
+
+**Consequences:**
+- Time-overlap conflict detection is not built in v1. It becomes possible once `startTime` is populated on schedule events.
+- The stats view shows: which attractions the group wants (from picks) and which schedule events have the most RSVPs -- two independent signals, not joined.
+
+---
+
+## ADR-016 · Coordinator stats v1 uses two independent single-table panels; cross-table join deferred (2026-05-09)
+
+**Decision:** v1 coordinator stats has two independent panels -- Panel A (wishlist/pick demand from the picks table) and Panel B (RSVP commitment from schedule events). These panels are not joined or cross-referenced in v1.
+
+**Why:** The join between picks slugs and schedule event identifiers requires either (a) `catalogRef` to be populated on schedule event rows, or (b) slug namespace equivalence between `picks.slug` and `schedule_events.id` to be verified. Currently `catalogRef` is null on all schedule events and namespace equivalence is unverified. A cross-reference view built without a confirmed join key would produce silent incorrect results.
+
+**Consequences:**
+- Panel A reads from the picks table via `fetchAllWishlists()`.
+- Panel B reads from schedule events RSVP data.
+- Cross-reference view ("wishlist items not yet scheduled") is deferred until condition (a) or (b) above is met.
+- Once a join key is confirmed, the cross-reference view can be added as Panel C without redesigning the existing panels.
+
+---

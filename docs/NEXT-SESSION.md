@@ -144,3 +144,48 @@ GIT_EMAIL      = alexshultz@users.noreply.github.com
 
 ### Parked (do not touch without explicit Alex unlock)
 - Trail v2 Lodge redesign -- files at vault root, design system remains LOCKED
+
+---
+
+## Post-Launch Engineering Backlog
+
+### `schedule_overrides` RLS tightening (low risk, no urgency)
+`admin.html` writes to `schedule_overrides` using the anon key + a client-side token (`X-Admin-Token: override-token-3141`). The Supabase policies allow the `anon` role to insert/update/delete. This was intentional at build time (acknowledged in grill-me docs) but weaker than the `schedule_events` protection now in place.
+
+**Fix (Lazlo task, post-launch):** Migrate `admin.html`'s `schedule_overrides` writes to use the authenticated Supabase session, then replace the three anon write policies with a single UID-locked policy matching `schedule_events` (`auth.uid() = '8d266838-80da-406d-98cb-97387394b564'`).
+
+**Risk:** Low. Table only controls schedule display overrides -- not picks, not personal data. Safe to defer past May 13 launch.
+
+---
+
+## Queued Feature: Coordinator Stats View (admin.html)
+
+**What it is:** Two panels added to `admin.html` (auth-gated -- Alex only) showing group wishlist demand and schedule commitment. Helps Alex build a conflict-free trip schedule.
+
+**ADRs governing this feature:** ADR-014 (admin sees everything), ADR-015 (conflict-free = demand-coverage gap), ADR-016 (two independent panels, no join in v1).
+
+### Panel A -- Wishlist Demand
+- Source: `picks` table via `fetchAllWishlists()`
+- Shows: each attraction slug, total pick count, ranked by popularity
+- Group denominator: 26 (confirmed from RSVP name count in schedule.json)
+- Includes: "I'm in" (committing) + wishlist counts combined (state distinction deferred -- fetchAllWishlists() discards state)
+- Known limitation: "not interested" picks are NOT in fetchAllWishlists() -- needs a second query or function patch to surface them
+- Display: attraction name | bar | "N picked"
+
+### Panel B -- Schedule Commitment
+- Source: `schedule_events` RSVP arrays (interested, undecided, notInterested, noResponse) from schedule.json at runtime
+- NOTE: `event_rsvps` Supabase table (ADR-013) is the family write path for RSVPs. Panel B reads from `schedule.json` arrays which are the CURRENT authoritative RSVP state (admin-edited). These may diverge from `event_rsvps` -- clarify with Alex before brief.
+- Shows: each event title, interested count, undecided count, notInterested count
+- Display: event title | date | I'm in: N | Undecided: N | Not interested: N
+
+### Known preconditions before Lazlo brief
+- [ ] Confirm which RSVP source is authoritative for Panel B: `schedule.json` arrays or `event_rsvps` Supabase table (ADR-013 writes to event_rsvps, but schedule.json arrays are admin-edited -- may be out of sync)
+- [ ] Confirm admin.html auth pattern covers new stats section (no second auth gate)
+- [ ] fetchAllWishlists() needs to be importable/callable from admin.html (currently no picks.js reference in admin.html)
+- [ ] "Not interested" signal: needs fetchAllWishlists() patch or separate query to expose this state
+
+### Deferred (post-v1)
+- Cross-reference view (Panel C): wishlist picks vs scheduled events -- blocked until catalogRef populated OR slug namespace equivalence confirmed
+- State breakdown (wishlist vs committing): blocked until fetchAllWishlists() preserves state field
+- Time-overlap conflict detection: blocked until startTime populated on schedule events
+
