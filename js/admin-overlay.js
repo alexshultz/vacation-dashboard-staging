@@ -102,6 +102,33 @@
     'color:var(--color-ink);font-size:14px;box-sizing:border-box;',
     'min-height:60px;resize:vertical;margin-bottom:12px;"></textarea>',
 
+    '<label style="display:block;font-size:12px;font-weight:700;',
+    'text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);',
+    'margin-bottom:4px;">Undecided (comma-sep)</label>',
+    '<textarea id="vacdash-edit-undecided" ',
+    'style="width:100%;padding:8px 10px;border:1.5px solid var(--color-line);',
+    'border-radius:var(--radius-btn,6px);background:var(--color-bg);',
+    'color:var(--color-ink);font-size:14px;box-sizing:border-box;',
+    'min-height:60px;resize:vertical;margin-bottom:12px;"></textarea>',
+
+    '<label style="display:block;font-size:12px;font-weight:700;',
+    'text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);',
+    'margin-bottom:4px;">Not Interested (comma-sep)</label>',
+    '<textarea id="vacdash-edit-notInterested" ',
+    'style="width:100%;padding:8px 10px;border:1.5px solid var(--color-line);',
+    'border-radius:var(--radius-btn,6px);background:var(--color-bg);',
+    'color:var(--color-ink);font-size:14px;box-sizing:border-box;',
+    'min-height:60px;resize:vertical;margin-bottom:12px;"></textarea>',
+
+    '<label style="display:block;font-size:12px;font-weight:700;',
+    'text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);',
+    'margin-bottom:4px;">No Response (comma-sep)</label>',
+    '<textarea id="vacdash-edit-noResponse" ',
+    'style="width:100%;padding:8px 10px;border:1.5px solid var(--color-line);',
+    'border-radius:var(--radius-btn,6px);background:var(--color-bg);',
+    'color:var(--color-ink);font-size:14px;box-sizing:border-box;',
+    'min-height:60px;resize:vertical;margin-bottom:12px;"></textarea>',
+
     '<div id="vacdash-edit-error" style="display:none;color:#c0392b;',
     'font-size:13px;margin-bottom:10px;"></div>',
 
@@ -153,7 +180,10 @@
     var durationRaw = document.getElementById('vacdash-edit-duration').value;
     var priority   = document.getElementById('vacdash-edit-priority').value;
     var catalogRef = document.getElementById('vacdash-edit-catalogRef').value.trim();
-    var interestedRaw = document.getElementById('vacdash-edit-interested').value;
+    var interestedRaw    = document.getElementById('vacdash-edit-interested').value;
+    var undecidedRaw     = document.getElementById('vacdash-edit-undecided').value;
+    var notInterestedRaw = document.getElementById('vacdash-edit-notInterested').value;
+    var noResponseRaw    = document.getElementById('vacdash-edit-noResponse').value;
 
     // Validation
     if (!title) { errEl.textContent = 'Title is required.'; errEl.style.display = 'block'; return; }
@@ -165,8 +195,20 @@
       return;
     }
 
-    // Parse interested from comma-separated string to array
+    // Parse RSVP fields from comma-separated strings to arrays
     var interested = interestedRaw
+      .split(',')
+      .map(function (s) { return s.trim(); })
+      .filter(function (s) { return s.length > 0; });
+    var undecided = undecidedRaw
+      .split(',')
+      .map(function (s) { return s.trim(); })
+      .filter(function (s) { return s.length > 0; });
+    var notInterested = notInterestedRaw
+      .split(',')
+      .map(function (s) { return s.trim(); })
+      .filter(function (s) { return s.length > 0; });
+    var noResponse = noResponseRaw
       .split(',')
       .map(function (s) { return s.trim(); })
       .filter(function (s) { return s.length > 0; });
@@ -183,7 +225,10 @@
       duration: duration,
       priority: priority,
       catalogRef: catalogRef,
-      interested: interested
+      interested: interested,
+      undecided: undecided,
+      notInterested: notInterested,
+      noResponse: noResponse
     };
 
     var result = await _sb.from('schedule_events').upsert(payload);
@@ -228,6 +273,12 @@
     document.getElementById('vacdash-edit-catalogRef').value = event ? (event.catalogRef || '') : '';
     document.getElementById('vacdash-edit-interested').value =
       event && Array.isArray(event.interested) ? event.interested.join(', ') : '';
+    document.getElementById('vacdash-edit-undecided').value =
+      event && Array.isArray(event.undecided) ? event.undecided.join(', ') : '';
+    document.getElementById('vacdash-edit-notInterested').value =
+      event && Array.isArray(event.notInterested) ? event.notInterested.join(', ') : '';
+    document.getElementById('vacdash-edit-noResponse').value =
+      event && Array.isArray(event.noResponse) ? event.noResponse.join(', ') : '';
 
     document.getElementById('vacdash-edit-error').style.display = 'none';
     _modalEl.style.display = 'flex';
