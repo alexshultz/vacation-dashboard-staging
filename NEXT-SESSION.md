@@ -9,15 +9,15 @@ None pending. Production is current. No promotion queued.
 
 ---
 
-## Pre-Launch Checklist (May 8 gate)
+## Pre-Launch Checklist (May 13 gate)
 
 | Item | Status |
 |---|---|
 | help.html verified complete | DONE -- all 5 sections present, fetch(help.json) confirmed, entry point on Profile page |
-| Tester pass (Ashlyn, Jordan, Mycah) | DEFERRED -- removed from May 8 gate per ROADMAP.md; family unavailable |
-| Send family the link | PENDING -- May 8 target |
+| Tester pass (Ashlyn, Jordan, Mycah) | DEFERRED -- removed from May 13 gate per ROADMAP.md; family unavailable |
+| Send family the link | PENDING -- May 13 target |
 
-**May 8 launch is unblocked.** No open gates.
+**May 13 launch is unblocked.** No open gates.
 
 ---
 
@@ -84,5 +84,5 @@ Work completed:
 - CSS tokens: --accent-1/2/3 (NOT --accent-sand/clay/dusk -- those are gone as of today)
 - generate_dashboard.py and generate_attractions.py are PERMANENTLY FROZEN -- never run
 - help.json is the canonical source for help content -- never hand-edit help.html sections directly
-- Tester pass is formally removed from May 8 gate (ROADMAP.md authoritative)
-- May 8 launch is the family link send -- no blockers
+- Tester pass is formally removed from May 13 gate (ROADMAP.md authoritative)
+- May 13 launch is the family link send -- no blockers

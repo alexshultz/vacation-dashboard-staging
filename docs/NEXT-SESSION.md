@@ -68,9 +68,9 @@ All of these are committed to vault, deployed to staging, and promoted to produc
 
 ## What We Have Left to Do (Pre-Launch Checklist)
 
-Launch target: May 8, 2026 -- https://vacation.creeperbomb.com
+Launch target: May 13, 2026 -- https://vacation.creeperbomb.com
 
-### Hard Gates (must complete before May 8)
+### Hard Gates (must complete before May 13)
 
 - [ ] **help.html entry-point** -- a "?" or "Help" link added to profile.html and/or index.html pointing to help.html. The link was added to profile.html (`ea7cfcb`) but needs verification it is actually visible and tapping it opens help.html correctly. Check live on staging before marking done.
 - [ ] **help.html content** -- verify the page has all 5 required sections: "What is this", "Setting your name", "Browsing and wishlisting", "Quick Pick", "Privacy". Read `web/help.html` before assuming -- the file exists but completion status was UNKNOWN at session start and was not verified this session.
@@ -79,7 +79,7 @@ Launch target: May 8, 2026 -- https://vacation.creeperbomb.com
 
 ### Soft Gates (nice to have, not blocking)
 
-- [ ] Tester pass (Ashlyn, Jordan, Mycah) -- deferred from May 8 gate (family unavailable). Still worth asking if any of them want to take a look.
+- [ ] Tester pass (Ashlyn, Jordan, Mycah) -- deferred from May 13 gate (family unavailable). Still worth asking if any of them want to take a look.
 
 ---
 

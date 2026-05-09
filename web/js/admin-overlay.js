@@ -145,10 +145,6 @@
     'color:var(--color-ink);">Cancel</button>',
     '</div>',
 
-    '<a href="admin-event-timeline.html" ',
-    'style="font-size:13px;color:var(--color-ink-dim);text-decoration:none;">',
-    'Full edit in Admin →</a>',
-
     '</div>'
   ].join('');
   document.body.appendChild(_modalEl);

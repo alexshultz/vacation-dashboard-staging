@@ -4,14 +4,14 @@
 
 
 **Last updated:** 2026-04-28
-**Family starts using dashboard:** ~2026-05-08
+**Family starts using dashboard:** ~2026-05-13
 **Trip:** 2026-05-22 → 05-29
 
 ---
 
 ## Current Status (2026-04-28)
 
-Phase 1 and Phase 2 core features are complete and live. Supabase backend IS ACTIVE in production as of 2026-04-28 (picks.js hydration from Supabase, write error banner, fetchAllWishlists expanded). admin.html is deployed to production with the upsert 409 fix (merge-duplicates header). HTTPS enforced on both custom domains. Tester pass removed from May 8 gate. Staging repo is in sync with production.
+Phase 1 and Phase 2 core features are complete and live. Supabase backend IS ACTIVE in production as of 2026-04-28 (picks.js hydration from Supabase, write error banner, fetchAllWishlists expanded). admin.html is deployed to production with the upsert 409 fix (merge-duplicates header). HTTPS enforced on both custom domains. Tester pass removed from May 13 gate. Staging repo is in sync with production.
 
 **What's done:**
 - Design system (tokens.css, trail.css, components.css)
@@ -29,7 +29,7 @@ Phase 1 and Phase 2 core features are complete and live. Supabase backend IS ACT
 - [ ] INITIAL_VISIBLE setting in admin UI -- expose the home page event count as a live-configurable value (no code change needed to adjust it)
 - [x] Custom domain -- `vacation.creeperbomb.com` (production) and `vacation-dev.creeperbomb.com` (staging) -- CNAME files in both repos, DNS records in Cloudflare (DNS only, no proxy), HTTPS auto-provisions via Let's Encrypt
 
-**Tester pass -- DEFERRED:** Family unavailable for formal sign-off. Removed from May 8 gate. Dashboard ships May 8 on schedule without tester approval round.
+**Tester pass -- DEFERRED:** Family unavailable for formal sign-off. Removed from May 13 gate. Dashboard ships May 13 on schedule without tester approval round.
 
 ---
 
@@ -37,7 +37,7 @@ Phase 1 and Phase 2 core features are complete and live. Supabase backend IS ACT
 
 ## Guiding principles
 
-1. **Ship a product people USE before you ship one that's PERFECT.** Family needs to start picking by May 8.
+1. **Ship a product people USE before you ship one that's PERFECT.** Family needs to start picking by May 13.
 2. **Static site first, dynamic second.** Interest/RSVP features can write to a tiny backend (Supabase) without rewriting the front end.
 3. **Don't build the auto-scheduler in Phase 1 or 2.** It's a whole separate product. Defer cleanly.
 4. **Hallucination defense:** at each phase, ship something you can TEST in a browser and USE. No paper-only progress.
@@ -76,7 +76,7 @@ Phase 1 and Phase 2 core features are complete and live. Supabase backend IS ACT
 
 ## Phase 2 — Interactive core (Apr 28 → May 7, ~10 days)
 
-**Goal:** family can actually use the site by May 8.
+**Goal:** family can actually use the site by May 13.
 
 ### Deliverables
 
@@ -119,7 +119,7 @@ Phase 1 and Phase 2 core features are complete and live. Supabase backend IS ACT
 
 ---
 
-## Phase 3 — Polish + magic (May 8 → May 21, ~13 days, trip-adjacent)
+## Phase 3 — Polish + magic (May 13 → May 21, ~8 days, trip-adjacent)
 
 **Goal:** everything works, and the "magic" features Alex cares about ship IF time allows. This is the phase where we cut aggressively.
 
@@ -225,7 +225,7 @@ Everything else I can make progress on without blocking.
 
 ---
 
-## Post-Launch Documentation Tasks (after May 8)
+## Post-Launch Documentation Tasks (after May 13)
 
 Low-priority doc work that does not affect user-visible behavior. Do not pull into the pre-launch sprint.
 
