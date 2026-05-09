@@ -41,8 +41,12 @@ if [[ "$TARGET" == "production" ]]; then
   echo ""
   echo "⚠️  PRODUCTION deploy to vacation.creeperbomb.com"
   echo "   Description: $DESCRIPTION"
-  echo "   Press Enter to continue, Ctrl+C to abort."
-  read -r
+  if [ -t 0 ]; then
+    echo "   Press Enter to continue, Ctrl+C to abort."
+    read -r
+  else
+    echo "   Auto-confirming: stdin is not a terminal."
+  fi
 else
   DEST="$STAGING_LOCAL"
   REPO="$STAGING_REPO"
