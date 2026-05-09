@@ -209,3 +209,77 @@ security, no server confirmation). Neither tradeoff is acceptable pre-launch.
 - Resolution deferred to post-launch cleanup sprint.
 
 ---
+
+---
+
+## ADR-010 · Supabase session as conditional admin display gate on family pages (2026-05-01)
+
+**Decision:** `supabase.auth.onAuthStateChange()` in `web/js/admin-overlay.js` toggles
+the `body.is-admin` CSS class on family-facing pages. Edit controls are hidden by
+default (fail-closed) and revealed only when a confirmed Supabase session exists.
+
+**Rationale:** Display-conditional gating on a single shared page is preferred over
+maintaining a full-page clone per admin feature. Long-term, one file to maintain;
+short-term, zero risk to family users who are never authenticated.
+
+**Consequences:**
+- Any family page that wants admin controls: add `<script src="js/admin-overlay.js">`,
+  expose `window._vacdashEvents`, and emit `.admin-edit-btn` buttons with `data-event-id`.
+- Buttons are invisible to unauthenticated visitors — no CSS specificity war needed.
+- Fail-open risk is eliminated: default CSS is `display:none` at the rule level.
+
+---
+
+## ADR-011 · admin-overlay.js as canonical reusable admin-edit-in-place module (2026-05-01)
+
+**Decision:** `web/js/admin-overlay.js` is the single reusable module for session-gated
+inline editing on family pages. It owns: auth state subscription, sign-out badge, edit
+modal injection, and `window.vacdashOpenEdit`.
+
+**Contract for adopting pages:**
+1. Load Supabase JS SDK CDN before this script.
+2. Add `<script src="js/admin-overlay.js"></script>` before `</body>`.
+3. Populate `window._vacdashEvents` with the page's loaded events array.
+4. Emit `.admin-edit-btn` buttons with `data-event-id="${event.id}"` and
+   `onclick="vacdashOpenEdit(this)"` inside `<details class="event-card">` elements.
+
+**Scope limitation:** This module is an authoring idiom for schedule-event pages only.
+It is NOT a universal drop-in for pages with different data shapes (attractions, picks,
+etc.). Those pages would require their own overlay module with a different schema.
+
+---
+
+## ADR-012 · Q14a deferred — dual admin gate acknowledged as interim inconsistency (2026-05-01)
+
+**Decision:** Two separate admin gates co-exist as of this sprint and are intentional:
+1. `site.js` nav shows the Admin link based on a `localStorage` `vacdash:v1:user` name
+   check against `ADMIN_USERS`.
+2. `admin-overlay.js` edit icons are gated on a live Supabase session via
+   `onAuthStateChange`.
+
+**Why intentional:** Unifying these gates (Q14a) requires either making the nav gate
+async (flash-of-wrong-nav risk) or making the edit-icon gate localStorage-only (weaker
+security, no server confirmation). Neither tradeoff is acceptable pre-launch.
+
+**Consequences:**
+- A family member named Alex will see the Admin nav link but NOT the edit icons (they
+  have no Supabase session). This is acceptable — the Admin link leads to an auth wall.
+- Alex-with-session will see both the nav link and the edit icons. Correct.
+- Resolution deferred to post-launch cleanup sprint.
+
+---
+
+## ADR-013 · rsvp.js as family-facing RSVP write module (2026-05-06)
+
+**Decision:** A new module `web/js/rsvp.js` handles family-facing RSVP state for schedule events. It writes individual RSVP records to the `event_rsvps` table created in the Phase 0 migration (`data/rsvp-migration.sql`).
+
+**Why:** Family members need an unauthenticated write path for their own RSVP status that does not require a Supabase session. `rsvp.js` uses the same localStorage `display_name` pattern established for picks in ADR-005, giving each family member a consistent identity across features without credentials.
+
+**Consequences:**
+- Family RSVPs write to `event_rsvps` (event_id + user_id + status), NOT the `schedule_events.interested/undecided/notInterested/noResponse` arrays.
+- `admin-overlay.js` continues to own writes to `schedule_events` via Supabase session auth and is not modified by this pattern.
+- User identity for RSVP follows the localStorage display_name convention from ADR-005.
+- RLS on `event_rsvps` uses the `locked_at` column on `schedule_events` to block writes after the lock timestamp, enforcing an edit deadline without server-side code.
+- `rsvp.js` is distinct from `admin-overlay.js` and must not be used as a drop-in replacement for either direction.
+
+---
