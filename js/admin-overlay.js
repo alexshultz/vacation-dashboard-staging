@@ -118,12 +118,6 @@
     'color:var(--color-ink);">Cancel</button>',
     '</div>',
 
-    '<button id="vacdash-edit-delete" ',
-    'style="width:100%;padding:10px;border-radius:var(--radius-btn,6px);',
-    'background:var(--status-no,#c0392b);color:#fff;border:none;',
-    'font-family:var(--font-display);font-weight:700;font-size:14px;cursor:pointer;',
-    'margin-bottom:12px;">Remove Event</button>',
-
     '<a href="admin-event-timeline.html" ',
     'style="font-size:13px;color:var(--color-ink-dim);text-decoration:none;">',
     'Full edit in Admin →</a>',
@@ -210,34 +204,6 @@
   /* ── Cancel handler ────────────────────────────────────────────────────── */
   document.getElementById('vacdash-edit-cancel').addEventListener('click', function () {
     _modalEl.style.display = 'none';
-  });
-
-  /* ── Delete handler ─────────────────────────────────────────────────────── */
-  document.getElementById('vacdash-edit-delete').addEventListener('click', function () {
-    var id = _editingId;
-    // Defer confirm to next tick so page.click() resolves before the dialog fires
-    // (synchronous window.confirm inside a click handler deadlocks Playwright)
-    setTimeout(async function () {
-      if (!window.confirm('Remove this event permanently? This cannot be undone.')) { return; }
-      var deleteBtn = document.getElementById('vacdash-edit-delete');
-      var errEl = document.getElementById('vacdash-edit-error');
-      deleteBtn.disabled = true;
-      deleteBtn.textContent = 'Removing…';
-      errEl.style.display = 'none';
-
-      var result = await _sb.from('schedule_events').delete().eq('id', id);
-      deleteBtn.disabled = false;
-      deleteBtn.textContent = 'Remove Event';
-
-      if (result.error) {
-        errEl.textContent = 'Delete failed: ' + result.error.message;
-        errEl.style.display = 'block';
-        return;
-      }
-
-      _modalEl.style.display = 'none';
-      location.reload();
-    }, 0);
   });
 
   /* ── Public API ────────────────────────────────────────────────────────── */

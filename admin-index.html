@@ -64,13 +64,17 @@
 </style>
 </head>
 <body>
+<!-- Deprecated admin page banner -->
+<div style="background:#FFF3CD;color:#856404;border-bottom:1px solid #FFECB5;padding:10px 20px;font-size:14px;text-align:center;">
+  ⚠️ This admin view is deprecated. Use the <a href="index.html" style="color:#856404;font-weight:700;">main Home page</a> instead (admin controls appear when you're logged in).
+</div>
 <script src="js/site.js?v=202605090435"></script>
 <main class="page-main">
-  <div id="vacdash-iv-bar" style="display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--color-surface);border:1px solid var(--color-line);border-radius:var(--radius-btn);margin-bottom:16px;">
-    <button id="vacdash-iv-minus" type="button" style="width:2rem;height:2rem;font-size:1.2rem;background:none;border:1px solid var(--color-line);border-radius:4px;cursor:pointer;">−</button>
-    <input id="vacdash-iv-input" type="number" min="1" style="width:3.5rem;text-align:center;font-size:1.2rem;border:1px solid var(--color-line);border-radius:4px;padding:2px 4px;">
-    <button id="vacdash-iv-plus" type="button" style="width:2rem;height:2rem;font-size:1.2rem;background:none;border:1px solid var(--color-line);border-radius:4px;cursor:pointer;">+</button>
-    <span style="font-size:13px;color:var(--color-ink-dim);">Visible on load</span>
+  <div id="admin-control-bar" style="background:var(--color-surface);padding:12px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--color-line);position:sticky;top:0;z-index:10;">
+    <span style="font-weight:600;">Initially shown:</span>
+    <button id="iv-minus" style="width:2rem;height:2rem;font-size:1.2rem;background:none;border:1px solid var(--color-line);border-radius:4px;cursor:pointer;">−</button>
+    <input type="number" id="iv-value" min="1" style="width:3.5rem;text-align:center;font-size:1.2rem;border:1px solid var(--color-line);border-radius:4px;padding:2px 4px;">
+    <button id="iv-plus" style="width:2rem;height:2rem;font-size:1.2rem;background:none;border:1px solid var(--color-line);border-radius:4px;cursor:pointer;">+</button>
   </div>
   <div class="page-hero">
     <h1>Upcoming Activities</h1>
@@ -174,8 +178,6 @@
 
                     const cardEl = document.createElement('details');
                     cardEl.className = 'event-card';
-                    cardEl.style.position = 'relative';
-                    cardEl.setAttribute('data-event-id', event.id);
                     cardEl.setAttribute('open', '');
                     cardEl.innerHTML = `
                         <summary>
@@ -209,10 +211,6 @@
                             </div>
                         </div>
                     `;
-                    cardEl.insertAdjacentHTML('beforeend',
-                      '<button class="admin-edit-btn" data-event-id="' + event.id +
-                      '" aria-label="Edit event" onclick="vacdashOpenEdit(this)">✏\uFE0F</button>'
-                    );
                     section.appendChild(cardEl);
                 });
 
@@ -253,6 +251,12 @@
         const SUPABASE_URL = 'https://quebfbvfuwbncpexlylu.supabase.co';
         const SUPABASE_ANON_KEY = 'sb_publishable_yLlf7qoMZMfiZhNsyudX7g_HnZ8clgt';
 
+        (async () => {
+          const sbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+          const { data: { session } } = await sbClient.auth.getSession();
+          if (!session) window.location.replace('admin.html');
+        })();
+
         async function loadSchedule() {
             const container = document.getElementById('events-list');
             let loaded = false;
@@ -265,7 +269,6 @@
                     const data = await resp.json();
                     if (Array.isArray(data) && data.length > 0) {
                         eventsData = data;
-                        window._vacdashEvents = eventsData;
                         loaded = true;
                     }
                 }
@@ -276,7 +279,6 @@
                     const r = await fetch('schedule.json');
                     const json = await r.json();
                     eventsData = json.events;
-                    window._vacdashEvents = eventsData;
                     loaded = true;
                 } catch (e) {}
             }
@@ -307,7 +309,44 @@
                     }
                 }
             } catch (e) {}
-            document.getElementById('vacdash-iv-input').value = INITIAL_VISIBLE;
+
+            document.getElementById('iv-value').value = INITIAL_VISIBLE;
+
+            const sbAdmin = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+            document.getElementById('iv-minus').addEventListener('click', async () => {
+              if (INITIAL_VISIBLE <= 1) return;
+              INITIAL_VISIBLE -= 1;
+              document.getElementById('iv-value').value = INITIAL_VISIBLE;
+              await sbAdmin.from('app_config').upsert(
+                { key: 'initial_visible', value: String(INITIAL_VISIBLE) },
+                { onConflict: 'key' }
+              );
+            });
+
+            document.getElementById('iv-plus').addEventListener('click', async () => {
+              INITIAL_VISIBLE += 1;
+              document.getElementById('iv-value').value = INITIAL_VISIBLE;
+              await sbAdmin.from('app_config').upsert(
+                { key: 'initial_visible', value: String(INITIAL_VISIBLE) },
+                { onConflict: 'key' }
+              );
+            });
+
+            let _ivDebounce = null;
+            document.getElementById('iv-value').addEventListener('input', () => {
+              clearTimeout(_ivDebounce);
+              _ivDebounce = setTimeout(async () => {
+                const raw = document.getElementById('iv-value').value;
+                const parsed = parseInt(raw, 10);
+                if (isNaN(parsed) || parsed < 1 || String(parsed) !== String(raw).trim()) return;
+                INITIAL_VISIBLE = parsed;
+                await sbAdmin.from('app_config').upsert(
+                  { key: 'initial_visible', value: String(INITIAL_VISIBLE) },
+                  { onConflict: 'key' }
+                );
+              }, 500);
+            });
 
             const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
@@ -317,49 +356,10 @@
                 const newVal = parseInt(payload.new?.value, 10)
                 if (!isNaN(newVal)) {
                   INITIAL_VISIBLE = newVal
-                  document.getElementById('vacdash-iv-input').value = INITIAL_VISIBLE;
                   applyVisibilityState(showingAll);
                 }
               })
               .subscribe()
-
-            // Admin INITIAL_VISIBLE controls (visible only when body.is-admin)
-            document.getElementById('vacdash-iv-minus').addEventListener('click', async () => {
-              if (INITIAL_VISIBLE <= 1) return;
-              INITIAL_VISIBLE -= 1;
-              document.getElementById('vacdash-iv-input').value = INITIAL_VISIBLE;
-              await supabase.from('app_config').upsert(
-                { key: 'initial_visible', value: String(INITIAL_VISIBLE) },
-                { onConflict: 'key' }
-              );
-              applyVisibilityState(false);
-            });
-
-            document.getElementById('vacdash-iv-plus').addEventListener('click', async () => {
-              INITIAL_VISIBLE += 1;
-              document.getElementById('vacdash-iv-input').value = INITIAL_VISIBLE;
-              await supabase.from('app_config').upsert(
-                { key: 'initial_visible', value: String(INITIAL_VISIBLE) },
-                { onConflict: 'key' }
-              );
-              applyVisibilityState(false);
-            });
-
-            let _ivDebounce = null;
-            document.getElementById('vacdash-iv-input').addEventListener('input', () => {
-              clearTimeout(_ivDebounce);
-              _ivDebounce = setTimeout(async () => {
-                const raw = document.getElementById('vacdash-iv-input').value;
-                const parsed = parseInt(raw, 10);
-                if (isNaN(parsed) || parsed < 1 || String(parsed) !== String(raw).trim()) return;
-                INITIAL_VISIBLE = parsed;
-                await supabase.from('app_config').upsert(
-                  { key: 'initial_visible', value: String(INITIAL_VISIBLE) },
-                  { onConflict: 'key' }
-                );
-                applyVisibilityState(false);
-              }, 500);
-            });
 
             await loadSchedule();
             window.addEventListener('resize', setupMobileCollapse);

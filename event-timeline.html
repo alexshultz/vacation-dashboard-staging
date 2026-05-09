@@ -9,10 +9,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
-<link rel="preload" href="js/site.js?v=202605061435" as="script">
-<link rel="stylesheet" href="css/tokens.css?v=202605061435">
-<link rel="stylesheet" href="css/themes/trail.css?v=202605061435" id="theme-css">
-<link rel="stylesheet" href="css/components.css?v=202605061435">
+<link rel="preload" href="js/site.js?v=202605090435" as="script">
+<link rel="stylesheet" href="css/tokens.css?v=202605090435">
+<link rel="stylesheet" href="css/themes/trail.css?v=202605090435" id="theme-css">
+<link rel="stylesheet" href="css/components.css?v=202605090435">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>/* Theme loader -- inline to prevent flash-of-wrong-theme */
 (function(){
@@ -64,7 +64,7 @@
 </style>
 </head>
 <body>
-<script src="js/site.js?v=202605061435"></script>
+<script src="js/site.js?v=202605090435"></script>
 <main class="page-main">
   <div class="page-hero">
     <h1>Timeline</h1>
@@ -126,7 +126,6 @@
                             <span class="minichip" style="${noStyle}">✗ ${event.notInterested.length}</span>
                             <span class="minichip" style="color:var(--color-ink-dim);border-color:color-mix(in srgb,var(--color-ink-dim) 35%,var(--color-line))">– ${event.noResponse.length}</span>
                         </div>
-                        <button class="admin-edit-btn" data-event-id="${event.id}" aria-label="Edit event" onclick="vacdashOpenEdit(this)">✏️</button>
                     </summary>
                     <div class="event-card__body">
                         <div>
@@ -146,6 +145,7 @@
                             ${event.noResponse.map(nameCell).join('') || noneCell}
                         </div>
                     </div>
+                    <button class="admin-edit-btn" data-event-id="${event.id}" aria-label="Edit event" onclick="vacdashOpenEdit(this)">✏️</button>
                 </details>
             `;
         };
@@ -201,7 +201,7 @@
                 });
                 if (resp.ok) {
                     const data = await resp.json();
-                    if (Array.isArray(data)) {
+                    if (Array.isArray(data) && data.length > 0) {
                         eventsData = data;
                         window._vacdashEvents = eventsData;
                         loaded = true;
@@ -222,11 +222,6 @@
             if (!loaded) {
                 container.innerHTML = '<p id="retry-msg">Tap to retry</p>';
                 document.getElementById('retry-msg').addEventListener('click', loadSchedule);
-                return;
-            }
-
-            if (eventsData.length === 0) {
-                container.innerHTML = '<p id="timeline-empty-state" style="text-align:center;color:var(--color-ink-dim);padding:32px 0;">No events scheduled yet — check back soon!</p>';
                 return;
             }
 
