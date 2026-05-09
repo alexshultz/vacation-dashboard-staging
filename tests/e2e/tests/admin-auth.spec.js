@@ -58,6 +58,9 @@ test.describe('Admin overlay -- authenticated', () => {
     expect(signoutVisible).toBe(true);
     const editBtns = page.locator('.admin-edit-btn');
     expect(await editBtns.count()).toBeGreaterThan(0);
+    await page.waitForFunction(() => document.body.classList.contains('is-admin'), { timeout: 10000 });
+    // Edit buttons live inside closed <details> elements; open one to expose it for visibility check
+    await page.locator('details.event-card').first().evaluate(el => { el.open = true; });
     expect(await editBtns.first().isVisible()).toBe(true);
   });
 
