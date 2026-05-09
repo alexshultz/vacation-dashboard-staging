@@ -1,16 +1,12 @@
 (function () {
   'use strict';
 
-  // Bail out gracefully on pages that don't load the Supabase CDN
-  if (!window.supabase) { return; }
-
   /* ── Supabase credentials (same values as event-timeline.html) ─────────── */
   var SUPABASE_URL      = 'https://quebfbvfuwbncpexlylu.supabase.co';
   var SUPABASE_ANON_KEY = 'sb_publishable_yLlf7qoMZMfiZhNsyudX7g_HnZ8clgt';
 
-  /* ── Supabase client ───────────────────────────────────────────────────── */
-  // window.supabase is the Supabase JS SDK loaded from CDN before this script.
-  var _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  /* ── Supabase client (set in initSupabase) ────────────────────────────── */
+  var _sb = null;
 
   /* ── Module state ──────────────────────────────────────────────────────── */
   var _editingId = null;
@@ -160,10 +156,22 @@
     document.getElementById('vacdash-signout-btn').style.display = 'none';
   }
 
-  /* ── Auth subscription ─────────────────────────────────────────────────── */
-  _sb.auth.onAuthStateChange(function (event, session) {
-    if (session) { _activateAdmin(); } else { _deactivateAdmin(); }
-  });
+  /* ── Supabase init: create client and subscribe to auth state ───────────── */
+  function initSupabase() {
+    _sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    _sb.auth.onAuthStateChange(function (event, session) {
+      if (session) { _activateAdmin(); } else { _deactivateAdmin(); }
+    });
+  }
+
+  if (!window.supabase) {
+    var _sbScript = document.createElement('script');
+    _sbScript.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+    _sbScript.onload = initSupabase;
+    document.head.appendChild(_sbScript);
+  } else {
+    initSupabase();
+  }
 
   /* ── Save handler ──────────────────────────────────────────────────────── */
   document.getElementById('vacdash-edit-save').addEventListener('click', async function () {
