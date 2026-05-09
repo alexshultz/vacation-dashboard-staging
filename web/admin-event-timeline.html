@@ -64,6 +64,10 @@
 </style>
 </head>
 <body>
+<!-- Deprecated admin page banner -->
+<div style="background:#FFF3CD;color:#856404;border-bottom:1px solid #FFECB5;padding:10px 20px;font-size:14px;text-align:center;">
+  ⚠️ This admin view is deprecated. Use the <a href="event-timeline.html" style="color:#856404;font-weight:700;">main Timeline page</a> instead (edit icons appear when you're logged in).
+</div>
 <script src="js/site.js"></script>
 <main class="page-main">
   <div class="page-hero">
@@ -78,12 +82,9 @@
     <span class="minichip" style="color:var(--color-ink-dim);border-color:color-mix(in srgb,var(--color-ink-dim) 35%,var(--color-line))">– No Response</span>
   </div>
 
-  <div style="margin-bottom:18px;display:flex;gap:10px;flex-wrap:wrap;">
+  <div style="margin-bottom:18px;">
     <button onclick="toggleAll()" id="toggle-btn" style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:14px;cursor:pointer;color:var(--color-ink);">
       <span id="toggle-text">Collapse All</span>
-    </button>
-    <button id="create-new-event-btn" onclick="openCreateModal()" style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:14px;cursor:pointer;color:var(--color-ink);">
-      + New Event
     </button>
   </div>
 
@@ -257,19 +258,6 @@
           document.getElementById('ef-notInterested').value = (ev.notInterested || []).join(', ');
           document.getElementById('ef-noResponse').value = (ev.noResponse || []).join(', ');
           document.getElementById('edit-modal-error').style.display = 'none';
-          document.getElementById('modal-title').textContent = 'Edit Event';
-          document.getElementById('edit-modal').style.display = 'flex';
-        }
-
-        function openCreateModal() {
-          _editingId = null;
-          ['ef-title','ef-date','ef-startTime','ef-duration','ef-travelMinutes',
-           'ef-priority','ef-catalogRef','ef-interested','ef-undecided',
-           'ef-notInterested','ef-noResponse'].forEach(id => {
-            document.getElementById(id).value = '';
-          });
-          document.getElementById('edit-modal-error').style.display = 'none';
-          document.getElementById('modal-title').textContent = 'Create New Event';
           document.getElementById('edit-modal').style.display = 'flex';
         }
 
@@ -281,7 +269,7 @@
               const title         = document.getElementById('ef-title').value.trim();
               const date          = document.getElementById('ef-date').value.trim();
               const startTime     = document.getElementById('ef-startTime').value.trim();
-              const duration      = parseFloat(document.getElementById('ef-duration').value);
+              const duration      = parseInt(document.getElementById('ef-duration').value, 10);
               const travelMinutes = parseInt(document.getElementById('ef-travelMinutes').value, 10);
               const priority      = document.getElementById('ef-priority').value.trim();
               const catalogRef    = document.getElementById('ef-catalogRef').value.trim();
@@ -291,23 +279,6 @@
               const noResponse    = document.getElementById('ef-noResponse').value.split(',').map(s => s.trim()).filter(Boolean);
 
               const sbClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-              if (_editingId === null) {
-                const { error } = await sbClient.from('schedule_events').insert({
-                  title, date, startTime, duration, travelMinutes,
-                  priority, catalogRef, interested, undecided, notInterested, noResponse
-                });
-                if (error) {
-                  const errDiv = document.getElementById('edit-modal-error');
-                  errDiv.textContent = error.message || 'Save failed.';
-                  errDiv.style.display = 'block';
-                  return;
-                }
-                document.getElementById('edit-modal').style.display = 'none';
-                location.reload();
-                return;
-              }
-
               const { error } = await sbClient.from('schedule_events').upsert({
                 id: _editingId, title, date, startTime, duration, travelMinutes,
                 priority, catalogRef, interested, undecided, notInterested, noResponse
@@ -328,8 +299,17 @@
 
               const oldBtn = document.querySelector('button[data-event-id="' + _editingId + '"]');
               if (oldBtn && idx !== -1) {
+                const oldCard = oldBtn.parentElement;
+                const ev2 = _allEvents[idx];
+                const maxDuration2 = 6;
+                const pct2 = Math.min((ev2.duration / maxDuration2) * 100, 100);
+                const yesStyle2 = 'color:var(--status-yes);border-color:color-mix(in srgb,var(--status-yes) 35%,var(--color-line))';
+                const warnStyle2 = 'color:var(--warn);border-color:color-mix(in srgb,var(--warn) 35%,var(--color-line))';
+                const noStyle2 = 'color:var(--status-no);border-color:color-mix(in srgb,var(--status-no) 35%,var(--color-line))';
+                const nameCell2 = (n) => `<div class="event-card__name">${n}</div>`;
+                const noneCell2 = '<div class="event-card__none">(none)</div>';
                 const newCardHTML = renderCard(_allEvents[idx]);
-                oldBtn.parentElement.outerHTML = newCardHTML;
+                oldCard.outerHTML = newCardHTML;
               }
 
               document.getElementById('edit-modal').style.display = 'none';
@@ -343,9 +323,8 @@
 </main>
 
 <div id="edit-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1000;align-items:center;justify-content:center;">
-  <div style="background:var(--color-surface);border-radius:8px;padding:24px;width:min(480px,90vw);max-height:90vh;overflow-y:auto;position:relative;">
+  <div style="background:#fff;border-radius:8px;padding:24px;width:min(480px,90vw);max-height:90vh;overflow-y:auto;position:relative;">
     <form id="edit-form" onsubmit="return false;">
-      <h3 id="modal-title" style="margin:0 0 16px;font-family:var(--font-display);font-weight:700;font-size:var(--text-base);color:var(--color-ink);">Edit Event</h3>
       <label style="display:block;margin-bottom:8px;">Title<br><input id="ef-title" type="text" style="width:100%;box-sizing:border-box;"></label>
       <label style="display:block;margin-bottom:8px;">Date<br><input id="ef-date" type="text" style="width:100%;box-sizing:border-box;"></label>
       <label style="display:block;margin-bottom:8px;">Start Time<br><input id="ef-startTime" type="text" style="width:100%;box-sizing:border-box;"></label>

@@ -126,7 +126,6 @@
                             <span class="minichip" style="${noStyle}">✗ ${event.notInterested.length}</span>
                             <span class="minichip" style="color:var(--color-ink-dim);border-color:color-mix(in srgb,var(--color-ink-dim) 35%,var(--color-line))">– ${event.noResponse.length}</span>
                         </div>
-                        <button class="admin-edit-btn" data-event-id="${event.id}" aria-label="Edit event" onclick="vacdashOpenEdit(this)">✏️</button>
                     </summary>
                     <div class="event-card__body">
                         <div>
@@ -146,6 +145,7 @@
                             ${event.noResponse.map(nameCell).join('') || noneCell}
                         </div>
                     </div>
+                    <button class="admin-edit-btn" data-event-id="${event.id}" aria-label="Edit event" onclick="vacdashOpenEdit(this)">✏️</button>
                 </details>
             `;
         };
@@ -201,7 +201,7 @@
                 });
                 if (resp.ok) {
                     const data = await resp.json();
-                    if (Array.isArray(data)) {
+                    if (Array.isArray(data) && data.length > 0) {
                         eventsData = data;
                         window._vacdashEvents = eventsData;
                         loaded = true;
@@ -222,11 +222,6 @@
             if (!loaded) {
                 container.innerHTML = '<p id="retry-msg">Tap to retry</p>';
                 document.getElementById('retry-msg').addEventListener('click', loadSchedule);
-                return;
-            }
-
-            if (eventsData.length === 0) {
-                container.innerHTML = '<p id="timeline-empty-state" style="text-align:center;color:var(--color-ink-dim);padding:32px 0;">No events scheduled yet — check back soon!</p>';
                 return;
             }
 

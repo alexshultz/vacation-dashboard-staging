@@ -179,6 +179,30 @@ components:
     typography: "{typography.label}"
     rounded: "{rounded.pill}"
     padding: "{spacing.xs}"
+  chip-rsvp-interested:
+    backgroundColor: "var(--status-yes)"
+    textColor: white
+    typography: "{typography.label}"
+    rounded: "{rounded.pill}"
+    padding: "{spacing.xs}"
+  chip-rsvp-undecided:
+    backgroundColor: "{colors.warn}"
+    textColor: "{colors.on-warn}"
+    typography: "{typography.label}"
+    rounded: "{rounded.pill}"
+    padding: "{spacing.xs}"
+  chip-rsvp-not-going:
+    backgroundColor: "var(--status-no)"
+    textColor: white
+    typography: "{typography.label}"
+    rounded: "{rounded.pill}"
+    padding: "{spacing.xs}"
+  chip-rsvp-no-response:
+    backgroundColor: transparent
+    textColor: "var(--color-ink-dim)"
+    typography: "{typography.label}"
+    rounded: "{rounded.pill}"
+    padding: "{spacing.xs}"
 ---
 
 ## Overview
@@ -387,6 +411,20 @@ Filters reset on every session load. No filter, sort, or search state is persist
 **`badge-neutral`:** `{colors.status-neutral}` background, white text, `{typography.label}`, `{rounded.pill}`. Used for: "TBD", "No time set", "Check availability".
 
 Every badge must include a visible text label — never icon-only.
+
+### RSVP Chips
+
+RSVP state chips appear on event cards to communicate each family member's response to a scheduled event. Written by `rsvp.js` to the `event_rsvps` table (not the `schedule_events` arrays). All four variants use `{typography.label}`, `{rounded.pill}`, and `{spacing.xs}` padding.
+
+**`chip-rsvp-interested`:** `var(--status-yes)` background, white text, `{typography.label}`, `{rounded.pill}`, `{spacing.xs}` padding.
+
+**`chip-rsvp-undecided`:** `{colors.warn}` background, `{colors.on-warn}` text, `{typography.label}`, `{rounded.pill}`, `{spacing.xs}` padding.
+
+**`chip-rsvp-not-going`:** `var(--status-no)` background, white text, `{typography.label}`, `{rounded.pill}`, `{spacing.xs}` padding.
+
+**`chip-rsvp-no-response`:** transparent background, `var(--color-ink-dim)` text, `{typography.label}`, `{rounded.pill}`, `{spacing.xs}` padding.
+
+All four state tokens (`--status-yes`, `--warn`, `--status-no`, `--color-ink-dim`) already exist in `tokens.css`. Do not substitute raw hex values.
 
 ### Wishlist Slot Warning
 
