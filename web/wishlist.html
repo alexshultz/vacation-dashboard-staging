@@ -318,6 +318,18 @@
       return;
     }
 
+    /* Sort A-Z using sort_key (article-stripped) from data.json, falling back to name */
+    wishlisted.sort(function(a, b) {
+      var attrA = slugToAttr(a);
+      var attrB = slugToAttr(b);
+      if (!attrA && !attrB) return 0;
+      if (!attrA) return 1;
+      if (!attrB) return -1;
+      var keyA = (attrA.sort_key || attrA.name || '').toLowerCase();
+      var keyB = (attrB.sort_key || attrB.name || '').toLowerCase();
+      return keyA < keyB ? -1 : keyA > keyB ? 1 : 0;
+    });
+
     /* Build grid */
     var grid = document.createElement('div');
     grid.className = 'catalog-grid';
