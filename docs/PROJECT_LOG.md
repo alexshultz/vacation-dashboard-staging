@@ -1,3 +1,53 @@
+## 2026-05-09 -- Full bug-fix sprint + production promote
+
+**Production commit:** b1a73a6 (vacation.creeperbomb.com -- LIVE)
+**Staging commit:** 1196046 (vacation-dev.creeperbomb.com -- in sync)
+**Playwright suite:** 0 failures (down from 8 at session start)
+
+### Context
+Alex returned after several days away. Session started with a status refresh, then worked through every known bug and pending item before promoting to production.
+
+### What shipped to production this session
+
+**Data / Supabase:**
+- Supabase Phase 2 confirmed live by Alex (picks, schedule_events, app_config tables active)
+- RLS `anon_schedule_events_readwrite` policy removed -- anon users can no longer write to schedule_events (Alex removed via Supabase dashboard)
+
+**Bug fixes (all TDD: failing test first):**
+- `web/people-timeline.html` -- Gantt bars for dep26 (Bee) and dep27 (Kevin) were invisible due to stale CSS tokens `--accent-sand`/`--accent-dusk`; replaced with `--accent-1`/`--accent-3` (`4275b02`)
+- `web/js/admin-overlay.js` -- restored `undecided`, `notInterested`, `noResponse` fields to edit form and upsert payload; were stripped in rsvp sprint (`c2c6038`)
+- `web/quick-pick.html` -- `updateDeckCount()` denominator excluded wishlisted items; was showing "11 of 235" instead of "11 of 37" (`584a594`)
+- `web/js/admin-overlay.js` -- Sign Out button absent on pages without Supabase CDN; replaced bail with conditional CDN loader + `initSupabase()` callback (`584a594`)
+- `web/wishlist.html` -- items rendered in localStorage insertion order; now sorted A-Z by `sort_key || name` (`7ff3a95`)
+- `tests/e2e/tests/admin-auth.spec.js` -- edit buttons test raced against async `onAuthStateChange`; added `waitForFunction` for `body.is-admin` + opened `details.event-card` before `isVisible()` assertion (`7ff3a95`)
+
+**Cleanup:**
+- Deleted `web/admin-event-timeline.html` and `web/admin-index.html` (both deprecated)
+- Deleted `tests/e2e/tests/schedule-create-fallback.spec.js` and `tests/e2e/tests/admin-timeline-delete.spec.js` (testing removed features)
+- Removed all references to deleted pages from `web/admin.html`, `web/js/admin-overlay.js`, `tests/e2e/tests/admin-gate.spec.js`, `scripts/deploy.sh` (`70b93c7`)
+- Committed rsvp sprint docs: ADR-013, DESIGN.md RSVP chip tokens, `data/rsvp-migration.sql` (`c2c6038`)
+
+**New Playwright specs added:**
+- `tests/e2e/tests/people-timeline-bar-colors.spec.js` -- asserts dep26/dep27 bars have non-transparent fill
+- `tests/e2e/tests/quickpick-count-signout-fix.spec.js` -- asserts deck count denominator excludes wishlisted; sign-out visible on non-CDN pages
+
+### Key decisions
+- Quick Pick "seen" list persists in localStorage per filter; resets on filter change or deck exhaustion only (not on page reload -- by design)
+- Quick Pick and Activities search are fully independent; search on Activities does not affect Quick Pick pool
+- `scripts/deploy.sh` production confirmation prompt hangs when run in background (`background=true`); workaround: pipe `echo "" |` to pass the Enter. Fix needed: add `-y` flag or detect non-TTY stdin.
+
+### Infra note
+- deploy.sh interactive "Press Enter" prompt is incompatible with background process execution. Caused a 2.5-hour silent hang. Fix: add auto-confirm when stdin is not a terminal (`[ ! -t 0 ] && ...`). Log for next session.
+
+### Vault commits this session (chronological)
+- `4275b02` -- fix(people-timeline): replace stale accent tokens for dep26/dep27 Gantt bars
+- `c2c6038` -- fix(admin-overlay): restore undecided/notInterested/noResponse RSVP fields; rsvp sprint docs and admin cleanup
+- `70b93c7` -- chore: remove deprecated admin-event-timeline + admin-index pages and all stale references
+- `584a594` -- fix: quickpick count denominator excludes wishlisted; sign-out button visible on all pages
+- `7ff3a95` -- fix: admin-auth test timing; wishlist alphabetical sort
+
+---
+
 ## 2026-05-09 -- Launch date moved from May 8 to May 13
 
 Family launch date for the Branson 2026 dashboard moved from 2026-05-08 to 2026-05-13. Reason: Alex was not ready for 05-08. Trip dates (2026-05-22 → 2026-05-29) unchanged.
