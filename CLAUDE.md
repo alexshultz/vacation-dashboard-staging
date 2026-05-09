@@ -171,7 +171,7 @@ scripts/
 | Production | `vacation-dashboard` | https://vacation.creeperbomb.com/ | Family-facing. Only push tested, reviewed work here. |
 | Staging | `vacation-dashboard-dev` | https://vacation-dev.creeperbomb.com/ | Dev/testing. All new feature work goes here first. |
 
-**Rule:** After May 8 (family launch), never push untested work to production. Always deploy to staging first, verify, then deploy to production.
+**Rule:** After May 13 (family launch), never push untested work to production. Always deploy to staging first, verify, then deploy to production.
 
 ```bash
 VAULT="/Users/alex/vaults/Vacation/Branson 2026"
@@ -284,4 +284,4 @@ Do not update CLAUDE.md. Do not write to DECISIONS.md or PROJECT_LOG.md. Do not 
 ---
 
 *Last updated: 2026-04-24 by Hermes (sort + visible data-layer architecture)*
-*Project trip dates: 2026-05-22 → 2026-05-29 (trip ends). Family dashboard goes live: ~2026-05-08.*
+*Project trip dates: 2026-05-22 → 2026-05-29 (trip ends). Family dashboard goes live: ~2026-05-13.*

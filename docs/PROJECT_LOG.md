@@ -1,3 +1,15 @@
+## 2026-05-09 -- Launch date moved from May 8 to May 13
+
+Family launch date for the Branson 2026 dashboard moved from 2026-05-08 to 2026-05-13. Reason: Alex was not ready for 05-08. Trip dates (2026-05-22 → 2026-05-29) unchanged.
+
+Files updated to reflect new date: CLAUDE.md, NEXT-SESSION.md, docs/NEXT-SESSION.md, docs/ROADMAP.md, docs/VACATION-AGENT-ONBOARDING.md, this entry. Historical session log entries below this line and the dated runbook docs/vacation-coordinator-repair-guide.md were left as-is (historical record).
+
+Phase 3 in ROADMAP.md duration adjusted: was "May 8 → May 21, ~13 days" (incorrect math), now "May 13 → May 21, ~8 days".
+
+Companion change: docs/agent-setup-gaps.md tombstoned -- all 5 original gaps verified resolved against current on-disk state.
+
+---
+
 ## 2026-05-06 -- Session handoff: full deploy cycle, scripted toolchain
 
 **Production commit:** d968c27 (vacation.creeperbomb.com -- LIVE)

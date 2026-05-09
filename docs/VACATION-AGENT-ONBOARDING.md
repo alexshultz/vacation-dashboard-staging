@@ -21,7 +21,7 @@ workflow section below.
 
 Static multi-page web dashboard for the Shultz family Branson 2026 trip (May 22-29).  
 Design theme: Trail ("Airbnb meets National Parks", dark green / charcoal / sand palette).  
-Vault: `~/vaults/Vacation/Branson 2026/`. Hosted on GitHub Pages. Supabase backend (Phase 2 schema written -- NOT YET ACTIVE; currently Phase 1, localStorage only). Family starts using it around May 8.
+Vault: `~/vaults/Vacation/Branson 2026/`. Hosted on GitHub Pages. Supabase backend (Phase 2 schema written -- NOT YET ACTIVE; currently Phase 1, localStorage only). Family starts using it around May 13.
 
 ---
 
@@ -37,7 +37,7 @@ Vault: `~/vaults/Vacation/Branson 2026/`. Hosted on GitHub Pages. Supabase backe
 - Cache-busting deploy pipeline
 - 139 attractions in data.json (132 visible, 7 hidden/blacklisted)
 
-**Pending before May 8:**
+**Pending before May 13:**
 - [ ] `web/help.html` -- plain-language user guide for family
 - [ ] Final tester pass: Ashlyn, Jordan, Mycah
 - [ ] Send family the link with a one-paragraph plain-English intro
@@ -478,7 +478,7 @@ Do not attempt write operations until Alex confirms they are re-enabled.
 
 ---
 
-## Pre-Launch Checklist (Target: May 8, 2026)
+## Pre-Launch Checklist (Target: May 13, 2026)
 
 - [ ] `web/help.html` -- plain-language user guide for family  
       (five sections: What is this, Setting your name, Browsing and wishlisting, Quick Pick, Privacy;  
@@ -577,7 +577,7 @@ before assuming they are still open -- this list may lag reality.
 
 ## Project History: What We Plan To Do
 
-### Immediate (before May 8, 2026 -- family onboarding date)
+### Immediate (before May 13, 2026 -- family onboarding date)
 
 | # | Task | Owner | Notes |
 |---|---|---|---|
@@ -605,6 +605,6 @@ before assuming they are still open -- this list may lag reality.
 | Date | Milestone |
 |---|---|
 | **May 7, 2026** | help.html must be live |
-| **May 8, 2026** | Family onboarding -- send the link |
+| **May 13, 2026** | Family onboarding -- send the link |
 | **May 22, 2026** | Trip starts (Watermill Cove, Branson MO) |
 | **May 29, 2026** | Trip ends |
