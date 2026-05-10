@@ -322,3 +322,47 @@ security, no server confirmation). Neither tradeoff is acceptable pre-launch.
 - Once a join key is confirmed, the cross-reference view can be added as Panel C without redesigning the existing panels.
 
 ---
+
+## ADR-017 · event_type storage authority (2026-05-09)
+
+**Decision:** event_type is stored as a TEXT column on schedule_events in Supabase. Supabase is the authoritative source. A parallel event_type string field exists in schedule.json as a synchronized display cache only. When the two disagree, Supabase governs. admin.html is the only write surface for event_type.
+
+**Consequences:** Any schedule.json deployment must reflect the current Supabase state for event_type. A sync step is required after admin changes to this field.
+
+---
+
+## ADR-018 · Multiple occurrences as sibling rows (2026-05-09)
+
+**Decision:** Multiple occurrences of a recurring event are represented as independent sibling rows in schedule_events, linked by a shared series_slug TEXT column. No parent-child hierarchy. Each sibling row is a complete, independently RSVPable event. Admin assigns series_slug manually via admin.html. No cascade mechanism is provided in v1 -- updating a shared property across siblings requires updating each row individually.
+
+---
+
+## ADR-019 · catalogRef definition and 1:many deferral (2026-05-09)
+
+**Decision:** catalogRef is a TEXT column on schedule_events containing a slug that identifies an attraction in the picks catalog. v1 relationship is 1:1 (one event maps to at most one attraction). Admin populates via admin.html. The ADR-016 cross-table join gate activates when at least one event has a non-NULL catalogRef AND the ENABLE_CATALOG_JOIN feature flag is explicitly set by the coordinator. 1:many catalogRef is deferred until a confirmed real use case arises (a single scheduled event that encompasses multiple pickable attractions).
+
+---
+
+## ADR-020 · Meal headcount state mapping (2026-05-09)
+
+**Decision:** Meal headcount is computed against assigned_attendees[] on COMMITMENT-type schedule events only. picks.state is NOT used in meal headcount computation in v1. picks.state=committing indicates interest in an attraction -- not confirmed attendance at a scheduled event slot. These are different concepts. Incorporating picks.state into headcount is deferred until the catalogRef join is active (ADR-016 gate open) AND a formal mapping between picks.state and schedule attendance is specified.
+
+---
+
+## ADR-021 · Meal override persistence (2026-05-09)
+
+**Decision:** Meal headcount manual overrides are persisted as two TEXT[] columns on schedule_events: meal_override_include and meal_override_exclude. Both store display_name strings consistent with ADR-005 canonical identity. Only admin.html may write these fields. Headcount formula: effective_absent = (date-conflict-assignees UNION meal_override_exclude) MINUS meal_override_include; headcount = 26 MINUS |effective_absent|. No new tables.
+
+---
+
+## ADR-022 · Sample data clear scope (2026-05-09)
+
+**Decision:** Pre-launch data clearing includes ALL THREE: (1) schedule.json RSVP arrays; (2) corresponding arrays in Supabase schedule_events; (3) the event_rsvps table in Supabase, subject to backup-first protocol (export full table to CSV before deletion -- real vs. sample status of that table is unverifiable from static files). Clearing is only considered complete when all three are confirmed. Partial clearing is not a valid intermediate state for launch.
+
+---
+
+## ADR-023 · catalogRef join phase transition (2026-05-09)
+
+**Decision:** The ADR-016 deferred cross-table join activates when: (a) at least one schedule_events row has a non-NULL catalogRef, AND (b) the ENABLE_CATALOG_JOIN feature flag is explicitly set by the coordinator. The feature flag prevents premature join activation during partial backfill. The join executes client-side only -- fetchAllWishlists() results are scanned against catalogRef slug values. No Supabase join query is issued.
+
+---
