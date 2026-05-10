@@ -147,7 +147,7 @@
   /* ── Inject chrome (synchronous -- runs during body parsing) ─────────────── */
   var cs = document.currentScript;
   if (cs && !document.querySelector('.site-header')) {
-    cs.insertAdjacentHTML('afterend', buildHeader() + buildTabs() + buildHamburgerPanel());
+    cs.insertAdjacentHTML('afterend', buildHeader() + buildHamburgerPanel());
 
     /* Set initial theme-toggle label from stored mode */
     var initToggle = document.getElementById('site-theme-toggle');
