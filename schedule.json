@@ -9,10 +9,42 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Dez", "Kevin", "McKinley", "Natalie", "Rachel", "Ray", "Simran", "Skylar"],
-      "undecided": ["Adrian", "Alex", "Brian"],
-      "notInterested": ["Evie"],
-      "noResponse": ["Ashlyn", "Bee", "Bug", "David", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Lucy", "Mel", "Mycah", "Tayden", "Zach"]
+      "interested": [
+        "Dez",
+        "Kevin",
+        "McKinley",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Skylar"
+      ],
+      "undecided": [
+        "Adrian",
+        "Alex",
+        "Brian"
+      ],
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Ashlyn",
+        "Bee",
+        "Buggy",
+        "David",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Lucy",
+        "Mel",
+        "Mycah",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "branson-belle-showboat",
@@ -23,10 +55,42 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Bee", "Dez", "Jordan", "Josh", "Kevin", "Mycah", "Natalie", "Simran", "Skylar", "Tayden"],
-      "undecided": ["Adrian"],
-      "notInterested": ["Evie"],
-      "noResponse": ["Alex", "Ashlyn", "Brian", "Bug", "David", "Georgie", "Jackson", "Jacob", "Lucy", "McKinley", "Mel", "Rachel", "Ray", "Zach"]
+      "interested": [
+        "Bee",
+        "Dez",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Mycah",
+        "Natalie",
+        "Simran",
+        "Skylar",
+        "Tayden"
+      ],
+      "undecided": [
+        "Adrian"
+      ],
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Alex",
+        "Ashlyn",
+        "Brian",
+        "Buggy",
+        "David",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Rachel",
+        "Ray",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "butterfly-palace",
@@ -37,10 +101,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Ashlyn", "Rachel", "Simran", "Skylar"],
+      "interested": [
+        "Ashlyn",
+        "Rachel",
+        "Simran",
+        "Skylar"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Bee", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Natalie", "Ray", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Bee",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Ray",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "car-museum",
@@ -51,10 +146,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Bee", "Skylar"],
+      "interested": [
+        "Bee",
+        "Skylar"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Natalie", "Rachel", "Ray", "Simran", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "cat-cafe",
@@ -67,8 +193,38 @@
       "travelMinutes": null,
       "interested": [],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Bee", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Natalie", "Rachel", "Ray", "Simran", "Skylar", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Bee",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "cave",
@@ -79,10 +235,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Alex"],
+      "interested": [
+        "Alex"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Ashlyn", "Bee", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Natalie", "Rachel", "Ray", "Simran", "Skylar", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Ashlyn",
+        "Bee",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "dogwood",
@@ -93,10 +280,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Ashlyn", "Bee", "Brian", "Dez", "Jordan", "Josh", "Kevin", "McKinley", "Mel", "Natalie", "Simran", "Skylar"],
+      "interested": [
+        "Ashlyn",
+        "Bee",
+        "Brian",
+        "Dez",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "McKinley",
+        "Mel",
+        "Natalie",
+        "Simran",
+        "Skylar"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Bug", "David", "Georgie", "Jackson", "Jacob", "Lucy", "Mycah", "Rachel", "Ray", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Buggy",
+        "David",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Lucy",
+        "Mycah",
+        "Rachel",
+        "Ray",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "dogwood-canyon-horse",
@@ -107,10 +325,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Dez", "Jordan", "Kevin", "McKinley", "Natalie"],
+      "interested": [
+        "Dez",
+        "Jordan",
+        "Kevin",
+        "McKinley",
+        "Natalie"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Bee", "Brian", "Bug", "David", "Georgie", "Jackson", "Jacob", "Josh", "Lucy", "Mel", "Mycah", "Rachel", "Ray", "Simran", "Skylar", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Bee",
+        "Brian",
+        "Buggy",
+        "David",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Josh",
+        "Lucy",
+        "Mel",
+        "Mycah",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "dogwood-canyon-tram",
@@ -121,10 +370,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Ashlyn", "Brian", "Josh", "Mel", "Simran", "Skylar"],
+      "interested": [
+        "Ashlyn",
+        "Brian",
+        "Josh",
+        "Mel",
+        "Simran",
+        "Skylar"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Bee", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Kevin", "Lucy", "McKinley", "Mycah", "Natalie", "Rachel", "Ray", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Bee",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mycah",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "dolly-parton",
@@ -135,10 +415,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Bee", "Bug", "Georgie", "Jacob", "Jordan", "Josh", "McKinley", "Natalie", "Rachel", "Tayden"],
+      "interested": [
+        "Bee",
+        "Buggy",
+        "Georgie",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "McKinley",
+        "Natalie",
+        "Rachel",
+        "Tayden"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Brian", "David", "Dez", "Jackson", "Kevin", "Lucy", "Mel", "Mycah", "Ray", "Simran", "Skylar", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Brian",
+        "David",
+        "Dez",
+        "Jackson",
+        "Kevin",
+        "Lucy",
+        "Mel",
+        "Mycah",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "escape-room",
@@ -149,10 +460,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Ashlyn", "Bee", "Dez", "Josh", "Mycah", "Rachel", "Ray", "Tayden"],
+      "interested": [
+        "Ashlyn",
+        "Bee",
+        "Dez",
+        "Josh",
+        "Mycah",
+        "Rachel",
+        "Ray",
+        "Tayden"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Brian", "Bug", "David", "Georgie", "Jackson", "Jacob", "Jordan", "Kevin", "Lucy", "McKinley", "Mel", "Natalie", "Simran", "Skylar", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Brian",
+        "Buggy",
+        "David",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Natalie",
+        "Simran",
+        "Skylar",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "fishing",
@@ -163,10 +505,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Josh"],
+      "interested": [
+        "Josh"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Bee", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Natalie", "Rachel", "Ray", "Simran", "Skylar", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Bee",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "five-and-dime",
@@ -177,10 +550,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Ashlyn", "Jordan", "Natalie"],
+      "interested": [
+        "Ashlyn",
+        "Jordan",
+        "Natalie"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Bee", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Rachel", "Ray", "Simran", "Skylar", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Bee",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "go-karts",
@@ -191,10 +595,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Bee", "Rachel"],
+      "interested": [
+        "Bee",
+        "Rachel"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Natalie", "Ray", "Simran", "Skylar", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "horseback",
@@ -205,10 +640,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Bee", "Natalie", "Rachel", "Simran", "Skylar"],
+      "interested": [
+        "Bee",
+        "Natalie",
+        "Rachel",
+        "Simran",
+        "Skylar"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Ray", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Ray",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "knife-forge",
@@ -219,10 +685,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["David", "Dez", "Jackson", "Jacob", "Josh", "Kevin", "Lucy", "Zach"],
+      "interested": [
+        "David",
+        "Dez",
+        "Jackson",
+        "Jacob",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "Zach"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Bee", "Brian", "Bug", "Georgie", "Jordan", "McKinley", "Mel", "Mycah", "Natalie", "Rachel", "Ray", "Simran", "Skylar", "Tayden"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Bee",
+        "Brian",
+        "Buggy",
+        "Georgie",
+        "Jordan",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Tayden"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "mini-golf",
@@ -233,10 +730,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Ashlyn"],
+      "interested": [
+        "Ashlyn"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Bee", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Natalie", "Rachel", "Ray", "Simran", "Skylar", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Bee",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "paintball",
@@ -247,10 +775,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Bee"],
+      "interested": [
+        "Bee"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Natalie", "Rachel", "Ray", "Simran", "Skylar", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "ripleys",
@@ -261,10 +820,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Ashlyn", "Mycah", "Tayden"],
+      "interested": [
+        "Ashlyn",
+        "Mycah",
+        "Tayden"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Bee", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Natalie", "Rachel", "Ray", "Simran", "Skylar", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Bee",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "riverfront",
@@ -277,8 +867,38 @@
       "travelMinutes": null,
       "interested": [],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Bee", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Natalie", "Rachel", "Ray", "Simran", "Skylar", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Bee",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "sight-and-sound",
@@ -289,10 +909,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Bee", "Jordan", "Josh", "McKinley", "Natalie", "Simran", "Skylar", "Zach"],
+      "interested": [
+        "Bee",
+        "Jordan",
+        "Josh",
+        "McKinley",
+        "Natalie",
+        "Simran",
+        "Skylar",
+        "Zach"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Kevin", "Lucy", "Mel", "Mycah", "Rachel", "Ray", "Tayden"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Kevin",
+        "Lucy",
+        "Mel",
+        "Mycah",
+        "Rachel",
+        "Ray",
+        "Tayden"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "silver-dollar-city",
@@ -303,10 +954,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Bee", "Dez", "Mycah", "Skylar"],
+      "interested": [
+        "Bee",
+        "Dez",
+        "Mycah",
+        "Skylar"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Brian", "Bug", "David", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Natalie", "Rachel", "Ray", "Simran", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Brian",
+        "Buggy",
+        "David",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "simon-and-garfunkel",
@@ -317,10 +999,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Bee", "Josh"],
+      "interested": [
+        "Bee",
+        "Josh"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Natalie", "Rachel", "Ray", "Simran", "Skylar", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "thrift-shop",
@@ -331,10 +1044,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Ashlyn"],
+      "interested": [
+        "Ashlyn"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Bee", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Natalie", "Rachel", "Ray", "Simran", "Skylar", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Bee",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "titanic",
@@ -345,10 +1089,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Ashlyn", "Skylar"],
+      "interested": [
+        "Ashlyn",
+        "Skylar"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Bee", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Natalie", "Rachel", "Ray", "Simran", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Bee",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "water-park",
@@ -359,10 +1134,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Bee", "Mycah", "Tayden"],
+      "interested": [
+        "Bee",
+        "Mycah",
+        "Tayden"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Natalie", "Rachel", "Ray", "Simran", "Skylar", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "wax-museum",
@@ -373,10 +1179,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Rachel"],
+      "interested": [
+        "Rachel"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Bee", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Natalie", "Ray", "Simran", "Skylar", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Bee",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Ray",
+        "Simran",
+        "Skylar",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     },
     {
       "id": "zip-line",
@@ -387,10 +1224,41 @@
       "catalogRef": null,
       "startTime": null,
       "travelMinutes": null,
-      "interested": ["Skylar"],
+      "interested": [
+        "Skylar"
+      ],
       "undecided": [],
-      "notInterested": ["Evie"],
-      "noResponse": ["Adrian", "Alex", "Ashlyn", "Bee", "Brian", "Bug", "David", "Dez", "Georgie", "Jackson", "Jacob", "Jordan", "Josh", "Kevin", "Lucy", "McKinley", "Mel", "Mycah", "Natalie", "Rachel", "Ray", "Simran", "Tayden", "Zach"]
+      "notInterested": [
+        "Evie"
+      ],
+      "noResponse": [
+        "Adrian",
+        "Alex",
+        "Ashlyn",
+        "Bee",
+        "Brian",
+        "Buggy",
+        "David",
+        "Dez",
+        "Georgie",
+        "Jackson",
+        "Jacob",
+        "Jordan",
+        "Josh",
+        "Kevin",
+        "Lucy",
+        "McKinley",
+        "Mel",
+        "Mycah",
+        "Natalie",
+        "Rachel",
+        "Ray",
+        "Simran",
+        "Tayden",
+        "Zach"
+      ],
+      "event_type": null,
+      "series_slug": null
     }
   ]
 }
