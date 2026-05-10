@@ -20,6 +20,47 @@
 })();
 </script>
 <link rel="preload" href="js/site.js" as="script">
+<style>
+.attendee-checklist {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px 12px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-btn);
+  background: var(--color-bg);
+  margin-bottom: 8px;
+}
+@media (max-width: 500px) {
+  .attendee-checklist { grid-template-columns: 1fr; }
+}
+.attendee-checklist label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.meal-panels {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.meal-panel {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-btn);
+  background: var(--color-bg);
+}
+@media (max-width: 500px) {
+  .meal-panels { flex-direction: column; }
+}
+</style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body style="margin:0;background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body,sans-serif);">
@@ -169,6 +210,86 @@
         <div id="saved-duration" style="display:none;color:var(--status-yes);font-size:12px;margin-top:4px;">Saved</div>
       </div>
 
+      <!-- Event Type -->
+      <div style="margin-bottom:18px;">
+        <label for="event-type-select" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Event Type</label>
+        <select id="event-type-select"
+          style="width:100%;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
+          <option value="">-- unset --</option>
+          <option value="commitment">Commitment</option>
+          <option value="open">Open</option>
+          <option value="meal">Meal</option>
+        </select>
+        <span id="event-type-saved" style="display:none;font-size:12px;margin-top:4px;"></span>
+      </div>
+
+      <!-- Series Slug -->
+      <div style="margin-bottom:18px;">
+        <label for="series-slug-input" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Series (for recurring events)</label>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <input type="text" id="series-slug-input" placeholder="e.g. escape-room"
+            style="flex:1;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
+          <button onclick="saveSeriesSlug()"
+            style="padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink-dim);white-space:nowrap;">
+            Save Series
+          </button>
+        </div>
+        <div style="font-size:12px;color:var(--color-ink-dim);margin-top:4px;">Leave blank for standalone events. Use the same slug for all occurrences of the same activity.</div>
+        <span id="series-slug-saved" style="display:none;font-size:12px;margin-top:4px;"></span>
+      </div>
+
+      <!-- Attendee Assignment (hidden by default) -->
+      <div id="attendee-section" style="display:none;margin-bottom:18px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+          <label style="font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);">Assigned Attendees</label>
+          <span id="attendee-count-badge" style="font-size:12px;color:var(--color-ink-dim);"></span>
+        </div>
+        <div id="attendee-checklist" class="attendee-checklist"></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
+          <button onclick="saveAttendees()"
+            style="padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink);">
+            Save Attendees
+          </button>
+          <span id="attendee-saved" style="display:none;font-size:12px;"></span>
+        </div>
+      </div>
+
+      <!-- Meal Headcount (hidden by default) -->
+      <div id="meal-section" style="display:none;margin-bottom:18px;">
+        <label style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Meal Headcount</label>
+        <div id="meal-estimated" style="font-size:14px;color:var(--color-ink-dim);margin-bottom:8px;"></div>
+        <div class="meal-panels">
+          <div class="meal-panel">
+            <div style="font-weight:700;font-size:13px;color:var(--color-ink-dim);margin-bottom:6px;">Override: Add to count</div>
+            <div style="display:flex;gap:6px;margin-bottom:6px;">
+              <select id="meal-include-select"
+                style="flex:1;padding:6px 8px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:13px;"></select>
+              <button onclick="addMealOverride('include')"
+                style="padding:6px 10px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink);">Add</button>
+            </div>
+            <ul id="meal-include-list" style="list-style:none;padding:0;margin:0;"></ul>
+          </div>
+          <div class="meal-panel">
+            <div style="font-weight:700;font-size:13px;color:var(--color-ink-dim);margin-bottom:6px;">Override: Remove from count</div>
+            <div style="display:flex;gap:6px;margin-bottom:6px;">
+              <select id="meal-exclude-select"
+                style="flex:1;padding:6px 8px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:13px;"></select>
+              <button onclick="addMealOverride('exclude')"
+                style="padding:6px 10px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink);">Add</button>
+            </div>
+            <ul id="meal-exclude-list" style="list-style:none;padding:0;margin:0;"></ul>
+          </div>
+        </div>
+        <div id="meal-final-count" style="font-size:14px;font-weight:700;color:var(--color-ink);margin-bottom:8px;"></div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <button onclick="saveMealOverrides()"
+            style="padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink);">
+            Save Overrides
+          </button>
+          <span id="meal-saved" style="display:none;font-size:12px;"></span>
+        </div>
+      </div>
+
       <!-- Error banner -->
       <div id="error-banner"
         style="display:none;background:#F8DDD5;color:#6A1F17;border:1px solid #C1553B;padding:12px 16px;font-size:14px;border-radius:4px;margin-bottom:14px;">
@@ -215,6 +336,7 @@
     let currentOverrides = {};
     let loadedValues = {};
     let currentSort = 'date';
+    let allAttendees = [];
 
     function formatDate(dateStr) {
       if (!dateStr) return '';
@@ -265,6 +387,215 @@
       }
     }
 
+    // --- Coordinator helpers ---
+
+    async function patchScheduleEvent(eventId, fields) {
+      const token = await getAdminToken();
+      return fetch(
+        `${SUPABASE_URL}/rest/v1/schedule_events?id=eq.${eventId}`,
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${token}`,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify(fields)
+        }
+      );
+    }
+
+    function updateEventTypeSections() {
+      const val = document.getElementById('event-type-select').value;
+      document.getElementById('attendee-section').style.display = val === 'commitment' ? 'block' : 'none';
+      document.getElementById('meal-section').style.display = val === 'meal' ? 'block' : 'none';
+    }
+
+    function updateAttendeeBadge(n) {
+      document.getElementById('attendee-count-badge').textContent = `${n} of ${allAttendees.length} assigned`;
+    }
+
+    function recalculateMealHeadcount() {
+      if (!currentEvent) return;
+      const sameDay = allEvents.filter(e =>
+        e.date === currentEvent.date && e.event_type === 'commitment'
+      );
+      const committedSet = new Set();
+      sameDay.forEach(e => {
+        (e.assigned_attendees || []).forEach(name => committedSet.add(name));
+      });
+      const estimated = Math.max(0, allAttendees.length - committedSet.size);
+      document.getElementById('meal-estimated').textContent = `Estimated: ${estimated} eating`;
+      const includeCount = document.getElementById('meal-include-list').querySelectorAll('li').length;
+      const excludeCount = document.getElementById('meal-exclude-list').querySelectorAll('li').length;
+      const finalCount = Math.max(0, estimated + includeCount - excludeCount);
+      document.getElementById('meal-final-count').textContent = `Final count: ${finalCount}`;
+    }
+
+    function addMealOverride(type) {
+      const selectEl = document.getElementById(type === 'include' ? 'meal-include-select' : 'meal-exclude-select');
+      const listEl = document.getElementById(type === 'include' ? 'meal-include-list' : 'meal-exclude-list');
+      const name = selectEl.value;
+      if (!name) return;
+      const li = document.createElement('li');
+      li.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:4px 0;font-size:13px;';
+      const span = document.createElement('span');
+      span.textContent = name;
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = 'Remove';
+      removeBtn.style.cssText = 'padding:2px 8px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink-dim);';
+      removeBtn.onclick = () => {
+        li.remove();
+        const opt = document.createElement('option');
+        opt.value = name;
+        opt.textContent = name;
+        const opts = Array.from(selectEl.options);
+        let inserted = false;
+        for (let i = 0; i < opts.length; i++) {
+          if (opts[i].value > name) { selectEl.insertBefore(opt, opts[i]); inserted = true; break; }
+        }
+        if (!inserted) selectEl.appendChild(opt);
+        recalculateMealHeadcount();
+      };
+      li.appendChild(span);
+      li.appendChild(removeBtn);
+      listEl.appendChild(li);
+      selectEl.remove(selectEl.selectedIndex);
+      recalculateMealHeadcount();
+    }
+
+    function buildAttendeeCheckboxes() {
+      const container = document.getElementById('attendee-checklist');
+      container.innerHTML = '';
+      allAttendees.forEach(name => {
+        const label = document.createElement('label');
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.value = name;
+        cb.addEventListener('change', () => {
+          const n = container.querySelectorAll('input:checked').length;
+          updateAttendeeBadge(n);
+        });
+        label.appendChild(cb);
+        label.appendChild(document.createTextNode(name));
+        container.appendChild(label);
+      });
+    }
+
+    function populateMealSelects() {
+      ['meal-include-select', 'meal-exclude-select'].forEach(id => {
+        const sel = document.getElementById(id);
+        sel.innerHTML = '';
+        allAttendees.forEach(name => {
+          const opt = document.createElement('option');
+          opt.value = name;
+          opt.textContent = name;
+          sel.appendChild(opt);
+        });
+      });
+    }
+
+    function populateMealOverrideLists(include, exclude) {
+      document.getElementById('meal-include-list').innerHTML = '';
+      document.getElementById('meal-exclude-list').innerHTML = '';
+      populateMealSelects();
+      include.forEach(name => {
+        const sel = document.getElementById('meal-include-select');
+        const idx = Array.from(sel.options).findIndex(o => o.value === name);
+        if (idx >= 0) { sel.selectedIndex = idx; addMealOverride('include'); }
+      });
+      exclude.forEach(name => {
+        const sel = document.getElementById('meal-exclude-select');
+        const idx = Array.from(sel.options).findIndex(o => o.value === name);
+        if (idx >= 0) { sel.selectedIndex = idx; addMealOverride('exclude'); }
+      });
+    }
+
+    async function saveSeriesSlug() {
+      if (!currentEvent) return;
+      const val = document.getElementById('series-slug-input').value.trim();
+      const savedEl = document.getElementById('series-slug-saved');
+      try {
+        const r = await patchScheduleEvent(currentEvent.id, { series_slug: val || null });
+        if (!r.ok) {
+          const text = await r.text();
+          savedEl.textContent = 'Error: ' + r.status + ' ' + text;
+          savedEl.style.color = 'var(--status-no)';
+          savedEl.style.display = 'inline';
+          return;
+        }
+        savedEl.textContent = 'Saved';
+        savedEl.style.color = 'var(--status-yes)';
+        savedEl.style.display = 'inline';
+        setTimeout(() => { savedEl.style.display = 'none'; }, 2000);
+      } catch (e) {
+        savedEl.textContent = 'Error: ' + e.message;
+        savedEl.style.color = 'var(--status-no)';
+        savedEl.style.display = 'inline';
+      }
+    }
+
+    async function saveAttendees() {
+      if (!currentEvent) return;
+      const checked = Array.from(
+        document.querySelectorAll('#attendee-checklist input[type="checkbox"]:checked')
+      ).map(cb => cb.value);
+      const savedEl = document.getElementById('attendee-saved');
+      try {
+        const r = await patchScheduleEvent(currentEvent.id, { assigned_attendees: checked });
+        if (!r.ok) {
+          const text = await r.text();
+          savedEl.textContent = 'Error: ' + r.status + ' ' + text;
+          savedEl.style.color = 'var(--status-no)';
+          savedEl.style.display = 'inline';
+          return;
+        }
+        currentEvent.assigned_attendees = checked;
+        const evInList = allEvents.find(e => e.id === currentEvent.id);
+        if (evInList) evInList.assigned_attendees = checked;
+        updateAttendeeBadge(checked.length);
+        savedEl.textContent = 'Saved';
+        savedEl.style.color = 'var(--status-yes)';
+        savedEl.style.display = 'inline';
+        setTimeout(() => { savedEl.style.display = 'none'; }, 2000);
+      } catch (e) {
+        savedEl.textContent = 'Error: ' + e.message;
+        savedEl.style.color = 'var(--status-no)';
+        savedEl.style.display = 'inline';
+      }
+    }
+
+    async function saveMealOverrides() {
+      if (!currentEvent) return;
+      const includeItems = Array.from(document.querySelectorAll('#meal-include-list li span')).map(s => s.textContent);
+      const excludeItems = Array.from(document.querySelectorAll('#meal-exclude-list li span')).map(s => s.textContent);
+      const savedEl = document.getElementById('meal-saved');
+      try {
+        const r = await patchScheduleEvent(currentEvent.id, {
+          meal_override_include: includeItems,
+          meal_override_exclude: excludeItems
+        });
+        if (!r.ok) {
+          const text = await r.text();
+          savedEl.textContent = 'Error: ' + r.status + ' ' + text;
+          savedEl.style.color = 'var(--status-no)';
+          savedEl.style.display = 'inline';
+          return;
+        }
+        savedEl.textContent = 'Saved';
+        savedEl.style.color = 'var(--status-yes)';
+        savedEl.style.display = 'inline';
+        setTimeout(() => { savedEl.style.display = 'none'; }, 2000);
+      } catch (e) {
+        savedEl.textContent = 'Error: ' + e.message;
+        savedEl.style.color = 'var(--status-no)';
+        savedEl.style.display = 'inline';
+      }
+    }
+
+    // --- End coordinator helpers ---
+
     async function loadEventForm() {
       if (!currentEvent) return;
       currentOverrides = {};
@@ -293,6 +624,41 @@
 
       FIELDS.forEach(f => { document.getElementById('saved-' + f).style.display = 'none'; });
       document.getElementById('event-form').style.display = 'block';
+
+      // Fetch coordinator fields from schedule_events
+      try {
+        const er = await fetch(
+          `${SUPABASE_URL}/rest/v1/schedule_events?id=eq.${currentEvent.id}&select=event_type,series_slug,assigned_attendees,meal_override_include,meal_override_exclude`,
+          { headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` } }
+        );
+        if (er.ok) {
+          const rows = await er.json();
+          if (rows.length > 0) {
+            const ev = rows[0];
+            currentEvent.event_type = ev.event_type;
+            currentEvent.assigned_attendees = ev.assigned_attendees || [];
+            currentEvent.meal_override_include = ev.meal_override_include || [];
+            currentEvent.meal_override_exclude = ev.meal_override_exclude || [];
+            const evInList = allEvents.find(e => e.id === currentEvent.id);
+            if (evInList) {
+              evInList.event_type = ev.event_type;
+              evInList.assigned_attendees = ev.assigned_attendees || [];
+            }
+            document.getElementById('event-type-select').value = ev.event_type || '';
+            document.getElementById('series-slug-input').value = ev.series_slug || '';
+            updateEventTypeSections();
+            const assigned = ev.assigned_attendees || [];
+            document.querySelectorAll('#attendee-checklist input[type="checkbox"]').forEach(cb => {
+              cb.checked = assigned.includes(cb.value);
+            });
+            updateAttendeeBadge(assigned.length);
+            populateMealOverrideLists(ev.meal_override_include || [], ev.meal_override_exclude || []);
+            recalculateMealHeadcount();
+          }
+        }
+      } catch (e) {
+        console.error('[admin] fetch coordinator fields failed', e);
+      }
     }
 
     async function resetField(field) {
@@ -505,6 +871,53 @@
       } catch (e) {
         console.error('[admin] Failed to load schedule.json:', e);
       }
+
+      // Bootstrap attendee list from people.json
+      const FALLBACK_ATTENDEES = [
+        'Adrian','Alex','Ashlyn','Bee','Brian','Buggy','David','Dez','Evie','Georgie',
+        'Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Mycah',
+        'Natalie','Rachel','Ray','Simran','Skylar','Tayden','Zach'
+      ];
+      try {
+        const pr = await fetch('../data/people.json');
+        if (!pr.ok) throw new Error('HTTP ' + pr.status);
+        const pdata = await pr.json();
+        allAttendees = pdata.attendees.map(a => a.display_name);
+      } catch (e) {
+        console.warn('[admin] people.json fetch failed, using fallback list', e);
+        allAttendees = FALLBACK_ATTENDEES;
+      }
+      buildAttendeeCheckboxes();
+      populateMealSelects();
+
+      // Event type select: PATCH on change + show/hide sections
+      document.getElementById('event-type-select').addEventListener('change', async () => {
+        if (!currentEvent) return;
+        const val = document.getElementById('event-type-select').value;
+        const savedEl = document.getElementById('event-type-saved');
+        try {
+          const r = await patchScheduleEvent(currentEvent.id, { event_type: val || null });
+          if (!r.ok) {
+            const text = await r.text();
+            savedEl.textContent = 'Error: ' + r.status + ' ' + text;
+            savedEl.style.color = 'var(--status-no)';
+            savedEl.style.display = 'inline';
+          } else {
+            currentEvent.event_type = val || null;
+            const evInList = allEvents.find(e => e.id === currentEvent.id);
+            if (evInList) evInList.event_type = val || null;
+            savedEl.textContent = 'Saved';
+            savedEl.style.color = 'var(--status-yes)';
+            savedEl.style.display = 'inline';
+            setTimeout(() => { savedEl.style.display = 'none'; }, 2000);
+          }
+        } catch (e) {
+          savedEl.textContent = 'Error: ' + e.message;
+          savedEl.style.color = 'var(--status-no)';
+          savedEl.style.display = 'inline';
+        }
+        updateEventTypeSections();
+      });
 
       // Sort buttons
       document.querySelectorAll('.sort-btn').forEach(btn => {
