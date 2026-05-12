@@ -25,7 +25,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px 12px;
-  max-height: 300px;
+  max-height: calc(100vh - 300px);
   overflow-y: auto;
   padding: 10px;
   border: 1px solid var(--color-line);
@@ -35,13 +35,6 @@
 }
 @media (max-width: 500px) {
   .attendee-checklist { grid-template-columns: 1fr; }
-}
-.attendee-checklist label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  cursor: pointer;
 }
 .meal-panels {
   display: flex;
@@ -60,11 +53,168 @@
 @media (max-width: 500px) {
   .meal-panels { flex-direction: column; }
 }
+
+/* Drum pickers */
+.drum-picker-wrap {
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-btn);
+  overflow: hidden;
+  background: var(--color-surface);
+  position: relative;
+}
+.drum-picker-wrap::before,
+.drum-picker-wrap::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 40px;
+  pointer-events: none;
+  z-index: 1;
+}
+.drum-picker-wrap::before {
+  top: 0;
+  background: linear-gradient(to bottom, var(--color-surface) 0%, transparent 100%);
+}
+.drum-picker-wrap::after {
+  bottom: 0;
+  background: linear-gradient(to top, var(--color-surface) 0%, transparent 100%);
+}
+.drum-picker { display: flex; }
+.drum-divider { width: 1px; background: var(--color-line); }
+.drum-col {
+  flex: 1;
+  height: 120px;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+.drum-col::-webkit-scrollbar { display: none; }
+.drum-item {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  scroll-snap-align: center;
+  cursor: pointer;
+  user-select: none;
+  color: var(--color-ink);
+}
+.drum-item.drum-selected {
+  background: var(--accent-1);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Segmented control */
+.seg-ctrl {
+  display: flex;
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-btn);
+  overflow: hidden;
+}
+.seg-btn {
+  flex: 1;
+  padding: 9px 12px;
+  background: var(--color-surface);
+  border: none;
+  border-right: 1px solid var(--color-line);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--color-ink);
+  transition: background 0.15s, color 0.15s;
+}
+.seg-btn:last-child { border-right: none; }
+.seg-btn.seg-active {
+  background: var(--accent-1);
+  color: #fff;
+}
+
+/* Attendee chips */
+.chip {
+  padding: 5px 10px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--color-line);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.chip.chip-selected {
+  background: var(--accent-1);
+  color: #fff;
+  border-color: var(--accent-1);
+}
+
+/* Duration stepper */
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-btn);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+.stepper-btn {
+  padding: 9px 16px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--color-ink);
+  line-height: 1;
+}
+.stepper-val {
+  padding: 9px 14px;
+  font-size: 14px;
+  min-width: 3em;
+  text-align: center;
+  color: var(--color-ink);
+  border-left: 1px solid var(--color-line);
+  border-right: 1px solid var(--color-line);
+}
+
+/* Title validation indicator */
+.title-valid-indicator {
+  font-size: 16px;
+  font-weight: 700;
+  min-width: 1.5em;
+  text-align: center;
+}
+
+/* Toast snackbar */
+#toast-snackbar {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 10px 20px;
+  border-radius: var(--radius-btn);
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  white-space: nowrap;
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body style="margin:0;background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body,sans-serif);">
 <script src="js/site.js"></script>
+
+  <!-- Toast snackbar -->
+  <div id="toast-snackbar"></div>
 
   <!-- Offline banner (hidden by default, shown if Supabase unreachable) -->
   <div id="offline-banner" style="display:none;background:#FFF3CD;color:#856404;border:1px solid #FFECB5;padding:12px 16px;font-size:14px;">
@@ -97,22 +247,19 @@
   <!-- Editor section (hidden until authenticated) -->
   <section id="editor-section" style="display:none;max-width:640px;margin:0 auto;padding:24px 20px;">
 
-    <!-- Admin hub nav -->
-    <div id="admin-hub-nav" style="margin-bottom:24px;display:flex;gap:12px;flex-wrap:wrap;">
-      <button id="signout-btn"
-        style="padding:14px 22px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:15px;cursor:pointer;color:var(--color-ink);">
-        Sign Out
-      </button>
-    </div>
+    <!-- Admin hub nav (sign-out button removed per Pattern 10) -->
+    <div id="admin-hub-nav" style="margin-bottom:24px;display:flex;gap:12px;flex-wrap:wrap;"></div>
 
     <!-- Import block -->
     <div id="import-block" style="margin-bottom:24px;padding:16px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);">
       <div style="font-size:12px;color:var(--color-ink-dim);margin-bottom:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Schedule Data</div>
-      <button id="import-btn"
-        style="padding:10px 20px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:14px;cursor:pointer;color:var(--color-ink);">
-        Import schedule from file
-      </button>
-      <div id="import-status" style="margin-top:10px;font-size:14px;"></div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button id="import-btn"
+          style="padding:10px 20px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:14px;cursor:pointer;color:var(--color-ink);">
+          Import schedule from file
+        </button>
+        <span id="import-status" style="min-height:1.4em;opacity:0;font-size:14px;transition:opacity 0.2s;"></span>
+      </div>
     </div>
 
     <!-- Sort controls -->
@@ -142,7 +289,7 @@
     <div style="margin-bottom:24px;">
       <label for="event-select" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Event</label>
       <select id="event-select"
-        style="width:100%;padding:10px 14px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
+        style="width:100%;padding:10px 14px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
         <option value="">— select an event —</option>
       </select>
     </div>
@@ -156,6 +303,7 @@
         <div style="display:flex;align-items:center;gap:8px;">
           <input type="text" id="input-title"
             style="flex:1;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
+          <span id="title-validation-indicator" class="title-valid-indicator"></span>
           <button id="reset-title" onclick="resetField('title')"
             style="display:none;padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink-dim);white-space:nowrap;">
             Reset
@@ -167,40 +315,58 @@
 
       <!-- Date -->
       <div style="margin-bottom:18px;">
-        <label for="input-date" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Date</label>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <input type="date" id="input-date"
-            style="flex:1;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
-          <button id="reset-date" onclick="resetField('date')"
-            style="display:none;padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink-dim);white-space:nowrap;">
-            Reset
-          </button>
+        <label style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Date</label>
+        <div id="date-preview-label" style="font-size:13px;font-weight:700;color:var(--color-ink);margin-bottom:6px;pointer-events:none;user-select:none;cursor:default;"></div>
+        <div class="drum-picker-wrap" style="margin-bottom:6px;">
+          <div class="drum-picker">
+            <div class="drum-col" id="drum-month"></div>
+            <div class="drum-divider"></div>
+            <div class="drum-col" id="drum-day"></div>
+            <div class="drum-divider"></div>
+            <div class="drum-col" id="drum-year"></div>
+          </div>
         </div>
+        <input type="hidden" id="input-date">
+        <button id="reset-date" onclick="resetField('date')"
+          style="display:none;padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink-dim);white-space:nowrap;">
+          Reset
+        </button>
         <div id="orig-date" style="display:none;color:var(--color-ink-dim);font-size:12px;margin-top:4px;"></div>
         <div id="saved-date" style="display:none;color:var(--status-yes);font-size:12px;margin-top:4px;">Saved</div>
       </div>
 
       <!-- Start Time -->
       <div style="margin-bottom:18px;">
-        <label for="input-startTime" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Start Time</label>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <input type="time" id="input-startTime"
-            style="flex:1;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
-          <button id="reset-startTime" onclick="resetField('startTime')"
-            style="display:none;padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink-dim);white-space:nowrap;">
-            Reset
-          </button>
+        <label style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Start Time</label>
+        <div id="time-preview-label" style="font-size:13px;font-weight:700;color:var(--color-ink);margin-bottom:6px;pointer-events:none;user-select:none;cursor:default;"></div>
+        <div class="drum-picker-wrap" style="margin-bottom:6px;">
+          <div class="drum-picker">
+            <div class="drum-col" id="drum-hour"></div>
+            <div class="drum-divider"></div>
+            <div class="drum-col" id="drum-minute"></div>
+            <div class="drum-divider"></div>
+            <div class="drum-col" id="drum-ampm"></div>
+          </div>
         </div>
+        <input type="hidden" id="input-startTime">
+        <button id="reset-startTime" onclick="resetField('startTime')"
+          style="display:none;padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink-dim);white-space:nowrap;">
+          Reset
+        </button>
         <div id="orig-startTime" style="display:none;color:var(--color-ink-dim);font-size:12px;margin-top:4px;"></div>
         <div id="saved-startTime" style="display:none;color:var(--status-yes);font-size:12px;margin-top:4px;">Saved</div>
       </div>
 
       <!-- Duration -->
       <div style="margin-bottom:24px;">
-        <label for="input-duration" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Duration (hours)</label>
+        <label style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Duration (hours)</label>
         <div style="display:flex;align-items:center;gap:8px;">
-          <input type="number" id="input-duration" step="0.5" min="0"
-            style="flex:1;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
+          <div class="stepper">
+            <button type="button" class="stepper-btn" id="dur-minus">−</button>
+            <span class="stepper-val" id="dur-display">—</span>
+            <button type="button" class="stepper-btn" id="dur-plus">+</button>
+          </div>
+          <input type="hidden" id="input-duration">
           <button id="reset-duration" onclick="resetField('duration')"
             style="display:none;padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink-dim);white-space:nowrap;">
             Reset
@@ -212,9 +378,13 @@
 
       <!-- Event Type -->
       <div style="margin-bottom:18px;">
-        <label for="event-type-select" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Event Type</label>
-        <select id="event-type-select"
-          style="width:100%;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
+        <label style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Event Type</label>
+        <div class="seg-ctrl" id="event-type-segmented">
+          <button type="button" class="seg-btn" data-value="commitment">Commitment</button>
+          <button type="button" class="seg-btn" data-value="open">Open</button>
+          <button type="button" class="seg-btn" data-value="meal">Meal</button>
+        </div>
+        <select id="event-type-select" style="display:none;">
           <option value="">-- unset --</option>
           <option value="commitment">Commitment</option>
           <option value="open">Open</option>
@@ -338,6 +508,216 @@
     let currentSort = 'date';
     let allAttendees = [];
 
+    // --- Toast snackbar (Pattern 8) ---
+    let toastTimeout = null;
+    function showToast(message, type) {
+      const el = document.getElementById('toast-snackbar');
+      el.textContent = message;
+      el.style.background = type === 'success' ? '#2e7d32' : '#c62828';
+      el.style.opacity = '1';
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => { el.style.opacity = '0'; }, 2500);
+    }
+
+    // --- Drum picker (Patterns 3 & 4) ---
+    const DRUM_ITEM_H = 40;
+    const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const YEARS = [2025, 2026, 2027];
+    const MINUTES = [':00', ':15', ':30', ':45'];
+    const AMPM = ['AM', 'PM'];
+
+    function buildDrumCol(colEl, items, selectedIndex) {
+      colEl.innerHTML = '';
+      items.forEach((item, i) => {
+        const div = document.createElement('div');
+        div.className = 'drum-item' + (i === selectedIndex ? ' drum-selected' : '');
+        div.textContent = String(item);
+        colEl.appendChild(div);
+      });
+      colEl.dataset.drumIdx = selectedIndex;
+      colEl.scrollTop = selectedIndex * DRUM_ITEM_H;
+      setupDrumScroll(colEl);
+    }
+
+    function getDrumSelectedIndex(colEl) {
+      if (colEl.dataset.drumIdx !== undefined) return parseInt(colEl.dataset.drumIdx, 10);
+      return Math.round(colEl.scrollTop / DRUM_ITEM_H);
+    }
+
+    function setupDrumScroll(colEl) {
+      let scrollTimer = null;
+      colEl.addEventListener('scroll', () => {
+        if (scrollTimer) clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          const idx = Math.round(colEl.scrollTop / DRUM_ITEM_H);
+          colEl.dataset.drumIdx = idx;
+          colEl.querySelectorAll('.drum-item').forEach((el, i) => {
+            el.classList.toggle('drum-selected', i === idx);
+          });
+          syncDateHiddenInput();
+          syncTimeHiddenInput();
+        }, 80);
+      }, { passive: true });
+      colEl.addEventListener('click', e => {
+        const item = e.target.closest('.drum-item');
+        if (!item) return;
+        const idx = Array.from(colEl.querySelectorAll('.drum-item')).indexOf(item);
+        if (idx >= 0) {
+          colEl.dataset.drumIdx = idx;
+          colEl.scrollTop = idx * DRUM_ITEM_H;
+          colEl.querySelectorAll('.drum-item').forEach((el, i) => {
+            el.classList.toggle('drum-selected', i === idx);
+          });
+          syncDateHiddenInput();
+          syncTimeHiddenInput();
+        }
+      });
+    }
+
+    function syncDateHiddenInput() {
+      const mc = document.getElementById('drum-month');
+      const dc = document.getElementById('drum-day');
+      const yc = document.getElementById('drum-year');
+      if (!mc || !dc || !yc) return;
+      const monthIdx = getDrumSelectedIndex(mc);
+      const dayNum   = getDrumSelectedIndex(dc) + 1;
+      const year     = YEARS[getDrumSelectedIndex(yc)] || 2026;
+      const month    = String(monthIdx + 1).padStart(2, '0');
+      const day      = String(dayNum).padStart(2, '0');
+      document.getElementById('input-date').value = `${year}-${month}-${day}`;
+      const previewEl = document.getElementById('date-preview-label');
+      if (previewEl) {
+        const DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        const dow = DOW[new Date(year, monthIdx, dayNum).getDay()];
+        previewEl.textContent = `DATE ${dow}, ${MONTHS[monthIdx]} ${dayNum}, ${year}`;
+      }
+    }
+
+    function syncTimeHiddenInput() {
+      const hc = document.getElementById('drum-hour');
+      const mc = document.getElementById('drum-minute');
+      const ac = document.getElementById('drum-ampm');
+      if (!hc || !mc || !ac) return;
+      const hour   = getDrumSelectedIndex(hc) + 1;
+      const minStr = MINUTES[getDrumSelectedIndex(mc)].slice(1);
+      const ampm   = AMPM[getDrumSelectedIndex(ac)] || 'AM';
+      document.getElementById('input-startTime').value = `${hour}:${minStr} ${ampm}`;
+      const previewEl = document.getElementById('time-preview-label');
+      if (previewEl) {
+        previewEl.textContent = `TIME ${hour}:${minStr} ${ampm}`;
+      }
+    }
+
+    function initDateDrum() {
+      const days = Array.from({length: 31}, (_, i) => i + 1);
+      buildDrumCol(document.getElementById('drum-month'), MONTHS, 0);
+      buildDrumCol(document.getElementById('drum-day'), days, 0);
+      buildDrumCol(document.getElementById('drum-year'), YEARS, 1);
+      syncDateHiddenInput();
+    }
+
+    function initTimeDrum() {
+      const hours = Array.from({length: 12}, (_, i) => i + 1);
+      buildDrumCol(document.getElementById('drum-hour'), hours, 8);
+      buildDrumCol(document.getElementById('drum-minute'), MINUTES, 0);
+      buildDrumCol(document.getElementById('drum-ampm'), AMPM, 0);
+      syncTimeHiddenInput();
+    }
+
+    function snapDateDrumToValue(dateStr) {
+      if (!dateStr || dateStr.length < 10) return;
+      const parts = dateStr.split('-');
+      const year  = parseInt(parts[0], 10);
+      const month = parseInt(parts[1], 10);
+      const day   = parseInt(parts[2], 10);
+      const yi = YEARS.indexOf(year);
+      const mc = document.getElementById('drum-month');
+      const dc = document.getElementById('drum-day');
+      const yc = document.getElementById('drum-year');
+      if (!mc) return;
+      mc.dataset.drumIdx = month - 1;
+      dc.dataset.drumIdx = Math.min(day - 1, 30);
+      yc.dataset.drumIdx = (yi >= 0 ? yi : 1);
+      mc.scrollTop = (month - 1) * DRUM_ITEM_H;
+      dc.scrollTop = Math.min(day - 1, 30) * DRUM_ITEM_H;
+      yc.scrollTop = (yi >= 0 ? yi : 1) * DRUM_ITEM_H;
+      [mc, dc, yc].forEach(col => {
+        const idx = getDrumSelectedIndex(col);
+        col.querySelectorAll('.drum-item').forEach((el, i) => el.classList.toggle('drum-selected', i === idx));
+      });
+      syncDateHiddenInput();
+    }
+
+    function snapTimeDrumToValue(timeStr) {
+      if (!timeStr) return;
+      const m = timeStr.match(/^(\d+):(\d+)\s*(AM|PM)$/i);
+      if (!m) return;
+      const hour   = parseInt(m[1], 10);
+      const minute = parseInt(m[2], 10);
+      const ampm   = m[3].toUpperCase();
+      const minIdx  = MINUTES.indexOf(':' + String(minute).padStart(2, '0'));
+      const ampmIdx = AMPM.indexOf(ampm);
+      const hc = document.getElementById('drum-hour');
+      const mc = document.getElementById('drum-minute');
+      const ac = document.getElementById('drum-ampm');
+      if (!hc) return;
+      hc.dataset.drumIdx = Math.max(0, hour - 1);
+      mc.dataset.drumIdx = (minIdx >= 0 ? minIdx : 0);
+      ac.dataset.drumIdx = (ampmIdx >= 0 ? ampmIdx : 0);
+      hc.scrollTop = Math.max(0, hour - 1) * DRUM_ITEM_H;
+      mc.scrollTop = (minIdx >= 0 ? minIdx : 0) * DRUM_ITEM_H;
+      ac.scrollTop = (ampmIdx >= 0 ? ampmIdx : 0) * DRUM_ITEM_H;
+      [hc, mc, ac].forEach(col => {
+        const idx = getDrumSelectedIndex(col);
+        col.querySelectorAll('.drum-item').forEach((el, i) => el.classList.toggle('drum-selected', i === idx));
+      });
+      syncTimeHiddenInput();
+    }
+
+    // --- Duration stepper (Pattern 5) ---
+    const DUR_MIN = 0.5, DUR_MAX = 12, DUR_STEP = 0.5;
+
+    function updateDurationDisplay(val) {
+      const n = parseFloat(val);
+      const display = document.getElementById('dur-display');
+      if (isNaN(n)) {
+        display.textContent = '—';
+      } else {
+        const formatted = n % 1 === 0 ? String(n) : n.toFixed(1);
+        display.textContent = formatted;
+        document.getElementById('input-duration').value = formatted;
+      }
+    }
+
+    function stepDuration(delta) {
+      const hidden = document.getElementById('input-duration');
+      let val = parseFloat(hidden.value);
+      if (isNaN(val)) val = 1;
+      const rounded = Math.round(Math.min(DUR_MAX, Math.max(DUR_MIN, val + delta)) / DUR_STEP) * DUR_STEP;
+      hidden.value = rounded % 1 === 0 ? String(rounded) : rounded.toFixed(1);
+      document.getElementById('dur-display').textContent = hidden.value;
+    }
+
+    // --- Segmented control (Pattern 6) ---
+    function syncSegmentedControl(value) {
+      document.querySelectorAll('#event-type-segmented .seg-btn').forEach(btn => {
+        btn.classList.toggle('seg-active', btn.dataset.value === value);
+      });
+    }
+
+    // --- Title validation (Pattern 2) ---
+    function updateTitleValidation(value) {
+      const indicator = document.getElementById('title-validation-indicator');
+      if (!indicator) return;
+      if (value && value.trim() !== '') {
+        indicator.textContent = '✓';
+        indicator.style.color = 'var(--status-yes)';
+      } else {
+        indicator.textContent = '✗';
+        indicator.style.color = 'var(--status-no)';
+      }
+    }
+
     function formatDate(dateStr) {
       if (!dateStr) return '';
       const parts = dateStr.split('-');
@@ -360,19 +740,23 @@
       return sorted;
     }
 
+    // Pattern 1: sort-aware option labels
     function renderEventSelect() {
       const sel = document.getElementById('event-select');
       const prevVal = sel.value;
       const sorted = getSortedEvents();
       sel.innerHTML = '<option value="">— select an event —</option>' +
-        sorted.map(e => `<option value="${e.id}">${formatDate(e.date)} — ${e.title}</option>`).join('');
-      if (prevVal && sorted.find(e => e.id === prevVal)) {
-        sel.value = prevVal;
-      }
+        sorted.map(e => {
+          const label = currentSort === 'date'
+            ? `${formatDate(e.date)} — ${e.title}`
+            : `${e.title} (${formatDate(e.date)})`;
+          return `<option value="${e.id}">${label}</option>`;
+        }).join('');
+      if (prevVal && sorted.find(e => e.id === prevVal)) sel.value = prevVal;
     }
 
     function populateField(field, scheduleValue) {
-      const input = document.getElementById('input-' + field);
+      const input   = document.getElementById('input-' + field);
       const origDiv = document.getElementById('orig-' + field);
       const resetBtn = document.getElementById('reset-' + field);
       if (currentOverrides.hasOwnProperty(field)) {
@@ -385,6 +769,10 @@
         origDiv.style.display = 'none';
         resetBtn.style.display = 'none';
       }
+      if (field === 'date')      snapDateDrumToValue(input.value);
+      if (field === 'startTime') snapTimeDrumToValue(input.value);
+      if (field === 'duration')  updateDurationDisplay(input.value);
+      if (field === 'title')     updateTitleValidation(input.value);
     }
 
     // --- Coordinator helpers ---
@@ -422,20 +810,17 @@
         e.date === currentEvent.date && e.event_type === 'commitment'
       );
       const committedSet = new Set();
-      sameDay.forEach(e => {
-        (e.assigned_attendees || []).forEach(name => committedSet.add(name));
-      });
+      sameDay.forEach(e => { (e.assigned_attendees || []).forEach(name => committedSet.add(name)); });
       const estimated = Math.max(0, allAttendees.length - committedSet.size);
       document.getElementById('meal-estimated').textContent = `Estimated: ${estimated} eating`;
       const includeCount = document.getElementById('meal-include-list').querySelectorAll('li').length;
       const excludeCount = document.getElementById('meal-exclude-list').querySelectorAll('li').length;
-      const finalCount = Math.max(0, estimated + includeCount - excludeCount);
-      document.getElementById('meal-final-count').textContent = `Final count: ${finalCount}`;
+      document.getElementById('meal-final-count').textContent = `Final count: ${Math.max(0, estimated + includeCount - excludeCount)}`;
     }
 
     function addMealOverride(type) {
       const selectEl = document.getElementById(type === 'include' ? 'meal-include-select' : 'meal-exclude-select');
-      const listEl = document.getElementById(type === 'include' ? 'meal-include-list' : 'meal-exclude-list');
+      const listEl   = document.getElementById(type === 'include' ? 'meal-include-list'   : 'meal-exclude-list');
       const name = selectEl.value;
       if (!name) return;
       const li = document.createElement('li');
@@ -448,8 +833,7 @@
       removeBtn.onclick = () => {
         li.remove();
         const opt = document.createElement('option');
-        opt.value = name;
-        opt.textContent = name;
+        opt.value = name; opt.textContent = name;
         const opts = Array.from(selectEl.options);
         let inserted = false;
         for (let i = 0; i < opts.length; i++) {
@@ -458,29 +842,30 @@
         if (!inserted) selectEl.appendChild(opt);
         recalculateMealHeadcount();
       };
-      li.appendChild(span);
-      li.appendChild(removeBtn);
+      li.appendChild(span); li.appendChild(removeBtn);
       listEl.appendChild(li);
       selectEl.remove(selectEl.selectedIndex);
       recalculateMealHeadcount();
     }
 
+    // Pattern 7: chip-based attendee list
     function buildAttendeeCheckboxes() {
       const container = document.getElementById('attendee-checklist');
       container.innerHTML = '';
       allAttendees.forEach(name => {
-        const label = document.createElement('label');
-        const cb = document.createElement('input');
-        cb.type = 'checkbox';
-        cb.value = name;
-        cb.addEventListener('change', () => {
-          const n = container.querySelectorAll('input:checked').length;
-          updateAttendeeBadge(n);
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'chip';
+        chip.dataset.name = name;
+        chip.textContent = name;
+        chip.addEventListener('click', () => {
+          chip.classList.toggle('chip-selected');
+          updateAttendeeBadge(container.querySelectorAll('.chip-selected').length);
         });
-        label.appendChild(cb);
-        label.appendChild(document.createTextNode(name));
-        container.appendChild(label);
+        container.appendChild(chip);
       });
+      container.style.gridAutoFlow = 'column';
+      container.style.gridTemplateRows = 'repeat(' + Math.ceil(allAttendees.length / 3) + ', auto)';
     }
 
     function populateMealSelects() {
@@ -489,8 +874,7 @@
         sel.innerHTML = '';
         allAttendees.forEach(name => {
           const opt = document.createElement('option');
-          opt.value = name;
-          opt.textContent = name;
+          opt.value = name; opt.textContent = name;
           sel.appendChild(opt);
         });
       });
@@ -536,11 +920,11 @@
       }
     }
 
+    // Pattern 7: read chips instead of checkboxes
     async function saveAttendees() {
       if (!currentEvent) return;
-      const checked = Array.from(
-        document.querySelectorAll('#attendee-checklist input[type="checkbox"]:checked')
-      ).map(cb => cb.value);
+      const checked = [...document.querySelectorAll('#attendee-checklist .chip-selected')]
+        .map(chip => chip.dataset.name);
       const savedEl = document.getElementById('attendee-saved');
       try {
         const r = await patchScheduleEvent(currentEvent.id, { assigned_attendees: checked });
@@ -614,16 +998,17 @@
         console.error('[admin] fetch overrides failed', e);
       }
 
-      populateField('title', currentEvent.title != null ? String(currentEvent.title) : '');
-      populateField('date', currentEvent.date != null ? String(currentEvent.date) : '');
+      // Show form first so drum scrollTop assignments take effect
+      document.getElementById('event-form').style.display = 'block';
+      FIELDS.forEach(f => { document.getElementById('saved-' + f).style.display = 'none'; });
+
+      populateField('title',     currentEvent.title     != null ? String(currentEvent.title)     : '');
+      populateField('date',      currentEvent.date      != null ? String(currentEvent.date)      : '');
       populateField('startTime', currentEvent.startTime != null ? String(currentEvent.startTime) : '');
-      populateField('duration', currentEvent.duration != null ? String(currentEvent.duration) : '');
+      populateField('duration',  currentEvent.duration  != null ? String(currentEvent.duration)  : '');
 
       loadedValues = {};
       FIELDS.forEach(f => { loadedValues[f] = document.getElementById('input-' + f).value; });
-
-      FIELDS.forEach(f => { document.getElementById('saved-' + f).style.display = 'none'; });
-      document.getElementById('event-form').style.display = 'block';
 
       // Fetch coordinator fields from schedule_events
       try {
@@ -635,21 +1020,24 @@
           const rows = await er.json();
           if (rows.length > 0) {
             const ev = rows[0];
-            currentEvent.event_type = ev.event_type;
-            currentEvent.assigned_attendees = ev.assigned_attendees || [];
+            currentEvent.event_type           = ev.event_type;
+            currentEvent.assigned_attendees   = ev.assigned_attendees || [];
             currentEvent.meal_override_include = ev.meal_override_include || [];
             currentEvent.meal_override_exclude = ev.meal_override_exclude || [];
             const evInList = allEvents.find(e => e.id === currentEvent.id);
             if (evInList) {
-              evInList.event_type = ev.event_type;
-              evInList.assigned_attendees = ev.assigned_attendees || [];
+              evInList.event_type          = ev.event_type;
+              evInList.assigned_attendees  = ev.assigned_attendees || [];
             }
-            document.getElementById('event-type-select').value = ev.event_type || '';
+            const evType = (ev.event_type && ev.event_type !== '') ? ev.event_type : 'commitment';
+            document.getElementById('event-type-select').value = evType;
+            syncSegmentedControl(evType);
             document.getElementById('series-slug-input').value = ev.series_slug || '';
             updateEventTypeSections();
             const assigned = ev.assigned_attendees || [];
-            document.querySelectorAll('#attendee-checklist input[type="checkbox"]').forEach(cb => {
-              cb.checked = assigned.includes(cb.value);
+            // Pattern 7: toggle chips
+            document.querySelectorAll('#attendee-checklist .chip').forEach(chip => {
+              chip.classList.toggle('chip-selected', assigned.includes(chip.dataset.name));
             });
             updateAttendeeBadge(assigned.length);
             populateMealOverrideLists(ev.meal_override_include || [], ev.meal_override_exclude || []);
@@ -666,19 +1054,9 @@
       try {
         const r = await fetch(
           `${SUPABASE_URL}/rest/v1/schedule_overrides?event_id=eq.${currentEvent.id}&field=eq.${field}`,
-          {
-            method: 'DELETE',
-            headers: {
-              'apikey': SUPABASE_ANON_KEY,
-              'Authorization': `Bearer ${await getAdminToken()}`
-            }
-          }
+          { method: 'DELETE', headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${await getAdminToken()}` } }
         );
-        if (!r.ok) {
-          const text = await r.text();
-          showErrorBanner('Reset failed: ' + r.status + ' ' + text);
-          return;
-        }
+        if (!r.ok) { const text = await r.text(); showErrorBanner('Reset failed: ' + r.status + ' ' + text); return; }
         await loadEventForm();
       } catch (e) {
         showErrorBanner('Reset failed: ' + e.message);
@@ -690,27 +1068,21 @@
       try {
         const r = await fetch(
           `${SUPABASE_URL}/rest/v1/schedule_overrides?event_id=eq.${currentEvent.id}`,
-          {
-            method: 'DELETE',
-            headers: {
-              'apikey': SUPABASE_ANON_KEY,
-              'Authorization': `Bearer ${await getAdminToken()}`
-            }
-          }
+          { method: 'DELETE', headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${await getAdminToken()}` } }
         );
-        if (!r.ok) {
-          const text = await r.text();
-          showErrorBanner('Reset all failed: ' + r.status + ' ' + text);
-          return;
-        }
+        if (!r.ok) { const text = await r.text(); showErrorBanner('Reset all failed: ' + r.status + ' ' + text); return; }
         await loadEventForm();
       } catch (e) {
         showErrorBanner('Reset all failed: ' + e.message);
       }
     }
 
+    // Pattern 8: replace per-field saved indicators with showToast
     async function saveOverrides() {
       if (!currentEvent) return;
+      if (document.getElementById('attendee-section').style.display !== 'none') {
+        await saveAttendees();
+      }
       document.getElementById('error-banner').style.display = 'none';
 
       const rows = [];
@@ -742,16 +1114,8 @@
           showErrorBanner('Save failed: ' + r.status + ' ' + text);
           return;
         }
-        // Reload form first to update override state, then show saved indicators
-        const savedFields = rows.map(row => row.field);
         await loadEventForm();
-        savedFields.forEach(f => {
-          const savedEl = document.getElementById('saved-' + f);
-          if (savedEl) {
-            savedEl.style.display = 'block';
-            setTimeout(() => { savedEl.style.display = 'none'; }, 2000);
-          }
-        });
+        showToast('Saved', 'success');
       } catch (e) {
         showErrorBanner('Save failed: ' + e.message);
       }
@@ -767,12 +1131,9 @@
       try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 3000);
-        const r = await fetch(
+        await fetch(
           `${SUPABASE_URL}/rest/v1/schedule_overrides?select=event_id&limit=1`,
-          {
-            headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` },
-            signal: controller.signal
-          }
+          { headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` }, signal: controller.signal }
         );
         clearTimeout(timeoutId);
       } catch (e) {
@@ -781,19 +1142,13 @@
     }
 
     window.addEventListener('DOMContentLoaded', async () => {
-      // Session check
       const { data: { session } } = await supabaseClient.auth.getSession();
-      if (session) {
-        showEditor();
-      } else {
-        showAuthUI();
-      }
+      if (session) { showEditor(); } else { showAuthUI(); }
 
-      // Email/password login button
       document.getElementById('login-btn').addEventListener('click', async () => {
         const errEl = document.getElementById('auth-error-email');
         errEl.style.display = 'none';
-        const email = document.getElementById('login-email').value.trim();
+        const email    = document.getElementById('login-email').value.trim();
         const password = document.getElementById('login-password').value;
         try {
           const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
@@ -805,64 +1160,47 @@
         }
       });
 
-      // Sign-out button
-      document.getElementById('signout-btn').addEventListener('click', async () => {
-        await supabaseClient.auth.signOut();
-        location.reload();
-      });
-
-      // Import button: restore label if already run
+      // Pattern 9: import status uses opacity; no margin-top override
       if (localStorage.getItem('branson_import_done')) {
         document.getElementById('import-btn').textContent = 'Re-import';
       }
       document.getElementById('import-btn').addEventListener('click', async () => {
-        const statusEl = document.getElementById('import-status');
+        const statusEl  = document.getElementById('import-status');
         const importBtn = document.getElementById('import-btn');
-        statusEl.style.cssText = 'margin-top:10px;font-size:14px;';
-        statusEl.textContent = 'Importing\u2026';
+        statusEl.style.opacity = '1';
+        statusEl.style.color   = 'var(--color-ink)';
+        statusEl.textContent   = 'Importing\u2026';
         try {
           const r = await fetch('schedule.json');
           const scheduleData = await r.json();
           const events = scheduleData.events;
-          const actualCount = events.length;
+          const actualCount   = events.length;
           const expectedCount = 28;
           const mappedRows = events.map(e => ({
-            id: e.id,
-            title: e.title,
-            date: e.date,
-            duration: e.duration,
-            priority: e.priority,
-            catalogRef: e.catalogRef,
-            startTime: e.startTime,
-            travelMinutes: e.travelMinutes,
-            interested: e.interested,
-            undecided: e.undecided,
-            notInterested: e.notInterested,
-            noResponse: e.noResponse
+            id: e.id, title: e.title, date: e.date, duration: e.duration,
+            priority: e.priority, catalogRef: e.catalogRef, startTime: e.startTime,
+            travelMinutes: e.travelMinutes, interested: e.interested,
+            undecided: e.undecided, notInterested: e.notInterested, noResponse: e.noResponse
           }));
-          const { error } = await supabaseClient
-            .from('schedule_events')
-            .upsert(mappedRows, { onConflict: 'id' });
+          const { error } = await supabaseClient.from('schedule_events').upsert(mappedRows, { onConflict: 'id' });
           if (error) throw error;
           localStorage.setItem('branson_import_done', '1');
           importBtn.textContent = 'Re-import';
           if (actualCount === expectedCount) {
-            statusEl.style.cssText = 'margin-top:10px;font-size:14px;color:#27ae60;';
+            statusEl.style.color = '#27ae60';
             statusEl.textContent = `${actualCount} events imported`;
           } else {
-            statusEl.style.cssText = 'margin-top:10px;font-size:14px;background:#FFF3CD;color:#856404;padding:8px 12px;border-radius:4px;';
+            statusEl.style.color = '#856404';
             statusEl.textContent = `Warning: expected ${expectedCount} events, got ${actualCount}`;
           }
         } catch (e) {
-          statusEl.style.cssText = 'margin-top:10px;font-size:14px;color:#c0392b;';
+          statusEl.style.color = '#c0392b';
           statusEl.textContent = e.message || String(e);
         }
       });
 
-      // Supabase connectivity check
       checkSupabase();
 
-      // Load schedule.json and populate event selector
       try {
         const r = await fetch('schedule.json');
         const data = await r.json();
@@ -872,7 +1210,6 @@
         console.error('[admin] Failed to load schedule.json:', e);
       }
 
-      // Bootstrap attendee list from people.json
       const FALLBACK_ATTENDEES = [
         'Adrian','Alex','Ashlyn','Bee','Brian','Buggy','David','Dez','Evie','Georgie',
         'Jackson','Jacob','Jordan','Josh','Kevin','Lucy','McKinley','Mel','Mycah',
@@ -890,53 +1227,74 @@
       buildAttendeeCheckboxes();
       populateMealSelects();
 
-      // Event type select: PATCH on change + show/hide sections
+      initDateDrum();
+      initTimeDrum();
+
+      // Pattern 2: title validation listener
+      document.getElementById('input-title').addEventListener('input', e => {
+        updateTitleValidation(e.target.value);
+      });
+
+      // Series slug: strip any character that is not a lowercase letter or hyphen
+      document.getElementById('series-slug-input').addEventListener('input', e => {
+        const stripped = e.target.value.replace(/[^a-z-]/g, '');
+        if (stripped !== e.target.value) e.target.value = stripped;
+      });
+
+      // Pattern 5: stepper buttons
+      document.getElementById('dur-minus').addEventListener('click', () => stepDuration(-DUR_STEP));
+      document.getElementById('dur-plus').addEventListener('click',  () => stepDuration(DUR_STEP));
+
+      // Pattern 6: segmented control → hidden select → change event
+      document.querySelectorAll('#event-type-segmented .seg-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const val = btn.dataset.value;
+          document.getElementById('event-type-select').value = val;
+          syncSegmentedControl(val);
+          document.getElementById('event-type-select').dispatchEvent(new Event('change'));
+        });
+      });
+
+      // Event type change: call updateEventTypeSections synchronously first, THEN async PATCH
       document.getElementById('event-type-select').addEventListener('change', async () => {
         if (!currentEvent) return;
-        const val = document.getElementById('event-type-select').value;
+        const val     = document.getElementById('event-type-select').value;
         const savedEl = document.getElementById('event-type-saved');
+        updateEventTypeSections();
         try {
           const r = await patchScheduleEvent(currentEvent.id, { event_type: val || null });
           if (!r.ok) {
             const text = await r.text();
             savedEl.textContent = 'Error: ' + r.status + ' ' + text;
-            savedEl.style.color = 'var(--status-no)';
+            savedEl.style.color   = 'var(--status-no)';
             savedEl.style.display = 'inline';
           } else {
             currentEvent.event_type = val || null;
             const evInList = allEvents.find(e => e.id === currentEvent.id);
             if (evInList) evInList.event_type = val || null;
             savedEl.textContent = 'Saved';
-            savedEl.style.color = 'var(--status-yes)';
+            savedEl.style.color   = 'var(--status-yes)';
             savedEl.style.display = 'inline';
             setTimeout(() => { savedEl.style.display = 'none'; }, 2000);
           }
         } catch (e) {
           savedEl.textContent = 'Error: ' + e.message;
-          savedEl.style.color = 'var(--status-no)';
+          savedEl.style.color   = 'var(--status-no)';
           savedEl.style.display = 'inline';
         }
-        updateEventTypeSections();
       });
 
-      // Sort buttons
       document.querySelectorAll('.sort-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           currentSort = btn.dataset.sort;
           document.querySelectorAll('.sort-btn').forEach(b => {
-            if (b === btn) {
-              b.style.fontWeight = 'bold';
-              b.style.border = '2px solid var(--color-ink)';
-            } else {
-              b.style.fontWeight = 'normal';
-              b.style.border = '1px solid var(--color-line)';
-            }
+            b.style.fontWeight = b === btn ? 'bold'   : 'normal';
+            b.style.border     = b === btn ? '2px solid var(--color-ink)' : '1px solid var(--color-line)';
           });
           renderEventSelect();
         });
       });
 
-      // Event selector
       document.getElementById('event-select').addEventListener('change', async () => {
         const eventId = document.getElementById('event-select').value;
         if (!eventId) {
