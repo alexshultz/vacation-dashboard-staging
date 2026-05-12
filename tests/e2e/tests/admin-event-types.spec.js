@@ -70,44 +70,43 @@ test.describe('Admin event-types -- coordinator UI', () => {
     });
   });
 
+  // Segmented control replaces the visible select; wait for the seg-ctrl to be ready.
+  async function selectEventType(page, value) {
+    await page.waitForSelector('#event-type-segmented', { state: 'visible', timeout: 5000 });
+    await page.click(`#event-type-segmented .seg-btn[data-value="${value}"]`);
+  }
+
   test('shows attendee checklist when event_type is set to commitment', async ({ page }) => {
-    await page.waitForSelector('#event-type-select', { timeout: 5000 });
-    await page.selectOption('#event-type-select', 'commitment');
-    // Wait for the async change handler (patchScheduleEvent + updateEventTypeSections) to complete.
+    await selectEventType(page, 'commitment');
+    // updateEventTypeSections fires synchronously on click; PATCH is async but section shows immediately.
     await page.locator('#attendee-section').waitFor({ state: 'visible', timeout: 5000 });
     const visible = await page.isVisible('#attendee-section');
     expect(visible).toBe(true);
   });
 
   test('hides attendee checklist when event_type is set to open', async ({ page }) => {
-    await page.waitForSelector('#event-type-select', { timeout: 5000 });
     // First set to commitment to ensure section was potentially shown.
-    await page.selectOption('#event-type-select', 'commitment');
-    // Wait for the PATCH + updateEventTypeSections to complete before switching again.
+    await selectEventType(page, 'commitment');
     await page.locator('#attendee-section').waitFor({ state: 'visible', timeout: 5000 });
     // Then switch to open.
-    await page.selectOption('#event-type-select', 'open');
-    // Wait for the async handler to complete and hide the section before asserting.
+    await selectEventType(page, 'open');
     await page.locator('#attendee-section').waitFor({ state: 'hidden', timeout: 5000 });
     const visible = await page.isVisible('#attendee-section');
     expect(visible).toBe(false);
   });
 
   test('shows meal headcount section when event_type is set to meal', async ({ page }) => {
-    await page.waitForSelector('#event-type-select', { timeout: 5000 });
-    await page.selectOption('#event-type-select', 'meal');
-    // Wait for the async change handler (patchScheduleEvent + updateEventTypeSections) to complete.
+    await selectEventType(page, 'meal');
+    // updateEventTypeSections fires synchronously; section visible immediately.
     await page.locator('#meal-section').waitFor({ state: 'visible', timeout: 5000 });
     const visible = await page.isVisible('#meal-section');
     expect(visible).toBe(true);
   });
 
-  test('attendee checklist contains at least 26 checkboxes', async ({ page }) => {
-    await page.waitForSelector('#event-type-select', { timeout: 5000 });
-    await page.selectOption('#event-type-select', 'commitment');
-    // Wait for the async change handler (patchScheduleEvent + updateEventTypeSections) to complete.
+  test('attendee checklist contains at least 26 chips', async ({ page }) => {
+    await selectEventType(page, 'commitment');
     await page.locator('#attendee-section').waitFor({ state: 'visible', timeout: 5000 });
-    const count = await page.locator('#attendee-checklist input[type="checkbox"]').count();
+    const count = await page.locator('#attendee-checklist .chip').count();
     expect(count).toBeGreaterThanOrEqual(26);
   });
 });

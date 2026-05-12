@@ -21,7 +21,7 @@
   document.body.appendChild(_btn); // fallback -- will be moved to header
   // Try to place in site header
   var headerInner = document.querySelector('.site-header__inner');
-  if (headerInner) { headerInner.appendChild(_btn); }
+  if (headerInner) { headerInner.insertBefore(_btn, headerInner.querySelector('#site-hamburger')); }
 
   /* ── Inject edit modal (synchronously on script load) ──────────────────── */
   var _modalEl = document.createElement('div');
