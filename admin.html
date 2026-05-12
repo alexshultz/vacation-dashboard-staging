@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Admin — Branson &#x27;26</title>
-<link rel="stylesheet" href="css/tokens.css?v=202605111918">
-<link rel="stylesheet" href="css/themes/trail.css?v=202605111918" id="theme-css">
-<link rel="stylesheet" href="css/components.css?v=202605111918">
+<link rel="stylesheet" href="css/tokens.css?v=202605112010">
+<link rel="stylesheet" href="css/themes/trail.css?v=202605112010" id="theme-css">
+<link rel="stylesheet" href="css/components.css?v=202605112010">
 <script>/* Theme loader -- inline to prevent flash-of-wrong-theme */
 (function(){
   var m = localStorage.getItem('vacdash:v1:mode') || 'system';
@@ -19,13 +19,13 @@
   }
 })();
 </script>
-<link rel="preload" href="js/site.js?v=202605111918" as="script">
+<link rel="preload" href="js/site.js?v=202605112010" as="script">
 <style>
 .attendee-checklist {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px 12px;
-  max-height: 300px;
+  max-height: calc(100vh - 300px);
   overflow-y: auto;
   padding: 10px;
   border: 1px solid var(--color-line);
@@ -211,7 +211,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body style="margin:0;background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body,sans-serif);">
-<script src="js/site.js?v=202605111918"></script>
+<script src="js/site.js?v=202605112010"></script>
 
   <!-- Toast snackbar -->
   <div id="toast-snackbar"></div>
@@ -316,6 +316,7 @@
       <!-- Date -->
       <div style="margin-bottom:18px;">
         <label style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Date</label>
+        <div id="date-preview-label" style="font-size:13px;font-weight:700;color:var(--color-ink);margin-bottom:6px;pointer-events:none;user-select:none;cursor:default;"></div>
         <div class="drum-picker-wrap" style="margin-bottom:6px;">
           <div class="drum-picker">
             <div class="drum-col" id="drum-month"></div>
@@ -337,6 +338,7 @@
       <!-- Start Time -->
       <div style="margin-bottom:18px;">
         <label style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Start Time</label>
+        <div id="time-preview-label" style="font-size:13px;font-weight:700;color:var(--color-ink);margin-bottom:6px;pointer-events:none;user-select:none;cursor:default;"></div>
         <div class="drum-picker-wrap" style="margin-bottom:6px;">
           <div class="drum-picker">
             <div class="drum-col" id="drum-hour"></div>
@@ -577,10 +579,18 @@
       const dc = document.getElementById('drum-day');
       const yc = document.getElementById('drum-year');
       if (!mc || !dc || !yc) return;
-      const month = String(getDrumSelectedIndex(mc) + 1).padStart(2, '0');
-      const day   = String(getDrumSelectedIndex(dc) + 1).padStart(2, '0');
-      const year  = YEARS[getDrumSelectedIndex(yc)] || 2026;
+      const monthIdx = getDrumSelectedIndex(mc);
+      const dayNum   = getDrumSelectedIndex(dc) + 1;
+      const year     = YEARS[getDrumSelectedIndex(yc)] || 2026;
+      const month    = String(monthIdx + 1).padStart(2, '0');
+      const day      = String(dayNum).padStart(2, '0');
       document.getElementById('input-date').value = `${year}-${month}-${day}`;
+      const previewEl = document.getElementById('date-preview-label');
+      if (previewEl) {
+        const DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+        const dow = DOW[new Date(year, monthIdx, dayNum).getDay()];
+        previewEl.textContent = `DATE ${dow}, ${MONTHS[monthIdx]} ${dayNum}, ${year}`;
+      }
     }
 
     function syncTimeHiddenInput() {
@@ -592,6 +602,10 @@
       const minStr = MINUTES[getDrumSelectedIndex(mc)].slice(1);
       const ampm   = AMPM[getDrumSelectedIndex(ac)] || 'AM';
       document.getElementById('input-startTime').value = `${hour}:${minStr} ${ampm}`;
+      const previewEl = document.getElementById('time-preview-label');
+      if (previewEl) {
+        previewEl.textContent = `TIME ${hour}:${minStr} ${ampm}`;
+      }
     }
 
     function initDateDrum() {
@@ -1066,6 +1080,9 @@
     // Pattern 8: replace per-field saved indicators with showToast
     async function saveOverrides() {
       if (!currentEvent) return;
+      if (document.getElementById('attendee-section').style.display !== 'none') {
+        await saveAttendees();
+      }
       document.getElementById('error-banner').style.display = 'none';
 
       const rows = [];
