@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Admin — Branson &#x27;26</title>
-<link rel="stylesheet" href="css/tokens.css?v=202605111913">
-<link rel="stylesheet" href="css/themes/trail.css?v=202605111913" id="theme-css">
-<link rel="stylesheet" href="css/components.css?v=202605111913">
+<link rel="stylesheet" href="css/tokens.css?v=202605111918">
+<link rel="stylesheet" href="css/themes/trail.css?v=202605111918" id="theme-css">
+<link rel="stylesheet" href="css/components.css?v=202605111918">
 <script>/* Theme loader -- inline to prevent flash-of-wrong-theme */
 (function(){
   var m = localStorage.getItem('vacdash:v1:mode') || 'system';
@@ -19,7 +19,7 @@
   }
 })();
 </script>
-<link rel="preload" href="js/site.js?v=202605111913" as="script">
+<link rel="preload" href="js/site.js?v=202605111918" as="script">
 <style>
 .attendee-checklist {
   display: grid;
@@ -211,7 +211,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body style="margin:0;background:var(--color-bg);color:var(--color-ink);font-family:var(--font-body,sans-serif);">
-<script src="js/site.js?v=202605111913"></script>
+<script src="js/site.js?v=202605111918"></script>
 
   <!-- Toast snackbar -->
   <div id="toast-snackbar"></div>
@@ -532,11 +532,13 @@
         div.textContent = String(item);
         colEl.appendChild(div);
       });
+      colEl.dataset.drumIdx = selectedIndex;
       colEl.scrollTop = selectedIndex * DRUM_ITEM_H;
       setupDrumScroll(colEl);
     }
 
     function getDrumSelectedIndex(colEl) {
+      if (colEl.dataset.drumIdx !== undefined) return parseInt(colEl.dataset.drumIdx, 10);
       return Math.round(colEl.scrollTop / DRUM_ITEM_H);
     }
 
@@ -545,7 +547,8 @@
       colEl.addEventListener('scroll', () => {
         if (scrollTimer) clearTimeout(scrollTimer);
         scrollTimer = setTimeout(() => {
-          const idx = getDrumSelectedIndex(colEl);
+          const idx = Math.round(colEl.scrollTop / DRUM_ITEM_H);
+          colEl.dataset.drumIdx = idx;
           colEl.querySelectorAll('.drum-item').forEach((el, i) => {
             el.classList.toggle('drum-selected', i === idx);
           });
@@ -558,6 +561,7 @@
         if (!item) return;
         const idx = Array.from(colEl.querySelectorAll('.drum-item')).indexOf(item);
         if (idx >= 0) {
+          colEl.dataset.drumIdx = idx;
           colEl.scrollTop = idx * DRUM_ITEM_H;
           colEl.querySelectorAll('.drum-item').forEach((el, i) => {
             el.classList.toggle('drum-selected', i === idx);
@@ -617,6 +621,9 @@
       const dc = document.getElementById('drum-day');
       const yc = document.getElementById('drum-year');
       if (!mc) return;
+      mc.dataset.drumIdx = month - 1;
+      dc.dataset.drumIdx = Math.min(day - 1, 30);
+      yc.dataset.drumIdx = (yi >= 0 ? yi : 1);
       mc.scrollTop = (month - 1) * DRUM_ITEM_H;
       dc.scrollTop = Math.min(day - 1, 30) * DRUM_ITEM_H;
       yc.scrollTop = (yi >= 0 ? yi : 1) * DRUM_ITEM_H;
@@ -640,6 +647,9 @@
       const mc = document.getElementById('drum-minute');
       const ac = document.getElementById('drum-ampm');
       if (!hc) return;
+      hc.dataset.drumIdx = Math.max(0, hour - 1);
+      mc.dataset.drumIdx = (minIdx >= 0 ? minIdx : 0);
+      ac.dataset.drumIdx = (ampmIdx >= 0 ? ampmIdx : 0);
       hc.scrollTop = Math.max(0, hour - 1) * DRUM_ITEM_H;
       mc.scrollTop = (minIdx >= 0 ? minIdx : 0) * DRUM_ITEM_H;
       ac.scrollTop = (ampmIdx >= 0 ? ampmIdx : 0) * DRUM_ITEM_H;
