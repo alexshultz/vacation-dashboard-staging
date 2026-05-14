@@ -4,7 +4,7 @@
 
 
 **Last updated:** 2026-04-28
-**Family starts using dashboard:** ~2026-05-13
+**Family starts using dashboard:** ~2026-05-22
 **Trip:** 2026-05-22 → 05-29
 
 ---
