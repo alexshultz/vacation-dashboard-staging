@@ -34,7 +34,7 @@
     '<div style="background:var(--color-surface);border:1.5px solid var(--color-line);',
     'border-radius:var(--radius-card,12px);padding:24px 20px;max-width:460px;',
     'width:calc(100% - 32px);max-height:90vh;overflow-y:auto;">',
-    '<h2 style="font-family:var(--font-display);font-weight:800;font-size:18px;',
+    '<h2 id="vacdash-modal-title" style="font-family:var(--font-display);font-weight:800;font-size:18px;',
     'margin:0 0 16px;">Edit Event</h2>',
 
     '<label style="display:block;font-size:12px;font-weight:700;',
@@ -258,6 +258,65 @@
   /* ── Public API ────────────────────────────────────────────────────────── */
   window._vacdashEvents = window._vacdashEvents || [];
 
+  window.vacdashOpenNew = function () {
+    _editingId = crypto.randomUUID();
+    document.getElementById('vacdash-modal-title').textContent = 'New Event';
+    document.getElementById('vacdash-edit-title').value      = '';
+    document.getElementById('vacdash-edit-date').value       = '';
+    document.getElementById('vacdash-edit-startTime').value  = '';
+    document.getElementById('vacdash-edit-duration').value   = '';
+    document.getElementById('vacdash-edit-priority').value   = 'medium';
+    document.getElementById('vacdash-edit-catalogRef').value = '';
+    document.getElementById('vacdash-edit-interested').value = '';
+    document.getElementById('vacdash-edit-undecided').value  = '';
+    document.getElementById('vacdash-edit-notInterested').value = '';
+    document.getElementById('vacdash-edit-noResponse').value = '';
+    document.getElementById('vacdash-edit-error').style.display = 'none';
+    _modalEl.style.display = 'flex';
+  };
+
+  window.vacdashArchiveEvent = async function (id) {
+    if (!_sb) { console.error('vacdashArchiveEvent: not authenticated'); return; }
+    var result = await _sb.from('schedule_events').update({ archived: true }).eq('id', id);
+    if (result.error) {
+      console.error('Archive failed:', result.error.message);
+      alert('Archive failed: ' + result.error.message);
+      return;
+    }
+    var card = document.querySelector('details.event-card[data-event-id="' + id + '"]');
+    if (card) card.remove();
+    if (window._vacdashEvents) {
+      window._vacdashEvents = window._vacdashEvents.filter(function (e) { return String(e.id) !== String(id); });
+    }
+  };
+
+  window.vacdashDeleteEvent = async function (id) {
+    if (!_sb) { console.error('vacdashDeleteEvent: not authenticated'); return; }
+    if (!confirm('Are you sure? This cannot be undone.')) return;
+    var result = await _sb.from('schedule_events').delete().eq('id', id);
+    if (result.error) {
+      console.error('Delete failed:', result.error.message);
+      alert('Delete failed: ' + result.error.message);
+      return;
+    }
+    var card = document.querySelector('details.event-card[data-event-id="' + id + '"]');
+    if (card) card.remove();
+    if (window._vacdashEvents) {
+      window._vacdashEvents = window._vacdashEvents.filter(function (e) { return String(e.id) !== String(id); });
+    }
+  };
+
+  window.vacdashRestoreEvent = async function (id) {
+    if (!_sb) { console.error('vacdashRestoreEvent: not authenticated'); return; }
+    var result = await _sb.from('schedule_events').update({ archived: false }).eq('id', id);
+    if (result.error) {
+      console.error('Restore failed:', result.error.message);
+      alert('Restore failed: ' + result.error.message);
+      return;
+    }
+    location.reload();
+  };
+
   window.vacdashOpenEdit = function (btn) {
     var eventId = btn.dataset.eventId;
     var events  = window._vacdashEvents || [];
@@ -267,6 +326,7 @@
     }
 
     _editingId = eventId;
+    document.getElementById('vacdash-modal-title').textContent = 'Edit Event';
 
     // Populate form (gracefully handle missing fields with empty string)
     document.getElementById('vacdash-edit-title').value      = event ? (event.title      || '') : '';

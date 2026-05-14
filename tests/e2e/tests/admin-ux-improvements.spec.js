@@ -110,32 +110,21 @@ test.describe('Feature B -- attendees grid CSS', () => {
     await login(page);
   });
 
-  test('attendee checklist does not have a fixed 300px max-height', async ({ page }) => {
-    const cssText = await page.evaluate(() => {
-      for (const sheet of document.styleSheets) {
-        try {
-          for (const rule of sheet.cssRules) {
-            if (rule.selectorText === '.attendee-checklist') return rule.cssText;
-          }
-        } catch (e) { /* cross-origin */ }
-      }
-      return '';
+  test('attendee checklist has no max-height set', async ({ page }) => {
+    const maxHeight = await page.evaluate(() => {
+      const el = document.getElementById('attendee-checklist');
+      return el ? getComputedStyle(el).maxHeight : null;
     });
-    expect(cssText).not.toMatch(/max-height:\s*300px/);
+    expect(maxHeight).toBe('none');
   });
 
-  test('attendee checklist max-height uses a viewport-relative value containing vh', async ({ page }) => {
-    const cssText = await page.evaluate(() => {
-      for (const sheet of document.styleSheets) {
-        try {
-          for (const rule of sheet.cssRules) {
-            if (rule.selectorText === '.attendee-checklist') return rule.cssText;
-          }
-        } catch (e) { /* cross-origin */ }
-      }
-      return '';
+  test('attendee checklist does not have overflow-y auto or scroll', async ({ page }) => {
+    const overflowY = await page.evaluate(() => {
+      const el = document.getElementById('attendee-checklist');
+      return el ? getComputedStyle(el).overflowY : null;
     });
-    expect(cssText).toMatch(/max-height.*vh/);
+    expect(overflowY).not.toBe('auto');
+    expect(overflowY).not.toBe('scroll');
   });
 });
 

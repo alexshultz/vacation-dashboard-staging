@@ -1,3 +1,111 @@
+## 2026-05-11 -- admin sprint: form spec + AM/PM fix + UX improvements (PRODUCTION LIVE)
+
+**Production commit:** 0d13c62 (vacation.creeperbomb.com -- LIVE)
+**Playwright suite:** 75/75 passing (13 spec files)
+**Session cost:** ~$5.27 (3 Lazlo runs)
+
+### What shipped to production this session
+
+#### 1. Full admin form interactive spec (admin-form-inputs)
+
+**Why:** No tests existed for the drum pickers, duration stepper, segmented control, inline validation, slug input, Save Changes, Import button, or event selector. The existing `admin-event-types.spec.js` only tested event type visibility sections. Alex confirmed this gap explicitly: "What should exist -- and doesn't -- is a full admin form spec covering every interactive element on the page."
+
+**What we built:**
+- New spec: `tests/e2e/tests/admin-form-inputs.spec.js` -- 23 tests covering all 9 interactive components
+- TDD order enforced: red suite confirmed first, fixes second, green confirmed third
+
+**Bugs found and fixed (4 total in web/admin.html):**
+
+1. **AM/PM sync broken** -- the known bug. The time drum's AM/PM sync never fired on staging. Root cause: the `setupDrumScroll` click handler called `scrollTo({ behavior: 'smooth' })`. In headless Chromium, smooth scroll animations do not reliably fire scroll events, so the 80ms debounce sync never ran. Fix: changed to immediate `scrollTop` assignment + explicit sync call.
+
+2. **`box-sizing: content-box` on `.drum-col` prevented short columns from scrolling** -- with `content-box`, `height: 120px` set the content area only; padding added 80px, giving `clientHeight = 200px`. Short drum columns (AM/PM = 2 items, minutes = 4, years = 3) had `scrollHeight <= clientHeight` so max scrollTop was 0 -- they could not scroll at all. Fix: changed to `border-box` so `clientHeight = 120px` and all columns have scroll range.
+
+3. **Drum sync read from unreliable `scrollTop`** -- even after fixes 1-2, scrollTop assignment sometimes does not take effect synchronously (scroll-snap fires asynchronously). Fix: added `data-drum-idx` attribute, set explicitly by click handler and snap functions; `getDrumSelectedIndex` now reads this attribute instead of inferring from scrollTop.
+
+4. **Series slug had no validation** -- no input restriction existed. Fix: added `input` event listener that strips `/[^a-z-]/g` on every keystroke.
+
+**AC-9 flag (not a bug):** The event selector label format in production uses an em dash (`—`), not `--`. Tests written to match actual code behavior. If Alex wants `--`, that is a one-line follow-up.
+
+---
+
+#### 2. Live date/time preview labels above drums (admin-ux-improvements)
+
+**Why:** Alex uses the admin page to set event times and needs a quick scan of day-of-week and time without reading the drum position. Requested format: `DATE Sun, May 24, 2026` and `TIME 2:15 PM` displayed non-interactively above each drum, updating live.
+
+**What we built:**
+- `#date-preview-label` above the date drum: format `DATE {DOW}, {Month} {D}, {YYYY}` (e.g., `DATE Wed, May 13, 2026`)
+- `#time-preview-label` above the start time drum: format `TIME {H}:{MM} {AM|PM}` (e.g., `TIME 2:15 PM`)
+- Both wired into existing `syncDateHiddenInput()` / `syncTimeHiddenInput()` -- no logic duplication
+- CSS: `pointer-events: none; user-select: none; cursor: default` -- informational only
+- 12 new tests in `tests/e2e/tests/admin-ux-improvements.spec.js`
+
+---
+
+#### 3. Attendees grid: never scrolls (admin-attendees-no-scroll)
+
+**Why:** The previous session's Feature B set `max-height: calc(100vh - 300px)` with `overflow-y: auto` on the attendee checklist. After seeing staging, Alex clarified: "The attendees box should never scroll." Full stop -- no viewport exception.
+
+**What we changed:**
+- Removed `max-height` entirely from `.attendee-checklist`
+- Removed `overflow-y: auto`
+- Grid now expands to full content height unconditionally
+- Updated the two assertions in `admin-ux-improvements.spec.js` to verify absence of max-height and overflow scroll
+
+---
+
+#### 4. Save Changes merges attendee save (admin-ux-improvements)
+
+**Why:** Alex was pressing "Save Attendees" and then "Save Changes" as two separate taps. One button should do the full save.
+
+**What we changed:**
+- `saveOverrides()` now `await`s `saveAttendees()` first when the attendee section is visible, then proceeds with the field save
+- Standalone "Save Attendees" button preserved and still works independently
+
+---
+
+### Playwright spec inventory (end of session)
+
+| Spec file | Tests | Coverage |
+|---|---|---|
+| smoke.spec.js | 10 | All 10 pages load + admin gate |
+| family-features.spec.js | -- | Per-page functional |
+| admin-gate.spec.js | 1 | Redirect behavior |
+| admin-auth.spec.js | -- | Auth flow |
+| picks-flows.spec.js | -- | Picks write/filter/cross-page/409 |
+| quickpick-shuffle.spec.js | -- | Fisher-Yates shuffle |
+| wishlist-blank-fix.spec.js | -- | Wishlist renders from localStorage |
+| rsvp-phase0.spec.js | -- | RSVP phase 0 |
+| people-timeline-bar-colors.spec.js | -- | Gantt bar colors dep26/dep27 |
+| quickpick-count-signout-fix.spec.js | -- | Deck count + sign-out |
+| admin-event-types.spec.js | -- | Event type visibility (updated this session) |
+| admin-form-inputs.spec.js | 23 | All 9 admin form interactive components |
+| admin-ux-improvements.spec.js | 12 | Preview labels + attendee grid |
+| **Total** | **75** | **75/75 passing** |
+
+---
+
+## 2026-05-11 -- admin-ux-improvements: preview labels + attendee height fix
+
+**Staging commit:** 0cd901a (vacation-dev.creeperbomb.com)
+**Playwright suite:** 75/75 passing (13 spec files)
+
+### What shipped to staging
+
+**Feature A:** `#date-preview-label` (format: DATE DOW Month D YYYY) and `#time-preview-label` (format: TIME H:MM AM/PM) added above drum pickers in admin.html, wired into `syncDateHiddenInput()` and `syncTimeHiddenInput()`.
+
+**Feature B:** Attendee checklist max-height changed from `300px` to `calc(100vh - 300px)`. `saveOverrides()` now `await`s `saveAttendees()` first when attendee section is visible.
+
+**Incidental (out-of-scope, logged per policy):**
+- `web/js/site.js` -- removed dead `buildTabs()` call (prior cold-reviewer WARN)
+- `web/js/admin-overlay.js` -- sign-out button insertion changed from `appendChild` to `insertBefore` (positions before hamburger in header)
+- `tests/e2e/tests/admin-event-types.spec.js` -- updated to target segmented control (`#event-type-segmented`) and chips instead of dropdown + checkboxes (required because Feature A included a segmented control for event type)
+
+**New spec:** `tests/e2e/tests/admin-ux-improvements.spec.js` -- 12 new tests, all passing.
+
+**Status:** Staging only. Awaiting Alex "ship it" for production.
+
+---
+
 ## 2026-05-09 -- Full bug-fix sprint + production promote
 
 **Production commit:** b1a73a6 (vacation.creeperbomb.com -- LIVE)
