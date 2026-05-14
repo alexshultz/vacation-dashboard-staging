@@ -394,16 +394,9 @@
       <!-- Series Slug -->
       <div style="margin-bottom:18px;">
         <label for="series-slug-input" style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Series (for recurring events)</label>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <input type="text" id="series-slug-input" placeholder="e.g. escape-room"
-            style="flex:1;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
-          <button onclick="saveSeriesSlug()"
-            style="padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink-dim);white-space:nowrap;">
-            Save Series
-          </button>
-        </div>
+        <input type="text" id="series-slug-input" placeholder="e.g. escape-room"
+          style="width:100%;padding:9px 12px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:14px;box-sizing:border-box;">
         <div style="font-size:12px;color:var(--color-ink-dim);margin-top:4px;">Leave blank for standalone events. Use the same slug for all occurrences of the same activity.</div>
-        <span id="series-slug-saved" style="display:none;font-size:12px;margin-top:4px;"></span>
       </div>
 
       <!-- Attendee Assignment (hidden by default) -->
@@ -426,36 +419,35 @@
       <div id="meal-section" style="display:none;margin-bottom:18px;">
         <label style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Meal Headcount</label>
         <div id="meal-estimated" style="font-size:14px;color:var(--color-ink-dim);margin-bottom:8px;"></div>
-        <div class="meal-panels">
+
+        <div class="meal-panels" style="margin-bottom:14px;">
+          <div class="meal-panel">
+            <div style="font-weight:700;font-size:13px;color:var(--color-ink-dim);margin-bottom:6px;">Available</div>
+            <div id="meal-available-panel" style="display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;min-height:36px;"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding-top:24px;">
+            <button type="button" id="meal-add-btn" style="padding:6px 10px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink);white-space:nowrap;">Add →</button>
+            <button type="button" id="meal-remove-btn" style="padding:6px 10px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink);white-space:nowrap;">← Remove</button>
+          </div>
           <div class="meal-panel">
             <div style="font-weight:700;font-size:13px;color:var(--color-ink-dim);margin-bottom:6px;">Override: Add to count</div>
-            <div style="display:flex;gap:6px;margin-bottom:6px;">
-              <select id="meal-include-select"
-                style="flex:1;padding:6px 8px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:13px;"></select>
-              <button onclick="addMealOverride('include')"
-                style="padding:6px 10px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink);">Add</button>
-            </div>
-            <ul id="meal-include-list" style="list-style:none;padding:0;margin:0;"></ul>
-          </div>
-          <div class="meal-panel">
-            <div style="font-weight:700;font-size:13px;color:var(--color-ink-dim);margin-bottom:6px;">Override: Remove from count</div>
-            <div style="display:flex;gap:6px;margin-bottom:6px;">
-              <select id="meal-exclude-select"
-                style="flex:1;padding:6px 8px;border:1.5px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-surface);color:var(--color-ink);font-size:13px;"></select>
-              <button onclick="addMealOverride('exclude')"
-                style="padding:6px 10px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink);">Add</button>
-            </div>
-            <ul id="meal-exclude-list" style="list-style:none;padding:0;margin:0;"></ul>
+            <div id="meal-assigned-panel" style="display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;min-height:36px;"></div>
           </div>
         </div>
+
+        <div style="margin-bottom:14px;">
+          <div style="font-weight:700;font-size:13px;color:var(--color-ink-dim);margin-bottom:6px;">Override: Remove from count</div>
+          <div style="display:flex;gap:8px;align-items:stretch;">
+            <div id="meal-exclude-left-panel" style="flex:1;min-width:0;padding:8px;border:1px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-bg);display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;min-height:60px;"></div>
+            <div style="display:flex;flex-direction:column;gap:6px;justify-content:center;">
+              <button type="button" id="meal-exclude-add-btn" style="padding:6px 10px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink);white-space:nowrap;">→ Add</button>
+              <button type="button" id="meal-exclude-remove-btn" style="padding:6px 10px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink);white-space:nowrap;">← Remove</button>
+            </div>
+            <div id="meal-exclude-right-panel" style="flex:1;min-width:0;padding:8px;border:1px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-bg);display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;min-height:60px;"></div>
+          </div>
+        </div>
+
         <div id="meal-final-count" style="font-size:14px;font-weight:700;color:var(--color-ink);margin-bottom:8px;"></div>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <button onclick="saveMealOverrides()"
-            style="padding:6px 12px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:13px;cursor:pointer;color:var(--color-ink);">
-            Save Overrides
-          </button>
-          <span id="meal-saved" style="display:none;font-size:12px;"></span>
-        </div>
       </div>
 
       <!-- Error banner -->
@@ -465,8 +457,8 @@
 
       <!-- Save + Reset All buttons -->
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px;">
-        <button id="save-btn" onclick="saveOverrides()"
-          style="padding:10px 20px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:14px;cursor:pointer;color:var(--color-ink);">
+        <button id="save-btn" onclick="saveOverrides()" disabled
+          style="padding:10px 20px;border-radius:var(--radius-btn);background:var(--color-surface);border:1.5px solid var(--color-line);font-family:var(--font-display);font-weight:700;font-size:14px;cursor:not-allowed;opacity:0.6;color:var(--color-ink);">
           Save Changes
         </button>
         <button id="reset-all-btn" onclick="resetAllOverrides()"
@@ -554,6 +546,7 @@
           });
           syncDateHiddenInput();
           syncTimeHiddenInput();
+          updateSaveBtnDirty();
         }, 80);
       }, { passive: true });
       colEl.addEventListener('click', e => {
@@ -568,6 +561,7 @@
           });
           syncDateHiddenInput();
           syncTimeHiddenInput();
+          updateSaveBtnDirty();
         }
       });
     }
@@ -811,38 +805,48 @@
       sameDay.forEach(e => { (e.assigned_attendees || []).forEach(name => committedSet.add(name)); });
       const estimated = Math.max(0, allAttendees.length - committedSet.size);
       document.getElementById('meal-estimated').textContent = `Estimated: ${estimated} eating`;
-      const includeCount = document.getElementById('meal-include-list').querySelectorAll('li').length;
-      const excludeCount = document.getElementById('meal-exclude-list').querySelectorAll('li').length;
+      const includeCount = document.querySelectorAll('#meal-assigned-panel .chip').length;
+      const excludeCount = document.querySelectorAll('#meal-exclude-right-panel button.chip').length;
       document.getElementById('meal-final-count').textContent = `Final count: ${Math.max(0, estimated + includeCount - excludeCount)}`;
     }
 
-    function addMealOverride(type) {
-      const selectEl = document.getElementById(type === 'include' ? 'meal-include-select' : 'meal-exclude-select');
-      const listEl   = document.getElementById(type === 'include' ? 'meal-include-list'   : 'meal-exclude-list');
-      const name = selectEl.value;
-      if (!name) return;
-      const li = document.createElement('li');
-      li.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:4px 0;font-size:13px;';
-      const span = document.createElement('span');
-      span.textContent = name;
-      const removeBtn = document.createElement('button');
-      removeBtn.textContent = 'Remove';
-      removeBtn.style.cssText = 'padding:2px 8px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink-dim);';
-      removeBtn.onclick = () => {
-        li.remove();
-        const opt = document.createElement('option');
-        opt.value = name; opt.textContent = name;
-        const opts = Array.from(selectEl.options);
-        let inserted = false;
-        for (let i = 0; i < opts.length; i++) {
-          if (opts[i].value > name) { selectEl.insertBefore(opt, opts[i]); inserted = true; break; }
-        }
-        if (!inserted) selectEl.appendChild(opt);
-        recalculateMealHeadcount();
-      };
-      li.appendChild(span); li.appendChild(removeBtn);
-      listEl.appendChild(li);
-      selectEl.remove(selectEl.selectedIndex);
+    function getMealPanelId(side, location) {
+      if (side === 'include') {
+        return location === 'left' ? 'meal-available-panel' : 'meal-assigned-panel';
+      }
+      return `meal-${side}-${location}-panel`;
+    }
+
+    function renderMealChip(name, side, location) {
+      const panel = document.getElementById(getMealPanelId(side, location));
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'chip';
+      chip.dataset.name = name;
+      chip.textContent = name;
+      chip.addEventListener('click', () => {
+        chip.classList.toggle('chip-selected');
+      });
+      panel.appendChild(chip);
+    }
+
+    function getMealRightNames(side) {
+      const panelId = side === 'include' ? 'meal-assigned-panel' : `meal-${side}-right-panel`;
+      return Array.from(document.querySelectorAll(`#${panelId} .chip`))
+        .map(c => c.dataset.name);
+    }
+
+    function transferMealChips(side, direction) {
+      const fromLocation = direction === 'add' ? 'left' : 'right';
+      const toLocation   = direction === 'add' ? 'right' : 'left';
+      const fromPanel = document.getElementById(getMealPanelId(side, fromLocation));
+      const toPanel   = document.getElementById(getMealPanelId(side, toLocation));
+      const selected = Array.from(fromPanel.querySelectorAll('.chip-selected'));
+      selected.forEach(chip => {
+        chip.classList.remove('chip-selected');
+        toPanel.appendChild(chip);
+      });
+      updateSaveBtnDirty();
       recalculateMealHeadcount();
     }
 
@@ -866,56 +870,17 @@
       container.style.gridTemplateRows = 'repeat(' + Math.ceil(allAttendees.length / 3) + ', auto)';
     }
 
-    function populateMealSelects() {
-      ['meal-include-select', 'meal-exclude-select'].forEach(id => {
-        const sel = document.getElementById(id);
-        sel.innerHTML = '';
-        allAttendees.forEach(name => {
-          const opt = document.createElement('option');
-          opt.value = name; opt.textContent = name;
-          sel.appendChild(opt);
-        });
-      });
-    }
-
     function populateMealOverrideLists(include, exclude) {
-      document.getElementById('meal-include-list').innerHTML = '';
-      document.getElementById('meal-exclude-list').innerHTML = '';
-      populateMealSelects();
-      include.forEach(name => {
-        const sel = document.getElementById('meal-include-select');
-        const idx = Array.from(sel.options).findIndex(o => o.value === name);
-        if (idx >= 0) { sel.selectedIndex = idx; addMealOverride('include'); }
+      ['include', 'exclude'].forEach(side => {
+        document.getElementById(getMealPanelId(side, 'left')).innerHTML = '';
+        document.getElementById(getMealPanelId(side, 'right')).innerHTML = '';
+        const rightNames = side === 'include' ? include : exclude;
+        const rightSet = new Set(rightNames);
+        allAttendees.forEach(name => {
+          if (!rightSet.has(name)) renderMealChip(name, side, 'left');
+        });
+        rightNames.forEach(name => renderMealChip(name, side, 'right'));
       });
-      exclude.forEach(name => {
-        const sel = document.getElementById('meal-exclude-select');
-        const idx = Array.from(sel.options).findIndex(o => o.value === name);
-        if (idx >= 0) { sel.selectedIndex = idx; addMealOverride('exclude'); }
-      });
-    }
-
-    async function saveSeriesSlug() {
-      if (!currentEvent) return;
-      const val = document.getElementById('series-slug-input').value.trim();
-      const savedEl = document.getElementById('series-slug-saved');
-      try {
-        const r = await patchScheduleEvent(currentEvent.id, { series_slug: val || null });
-        if (!r.ok) {
-          const text = await r.text();
-          savedEl.textContent = 'Error: ' + r.status + ' ' + text;
-          savedEl.style.color = 'var(--status-no)';
-          savedEl.style.display = 'inline';
-          return;
-        }
-        savedEl.textContent = 'Saved';
-        savedEl.style.color = 'var(--status-yes)';
-        savedEl.style.display = 'inline';
-        setTimeout(() => { savedEl.style.display = 'none'; }, 2000);
-      } catch (e) {
-        savedEl.textContent = 'Error: ' + e.message;
-        savedEl.style.color = 'var(--status-no)';
-        savedEl.style.display = 'inline';
-      }
     }
 
     // Pattern 7: read chips instead of checkboxes
@@ -948,31 +913,42 @@
       }
     }
 
-    async function saveMealOverrides() {
-      if (!currentEvent) return;
-      const includeItems = Array.from(document.querySelectorAll('#meal-include-list li span')).map(s => s.textContent);
-      const excludeItems = Array.from(document.querySelectorAll('#meal-exclude-list li span')).map(s => s.textContent);
-      const savedEl = document.getElementById('meal-saved');
-      try {
-        const r = await patchScheduleEvent(currentEvent.id, {
-          meal_override_include: includeItems,
-          meal_override_exclude: excludeItems
-        });
-        if (!r.ok) {
-          const text = await r.text();
-          savedEl.textContent = 'Error: ' + r.status + ' ' + text;
-          savedEl.style.color = 'var(--status-no)';
-          savedEl.style.display = 'inline';
-          return;
-        }
-        savedEl.textContent = 'Saved';
-        savedEl.style.color = 'var(--status-yes)';
-        savedEl.style.display = 'inline';
-        setTimeout(() => { savedEl.style.display = 'none'; }, 2000);
-      } catch (e) {
-        savedEl.textContent = 'Error: ' + e.message;
-        savedEl.style.color = 'var(--status-no)';
-        savedEl.style.display = 'inline';
+    // --- Dirty-state for Save Changes button ---
+    function updateSaveBtnDirty() {
+      const btn = document.getElementById('save-btn');
+      if (!btn || !currentEvent) return;
+      if (loadedValues.title === undefined) return; // not yet loaded
+
+      let dirty = false;
+      for (const f of FIELDS) {
+        const input = document.getElementById('input-' + f);
+        if (input && input.value !== loadedValues[f]) { dirty = true; break; }
+      }
+      if (!dirty) {
+        const slugVal = document.getElementById('series-slug-input').value;
+        if (slugVal !== (loadedValues.series_slug || '')) dirty = true;
+      }
+      if (!dirty && loadedValues.meal_override_include !== undefined) {
+        const incCur = JSON.stringify(getMealRightNames('include'));
+        const excCur = JSON.stringify(getMealRightNames('exclude'));
+        if (incCur !== loadedValues.meal_override_include) dirty = true;
+        if (excCur !== loadedValues.meal_override_exclude) dirty = true;
+      }
+
+      if (dirty) {
+        btn.disabled          = false;
+        btn.style.background  = 'var(--accent-1)';
+        btn.style.borderColor = 'var(--accent-1)';
+        btn.style.color       = '#fff';
+        btn.style.opacity     = '1';
+        btn.style.cursor      = 'pointer';
+      } else {
+        btn.disabled          = true;
+        btn.style.background  = 'var(--color-surface)';
+        btn.style.borderColor = 'var(--color-line)';
+        btn.style.color       = 'var(--color-ink)';
+        btn.style.opacity     = '0.45';
+        btn.style.cursor      = 'not-allowed';
       }
     }
 
@@ -1000,13 +976,13 @@
       document.getElementById('event-form').style.display = 'block';
       FIELDS.forEach(f => { document.getElementById('saved-' + f).style.display = 'none'; });
 
+      // Clear loadedValues so dirty-state checks during populate are no-ops
+      loadedValues = {};
+
       populateField('title',     currentEvent.title     != null ? String(currentEvent.title)     : '');
       populateField('date',      currentEvent.date      != null ? String(currentEvent.date)      : '');
       populateField('startTime', currentEvent.startTime != null ? String(currentEvent.startTime) : '');
       populateField('duration',  currentEvent.duration  != null ? String(currentEvent.duration)  : '');
-
-      loadedValues = {};
-      FIELDS.forEach(f => { loadedValues[f] = document.getElementById('input-' + f).value; });
 
       // Fetch coordinator fields from schedule_events
       try {
@@ -1045,6 +1021,15 @@
       } catch (e) {
         console.error('[admin] fetch coordinator fields failed', e);
       }
+
+      // Snapshot loaded values AFTER all populate completes; then evaluate dirty (clean).
+      const newLoaded = {};
+      FIELDS.forEach(f => { newLoaded[f] = document.getElementById('input-' + f).value; });
+      newLoaded.series_slug = document.getElementById('series-slug-input').value;
+      newLoaded.meal_override_include = JSON.stringify(getMealRightNames('include'));
+      newLoaded.meal_override_exclude = JSON.stringify(getMealRightNames('exclude'));
+      loadedValues = newLoaded;
+      updateSaveBtnDirty();
     }
 
     async function resetField(field) {
@@ -1091,26 +1076,54 @@
         }
       });
 
-      if (rows.length === 0) return;
+      // Coordinator-field PATCH: series_slug + meal overrides
+      const patch = {};
+      const slugCur = document.getElementById('series-slug-input').value.trim();
+      const slugLoaded = (loadedValues.series_slug || '').trim();
+      if (slugCur !== slugLoaded) {
+        patch.series_slug = slugCur || null;
+      }
+      if (loadedValues.meal_override_include !== undefined) {
+        const incCur = JSON.stringify(getMealRightNames('include'));
+        const excCur = JSON.stringify(getMealRightNames('exclude'));
+        if (incCur !== loadedValues.meal_override_include) {
+          patch.meal_override_include = JSON.parse(incCur);
+        }
+        if (excCur !== loadedValues.meal_override_exclude) {
+          patch.meal_override_exclude = JSON.parse(excCur);
+        }
+      }
+
+      if (rows.length === 0 && Object.keys(patch).length === 0) return;
 
       try {
-        const r = await fetch(
-          `${SUPABASE_URL}/rest/v1/schedule_overrides?on_conflict=event_id,field`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'apikey': SUPABASE_ANON_KEY,
-              'Authorization': `Bearer ${await getAdminToken()}`,
-              'Prefer': 'return=minimal,resolution=merge-duplicates'
-            },
-            body: JSON.stringify(rows)
+        if (Object.keys(patch).length > 0) {
+          const pr = await patchScheduleEvent(currentEvent.id, patch);
+          if (!pr.ok) {
+            const text = await pr.text();
+            showErrorBanner('Save failed: ' + pr.status + ' ' + text);
+            return;
           }
-        );
-        if (!r.ok) {
-          const text = await r.text();
-          showErrorBanner('Save failed: ' + r.status + ' ' + text);
-          return;
+        }
+        if (rows.length > 0) {
+          const r = await fetch(
+            `${SUPABASE_URL}/rest/v1/schedule_overrides?on_conflict=event_id,field`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'apikey': SUPABASE_ANON_KEY,
+                'Authorization': `Bearer ${await getAdminToken()}`,
+                'Prefer': 'return=minimal,resolution=merge-duplicates'
+              },
+              body: JSON.stringify(rows)
+            }
+          );
+          if (!r.ok) {
+            const text = await r.text();
+            showErrorBanner('Save failed: ' + r.status + ' ' + text);
+            return;
+          }
         }
         await loadEventForm();
         showToast('Saved', 'success');
@@ -1223,25 +1236,32 @@
         allAttendees = FALLBACK_ATTENDEES;
       }
       buildAttendeeCheckboxes();
-      populateMealSelects();
 
       initDateDrum();
       initTimeDrum();
 
-      // Pattern 2: title validation listener
+      // Pattern 2: title validation listener (also dirty-state)
       document.getElementById('input-title').addEventListener('input', e => {
         updateTitleValidation(e.target.value);
+        updateSaveBtnDirty();
       });
 
-      // Series slug: strip any character that is not a lowercase letter or hyphen
+      // Series slug: strip invalid characters; also dirty-state
       document.getElementById('series-slug-input').addEventListener('input', e => {
         const stripped = e.target.value.replace(/[^a-z-]/g, '');
         if (stripped !== e.target.value) e.target.value = stripped;
+        updateSaveBtnDirty();
       });
 
       // Pattern 5: stepper buttons
-      document.getElementById('dur-minus').addEventListener('click', () => stepDuration(-DUR_STEP));
-      document.getElementById('dur-plus').addEventListener('click',  () => stepDuration(DUR_STEP));
+      document.getElementById('dur-minus').addEventListener('click', () => { stepDuration(-DUR_STEP); updateSaveBtnDirty(); });
+      document.getElementById('dur-plus').addEventListener('click',  () => { stepDuration(DUR_STEP);  updateSaveBtnDirty(); });
+
+      // Meal override transfer buttons
+      document.getElementById('meal-add-btn').addEventListener('click', () => transferMealChips('include', 'add'));
+      document.getElementById('meal-remove-btn').addEventListener('click', () => transferMealChips('include', 'remove'));
+      document.getElementById('meal-exclude-add-btn').addEventListener('click', () => transferMealChips('exclude', 'add'));
+      document.getElementById('meal-exclude-remove-btn').addEventListener('click', () => transferMealChips('exclude', 'remove'));
 
       // Pattern 6: segmented control → hidden select → change event
       document.querySelectorAll('#event-type-segmented .seg-btn').forEach(btn => {
