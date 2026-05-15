@@ -122,6 +122,20 @@ test.describe('AC-2/3: save-btn dirty/clean visual state', () => {
     const opacityAfter = await page.evaluate(() => document.getElementById('save-btn').style.opacity);
     expect(parseFloat(opacityAfter)).toBeGreaterThanOrEqual(0.99);
   });
+
+  test('AC-2: save-btn becomes highlighted when event type is changed', async ({ page }) => {
+    const opacityBefore = await page.evaluate(() => document.getElementById('save-btn').style.opacity);
+    expect(parseFloat(opacityBefore)).toBeLessThan(1);
+    // Click whichever event type differs from what's currently loaded
+    await page.evaluate(() => {
+      const currentVal = document.getElementById('event-type-select').value;
+      const targetVal = currentVal === 'meal' ? 'open' : 'meal';
+      document.querySelector(`#event-type-segmented .seg-btn[data-value="${targetVal}"]`).click();
+    });
+    await page.waitForTimeout(300);
+    const opacityAfter = await page.evaluate(() => document.getElementById('save-btn').style.opacity);
+    expect(parseFloat(opacityAfter)).toBeGreaterThanOrEqual(0.99);
+  });
 });
 
 // ── AC-4: clicking save when clean does nothing ───────────────────────────────

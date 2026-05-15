@@ -188,6 +188,10 @@
   text-align: center;
 }
 
+/* Meal chip indicators */
+.meal-chip-manual { border: 2px solid var(--accent-2) !important; }
+.meal-chip-warn   { border: 2px solid var(--status-warn, #e67e22) !important; }
+
 /* Toast snackbar */
 #toast-snackbar {
   position: fixed;
@@ -418,35 +422,20 @@
       <!-- Meal Headcount (hidden by default) -->
       <div id="meal-section" style="display:none;margin-bottom:18px;">
         <label style="display:block;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);margin-bottom:6px;">Meal Headcount</label>
-        <div id="meal-estimated" style="font-size:14px;color:var(--color-ink-dim);margin-bottom:8px;"></div>
-
         <div class="meal-panels" style="margin-bottom:14px;">
           <div class="meal-panel">
-            <div style="font-weight:700;font-size:13px;color:var(--color-ink-dim);margin-bottom:6px;">Available</div>
-            <div id="meal-available-panel" style="display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;min-height:36px;"></div>
+            <div style="font-weight:700;font-size:13px;color:var(--color-ink-dim);margin-bottom:6px;">Eating</div>
+            <div id="meal-left-panel" style="display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;min-height:36px;"></div>
           </div>
           <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding-top:24px;">
-            <button type="button" id="meal-add-btn" style="padding:6px 10px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink);white-space:nowrap;">Add →</button>
-            <button type="button" id="meal-remove-btn" style="padding:6px 10px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink);white-space:nowrap;">← Remove</button>
+            <button type="button" id="meal-move-right-btn" style="padding:6px 10px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink);white-space:nowrap;">Add →</button>
+            <button type="button" id="meal-move-left-btn" style="padding:6px 10px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink);white-space:nowrap;">← Remove</button>
           </div>
           <div class="meal-panel">
-            <div style="font-weight:700;font-size:13px;color:var(--color-ink-dim);margin-bottom:6px;">Override: Add to count</div>
-            <div id="meal-assigned-panel" style="display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;min-height:36px;"></div>
+            <div style="font-weight:700;font-size:13px;color:var(--color-ink-dim);margin-bottom:6px;">Not Eating</div>
+            <div id="meal-right-panel" style="display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;min-height:36px;"></div>
           </div>
         </div>
-
-        <div style="margin-bottom:14px;">
-          <div style="font-weight:700;font-size:13px;color:var(--color-ink-dim);margin-bottom:6px;">Override: Remove from count</div>
-          <div style="display:flex;gap:8px;align-items:stretch;">
-            <div id="meal-exclude-left-panel" style="flex:1;min-width:0;padding:8px;border:1px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-bg);display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;min-height:60px;"></div>
-            <div style="display:flex;flex-direction:column;gap:6px;justify-content:center;">
-              <button type="button" id="meal-exclude-add-btn" style="padding:6px 10px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink);white-space:nowrap;">→ Add</button>
-              <button type="button" id="meal-exclude-remove-btn" style="padding:6px 10px;border-radius:var(--radius-btn);background:var(--color-surface);border:1px solid var(--color-line);font-size:12px;cursor:pointer;color:var(--color-ink);white-space:nowrap;">← Remove</button>
-            </div>
-            <div id="meal-exclude-right-panel" style="flex:1;min-width:0;padding:8px;border:1px solid var(--color-line);border-radius:var(--radius-btn);background:var(--color-bg);display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;min-height:60px;"></div>
-          </div>
-        </div>
-
         <div id="meal-final-count" style="font-size:14px;font-weight:700;color:var(--color-ink);margin-bottom:8px;"></div>
       </div>
 
@@ -497,6 +486,9 @@
     let loadedValues = {};
     let currentSort = 'date';
     let allAttendees = [];
+    let mealAutoExcluded = new Set();
+    let mealConflictByName = {};
+    let mealSameDateEvents = [];
 
     // --- Toast snackbar (Pattern 8) ---
     let toastTimeout = null;
@@ -796,58 +788,125 @@
       document.getElementById('attendee-count-badge').textContent = `${n} of ${allAttendees.length} assigned`;
     }
 
-    function recalculateMealHeadcount() {
-      if (!currentEvent) return;
-      const sameDay = allEvents.filter(e =>
-        e.date === currentEvent.date && e.event_type === 'commitment'
-      );
-      const committedSet = new Set();
-      sameDay.forEach(e => { (e.assigned_attendees || []).forEach(name => committedSet.add(name)); });
-      const estimated = Math.max(0, allAttendees.length - committedSet.size);
-      document.getElementById('meal-estimated').textContent = `Estimated: ${estimated} eating`;
-      const includeCount = document.querySelectorAll('#meal-assigned-panel .chip').length;
-      const excludeCount = document.querySelectorAll('#meal-exclude-right-panel button.chip').length;
-      document.getElementById('meal-final-count').textContent = `Final count: ${Math.max(0, estimated + includeCount - excludeCount)}`;
+    function timeToMinutes(timeStr) {
+      if (!timeStr) return 0;
+      let m = timeStr.match(/^(\d{1,2}):(\d{2})$/);
+      if (m) return parseInt(m[1], 10) * 60 + parseInt(m[2], 10);
+      m = timeStr.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+      if (!m) return 0;
+      let h = parseInt(m[1], 10);
+      const min = parseInt(m[2], 10);
+      const ampm = m[3].toUpperCase();
+      if (ampm === 'PM' && h !== 12) h += 12;
+      if (ampm === 'AM' && h === 12) h = 0;
+      return h * 60 + min;
     }
 
-    function getMealPanelId(side, location) {
-      if (side === 'include') {
-        return location === 'left' ? 'meal-available-panel' : 'meal-assigned-panel';
-      }
-      return `meal-${side}-${location}-panel`;
+    function eventsOverlap(a, b) {
+      const aStart = timeToMinutes(a.startTime);
+      const aEnd   = aStart + parseFloat(a.duration || 0) * 60;
+      const bStart = timeToMinutes(b.startTime);
+      const bEnd   = bStart + parseFloat(b.duration || 0) * 60;
+      return aStart < bEnd && bStart < aEnd;
     }
 
-    function renderMealChip(name, side, location) {
-      const panel = document.getElementById(getMealPanelId(side, location));
-      const chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'chip';
-      chip.dataset.name = name;
-      chip.textContent = name;
-      chip.addEventListener('click', () => {
-        chip.classList.toggle('chip-selected');
+    function updateMealHeadcount() {
+      const count = document.querySelectorAll('#meal-left-panel .chip').length;
+      document.getElementById('meal-final-count').textContent = `Headcount: ${count}`;
+    }
+
+    function populateMealPanels(event, sameDateEvents) {
+      mealAutoExcluded = new Set();
+      mealConflictByName = {};
+      (sameDateEvents || []).forEach(e => {
+        if (e.event_type !== 'commitment') return;
+        if (!eventsOverlap(event, e)) return;
+        (e.assigned_attendees || []).forEach(name => {
+          mealAutoExcluded.add(name);
+          if (!mealConflictByName[name]) mealConflictByName[name] = e.title;
+        });
       });
-      panel.appendChild(chip);
+
+      const mealOverrideInclude = event.meal_override_include || [];
+      const mealOverrideExclude = event.meal_override_exclude || [];
+
+      const leftEntries  = [];
+      const rightEntries = [];
+      allAttendees.forEach(name => {
+        if (mealAutoExcluded.has(name)) rightEntries.push({ name, isManual: false });
+        else                            leftEntries.push({ name, isManual: false });
+      });
+
+      mealOverrideInclude.forEach(name => {
+        const idx = leftEntries.findIndex(p => p.name === name);
+        if (idx >= 0) {
+          const p = leftEntries.splice(idx, 1)[0];
+          p.isManual = true;
+          rightEntries.push(p);
+        } else {
+          const rp = rightEntries.find(p => p.name === name);
+          if (rp) rp.isManual = true;
+        }
+      });
+      mealOverrideExclude.forEach(name => {
+        const idx = rightEntries.findIndex(p => p.name === name);
+        if (idx >= 0) {
+          const p = rightEntries.splice(idx, 1)[0];
+          p.isManual = true;
+          leftEntries.push(p);
+        } else {
+          const lp = leftEntries.find(p => p.name === name);
+          if (lp) lp.isManual = true;
+        }
+      });
+
+      const leftEl  = document.getElementById('meal-left-panel');
+      const rightEl = document.getElementById('meal-right-panel');
+      leftEl.innerHTML = '';
+      rightEl.innerHTML = '';
+
+      function makeChip(person) {
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'chip';
+        chip.dataset.name = person.name;
+        chip.textContent = person.name;
+
+        const isForceExcluded = mealOverrideInclude.includes(person.name);
+        const isForceIncluded = mealOverrideExclude.includes(person.name);
+
+        let alertMsg = null;
+        if (isForceExcluded && !mealAutoExcluded.has(person.name)) {
+          alertMsg = 'Manually excluded, but no longer has a time conflict';
+        } else if (isForceIncluded && mealAutoExcluded.has(person.name)) {
+          alertMsg = `Manually included, but now conflicts with: ${mealConflictByName[person.name] || 'unknown event'}`;
+        }
+
+        if (alertMsg) {
+          chip.classList.add('meal-chip-warn');
+          chip.title = alertMsg;
+        } else if (person.isManual) {
+          chip.classList.add('meal-chip-manual');
+        }
+
+        chip.addEventListener('click', () => chip.classList.toggle('chip-selected'));
+        return chip;
+      }
+
+      leftEntries.forEach(p  => leftEl.appendChild(makeChip(p)));
+      rightEntries.forEach(p => rightEl.appendChild(makeChip(p)));
+      updateMealHeadcount();
     }
 
-    function getMealRightNames(side) {
-      const panelId = side === 'include' ? 'meal-assigned-panel' : `meal-${side}-right-panel`;
-      return Array.from(document.querySelectorAll(`#${panelId} .chip`))
-        .map(c => c.dataset.name);
-    }
-
-    function transferMealChips(side, direction) {
-      const fromLocation = direction === 'add' ? 'left' : 'right';
-      const toLocation   = direction === 'add' ? 'right' : 'left';
-      const fromPanel = document.getElementById(getMealPanelId(side, fromLocation));
-      const toPanel   = document.getElementById(getMealPanelId(side, toLocation));
-      const selected = Array.from(fromPanel.querySelectorAll('.chip-selected'));
-      selected.forEach(chip => {
+    function moveMealChips(fromId, toId) {
+      const fromPanel = document.getElementById(fromId);
+      const toPanel   = document.getElementById(toId);
+      Array.from(fromPanel.querySelectorAll('.chip-selected')).forEach(chip => {
         chip.classList.remove('chip-selected');
         toPanel.appendChild(chip);
       });
       updateSaveBtnDirty();
-      recalculateMealHeadcount();
+      updateMealHeadcount();
     }
 
     // Pattern 7: chip-based attendee list
@@ -870,20 +929,8 @@
       container.style.gridTemplateRows = 'repeat(' + Math.ceil(allAttendees.length / 3) + ', auto)';
     }
 
-    function populateMealOverrideLists(include, exclude) {
-      ['include', 'exclude'].forEach(side => {
-        document.getElementById(getMealPanelId(side, 'left')).innerHTML = '';
-        document.getElementById(getMealPanelId(side, 'right')).innerHTML = '';
-        const rightNames = side === 'include' ? include : exclude;
-        const rightSet = new Set(rightNames);
-        allAttendees.forEach(name => {
-          if (!rightSet.has(name)) renderMealChip(name, side, 'left');
-        });
-        rightNames.forEach(name => renderMealChip(name, side, 'right'));
-      });
-    }
 
-    // Pattern 7: read chips instead of checkboxes
+// Pattern 7: read chips instead of checkboxes
     async function saveAttendees() {
       if (!currentEvent) return;
       const checked = [...document.querySelectorAll('#attendee-checklist .chip-selected')]
@@ -928,11 +975,17 @@
         const slugVal = document.getElementById('series-slug-input').value;
         if (slugVal !== (loadedValues.series_slug || '')) dirty = true;
       }
+      if (!dirty) {
+        const etVal = document.getElementById('event-type-select').value;
+        if (etVal !== (loadedValues.event_type || '')) dirty = true;
+      }
       if (!dirty && loadedValues.meal_override_include !== undefined) {
-        const incCur = JSON.stringify(getMealRightNames('include'));
-        const excCur = JSON.stringify(getMealRightNames('exclude'));
-        if (incCur !== loadedValues.meal_override_include) dirty = true;
-        if (excCur !== loadedValues.meal_override_exclude) dirty = true;
+        const rightNames = [...document.querySelectorAll('#meal-right-panel .chip')].map(c => c.dataset.name);
+        const leftNames  = [...document.querySelectorAll('#meal-left-panel .chip')].map(c => c.dataset.name);
+        const curInc = JSON.stringify(rightNames.filter(n => !mealAutoExcluded.has(n)));
+        const curExc = JSON.stringify(leftNames.filter(n =>  mealAutoExcluded.has(n)));
+        if (curInc !== loadedValues.meal_override_include) dirty = true;
+        if (curExc !== loadedValues.meal_override_exclude) dirty = true;
       }
 
       if (dirty) {
@@ -984,24 +1037,33 @@
       populateField('startTime', currentEvent.startTime != null ? String(currentEvent.startTime) : '');
       populateField('duration',  currentEvent.duration  != null ? String(currentEvent.duration)  : '');
 
-      // Fetch coordinator fields from schedule_events
+      // Fetch coordinator fields and same-date events in parallel
       try {
-        const er = await fetch(
-          `${SUPABASE_URL}/rest/v1/schedule_events?id=eq.${currentEvent.id}&select=event_type,series_slug,assigned_attendees,meal_override_include,meal_override_exclude`,
-          { headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` } }
-        );
+        const [er, sr] = await Promise.all([
+          fetch(
+            `${SUPABASE_URL}/rest/v1/schedule_events?id=eq.${currentEvent.id}&select=event_type,series_slug,assigned_attendees,meal_override_include,meal_override_exclude`,
+            { headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` } }
+          ),
+          fetch(
+            `${SUPABASE_URL}/rest/v1/schedule_events?date=eq.${currentEvent.date}&id=neq.${currentEvent.id}&select=id,title,startTime,duration,event_type,assigned_attendees`,
+            { headers: { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` } }
+          )
+        ]);
+
+        mealSameDateEvents = sr.ok ? await sr.json() : [];
+
         if (er.ok) {
           const rows = await er.json();
           if (rows.length > 0) {
             const ev = rows[0];
-            currentEvent.event_type           = ev.event_type;
-            currentEvent.assigned_attendees   = ev.assigned_attendees || [];
+            currentEvent.event_type            = ev.event_type;
+            currentEvent.assigned_attendees    = ev.assigned_attendees || [];
             currentEvent.meal_override_include = ev.meal_override_include || [];
             currentEvent.meal_override_exclude = ev.meal_override_exclude || [];
             const evInList = allEvents.find(e => e.id === currentEvent.id);
             if (evInList) {
-              evInList.event_type          = ev.event_type;
-              evInList.assigned_attendees  = ev.assigned_attendees || [];
+              evInList.event_type         = ev.event_type;
+              evInList.assigned_attendees = ev.assigned_attendees || [];
             }
             const evType = (ev.event_type && ev.event_type !== '') ? ev.event_type : 'commitment';
             document.getElementById('event-type-select').value = evType;
@@ -1009,13 +1071,11 @@
             document.getElementById('series-slug-input').value = ev.series_slug || '';
             updateEventTypeSections();
             const assigned = ev.assigned_attendees || [];
-            // Pattern 7: toggle chips
             document.querySelectorAll('#attendee-checklist .chip').forEach(chip => {
               chip.classList.toggle('chip-selected', assigned.includes(chip.dataset.name));
             });
             updateAttendeeBadge(assigned.length);
-            populateMealOverrideLists(ev.meal_override_include || [], ev.meal_override_exclude || []);
-            recalculateMealHeadcount();
+            populateMealPanels(currentEvent, mealSameDateEvents);
           }
         }
       } catch (e) {
@@ -1026,8 +1086,11 @@
       const newLoaded = {};
       FIELDS.forEach(f => { newLoaded[f] = document.getElementById('input-' + f).value; });
       newLoaded.series_slug = document.getElementById('series-slug-input').value;
-      newLoaded.meal_override_include = JSON.stringify(getMealRightNames('include'));
-      newLoaded.meal_override_exclude = JSON.stringify(getMealRightNames('exclude'));
+      newLoaded.event_type  = document.getElementById('event-type-select').value;
+      const rNames = [...document.querySelectorAll('#meal-right-panel .chip')].map(c => c.dataset.name);
+      const lNames = [...document.querySelectorAll('#meal-left-panel .chip')].map(c => c.dataset.name);
+      newLoaded.meal_override_include = JSON.stringify(rNames.filter(n => !mealAutoExcluded.has(n)));
+      newLoaded.meal_override_exclude = JSON.stringify(lNames.filter(n =>  mealAutoExcluded.has(n)));
       loadedValues = newLoaded;
       updateSaveBtnDirty();
     }
@@ -1076,16 +1139,22 @@
         }
       });
 
-      // Coordinator-field PATCH: series_slug + meal overrides
+      // Coordinator-field PATCH: event_type + series_slug + meal overrides
       const patch = {};
+      const etCur = document.getElementById('event-type-select').value;
+      if (etCur !== (loadedValues.event_type || '')) {
+        patch.event_type = etCur || null;
+      }
       const slugCur = document.getElementById('series-slug-input').value.trim();
       const slugLoaded = (loadedValues.series_slug || '').trim();
       if (slugCur !== slugLoaded) {
         patch.series_slug = slugCur || null;
       }
       if (loadedValues.meal_override_include !== undefined) {
-        const incCur = JSON.stringify(getMealRightNames('include'));
-        const excCur = JSON.stringify(getMealRightNames('exclude'));
+        const rightNames = [...document.querySelectorAll('#meal-right-panel .chip')].map(c => c.dataset.name);
+        const leftNames  = [...document.querySelectorAll('#meal-left-panel .chip')].map(c => c.dataset.name);
+        const incCur = JSON.stringify(rightNames.filter(n => !mealAutoExcluded.has(n)));
+        const excCur = JSON.stringify(leftNames.filter(n =>  mealAutoExcluded.has(n)));
         if (incCur !== loadedValues.meal_override_include) {
           patch.meal_override_include = JSON.parse(incCur);
         }
@@ -1257,11 +1326,9 @@
       document.getElementById('dur-minus').addEventListener('click', () => { stepDuration(-DUR_STEP); updateSaveBtnDirty(); });
       document.getElementById('dur-plus').addEventListener('click',  () => { stepDuration(DUR_STEP);  updateSaveBtnDirty(); });
 
-      // Meal override transfer buttons
-      document.getElementById('meal-add-btn').addEventListener('click', () => transferMealChips('include', 'add'));
-      document.getElementById('meal-remove-btn').addEventListener('click', () => transferMealChips('include', 'remove'));
-      document.getElementById('meal-exclude-add-btn').addEventListener('click', () => transferMealChips('exclude', 'add'));
-      document.getElementById('meal-exclude-remove-btn').addEventListener('click', () => transferMealChips('exclude', 'remove'));
+      // Meal chip move buttons
+      document.getElementById('meal-move-right-btn').addEventListener('click', () => moveMealChips('meal-left-panel',  'meal-right-panel'));
+      document.getElementById('meal-move-left-btn').addEventListener('click',  () => moveMealChips('meal-right-panel', 'meal-left-panel'));
 
       // Pattern 6: segmented control → hidden select → change event
       document.querySelectorAll('#event-type-segmented .seg-btn').forEach(btn => {
@@ -1273,33 +1340,15 @@
         });
       });
 
-      // Event type change: call updateEventTypeSections synchronously first, THEN async PATCH
-      document.getElementById('event-type-select').addEventListener('change', async () => {
+      // Event type change: update sections + dirty state; save via Save Changes button
+      document.getElementById('event-type-select').addEventListener('change', () => {
         if (!currentEvent) return;
-        const val     = document.getElementById('event-type-select').value;
-        const savedEl = document.getElementById('event-type-saved');
+        const val = document.getElementById('event-type-select').value;
         updateEventTypeSections();
-        try {
-          const r = await patchScheduleEvent(currentEvent.id, { event_type: val || null });
-          if (!r.ok) {
-            const text = await r.text();
-            savedEl.textContent = 'Error: ' + r.status + ' ' + text;
-            savedEl.style.color   = 'var(--status-no)';
-            savedEl.style.display = 'inline';
-          } else {
-            currentEvent.event_type = val || null;
-            const evInList = allEvents.find(e => e.id === currentEvent.id);
-            if (evInList) evInList.event_type = val || null;
-            savedEl.textContent = 'Saved';
-            savedEl.style.color   = 'var(--status-yes)';
-            savedEl.style.display = 'inline';
-            setTimeout(() => { savedEl.style.display = 'none'; }, 2000);
-          }
-        } catch (e) {
-          savedEl.textContent = 'Error: ' + e.message;
-          savedEl.style.color   = 'var(--status-no)';
-          savedEl.style.display = 'inline';
+        if (val === 'meal') {
+          populateMealPanels(currentEvent, mealSameDateEvents);
         }
+        updateSaveBtnDirty();
       });
 
       document.querySelectorAll('.sort-btn').forEach(btn => {
