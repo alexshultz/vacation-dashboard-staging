@@ -80,12 +80,26 @@ python3 "$VAULT/scripts/export_data.py"
 # RSYNC
 # ============================================================
 echo ""
-echo "=== rsync vault/web/ → $TARGET ==="
-rsync -av --delete \
-  --exclude=".git" \
-  --exclude="DESIGN.md" \
-  --exclude="CNAME" \
-  "$VAULT/web/" "$DEST/"
+if [[ "$TARGET" == "staging" ]]; then
+  echo "=== rsync vault/web/ → staging repo ($STAGING_LOCAL) ==="
+  rsync -av --delete \
+    --exclude=".git" \
+    --exclude="DESIGN.md" \
+    --exclude="CNAME" \
+    "$VAULT/web/" "$DEST/"
+else
+  # Production promote: source is the staging repo, NOT vault/web/
+  # Files committed to staging (but not written back to vault) are included this way.
+  # Source: $STAGING_LOCAL (/Users/alex/code/vacation-dashboard-dev)
+  # Dest:   $DEST          (/Users/alex/code/vacation-dashboard)
+  echo "=== rsync staging repo → production repo ==="
+  echo "    source: $STAGING_LOCAL/"
+  echo "    dest:   $DEST/"
+  rsync -av --delete \
+    --exclude=".git" \
+    --exclude="CNAME" \
+    "$STAGING_LOCAL/" "$DEST/"
+fi
 
 # ============================================================
 # CNAME -- verify, do not blindly overwrite
