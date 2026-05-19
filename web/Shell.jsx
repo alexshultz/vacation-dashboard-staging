@@ -48,8 +48,15 @@ function appReducer(state, action) {
           window.BD_SUPABASE.from('picks').upsert({ user_id: uid, slug: a.id, state: 'wishlist' }, { onConflict: 'user_id,slug' })
             .then(function(r){ if(r.error) console.error('picks upsert error:', r.error, {user_id: uid, slug: a.id}); });
         } else {
-          window.BD_SUPABASE.from('picks').delete().eq('user_id', uid).eq('slug', a.id)
-            .then(function(r){ if(r.error) console.error('picks delete error:', r.error, {user_id: uid, slug: a.id}); });
+          if (a.commit.includes(state.userId)) {
+            // Item is committed -- preserve commit state in Supabase, just remove from wish UI
+            window.BD_SUPABASE.from('picks').upsert({ user_id: uid, slug: a.id, state: 'committing' }, { onConflict: 'user_id,slug' })
+              .then(function(r){ if(r.error) console.error('picks upsert error:', r.error, {user_id: uid, slug: a.id}); });
+          } else {
+            // Item is wishlist-only -- safe to delete row entirely
+            window.BD_SUPABASE.from('picks').delete().eq('user_id', uid).eq('slug', a.id)
+              .then(function(r){ if(r.error) console.error('picks delete error:', r.error, {user_id: uid, slug: a.id}); });
+          }
         }
       }
       return { ...state, _tick: (state._tick || 0) + 1 };
