@@ -70,7 +70,14 @@ function QuickPickView({ state, dispatch }) {
   const dragRef = React.useRef({ startX: 0, startY: 0, pointerId: null });
 
   const deck = useMemoAct(() => {
-    return window.BD_ACTIVITIES.filter(a => !a.wish.includes(state.userId)).slice(0, 8);
+    const unseen = window.BD_ACTIVITIES.filter(
+      a => !a.wish.includes(state.userId) && !a.commit.includes(state.userId)
+    );
+    for (let i = unseen.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [unseen[i], unseen[j]] = [unseen[j], unseen[i]];
+    }
+    return unseen.slice(0, 8);
   }, [state.userId]);
 
   function decide(direction, fromTransform) {
