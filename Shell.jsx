@@ -45,7 +45,7 @@ function appReducer(state, action) {
       if (window.BD_SUPABASE && state.userId) {
         const uid = state.userId.charAt(0).toUpperCase() + state.userId.slice(1);
         if (addingWish) {
-          window.BD_SUPABASE.from('picks').upsert({ user_id: uid, slug: a.id, state: 'wishlist' });
+          window.BD_SUPABASE.from('picks').upsert({ user_id: uid, slug: a.id, state: 'wishlist' }, { onConflict: 'user_id,slug' });
         } else {
           window.BD_SUPABASE.from('picks').delete().match({ user_id: uid, slug: a.id });
         }
@@ -65,7 +65,7 @@ function appReducer(state, action) {
       if (window.BD_SUPABASE && state.userId) {
         const uid = state.userId.charAt(0).toUpperCase() + state.userId.slice(1);
         if (addingCommit) {
-          window.BD_SUPABASE.from('picks').upsert({ user_id: uid, slug: a.id, state: 'committing' });
+          window.BD_SUPABASE.from('picks').upsert({ user_id: uid, slug: a.id, state: 'committing' }, { onConflict: 'user_id,slug' });
         } else {
           window.BD_SUPABASE.from('picks').delete().match({ user_id: uid, slug: a.id });
         }
