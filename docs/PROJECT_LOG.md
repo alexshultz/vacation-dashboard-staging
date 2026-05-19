@@ -1,3 +1,16 @@
+## 2026-05-19 -- Claude Design timeline polish: redesigned UI, people-picker removed (PRODUCTION LIVE)
+
+**Production commit:** 13ff33d (vacation.creeperbomb.com)
+**Staging commit:** 13ff33d (vacation-dev.creeperbomb.com)
+**Session:** Timeline Claude Design polish + production ship
+
+### Changes
+- `web/Timeline.jsx` -- Claude Design full timeline redesign (now-line, hour rail, event color by viewer relationship, legend, day-tabs eyebrow+date in fixed strip)
+- `web/styles.css` -- Claude Design timeline CSS (`.tl-*` classes, `--tl-tabs-h` token, position:fixed preserved with architectural comment)
+- People-picker completely removed from both files per Alex's decision (was previously hidden via display:none)
+
+---
+
 ## 2026-05-19 -- mobile polish sprint: timeline fixes, modal scroll, drive times (STAGING LIVE)
 
 **Staging commit:** 2ecb197 (vacation-dev.creeperbomb.com)

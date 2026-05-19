@@ -160,7 +160,7 @@ Updated 2026-05-18 for SPA era. Checks:
 | Timeline date strip truncation | FIXED 2026-05-19 -- overflowX:auto, all day names visible at 375px |
 | Timeline default date logic | FIXED 2026-05-19 -- getTodayIndex() replaces hardcoded index 2 |
 | Timeline page title hidden behind fixed header | FIXED 2026-05-19 -- page-hero--timeline modifier adds padding-top to clear strip |
-| Timeline people-picker row | HIDDEN 2026-05-19 -- display:none, preserved in DOM for future use |
+| Timeline people-picker row | REMOVED 2026-05-19 -- completely removed from Timeline.jsx and styles.css per Alex's decision |
 | Timeline sticky date header | FIXED 2026-05-19 -- position:fixed (not sticky; overflow:clip BFC blocks sticky) |
 | Detail modal scroll on mobile | FIXED 2026-05-19 -- onPointerDown scoped to handle/hero; webkit-overflow-scrolling added |
 | Drive times -- all attractions | COMPLETE 2026-05-19 -- 330/330 via OSRM geocoding + parent inheritance + show defaults |
@@ -172,25 +172,23 @@ Updated 2026-05-18 for SPA era. Checks:
 | Design system | LOCKED |
 | Supabase Phase 2 | ACTIVE in production |
 | Custom domains | LIVE (production + staging) |
-| safety-check.sh | UPDATED for SPA era 2026-05-18 |
+| Timeline Claude Design polish | COMPLETE 2026-05-19 -- now-line, hour rail, viewer-relative color, people-picker removed; live production commit 13ff33d |
 
 ---
 
 ## Pre-Launch Checklist (May 22)
 
-- [ ] Clear any test Supabase rows before trip
-- [ ] Smoke-test wishlist + commit on production with real family names after deploy
+- [ ] Smoke-test wishlist + commit on production with real family names
 - [ ] Confirm production deploy green
 
 ---
 
 ## Current Sprint Status
 
-**As of 2026-05-19 (this session):**
-- Staging: all mobile polish fixes live (timeline, modal scroll, drive times)
-- Production: wish/commit independence at f318a64 -- mobile polish pending Alex "ship it"
-- Timeline sticky header: position:fixed (not sticky -- overflow:clip BFC blocks sticky in Timeline.jsx)
-- Drive times: 330/330 attractions populated via OSRM + parent-venue inheritance
+**As of 2026-05-19 (end of session):**
+- Production: Claude Design timeline polish live at commit 13ff33d -- now-line, hour rail, viewer-relative color, people-picker removed
+- All pre-launch mobile polish also live in production
+- Supabase picks table clean (21 real picks from Mycah + Tayden -- no test rows)
 
 **Open items (not blocking May 22):**
 - Schedule remaining trip events beyond meals + SDC + DAVID
