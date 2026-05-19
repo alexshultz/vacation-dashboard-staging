@@ -1,4 +1,73 @@
-## 2026-05-11 -- admin sprint: form spec + AM/PM fix + UX improvements (PRODUCTION LIVE)
+## 2026-05-19 -- mobile polish sprint: timeline fixes, modal scroll, drive times (STAGING LIVE)
+
+**Staging commit:** 2ecb197 (vacation-dev.creeperbomb.com)
+**Session:** Pre-launch polish (trip starts May 22)
+
+### What shipped to staging this session
+
+#### 1. Timeline date strip -- three bugs fixed (Timeline.jsx, styles.css)
+
+**Why:** Alex tested on device and reported: (1) day labels clipped on mobile, (2) always defaulted to Monday regardless of current date, (3) date strip scrolled away with content.
+
+**Fixes:**
+- **Truncation:** Added `overflowX: 'auto'` inline style on `.day-tabs` -- strip now scrolls horizontally, all day names fully visible at 375px
+- **Default date logic:** Replaced `useStateTl(2)` hardcode with `getTodayIndex(BD_SCHEDULE)` -- before trip = May 22, during trip = today, after trip = May 29
+- **Sticky header:** Attempted `position: sticky` (Bug 3 pass 1) -- failed on device because `.timeline-wrap` has `overflow: clip` which creates a BFC that confines sticky. Fixed in pass 2: switched to `position: fixed` with `top: 60px` mobile / `top: 64px` desktop (read from `.site-header__inner` in `components.css`). Added matching `padding-top: 58px` to `.timeline-toolbar` to prevent content hiding under fixed strip.
+
+**Root cause note:** The `overflow: clip` BFC confinement (not `overflow-y: auto` on `.page-main` as initially hypothesized) was the actual sticky blocker. Lazlo confirmed and documented the discrepancy.
+
+**Tests:** `tests/e2e/tests/timeline-fixes.spec.js` (3 tests) + `tests/e2e/tests/timeline-sticky-fix.spec.js` (1 test). Bug 3 test updated from `sticky` to `fixed` assertion to match final implementation.
+
+#### 2. Detail modal scroll fix (DetailModal.jsx, styles.css)
+
+**Why:** Alex reported: tapping an activity card opened the detail modal but scrolling caused a redraw/bounce to the bottom of the content instead of smooth scroll.
+
+**Root cause:** `onPointerDown` was calling `setPointerCapture()` on all non-interactive elements including `.dm-body` text content, blocking native scroll. Fix: scoped pointer capture to `.dm-handle` and `.dm-hero` only. Added `-webkit-overflow-scrolling: touch` to `.dm-sheet` in styles.css for iOS momentum scroll. Added body scroll lock (`document.body.style.overflow = 'hidden'` on open, cleared on close).
+
+**Confirmed working** by Alex on device.
+
+**Tests:** `tests/e2e/tests/modal-scroll-fix.spec.js` -- asserts body overflow hidden, scroll container overflow-y, webkit-overflow-scrolling presence.
+
+**Flagged (pre-existing, not fixed):** `useEffect` dependency array includes `onClose` (new reference each render) causing brief body overflow restore/re-lock on every re-render.
+
+#### 3. Drive time enrichment -- all 330 attractions (data/attractions.json, web/data.json)
+
+**Why:** All activities had empty `drive` field. Alex requested real estimated drive times from WaterMill Cove (175 Harbor Ln, Branson MO -- GPS: 36.6329854, -93.3486522).
+
+**Method:** OSRM (OpenStreetMap routing, free, no API key). Nominatim geocoding for addresses.
+
+**Four-pass strategy:**
+1. **Nominatim name geocode** -- `name + "Branson MO"` → lat/lon → OSRM drive time. 54 direct hits.
+2. **Parent venue inheritance** -- sub-spots with area tags inherit parent's drive time:
+   - `at-tanger-outlets` (29 slugs) → 18 min (Tanger at 300 Tanger Blvd: 36.6449,-93.2660)
+   - `at-branson-landing` (20 slugs) → 25 min (confirmed via direct geocode)
+   - `at-sdc` (25 slugs) → 18 min (Silver Dollar City confirmed)
+   - `at-dickson-street` (18 slugs) → 2h 24min (Dickson St Fayetteville AR: 36.0667,-94.1740)
+   88 additional attractions.
+3. **Branson show default** -- shows with `branson.com` URLs or show/theater/comedy/magic/variety tags on Hwy 76 assigned 19 min default (validated: all confirmed Hwy 76 theatres range 17-24 min). 121 additional.
+4. **Targeted geocode + hardcoded coords** -- remaining 67 attractions addressed individually (Eureka Springs, Springfield, Bentonville, NPS sites, lake attractions, etc.). 67 additional.
+
+**Final result: 330/330 attractions have drive times.**
+
+**Notable drive times:**
+- Branson Hwy 76 shows: 17-24 min (default 19 min)
+- Silver Dollar City: 18 min
+- Branson Landing: 25 min
+- Tanger Outlets: 18 min
+- Big Cedar Lodge: 39 min
+- Cosmic Cavern: 55 min
+- Springfield MO (Zoo, Wonders of Wildlife, Bass Pro): 1h 7min
+- Eureka Springs AR: 1h 24-35 min
+- Crystal Bridges / Bentonville: 2h 15-18 min
+- Ha Ha Tonka / Bridal Cave (Lake of the Ozarks): 2h 32-33 min
+- Blanchard Springs Caverns: 3h 13 min
+
+**Script:** `/Users/alex/vaults/Seldon/scratch/vacation-coordinator/drive-time-enrichment.py`
+**Log:** `/Users/alex/vaults/Seldon/scratch/vacation-coordinator/drive-time-log.json`
+
+---
+
+
 
 **Production commit:** 0d13c62 (vacation.creeperbomb.com -- LIVE)
 **Playwright suite:** 75/75 passing (13 spec files)

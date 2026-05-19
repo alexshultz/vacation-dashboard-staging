@@ -283,5 +283,37 @@ Do not update CLAUDE.md. Do not write to DECISIONS.md or PROJECT_LOG.md. Do not 
 
 ---
 
-*Last updated: 2026-04-24 by Hermes (sort + visible data-layer architecture)*
-*Project trip dates: 2026-05-22 → 2026-05-29 (trip ends). Family dashboard goes live: ~2026-05-13.*
+*Last updated: 2026-05-19 by Hermes -- mobile polish: timeline sticky/default/truncation, modal scroll, drive times*
+*Project trip dates: 2026-05-22 → 2026-05-29. Family dashboard goes live: May 22.*
+
+---
+
+## Known Architecture Facts (critical -- read before touching these components)
+
+### Timeline.jsx -- .day-tabs position:fixed (confirmed 2026-05-19)
+
+`.day-tabs` uses `position: fixed`, NOT `position: sticky`.
+
+**Do NOT change to sticky.** `.timeline-wrap` has `overflow: clip` which creates a BFC that confines sticky positioning. Sticky breaks silently on mobile even when it appears to work in Playwright.
+
+**Responsive top values (from `.site-header__inner` height in `components.css`):**
+- Mobile ≤719px: `top: 60px`
+- Desktop ≥720px: `top: 64px`
+
+**If you change `.site-header__inner` height**, update these values in `styles.css` `.timeline-toolbar .day-tabs` rules. Test on a real mobile device -- Playwright cannot catch this regression.
+
+### data/attractions.json -- drive field
+
+All 330 attractions have a `drive` field (e.g. `"18 min"`, `"2h 24min"`). Do NOT clear or overwrite this field unless explicitly tasked with updating drive times.
+
+**Origin:** WaterMill Cove, 175 Harbor Ln, Branson MO (GPS: 36.6329854, -93.3486522)
+**Source:** OSRM routing via Nominatim geocoding (completed 2026-05-19)
+
+Attraction sub-spots inherit their parent venue's drive time:
+- `at-tanger-outlets` → 18 min
+- `at-branson-landing` → 25 min
+- `at-sdc` → 18 min
+- `at-dickson-street` → 2h 24min (Fayetteville AR)
+
+Branson Hwy 76 shows use 19 min default (validated range 17-24 min).
+

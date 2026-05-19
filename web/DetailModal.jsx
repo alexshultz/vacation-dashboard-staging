@@ -37,9 +37,8 @@ function ActivityDetailModal({ activityId, userId, onClose, onToggleWish, onTogg
   // Drag-to-dismiss (mobile bottom sheet only)
   function onPointerDown(e) {
     if (!isMobile) return;
-    // Only start drag from the handle or the hero — not from the buttons/inputs in body
-    const target = e.target.closest('button, a, input, textarea, select');
-    if (target) return;
+    // Only start drag from the handle or hero — not from scrollable body content
+    if (!e.target.closest('.dm-handle, .dm-hero')) return;
     dragStart.current = { y: e.clientY, t: Date.now() };
     setDragging(true);
     try { e.currentTarget.setPointerCapture(e.pointerId); } catch (_) {}

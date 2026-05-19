@@ -157,6 +157,11 @@ Updated 2026-05-18 for SPA era. Checks:
 | React SPA migration | COMPLETE -- live on staging 2026-05-18 |
 | Wishlist/commit independence | COMPLETE 2026-05-19 -- 'both' state value, 8/8 Playwright tests pass, Supabase CHECK constraint updated |
 | Wishlist/commit persistence | FIXED 2026-05-18 -- upsert uses .eq().eq(), hydration confirmed working |
+| Timeline date strip truncation | FIXED 2026-05-19 -- overflowX:auto, all day names visible at 375px |
+| Timeline default date logic | FIXED 2026-05-19 -- getTodayIndex() replaces hardcoded index 2 |
+| Timeline sticky date header | FIXED 2026-05-19 -- position:fixed (not sticky; overflow:clip BFC blocks sticky) |
+| Detail modal scroll on mobile | FIXED 2026-05-19 -- onPointerDown scoped to handle/hero; webkit-overflow-scrolling added |
+| Drive times -- all attractions | COMPLETE 2026-05-19 -- 330/330 via OSRM geocoding + parent inheritance + show defaults |
 | Blacklist restored | COMPLETE 2026-05-18 -- 107 entries, 240 visible attractions |
 | DAVID (Sight & Sound) event | ADDED 2026-05-18 -- May 27, 7:30pm, 2h20m |
 | Silver Dollar City event | ADDED -- May 26, 10am-6pm |
@@ -180,10 +185,12 @@ Updated 2026-05-18 for SPA era. Checks:
 ## Current Sprint Status
 
 **As of 2026-05-19 (this session):**
-- Staging: SPA live, wishlist/commit fully independent ('both' state), 8/8 Playwright tests pass
-- Production: shipping now (wish/commit architecture fix)
-- Supabase CHECK constraint updated to allow 'both' state value
+- Staging: all mobile polish fixes live (timeline, modal scroll, drive times)
+- Production: wish/commit independence at f318a64 -- mobile polish pending Alex "ship it"
+- Timeline sticky header: position:fixed (not sticky -- overflow:clip BFC blocks sticky in Timeline.jsx)
+- Drive times: 330/330 attractions populated via OSRM + parent-venue inheritance
 
 **Open items (not blocking May 22):**
 - Schedule remaining trip events beyond meals + SDC + DAVID
-- Drive time fields on attractions (deferred, low priority)
+- Drive time fields accuracy: 121 Branson shows use 19 min default (±5 min); spot-check welcome
+- Travel event (Drive: Manhattan to Branson, May 22 10am, 7h) on staging -- not yet shipped

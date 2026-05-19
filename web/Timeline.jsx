@@ -5,13 +5,21 @@ const { useState: useStateTl, useMemo: useMemoTl } = React;
 // Convert "9:30" → 9.5
 const t2 = s => { const [h, m] = s.split(':').map(Number); return h + m / 60; };
 
+function getTodayIndex(schedule) {
+  const today = new Date().toISOString().slice(0, 10);
+  const idx = schedule.findIndex(d => d.date === today);
+  if (idx !== -1) return idx;
+  if (today < schedule[0].date) return 0;
+  return schedule.length - 1;
+}
+
 const DAY_START = 8;   // 8 AM
 const DAY_END   = 23;  // 11 PM
 const HOUR_PX   = 80;
 
 function TimelinePage({ state, dispatch }) {
   const days = window.BD_SCHEDULE;
-  const [dayIdx, setDayIdx] = useStateTl(2); // Monday — most interesting (has the locked event)
+  const [dayIdx, setDayIdx] = useStateTl(() => getTodayIndex(days));
   const [picked, setPicked] = useStateTl([state.userId]); // people whose events are highlighted
   const [onlyMine, setOnlyMine] = useStateTl(false);
 
@@ -67,7 +75,7 @@ function TimelinePage({ state, dispatch }) {
 
       <div className="timeline-wrap">
         <div className="timeline-toolbar">
-          <div className="day-tabs">
+          <div className="day-tabs" style={{ overflowX: 'auto', position: 'fixed', left: 0, right: 0, zIndex: 10, background: 'var(--color-bg)' }}>
             {days.map((d, i) => (
               <button
                 key={d.date}
@@ -76,7 +84,7 @@ function TimelinePage({ state, dispatch }) {
                 onClick={() => setDayIdx(i)}
               >
                 <small>{d.dayNum}</small>
-                {d.day.slice(0, 3)} {d.date.slice(8)}
+                {d.day} {d.date.slice(8)}
               </button>
             ))}
           </div>
