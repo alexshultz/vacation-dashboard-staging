@@ -14,9 +14,9 @@ const TEST_NAME    = 'Silver Dollar City';
 // ── helpers ──────────────────────────────────────────────────────────────────
 
 async function boot(page) {
+  // Set user BEFORE navigation so SPA boots with userId already set
+  await page.addInitScript(u => localStorage.setItem('bd-user', u), TEST_USER);
   await page.goto('/');
-  await page.evaluate(u => localStorage.setItem('bd-user', u), TEST_USER);
-  await page.reload();
   await page.waitForSelector('header.site-header', { timeout: 15000 });
 }
 
@@ -65,6 +65,8 @@ async function tapUncommit(page) {
 
 // Hard-reload, wait for SPA boot, navigate to Interests, and check both tabs.
 async function assertState(page, { wished, committed }) {
+  // Re-inject user before reload so SPA boots authenticated
+  await page.addInitScript(u => localStorage.setItem('bd-user', u), TEST_USER);
   await page.reload();
   await page.waitForSelector('header.site-header', { timeout: 15000 });
   await page.click('header .nav button:has-text("Interests")');
