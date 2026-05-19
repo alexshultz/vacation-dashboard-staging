@@ -66,7 +66,6 @@ function appReducer(state, action) {
       if (!a || a.locked) return state;
       const addingCommit = !a.commit.includes(state.userId);
       if (addingCommit) {
-        if (!a.wish.includes(state.userId)) a.wish = [...a.wish, state.userId];
         a.commit = [...a.commit, state.userId];
       } else {
         a.commit = a.commit.filter(u => u !== state.userId);
@@ -87,7 +86,6 @@ function appReducer(state, action) {
       const a = window.BD_ACTIVITIES.find(x => x.id === action.id);
       if (!a || a.locked) return state;
       if (!a.commit.includes(state.userId)) {
-        if (!a.wish.includes(state.userId)) a.wish = [...a.wish, state.userId];
         a.commit = [...a.commit, state.userId];
       }
       return { ...state, _tick: (state._tick || 0) + 1 };
