@@ -89,7 +89,7 @@
       return {
         date:   date,
         day:    DAY_NAMES[d.getDay()],
-        dayNum: diffDays + 1,
+        dayNum: d.getDate(),
         events: dayEvents
       };
     });
