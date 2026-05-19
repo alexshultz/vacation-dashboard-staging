@@ -2,7 +2,7 @@
 
 > This file is the canonical source of current project state for the vacation-coordinator agent.
 > SOUL.md references this file. Update it here -- never embed state in SOUL.md.
-> Last updated: 2026-05-18
+> Last updated: 2026-05-19
 
 ---
 
@@ -111,7 +111,7 @@ web/loader.js            -- Boots React, fetches data.json + schedule.json + peo
 ## Backend
 
 - **Supabase:** Active in production. Project UUID: `quebfbvfuwbncpexlylu`
-- **picks table:** user_id (capitalized, e.g. "Alex"), slug, status ("wishlist" or "commit"). Conflict key: (user_id, slug).
+- **picks table:** user_id (capitalized, e.g. "Alex"), slug, state ("wishlist", "committing", "both", or row absent = neither). CHECK constraint updated 2026-05-19 to allow 'both'. Conflict key: (user_id, slug). Wishlist and commit are fully independent -- adding one does not affect the other.
 - **RLS:** picks table open to anon (USING true). schedule_events writes locked to Alex UID only.
 - **Supabase write-back:** upsert uses `.eq().eq()` (not deprecated .match()). Fire-and-forget on UI path.
 - Keepalive cron running every 3 days to prevent free-tier pause.
@@ -155,6 +155,7 @@ Updated 2026-05-18 for SPA era. Checks:
 | Item | Status |
 |---|---|
 | React SPA migration | COMPLETE -- live on staging 2026-05-18 |
+| Wishlist/commit independence | COMPLETE 2026-05-19 -- 'both' state value, 8/8 Playwright tests pass, Supabase CHECK constraint updated |
 | Wishlist/commit persistence | FIXED 2026-05-18 -- upsert uses .eq().eq(), hydration confirmed working |
 | Blacklist restored | COMPLETE 2026-05-18 -- 107 entries, 240 visible attractions |
 | DAVID (Sight & Sound) event | ADDED 2026-05-18 -- May 27, 7:30pm, 2h20m |
@@ -170,21 +171,19 @@ Updated 2026-05-18 for SPA era. Checks:
 
 ## Pre-Launch Checklist (May 22)
 
-- [ ] Clear test Supabase row: `Alex / silver-dollar-city / wishlist` (inserted as diagnostic)
-- [ ] Verify commit path persists (only wishlist tested so far)
-- [ ] Production deploy -- awaiting Alex "ship it"
+- [ ] Clear any test Supabase rows before trip
+- [ ] Smoke-test wishlist + commit on production with real family names after deploy
+- [ ] Confirm production deploy green
 
 ---
 
 ## Current Sprint Status
 
-**As of 2026-05-18 (this session):**
-- Staging: SPA live, blacklist restored, DAVID event added (May 27), schedule correct
-- Production: old static site still live -- NOT yet updated
-- Playwright: suite exists but not run against current SPA staging -- pre-SPA tests may fail against new architecture
-- Test Supabase row still present: Alex / silver-dollar-city / wishlist
+**As of 2026-05-19 (this session):**
+- Staging: SPA live, wishlist/commit fully independent ('both' state), 8/8 Playwright tests pass
+- Production: shipping now (wish/commit architecture fix)
+- Supabase CHECK constraint updated to allow 'both' state value
 
 **Open items (not blocking May 22):**
-- Playwright suite needs audit against SPA -- many tests target old static HTML page IDs
 - Schedule remaining trip events beyond meals + SDC + DAVID
 - Drive time fields on attractions (deferred, low priority)
