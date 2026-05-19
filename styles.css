@@ -14,6 +14,19 @@
 @import url("./colors_and_type.css");
 @import url("./components.css");
 
+:root {
+  /* ─── Committed / Scheduled surface tokens ───────────────────────── */
+  --committed-bg:   color-mix(in srgb, var(--dusk) 22%, var(--color-surface));
+  --committed-line: color-mix(in srgb, var(--dusk) 60%, var(--color-line));
+  --committed-rail: var(--dusk);
+  --committed-ink:  var(--dusk-on-surface);
+
+  --scheduled-bg:   color-mix(in srgb, var(--moss) 18%, var(--color-surface));
+  --scheduled-line: color-mix(in srgb, var(--moss) 55%, var(--color-line));
+  --scheduled-rail: var(--moss);
+  --scheduled-ink:  var(--moss-on-surface);
+}
+
 html, body { min-height: 100%; }
 body {
   font-family: var(--font-body);
@@ -221,6 +234,35 @@ body {
   gap: 16px; align-items: center;
   padding: 12px 8px;
   border-top: 1px dashed var(--color-line);
+  position: relative;
+}
+/* Viewer-relative row treatments: a soft tinted background + a 4px colored
+ * rail on the left edge. The rail is `inset` on the row's padding so it
+ * draws under the row's actual content. Same committed/scheduled semantics
+ * as the catalog cards and timeline. */
+.event-row--committed,
+.event-row--scheduled {
+  border-radius: 10px;
+  padding-left: 16px;
+}
+.event-row--committed { background: var(--committed-bg); }
+.event-row--scheduled { background: var(--scheduled-bg); }
+.event-row--committed::before,
+.event-row--scheduled::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 4px;
+  border-radius: 2px;
+}
+.event-row--committed::before { background: var(--committed-rail); }
+.event-row--scheduled::before { background: var(--scheduled-rail); }
+/* When a row carries a state-tint, the dashed top-border above the next
+ * non-tinted row is the only one drawn — drop the tinted row's own
+ * top-border so they don't double up. */
+.event-row--committed,
+.event-row--scheduled {
+  border-top-color: transparent;
 }
 .event-row:first-of-type { border-top: 0; }
 .event-row[role="button"] { cursor: pointer; border-radius: 8px; transition: background var(--dur-fast); }
@@ -631,23 +673,17 @@ body {
 .tl-event--meal .tl-event__rail { background: var(--sand); }
 
 .tl-event--scheduled {
-  background: color-mix(in srgb, var(--moss) 8%, var(--color-surface));
-  border-color:  color-mix(in srgb, var(--moss) 35%, var(--color-line));
+  background: var(--scheduled-bg);
+  border-color: var(--scheduled-line);
 }
-.tl-event--scheduled .tl-event__rail { background: var(--moss); }
+.tl-event--scheduled::before { background: var(--scheduled-rail); }
 
 .tl-event--mine-commit {
-  background: var(--dusk);
-  border-color: var(--dusk);
-  color: white;
+  background: var(--committed-bg);
+  border-color: var(--committed-line);
 }
-.tl-event--mine-commit .tl-event__rail   { background: color-mix(in srgb, white 50%, var(--dusk)); }
-.tl-event--mine-commit .tl-event__time   { color: rgba(255, 255, 255, 0.82); }
-.tl-event--mine-commit .tl-event__title  { color: white; }
-.tl-event--mine-commit .tl-event__sub    { color: rgba(255, 255, 255, 0.88); }
-.tl-event--mine-commit .tl-event__count  { color: rgba(255, 255, 255, 0.86); }
-.tl-event--mine-commit .tl-event__names  { color: rgba(255, 255, 255, 0.96); }
-.tl-event--mine-commit .tl-event__roster { border-top-color: rgba(255, 255, 255, 0.3); }
+.tl-event--mine-commit::before { background: var(--committed-rail); }
+.tl-event--mine-commit h4 { color: var(--committed-ink); }
 
 /* — interactive / status — */
 .tl-event.is-clickable { cursor: pointer; }

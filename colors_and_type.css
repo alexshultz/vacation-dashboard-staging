@@ -99,6 +99,31 @@
   --on-warn:         #FFFFFF;
   --on-neutral:      #FFFFFF;
 
+  /* ─── Committed / Scheduled surface treatment ─────────────────────
+   *
+   * The previous treatment (solid dusk fill on every committed card)
+   * read as disruptive against the cream/sand/moss palette. The toned-down
+   * approach: every surface that needs to signal "committed" gets a SOFT
+   * dusk-tinted background + a saturated dusk rail or border, with default
+   * ink text. Scheduled = same pattern, moss-tinted. Locked = 🔒 icon
+   * stays as the differentiator (rendered separately on the title row).
+   *
+   * Used on:
+   *   - Timeline events (.tl-event--mine-commit / .tl-event--scheduled)
+   *   - Catalog cards   (.card-cat--committed   / .card-cat--scheduled)
+   *   - Dense cards     (.card-dense--committed — soft variant)
+   *   - Home rows       (.event-row--committed  / .event-row--scheduled)
+   */
+  --committed-bg:   color-mix(in srgb, var(--dusk) 22%, var(--color-surface));
+  --committed-line: color-mix(in srgb, var(--dusk) 60%, var(--color-line));
+  --committed-rail: var(--dusk);
+  --committed-ink:  var(--dusk-on-surface);
+
+  --scheduled-bg:   color-mix(in srgb, var(--moss) 18%, var(--color-surface));
+  --scheduled-line: color-mix(in srgb, var(--moss) 55%, var(--color-line));
+  --scheduled-rail: var(--moss);
+  --scheduled-ink:  var(--moss-on-surface);
+
   /* ─── Typography ─────────────────────────────────────────────── */
   --font-display: 'Lexend', Georgia, 'Iowan Old Style', serif;
   --font-body:    'Atkinson Hyperlegible', 'Lexend', system-ui, -apple-system, sans-serif;

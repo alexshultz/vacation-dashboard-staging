@@ -28,10 +28,21 @@ function HomePage({ state, dispatch }) {
           <h2><span className="day-num">{day.date.slice(8)}</span> {day.dayNum} · {day.day} · {monthLabel(day.date)}</h2>
           {day.events.map(ev => {
             const ys = youStatus(ev);
+            // Viewer-relative row treatment. youStatus returns kind 'commit'
+            // or 'lock' when the viewer is on the commit list — both are
+            // "committed" for surface purposes (lock just adds the 🔒).
+            const viewerCommitted = ys && (ys.kind === 'commit' || ys.kind === 'lock');
+            const someoneCommitted = !!(
+              ev.activityId &&
+              (window.BD_ACTIVITIES.find(x => x.id === ev.activityId)?.commit.length > 0)
+            );
+            const surfaceMod = viewerCommitted     ? 'event-row--committed'
+                             : someoneCommitted    ? 'event-row--scheduled'
+                                                   : '';
             return (
               <div
                 key={ev.id}
-                className="event-row"
+                className={`event-row ${surfaceMod}`}
                 role={ev.activityId ? 'button' : undefined}
                 tabIndex={ev.activityId ? 0 : undefined}
                 onClick={() => ev.activityId && dispatch({ type: 'openDetail', id: ev.activityId })}

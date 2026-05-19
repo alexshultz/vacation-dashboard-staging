@@ -297,6 +297,35 @@
    in the action row share the available width 50/50 (or 33/33/33). */
 .card-cat__actions .btn { flex: 1 1 0; min-width: 0; }
 
+/* Catalog card — committed / scheduled surface treatments.
+ *
+ * Soft-tinted background + colored top-rail (4px) communicates the viewer's
+ * relationship to this activity without the disruptive full-fill of dusk.
+ * The badge inside the card body still spells it out — these surfaces are
+ * reinforcement, not the only signal. */
+.card-cat--committed,
+.card-cat--scheduled {
+  position: relative;
+}
+.card-cat--committed::before,
+.card-cat--scheduled::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  z-index: 2;
+}
+.card-cat--committed {
+  background: var(--committed-bg);
+  border-color: var(--committed-line);
+}
+.card-cat--committed::before { background: var(--committed-rail); }
+.card-cat--scheduled {
+  background: var(--scheduled-bg);
+  border-color: var(--scheduled-line);
+}
+.card-cat--scheduled::before { background: var(--scheduled-rail); }
+
 /* ─── 7. Dense card (Interests view) ─────────────────────────── */
 .card-dense {
   background: var(--color-surface);
@@ -313,10 +342,25 @@
   background: linear-gradient(180deg, color-mix(in srgb, var(--lake) 6%, transparent), transparent 40%), var(--color-surface);
   border-color: color-mix(in srgb, var(--lake) 45%, var(--color-line));
 }
+/* Committed dense card — TONED-DOWN dusk. Was a solid-dusk fill with
+ * ~40 lines of white-on-dusk overrides for every nested chip/button/roster;
+ * now it's a soft dusk tint + dusk top-rail so the default cream-surface
+ * treatments of those children read correctly without any override.
+ * The dusk hue still tells you "this is committed" but the cream undertone
+ * keeps it in family with the rest of the Trail palette. */
 .card-dense--committed {
-  background: var(--dusk);
-  color: white;
-  border-color: var(--dusk);
+  position: relative;
+  background: var(--committed-bg);
+  color: var(--color-ink);
+  border-color: var(--committed-line);
+}
+.card-dense--committed::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 8px;
+  background: var(--committed-rail);
+  z-index: 2;
 }
 .card-dense__thumb { aspect-ratio: 4/3; background: var(--color-bg); position: relative; overflow: hidden; }
 @media (min-width: 640px) {
@@ -326,73 +370,15 @@
 .card-dense__body { padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
 .card-dense__body h3 { font-size: 19px; line-height: 1.25; margin: 0; color: inherit; }
 .card-dense__meta { font-family: var(--font-body); font-size: 13px; color: var(--color-ink); opacity: 0.78; }
-.card-dense--committed .card-dense__meta { color: rgba(255,255,255,0.78); opacity: 1; }
 .card-dense__pills { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .card-dense__actions { display: flex; gap: 8px; margin-top: auto; padding-top: 6px; flex-wrap: wrap; }
 /* Equal-width action buttons — same rule as the catalog card. */
 .card-dense__actions .btn { flex: 1 1 0; min-width: 0; }
 
-/* Committed-card overrides for badges + buttons + roster — when the whole card
-   is dusk-purple, anything that was dusk-on-cream needs to flip to outline-on-dark
-   or it disappears into the background. */
-.card-dense--committed .card-badge--lock {
-  background: transparent;
-  color: white;
-  border-color: rgba(255,255,255,0.55);
-}
-.card-dense--committed .card-badge--commit {
-  /* Keep moss — it's high-contrast on dusk and reads as "you're going". */
-  background: var(--moss);
-  color: white;
-  border-color: var(--moss);
-}
-.card-dense--committed .btn--locked-in {
-  background: rgba(255,255,255,0.10);
-  color: white;
-  border-color: rgba(255,255,255,0.55);
-  opacity: 1;
-}
-.card-dense--committed .btn--ghost {
-  background: transparent;
-  color: white;
-  border-color: rgba(255,255,255,0.55);
-}
-.card-dense--committed .btn--ghost:hover {
-  background: rgba(255,255,255,0.10);
-  border-color: white;
-}
-.card-dense--committed .btn--out {
-  background: transparent;
-  color: white;
-  border-color: rgba(255,255,255,0.55);
-}
-.card-dense--committed .btn--out:hover {
-  background: rgba(255,255,255,0.10);
-  border-color: white;
-}
-.card-dense--committed .btn--danger {
-  background: var(--brick);
-  color: white;
-  border-color: var(--brick);
-}
-.card-dense--committed .roster {
-  background: rgba(0,0,0,0.18);
-  border-color: rgba(255,255,255,0.18);
-  color: white;
-}
-.card-dense--committed .roster__count { color: white; }
-.card-dense--committed .roster .av { border-color: var(--dusk); }
-.card-dense--committed .roster .av--wish { background: rgba(255,255,255,0.1); color: white; box-shadow: 0 0 0 2px rgba(255,255,255,0.4) inset; }
-.card-dense--committed .roster .av--more { background: white; color: var(--dusk); }
-.card-dense--committed .roster .reveal { border-color: rgba(255,255,255,0.35); color: white; }
-.card-dense--committed .roster .reveal:hover { background: rgba(255,255,255,0.12); border-color: white; }
-.card-dense--committed .roster__expand__inner {
-  background: rgba(0,0,0,0.28);
-  border-color: rgba(255,255,255,0.18);
-  color: white;
-}
-.card-dense--committed .roster__expand__head { color: white; }
-.card-dense--committed .avatar { border-color: var(--dusk); box-shadow: none; }
+/* (Previously, ~50 lines of `.card-dense--committed .<child>` overrides
+ * flipped every badge / button / roster avatar from cream-surface to
+ * white-on-dusk. With the new soft-tint surface those overrides are
+ * unnecessary — children render in their default forms.) */
 
 /* ─── 8. Status line (inside dense cards) ─────────────────────── */
 .status-line {
@@ -406,10 +392,6 @@
 }
 .status-line--pending {
   font-style: italic; opacity: 0.7;
-}
-.card-dense--committed .status-line {
-  border-bottom-color: rgba(255,255,255,0.25);
-  color: rgba(255,255,255,0.95);
 }
 
 /* ─── 9. Slot warning + empty state ──────────────────────────── */
