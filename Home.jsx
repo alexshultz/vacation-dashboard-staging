@@ -68,7 +68,7 @@ function HomePage({ state, dispatch }) {
                   {ys && (ys.actionable
                     ? <button
                         className="event-row__cta"
-                        onClick={(e) => { e.stopPropagation(); dispatch({ type: 'commit', id: ys.activityId }); }}
+                        onClick={(e) => { e.stopPropagation(); dispatch({ type: 'toggleCommit', id: ys.activityId }); }}
                       >+ {ys.text}</button>
                     : <span className={`card-badge ${
                         ys.kind === 'locked-out' ? 'card-badge--locked-out'
