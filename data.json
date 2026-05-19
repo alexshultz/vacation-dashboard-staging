@@ -486,8 +486,8 @@
       "rating": 4.5,
       "description": "A modern bowling and entertainment venue at Branson Landing combining boutique bowling lanes with arcade games, private event spaces, and a full bar and restaurant. One of the most popular evening entertainment options at the Landing.",
       "image": "assets/thumbs/andy-bs-bowl-social-thumb.jpg",
-      "official_url": "https://www.andybs.com/",
-      "notes": "Branson Landing, Branson MO 65616. 417-213-8631. Evening atmosphere -- great for the adults in the group. Reservations recommended for bowling lanes.",
+      "official_url": "https://www.bowlandybs.com/branson",
+      "notes": "Branson Landing, Branson MO 65616. 417-213-8631. Bowling (9 lanes, lane-side food service), arcade, escape rooms, table games, full restaurant and bar. Eat+Play upgrade: $10 game card for $5 with any entree. Reservations recommended for bowling lanes.",
       "tags": [
         "active",
         "family",
@@ -495,10 +495,106 @@
         "date-night",
         "1-2hr",
         "shopping",
-        "at-branson-landing"
+        "at-branson-landing",
+        "at-andy-bs"
       ],
       "drive": "25 min",
       "sort_key": "andy b's bowl social",
+      "visible": true
+    },
+    {
+      "slug": "andy-bs-escape-blackout",
+      "name": "Andy B's Escape: Blackout",
+      "category": "attraction",
+      "price_adult": 25.0,
+      "duration_hours": 0.5,
+      "rating": 4.5,
+      "description": "Enter an errant simulation and decode the mysteries within before you and your team are lost in the neon madness forever. Race other teams to come out on top -- groups over 6 get side-by-side rooms for a racing experience.",
+      "image": "assets/thumbs/andy-bs-escape-blackout-thumb.jpg",
+      "official_url": "https://www.bowlandybs.com/branson/escape-rooms",
+      "notes": "Andy B's Bowl Social, Branson Landing, Branson MO. 30 min. $25/person. Up to 12 guests. Book online.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-andy-bs",
+        "at-branson-landing"
+      ],
+      "drive": "25 min",
+      "sort_key": "andy b's escape: blackout",
+      "visible": true
+    },
+    {
+      "slug": "andy-bs-escape-house-of-dread",
+      "name": "Andy B's Escape: House of Dread",
+      "category": "attraction",
+      "price_adult": 35.0,
+      "duration_hours": 1,
+      "rating": 4.5,
+      "description": "A dinner party with an old friend takes a turn for the worst. What awaits you and the other guests may come as no surprise. Shall we eat? Ideal for older guests.",
+      "image": "assets/thumbs/andy-bs-escape-house-of-dread-thumb.jpg",
+      "official_url": "https://www.bowlandybs.com/branson/escape-rooms",
+      "notes": "Andy B's Bowl Social, Branson Landing, Branson MO. 60 min. $35/person. Ideal for older guests. Book online.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "date-night",
+        "1hr",
+        "at-andy-bs",
+        "at-branson-landing"
+      ],
+      "drive": "25 min",
+      "sort_key": "andy b's escape: house of dread",
+      "visible": true
+    },
+    {
+      "slug": "andy-bs-escape-kidnapped",
+      "name": "Andy B's Escape: Kidnapped",
+      "category": "attraction",
+      "price_adult": 35.0,
+      "duration_hours": 1,
+      "rating": 4.5,
+      "description": "You and your team of detectives have one hour to solve a string of kidnapping cases before the FBI takes over. The most challenging Andy B's room at 60 minutes.",
+      "image": "assets/thumbs/andy-bs-escape-kidnapped-thumb.jpg",
+      "official_url": "https://www.bowlandybs.com/branson/escape-rooms",
+      "notes": "Andy B's Bowl Social, Branson Landing, Branson MO. 60 min. $35/person. Book online.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "1hr",
+        "at-andy-bs",
+        "at-branson-landing"
+      ],
+      "drive": "25 min",
+      "sort_key": "andy b's escape: kidnapped",
+      "visible": true
+    },
+    {
+      "slug": "andy-bs-escape-space-odyssey",
+      "name": "Andy B's Escape: Space Odyssey",
+      "category": "attraction",
+      "price_adult": 25.0,
+      "duration_hours": 0.5,
+      "rating": 4.5,
+      "description": "Decode the message left behind by the missing captain and crew of Odyssey II before you are captured by others on the spacecraft. Ideal for kids and teens.",
+      "image": "assets/thumbs/andy-bs-escape-space-odyssey-thumb.jpg",
+      "official_url": "https://www.bowlandybs.com/branson/escape-rooms",
+      "notes": "Andy B's Bowl Social, Branson Landing, Branson MO. 30 min. $25/person. Ideal for kids and teens. Book online.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-andy-bs",
+        "at-branson-landing"
+      ],
+      "drive": "25 min",
+      "sort_key": "andy b's escape: space odyssey",
       "visible": true
     },
     {
@@ -940,6 +1036,55 @@
       "visible": false
     },
     {
+      "slug": "beach-boys-california-dreamin",
+      "name": "Beach Boys California Dreamin'",
+      "category": "show",
+      "duration_hours": 2,
+      "price_adult": 40,
+      "family_pass": null,
+      "rating": null,
+      "description": "A faithful tribute to The Beach Boys performing hits like Surfin' USA, Good Vibrations, and Barbara Ann with period-accurate harmonies and costumes at the Americana Theatre.",
+      "image": "assets/thumbs/beach-boys-california-dreamin-thumb.jpg",
+      "official_url": "https://www.branson.com/shows/beach-boys-california-dreamin/",
+      "notes": "Price $40/adult from TripAdvisor. Americana Theatre. Official URL unverified.",
+      "tags": [
+        "indoor",
+        "music",
+        "tribute",
+        "family",
+        "date-night",
+        "1-2hr",
+        "oldies-60s"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "Beach Boys tribute is music/tribute with 60s pop; family and date-night appropriate; 2-hour duration fits 1-2hr bracket.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "oldies-60s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-05-19"
+      },
+      "drive": "19 min",
+      "sort_key": "beach boys california dreamin'",
+      "visible": true
+    },
+    {
       "slug": "bear-creek-winery-branson",
       "name": "Bear Creek Wine Company & Brewery",
       "category": "activity",
@@ -1185,26 +1330,97 @@
       "visible": true
     },
     {
-      "slug": "bigfoot-fun-park",
-      "name": "Bigfoot Fun Park",
+      "slug": "bigfoot-arcade",
+      "name": "Bigfoot Arcade",
       "category": "attraction",
-      "price_adult": null,
-      "duration_hours": 2,
-      "rating": 4.4,
-      "description": "Branson's favorite indoor entertainment complex featuring 18-hole mini golf, a full arcade, and themed escape rooms. A go-to option for families seeking indoor fun, rainy-day activities, or evening entertainment. Staff-run escape rooms accommodate groups of all sizes.",
-      "image": "assets/thumbs/bigfoot-fun-park-thumb.jpg",
-      "official_url": "https://www.bigfootfunpark.com/",
-      "notes": "Branson MO -- check website for current address, hours, and pricing. Each activity (mini golf, arcade, escape rooms) ticketed separately. Book escape rooms in advance.",
+      "price_adult": 0.0,
+      "duration_hours": 1,
+      "rating": 4.3,
+      "description": "Full-size arcade inside Bigfoot Fun Park with classic games, VR challenges, motion simulators, and prize redemption. Mix of retro favorites and modern experiences for all ages. Tokens or game cards purchased on-site.",
+      "image": "assets/thumbs/bigfoot-arcade-thumb.jpg",
+      "official_url": "https://www.bigfootfunpark.com/bigfoot-arcade/",
+      "notes": "3608 W 76 Country Blvd, Branson MO 65616. Token/card-based pricing -- no fixed admission. Open daily 10am until late.",
       "tags": [
         "active",
-        "comedy",
         "family",
         "indoor",
         "kid-focused",
-        "1-2hr"
+        "1hr",
+        "1-2hr",
+        "at-bigfoot-fun-park"
       ],
-      "drive": "19 min",
+      "drive": "15 min",
+      "sort_key": "bigfoot arcade",
+      "visible": true
+    },
+    {
+      "slug": "bigfoot-escape-rooms",
+      "name": "Bigfoot Escape Rooms",
+      "category": "attraction",
+      "price_adult": 32.95,
+      "duration_hours": 1,
+      "rating": 4.5,
+      "description": "Themed escape rooms where your group helps Benny the Bigfoot complete a wild mission. Cinematic sets, hidden passages, secret Bigfoot cameos, and puzzles for all skill levels. Groups race against the clock in rooms designed for up to 10 players.",
+      "image": "assets/thumbs/bigfoot-escape-rooms-thumb.jpg",
+      "official_url": "https://www.bigfootfunpark.com/bigfoot-escape-rooms/",
+      "notes": "3608 W 76 Country Blvd, Branson MO 65616. $32.95/person or $225 private room (up to 10). Book online in advance -- walk-ins limited on busy weekends. Open daily 10am until late.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-bigfoot-fun-park"
+      ],
+      "drive": "15 min",
+      "sort_key": "bigfoot escape rooms",
+      "visible": true
+    },
+    {
+      "slug": "bigfoot-fun-park",
+      "name": "Bigfoot Fun Park",
+      "category": "attraction",
+      "price_adult": 0.0,
+      "duration_hours": 2,
+      "rating": 4.4,
+      "description": "Branson's Bigfoot-themed indoor entertainment complex on Hwy 76 with three distinct activities: escape rooms, a full arcade, and 18-hole mini golf. Great for families looking for a few hours of indoor fun -- you can do one activity or make a full day of all three.",
+      "image": "assets/thumbs/bigfoot-fun-park-thumb.jpg",
+      "official_url": "https://www.bigfootfunpark.com/",
+      "notes": "3608 W 76 Country Blvd, Branson MO 65616. Open daily 10am until late. Phone: 1-800-562-2416. Each activity ticketed separately. Book escape rooms in advance -- walk-ins possible but limited on busy weekends.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1-2hr",
+        "2-3hr",
+        "at-bigfoot-fun-park"
+      ],
+      "drive": "15 min",
       "sort_key": "bigfoot fun park",
+      "visible": true
+    },
+    {
+      "slug": "bigfoot-mini-golf",
+      "name": "Bigfoot Mini Golf",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1,
+      "rating": 4.3,
+      "description": "18-hole Bigfoot-themed mini golf course at Bigfoot Fun Park on Hwy 76. A laid-back option for all ages, great as a warm-up before the escape room or arcade or as a standalone activity.",
+      "image": "assets/thumbs/bigfoot-mini-golf-thumb.jpg",
+      "official_url": "https://www.bigfootfunpark.com/",
+      "notes": "3608 W 76 Country Blvd, Branson MO 65616. Pricing not posted online -- check at the venue. Open daily 10am until late.",
+      "tags": [
+        "active",
+        "family",
+        "outdoor",
+        "kid-focused",
+        "1hr",
+        "at-bigfoot-fun-park"
+      ],
+      "drive": "15 min",
+      "sort_key": "bigfoot mini golf",
       "visible": true
     },
     {
@@ -1450,6 +1666,51 @@
       ],
       "drive": "2h 14min",
       "sort_key": "botanical garden of the ozarks",
+      "visible": true
+    },
+    {
+      "slug": "branson-alpine-mountain-coaster",
+      "name": "Branson Alpine Mountain Coaster",
+      "category": "activity",
+      "duration_hours": 0.5,
+      "price_adult": 26,
+      "family_pass": null,
+      "rating": null,
+      "description": "A gravity-powered alpine coaster where riders control their own speed descending a winding Ozark hillside track. SEPARATE attraction from Copperhead Mountain Coaster -- located at Branson Mountain Entertainment District.",
+      "image": "assets/thumbs/branson-alpine-mountain-coaster-thumb.jpg",
+      "official_url": "https://www.bransonmountain.com/",
+      "notes": "Price $26/adult from TripAdvisor. DIFFERENT from Copperhead Mountain Coaster. At Branson Mountain Entertainment District. Official URL unverified.",
+      "tags": [
+        "outdoor",
+        "thrill",
+        "active",
+        "family",
+        "kid-focused",
+        "ride",
+        "under-1hr"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "Alpine coaster is outdoor/thrill/active; family and kid-focused; 30-minute ride fits under-1hr bracket; ride tag appropriate.",
+        "categories": {
+          "audience": [
+            "family",
+            "kid-focused"
+          ],
+          "attraction": [
+            "outdoor",
+            "thrill",
+            "active",
+            "ride",
+            "under-1hr"
+          ]
+        },
+        "classified": "2026-05-19"
+      },
+      "drive": "22 min",
+      "sort_key": "branson alpine mountain coaster",
       "visible": true
     },
     {
@@ -1774,6 +2035,51 @@
       },
       "drive": "19 min",
       "sort_key": "branson hills golf club",
+      "visible": true
+    },
+    {
+      "slug": "branson-jet-boats",
+      "name": "Branson Jet Boats",
+      "category": "activity",
+      "duration_hours": 1,
+      "price_adult": 59,
+      "family_pass": null,
+      "rating": null,
+      "description": "High-speed jet boat adventure launching from Branson Landing on Lake Taneycomo, featuring sharp turns, 360-degree spins, and high-throttle maneuvers with Ozark lake scenery.",
+      "image": "assets/thumbs/branson-jet-boats-thumb.jpg",
+      "official_url": "https://www.bransonjetboats.com/",
+      "notes": "Price $59/adult from TripAdvisor. Launches from Branson Landing. Official URL unverified.",
+      "tags": [
+        "outdoor",
+        "water",
+        "thrill",
+        "active",
+        "family",
+        "date-night",
+        "1hr"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.9,
+        "reasoning": "Jet boat tour is outdoor/water/thrill/active; family and date-night appropriate; 1-hour tour fits 1hr bracket.",
+        "categories": {
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "outdoor",
+            "water",
+            "thrill",
+            "active",
+            "1hr"
+          ]
+        },
+        "classified": "2026-05-19"
+      },
+      "drive": "18 min",
+      "sort_key": "branson jet boats",
       "visible": true
     },
     {
@@ -2407,6 +2713,55 @@
       "visible": false
     },
     {
+      "slug": "buckets-n-boards",
+      "name": "Buckets N Boards",
+      "category": "show",
+      "duration_hours": 2,
+      "price_adult": 35,
+      "family_pass": null,
+      "rating": null,
+      "description": "High-energy comedy percussion show where performers use buckets, trash cans, and everyday objects as instruments, combined with physical comedy and audience interaction. Family-friendly and relentlessly fast-paced.",
+      "image": "assets/thumbs/buckets-n-boards-thumb.jpg",
+      "official_url": "https://www.bucketsnboards.com/",
+      "notes": "Price $35/adult from TripAdvisor. One of the top requested acts for Disney Cruise Line.",
+      "tags": [
+        "indoor",
+        "comedy",
+        "music",
+        "family",
+        "variety",
+        "active",
+        "1-2hr",
+        "kid-focused"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.92,
+        "reasoning": "Comedy percussion with audience interaction is comedy/variety/music; highly family and kid-focused; active due to high energy; 2-hour duration fits 1-2hr bracket.",
+        "categories": {
+          "show": [
+            "comedy",
+            "variety",
+            "music"
+          ],
+          "audience": [
+            "family",
+            "kid-focused"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr",
+            "active"
+          ]
+        },
+        "classified": "2026-05-19"
+      },
+      "drive": "19 min",
+      "sort_key": "buckets n boards",
+      "visible": true
+    },
+    {
       "slug": "buffalo-national-river",
       "name": "Buffalo National River",
       "category": "attraction",
@@ -2671,6 +3026,51 @@
       "drive": "18 min",
       "sort_key": "carter's outlet (tanger outlets)",
       "visible": false
+    },
+    {
+      "slug": "celebrity-car-museum",
+      "name": "Celebrity Car Museum",
+      "category": "attraction",
+      "duration_hours": 1.5,
+      "price_adult": 25,
+      "family_pass": null,
+      "rating": null,
+      "description": "An indoor museum featuring 100+ cars, motorcycles, and memorabilia from famous movies and TV shows -- including the Batmobile, General Lee, and Back to the Future DeLorean. Photo opportunities behind the ropes available.",
+      "image": "assets/thumbs/celebrity-car-museum-thumb.jpg",
+      "official_url": "https://www.celebritycarmuseum.com/",
+      "notes": "Price $25/adult from TripAdvisor. Official URL unverified -- domain may have changed.",
+      "tags": [
+        "indoor",
+        "museum",
+        "family",
+        "kid-focused",
+        "relaxed",
+        "1-2hr",
+        "history"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.85,
+        "reasoning": "Movie/TV car museum is museum/history; family and kid-focused; relaxed self-guided pace; 1.5-hour duration fits 1-2hr bracket.",
+        "categories": {
+          "audience": [
+            "family",
+            "kid-focused"
+          ],
+          "attraction": [
+            "indoor",
+            "museum",
+            "history",
+            "relaxed",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-05-19"
+      },
+      "drive": "19 min",
+      "sort_key": "celebrity car museum",
+      "visible": true
     },
     {
       "slug": "tanger-chicos",
@@ -3173,6 +3573,143 @@
       ],
       "drive": "55 min",
       "sort_key": "cosmic cavern",
+      "visible": true
+    },
+    {
+      "slug": "cryptex-escape-rooms-branson",
+      "name": "Cryptex Escape Rooms",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1,
+      "rating": 4.9,
+      "description": "Award-winning private escape rooms on Hwy 76 with six distinct themed adventures ranging from 30 to 90 minutes. Rooms include The Crypt (90 min, 17% escape rate -- the hardest), Poisonous Debate (Victorian London), Pursuit of Steam (mad scientist), Tourist Trap, Space Travel, and a Mobile Escape Room for events. Over 1,000 five-star reviews.",
+      "image": "assets/thumbs/cryptex-escape-rooms-branson-thumb.jpg",
+      "official_url": "https://cryptexbranson.com/",
+      "notes": "1819 West HWY 76, Branson MO. Phone: (417) 320-6263. Hours: Mon 1-6pm, Tue-Wed 12-9pm, Thu 11am-9pm, Fri-Sat 11am-10pm, Sun check website. Groups up to 8-16 depending on room. Book online.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "date-night",
+        "1-2hr",
+        "2hr+"
+      ],
+      "drive": "21 min",
+      "sort_key": "cryptex escape rooms",
+      "visible": true
+    },
+    {
+      "slug": "cryptex-poisonous-debate",
+      "name": "Cryptex: Poisonous Debate",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1,
+      "rating": 4.9,
+      "description": "Mysterious killers loose in Victorian London. 60 minutes, up to 6 players. 27% escape rate.",
+      "image": "assets/thumbs/cryptex-poisonous-debate-thumb.jpg",
+      "official_url": "https://cryptexbranson.com/",
+      "notes": "Cryptex, 1819 W Hwy 76, Branson MO. 60 min. Up to 6 players. 27% escape rate. Book online.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "1hr",
+        "at-cryptex"
+      ],
+      "drive": "21 min",
+      "sort_key": "cryptex: poisonous debate",
+      "visible": true
+    },
+    {
+      "slug": "cryptex-pursuit-of-steam",
+      "name": "Cryptex: Pursuit of Steam",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1,
+      "rating": 4.9,
+      "description": "A mad scientist is on the run. 60 minutes, up to 9 players. 38% escape rate.",
+      "image": "assets/thumbs/cryptex-pursuit-of-steam-thumb.jpg",
+      "official_url": "https://cryptexbranson.com/",
+      "notes": "Cryptex, 1819 W Hwy 76, Branson MO. 60 min. Up to 9 players. 38% escape rate. Book online.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-cryptex"
+      ],
+      "drive": "21 min",
+      "sort_key": "cryptex: pursuit of steam",
+      "visible": true
+    },
+    {
+      "slug": "cryptex-space-travel",
+      "name": "Cryptex: Space Travel",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1,
+      "rating": 4.9,
+      "description": "Save the last of the human race. 60 minutes, up to 5 players. 42% escape rate -- the most achievable Cryptex room.",
+      "image": "assets/thumbs/cryptex-space-travel-thumb.jpg",
+      "official_url": "https://cryptexbranson.com/",
+      "notes": "Cryptex, 1819 W Hwy 76, Branson MO. 60 min. Up to 5 players. 42% escape rate. Book online.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-cryptex"
+      ],
+      "drive": "21 min",
+      "sort_key": "cryptex: space travel",
+      "visible": true
+    },
+    {
+      "slug": "cryptex-the-crypt",
+      "name": "Cryptex: The Crypt",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1.5,
+      "rating": 4.9,
+      "description": "Decades of chasing come to an end in 90 minutes. Cryptex's hardest room with only a 17% escape rate. Up to 8 players. Not for the faint of heart.",
+      "image": "assets/thumbs/cryptex-the-crypt-thumb.jpg",
+      "official_url": "https://cryptexbranson.com/",
+      "notes": "Cryptex, 1819 W Hwy 76, Branson MO. 90 min. Up to 8 players. 17% escape rate. Phone: (417) 320-6263. Book online.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "1-2hr",
+        "at-cryptex"
+      ],
+      "drive": "21 min",
+      "sort_key": "cryptex: the crypt",
+      "visible": true
+    },
+    {
+      "slug": "cryptex-tourist-trap",
+      "name": "Cryptex: Tourist Trap",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1,
+      "rating": 4.9,
+      "description": "Trouble in Paradise. 60 minutes, up to 9 players. 35% escape rate.",
+      "image": "assets/thumbs/cryptex-tourist-trap-thumb.jpg",
+      "official_url": "https://cryptexbranson.com/",
+      "notes": "Cryptex, 1819 W Hwy 76, Branson MO. 60 min. Up to 9 players. 35% escape rate. Book online.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-cryptex"
+      ],
+      "drive": "21 min",
+      "sort_key": "cryptex: tourist trap",
       "visible": true
     },
     {
@@ -3877,6 +4414,57 @@
       "visible": true
     },
     {
+      "slug": "the-dutton-show",
+      "name": "The Dutton Show",
+      "category": "show",
+      "duration_hours": 2,
+      "price_adult": 52,
+      "family_pass": null,
+      "rating": null,
+      "description": "High-energy family entertainment from the Dutton family -- 30+ years of bluegrass, country, classical, and gospel performed across 20+ instruments at the Dutton Family Theater.",
+      "image": "assets/thumbs/the-dutton-show-thumb.jpg",
+      "official_url": "https://www.duttonfamilytheater.com/",
+      "notes": "Price $52/adult from TripAdvisor. 31 years in Branson. Dutton Family Theater.",
+      "tags": [
+        "indoor",
+        "music",
+        "family",
+        "variety",
+        "gospel",
+        "bluegrass",
+        "country",
+        "1-2hr"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.9,
+        "reasoning": "Multi-generational family band performing bluegrass/country/gospel is music/variety; family is primary audience; 2-hour duration fits 1-2hr bracket.",
+        "categories": {
+          "show": [
+            "music",
+            "variety"
+          ],
+          "music": [
+            "bluegrass",
+            "country",
+            "gospel"
+          ],
+          "audience": [
+            "family"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-05-19"
+      },
+      "drive": "19 min",
+      "sort_key": "dutton show",
+      "visible": true
+    },
+    {
       "slug": "the-duttons",
       "name": "The Duttons",
       "category": "show",
@@ -3921,6 +4509,191 @@
       },
       "drive": "17 min",
       "sort_key": "duttons",
+      "visible": true
+    },
+    {
+      "slug": "escape-code-branson",
+      "name": "Escape Code",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1.5,
+      "rating": 4.9,
+      "description": "USA Today's #5 best escape room in America -- Branson's original and most-awarded escape experience. Seven private cinematic games including two large-scale experiences (Secret Passage: 2500 sq ft hotel mystery; The Zeros: 3000 sq ft apocalyptic mall). All rooms are private -- no strangers. No jump scares. Kids 5 and under free. Family-friendly with a faith-based mission.",
+      "image": "assets/thumbs/escape-code-branson-thumb.jpg",
+      "official_url": "https://www.escapecode.tv",
+      "notes": "4560 North Gretna Road, Branson MO 65616. Phone: 417-512-8900. Games: Vortex (60 min), Journey Through Elek's Hollow, Man Overboard!, The Guest House, Folklore, The Zeros (90 min), Secret Passage (90 min). Book online. Kids 5 and under free. TERPECA Top Room nominee 2022-2025 for Secret Passage and Folklore.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "date-night",
+        "1-2hr",
+        "2hr+"
+      ],
+      "drive": "18 min",
+      "sort_key": "escape code",
+      "visible": true
+    },
+    {
+      "slug": "escape-code-folklore",
+      "name": "Escape Code: Folklore",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1.25,
+      "rating": 4.9,
+      "description": "A storybook adventure -- designed for adults, loved by kids too. Journey inside beloved fairytales to recover stolen keepsakes from the dastardly ruler of Lore and restore hope to the characters. TERPECA Top Room nominee 2024.",
+      "image": "assets/thumbs/escape-code-folklore-thumb.jpg",
+      "official_url": "https://www.escapecode.tv",
+      "notes": "Escape Code, 4560 N Gretna Rd, Branson MO. 75 min. Private room. TERPECA Top Room nominee 2024. Book online at escapecode.tv.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1-2hr",
+        "at-escape-code"
+      ],
+      "drive": "18 min",
+      "sort_key": "escape code: folklore",
+      "visible": true
+    },
+    {
+      "slug": "escape-code-eleks-hollow",
+      "name": "Escape Code: Journey Through Elek's Hollow",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1,
+      "rating": 4.9,
+      "description": "Summoned to a strange little house hidden in a secluded forest, your team unravels the mysteries of the mystical dwelling. Who invited you? What secrets does it hold? What you find may change the fate of all mankind.",
+      "image": "assets/thumbs/escape-code-eleks-hollow-thumb.jpg",
+      "official_url": "https://www.escapecode.tv",
+      "notes": "Escape Code, 4560 N Gretna Rd, Branson MO. 60 min. Private room. Book online at escapecode.tv.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-escape-code"
+      ],
+      "drive": "18 min",
+      "sort_key": "escape code: journey through elek's hollow",
+      "visible": true
+    },
+    {
+      "slug": "escape-code-man-overboard",
+      "name": "Escape Code: Man Overboard!",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1,
+      "rating": 4.9,
+      "description": "You're on vacation aboard the Blue Water Arcadia when a mystery unfolds. Mixes hilarious fun with chaotic urgency. Starts with a mysterious suitcase and ends with 'Man overboard!' Great for families.",
+      "image": "assets/thumbs/escape-code-man-overboard-thumb.jpg",
+      "official_url": "https://www.escapecode.tv",
+      "notes": "Escape Code, 4560 N Gretna Rd, Branson MO. 60 min. Private room. Book online at escapecode.tv.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-escape-code"
+      ],
+      "drive": "18 min",
+      "sort_key": "escape code: man overboard!",
+      "visible": true
+    },
+    {
+      "slug": "escape-code-secret-passage",
+      "name": "Escape Code: Secret Passage (Large Scale)",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1.5,
+      "rating": 4.9,
+      "description": "2,500 square feet across eight rooms in a mysterious vacated hotel. Solve the literary mystery and find the stolen award. TERPECA Top Room nominee 2022-2025, back-to-back 'Best of Morty' winner. One of the best rooms in the country.",
+      "image": "assets/thumbs/escape-code-secret-passage-thumb.jpg",
+      "official_url": "https://www.escapecode.tv",
+      "notes": "Escape Code, 4560 N Gretna Rd, Branson MO. 90 min. 8 rooms, 2500 sq ft. TERPECA Top Room nominee 4 consecutive years. Book online at escapecode.tv.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1-2hr",
+        "at-escape-code"
+      ],
+      "drive": "18 min",
+      "sort_key": "escape code: secret passage (large scale)",
+      "visible": true
+    },
+    {
+      "slug": "escape-code-guest-house",
+      "name": "Escape Code: The Guest House",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1,
+      "rating": 4.9,
+      "description": "Staying at a modest cottage, you discover the previous tenant disappeared without a trace. One hour to uncover her fate -- or suffer the same.",
+      "image": "assets/thumbs/escape-code-guest-house-thumb.jpg",
+      "official_url": "https://www.escapecode.tv",
+      "notes": "Escape Code, 4560 N Gretna Rd, Branson MO. 60 min. Private room. Book online at escapecode.tv.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-escape-code"
+      ],
+      "drive": "18 min",
+      "sort_key": "escape code: the guest house",
+      "visible": true
+    },
+    {
+      "slug": "escape-code-the-zeros",
+      "name": "Escape Code: The Zeros (Large Scale)",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1.5,
+      "rating": 4.9,
+      "description": "3,000 square feet of apocalyptic adventure in an abandoned shopping center. 90 minutes to find the antidote before a lethal contaminate claims your team. One of the world's largest escape games -- fits up to 16 players.",
+      "image": "assets/thumbs/escape-code-the-zeros-thumb.jpg",
+      "official_url": "https://www.escapecode.tv",
+      "notes": "Escape Code, 4560 N Gretna Rd, Branson MO. 90 min. Up to 16 players. Private room. Book online at escapecode.tv.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1-2hr",
+        "at-escape-code"
+      ],
+      "drive": "18 min",
+      "sort_key": "escape code: the zeros (large scale)",
+      "visible": true
+    },
+    {
+      "slug": "escape-code-vortex",
+      "name": "Escape Code: Vortex",
+      "category": "attraction",
+      "price_adult": null,
+      "duration_hours": 1,
+      "rating": 4.9,
+      "description": "Stranded in the Ozarks as a catastrophic storm approaches, your team searches for cover in a paranoid survivalist's safeguarded shelter. 60 minutes to follow clues, gain access to the storm cellar, and contact emergency services before the storm hits.",
+      "image": "assets/thumbs/escape-code-vortex-thumb.jpg",
+      "official_url": "https://www.escapecode.tv",
+      "notes": "Escape Code, 4560 N Gretna Rd, Branson MO. 60 min. Private room. Book online at escapecode.tv. Kids 5 and under free.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-escape-code"
+      ],
+      "drive": "18 min",
+      "sort_key": "escape code: vortex",
       "visible": true
     },
     {
@@ -6231,6 +7004,145 @@
       "visible": false
     },
     {
+      "slug": "masters-of-escape-branson",
+      "name": "The Masters of Escape & Mirage VR",
+      "category": "attraction",
+      "price_adult": 39.95,
+      "duration_hours": 1,
+      "rating": 4.7,
+      "description": "Escape rooms AND a free-roam virtual reality arena in one venue. Escape rooms are $39.95/person (60 min) with themed rooms including Wizard of Oz, Chocolate Factory, Biblical Quest, and Cleopatra's Tomb. The VR arena (1800+ sq ft, wireless headsets) runs $39.95-$49.95/person for 30-45 min sessions. Private bookings available.",
+      "image": "assets/thumbs/masters-of-escape-branson-thumb.jpg",
+      "official_url": "https://www.themastersofescape.com",
+      "notes": "120 Rojana Way, Branson MO 65616. Phone: (417) 527-3434. Escape rooms: $39.95/person or $274.95 private room (up to 10). VR: $39.95/30 min or $49.95/45 min per person, or $274.95-$324.95 private. Also offers Birdly (full-body VR flight sim). Book online.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "date-night",
+        "1-2hr",
+        "vr"
+      ],
+      "drive": "19 min",
+      "sort_key": "masters of escape & mirage vr",
+      "visible": true
+    },
+    {
+      "slug": "masters-biblical-quest",
+      "name": "Masters of Escape: Biblical Quest",
+      "category": "attraction",
+      "price_adult": 39.95,
+      "duration_hours": 1,
+      "rating": 4.7,
+      "description": "Step into the Garden of Eden and navigate biblical stories, resisting the serpent's temptation and staying faithful to escape. 598 sq ft. Chill room, medium difficulty. Ages 7+.",
+      "image": "assets/thumbs/masters-biblical-quest-thumb.jpg",
+      "official_url": "https://www.themastersofescape.com/escape-rooms",
+      "notes": "Masters of Escape, 120 Rojana Way, Branson MO 65616. 60 min. $39.95/person or $274.95 private (up to 10).",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-masters-of-escape"
+      ],
+      "drive": "19 min",
+      "sort_key": "masters of escape: biblical quest",
+      "visible": true
+    },
+    {
+      "slug": "masters-chocolate-factory",
+      "name": "Masters of Escape: Chocolate Factory",
+      "category": "attraction",
+      "price_adult": 39.95,
+      "duration_hours": 1,
+      "rating": 4.7,
+      "description": "Enter a world of chocolate enchantment, discover secrets, solve puzzles, and earn a real chocolate treat for your triumph. 609 sq ft. Chill room, medium difficulty. Ages 7+.",
+      "image": "assets/thumbs/masters-chocolate-factory-thumb.jpg",
+      "official_url": "https://www.themastersofescape.com/escape-rooms",
+      "notes": "Masters of Escape, 120 Rojana Way, Branson MO 65616. 60 min. $39.95/person or $274.95 private (up to 10). You win a real chocolate treat.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-masters-of-escape"
+      ],
+      "drive": "19 min",
+      "sort_key": "masters of escape: chocolate factory",
+      "visible": true
+    },
+    {
+      "slug": "masters-cleopatras-tomb",
+      "name": "Masters of Escape: Cleopatra's Tomb",
+      "category": "attraction",
+      "price_adult": 39.95,
+      "duration_hours": 1,
+      "rating": 4.7,
+      "description": "Journey under Egypt's pyramid in this Thrill room. 563 sq ft. Medium/high difficulty. Ages 10+. The most challenging Masters room.",
+      "image": "assets/thumbs/masters-cleopatras-tomb-thumb.jpg",
+      "official_url": "https://www.themastersofescape.com/escape-rooms",
+      "notes": "Masters of Escape, 120 Rojana Way, Branson MO 65616. 60 min. $39.95/person or $274.95 private (up to 10). Ages 10+.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "1hr",
+        "at-masters-of-escape"
+      ],
+      "drive": "19 min",
+      "sort_key": "masters of escape: cleopatra's tomb",
+      "visible": true
+    },
+    {
+      "slug": "masters-mirage-vr",
+      "name": "Masters of Escape: Mirage VR Arena",
+      "category": "attraction",
+      "price_adult": 39.95,
+      "duration_hours": 0.75,
+      "rating": 4.7,
+      "description": "Free-roam wireless VR arena with over 1,800 sq ft. No wires, no wrist gadgets -- full wireless immersion. Zombie survival, adventure, and exploration experiences for groups of up to 8. Also features Birdly, a full-body VR flight simulator.",
+      "image": "assets/thumbs/masters-mirage-vr-thumb.jpg",
+      "official_url": "https://www.themastersofescape.com/virtual-reality",
+      "notes": "Masters of Escape, 120 Rojana Way, Branson MO 65616. 30 min: $39.95/person or $274.95 private. 45 min: $49.95/person or $324.95 private. Up to 8 players. Phone: (417) 527-3434.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "vr",
+        "at-masters-of-escape"
+      ],
+      "drive": "19 min",
+      "sort_key": "masters of escape: mirage vr arena",
+      "visible": true
+    },
+    {
+      "slug": "masters-wizard-of-oz",
+      "name": "Masters of Escape: Wizard of Oz",
+      "category": "attraction",
+      "price_adult": 39.95,
+      "duration_hours": 1,
+      "rating": 4.7,
+      "description": "Journey from Kansas to the whimsical land of Oz, uncover secrets, forge alliances, and escape the Wicked Witch. 609 sq ft. Chill room type, medium/high difficulty. Ages 7+.",
+      "image": "assets/thumbs/masters-wizard-of-oz-thumb.jpg",
+      "official_url": "https://www.themastersofescape.com/escape-rooms",
+      "notes": "Masters of Escape, 120 Rojana Way, Branson MO 65616. 60 min. $39.95/person or $274.95 private (up to 10). Phone: (417) 527-3434.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-masters-of-escape"
+      ],
+      "drive": "19 min",
+      "sort_key": "masters of escape: wizard of oz",
+      "visible": true
+    },
+    {
       "slug": "matt-gumm-and-company",
       "name": "Matt Gumm and Company",
       "category": "show",
@@ -6946,6 +7858,29 @@
       "drive": "18 min",
       "sort_key": "old navy (tanger outlets)",
       "visible": false
+    },
+    {
+      "slug": "puzzle-parlour-laser-tag",
+      "name": "Operation Laser Tag (Puzzle Parlour)",
+      "category": "attraction",
+      "price_adult": 14.0,
+      "duration_hours": 0.5,
+      "rating": 4.5,
+      "description": "Military-themed indoor laser tag arena in a maze-like environment that brings Call of Duty to life. Equipment tracks stats, allows mid-play weapon changes, and offers multiple game modes: V.I.P., Domination, Infection, Juggernaut, Team Battle, and Free Play. 30 min, up to 25 players.",
+      "image": "assets/thumbs/puzzle-parlour-laser-tag-thumb.jpg",
+      "official_url": "https://www.thepuzzleparlour.com/branson/operation-laser-tag/",
+      "notes": "Puzzle Parlour, 1000 Pat Nash Dr, Branson MO. $14/person. Up to 25 players. 30 min (average 4 games).",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-puzzle-parlour"
+      ],
+      "drive": "17 min",
+      "sort_key": "operation laser tag (puzzle parlour)",
+      "visible": true
     },
     {
       "slug": "orbison-still",
@@ -7893,6 +8828,75 @@
       "visible": true
     },
     {
+      "slug": "puzzle-parlour-branson",
+      "name": "The Puzzle Parlour & Operation Laser Tag",
+      "category": "attraction",
+      "price_adult": 25.0,
+      "duration_hours": 1.5,
+      "rating": 4.5,
+      "description": "Escape rooms and military-themed laser tag in one venue at the Ballparks of America complex. Two escape room adventures ($25/person, up to 8) and a 30-minute multi-mode laser tag arena ($14/person, up to 25). Great for families, team building, and competitive groups.",
+      "image": "assets/thumbs/puzzle-parlour-branson-thumb.jpg",
+      "official_url": "https://www.thepuzzleparlour.com/branson/",
+      "notes": "1000 Pat Nash Drive, Bldg. 10, Branson MO 65616 (in the Ballparks of America complex). Phone: (256) 640-1601. Email: escaperooms@ballparksofamerica.com.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1-2hr",
+        "at-puzzle-parlour"
+      ],
+      "drive": "17 min",
+      "sort_key": "puzzle parlour & operation laser tag",
+      "visible": true
+    },
+    {
+      "slug": "puzzle-parlour-whispering-woods",
+      "name": "Puzzle Parlour: Mystery of Whispering Woods",
+      "category": "attraction",
+      "price_adult": 25.0,
+      "duration_hours": 1,
+      "rating": 4.6,
+      "description": "Sasquatch hunter Patterson Menck has gone missing in the remote northwest. Travel to his cabin to investigate his claims of Bigfoot proof -- but beware what's lurking in the woods. 60 min, difficulty 97%.",
+      "image": "assets/thumbs/puzzle-parlour-whispering-woods-thumb.jpg",
+      "official_url": "https://www.thepuzzleparlour.com/branson/escape-rooms/",
+      "notes": "Puzzle Parlour, 1000 Pat Nash Dr, Branson MO. $25/person. Up to 8 players. 60 min. Difficulty: 97%. Average escape time: 58 min.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-puzzle-parlour"
+      ],
+      "drive": "17 min",
+      "sort_key": "puzzle parlour: mystery of whispering woods",
+      "visible": true
+    },
+    {
+      "slug": "puzzle-parlour-scorpio",
+      "name": "Puzzle Parlour: Scorpio Operation Chaos",
+      "category": "attraction",
+      "price_adult": 25.0,
+      "duration_hours": 1,
+      "rating": 4.6,
+      "description": "Your team of secret agents has the upper hand on nemesis Dr. Scorpio. Infiltrate his lair, plant a computer virus, and escape before his Operation Chaos plans come to full effect. 60 min, difficulty 70%.",
+      "image": "assets/thumbs/puzzle-parlour-scorpio-thumb.jpg",
+      "official_url": "https://www.thepuzzleparlour.com/branson/escape-rooms/",
+      "notes": "Puzzle Parlour, 1000 Pat Nash Dr, Branson MO. $25/person. Up to 8 players. 60 min. Difficulty: 70%. Average escape time: 54 min.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-puzzle-parlour"
+      ],
+      "drive": "17 min",
+      "sort_key": "puzzle parlour: scorpio operation chaos",
+      "visible": true
+    },
+    {
       "slug": "pythian-castle",
       "name": "Pythian Castle",
       "category": "attraction",
@@ -8048,38 +9052,116 @@
       "slug": "retromania",
       "name": "Retromania",
       "category": "attraction",
-      "price_adult": null,
+      "price_adult": 18.95,
       "duration_hours": 2,
       "rating": 4.5,
-      "description": "From 2026 Branson Attractions source listing.",
+      "description": "Step back into the 80s at this massive indoor entertainment complex on Hwy 76. General admission includes an 80s museum packed with movie props and memorabilia, black-light Retro Rocker mini golf, Slashers haunted house (Freddy, Jason, Leatherface), free-play classic arcade (now doubled in size), 5D/9D VR simulator, and photo ops with lifelike 80s movie characters. Full restaurant and bar on-site.",
       "image": "assets/thumbs/retromania-thumb.jpg",
-      "official_url": "https://www.branson.com/attractions/retromania/",
-      "notes": "Processed from source HTML using standardized Safari headers. Added 2026-04-19.",
+      "official_url": "https://www.retromania.com",
+      "notes": "3307 W 76 Country Blvd, Branson MO. Phone: 417-544-0143. General admission: $18.95 adult, $13.95 child. With VR ride: $21.95 adult, $18.95 child. Escape games: $26.95/person (additional fee). Tickets good for 2 days when bought online.",
       "tags": [
-        "1-2hr",
+        "active",
         "family",
-        "indoor"
+        "indoor",
+        "kid-focused",
+        "1-2hr",
+        "2-3hr",
+        "at-retromania"
       ],
-      "tag_meta": {
-        "vocabulary_round": 8,
-        "classifier": "claude-sonnet-4-6",
-        "confidence": 0.4,
-        "reasoning": "The name 'Retromania' suggests a retro-themed attraction with a 2-hour duration, but the sparse description provides insufficient detail to confidently assign specific tags beyond duration and a gener",
-        "categories": {
-          "show": [],
-          "music": [],
-          "audience": [
-            "family"
-          ],
-          "attraction": [
-            "indoor",
-            "1-2hr"
-          ]
-        },
-        "classified": "2026-04-21"
-      },
       "drive": "19 min",
       "sort_key": "retromania",
+      "visible": true
+    },
+    {
+      "slug": "retromania-doc-browns-lab",
+      "name": "Retromania Escape: Doc Brown's Lab",
+      "category": "attraction",
+      "price_adult": 26.95,
+      "duration_hours": 1,
+      "rating": 4.5,
+      "description": "Doc Brown's taken the time machine to the future and needs more fuel. Break into his lab -- protected by locks, traps, and time-activated security -- to reach the plutonium vault and send Doc his ticket home. 60 minutes.",
+      "image": "assets/thumbs/retromania-doc-browns-lab-thumb.jpg",
+      "official_url": "https://www.retromania.com",
+      "notes": "Retromania, 3307 W 76 Country Blvd, Branson MO. $26.95/person, all ages. 60 min. Escape game is additional fee beyond general admission.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-retromania"
+      ],
+      "drive": "19 min",
+      "sort_key": "retromania escape: doc brown's lab",
+      "visible": true
+    },
+    {
+      "slug": "retromania-et-rescue",
+      "name": "Retromania Escape: E.T. Rescue",
+      "category": "attraction",
+      "price_adult": 26.95,
+      "duration_hours": 1,
+      "rating": 4.5,
+      "description": "The government has captured E.T. and won't let him go. Break into the quarantine tent, disconnect the computers, destroy the lab tests, and free your extra-terrestrial friend before his rescue spaceship leaves in one hour.",
+      "image": "assets/thumbs/retromania-et-rescue-thumb.jpg",
+      "official_url": "https://www.retromania.com",
+      "notes": "Retromania, 3307 W 76 Country Blvd, Branson MO. $26.95/person, all ages. 60 min. Escape game is additional fee beyond general admission.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-retromania"
+      ],
+      "drive": "19 min",
+      "sort_key": "retromania escape: e.t. rescue",
+      "visible": true
+    },
+    {
+      "slug": "retromania-ecs-victor",
+      "name": "Retromania Escape: ECS Victor",
+      "category": "attraction",
+      "price_adult": 26.95,
+      "duration_hours": 1,
+      "rating": 4.5,
+      "description": "Aboard the Earth Cargo Authority ship ECS Victor, something is onboard that shouldn't be there. With critical systems failing and enemy forces closing in, restore power within 60 minutes to complete your mission and save the crew.",
+      "image": "assets/thumbs/retromania-ecs-victor-thumb.jpg",
+      "official_url": "https://www.retromania.com",
+      "notes": "Retromania, 3307 W 76 Country Blvd, Branson MO. $26.95/person, all ages. 60 min. Escape game is additional fee beyond general admission.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-retromania"
+      ],
+      "drive": "19 min",
+      "sort_key": "retromania escape: ecs victor",
+      "visible": true
+    },
+    {
+      "slug": "retromania-indy-tomb",
+      "name": "Retromania Escape: Indiana's Tomb",
+      "category": "attraction",
+      "price_adult": 26.95,
+      "duration_hours": 1,
+      "rating": 4.5,
+      "description": "Your group is trapped in an Egyptian tomb with no doors, and the trap releases in one hour filling it with sand. Solve ancient puzzles, navigate booby-trapped floors, read forgotten texts, and release the idol to escape.",
+      "image": "assets/thumbs/retromania-indy-tomb-thumb.jpg",
+      "official_url": "https://www.retromania.com",
+      "notes": "Retromania, 3307 W 76 Country Blvd, Branson MO. $26.95/person, all ages. 60 min. Escape game is additional fee beyond general admission.",
+      "tags": [
+        "active",
+        "family",
+        "indoor",
+        "kid-focused",
+        "1hr",
+        "at-retromania"
+      ],
+      "drive": "19 min",
+      "sort_key": "retromania escape: indiana's tomb",
       "visible": true
     },
     {
@@ -8123,6 +9205,51 @@
           ]
         },
         "classified": "2026-04-21"
+      },
+      "drive": "19 min",
+      "sort_key": "revollusionists",
+      "visible": true
+    },
+    {
+      "slug": "revollusionists",
+      "name": "Revollusionists",
+      "category": "show",
+      "duration_hours": 2,
+      "price_adult": 45,
+      "family_pass": null,
+      "rating": null,
+      "description": "Five world-class magicians unite in a single high-energy stage show -- each performing their own signature illusions, close-up magic, and large-scale stage tricks with comedy throughout.",
+      "image": "assets/thumbs/revollusionists-thumb.jpg",
+      "official_url": "https://www.revollusionists.com/",
+      "notes": "Price $45/adult from TripAdvisor. Newer show; verify official URL.",
+      "tags": [
+        "indoor",
+        "magic",
+        "variety",
+        "family",
+        "date-night",
+        "1-2hr"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.87,
+        "reasoning": "Five-magician show is magic/variety; family and date-night appropriate; 2-hour duration fits 1-2hr bracket.",
+        "categories": {
+          "show": [
+            "magic",
+            "variety"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-05-19"
       },
       "drive": "19 min",
       "sort_key": "revollusionists",
@@ -9251,6 +10378,53 @@
       "visible": true
     },
     {
+      "slug": "six-show-branson",
+      "name": "SIX",
+      "category": "show",
+      "duration_hours": 2,
+      "price_adult": 53,
+      "family_pass": null,
+      "rating": null,
+      "description": "Six real brothers performing entirely a cappella -- no instruments, just voices -- spanning country, pop, gospel, and rock. Celebrating 20+ years in Branson at the Hughes Brothers Theatre.",
+      "image": "assets/thumbs/six-show-branson-thumb.jpg",
+      "official_url": "https://www.sixbranson.com/",
+      "notes": "Price $53/adult from TripAdvisor. 20+ years performing in Branson. Hughes Brothers Theatre.",
+      "tags": [
+        "indoor",
+        "music",
+        "family",
+        "variety",
+        "gospel",
+        "1-2hr",
+        "date-night"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.9,
+        "reasoning": "A cappella group covering multiple genres is music/variety; family and date-night appropriate; 2-hour duration fits 1-2hr bracket.",
+        "categories": {
+          "show": [
+            "music",
+            "variety",
+            "gospel"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-05-19"
+      },
+      "drive": "19 min",
+      "sort_key": "six",
+      "visible": true
+    },
+    {
       "slug": "tanger-skechers",
       "name": "Skechers Factory Outlet (Tanger Outlets)",
       "category": "attraction",
@@ -10137,6 +11311,57 @@
       },
       "drive": "19 min",
       "sort_key": "texas tenors",
+      "visible": true
+    },
+    {
+      "slug": "thank-you-for-the-music-abba-tribute",
+      "name": "Thank You For the Music -- A Modern Tribute to ABBA",
+      "category": "show",
+      "duration_hours": 2,
+      "price_adult": 40,
+      "family_pass": null,
+      "rating": null,
+      "description": "A two-hour live tribute to ABBA featuring spot-on harmonies, period costumes, choreography, and all the iconic hits from Dancing Queen to Waterloo. Performs at Americana Theatre in Branson.",
+      "image": "assets/thumbs/thank-you-for-the-music-abba-tribute-thumb.jpg",
+      "official_url": "https://www.branson.com/shows/thank-you-for-the-music/",
+      "notes": "Price $40/adult from TripAdvisor; official URL unverified. Verify at branson.com.",
+      "tags": [
+        "indoor",
+        "music",
+        "tribute",
+        "family",
+        "date-night",
+        "1-2hr",
+        "oldies-70s",
+        "pop"
+      ],
+      "tag_meta": {
+        "vocabulary_round": 8,
+        "classifier": "claude-sonnet-4-6",
+        "confidence": 0.88,
+        "reasoning": "ABBA tribute show is clearly music/tribute with 70s pop influence; 2-hour duration fits 1-2hr bracket; family and date-night appropriate.",
+        "categories": {
+          "show": [
+            "music",
+            "tribute"
+          ],
+          "music": [
+            "pop",
+            "oldies-70s"
+          ],
+          "audience": [
+            "family",
+            "date-night"
+          ],
+          "attraction": [
+            "indoor",
+            "1-2hr"
+          ]
+        },
+        "classified": "2026-05-19"
+      },
+      "drive": "19 min",
+      "sort_key": "thank you for the music -- a modern tribute to abba",
       "visible": true
     },
     {
