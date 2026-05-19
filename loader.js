@@ -81,7 +81,7 @@
             end:        addHours(start, ev.duration),
             title:      ev.title,
             type:       ev.event_type || 'open',
-            sub:        null,
+            sub:        ev.sub || null,
             activityId: ev.catalogRef || null
           };
         });
@@ -121,7 +121,9 @@
         if (!activity.wish.includes(userId)) activity.wish.push(userId);
       } else if (pick.state === 'committing') {
         if (!activity.commit.includes(userId)) activity.commit.push(userId);
+      } else if (pick.state === 'both') {
         if (!activity.wish.includes(userId)) activity.wish.push(userId);
+        if (!activity.commit.includes(userId)) activity.commit.push(userId);
       }
     });
   }

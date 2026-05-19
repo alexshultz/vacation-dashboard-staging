@@ -1,6 +1,0 @@
-- On the main page for the cards, where it shows the people that have not responded, you should make the outline of that button the same color as the text, just like the other buttons are.
-- I want to know how many people are interested in the same things I am. On the wishlist page, please show how many other people have wishlisted the items I've wishlisted.
-- On the main page for the cards, let's separate out the undecided and the not responded yet. Let's separate them out just a bit from the yes-no's.
-- At the top of the main page where it has the key, let's try to group those together by maybe drawing a box around them so that it is obvious it's a group. We should also make it more symmetrical: maybe center the whole group on the page and make it so the little items are two and two on a line, or all four on a line, but don't leave a three-and-one layout.
-- Let's make it look really nice and symmetrical. If someone has a bit of OCD, I don't want that to be bothering them. Fix it.
-- 

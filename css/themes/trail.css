@@ -1,47 +1,22 @@
 /*
- * trail.css — Trail theme (default, Ozarks-inspired)
- *
- * Defines the private Ozarks brand palette. ONLY this file binds raw
- * hex values to brand-named vars (--moss, --lake, --sand, etc.).
- * Components reference semantic tokens from tokens.css; this file remaps
- * those semantic tokens to point at the private palette so swapping
- * themes only changes one file.
+ * trail.css -- Trail theme (default, Ozarks-inspired)
+ * Defines private Ozarks palette. ONLY this file uses --moss, --lake, etc.
+ * Components reference semantic tokens from tokens.css instead.
  */
 :root {
-  /* Private Ozarks palette — only used here + by components that need
-     color-mix() into a brand hue (e.g. faint moss tinted backgrounds). */
-  --moss:        #3F6B3A;   /* Ozarks forest canopy */
-  --moss-dim:    #284A26;
-  --lake:        #2A6A8A;   /* Table Rock + Taneycomo */
-  --dusk:        #6B4C8F;   /* Twilight purple */
-  --sand:        #D8A660;   /* Sandstone bluff */
-  --clay:        #C1553B;   /* Red clay hillside */
-  --brick:       #B83A35;   /* Destructive */
-  --amber:       #A86A1C;   /* Warn */
-  --stone:       #8B8671;   /* Weathered limestone */
-  --cream:       #FFFDF7;
-  --linen:       #FBF6EC;
-  --ink:         #20281E;
-  --ink-dim:     #5E6B58;
-  --line:        #E4DCC6;
+  --moss:   #3F6B3A;
+  --moss-d: #284A26;
+  --lake:   #2A6A8A;
+  --sand:   #D8A660;
+  --clay:   #C1553B;
+  --dusk:   #6B4C8F;
 
-  /* Trail overrides for semantic tokens — remap the abstract vocabulary
-     in tokens.css to point at the private palette so the page picks up
-     the Trail palette whenever this stylesheet is loaded. */
-  --color-bg:        var(--linen);
-  --color-surface:   var(--cream);
-  --color-ink:       var(--ink);
-  --color-ink-dim:   var(--ink-dim);
-  --color-line:      var(--line);
-
+  /* Trail overrides for semantic tokens */
   --status-yes:      var(--moss);
-  --status-yes-dim:  var(--moss-dim);
   --status-wishlist: var(--lake);
   --status-lock:     var(--dusk);
-  --status-no:       var(--brick);
-  --status-neutral:  var(--stone);
-  --warn:            var(--amber);
 
+  /* Trail overrides for accent tokens */
   --accent-1: var(--sand);
   --accent-2: var(--clay);
   --accent-3: var(--dusk);

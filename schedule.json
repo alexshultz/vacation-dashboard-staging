@@ -238,7 +238,8 @@
       "notInterested": [],
       "noResponse": [],
       "event_type": "meal",
-      "series_slug": "supper"
+      "series_slug": "supper",
+      "sub": "Pizza · Let Evie Know About Special Requests"
     },
     {
       "id": "sup-23",
@@ -338,6 +339,36 @@
       "catalogRef": "silver-dollar-city",
       "startTime": "10:00",
       "travelMinutes": 8,
+      "interested": [],
+      "undecided": [],
+      "notInterested": [],
+      "noResponse": [],
+      "event_type": "open",
+      "series_slug": null
+    },
+    {
+      "id": "travel-manhattan-to-branson",
+      "title": "Drive: Manhattan to Branson",
+      "date": "2026-05-22",
+      "duration": 7,
+      "catalogRef": null,
+      "startTime": "10:00",
+      "travelMinutes": null,
+      "interested": [],
+      "undecided": [],
+      "notInterested": [],
+      "noResponse": [],
+      "event_type": "travel",
+      "series_slug": null
+    },
+    {
+      "id": "david-sight-sound-may27",
+      "title": "DAVID (Sight & Sound Theatres)",
+      "date": "2026-05-27",
+      "duration": 2.3333,
+      "catalogRef": "david-sight-sound-theatres",
+      "startTime": "19:30",
+      "travelMinutes": null,
       "interested": [],
       "undecided": [],
       "notInterested": [],
