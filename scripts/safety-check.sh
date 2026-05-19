@@ -30,8 +30,8 @@ c=$(grep -c 'fetch.*help.json' "web/help.html")
 c=$(grep -c 'fetch.*schedule.json' "web/event-timeline.html")
 [[ "$c" -ge 1 ]] || fail "fetch schedule.json in event-timeline.html" "$c" ">=" 1
 
-c=$(grep -c 'fetch.*schedule.json' "web/index.html")
-[[ "$c" -ge 1 ]] || fail "fetch schedule.json in index.html" "$c" ">=" 1
+c=$(grep -c 'loader.js' "web/index.html")
+[[ "$c" -ge 1 ]] || fail "loader.js in index.html (SPA entry point missing)" "$c" ">=" 1
 
 c=$(grep -ic 'filter-popover\|filter-toggle\|vacdash:v1:filter' "web/attractions.html" || true)
 [[ "$c" -eq 0 ]] || fail "dead filter refs in attractions.html" "$c" "==" 0
