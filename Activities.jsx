@@ -69,7 +69,8 @@ function QuickPickView({ state, dispatch }) {
   const [drag, setDrag] = useStateAct({ dx: 0, dy: 0, dragging: false });
   const dragRef = React.useRef({ startX: 0, startY: 0, pointerId: null });
 
-  const deck = useMemoAct(() => {
+  const [deck, setDeck] = useStateAct([]);
+  React.useEffect(() => {
     const unseen = window.BD_ACTIVITIES.filter(
       a => !a.wish.includes(state.userId) && !a.commit.includes(state.userId)
     );
@@ -77,7 +78,7 @@ function QuickPickView({ state, dispatch }) {
       const j = Math.floor(Math.random() * (i + 1));
       [unseen[i], unseen[j]] = [unseen[j], unseen[i]];
     }
-    return unseen.slice(0, 8);
+    setDeck(unseen.slice(0, 8));
   }, [state.userId]);
 
   function decide(direction, fromTransform) {
