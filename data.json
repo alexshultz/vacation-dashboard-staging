@@ -289,7 +289,7 @@
       ],
       "drive": "15 min",
       "sort_key": "adidas factory outlet (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "adventure-seekers",
@@ -687,7 +687,7 @@
       ],
       "drive": "90 min",
       "sort_key": "arsaga's at the depot (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "awesome-80-s",
@@ -866,7 +866,7 @@
       ],
       "drive": "15 min",
       "sort_key": "banana republic factory (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "bass-pro-shops-branson-landing",
@@ -937,7 +937,7 @@
       ],
       "drive": "20 min",
       "sort_key": "bath & body works (branson landing)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "bear-creek-winery-branson",
@@ -983,7 +983,7 @@
       ],
       "drive": "20 min",
       "sort_key": "belk department store (branson landing)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "the-bellamy-brothers",
@@ -1230,7 +1230,7 @@
       ],
       "drive": "8 min",
       "sort_key": "blacksmith shop (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "blanchard-springs-caverns",
@@ -1405,7 +1405,7 @@
       ],
       "drive": "15 min",
       "sort_key": "book warehouse (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "dickson-bordinos",
@@ -1427,7 +1427,7 @@
       ],
       "drive": "90 min",
       "sort_key": "bordino's restaurant & winery (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "botanical-garden-of-the-ozarks",
@@ -1823,7 +1823,7 @@
       ],
       "drive": "20 min",
       "sort_key": "branson landing boardwalk (branson landing)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "branson-landing-farmers-market",
@@ -1871,7 +1871,7 @@
       ],
       "drive": "20 min",
       "sort_key": "branson landing fountain show (branson landing)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "branson-murder-mystery-show",
@@ -2381,7 +2381,7 @@
       ],
       "drive": "8 min",
       "sort_key": "broom maker (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "sdc-brown-sugars-bakery",
@@ -2404,7 +2404,7 @@
       ],
       "drive": "8 min",
       "sort_key": "brown sugar's bakery (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "buffalo-national-river",
@@ -2546,7 +2546,7 @@
       ],
       "drive": "15 min",
       "sort_key": "calvin klein outlet (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "sdc-candle-shop",
@@ -2570,7 +2570,7 @@
       ],
       "drive": "8 min",
       "sort_key": "candle shop (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "sdc-candy-kitchen",
@@ -2594,7 +2594,7 @@
       ],
       "drive": "8 min",
       "sort_key": "candy kitchen (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "carpenters-once-more",
@@ -2670,7 +2670,7 @@
       ],
       "drive": "15 min",
       "sort_key": "carter's outlet (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "tanger-chicos",
@@ -2692,7 +2692,7 @@
       ],
       "drive": "15 min",
       "sort_key": "chico's outlet (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "tanger-childrens-place",
@@ -2715,7 +2715,7 @@
       ],
       "drive": "15 min",
       "sort_key": "children's place outlet (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "christ-of-the-ozarks",
@@ -2760,7 +2760,7 @@
       ],
       "drive": "8 min",
       "sort_key": "christmas shop (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "branson-landing-claires",
@@ -2783,7 +2783,7 @@
       ],
       "drive": "20 min",
       "sort_key": "claire's (branson landing)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "classic-country-and-comedy",
@@ -2995,7 +2995,7 @@
       ],
       "drive": "15 min",
       "sort_key": "coach factory store (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "sdc-cobbler-stand",
@@ -3019,7 +3019,7 @@
       ],
       "drive": "8 min",
       "sort_key": "cobbler & ice cream stand (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "comedy-jamboree",
@@ -3373,7 +3373,7 @@
       ],
       "drive": "8 min",
       "sort_key": "dazzle glass studio (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "dean-z-the-ultimate-elvis",
@@ -3470,7 +3470,7 @@
       ],
       "drive": "90 min",
       "sort_key": "dickson street ballroom (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "dickson-dickson-street-bookshop",
@@ -3491,7 +3491,7 @@
       ],
       "drive": "90 min",
       "sort_key": "dickson street bookshop (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "dickson-street-fayetteville",
@@ -4184,7 +4184,7 @@
       ],
       "drive": "8 min",
       "sort_key": "florentina's ristorante italiano (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "branson-landing-francescas",
@@ -4207,7 +4207,7 @@
       ],
       "drive": "20 min",
       "sort_key": "francesca's (branson landing)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "sdc-fred-smokehouse",
@@ -4230,7 +4230,7 @@
       ],
       "drive": "8 min",
       "sort_key": "fred's old southern bar-b-que (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "fritz-s-adventure",
@@ -4320,7 +4320,7 @@
       ],
       "drive": "15 min",
       "sort_key": "gap factory (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "a-garth-tribute",
@@ -4607,7 +4607,7 @@
       ],
       "drive": "90 min",
       "sort_key": "george's majestic lounge (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "sdc-turkey-leg-cart",
@@ -4630,7 +4630,7 @@
       ],
       "drive": "8 min",
       "sort_key": "giant smoked turkey legs (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "golden-sounds-of-the-platters",
@@ -4805,7 +4805,7 @@
       ],
       "drive": "15 min",
       "sort_key": "guess factory store (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "dickson-gusanos-pizza",
@@ -4826,7 +4826,7 @@
       ],
       "drive": "90 min",
       "sort_key": "gusano's chicago style pizzeria (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "branson-landing-h-and-m",
@@ -4849,7 +4849,7 @@
       ],
       "drive": "20 min",
       "sort_key": "h&m (branson landing)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "ha-ha-tonka-state-park",
@@ -4896,7 +4896,7 @@
       ],
       "drive": "15 min",
       "sort_key": "hallmark gold crown (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "dickson-hammontrees",
@@ -4917,7 +4917,7 @@
       ],
       "drive": "90 min",
       "sort_key": "hammontree's grilled cheese (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "hamners-unbelievable-variety-show",
@@ -5358,7 +5358,7 @@
       ],
       "drive": "90 min",
       "sort_key": "hugo's (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "illusionist-rick-thomas",
@@ -5528,7 +5528,7 @@
       ],
       "drive": "90 min",
       "sort_key": "jj's grill (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "joe-nichols",
@@ -5647,7 +5647,7 @@
       ],
       "drive": "20 min",
       "sort_key": "justice (branson landing)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "tanger-justice",
@@ -5670,7 +5670,7 @@
       ],
       "drive": "15 min",
       "sort_key": "justice outlet (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "kenny-rogers-tribute",
@@ -5791,7 +5791,7 @@
       ],
       "drive": "15 min",
       "sort_key": "kitchen collection (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "kringles-christmas-store",
@@ -5934,7 +5934,7 @@
       ],
       "drive": "15 min",
       "sort_key": "lane bryant outlet (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "sdc-leatherworks",
@@ -5958,7 +5958,7 @@
       ],
       "drive": "8 min",
       "sort_key": "leatherworks (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "legends-in-concert",
@@ -6042,7 +6042,7 @@
       ],
       "drive": "15 min",
       "sort_key": "levi's outlet store (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "branson-landing-lids",
@@ -6065,7 +6065,7 @@
       ],
       "drive": "20 min",
       "sort_key": "lids (branson landing)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "lost-canyon-cave-nature-trail",
@@ -6110,7 +6110,7 @@
       ],
       "drive": "8 min",
       "sort_key": "lumbercamp restaurant (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "main-street-flea-market",
@@ -6228,7 +6228,7 @@
       ],
       "drive": "8 min",
       "sort_key": "marvel cave gift shop (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "matt-gumm-and-company",
@@ -6295,7 +6295,7 @@
       ],
       "drive": "90 min",
       "sort_key": "maxine's tap room (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "melody-hart-the-all-star-band",
@@ -6415,7 +6415,7 @@
       ],
       "drive": "8 min",
       "sort_key": "miss lizzie's boarding house (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "sdc-molly-mill-restaurant",
@@ -6438,7 +6438,7 @@
       ],
       "drive": "8 min",
       "sort_key": "molly's mill restaurant (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "the-momentary",
@@ -6774,7 +6774,7 @@
       ],
       "drive": "15 min",
       "sort_key": "new balance factory store (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "new-jersey-nights",
@@ -6899,7 +6899,7 @@
       ],
       "drive": "90 min",
       "sort_key": "nightbird books (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "tanger-outlets-nike",
@@ -6945,7 +6945,7 @@
       ],
       "drive": "15 min",
       "sort_key": "old navy (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "orbison-still",
@@ -7185,7 +7185,7 @@
       ],
       "drive": "8 min",
       "sort_key": "ozark pottery (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "ozarks-aglow-nighttime-walk",
@@ -7344,7 +7344,7 @@
       ],
       "drive": "20 min",
       "sort_key": "pandora (branson landing)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "parakeet-pete-s",
@@ -7477,7 +7477,7 @@
       ],
       "drive": "90 min",
       "sort_key": "penguin ed's bar-b-q (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "peter-engler-designs",
@@ -7795,7 +7795,7 @@
       ],
       "drive": "15 min",
       "sort_key": "polo ralph lauren factory store (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "pomme-de-terre-state-park",
@@ -7842,7 +7842,7 @@
       ],
       "drive": "90 min",
       "sort_key": "powerhouse seafood & grill (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "sdc-prairie-kettle-corn",
@@ -7866,7 +7866,7 @@
       ],
       "drive": "8 min",
       "sort_key": "prairie kettle corn (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "presleys-country-jubilee",
@@ -8444,7 +8444,7 @@
       ],
       "drive": "8 min",
       "sort_key": "rock shop & gem mine (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "tanger-rue21",
@@ -8468,7 +8468,7 @@
       ],
       "drive": "15 min",
       "sort_key": "rue21 outlet (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "runaway-mountain-coaster",
@@ -8556,7 +8556,7 @@
       ],
       "drive": "90 min",
       "sort_key": "sassy's red house bbq (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "amazeum",
@@ -9177,7 +9177,7 @@
       ],
       "drive": "8 min",
       "sort_key": "silver dollar city general store (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "sdc-silversmith",
@@ -9202,7 +9202,7 @@
       ],
       "drive": "8 min",
       "sort_key": "silversmith & jewelry studio (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "six",
@@ -9271,7 +9271,7 @@
       ],
       "drive": "15 min",
       "sort_key": "skechers factory outlet (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "dickson-smoke-barrel-tavern",
@@ -9292,7 +9292,7 @@
       ],
       "drive": "90 min",
       "sort_key": "smoke & barrel tavern (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "smoke-on-the-mountain",
@@ -9409,7 +9409,7 @@
       ],
       "drive": "8 min",
       "sort_key": "soap shop (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "the-social-birdy-putting-golf",
@@ -9532,7 +9532,7 @@
       ],
       "drive": "8 min",
       "sort_key": "sorghum mill (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "the-sound-of-simon-garfunkel",
@@ -9658,7 +9658,7 @@
       ],
       "drive": "20 min",
       "sort_key": "spencer's (branson landing)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "springfield-antique-malls",
@@ -9779,7 +9779,7 @@
       ],
       "drive": "15 min",
       "sort_key": "steve madden outlet (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "steve-sanders-the-mind-spy",
@@ -9945,7 +9945,7 @@
       ],
       "drive": "15 min",
       "sort_key": "sunglass hut outlet (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "table-rock-art-guild",
@@ -10253,7 +10253,7 @@
       ],
       "drive": "15 min",
       "sort_key": "tommy hilfiger outlet (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "top-of-the-rock",
@@ -10297,7 +10297,7 @@
       ],
       "drive": "20 min",
       "sort_key": "torrid (branson landing)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "tanger-torrid",
@@ -10320,7 +10320,7 @@
       ],
       "drive": "15 min",
       "sort_key": "torrid outlet (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "tracy-byrd",
@@ -10582,7 +10582,7 @@
       ],
       "drive": "90 min",
       "sort_key": "underwood's fine jewelers (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "veterans-memorial-museum",
@@ -10651,7 +10651,7 @@
       ],
       "drive": "20 min",
       "sort_key": "victoria's secret (branson landing)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "walmart-museum",
@@ -10720,7 +10720,7 @@
       ],
       "drive": "90 min",
       "sort_key": "walton arts center (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "war-eagle-mill",
@@ -10841,7 +10841,7 @@
       ],
       "drive": "20 min",
       "sort_key": "white house black market (branson landing)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "white-water",
@@ -10962,7 +10962,7 @@
       ],
       "drive": "8 min",
       "sort_key": "wilson brothers music (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "wilsons-creek-national-battlefield",
@@ -11079,7 +11079,7 @@
       ],
       "drive": "8 min",
       "sort_key": "woodcarver's shop (silver dollar city)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "world-s-largest-toy-museum-complex",
@@ -11148,7 +11148,7 @@
       ],
       "drive": "15 min",
       "sort_key": "yankee candle outlet (tanger outlets)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "dickson-yeyos",
@@ -11169,7 +11169,7 @@
       ],
       "drive": "90 min",
       "sort_key": "yeyo's el alma de mexico (dickson st)",
-      "visible": true
+      "visible": false
     },
     {
       "slug": "zep-la",
