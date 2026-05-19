@@ -146,7 +146,7 @@ function CatalogCard({ activity, userId, onToggleWish, onToggleCommit, onOpen })
   //   committed  → dusk-tint surface (viewer is on this commit list)
   //   scheduled  → moss-tint surface (someone else is committed, viewer isn't)
   //   (neither)  → default cream surface
-  const someoneCommitted = activity.commit.length > 0;
+  const someoneCommitted = (window.BD_SCHEDULED_IDS && window.BD_SCHEDULED_IDS.has(activity.id)) || activity.commit.length > 0;
   const surfaceMod = committed       ? 'card-cat--committed'
                    : someoneCommitted ? 'card-cat--scheduled'
                    : '';

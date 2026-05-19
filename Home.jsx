@@ -33,8 +33,10 @@ function HomePage({ state, dispatch }) {
             // "committed" for surface purposes (lock just adds the 🔒).
             const viewerCommitted = ys && (ys.kind === 'commit' || ys.kind === 'lock');
             const someoneCommitted = !!(
-              ev.activityId &&
-              (window.BD_ACTIVITIES.find(x => x.id === ev.activityId)?.commit.length > 0)
+              ev.activityId && (
+                (window.BD_SCHEDULED_IDS && window.BD_SCHEDULED_IDS.has(ev.activityId)) ||
+                (window.BD_ACTIVITIES.find(x => x.id === ev.activityId)?.commit.length > 0)
+              )
             );
             const surfaceMod = viewerCommitted     ? 'event-row--committed'
                              : someoneCommitted    ? 'event-row--scheduled'

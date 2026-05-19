@@ -190,6 +190,12 @@
       // Populate globals before Supabase (pick hydration mutates BD_ACTIVITIES)
       window.BD_ACTIVITIES = buildActivities(actData.attractions);
       window.BD_SCHEDULE   = buildSchedule(schedData.events);
+      window.BD_SCHEDULED_IDS = new Set(
+        (window.BD_SCHEDULE || []).flatMap(function(day) { return day.events; })
+          .filter(function(ev) { return ev.activityId && ev.type !== 'meal' && ev.type !== 'travel'; })
+          .map(function(ev) { return ev.activityId; })
+      );
+      console.log('[loader] BD_SCHEDULED_IDS:', [...window.BD_SCHEDULED_IDS]);
       window.BD_PEOPLE     = buildPeople(peopleData.attendees);
       window.BD_INITIAL_USER = null;
 
