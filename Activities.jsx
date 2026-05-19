@@ -78,7 +78,7 @@ function QuickPickView({ state, dispatch }) {
       const j = Math.floor(Math.random() * (i + 1));
       [unseen[i], unseen[j]] = [unseen[j], unseen[i]];
     }
-    setDeck(unseen.slice(0, 8));
+    setDeck(unseen);
   }, [state.userId]);
 
   function decide(direction, fromTransform) {
