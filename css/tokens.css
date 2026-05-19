@@ -1,48 +1,103 @@
 /*
- * tokens.css -- Branson '26 Design System
- * Semantic tokens only. Private palette lives in themes/trail.css.
- * Components ONLY reference vars from this file.
+ * tokens.css — Branson '26 Design System (Trail refresh)
+ *
+ * Semantic tokens only. Private brand palette lives in themes/trail.css.
+ * Components reference vars from this file (and the brand-named palette
+ * via the active theme), never raw hex.
+ *
+ * Defaults below match Trail light mode so the page renders without a
+ * theme file loaded; trail.css remaps semantic tokens to its own private
+ * palette names so brand vars (--moss, --lake, etc.) are also available
+ * to components that need them.
  */
 :root {
-  /* Geometry */
-  --radius-card: 18px;
-  --radius-pill: 999px;
-  --radius-btn: 10px;
+  /* ─── Geometry ────────────────────────────────────────────── */
+  --radius-sm:    4px;    /* surface containers, tag */
+  --radius-btn:  10px;    /* buttons, banners, inline error */
+  --radius-card: 18px;    /* all activity cards */
+  --radius-pill: 999px;   /* chips, badges, heart */
 
-  /* Spacing */
-  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
-  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+  /* ─── Spacing — 8px base ─────────────────────────────────── */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
 
-  /* Typography */
+  /* ─── Typography ─────────────────────────────────────────── */
   --font-display: 'Lexend', Georgia, 'Iowan Old Style', serif;
-  --font-body: 'Atkinson Hyperlegible', 'Lexend', system-ui, -apple-system, sans-serif;
-  --text-xs: 12px; --text-sm: 14px; --text-base: 17px;
-  --text-lg: 19px; --text-xl: 22px;
+  --font-body:    'Atkinson Hyperlegible', 'Lexend', system-ui, -apple-system, sans-serif;
+  --text-xs:   12px;   /* bounded-component labels only */
+  --text-sm:   14px;   /* metadata */
+  --text-base: 17px;   /* body prose — never below 16px */
+  --text-lg:   19px;   /* h3 / dense card title */
+  --text-xl:   22px;   /* h2 */
+  --text-2xl:  26px;   /* h1 small viewport min */
+  --text-3xl:  38px;   /* h1 large viewport max (clamp upper) */
+  --leading-tight:  1.1;
+  --leading-snug:   1.25;
+  --leading-normal: 1.45;
+  --leading-body:   1.5;
+  --leading-prose:  1.6;
+  --tracking-eyebrow: 0.08em;
+  --tracking-tight:   -0.01em;
 
-  /* Colors -- defaults match Trail light mode */
+  /* ─── Semantic colors — Trail light-mode defaults ─────────── */
   --color-bg:      #FBF6EC;
   --color-surface: #FFFDF7;
   --color-ink:     #20281E;
   --color-ink-dim: #5E6B58;
   --color-line:    #E4DCC6;
 
-  --status-yes:      #3F6B3A;
-  --status-no:       #B83A35;
-  --status-wishlist: #2A6A8A;
-  --status-neutral:  #8B8671;
-  --status-lock:     #6B4C8F;
-  --warn:            #A86A1C;
+  --status-yes:      #3F6B3A;   /* moss — primary action, commit */
+  --status-yes-dim:  #284A26;
+  --status-wishlist: #2A6A8A;   /* lake — wishlist soft signal */
+  --status-lock:     #6B4C8F;   /* dusk — committed/locked */
+  --status-no:       #B83A35;   /* brick — destructive */
+  --status-neutral:  #8B8671;   /* stone — TBD */
+  --warn:            #A86A1C;   /* amber */
 
-  /* Accent tokens for component references */
-  --accent-1: #D8A660;
-  --accent-2: #C1553B;
-  --accent-3: #6B4C8F;
+  --accent-1: #D8A660;   /* sand — decorative; not for text on cream */
+  --accent-2: #C1553B;   /* clay — destructive accent strokes */
+  --accent-3: #6B4C8F;   /* dusk — same hue as --status-lock */
 
+  --on-yes:      #FFFFFF;
+  --on-wishlist: #FFFFFF;
+  --on-lock:     #FFFFFF;
+  --on-no:       #FFFFFF;
+  --on-warn:     #FFFFFF;
+  --on-neutral:  #FFFFFF;
+
+  /* Adaptive brand accent for TEXT/ICONS on --color-surface.
+     Light mode: original brand hex. Dark mode: lighter tone so accent text
+     stays readable on the dark surface. Defined per mode below. */
+  --moss-on-surface:  #3F6B3A;
+  --lake-on-surface:  #2A6A8A;
+  --dusk-on-surface:  #6B4C8F;
+  --brick-on-surface: #B83A35;
+  --sand-on-surface:  #A8731F;  /* darker than raw sand for cream-surface contrast */
+
+  /* ─── Shadows (light) ────────────────────────────────────── */
   --shadow-1: 0 1px 2px rgba(32,40,30,0.05), 0 6px 18px rgba(32,40,30,0.06);
   --shadow-2: 0 2px 4px rgba(32,40,30,0.08), 0 20px 40px rgba(0,0,0,0.10);
+
+  /* ─── Motion ─────────────────────────────────────────────── */
+  --ease-out:    cubic-bezier(0.2, 0.9, 0.35, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:    150ms;
+  --dur-base:    220ms;
+  --dur-slow:    360ms;
+
+  /* ─── Touch targets ──────────────────────────────────────── */
+  --tap: 44px;
 }
 
-/* System dark mode */
+/* ─── System dark mode (auto, follows OS) ─────────────────────
+   Honors `prefers-color-scheme: dark` ONLY when data-mode is unset or
+   "system" — explicit `data-mode="light"` and `="dark"` win. */
 @media (prefers-color-scheme: dark) {
   :root[data-mode="system"], :root:not([data-mode]) {
     --color-bg:      #161A14;
@@ -51,6 +106,12 @@
     --color-ink-dim: #ADB3A3;
     --color-line:    #343C2F;
     --warn:          #E0B35A;
+
+    --moss-on-surface:  #9BC295;
+    --lake-on-surface:  #7FB5D6;
+    --dusk-on-surface:  #B49ED5;
+    --brick-on-surface: #E08A7E;
+    --sand-on-surface:  #E3B57A;
   }
 }
 :root[data-mode="dark"] {
@@ -60,6 +121,12 @@
   --color-ink-dim: #ADB3A3;
   --color-line:    #343C2F;
   --warn:          #E0B35A;
+
+  --moss-on-surface:  #9BC295;
+  --lake-on-surface:  #7FB5D6;
+  --dusk-on-surface:  #B49ED5;
+  --brick-on-surface: #E08A7E;
+  --sand-on-surface:  #E3B57A;
 }
 :root[data-mode="light"] {
   --color-bg:      #FBF6EC;
@@ -68,4 +135,10 @@
   --color-ink-dim: #5E6B58;
   --color-line:    #E4DCC6;
   --warn:          #A86A1C;
+
+  --moss-on-surface:  #3F6B3A;
+  --lake-on-surface:  #2A6A8A;
+  --dusk-on-surface:  #6B4C8F;
+  --brick-on-surface: #B83A35;
+  --sand-on-surface:  #A8731F;
 }

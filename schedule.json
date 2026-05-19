@@ -5,9 +5,8 @@
       "title": "ATV",
       "date": "2026-05-26",
       "duration": 4,
-      "priority": "high",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "09:00",
       "travelMinutes": null,
       "interested": [
         "Dez",
@@ -51,9 +50,8 @@
       "title": "Branson Belle Showboat",
       "date": "2026-05-27",
       "duration": 2.5,
-      "priority": "medium",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "20:00",
       "travelMinutes": null,
       "interested": [
         "Bee",
@@ -97,9 +95,8 @@
       "title": "Butterfly Palace",
       "date": "2026-05-25",
       "duration": 1.5,
-      "priority": "medium",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "14:30",
       "travelMinutes": null,
       "interested": [
         "Ashlyn",
@@ -142,9 +139,8 @@
       "title": "Car Museum",
       "date": "2026-05-24",
       "duration": 1,
-      "priority": "low",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "11:00",
       "travelMinutes": null,
       "interested": [
         "Bee",
@@ -187,9 +183,8 @@
       "title": "Cat Cafe",
       "date": "2026-05-28",
       "duration": 1,
-      "priority": "low",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "10:00",
       "travelMinutes": null,
       "interested": [],
       "undecided": [],
@@ -231,9 +226,8 @@
       "title": "Cave",
       "date": "2026-05-23",
       "duration": 1.5,
-      "priority": "medium",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "09:00",
       "travelMinutes": null,
       "interested": [
         "Alex"
@@ -276,9 +270,8 @@
       "title": "Dogwood",
       "date": "2026-05-25",
       "duration": 6.0,
-      "priority": "medium",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "09:00",
       "travelMinutes": null,
       "interested": [
         "Ashlyn",
@@ -321,9 +314,8 @@
       "title": "Dogwood Canyon Horse",
       "date": "2026-05-25",
       "duration": 1.5,
-      "priority": "medium",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "11:30",
       "travelMinutes": null,
       "interested": [
         "Dez",
@@ -366,9 +358,8 @@
       "title": "Dogwood Canyon Tram",
       "date": "2026-05-25",
       "duration": 1.5,
-      "priority": "medium",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "10:00",
       "travelMinutes": null,
       "interested": [
         "Ashlyn",
@@ -411,9 +402,8 @@
       "title": "Dolly Parton",
       "date": "2026-05-28",
       "duration": 2,
-      "priority": "high",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "19:00",
       "travelMinutes": null,
       "interested": [
         "Bee",
@@ -456,9 +446,8 @@
       "title": "Escape Room",
       "date": "2026-05-24",
       "duration": 1.5,
-      "priority": "high",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "14:00",
       "travelMinutes": null,
       "interested": [
         "Ashlyn",
@@ -501,9 +490,8 @@
       "title": "Fishing",
       "date": "2026-05-27",
       "duration": 4,
-      "priority": "low",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "09:00",
       "travelMinutes": null,
       "interested": [
         "Josh"
@@ -546,9 +534,8 @@
       "title": "Five & Dime",
       "date": "2026-05-23",
       "duration": 1,
-      "priority": "low",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "13:00",
       "travelMinutes": null,
       "interested": [
         "Ashlyn",
@@ -591,9 +578,8 @@
       "title": "Go Karts",
       "date": "2026-05-26",
       "duration": 1.5,
-      "priority": "medium",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "11:30",
       "travelMinutes": null,
       "interested": [
         "Bee",
@@ -636,9 +622,8 @@
       "title": "Horseback",
       "date": "2026-05-26",
       "duration": 3,
-      "priority": "medium",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "14:00",
       "travelMinutes": null,
       "interested": [
         "Bee",
@@ -681,9 +666,8 @@
       "title": "Knife Forge",
       "date": "2026-05-27",
       "duration": 1.5,
-      "priority": "medium",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "13:00",
       "travelMinutes": null,
       "interested": [
         "David",
@@ -726,9 +710,8 @@
       "title": "Mini Golf",
       "date": "2026-05-28",
       "duration": 0.75,
-      "priority": "low",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "11:30",
       "travelMinutes": null,
       "interested": [
         "Ashlyn"
@@ -771,9 +754,8 @@
       "title": "Paintball",
       "date": "2026-05-24",
       "duration": 2,
-      "priority": "low",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "16:00",
       "travelMinutes": null,
       "interested": [
         "Bee"
@@ -816,9 +798,8 @@
       "title": "Ripley's",
       "date": "2026-05-23",
       "duration": 1,
-      "priority": "high",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "11:00",
       "travelMinutes": null,
       "interested": [
         "Ashlyn",
@@ -861,9 +842,8 @@
       "title": "Riverfront",
       "date": "2026-05-28",
       "duration": 2,
-      "priority": "medium",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "15:00",
       "travelMinutes": null,
       "interested": [],
       "undecided": [],
@@ -905,9 +885,8 @@
       "title": "Sight & Sound",
       "date": "2026-05-23",
       "duration": 3,
-      "priority": "high",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "19:00",
       "travelMinutes": null,
       "interested": [
         "Bee",
@@ -950,9 +929,8 @@
       "title": "Silver Dollar City",
       "date": "2026-05-24",
       "duration": 6,
-      "priority": "high",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "09:00",
       "travelMinutes": null,
       "interested": [
         "Bee",
@@ -995,9 +973,8 @@
       "title": "Simon & Garfunkel",
       "date": "2026-05-27",
       "duration": 1.5,
-      "priority": "medium",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "19:00",
       "travelMinutes": null,
       "interested": [
         "Bee",
@@ -1040,9 +1017,8 @@
       "title": "Thrift Shop",
       "date": "2026-05-28",
       "duration": 2,
-      "priority": "low",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "13:00",
       "travelMinutes": null,
       "interested": [
         "Ashlyn"
@@ -1085,9 +1061,8 @@
       "title": "Titanic",
       "date": "2026-05-25",
       "duration": 1.5,
-      "priority": "high",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "16:30",
       "travelMinutes": null,
       "interested": [
         "Ashlyn",
@@ -1130,9 +1105,8 @@
       "title": "Water Park",
       "date": "2026-05-25",
       "duration": 3,
-      "priority": "high",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "13:00",
       "travelMinutes": null,
       "interested": [
         "Bee",
@@ -1175,9 +1149,8 @@
       "title": "Wax Museum",
       "date": "2026-05-26",
       "duration": 0.75,
-      "priority": "medium",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "13:30",
       "travelMinutes": null,
       "interested": [
         "Rachel"
@@ -1220,9 +1193,8 @@
       "title": "Zip Line",
       "date": "2026-05-27",
       "duration": 1,
-      "priority": "medium",
       "catalogRef": null,
-      "startTime": null,
+      "startTime": "14:30",
       "travelMinutes": null,
       "interested": [
         "Skylar"

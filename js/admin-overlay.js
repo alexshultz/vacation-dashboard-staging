@@ -71,18 +71,6 @@
 
     '<label style="display:block;font-size:12px;font-weight:700;',
     'text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);',
-    'margin-bottom:4px;">Priority</label>',
-    '<select id="vacdash-edit-priority" ',
-    'style="width:100%;padding:8px 10px;border:1.5px solid var(--color-line);',
-    'border-radius:var(--radius-btn,6px);background:var(--color-bg);',
-    'color:var(--color-ink);font-size:14px;box-sizing:border-box;margin-bottom:12px;">',
-    '<option value="low">Low</option>',
-    '<option value="medium">Medium</option>',
-    '<option value="high">High</option>',
-    '</select>',
-
-    '<label style="display:block;font-size:12px;font-weight:700;',
-    'text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-dim);',
     'margin-bottom:4px;">Catalog Ref</label>',
     '<input id="vacdash-edit-catalogRef" type="text" ',
     'style="width:100%;padding:8px 10px;border:1.5px solid var(--color-line);',
@@ -182,7 +170,6 @@
     var date       = document.getElementById('vacdash-edit-date').value;
     var startTime  = document.getElementById('vacdash-edit-startTime').value;
     var durationRaw = document.getElementById('vacdash-edit-duration').value;
-    var priority   = document.getElementById('vacdash-edit-priority').value;
     var catalogRef = document.getElementById('vacdash-edit-catalogRef').value.trim();
     var interestedRaw    = document.getElementById('vacdash-edit-interested').value;
     var undecidedRaw     = document.getElementById('vacdash-edit-undecided').value;
@@ -227,7 +214,6 @@
       date: date,
       startTime: startTime,
       duration: duration,
-      priority: priority,
       catalogRef: catalogRef,
       interested: interested,
       undecided: undecided,
@@ -265,7 +251,6 @@
     document.getElementById('vacdash-edit-date').value       = '';
     document.getElementById('vacdash-edit-startTime').value  = '';
     document.getElementById('vacdash-edit-duration').value   = '';
-    document.getElementById('vacdash-edit-priority').value   = 'medium';
     document.getElementById('vacdash-edit-catalogRef').value = '';
     document.getElementById('vacdash-edit-interested').value = '';
     document.getElementById('vacdash-edit-undecided').value  = '';
@@ -333,7 +318,6 @@
     document.getElementById('vacdash-edit-date').value       = event ? (event.date       || '') : '';
     document.getElementById('vacdash-edit-startTime').value  = event ? (event.startTime  || '') : '';
     document.getElementById('vacdash-edit-duration').value   = event ? (event.duration   != null ? event.duration : '') : '';
-    document.getElementById('vacdash-edit-priority').value   = event ? (event.priority   || 'medium') : 'medium';
     document.getElementById('vacdash-edit-catalogRef').value = event ? (event.catalogRef || '') : '';
     document.getElementById('vacdash-edit-interested').value =
       event && Array.isArray(event.interested) ? event.interested.join(', ') : '';
