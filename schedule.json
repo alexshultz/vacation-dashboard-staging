@@ -329,6 +329,21 @@
       "noResponse": [],
       "event_type": "meal",
       "series_slug": "supper"
+    },
+    {
+      "id": "silver-dollar-city",
+      "title": "Silver Dollar City",
+      "date": "2026-05-26",
+      "duration": 8,
+      "catalogRef": "silver-dollar-city",
+      "startTime": "10:00",
+      "travelMinutes": 8,
+      "interested": [],
+      "undecided": [],
+      "notInterested": [],
+      "noResponse": [],
+      "event_type": "open",
+      "series_slug": null
     }
   ]
 }
