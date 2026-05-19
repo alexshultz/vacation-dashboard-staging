@@ -159,6 +159,8 @@ Updated 2026-05-18 for SPA era. Checks:
 | Wishlist/commit persistence | FIXED 2026-05-18 -- upsert uses .eq().eq(), hydration confirmed working |
 | Timeline date strip truncation | FIXED 2026-05-19 -- overflowX:auto, all day names visible at 375px |
 | Timeline default date logic | FIXED 2026-05-19 -- getTodayIndex() replaces hardcoded index 2 |
+| Timeline page title hidden behind fixed header | FIXED 2026-05-19 -- page-hero--timeline modifier adds padding-top to clear strip |
+| Timeline people-picker row | HIDDEN 2026-05-19 -- display:none, preserved in DOM for future use |
 | Timeline sticky date header | FIXED 2026-05-19 -- position:fixed (not sticky; overflow:clip BFC blocks sticky) |
 | Detail modal scroll on mobile | FIXED 2026-05-19 -- onPointerDown scoped to handle/hero; webkit-overflow-scrolling added |
 | Drive times -- all attractions | COMPLETE 2026-05-19 -- 330/330 via OSRM geocoding + parent inheritance + show defaults |

@@ -67,7 +67,7 @@ function TimelinePage({ state, dispatch }) {
 
   return (
     <main className="page-main">
-      <div className="page-hero">
+      <div className="page-hero page-hero--timeline">
         <div className="page-hero__top">
           <h1>Timeline</h1>
         </div>
