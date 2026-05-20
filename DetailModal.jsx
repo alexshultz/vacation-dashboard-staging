@@ -3,7 +3,7 @@
    Mobile (<640px): bottom sheet that slides up; drag handle visible.
    Dismiss: backdrop tap, Esc key, drag-down past threshold, or Close button.
    Navigation: swipe left = next, swipe right = prev.
-              Apple Photos model: 3-panel strip, both cards move live during drag.
+              CSS scroll-snap model: browser owns horizontal physics natively.
               Vertical dismiss: sheet follows finger, backdrop fades, springs back on release. */
 
 const { useEffect: useEffectDM, useRef: useRefDM, useState: useStateDM } = React;
@@ -13,8 +13,8 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
   const [dragging, setDragging] = useStateDM(false);
   const dragStart = useRefDM(null); // { startX, startY, t, axis, pointerId, inDismissZone }
   const sheetRef = useRefDM(null);
-  const stripRef = useRefDM(null);
   const backdropRef = useRefDM(null);
+  const clipRef = useRefDM(null);
 
   // ── Body scroll lock + Escape key ──────────────────────────────
   useEffectDM(() => {
@@ -28,12 +28,12 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     };
   }, [onClose]);
 
-  // ── iOS touchmove prevention (x-axis drag only) ─────────────────
+  // ── iOS touchmove prevention (y-axis drag only -- x handled natively by scroll-snap) ─
   useEffectDM(() => {
     const sheet = sheetRef.current;
     if (!sheet) return;
     function preventTouch(e) {
-      if (dragStart.current && dragStart.current.axis === 'x') {
+      if (dragStart.current && dragStart.current.axis === 'y') {
         e.preventDefault();
       }
     }
@@ -57,20 +57,6 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
   const committed = activity.commit.includes(userId);
   const isLocked  = activity.locked;
 
-  // ── Strip helpers ────────────────────────────────────────────────
-  // Strip is 300% wide; -33.333% shows center panel.
-  function setStrip(transform, transition) {
-    const s = stripRef.current;
-    if (!s) return;
-    s.style.transition = transition || 'none';
-    s.style.transform  = transform;
-  }
-
-  function springStrip() {
-    setStrip('translateX(-33.333%)', 'transform 300ms var(--ease-out)');
-    window.setTimeout(() => setStrip('translateX(-33.333%)', 'none'), 310);
-  }
-
   // ── Navigation ──────────────────────────────────────────────────
   function navigate(dir) {
     const idx = navIds.indexOf(currentId);
@@ -82,6 +68,55 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     setCurrentId(nextId);
     if (onNavigated) onNavigated(nextId);
   }
+
+  // Center the clip on the current panel (instant, no animation)
+  useEffectDM(() => {
+    const clip = clipRef.current;
+    if (!clip) return;
+    clip.scrollLeft = clip.offsetWidth;
+  }, [currentId]);
+
+  // Detect settled scroll position and navigate accordingly
+  useEffectDM(() => {
+    const clip = clipRef.current;
+    if (!clip) return;
+
+    let debounceTimer = null;
+
+    function handleSettle() {
+      const idx = Math.round(clip.scrollLeft / clip.offsetWidth);
+      if (idx === 0) {
+        navigate('prev');
+        clip.scrollLeft = clip.offsetWidth;
+      } else if (idx === 2) {
+        navigate('next');
+        clip.scrollLeft = clip.offsetWidth;
+      }
+    }
+
+    function onScrollEnd() {
+      if (debounceTimer) clearTimeout(debounceTimer);
+      handleSettle();
+    }
+
+    function onScroll() {
+      if (debounceTimer) clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(handleSettle, 150);
+    }
+
+    const supportsScrollEnd = 'onscrollend' in window;
+    if (supportsScrollEnd) {
+      clip.addEventListener('scrollend', onScrollEnd);
+    } else {
+      clip.addEventListener('scroll', onScroll);
+    }
+
+    return () => {
+      clip.removeEventListener('scrollend', onScrollEnd);
+      clip.removeEventListener('scroll', onScroll);
+      if (debounceTimer) clearTimeout(debounceTimer);
+    };
+  }, [currentId]);
 
   // ── Gesture handlers ─────────────────────────────────────────────
   function onPointerDown(e) {
@@ -115,10 +150,7 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
       else if (Math.abs(dy) >= 20) d.axis = 'y';
     }
 
-    if (d.axis === 'x') {
-      // Live strip tracking: center is -33.333%, dx shifts it pixel-for-pixel
-      setStrip(`translateX(calc(-33.333% + ${dx}px))`);
-    } else if (d.axis === 'y') {
+    if (d.axis === 'y') {
       const clampedDy = Math.max(0, dy);
       // Sheet follows finger down
       if (sheetRef.current) {
@@ -142,26 +174,7 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     dragStart.current = null;
     setDragging(false);
 
-    if (d.axis === 'x') {
-      const HTHRESH = 110;
-      if (dx < -HTHRESH && nextActivity) {
-        // Commit left → animate strip to next panel, then navigate
-        setStrip('translateX(-66.667%)', 'transform 270ms var(--ease-out)');
-        window.setTimeout(() => {
-          setStrip('translateX(-33.333%)', 'none');
-          navigate('next');
-        }, 275);
-      } else if (dx > HTHRESH && prevActivity) {
-        // Commit right → animate strip to prev panel, then navigate
-        setStrip('translateX(0%)', 'transform 270ms var(--ease-out)');
-        window.setTimeout(() => {
-          setStrip('translateX(-33.333%)', 'none');
-          navigate('prev');
-        }, 275);
-      } else {
-        springStrip(); // not enough -- snap back
-      }
-    } else if (d.axis === 'y') {
+    if (d.axis === 'y') {
       const restoreSheet = () => {
         if (sheetRef.current) {
           sheetRef.current.style.transition = 'transform 280ms var(--ease-out)';
@@ -196,7 +209,6 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
   function onPointerCancel(e) {
     dragStart.current = null;
     setDragging(false);
-    springStrip();
     if (sheetRef.current) { sheetRef.current.style.transform = ''; sheetRef.current.style.transition = ''; }
     if (backdropRef.current) { backdropRef.current.style.background = ''; }
   }
@@ -288,11 +300,17 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
         <button className="dm-close-x" type="button" onClick={onClose} aria-label="Close">✕</button>
 
         {/* 3-panel carousel strip: prev | current | next */}
-        <div className="dm-content-clip">
-          <div className="dm-content-strip" ref={stripRef}>
-            <div className="dm-content-panel">{renderCard(prevActivity, userId, false)}</div>
+        <div className="dm-content-clip" ref={clipRef}>
+          <div className="dm-content-strip">
+            {prevActivity
+              ? <div className="dm-content-panel">{renderCard(prevActivity, userId, false)}</div>
+              : <div className="dm-content-panel" style={{ scrollSnapAlign: 'none' }}></div>
+            }
             <div className="dm-content-panel" data-panel="current">{renderCard(activity, userId, true)}</div>
-            <div className="dm-content-panel">{renderCard(nextActivity, userId, false)}</div>
+            {nextActivity
+              ? <div className="dm-content-panel">{renderCard(nextActivity, userId, false)}</div>
+              : <div className="dm-content-panel" style={{ scrollSnapAlign: 'none' }}></div>
+            }
           </div>
         </div>
 

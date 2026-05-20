@@ -149,7 +149,12 @@ body {
 .dm-sheet { overflow: hidden; }
 
 .dm-content-clip {
-  overflow: hidden;
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
   /* fills the sheet below the handle row */
   flex: 1;
   min-height: 0;
@@ -157,18 +162,16 @@ body {
 
 .dm-content-strip {
   display: flex;
-  width: 300%;       /* 3 panels */
   height: 100%;
-  transform: translateX(-33.333%); /* center panel visible by default */
   will-change: transform;
 }
 
 .dm-content-panel {
-  width: 33.333%;
-  flex-shrink: 0;
+  scroll-snap-align: start;
+  flex: 0 0 100%;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
+  min-width: 0;
+  touch-action: pan-y;
 }
 
 /* hero-body: stacks hero + body inside a panel */
