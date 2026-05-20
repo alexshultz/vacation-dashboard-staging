@@ -2,18 +2,19 @@
    Desktop: centered modal, max 640px wide.
    Mobile (<640px): bottom sheet that slides up; drag handle visible.
    Dismiss: backdrop tap, Esc key, drag-down past threshold, or Close button.
-   Navigation: swipe left = next card, swipe right = previous card, first-axis-wins.
-              Apple Photos model: both cards slide together -- old exits, new enters. */
+   Navigation: swipe left = next, swipe right = prev.
+              Apple Photos model: 3-panel strip, both cards move live during drag.
+              Vertical dismiss: sheet follows finger, backdrop fades, springs back on release. */
 
 const { useEffect: useEffectDM, useRef: useRefDM, useState: useStateDM } = React;
 
 function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNavigated, onToggleWish, onToggleCommit }) {
   const [currentId, setCurrentId] = useStateDM(activityId);
-  const [prevId, setPrevId] = useStateDM(null);       // card being slid out
-  const [slideDir, setSlideDir] = useStateDM(null);   // 'left' | 'right' | null
   const [dragging, setDragging] = useStateDM(false);
-  const dragStart = useRefDM(null);
+  const dragStart = useRefDM(null); // { startX, startY, t, axis, pointerId, inDismissZone }
   const sheetRef = useRefDM(null);
+  const stripRef = useRefDM(null);
+  const backdropRef = useRefDM(null);
 
   // ── Body scroll lock + Escape key ──────────────────────────────
   useEffectDM(() => {
@@ -27,12 +28,12 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     };
   }, [onClose]);
 
-  // ── iOS touchmove prevention ────────────────────────────────────
+  // ── iOS touchmove prevention (x-axis drag only) ─────────────────
   useEffectDM(() => {
     const sheet = sheetRef.current;
     if (!sheet) return;
     function preventTouch(e) {
-      if (dragStart.current && dragStart.current.axis !== null) {
+      if (dragStart.current && dragStart.current.axis === 'x') {
         e.preventDefault();
       }
     }
@@ -40,58 +41,58 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     return () => sheet.removeEventListener('touchmove', preventTouch);
   }, []);
 
-  // Clear slide state after animation completes (300ms matches CSS)
-  useEffectDM(() => {
-    if (!slideDir) return;
-    const timer = window.setTimeout(() => {
-      setSlideDir(null);
-      setPrevId(null);
-    }, 310);
-    return () => window.clearTimeout(timer);
-  }, [slideDir, currentId]);
+  // ── Compute adjacent activities ──────────────────────────────────
+  const navIds = navigationIds || [];
+  const currentIdx = navIds.indexOf(currentId);
+  const prevCardId = currentIdx > 0 ? navIds[currentIdx - 1] : null;
+  const nextCardId = currentIdx !== -1 && currentIdx < navIds.length - 1 ? navIds[currentIdx + 1] : null;
 
-  const activity = currentId
-    ? (window.BD_ACTIVITIES || []).find(a => a.id === currentId)
-    : null;
-
-  const prevActivity = prevId
-    ? (window.BD_ACTIVITIES || []).find(a => a.id === prevId)
-    : null;
+  const activity     = currentId  ? (window.BD_ACTIVITIES || []).find(a => a.id === currentId)  : null;
+  const prevActivity = prevCardId ? (window.BD_ACTIVITIES || []).find(a => a.id === prevCardId) : null;
+  const nextActivity = nextCardId ? (window.BD_ACTIVITIES || []).find(a => a.id === nextCardId) : null;
 
   if (!activity) return null;
 
-  const wished = activity.wish.includes(userId);
+  const wished    = activity.wish.includes(userId);
   const committed = activity.commit.includes(userId);
-  const isLocked = activity.locked;
+  const isLocked  = activity.locked;
+
+  // ── Strip helpers ────────────────────────────────────────────────
+  // Strip is 300% wide; -33.333% shows center panel.
+  function setStrip(transform, transition) {
+    const s = stripRef.current;
+    if (!s) return;
+    s.style.transition = transition || 'none';
+    s.style.transform  = transform;
+  }
+
+  function springStrip() {
+    setStrip('translateX(-33.333%)', 'transform 300ms var(--ease-out)');
+    window.setTimeout(() => setStrip('translateX(-33.333%)', 'none'), 310);
+  }
 
   // ── Navigation ──────────────────────────────────────────────────
   function navigate(dir) {
-    if (!navigationIds || !navigationIds.length) return;
-    const idx = navigationIds.indexOf(currentId);
+    const idx = navIds.indexOf(currentId);
     if (idx === -1) return;
     let nextId = null;
-    if (dir === 'next' && idx < navigationIds.length - 1) nextId = navigationIds[idx + 1];
-    if (dir === 'prev' && idx > 0) nextId = navigationIds[idx - 1];
+    if (dir === 'next' && idx < navIds.length - 1) nextId = navIds[idx + 1];
+    if (dir === 'prev' && idx > 0) nextId = navIds[idx - 1];
     if (!nextId) return;
-    setPrevId(currentId);
-    setSlideDir(dir === 'next' ? 'left' : 'right');
     setCurrentId(nextId);
     if (onNavigated) onNavigated(nextId);
   }
 
   // ── Gesture handlers ─────────────────────────────────────────────
   function onPointerDown(e) {
-    const target = e.target;
-    if (target.closest('button, a, input, textarea, select')) return;
+    if (e.target.closest('button, a, input, textarea, select')) return;
 
-    const hero = sheetRef.current?.querySelector('.dm-hero');
+    const hero   = sheetRef.current?.querySelector('.dm-hero');
     const handle = sheetRef.current?.querySelector('.dm-handle');
-    const heroRect = hero?.getBoundingClientRect();
-    const handleRect = handle?.getBoundingClientRect();
-    const inHero = heroRect && e.clientY >= heroRect.top && e.clientY <= heroRect.bottom &&
-                   e.clientX >= heroRect.left && e.clientX <= heroRect.right;
-    const inHandle = handleRect && e.clientY >= handleRect.top && e.clientY <= handleRect.bottom &&
-                     e.clientX >= handleRect.left && e.clientX <= handleRect.right;
+    const hr = hero?.getBoundingClientRect();
+    const ha = handle?.getBoundingClientRect();
+    const inHero   = hr && e.clientY >= hr.top && e.clientY <= hr.bottom && e.clientX >= hr.left && e.clientX <= hr.right;
+    const inHandle = ha && e.clientY >= ha.top && e.clientY <= ha.bottom && e.clientX >= ha.left && e.clientX <= ha.right;
 
     dragStart.current = {
       startX: e.clientX, startY: e.clientY,
@@ -107,14 +108,28 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     if (!d) return;
     const dx = e.clientX - d.startX;
     const dy = e.clientY - d.startY;
+
+    // Lock axis on first 20px of movement
     if (d.axis === null) {
       if (Math.abs(dx) >= 20) d.axis = 'x';
       else if (Math.abs(dy) >= 20) d.axis = 'y';
     }
-    if (!sheetRef.current) return;
-    if (d.axis === 'y') {
-      sheetRef.current.style.transform = `translateY(${Math.max(0, dy)}px)`;
-      e.preventDefault();
+
+    if (d.axis === 'x') {
+      // Live strip tracking: center is -33.333%, dx shifts it pixel-for-pixel
+      setStrip(`translateX(calc(-33.333% + ${dx}px))`);
+    } else if (d.axis === 'y') {
+      const clampedDy = Math.max(0, dy);
+      // Sheet follows finger down
+      if (sheetRef.current) {
+        sheetRef.current.style.transform = `translateY(${clampedDy}px)`;
+      }
+      // Backdrop fades progressively (background-color so sheet stays opaque)
+      if (backdropRef.current) {
+        const progress = Math.min(1, clampedDy / 320);
+        const alpha = (0.55 * (1 - progress)).toFixed(3);
+        backdropRef.current.style.background = `rgba(0,0,0,${alpha})`;
+      }
     }
   }
 
@@ -126,30 +141,69 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     const dt = Date.now() - d.t;
     dragStart.current = null;
     setDragging(false);
-    if (sheetRef.current) {
-      sheetRef.current.style.transform = '';
-      sheetRef.current.style.transition = '';
-    }
+
     if (d.axis === 'x') {
       const HTHRESH = 110;
-      if (dx < -HTHRESH) navigate('next');
-      else if (dx > HTHRESH) navigate('prev');
+      if (dx < -HTHRESH && nextActivity) {
+        // Commit left → animate strip to next panel, then navigate
+        setStrip('translateX(-66.667%)', 'transform 270ms var(--ease-out)');
+        window.setTimeout(() => {
+          setStrip('translateX(-33.333%)', 'none');
+          navigate('next');
+        }, 275);
+      } else if (dx > HTHRESH && prevActivity) {
+        // Commit right → animate strip to prev panel, then navigate
+        setStrip('translateX(0%)', 'transform 270ms var(--ease-out)');
+        window.setTimeout(() => {
+          setStrip('translateX(-33.333%)', 'none');
+          navigate('prev');
+        }, 275);
+      } else {
+        springStrip(); // not enough -- snap back
+      }
     } else if (d.axis === 'y') {
-      if (!d.inDismissZone) return;
-      const velocity = dy / dt;
+      const restoreSheet = () => {
+        if (sheetRef.current) {
+          sheetRef.current.style.transition = 'transform 280ms var(--ease-out)';
+          sheetRef.current.style.transform  = 'translateY(0)';
+          window.setTimeout(() => {
+            if (sheetRef.current) { sheetRef.current.style.transition = ''; sheetRef.current.style.transform = ''; }
+          }, 290);
+        }
+        if (backdropRef.current) {
+          backdropRef.current.style.transition = 'background 280ms var(--ease-out)';
+          backdropRef.current.style.background = '';
+          window.setTimeout(() => {
+            if (backdropRef.current) backdropRef.current.style.transition = '';
+          }, 290);
+        }
+      };
+
+      if (!d.inDismissZone) { restoreSheet(); return; }
+      const velocity  = dy / dt;
       const threshold = velocity > 0.5 ? 60 : 150;
-      if (dy > threshold) onClose();
+      if (dy > threshold) {
+        onClose();
+      } else {
+        restoreSheet(); // not enough -- spring back
+      }
+    } else {
+      // Tap -- clear any partial transforms
+      if (sheetRef.current) { sheetRef.current.style.transform = ''; sheetRef.current.style.transition = ''; }
     }
   }
 
   function onPointerCancel(e) {
     dragStart.current = null;
     setDragging(false);
-    if (sheetRef.current) sheetRef.current.style.transform = '';
+    springStrip();
+    if (sheetRef.current) { sheetRef.current.style.transform = ''; sheetRef.current.style.transition = ''; }
+    if (backdropRef.current) { backdropRef.current.style.background = ''; }
   }
 
-  // ── Card content renderer (shared for current and prev) ──────────
-  function renderCardContent(act, uid) {
+  // ── Card content renderer ────────────────────────────────────────
+  function renderCard(act, uid, isActive) {
+    if (!act) return null;
     const w = act.wish.includes(uid);
     const c = act.commit.includes(uid);
     const lk = act.locked;
@@ -158,7 +212,7 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
         <div className="dm-hero">
           <img src={act.thumb} alt="" draggable="false" />
         </div>
-        <div className="dm-body" style={{ overscrollBehavior: 'none' }}>
+        <div className="dm-body">
           <div className="card-dense__pills">
             <span className={`card-badge ${c ? 'card-badge--commit' : 'card-badge--not-going'}`}>
               {c ? "You're going" : 'Undecided'}
@@ -176,50 +230,47 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
           )}
           <RosterRow kind="wish"   label="wishlisted" ids={act.wish}   userId={uid} />
           <RosterRow kind="commit" label="committed"  ids={act.commit} userId={uid} />
-          <div className="dm-actions">
-            {lk ? (
-              <>
-                <button className="btn btn--locked-in" disabled aria-disabled="true">
-                  🔒 {c ? 'Locked in — text Alex to change' : 'Locked — text Alex to join'}
-                </button>
-                <button className="btn btn--ghost">Add to calendar</button>
-              </>
-            ) : (
-              <>
-                {c ? (
-                  <button className="btn btn--out" onClick={() => onToggleCommit && onToggleCommit(currentId)}>
-                    Count me out
+          {isActive && (
+            <div className="dm-actions">
+              {lk ? (
+                <>
+                  <button className="btn btn--locked-in" disabled aria-disabled="true">
+                    🔒 {c ? 'Locked in — text Alex to change' : 'Locked — text Alex to join'}
                   </button>
-                ) : (
-                  <button className="btn btn--primary" onClick={() => onToggleCommit && onToggleCommit(currentId)}>
-                    Count me in
+                  <button className="btn btn--ghost">Add to calendar</button>
+                </>
+              ) : (
+                <>
+                  {c ? (
+                    <button className="btn btn--out" onClick={() => onToggleCommit && onToggleCommit(currentId)}>
+                      Count me out
+                    </button>
+                  ) : (
+                    <button className="btn btn--primary" onClick={() => onToggleCommit && onToggleCommit(currentId)}>
+                      Count me in
+                    </button>
+                  )}
+                  <button
+                    className={`btn ${w ? 'btn--danger' : 'btn--secondary'}`}
+                    onClick={() => onToggleWish && onToggleWish(currentId)}
+                  >
+                    {w ? 'Drop wishlist' : '+ Wishlist'}
                   </button>
-                )}
-                <button
-                  className={`btn ${w ? 'btn--danger' : 'btn--secondary'}`}
-                  onClick={() => onToggleWish && onToggleWish(currentId)}
-                >
-                  {w ? 'Drop wishlist' : '+ Wishlist'}
-                </button>
-              </>
-            )}
-          </div>
-          <button className="dm-close" type="button" onClick={onClose}>Close</button>
+                </>
+              )}
+            </div>
+          )}
+          {isActive && <button className="dm-close" type="button" onClick={onClose}>Close</button>}
         </div>
       </div>
     );
   }
 
   // ── Render ───────────────────────────────────────────────────────
-  // During a slide transition: render a 2-panel strip inside dm-content-clip.
-  // The strip is 200% wide. For slide-left: prev panel is left, current is right.
-  // For slide-right: current panel is left, prev panel is right.
-  // CSS animates the strip translateX so both panels move together.
-  const isSliding = !!(slideDir && prevActivity);
-
   return (
     <div
       className="dm-backdrop"
+      ref={backdropRef}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
       role="dialog"
       aria-modal="true"
@@ -236,25 +287,15 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
         <div className="dm-handle" aria-hidden="true"></div>
         <button className="dm-close-x" type="button" onClick={onClose} aria-label="Close">✕</button>
 
+        {/* 3-panel carousel strip: prev | current | next */}
         <div className="dm-content-clip">
-          {isSliding ? (
-            <div className={`dm-slide-strip dm-slide-strip--${slideDir}`}>
-              {slideDir === 'left' ? (
-                <>
-                  <div className="dm-slide-panel">{renderCardContent(prevActivity, userId)}</div>
-                  <div className="dm-slide-panel">{renderCardContent(activity, userId)}</div>
-                </>
-              ) : (
-                <>
-                  <div className="dm-slide-panel">{renderCardContent(activity, userId)}</div>
-                  <div className="dm-slide-panel">{renderCardContent(prevActivity, userId)}</div>
-                </>
-              )}
-            </div>
-          ) : (
-            renderCardContent(activity, userId)
-          )}
+          <div className="dm-content-strip" ref={stripRef}>
+            <div className="dm-content-panel">{renderCard(prevActivity, userId, false)}</div>
+            <div className="dm-content-panel" data-panel="current">{renderCard(activity, userId, true)}</div>
+            <div className="dm-content-panel">{renderCard(nextActivity, userId, false)}</div>
+          </div>
         </div>
+
       </div>
     </div>
   );

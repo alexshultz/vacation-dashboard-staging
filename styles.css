@@ -113,7 +113,9 @@ body {
   width: 100%;
   max-width: 640px;
   max-height: 92vh;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   background: var(--color-surface);
@@ -142,33 +144,39 @@ body {
 }
 .dm-sheet.is-dragging { transition: none; animation: none; }
 
-/* ── Modal content slide transitions (Apple Photos model) ────── */
-.dm-content-clip { overflow: hidden; }
-.dm-hero-body { display: flex; flex-direction: column; }
+/* ── Modal carousel strip (Apple Photos model) ──────────────── */
+/* Sheet clips the strip; panels scroll individually */
+.dm-sheet { overflow: hidden; }
 
-/* Two-panel strip: 200% wide, both panels visible during slide */
-.dm-slide-strip {
+.dm-content-clip {
+  overflow: hidden;
+  /* fills the sheet below the handle row */
+  flex: 1;
+  min-height: 0;
+}
+
+.dm-content-strip {
   display: flex;
-  width: 200%;
+  width: 300%;       /* 3 panels */
+  height: 100%;
+  transform: translateX(-33.333%); /* center panel visible by default */
   will-change: transform;
 }
-.dm-slide-panel {
-  width: 50%;
+
+.dm-content-panel {
+  width: 33.333%;
   flex-shrink: 0;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
-/* slide-left: strip starts at 0 (prev panel visible), animates to -50% (current panel) */
-@keyframes dm-strip-left  { from { transform: translateX(0); }    to { transform: translateX(-50%); } }
-/* slide-right: strip starts at -50% (current panel right), animates to 0 (current panel left) */
-@keyframes dm-strip-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-
-.dm-slide-strip--left  { animation: dm-strip-left  300ms var(--ease-out) both; }
-.dm-slide-strip--right { animation: dm-strip-right 300ms var(--ease-out) both; }
+/* hero-body: stacks hero + body inside a panel */
+.dm-hero-body { display: flex; flex-direction: column; min-height: 100%; }
+.dm-hero-body .dm-body { overscroll-behavior: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  .dm-slide-strip--left, .dm-slide-strip--right { animation: none; }
+  .dm-content-strip { transition: none !important; }
 }
 @media (prefers-reduced-motion: reduce) {
   .dm-backdrop, .dm-sheet { animation: none; }
