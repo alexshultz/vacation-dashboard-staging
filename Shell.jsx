@@ -95,6 +95,14 @@ function appReducer(state, action) {
       if (!a.commit.includes(state.userId)) {
         a.commit = [...a.commit, state.userId];
       }
+      if (window.BD_SUPABASE && state.userId) {
+        const uid = state.userId.charAt(0).toUpperCase() + state.userId.slice(1);
+        const newState = a.wish.includes(state.userId) ? 'both' : 'committing';
+        window.BD_SUPABASE.from('picks').upsert(
+          { user_id: uid, slug: a.id, state: newState },
+          { onConflict: 'user_id,slug' }
+        ).then(function(r){ if(r.error) console.error('picks upsert error:', r.error, {user_id: uid, slug: a.id}); });
+      }
       return { ...state, _tick: (state._tick || 0) + 1 };
     }
     default:
