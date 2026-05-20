@@ -99,8 +99,8 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     }
     if (!sheetRef.current) return;
     if (d.axis === 'x') {
-      sheetRef.current.style.transform = `translateX(${dx}px)`;
-      e.preventDefault();
+      sheetRef.current.style.transform = `translate(${dx}px, ${dy * 0.4}px) rotate(${dx * 0.06}deg)`;
+      sheetRef.current.style.transition = 'none';
     } else if (d.axis === 'y') {
       sheetRef.current.style.transform = `translateY(${Math.max(0, dy)}px)`;
       e.preventDefault();
@@ -115,7 +115,10 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     const dt = Date.now() - d.t;
     dragStart.current = null;
     setDragging(false);
-    if (sheetRef.current) sheetRef.current.style.transform = '';
+    if (sheetRef.current) {
+      sheetRef.current.style.transform = '';
+      sheetRef.current.style.transition = '';
+    }
 
     if (d.axis === 'x') {
       const HTHRESH = 110;
