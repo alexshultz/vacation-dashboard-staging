@@ -66,22 +66,22 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     const target = e.target;
     if (target.closest('button, a, input, textarea, select')) return;
 
-    // Only start drag from the handle or hero — not from scrollable body content
-    // Check if the pointer is within the hero/handle region by coordinates
+    // Horizontal swipes (navigate) work from anywhere on the sheet.
+    // Vertical swipes (dismiss) only fire when started in the handle or hero zone.
+    // Record inDismissZone now so onPointerUp can check it after axis is known.
     const hero = sheetRef.current?.querySelector('.dm-hero');
     const handle = sheetRef.current?.querySelector('.dm-handle');
-    if (hero || handle) {
-      const heroRect = hero?.getBoundingClientRect();
-      const handleRect = handle?.getBoundingClientRect();
-      const inHero = heroRect && e.clientY >= heroRect.top && e.clientY <= heroRect.bottom &&
-                     e.clientX >= heroRect.left && e.clientX <= heroRect.right;
-      const inHandle = handleRect && e.clientY >= handleRect.top && e.clientY <= handleRect.bottom &&
-                       e.clientX >= handleRect.left && e.clientX <= handleRect.right;
-      if (!inHero && !inHandle) return;
-    }
+    const heroRect = hero?.getBoundingClientRect();
+    const handleRect = handle?.getBoundingClientRect();
+    const inHero = heroRect && e.clientY >= heroRect.top && e.clientY <= heroRect.bottom &&
+                   e.clientX >= heroRect.left && e.clientX <= heroRect.right;
+    const inHandle = handleRect && e.clientY >= handleRect.top && e.clientY <= handleRect.bottom &&
+                     e.clientX >= handleRect.left && e.clientX <= handleRect.right;
+
     dragStart.current = {
       startX: e.clientX, startY: e.clientY,
-      t: Date.now(), axis: null, pointerId: e.pointerId
+      t: Date.now(), axis: null, pointerId: e.pointerId,
+      inDismissZone: !!(inHero || inHandle)
     };
     setDragging(true);
     try { e.currentTarget.setPointerCapture(e.pointerId); } catch (_) {}
@@ -123,6 +123,7 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
       else if (dx > HTHRESH) navigate('prev');   // swipe right = prev
       // else: no-op (snap back already done by clearing transform)
     } else if (d.axis === 'y') {
+      if (!d.inDismissZone) return; // vertical drag outside handle/hero: ignore
       const velocity = dy / dt;
       const threshold = velocity > 0.5 ? 60 : 150;
       if (dy > threshold) onClose();
