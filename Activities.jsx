@@ -53,13 +53,28 @@ function BrowseView({ state, dispatch }) {
   const matchCount = filtered.length;
   const showEmpty = trimmed.length > 0 && matchCount === 0;
 
-  function getSuggestionChips() {
-    const FIXED = ['outdoor', 'music', 'family', 'ride'];
-    const allTags = new Set();
-    (window.BD_ACTIVITIES || []).forEach(a => (a.tags || []).forEach(t => allTags.add(t.toLowerCase())));
-    const extras = [...allTags].filter(t => !FIXED.includes(t));
-    extras.sort(() => Math.random() - 0.5);
-    return [...FIXED, ...extras.slice(0, 4)];
+  function getSuggestionChips(query) {
+    const tagSet = new Set();
+    (window.BD_ACTIVITIES || []).forEach(a => (a.tags || []).forEach(t => tagSet.add(t.toLowerCase())));
+    const allTags = [...tagSet];
+
+    const q = query.trim().toLowerCase();
+    let matching, nonMatching;
+
+    if (q.startsWith('tag:')) {
+      const prefix = q.slice(4);
+      matching = allTags.filter(t => t.startsWith(prefix));
+      nonMatching = allTags.filter(t => !t.startsWith(prefix));
+    } else if (q) {
+      matching = allTags.filter(t => t.includes(q));
+      nonMatching = allTags.filter(t => !t.includes(q));
+    } else {
+      matching = [];
+      nonMatching = allTags;
+    }
+
+    nonMatching.sort(() => Math.random() - 0.5);
+    return [...matching, ...nonMatching].slice(0, 8);
   }
 
   return (
@@ -112,7 +127,7 @@ function BrowseView({ state, dispatch }) {
             <h3>Nothing matches <span className="q">{trimmed}</span></h3>
             <p>Branson isn't a lake-sports town this trip — the family voted for shows and rides. Try a broader word, or pick a starter below.</p>
             <div className="empty__suggest">
-              {getSuggestionChips().map(chip => (
+              {getSuggestionChips(query).map(chip => (
                 <button
                   key={chip}
                   className="chip"
