@@ -25,7 +25,7 @@ function HomePage({ state, dispatch }) {
 
       {sched.map((day) => (
         <section key={day.date} className="day-section">
-          <h2><span className="day-num">{day.date.slice(8)}</span> {day.dayNum} · {day.day} · {monthLabel(day.date)}</h2>
+          <h2>{day.day} · {monthLabel(day.date)}</h2>
           {day.events.map(ev => {
             const ys = youStatus(ev);
             // Viewer-relative row treatment. youStatus returns kind 'commit'
