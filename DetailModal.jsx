@@ -129,10 +129,13 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     const inHero   = hr && e.clientY >= hr.top && e.clientY <= hr.bottom && e.clientX >= hr.left && e.clientX <= hr.right;
     const inHandle = ha && e.clientY >= ha.top && e.clientY <= ha.bottom && e.clientX >= ha.left && e.clientX <= ha.right;
 
+    const inDismissZone = !!(inHero || inHandle);
+    if (!inDismissZone) return;
+
     dragStart.current = {
       startX: e.clientX, startY: e.clientY,
       t: Date.now(), axis: null, pointerId: e.pointerId,
-      inDismissZone: !!(inHero || inHandle)
+      inDismissZone: true
     };
     setDragging(true);
     try { e.currentTarget.setPointerCapture(e.pointerId); } catch (_) {}
