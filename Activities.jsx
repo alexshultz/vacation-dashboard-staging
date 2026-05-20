@@ -1,6 +1,6 @@
 /* Activities.jsx — Browse + QuickPick toggle. */
 
-const { useState: useStateAct, useMemo: useMemoAct } = React;
+const { useState: useStateAct, useMemo: useMemoAct, useRef: useRefAct, useEffect: useEffectAct } = React;
 
 function ActivitiesPage({ state, dispatch }) {
   const [mode, setMode] = useStateAct('browse');
@@ -33,6 +33,8 @@ function ActivitiesPage({ state, dispatch }) {
 function BrowseView({ state, dispatch }) {
   const items = window.BD_ACTIVITIES;
   const [query, setQuery] = useStateAct('');
+  const gridScrollRef = useRefAct(null);
+  const prevDetailIdRef = useRefAct(null);
 
   const trimmed = query.trim();
 
@@ -52,6 +54,22 @@ function BrowseView({ state, dispatch }) {
   const totalCount = items.length;
   const matchCount = filtered.length;
   const showEmpty = trimmed.length > 0 && matchCount === 0;
+
+  // Scroll-back effect: when modal closes, scroll to last-viewed card
+  useEffectAct(() => {
+    const prev = prevDetailIdRef.current;
+    prevDetailIdRef.current = state.detailId;
+
+    // When modal closes (detailId goes from truthy to null/falsy)
+    if (prev && !state.detailId && state.detailLastId && gridScrollRef.current) {
+      const target = gridScrollRef.current.querySelector(
+        '[data-id="' + state.detailLastId + '"]'
+      );
+      if (target) {
+        target.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    }
+  }, [state.detailId, state.detailLastId]);
 
   function getSuggestionChips(query) {
     const tagSet = new Set();
@@ -144,7 +162,7 @@ function BrowseView({ state, dispatch }) {
           </div>
         </div>
       ) : (
-        <div className="catalog-grid">
+        <div className="catalog-grid" ref={gridScrollRef}>
           {filtered.map(a => (
             <CatalogCard
               key={a.id}
@@ -152,7 +170,7 @@ function BrowseView({ state, dispatch }) {
               userId={state.userId}
               onToggleWish={(id) => dispatch({ type: 'toggleWish', id })}
               onToggleCommit={(id) => dispatch({ type: 'toggleCommit', id })}
-              onOpen={(act) => dispatch({ type: 'openDetail', id: act.id })}
+              onOpen={(act) => dispatch({ type: 'openDetail', id: act.id, list: filtered.map(a => a.id) })}
             />
           ))}
         </div>

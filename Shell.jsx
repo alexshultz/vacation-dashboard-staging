@@ -24,9 +24,11 @@ const NAV_ICONS = {
 function appReducer(state, action) {
   switch (action.type) {
     case 'openDetail':
-      return { ...state, detailId: action.id };
+      return { ...state, detailId: action.id, detailList: action.list || [], detailLastId: action.id };
     case 'closeDetail':
-      return { ...state, detailId: null };
+      return { ...state, detailId: null, detailList: [] };
+    case 'setDetailLastId':
+      return { ...state, detailLastId: action.id };
     case 'goto':
       return { ...state, page: action.page, detailId: null };
     case 'setUser': {
@@ -117,6 +119,8 @@ function Shell() {
     userId: initialUser,
     user: window.BD_PEOPLE.find(p => p.id === initialUser),
     detailId: null,
+    detailList: [],
+    detailLastId: null,
   }));
 
   useEffect(() => {
@@ -187,8 +191,10 @@ function Shell() {
       {state.detailId && window.ActivityDetailModal && (
         <window.ActivityDetailModal
           activityId={state.detailId}
+          navigationIds={state.detailList || []}
           userId={state.userId}
           onClose={() => dispatch({ type: 'closeDetail' })}
+          onNavigated={(id) => dispatch({ type: 'setDetailLastId', id })}
           onToggleWish={(id) => dispatch({ type: 'toggleWish', id })}
           onToggleCommit={(id) => dispatch({ type: 'toggleCommit', id })}
         />

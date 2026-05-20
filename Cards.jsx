@@ -153,6 +153,7 @@ function CatalogCard({ activity, userId, onToggleWish, onToggleCommit, onOpen })
   return (
     <article
       className={`card-cat ${surfaceMod}`}
+      data-id={activity.id}
       onClick={() => onOpen && onOpen(activity)}
       role="button"
       tabIndex={0}
