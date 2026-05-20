@@ -10,6 +10,7 @@
   --sand:   #D8A660;
   --clay:   #C1553B;
   --dusk:   #6B4C8F;
+  --brick:  #B83A35;
 
   /* Trail overrides for semantic tokens */
   --status-yes:      var(--moss);

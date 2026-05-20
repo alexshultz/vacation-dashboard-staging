@@ -32,6 +32,8 @@
   --status-neutral:  #8B8671;
   --status-lock:     #6B4C8F;
   --warn:            #A86A1C;
+  --moss-on-surface: #3F6B3A;    /* dark mode: #9BC295 */
+  --brick-on-surface: #B83A35;   /* dark mode: #E08A7E */
 
   /* Accent tokens for component references */
   --accent-1: #D8A660;
@@ -40,6 +42,9 @@
 
   --shadow-1: 0 1px 2px rgba(32,40,30,0.05), 0 6px 18px rgba(32,40,30,0.06);
   --shadow-2: 0 2px 4px rgba(32,40,30,0.08), 0 20px 40px rgba(0,0,0,0.10);
+
+  /* Motion */
+  --dur-fast: 150ms;
 }
 
 /* System dark mode */
@@ -51,6 +56,8 @@
     --color-ink-dim: #ADB3A3;
     --color-line:    #343C2F;
     --warn:          #E0B35A;
+    --moss-on-surface: #9BC295;
+    --brick-on-surface: #E08A7E;
   }
 }
 :root[data-mode="dark"] {
@@ -60,6 +67,8 @@
   --color-ink-dim: #ADB3A3;
   --color-line:    #343C2F;
   --warn:          #E0B35A;
+  --moss-on-surface: #9BC295;
+  --brick-on-surface: #E08A7E;
 }
 :root[data-mode="light"] {
   --color-bg:      #FBF6EC;
@@ -68,4 +77,6 @@
   --color-ink-dim: #5E6B58;
   --color-line:    #E4DCC6;
   --warn:          #A86A1C;
+  --moss-on-surface: #3F6B3A;
+  --brick-on-surface: #B83A35;
 }

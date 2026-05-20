@@ -32,21 +32,116 @@ function ActivitiesPage({ state, dispatch }) {
 
 function BrowseView({ state, dispatch }) {
   const items = window.BD_ACTIVITIES;
+  const [query, setQuery] = useStateAct('');
+
+  const trimmed = query.trim();
+
+  const filtered = useMemoAct(() => {
+    if (!trimmed) return items;
+    if (trimmed.toLowerCase().startsWith('tag:')) {
+      const tag = trimmed.slice(4).trim().toLowerCase();
+      return items.filter(a => (a.tags || []).some(t => t.toLowerCase() === tag));
+    }
+    const q = trimmed.toLowerCase();
+    return items.filter(a => {
+      const text = [a.name || '', a.hook || '', a.description || '', ...(a.tags || [])].join(' ').toLowerCase();
+      return text.includes(q);
+    });
+  }, [trimmed, items]);
+
+  const totalCount = items.length;
+  const matchCount = filtered.length;
+  const showEmpty = trimmed.length > 0 && matchCount === 0;
+
+  function getSuggestionChips() {
+    const FIXED = ['outdoor', 'music', 'family', 'ride'];
+    const allTags = new Set();
+    (window.BD_ACTIVITIES || []).forEach(a => (a.tags || []).forEach(t => allTags.add(t.toLowerCase())));
+    const extras = [...allTags].filter(t => !FIXED.includes(t));
+    extras.sort(() => Math.random() - 0.5);
+    return [...FIXED, ...extras.slice(0, 4)];
+  }
 
   return (
     <>
-      <div className="catalog-grid">
-        {items.map(a => (
-          <CatalogCard
-            key={a.id}
-            activity={a}
-            userId={state.userId}
-            onToggleWish={(id) => dispatch({ type: 'toggleWish', id })}
-            onToggleCommit={(id) => dispatch({ type: 'toggleCommit', id })}
-            onOpen={(act) => dispatch({ type: 'openDetail', id: act.id })}
-          />
-        ))}
+      <div className="search-bar">
+        <div className="search-bar__inner">
+          <label className="search-input">
+            <svg className="search-input__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="20" y1="20" x2="16.5" y2="16.5" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search activities"
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+            />
+            {query.length > 0 && (
+              <button
+                type="button"
+                className="search-input__clear"
+                aria-label="Clear search"
+                onClick={() => setQuery('')}
+              >×</button>
+            )}
+          </label>
+        </div>
       </div>
+
+      <div className="result-count">
+        {!trimmed ? (
+          <><b>{totalCount}</b> activities</>
+        ) : matchCount > 0 ? (
+          <><b>{matchCount}</b> of {totalCount} activities match <span className="q">{trimmed}</span></>
+        ) : (
+          <><b>0</b> activities match <span className="q">{trimmed}</span></>
+        )}
+      </div>
+
+      {showEmpty ? (
+        <div className="empty-wrap">
+          <div className="empty">
+            <div className="empty__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7" />
+                <line x1="20" y1="20" x2="16.5" y2="16.5" />
+                <line x1="7.5" y1="11" x2="14.5" y2="11" />
+              </svg>
+            </div>
+            <h3>Nothing matches <span className="q">{trimmed}</span></h3>
+            <p>Branson isn't a lake-sports town this trip — the family voted for shows and rides. Try a broader word, or pick a starter below.</p>
+            <div className="empty__suggest">
+              {getSuggestionChips().map(chip => (
+                <button
+                  key={chip}
+                  className="chip"
+                  type="button"
+                  onClick={() => setQuery('tag:' + chip)}
+                >{chip}</button>
+              ))}
+            </div>
+            <button
+              type="button"
+              className="empty__clear"
+              onClick={() => setQuery('')}
+            >Clear search</button>
+          </div>
+        </div>
+      ) : (
+        <div className="catalog-grid">
+          {filtered.map(a => (
+            <CatalogCard
+              key={a.id}
+              activity={a}
+              userId={state.userId}
+              onToggleWish={(id) => dispatch({ type: 'toggleWish', id })}
+              onToggleCommit={(id) => dispatch({ type: 'toggleCommit', id })}
+              onOpen={(act) => dispatch({ type: 'openDetail', id: act.id })}
+            />
+          ))}
+        </div>
+      )}
     </>
   );
 }
