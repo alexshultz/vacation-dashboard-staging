@@ -302,19 +302,17 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
         <div className="dm-handle" aria-hidden="true"></div>
         <button className="dm-close-x" type="button" onClick={onClose} aria-label="Close">✕</button>
 
-        {/* 3-panel carousel strip: prev | current | next */}
+        {/* 3-panel carousel: prev | current | next -- panels are direct children of clip */}
         <div className="dm-content-clip" ref={clipRef}>
-          <div className="dm-content-strip">
-            {prevActivity
-              ? <div className="dm-content-panel">{renderCard(prevActivity, userId, false)}</div>
-              : <div className="dm-content-panel" style={{ scrollSnapAlign: 'none' }}></div>
-            }
-            <div className="dm-content-panel" data-panel="current">{renderCard(activity, userId, true)}</div>
-            {nextActivity
-              ? <div className="dm-content-panel">{renderCard(nextActivity, userId, false)}</div>
-              : <div className="dm-content-panel" style={{ scrollSnapAlign: 'none' }}></div>
-            }
-          </div>
+          {prevActivity
+            ? <div className="dm-content-panel">{renderCard(prevActivity, userId, false)}</div>
+            : <div className="dm-content-panel" style={{ scrollSnapAlign: 'none' }}></div>
+          }
+          <div className="dm-content-panel" data-panel="current">{renderCard(activity, userId, true)}</div>
+          {nextActivity
+            ? <div className="dm-content-panel">{renderCard(nextActivity, userId, false)}</div>
+            : <div className="dm-content-panel" style={{ scrollSnapAlign: 'none' }}></div>
+          }
         </div>
 
       </div>
