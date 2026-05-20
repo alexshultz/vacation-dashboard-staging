@@ -67,7 +67,7 @@ function BrowseView({ state, dispatch }) {
       <div className="search-bar">
         <div className="search-bar__inner">
           <label className="search-input">
-            <svg className="search-input__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <svg className="search-input__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="11" cy="11" r="7" />
               <line x1="20" y1="20" x2="16.5" y2="16.5" />
             </svg>
@@ -103,7 +103,7 @@ function BrowseView({ state, dispatch }) {
         <div className="empty-wrap">
           <div className="empty">
             <div className="empty__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="11" cy="11" r="7" />
                 <line x1="20" y1="20" x2="16.5" y2="16.5" />
                 <line x1="7.5" y1="11" x2="14.5" y2="11" />
