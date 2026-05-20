@@ -122,7 +122,7 @@ body {
   box-shadow: 0 -8px 40px rgba(0,0,0,0.25);
   animation: dm-slide-up 380ms cubic-bezier(0.2, 0.9, 0.25, 1.05);
   transform-origin: bottom center;
-  touch-action: pan-y;
+  touch-action: none;
 }
 @media (min-width: 640px) {
   .dm-sheet {
@@ -173,7 +173,7 @@ body {
 }
 .dm-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.dm-body { padding: 16px 20px 24px; display: flex; flex-direction: column; gap: 12px; }
+.dm-body { padding: 16px 20px 24px; display: flex; flex-direction: column; gap: 12px; touch-action: pan-y; }
 .dm-title {
   font-family: var(--font-display); font-weight: 800;
   font-size: clamp(22px, 4vw, 28px); line-height: 1.15;
