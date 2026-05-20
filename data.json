@@ -520,7 +520,8 @@
         "kid-focused",
         "1hr",
         "at-andy-bs",
-        "at-branson-landing"
+        "at-branson-landing",
+        "escape-room"
       ],
       "drive": "25 min",
       "sort_key": "andy b's escape: blackout",
@@ -544,7 +545,8 @@
         "date-night",
         "1hr",
         "at-andy-bs",
-        "at-branson-landing"
+        "at-branson-landing",
+        "escape-room"
       ],
       "drive": "25 min",
       "sort_key": "andy b's escape: house of dread",
@@ -567,7 +569,8 @@
         "indoor",
         "1hr",
         "at-andy-bs",
-        "at-branson-landing"
+        "at-branson-landing",
+        "escape-room"
       ],
       "drive": "25 min",
       "sort_key": "andy b's escape: kidnapped",
@@ -591,7 +594,8 @@
         "kid-focused",
         "1hr",
         "at-andy-bs",
-        "at-branson-landing"
+        "at-branson-landing",
+        "escape-room"
       ],
       "drive": "25 min",
       "sort_key": "andy b's escape: space odyssey",
@@ -1370,7 +1374,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-bigfoot-fun-park"
+        "at-bigfoot-fun-park",
+        "escape-room"
       ],
       "drive": "15 min",
       "sort_key": "bigfoot escape rooms",
@@ -3569,7 +3574,8 @@
         "kid-focused",
         "date-night",
         "1-2hr",
-        "2hr+"
+        "2hr+",
+        "escape-room"
       ],
       "drive": "21 min",
       "sort_key": "cryptex escape rooms",
@@ -3591,7 +3597,8 @@
         "family",
         "indoor",
         "1hr",
-        "at-cryptex"
+        "at-cryptex",
+        "escape-room"
       ],
       "drive": "21 min",
       "sort_key": "cryptex: poisonous debate",
@@ -3614,7 +3621,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-cryptex"
+        "at-cryptex",
+        "escape-room"
       ],
       "drive": "21 min",
       "sort_key": "cryptex: pursuit of steam",
@@ -3637,7 +3645,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-cryptex"
+        "at-cryptex",
+        "escape-room"
       ],
       "drive": "21 min",
       "sort_key": "cryptex: space travel",
@@ -3659,7 +3668,8 @@
         "family",
         "indoor",
         "1-2hr",
-        "at-cryptex"
+        "at-cryptex",
+        "escape-room"
       ],
       "drive": "21 min",
       "sort_key": "cryptex: the crypt",
@@ -3682,7 +3692,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-cryptex"
+        "at-cryptex",
+        "escape-room"
       ],
       "drive": "21 min",
       "sort_key": "cryptex: tourist trap",
@@ -4458,7 +4469,8 @@
         "kid-focused",
         "date-night",
         "1-2hr",
-        "2hr+"
+        "2hr+",
+        "escape-room"
       ],
       "drive": "18 min",
       "sort_key": "escape code",
@@ -4481,7 +4493,8 @@
         "indoor",
         "kid-focused",
         "1-2hr",
-        "at-escape-code"
+        "at-escape-code",
+        "escape-room"
       ],
       "drive": "18 min",
       "sort_key": "escape code: folklore",
@@ -4504,7 +4517,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-escape-code"
+        "at-escape-code",
+        "escape-room"
       ],
       "drive": "18 min",
       "sort_key": "escape code: journey through elek's hollow",
@@ -4527,7 +4541,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-escape-code"
+        "at-escape-code",
+        "escape-room"
       ],
       "drive": "18 min",
       "sort_key": "escape code: man overboard!",
@@ -4550,7 +4565,8 @@
         "indoor",
         "kid-focused",
         "1-2hr",
-        "at-escape-code"
+        "at-escape-code",
+        "escape-room"
       ],
       "drive": "18 min",
       "sort_key": "escape code: secret passage (large scale)",
@@ -4573,7 +4589,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-escape-code"
+        "at-escape-code",
+        "escape-room"
       ],
       "drive": "18 min",
       "sort_key": "escape code: the guest house",
@@ -4596,7 +4613,8 @@
         "indoor",
         "kid-focused",
         "1-2hr",
-        "at-escape-code"
+        "at-escape-code",
+        "escape-room"
       ],
       "drive": "18 min",
       "sort_key": "escape code: the zeros (large scale)",
@@ -4619,7 +4637,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-escape-code"
+        "at-escape-code",
+        "escape-room"
       ],
       "drive": "18 min",
       "sort_key": "escape code: vortex",
@@ -6950,7 +6969,8 @@
         "kid-focused",
         "date-night",
         "1-2hr",
-        "vr"
+        "vr",
+        "escape-room"
       ],
       "drive": "19 min",
       "sort_key": "masters of escape & mirage vr",
@@ -7805,7 +7825,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-puzzle-parlour"
+        "at-puzzle-parlour",
+        "escape-room"
       ],
       "drive": "17 min",
       "sort_key": "operation laser tag (puzzle parlour)",
@@ -8773,7 +8794,8 @@
         "indoor",
         "kid-focused",
         "1-2hr",
-        "at-puzzle-parlour"
+        "at-puzzle-parlour",
+        "escape-room"
       ],
       "drive": "17 min",
       "sort_key": "puzzle parlour & operation laser tag",
@@ -8796,7 +8818,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-puzzle-parlour"
+        "at-puzzle-parlour",
+        "escape-room"
       ],
       "drive": "17 min",
       "sort_key": "puzzle parlour: mystery of whispering woods",
@@ -8819,7 +8842,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-puzzle-parlour"
+        "at-puzzle-parlour",
+        "escape-room"
       ],
       "drive": "17 min",
       "sort_key": "puzzle parlour: scorpio operation chaos",
@@ -9018,7 +9042,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-retromania"
+        "at-retromania",
+        "escape-room"
       ],
       "drive": "19 min",
       "sort_key": "retromania escape: doc brown's lab",
@@ -9041,7 +9066,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-retromania"
+        "at-retromania",
+        "escape-room"
       ],
       "drive": "19 min",
       "sort_key": "retromania escape: e.t. rescue",
@@ -9064,7 +9090,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-retromania"
+        "at-retromania",
+        "escape-room"
       ],
       "drive": "19 min",
       "sort_key": "retromania escape: ecs victor",
@@ -9087,56 +9114,11 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-retromania"
+        "at-retromania",
+        "escape-room"
       ],
       "drive": "19 min",
       "sort_key": "retromania escape: indiana's tomb",
-      "visible": true
-    },
-    {
-      "slug": "the-revollusionists",
-      "name": "The Revollusionists",
-      "category": "show",
-      "duration_hours": 2,
-      "price_adult": 50,
-      "family_pass": null,
-      "rating": 4.5,
-      "description": "The Revollusionists is a magic and illusion show featuring multiple performers presenting large-scale and close-up illusions together in one production. The format is modern and fast-paced rather than old-fashioned stage magic. Families with kids who enjoy magic acts will find it engaging, though it skews toward older children and adults.",
-      "image": "assets/thumbs/the-revollusionists-thumb.jpg",
-      "official_url": "https://www.branson.com/shows/the-revollusionists/",
-      "notes": "Check revollusionists.com for venue, showtimes, and pricing in Branson.",
-      "tags": [
-        "1-2hr",
-        "date-night",
-        "family",
-        "indoor",
-        "magic",
-        "variety"
-      ],
-      "tag_meta": {
-        "vocabulary_round": 8,
-        "classifier": "claude-sonnet-4-6",
-        "confidence": 0.6,
-        "reasoning": "Based on the teaching example for The Revollusionists, the show is a variety/magic show with family and date-night appeal, running approximately 2 hours indoors.",
-        "categories": {
-          "show": [
-            "variety",
-            "magic"
-          ],
-          "music": [],
-          "audience": [
-            "family",
-            "date-night"
-          ],
-          "attraction": [
-            "indoor",
-            "1-2hr"
-          ]
-        },
-        "classified": "2026-04-21"
-      },
-      "drive": "19 min",
-      "sort_key": "revollusionists",
       "visible": true
     },
     {
