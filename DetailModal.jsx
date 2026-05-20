@@ -2,16 +2,17 @@
    Desktop: centered modal, max 640px wide.
    Mobile (<640px): bottom sheet that slides up; drag handle visible.
    Dismiss: backdrop tap, Esc key, drag-down past threshold, or Close button.
-   Navigation: swipe left = next card, swipe right = previous card, first-axis-wins disambiguation.
-              Content slides out/in like an iOS carousel -- sheet stays fixed. */
+   Navigation: swipe left = next card, swipe right = previous card, first-axis-wins.
+              Apple Photos model: both cards slide together -- old exits, new enters. */
 
 const { useEffect: useEffectDM, useRef: useRefDM, useState: useStateDM } = React;
 
 function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNavigated, onToggleWish, onToggleCommit }) {
   const [currentId, setCurrentId] = useStateDM(activityId);
+  const [prevId, setPrevId] = useStateDM(null);       // card being slid out
+  const [slideDir, setSlideDir] = useStateDM(null);   // 'left' | 'right' | null
   const [dragging, setDragging] = useStateDM(false);
-  const [slideDir, setSlideDir] = useStateDM(null); // 'left' | 'right' | null
-  const dragStart = useRefDM(null); // { startX, startY, t, axis, pointerId, inDismissZone }
+  const dragStart = useRefDM(null);
   const sheetRef = useRefDM(null);
 
   // ── Body scroll lock + Escape key ──────────────────────────────
@@ -39,15 +40,22 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     return () => sheet.removeEventListener('touchmove', preventTouch);
   }, []);
 
-  // Clear slide animation class after it plays (250ms matches CSS duration)
+  // Clear slide state after animation completes (300ms matches CSS)
   useEffectDM(() => {
     if (!slideDir) return;
-    const timer = window.setTimeout(() => setSlideDir(null), 260);
+    const timer = window.setTimeout(() => {
+      setSlideDir(null);
+      setPrevId(null);
+    }, 310);
     return () => window.clearTimeout(timer);
   }, [slideDir, currentId]);
 
   const activity = currentId
     ? (window.BD_ACTIVITIES || []).find(a => a.id === currentId)
+    : null;
+
+  const prevActivity = prevId
+    ? (window.BD_ACTIVITIES || []).find(a => a.id === prevId)
     : null;
 
   if (!activity) return null;
@@ -64,7 +72,8 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     let nextId = null;
     if (dir === 'next' && idx < navigationIds.length - 1) nextId = navigationIds[idx + 1];
     if (dir === 'prev' && idx > 0) nextId = navigationIds[idx - 1];
-    if (!nextId) return; // boundary no-op
+    if (!nextId) return;
+    setPrevId(currentId);
     setSlideDir(dir === 'next' ? 'left' : 'right');
     setCurrentId(nextId);
     if (onNavigated) onNavigated(nextId);
@@ -75,7 +84,6 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     const target = e.target;
     if (target.closest('button, a, input, textarea, select')) return;
 
-    // Horizontal swipes work from anywhere. Vertical dismiss only from handle/hero.
     const hero = sheetRef.current?.querySelector('.dm-hero');
     const handle = sheetRef.current?.querySelector('.dm-handle');
     const heroRect = hero?.getBoundingClientRect();
@@ -104,7 +112,6 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
       else if (Math.abs(dy) >= 20) d.axis = 'y';
     }
     if (!sheetRef.current) return;
-    // X-axis: sheet stays fixed -- slide transition fires on commit (onPointerUp)
     if (d.axis === 'y') {
       sheetRef.current.style.transform = `translateY(${Math.max(0, dy)}px)`;
       e.preventDefault();
@@ -123,11 +130,10 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
       sheetRef.current.style.transform = '';
       sheetRef.current.style.transition = '';
     }
-
     if (d.axis === 'x') {
       const HTHRESH = 110;
-      if (dx < -HTHRESH) navigate('next');      // swipe left = next
-      else if (dx > HTHRESH) navigate('prev');  // swipe right = prev
+      if (dx < -HTHRESH) navigate('next');
+      else if (dx > HTHRESH) navigate('prev');
     } else if (d.axis === 'y') {
       if (!d.inDismissZone) return;
       const velocity = dy / dt;
@@ -142,9 +148,75 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     if (sheetRef.current) sheetRef.current.style.transform = '';
   }
 
-  const slideClass = slideDir === 'left' ? 'dm-slide-left' : slideDir === 'right' ? 'dm-slide-right' : '';
+  // ── Card content renderer (shared for current and prev) ──────────
+  function renderCardContent(act, uid) {
+    const w = act.wish.includes(uid);
+    const c = act.commit.includes(uid);
+    const lk = act.locked;
+    return (
+      <div className="dm-hero-body">
+        <div className="dm-hero">
+          <img src={act.thumb} alt="" draggable="false" />
+        </div>
+        <div className="dm-body" style={{ overscrollBehavior: 'none' }}>
+          <div className="card-dense__pills">
+            <span className={`card-badge ${c ? 'card-badge--commit' : 'card-badge--not-going'}`}>
+              {c ? "You're going" : 'Undecided'}
+            </span>
+            {lk && <span className="card-badge card-badge--lock">🔒 Locked by Alex</span>}
+          </div>
+          <h2 className="dm-title">{act.name}</h2>
+          <div className="dm-meta">{act.drive} drive · {act.price} · ★ {act.rating}</div>
+          <StatusLine activity={act} committed={c} />
+          <p className="dm-desc">{act.hook}</p>
+          {act.tags && act.tags.length > 0 && (
+            <div className="dm-tags">
+              {act.tags.map(t => <span key={t} className="dm-tag">{t}</span>)}
+            </div>
+          )}
+          <RosterRow kind="wish"   label="wishlisted" ids={act.wish}   userId={uid} />
+          <RosterRow kind="commit" label="committed"  ids={act.commit} userId={uid} />
+          <div className="dm-actions">
+            {lk ? (
+              <>
+                <button className="btn btn--locked-in" disabled aria-disabled="true">
+                  🔒 {c ? 'Locked in — text Alex to change' : 'Locked — text Alex to join'}
+                </button>
+                <button className="btn btn--ghost">Add to calendar</button>
+              </>
+            ) : (
+              <>
+                {c ? (
+                  <button className="btn btn--out" onClick={() => onToggleCommit && onToggleCommit(currentId)}>
+                    Count me out
+                  </button>
+                ) : (
+                  <button className="btn btn--primary" onClick={() => onToggleCommit && onToggleCommit(currentId)}>
+                    Count me in
+                  </button>
+                )}
+                <button
+                  className={`btn ${w ? 'btn--danger' : 'btn--secondary'}`}
+                  onClick={() => onToggleWish && onToggleWish(currentId)}
+                >
+                  {w ? 'Drop wishlist' : '+ Wishlist'}
+                </button>
+              </>
+            )}
+          </div>
+          <button className="dm-close" type="button" onClick={onClose}>Close</button>
+        </div>
+      </div>
+    );
+  }
 
   // ── Render ───────────────────────────────────────────────────────
+  // During a slide transition: render a 2-panel strip inside dm-content-clip.
+  // The strip is 200% wide. For slide-left: prev panel is left, current is right.
+  // For slide-right: current panel is left, prev panel is right.
+  // CSS animates the strip translateX so both panels move together.
+  const isSliding = !!(slideDir && prevActivity);
+
   return (
     <div
       className="dm-backdrop"
@@ -164,68 +236,24 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
         <div className="dm-handle" aria-hidden="true"></div>
         <button className="dm-close-x" type="button" onClick={onClose} aria-label="Close">✕</button>
 
-        <div className={`dm-content ${slideClass}`} key={currentId}>
-          <div className="dm-hero">
-            <img src={activity.thumb} alt="" draggable="false" />
-          </div>
-
-          <div className="dm-body" style={{ overscrollBehavior: 'none' }}>
-            <div className="card-dense__pills">
-              <span className={`card-badge ${committed ? 'card-badge--commit' : 'card-badge--not-going'}`}>
-                {committed ? "You're going" : 'Undecided'}
-              </span>
-              {isLocked && <span className="card-badge card-badge--lock">🔒 Locked by Alex</span>}
-            </div>
-
-            <h2 className="dm-title">{activity.name}</h2>
-            <div className="dm-meta">{activity.drive} drive · {activity.price} · ★ {activity.rating}</div>
-
-            <StatusLine activity={activity} committed={committed} />
-
-            <p className="dm-desc">{activity.hook}</p>
-
-            {activity.tags && activity.tags.length > 0 && (
-              <div className="dm-tags">
-                {activity.tags.map(t => (
-                  <span key={t} className="dm-tag">{t}</span>
-                ))}
-              </div>
-            )}
-
-            <RosterRow kind="wish"   label="wishlisted" ids={activity.wish}   userId={userId} />
-            <RosterRow kind="commit" label="committed"  ids={activity.commit} userId={userId} />
-
-            <div className="dm-actions">
-              {isLocked ? (
+        <div className="dm-content-clip">
+          {isSliding ? (
+            <div className={`dm-slide-strip dm-slide-strip--${slideDir}`}>
+              {slideDir === 'left' ? (
                 <>
-                  <button className="btn btn--locked-in" disabled aria-disabled="true">
-                    🔒 {committed ? 'Locked in — text Alex to change' : 'Locked — text Alex to join'}
-                  </button>
-                  <button className="btn btn--ghost">Add to calendar</button>
+                  <div className="dm-slide-panel">{renderCardContent(prevActivity, userId)}</div>
+                  <div className="dm-slide-panel">{renderCardContent(activity, userId)}</div>
                 </>
               ) : (
                 <>
-                  {committed ? (
-                    <button className="btn btn--out" onClick={() => onToggleCommit && onToggleCommit(currentId)}>
-                      Count me out
-                    </button>
-                  ) : (
-                    <button className="btn btn--primary" onClick={() => onToggleCommit && onToggleCommit(currentId)}>
-                      Count me in
-                    </button>
-                  )}
-                  <button
-                    className={`btn ${wished ? 'btn--danger' : 'btn--secondary'}`}
-                    onClick={() => onToggleWish && onToggleWish(currentId)}
-                  >
-                    {wished ? 'Drop wishlist' : '+ Wishlist'}
-                  </button>
+                  <div className="dm-slide-panel">{renderCardContent(activity, userId)}</div>
+                  <div className="dm-slide-panel">{renderCardContent(prevActivity, userId)}</div>
                 </>
               )}
             </div>
-
-            <button className="dm-close" type="button" onClick={onClose}>Close</button>
-          </div>
+          ) : (
+            renderCardContent(activity, userId)
+          )}
         </div>
       </div>
     </div>

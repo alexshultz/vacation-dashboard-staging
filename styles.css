@@ -142,16 +142,33 @@ body {
 }
 .dm-sheet.is-dragging { transition: none; animation: none; }
 
-/* ── Modal content slide transitions ─────────────────────── */
-.dm-content { overflow: hidden; }
-@keyframes dm-nav-out-left  { from { transform: translateX(0);     opacity: 1; } to { transform: translateX(-30%);  opacity: 0; } }
-@keyframes dm-nav-out-right { from { transform: translateX(0);     opacity: 1; } to { transform: translateX(30%);   opacity: 0; } }
-@keyframes dm-nav-in-right  { from { transform: translateX(30%);   opacity: 0; } to { transform: translateX(0);     opacity: 1; } }
-@keyframes dm-nav-in-left   { from { transform: translateX(-30%);  opacity: 0; } to { transform: translateX(0);     opacity: 1; } }
-.dm-slide-left  { animation: dm-nav-in-right 250ms var(--ease-out) both; }
-.dm-slide-right { animation: dm-nav-in-left  250ms var(--ease-out) both; }
+/* ── Modal content slide transitions (Apple Photos model) ────── */
+.dm-content-clip { overflow: hidden; }
+.dm-hero-body { display: flex; flex-direction: column; }
+
+/* Two-panel strip: 200% wide, both panels visible during slide */
+.dm-slide-strip {
+  display: flex;
+  width: 200%;
+  will-change: transform;
+}
+.dm-slide-panel {
+  width: 50%;
+  flex-shrink: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* slide-left: strip starts at 0 (prev panel visible), animates to -50% (current panel) */
+@keyframes dm-strip-left  { from { transform: translateX(0); }    to { transform: translateX(-50%); } }
+/* slide-right: strip starts at -50% (current panel right), animates to 0 (current panel left) */
+@keyframes dm-strip-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+.dm-slide-strip--left  { animation: dm-strip-left  300ms var(--ease-out) both; }
+.dm-slide-strip--right { animation: dm-strip-right 300ms var(--ease-out) both; }
+
 @media (prefers-reduced-motion: reduce) {
-  .dm-slide-left, .dm-slide-right { animation: none; }
+  .dm-slide-strip--left, .dm-slide-strip--right { animation: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .dm-backdrop, .dm-sheet { animation: none; }
