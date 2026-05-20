@@ -141,6 +141,18 @@ body {
   100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 .dm-sheet.is-dragging { transition: none; animation: none; }
+
+/* ── Modal content slide transitions ─────────────────────── */
+.dm-content { overflow: hidden; }
+@keyframes dm-nav-out-left  { from { transform: translateX(0);     opacity: 1; } to { transform: translateX(-30%);  opacity: 0; } }
+@keyframes dm-nav-out-right { from { transform: translateX(0);     opacity: 1; } to { transform: translateX(30%);   opacity: 0; } }
+@keyframes dm-nav-in-right  { from { transform: translateX(30%);   opacity: 0; } to { transform: translateX(0);     opacity: 1; } }
+@keyframes dm-nav-in-left   { from { transform: translateX(-30%);  opacity: 0; } to { transform: translateX(0);     opacity: 1; } }
+.dm-slide-left  { animation: dm-nav-in-right 250ms var(--ease-out) both; }
+.dm-slide-right { animation: dm-nav-in-left  250ms var(--ease-out) both; }
+@media (prefers-reduced-motion: reduce) {
+  .dm-slide-left, .dm-slide-right { animation: none; }
+}
 @media (prefers-reduced-motion: reduce) {
   .dm-backdrop, .dm-sheet { animation: none; }
 }

@@ -2,14 +2,16 @@
    Desktop: centered modal, max 640px wide.
    Mobile (<640px): bottom sheet that slides up; drag handle visible.
    Dismiss: backdrop tap, Esc key, drag-down past threshold, or Close button.
-   Navigation: swipe left = next card, swipe right = previous card, first-axis-wins disambiguation. */
+   Navigation: swipe left = next card, swipe right = previous card, first-axis-wins disambiguation.
+              Content slides out/in like an iOS carousel -- sheet stays fixed. */
 
 const { useEffect: useEffectDM, useRef: useRefDM, useState: useStateDM } = React;
 
 function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNavigated, onToggleWish, onToggleCommit }) {
   const [currentId, setCurrentId] = useStateDM(activityId);
   const [dragging, setDragging] = useStateDM(false);
-  const dragStart = useRefDM(null); // { startX, startY, t, axis, pointerId }
+  const [slideDir, setSlideDir] = useStateDM(null); // 'left' | 'right' | null
+  const dragStart = useRefDM(null); // { startX, startY, t, axis, pointerId, inDismissZone }
   const sheetRef = useRefDM(null);
 
   // ── Body scroll lock + Escape key ──────────────────────────────
@@ -37,6 +39,13 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     return () => sheet.removeEventListener('touchmove', preventTouch);
   }, []);
 
+  // Clear slide animation class after it plays (250ms matches CSS duration)
+  useEffectDM(() => {
+    if (!slideDir) return;
+    const timer = window.setTimeout(() => setSlideDir(null), 260);
+    return () => window.clearTimeout(timer);
+  }, [slideDir, currentId]);
+
   const activity = currentId
     ? (window.BD_ACTIVITIES || []).find(a => a.id === currentId)
     : null;
@@ -56,19 +65,17 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     if (dir === 'next' && idx < navigationIds.length - 1) nextId = navigationIds[idx + 1];
     if (dir === 'prev' && idx > 0) nextId = navigationIds[idx - 1];
     if (!nextId) return; // boundary no-op
+    setSlideDir(dir === 'next' ? 'left' : 'right');
     setCurrentId(nextId);
     if (onNavigated) onNavigated(nextId);
   }
 
   // ── Gesture handlers ─────────────────────────────────────────────
   function onPointerDown(e) {
-    // Skip gestures if the target is an interactive element (button, link, input, etc.)
     const target = e.target;
     if (target.closest('button, a, input, textarea, select')) return;
 
-    // Horizontal swipes (navigate) work from anywhere on the sheet.
-    // Vertical swipes (dismiss) only fire when started in the handle or hero zone.
-    // Record inDismissZone now so onPointerUp can check it after axis is known.
+    // Horizontal swipes work from anywhere. Vertical dismiss only from handle/hero.
     const hero = sheetRef.current?.querySelector('.dm-hero');
     const handle = sheetRef.current?.querySelector('.dm-handle');
     const heroRect = hero?.getBoundingClientRect();
@@ -92,16 +99,13 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     if (!d) return;
     const dx = e.clientX - d.startX;
     const dy = e.clientY - d.startY;
-    // First-axis-wins: lock axis once either axis exceeds 20px
     if (d.axis === null) {
       if (Math.abs(dx) >= 20) d.axis = 'x';
       else if (Math.abs(dy) >= 20) d.axis = 'y';
     }
     if (!sheetRef.current) return;
-    if (d.axis === 'x') {
-      sheetRef.current.style.transform = `translate(${dx}px, ${dy * 0.4}px) rotate(${dx * 0.06}deg)`;
-      sheetRef.current.style.transition = 'none';
-    } else if (d.axis === 'y') {
+    // X-axis: sheet stays fixed -- slide transition fires on commit (onPointerUp)
+    if (d.axis === 'y') {
       sheetRef.current.style.transform = `translateY(${Math.max(0, dy)}px)`;
       e.preventDefault();
     }
@@ -122,17 +126,14 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
 
     if (d.axis === 'x') {
       const HTHRESH = 110;
-      if (dx < -HTHRESH) navigate('next');       // swipe left = next
-      else if (dx > HTHRESH) navigate('prev');   // swipe right = prev
-      // else: no-op (snap back already done by clearing transform)
+      if (dx < -HTHRESH) navigate('next');      // swipe left = next
+      else if (dx > HTHRESH) navigate('prev');  // swipe right = prev
     } else if (d.axis === 'y') {
-      if (!d.inDismissZone) return; // vertical drag outside handle/hero: ignore
+      if (!d.inDismissZone) return;
       const velocity = dy / dt;
       const threshold = velocity > 0.5 ? 60 : 150;
       if (dy > threshold) onClose();
-      // else: snap back (transform already cleared)
     }
-    // axis === null: just a tap, no action
   }
 
   function onPointerCancel(e) {
@@ -140,6 +141,8 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
     setDragging(false);
     if (sheetRef.current) sheetRef.current.style.transform = '';
   }
+
+  const slideClass = slideDir === 'left' ? 'dm-slide-left' : slideDir === 'right' ? 'dm-slide-right' : '';
 
   // ── Render ───────────────────────────────────────────────────────
   return (
@@ -161,66 +164,68 @@ function ActivityDetailModal({ activityId, navigationIds, userId, onClose, onNav
         <div className="dm-handle" aria-hidden="true"></div>
         <button className="dm-close-x" type="button" onClick={onClose} aria-label="Close">✕</button>
 
-        <div className="dm-hero">
-          <img src={activity.thumb} alt="" draggable="false" />
-        </div>
-
-        <div className="dm-body" style={{ overscrollBehavior: 'none' }}>
-          <div className="card-dense__pills">
-            <span className={`card-badge ${committed ? 'card-badge--commit' : 'card-badge--not-going'}`}>
-              {committed ? "You're going" : 'Undecided'}
-            </span>
-            {isLocked && <span className="card-badge card-badge--lock">🔒 Locked by Alex</span>}
+        <div className={`dm-content ${slideClass}`} key={currentId}>
+          <div className="dm-hero">
+            <img src={activity.thumb} alt="" draggable="false" />
           </div>
 
-          <h2 className="dm-title">{activity.name}</h2>
-          <div className="dm-meta">{activity.drive} drive · {activity.price} · ★ {activity.rating}</div>
-
-          <StatusLine activity={activity} committed={committed} />
-
-          <p className="dm-desc">{activity.hook}</p>
-
-          {activity.tags && activity.tags.length > 0 && (
-            <div className="dm-tags">
-              {activity.tags.map(t => (
-                <span key={t} className="dm-tag">{t}</span>
-              ))}
+          <div className="dm-body" style={{ overscrollBehavior: 'none' }}>
+            <div className="card-dense__pills">
+              <span className={`card-badge ${committed ? 'card-badge--commit' : 'card-badge--not-going'}`}>
+                {committed ? "You're going" : 'Undecided'}
+              </span>
+              {isLocked && <span className="card-badge card-badge--lock">🔒 Locked by Alex</span>}
             </div>
-          )}
 
-          <RosterRow kind="wish"   label="wishlisted" ids={activity.wish}   userId={userId} />
-          <RosterRow kind="commit" label="committed"  ids={activity.commit} userId={userId} />
+            <h2 className="dm-title">{activity.name}</h2>
+            <div className="dm-meta">{activity.drive} drive · {activity.price} · ★ {activity.rating}</div>
 
-          <div className="dm-actions">
-            {isLocked ? (
-              <>
-                <button className="btn btn--locked-in" disabled aria-disabled="true">
-                  🔒 {committed ? 'Locked in — text Alex to change' : 'Locked — text Alex to join'}
-                </button>
-                <button className="btn btn--ghost">Add to calendar</button>
-              </>
-            ) : (
-              <>
-                {committed ? (
-                  <button className="btn btn--out" onClick={() => onToggleCommit && onToggleCommit(currentId)}>
-                    Count me out
-                  </button>
-                ) : (
-                  <button className="btn btn--primary" onClick={() => onToggleCommit && onToggleCommit(currentId)}>
-                    Count me in
-                  </button>
-                )}
-                <button
-                  className={`btn ${wished ? 'btn--danger' : 'btn--secondary'}`}
-                  onClick={() => onToggleWish && onToggleWish(currentId)}
-                >
-                  {wished ? 'Drop wishlist' : '+ Wishlist'}
-                </button>
-              </>
+            <StatusLine activity={activity} committed={committed} />
+
+            <p className="dm-desc">{activity.hook}</p>
+
+            {activity.tags && activity.tags.length > 0 && (
+              <div className="dm-tags">
+                {activity.tags.map(t => (
+                  <span key={t} className="dm-tag">{t}</span>
+                ))}
+              </div>
             )}
-          </div>
 
-          <button className="dm-close" type="button" onClick={onClose}>Close</button>
+            <RosterRow kind="wish"   label="wishlisted" ids={activity.wish}   userId={userId} />
+            <RosterRow kind="commit" label="committed"  ids={activity.commit} userId={userId} />
+
+            <div className="dm-actions">
+              {isLocked ? (
+                <>
+                  <button className="btn btn--locked-in" disabled aria-disabled="true">
+                    🔒 {committed ? 'Locked in — text Alex to change' : 'Locked — text Alex to join'}
+                  </button>
+                  <button className="btn btn--ghost">Add to calendar</button>
+                </>
+              ) : (
+                <>
+                  {committed ? (
+                    <button className="btn btn--out" onClick={() => onToggleCommit && onToggleCommit(currentId)}>
+                      Count me out
+                    </button>
+                  ) : (
+                    <button className="btn btn--primary" onClick={() => onToggleCommit && onToggleCommit(currentId)}>
+                      Count me in
+                    </button>
+                  )}
+                  <button
+                    className={`btn ${wished ? 'btn--danger' : 'btn--secondary'}`}
+                    onClick={() => onToggleWish && onToggleWish(currentId)}
+                  >
+                    {wished ? 'Drop wishlist' : '+ Wishlist'}
+                  </button>
+                </>
+              )}
+            </div>
+
+            <button className="dm-close" type="button" onClick={onClose}>Close</button>
+          </div>
         </div>
       </div>
     </div>
