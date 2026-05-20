@@ -2094,7 +2094,7 @@
       "price_adult": 0.0,
       "duration_hours": 3,
       "rating": 4.5,
-      "description": "Branson's signature waterfront shopping and entertainment district on Lake Taneycomo features a 1-mile boardwalk, an iconic 400-foot musical fountain show, and over 100 shops and restaurants. A mix of national chains and local shops with lakefront dining and live entertainment. The fountain shows run every hour and are free to watch.",
+      "description": "Branson's signature waterfront district on Lake Taneycomo, built around a 1-mile lakefront boardwalk connecting 100+ shops, restaurants, and entertainment venues. The iconic 400-foot musical fountain show runs free every hour. A mix of national chains and local favorites with lakefront dining and live entertainment. Free to visit -- equally great for a morning stroll or an evening wind-down along the water.",
       "image": "assets/thumbs/branson-landing-thumb.jpg",
       "official_url": "https://www.bransonlanding.com/",
       "notes": "Branson Landing Blvd, Branson MO 65616. On the Branson waterfront, downtown. Free to visit. Hours 10am-8pm (extended on weekends). Chains include: Bass Pro Shops, Bath & Body Works, Belk, Pandora, H&M, Lids, White House Black Market, Torrid, Francesca's, Spencer's, Victoria's Secret, Justice, Claire's, and more. Unique stops: Andy B's Bowl Social, 7D Dark Ride Adventure, Arcade City. Great for a morning stroll or evening wind-down along the waterfront.",
@@ -6993,7 +6993,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-masters-of-escape"
+        "at-masters-of-escape",
+        "escape-room"
       ],
       "drive": "19 min",
       "sort_key": "masters of escape: biblical quest",
@@ -7016,7 +7017,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-masters-of-escape"
+        "at-masters-of-escape",
+        "escape-room"
       ],
       "drive": "19 min",
       "sort_key": "masters of escape: chocolate factory",
@@ -7038,7 +7040,8 @@
         "family",
         "indoor",
         "1hr",
-        "at-masters-of-escape"
+        "at-masters-of-escape",
+        "escape-room"
       ],
       "drive": "19 min",
       "sort_key": "masters of escape: cleopatra's tomb",
@@ -7085,7 +7088,8 @@
         "indoor",
         "kid-focused",
         "1hr",
-        "at-masters-of-escape"
+        "at-masters-of-escape",
+        "escape-room"
       ],
       "drive": "19 min",
       "sort_key": "masters of escape: wizard of oz",
