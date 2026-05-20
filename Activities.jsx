@@ -2,15 +2,6 @@
 
 const { useState: useStateAct, useMemo: useMemoAct } = React;
 
-const FILTERS = [
-  { id: 'all',     label: 'All' },
-  { id: 'family',  label: 'Family-friendly' },
-  { id: 'outdoor', label: 'Outdoor' },
-  { id: 'indoor',  label: 'Indoor' },
-  { id: 'music',   label: 'Music & shows' },
-  { id: 'food',    label: 'Food & shopping' },
-];
-
 function ActivitiesPage({ state, dispatch }) {
   const [mode, setMode] = useStateAct('browse');
 
