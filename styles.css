@@ -154,11 +154,12 @@ body {
    during navigation — toggling `animation` restarts the slide-up which
    reads as a "dip" when a card snaps into place. */
 
-/* ── Modal pager — native CSS scroll-snap, iCloud-Photos style ─────
-   The pager is a horizontal scroller with one pane per activity in the
-   filtered navigation list. iOS owns horizontal momentum, deceleration,
-   and snap physics; our JS only intervenes when arrow keys are pressed
-   (we call .scrollTo with smooth behavior). */
+/* ── Modal pager — virtual 3-pane carousel, NO CSS scroll-snap ──────
+   Always exactly 3 .dm-pane children (prev / current / next). scrollLeft
+   is pinned to pager.offsetWidth when idle; JS threshold logic in
+   DetailModal.jsx swaps slot data and resets scrollLeft on navigation.
+   CSS scroll-snap is intentionally absent: it causes jump-and-snap-back
+   on real devices when JS and CSS snap fight each other. */
 .dm-pager {
   flex: 1;
   min-height: 0;
@@ -166,7 +167,6 @@ body {
   flex-direction: row;
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-snap-type: x mandatory;
   scroll-behavior: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -180,8 +180,6 @@ body {
 .dm-pane {
   flex: 0 0 100%;
   width: 100%;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -210,7 +208,6 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .dm-backdrop, .dm-sheet { animation: none; }
-  .dm-pager { scroll-behavior: auto !important; }
 }
 
 .dm-handle {
