@@ -58,95 +58,98 @@ function ActivityDetailModal({
   }, []);
 
   // ── Pager scroll → threshold navigation ─────────────────────────
+  //
+  // Architecture: navigation fires only after the scroll SETTLES, never
+  // during an active drag. iOS fires `pointercancel` when it takes over a
+  // touch as native momentum scroll — we must NOT snap scrollLeft at that
+  // point because iOS applies its velocity *from* wherever scrollLeft is,
+  // so snapping to center just resets the target and iOS zooms again.
+  // Instead we let iOS scroll freely, then act on the final resting position
+  // via `scrollend` (supported Safari 16+). A 200ms settle-timer fallback
+  // handles older browsers.
   useEffectDM(() => {
     const pager = pagerRef.current;
     if (!pager) return;
-    let raf = null;
+    const supportsScrollEnd = 'onscrollend' in pager;
 
-    function check() {
-      raf = null;
-      if (skipScrollRef.current) {
-        skipScrollRef.current = false;
-        return;
-      }
-      // Finger still on screen — defer navigation until pointer is released
-      if (isDraggingRef.current) return;
+    // Evaluate final resting position and navigate or snap back.
+    function checkAndAct() {
+      if (skipScrollRef.current) { skipScrollRef.current = false; return; }
       const w = pager.offsetWidth;
       if (!w) return;
       const x = pager.scrollLeft;
-
       clearTimeout(settleTimerRef.current);
 
       if (x >= w * 1.5) {
-        // Threshold crossed toward next pane
-        const ids = navIdsRef.current;
-        const cur = currentIdxRef.current;
+        const ids = navIdsRef.current, cur = currentIdxRef.current;
         if (cur < ids.length - 1) {
-          const newIdx = cur + 1;
-          currentIdxRef.current = newIdx;
-          setCurrentIdx(newIdx);
-          if (onNavRef.current) onNavRef.current(ids[newIdx]);
+          const n = cur + 1;
+          currentIdxRef.current = n;
+          setCurrentIdx(n);
+          if (onNavRef.current) onNavRef.current(ids[n]);
         }
         skipScrollRef.current = true;
         pager.scrollLeft = w;
       } else if (x < w * 0.5) {
-        // Threshold crossed toward prev pane
-        const ids = navIdsRef.current;
-        const cur = currentIdxRef.current;
+        const ids = navIdsRef.current, cur = currentIdxRef.current;
         if (cur > 0) {
-          const newIdx = cur - 1;
-          currentIdxRef.current = newIdx;
-          setCurrentIdx(newIdx);
-          if (onNavRef.current) onNavRef.current(ids[newIdx]);
+          const n = cur - 1;
+          currentIdxRef.current = n;
+          setCurrentIdx(n);
+          if (onNavRef.current) onNavRef.current(ids[n]);
         }
         skipScrollRef.current = true;
         pager.scrollLeft = w;
-      } else {
-        // Drift without crossing threshold — smooth snap-back after settle
-        settleTimerRef.current = window.setTimeout(() => {
-          const pw = pager.offsetWidth;
-          const px = pager.scrollLeft;
-          if (Math.abs(px - pw) > 5) {
-            pager.scrollTo({ left: pw, behavior: 'smooth' });
-          }
-        }, 200);
+      } else if (Math.abs(x - w) > 5) {
+        pager.scrollTo({ left: w, behavior: 'smooth' });
       }
     }
 
+    // Primary trigger: fires after ALL scrolling (including iOS momentum) stops.
+    function onScrollEnd() {
+      if (!isDraggingRef.current) checkAndAct();
+    }
+
+    // Fallback settle-timer for browsers without scrollend.
     function onScroll() {
-      if (raf) return;
-      raf = requestAnimationFrame(check);
+      if (supportsScrollEnd) return;
+      if (isDraggingRef.current) return;
+      clearTimeout(settleTimerRef.current);
+      settleTimerRef.current = window.setTimeout(checkAndAct, 200);
     }
 
     function onPointerDown() {
       isDraggingRef.current = true;
+      clearTimeout(settleTimerRef.current);
     }
 
     function onPointerUp() {
+      // Deliberate slow drag (no iOS momentum): scrollend fires immediately.
+      // Fast flick (iOS momentum): scrollend fires when momentum dies.
+      // Either way, scrollend handles it — just clear the flag.
       isDraggingRef.current = false;
-      check();
     }
 
     function onPointerCancel() {
-      // iOS fires pointercancel when it takes over a touch as a native scroll.
-      // If we just clear the flag, subsequent native scroll events run through
-      // check() uninhibited and zoom through cards. Snap back to center
-      // immediately so there is no threshold to cross.
+      // iOS took ownership of the touch as a native momentum scroll.
+      // Do NOT snap scrollLeft — iOS applies velocity FROM current position,
+      // so snapping just moves the goalposts and causes zoom-through.
+      // Clear the flag and let iOS scroll to its destination freely.
+      // scrollend (or settle-timer) will evaluate the final position.
       isDraggingRef.current = false;
-      skipScrollRef.current = true;
-      pager.scrollLeft = pager.offsetWidth;
     }
 
-    pager.addEventListener('scroll', onScroll, { passive: true });
-    pager.addEventListener('pointerdown', onPointerDown);
-    pager.addEventListener('pointerup', onPointerUp);
+    pager.addEventListener('scrollend',    onScrollEnd);
+    pager.addEventListener('scroll',       onScroll,       { passive: true });
+    pager.addEventListener('pointerdown',  onPointerDown);
+    pager.addEventListener('pointerup',    onPointerUp);
     pager.addEventListener('pointercancel', onPointerCancel);
     return () => {
-      pager.removeEventListener('scroll', onScroll);
-      pager.removeEventListener('pointerdown', onPointerDown);
-      pager.removeEventListener('pointerup', onPointerUp);
+      pager.removeEventListener('scrollend',    onScrollEnd);
+      pager.removeEventListener('scroll',       onScroll);
+      pager.removeEventListener('pointerdown',  onPointerDown);
+      pager.removeEventListener('pointerup',    onPointerUp);
       pager.removeEventListener('pointercancel', onPointerCancel);
-      if (raf) cancelAnimationFrame(raf);
       clearTimeout(settleTimerRef.current);
     };
   }, []);
