@@ -41,6 +41,7 @@ function ActivityDetailModal({
   const animatingRef   = useRefDM(false);
   const skipScrollRef  = useRefDM(false);
   const settleTimerRef = useRefDM(null);
+  const isDraggingRef  = useRefDM(false);
 
   // ── Body scroll lock ────────────────────────────────────────────
   useEffectDM(() => {
@@ -68,6 +69,8 @@ function ActivityDetailModal({
         skipScrollRef.current = false;
         return;
       }
+      // Finger still on screen — defer navigation until pointer is released
+      if (isDraggingRef.current) return;
       const w = pager.offsetWidth;
       if (!w) return;
       const x = pager.scrollLeft;
@@ -115,9 +118,28 @@ function ActivityDetailModal({
       raf = requestAnimationFrame(check);
     }
 
+    function onPointerDown() {
+      isDraggingRef.current = true;
+    }
+
+    function onPointerUp() {
+      isDraggingRef.current = false;
+      check();
+    }
+
+    function onPointerCancel() {
+      isDraggingRef.current = false;
+    }
+
     pager.addEventListener('scroll', onScroll, { passive: true });
+    pager.addEventListener('pointerdown', onPointerDown);
+    pager.addEventListener('pointerup', onPointerUp);
+    pager.addEventListener('pointercancel', onPointerCancel);
     return () => {
       pager.removeEventListener('scroll', onScroll);
+      pager.removeEventListener('pointerdown', onPointerDown);
+      pager.removeEventListener('pointerup', onPointerUp);
+      pager.removeEventListener('pointercancel', onPointerCancel);
       if (raf) cancelAnimationFrame(raf);
       clearTimeout(settleTimerRef.current);
     };
