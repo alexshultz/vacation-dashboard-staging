@@ -1,16 +1,15 @@
-/* DetailModal.jsx — Virtual 3-pane carousel.
+/* DetailModal.jsx — Virtual 3-pane transform carousel.
 
-   Architecture (2026-05-21, replaces all-panes-in-DOM scroll-snap model):
+   Architecture (2026-05-21, replaces overflow-x scroll model):
    - Exactly 3 `.dm-pane` DOM elements always exist: prev / current / next slots.
-   - The pager is a plain overflow-x scroll container. NO CSS scroll-snap.
-   - scrollLeft is pinned to pager.offsetWidth (middle pane = current) when idle.
-   - Navigation triggers when scrollLeft crosses ±50% threshold:
-       scrollLeft >= 1.5w  → advance to next card
-       scrollLeft <  0.5w  → retreat to prev card
-   - After threshold: swap slot data in place, instantly reset scrollLeft to w.
-   - Settle timer (200ms debounce) smooth-snaps drifted scroll back to w.
-   - Keyboard ArrowLeft/ArrowRight update state directly (no scrollTo).
-   - Dismiss paths: ✕ button, Esc, backdrop tap, ArrowDown, Space.
+   - A `.dm-strip` (300% wide) sits inside `.dm-pager` (overflow:hidden, clipping).
+   - Strip idle position: translateX(-containerWidth px) — centers the current pane.
+   - Navigation animates strip to -2W (next) or 0 (prev) via CSS transition 300ms,
+     then onTransitionEnd swaps slot data and instantly resets to -W with no transition.
+   - Spring back: same animation back to -W, pendingNavRef stays null.
+   - Gesture model: pointer events on strip, axis-locking, setPointerCapture, velocity check.
+   - Keyboard: ArrowLeft = next, ArrowRight = prev, ArrowDown/Space = dismiss, Escape = close.
+   - window.__dmNavigate('next'|'prev') exposed for Playwright tests (instant, no animation).
 */
 
 const {
@@ -35,13 +34,20 @@ function ActivityDetailModal({
   const currentIdxRef  = useRefDM(initialIdx);
   const [currentIdx, setCurrentIdx] = useStateDM(initialIdx);
 
-  const sheetRef       = useRefDM(null);
-  const backdropRef    = useRefDM(null);
-  const pagerRef       = useRefDM(null);
-  const animatingRef   = useRefDM(false);
-  const skipScrollRef  = useRefDM(false);
-  const settleTimerRef = useRefDM(null);
-  const isDraggingRef  = useRefDM(false);
+  const sheetRef        = useRefDM(null);
+  const backdropRef     = useRefDM(null);
+  const pagerRef        = useRefDM(null);   // clipping container (.dm-pager)
+  const stripRef        = useRefDM(null);   // 300%-wide strip (.dm-strip)
+  const animatingRef    = useRefDM(false);  // dismiss animation guard
+  const animatingNavRef = useRefDM(false);  // nav/spring animation guard
+  const pendingNavRef   = useRefDM(null);   // newIdx to apply after transitionend, null = spring-back
+
+  // gesture tracking refs
+  const isTouchedRef   = useRefDM(false);
+  const axisLockedRef  = useRefDM(null);  // null | 'x' | 'y'
+  const startXRef      = useRefDM(0);
+  const startYRef      = useRefDM(0);
+  const velocityBufRef = useRefDM([]);    // rolling 3-sample [{x, time}]
 
   // ── Body scroll lock ────────────────────────────────────────────
   useEffectDM(() => {
@@ -50,124 +56,172 @@ function ActivityDetailModal({
     return () => { document.body.style.overflow = prevOverflow; };
   }, []);
 
-  // ── Initial scroll: show middle pane (synchronous, before paint) ─
+  // ── Initial strip position (synchronous, before paint) ──────────
   useLayoutEffectDM(() => {
+    const strip = stripRef.current;
     const pager = pagerRef.current;
-    if (!pager) return;
-    pager.scrollLeft = pager.offsetWidth;
+    if (!strip || !pager) return;
+    strip.style.transform = `translateX(${-pager.offsetWidth}px)`;
   }, []);
 
-  // ── Pager scroll → threshold navigation ─────────────────────────
-  //
-  // Architecture: navigation fires only after the scroll SETTLES, never
-  // during an active drag. iOS fires `pointercancel` when it takes over a
-  // touch as native momentum scroll — we must NOT snap scrollLeft at that
-  // point because iOS applies its velocity *from* wherever scrollLeft is,
-  // so snapping to center just resets the target and iOS zooms again.
-  // Instead we let iOS scroll freely, then act on the final resting position
-  // via `scrollend` (supported Safari 16+). A 200ms settle-timer fallback
-  // handles older browsers.
+  // ── Gesture handler + transitionend ─────────────────────────────
   useEffectDM(() => {
+    const strip = stripRef.current;
     const pager = pagerRef.current;
-    if (!pager) return;
-    const supportsScrollEnd = 'onscrollend' in pager;
+    if (!strip || !pager) return;
 
-    // Evaluate final resting position and navigate or snap back.
-    function checkAndAct() {
-      if (skipScrollRef.current) { skipScrollRef.current = false; return; }
+    function setTransform(px, animate) {
+      if (animate) {
+        strip.classList.add('dm-strip--anim');
+      } else {
+        strip.classList.remove('dm-strip--anim');
+      }
+      strip.style.transform = `translateX(${px}px)`;
+    }
+
+    function onPointerDown(e) {
+      if (animatingNavRef.current) return;
+      isTouchedRef.current = true;
+      axisLockedRef.current = null;
+      startXRef.current = e.clientX;
+      startYRef.current = e.clientY;
+      velocityBufRef.current = [{ x: e.clientX, time: Date.now() }];
+    }
+
+    function onPointerMove(e) {
+      if (!isTouchedRef.current) return;
+      const diffX = e.clientX - startXRef.current;
+      const diffY = e.clientY - startYRef.current;
+
+      if (axisLockedRef.current === null) {
+        const total = Math.sqrt(diffX * diffX + diffY * diffY);
+        if (total < 10) return;
+        axisLockedRef.current = Math.abs(diffX) >= Math.abs(diffY) ? 'x' : 'y';
+        if (axisLockedRef.current === 'x') {
+          strip.setPointerCapture(e.pointerId);
+        }
+      }
+
+      if (axisLockedRef.current === 'y') return;
+
+      e.preventDefault();
       const w = pager.offsetWidth;
-      if (!w) return;
-      const x = pager.scrollLeft;
-      clearTimeout(settleTimerRef.current);
+      setTransform(-w + diffX, false);
 
-      if (x >= w * 1.5) {
-        const ids = navIdsRef.current, cur = currentIdxRef.current;
-        if (cur < ids.length - 1) {
-          const n = cur + 1;
-          currentIdxRef.current = n;
-          setCurrentIdx(n);
-          if (onNavRef.current) onNavRef.current(ids[n]);
+      const buf = velocityBufRef.current;
+      buf.push({ x: e.clientX, time: Date.now() });
+      if (buf.length > 3) buf.shift();
+    }
+
+    function onPointerEnd(e) {
+      if (!isTouchedRef.current) return;
+      isTouchedRef.current = false;
+      if (axisLockedRef.current !== 'x') return;
+
+      const diffX = e.clientX - startXRef.current;
+      const w = pager.offsetWidth;
+
+      const buf = velocityBufRef.current;
+      let velocity = 0;
+      if (buf.length >= 2) {
+        const a = buf[buf.length - 2], b = buf[buf.length - 1];
+        const dt = b.time - a.time;
+        if (dt > 0) velocity = (b.x - a.x) / dt;
+      }
+
+      const ids = navIdsRef.current;
+      const cur = currentIdxRef.current;
+      let navigated = false;
+
+      if (Math.abs(diffX) > w / 3 || Math.abs(velocity) > 0.5) {
+        if (diffX < 0 && cur < ids.length - 1) {
+          animatingNavRef.current = true;
+          pendingNavRef.current = cur + 1;
+          setTransform(-2 * w, true);
+          navigated = true;
+        } else if (diffX > 0 && cur > 0) {
+          animatingNavRef.current = true;
+          pendingNavRef.current = cur - 1;
+          setTransform(0, true);
+          navigated = true;
         }
-        skipScrollRef.current = true;
-        pager.scrollLeft = w;
-      } else if (x < w * 0.5) {
-        const ids = navIdsRef.current, cur = currentIdxRef.current;
-        if (cur > 0) {
-          const n = cur - 1;
-          currentIdxRef.current = n;
-          setCurrentIdx(n);
-          if (onNavRef.current) onNavRef.current(ids[n]);
-        }
-        skipScrollRef.current = true;
-        pager.scrollLeft = w;
-      } else if (Math.abs(x - w) > 5) {
-        pager.scrollTo({ left: w, behavior: 'smooth' });
+      }
+
+      if (!navigated) {
+        animatingNavRef.current = true;
+        // pendingNavRef stays null → spring-back path in transitionend
+        setTransform(-w, true);
       }
     }
 
-    // Primary trigger: fires after ALL scrolling (including iOS momentum) stops.
-    function onScrollEnd() {
-      if (!isDraggingRef.current) checkAndAct();
+    function onTransitionEnd() {
+      const newIdx = pendingNavRef.current;
+      if (newIdx === null) {
+        // Spring-back completed
+        animatingNavRef.current = false;
+        return;
+      }
+      pendingNavRef.current = null;
+      const w = pager.offsetWidth;
+      // Instant reset to center — no animation
+      strip.classList.remove('dm-strip--anim');
+      strip.style.transform = `translateX(${-w}px)`;
+      // Update React state → re-renders slot content
+      currentIdxRef.current = newIdx;
+      setCurrentIdx(newIdx);
+      if (onNavRef.current) onNavRef.current(navIdsRef.current[newIdx]);
+      animatingNavRef.current = false;
     }
 
-    // Fallback settle-timer for browsers without scrollend.
-    function onScroll() {
-      if (supportsScrollEnd) return;
-      if (isDraggingRef.current) return;
-      clearTimeout(settleTimerRef.current);
-      settleTimerRef.current = window.setTimeout(checkAndAct, 200);
-    }
-
-    function onPointerDown() {
-      isDraggingRef.current = true;
-      clearTimeout(settleTimerRef.current);
-    }
-
-    function onPointerUp() {
-      // Deliberate slow drag (no iOS momentum): scrollend fires immediately.
-      // Fast flick (iOS momentum): scrollend fires when momentum dies.
-      // Either way, scrollend handles it — just clear the flag.
-      isDraggingRef.current = false;
-    }
-
-    function onPointerCancel() {
-      // iOS took ownership of the touch as a native momentum scroll.
-      // Do NOT snap scrollLeft — iOS applies velocity FROM current position,
-      // so snapping just moves the goalposts and causes zoom-through.
-      // Clear the flag and let iOS scroll to its destination freely.
-      // scrollend (or settle-timer) will evaluate the final position.
-      isDraggingRef.current = false;
-    }
-
-    pager.addEventListener('scrollend',    onScrollEnd);
-    pager.addEventListener('scroll',       onScroll,       { passive: true });
-    pager.addEventListener('pointerdown',  onPointerDown);
-    pager.addEventListener('pointerup',    onPointerUp);
-    pager.addEventListener('pointercancel', onPointerCancel);
+    strip.addEventListener('pointerdown', onPointerDown);
+    strip.addEventListener('pointermove', onPointerMove, { passive: false });
+    strip.addEventListener('pointerup',     onPointerEnd);
+    strip.addEventListener('pointercancel', onPointerEnd);
+    strip.addEventListener('transitionend', onTransitionEnd);
     return () => {
-      pager.removeEventListener('scrollend',    onScrollEnd);
-      pager.removeEventListener('scroll',       onScroll);
-      pager.removeEventListener('pointerdown',  onPointerDown);
-      pager.removeEventListener('pointerup',    onPointerUp);
-      pager.removeEventListener('pointercancel', onPointerCancel);
-      clearTimeout(settleTimerRef.current);
+      strip.removeEventListener('pointerdown', onPointerDown);
+      strip.removeEventListener('pointermove', onPointerMove);
+      strip.removeEventListener('pointerup',     onPointerEnd);
+      strip.removeEventListener('pointercancel', onPointerEnd);
+      strip.removeEventListener('transitionend', onTransitionEnd);
     };
   }, []);
 
-  // ── Keyboard navigation (direct state update, no scrollTo) ──────
+  // ── Expose programmatic navigation for Playwright tests ─────────
+  useEffectDM(() => {
+    window.__dmNavigate = (dir) => {
+      const ids = navIdsRef.current;
+      const cur = currentIdxRef.current;
+      const newIdx = dir === 'next' ? cur + 1 : cur - 1;
+      if (newIdx < 0 || newIdx >= ids.length) return;
+      const strip = stripRef.current;
+      const pager = pagerRef.current;
+      if (!strip || !pager) return;
+      // Instant navigation (no animation) for reliable test timing
+      strip.classList.remove('dm-strip--anim');
+      strip.style.transform = `translateX(${-pager.offsetWidth}px)`;
+      currentIdxRef.current = newIdx;
+      setCurrentIdx(newIdx);
+      if (onNavRef.current) onNavRef.current(ids[newIdx]);
+    };
+    return () => { delete window.__dmNavigate; };
+  }, []);
+
+  // ── Keyboard navigation ──────────────────────────────────────────
   const navigateBy = useCallbackDM((delta) => {
+    if (animatingNavRef.current) return;
     const ids = navIdsRef.current;
     const cur = currentIdxRef.current;
     const newIdx = Math.max(0, Math.min(ids.length - 1, cur + delta));
     if (newIdx === cur) return;
-    currentIdxRef.current = newIdx;
-    setCurrentIdx(newIdx);
-    if (onNavRef.current) onNavRef.current(ids[newIdx]);
+    const strip = stripRef.current;
     const pager = pagerRef.current;
-    if (pager) {
-      skipScrollRef.current = true;
-      pager.scrollLeft = pager.offsetWidth;
-    }
+    if (!strip || !pager) return;
+    const w = pager.offsetWidth;
+    animatingNavRef.current = true;
+    pendingNavRef.current = newIdx;
+    strip.classList.add('dm-strip--anim');
+    strip.style.transform = `translateX(${delta > 0 ? -2 * w : 0}px)`;
   }, []);
 
   // ── Dismiss with slide-down animation ───────────────────────────
@@ -227,53 +281,55 @@ function ActivityDetailModal({
         <button className="dm-close-x" type="button" onClick={onClose} aria-label="Close">✕</button>
 
         <div className="dm-pager" ref={pagerRef}>
-          <div
-            className="dm-pane"
-            data-panel="prev"
-            data-id={prevId || undefined}
-            aria-hidden={true}
-          >
-            {prevAct && (
-              <PaneContent
-                activity={prevAct}
-                userId={userId}
-                onClose={onClose}
-                onToggleWish={onToggleWish}
-                onToggleCommit={onToggleCommit}
-              />
-            )}
-          </div>
-          <div
-            className="dm-pane"
-            data-panel="current"
-            data-id={currentId || undefined}
-            aria-hidden={false}
-          >
-            {currentAct && (
-              <PaneContent
-                activity={currentAct}
-                userId={userId}
-                onClose={onClose}
-                onToggleWish={onToggleWish}
-                onToggleCommit={onToggleCommit}
-              />
-            )}
-          </div>
-          <div
-            className="dm-pane"
-            data-panel="next"
-            data-id={nextId || undefined}
-            aria-hidden={true}
-          >
-            {nextAct && (
-              <PaneContent
-                activity={nextAct}
-                userId={userId}
-                onClose={onClose}
-                onToggleWish={onToggleWish}
-                onToggleCommit={onToggleCommit}
-              />
-            )}
+          <div className="dm-strip" ref={stripRef}>
+            <div
+              className="dm-pane"
+              data-panel="prev"
+              data-id={prevId || undefined}
+              aria-hidden={true}
+            >
+              {prevAct && (
+                <PaneContent
+                  activity={prevAct}
+                  userId={userId}
+                  onClose={onClose}
+                  onToggleWish={onToggleWish}
+                  onToggleCommit={onToggleCommit}
+                />
+              )}
+            </div>
+            <div
+              className="dm-pane"
+              data-panel="current"
+              data-id={currentId || undefined}
+              aria-hidden={false}
+            >
+              {currentAct && (
+                <PaneContent
+                  activity={currentAct}
+                  userId={userId}
+                  onClose={onClose}
+                  onToggleWish={onToggleWish}
+                  onToggleCommit={onToggleCommit}
+                />
+              )}
+            </div>
+            <div
+              className="dm-pane"
+              data-panel="next"
+              data-id={nextId || undefined}
+              aria-hidden={true}
+            >
+              {nextAct && (
+                <PaneContent
+                  activity={nextAct}
+                  userId={userId}
+                  onClose={onClose}
+                  onToggleWish={onToggleWish}
+                  onToggleCommit={onToggleCommit}
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>
