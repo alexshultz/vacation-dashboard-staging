@@ -128,7 +128,13 @@ function ActivityDetailModal({
     }
 
     function onPointerCancel() {
+      // iOS fires pointercancel when it takes over a touch as a native scroll.
+      // If we just clear the flag, subsequent native scroll events run through
+      // check() uninhibited and zoom through cards. Snap back to center
+      // immediately so there is no threshold to cross.
       isDraggingRef.current = false;
+      skipScrollRef.current = true;
+      pager.scrollLeft = pager.offsetWidth;
     }
 
     pager.addEventListener('scroll', onScroll, { passive: true });
