@@ -112,6 +112,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 640px;
+  height: 92vh;
   max-height: 92vh;
   display: flex;
   flex-direction: column;
@@ -137,6 +138,7 @@ body {
 @media (min-width: 640px) {
   .dm-sheet {
     border-radius: 18px;
+    height: 88vh;
     max-height: 88vh;
     box-shadow: var(--shadow-2);
     animation: dm-pop 240ms var(--ease-out);
