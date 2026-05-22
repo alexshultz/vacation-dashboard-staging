@@ -38,6 +38,7 @@ function ActivityDetailModal({
   const swiperRef          = useRefDM(null);  // Swiper instance
   const animatingRef       = useRefDM(false); // dismiss animation guard
   const needsResetRef      = useRefDM(false); // flag: slideTo(1) needed after React render
+  const suppressNavRef     = useRefDM(false); // suppress slideChange during programmatic reset
 
   // ── Body scroll lock ────────────────────────────────────────────
   useEffectDM(() => {
@@ -63,14 +64,19 @@ function ActivityDetailModal({
       resistanceRatio: 0.85,
       on: {
         slideChange: (sw) => {
+          // Suppress when we're doing a programmatic reset to center
+          if (suppressNavRef.current) return;
+
           const delta = sw.activeIndex - 1; // -1 = went to prev pane, +1 = went to next pane
           const ids = navIdsRef.current;
           const cur = currentIdxRef.current;
           const newIdx = cur + delta;
 
           if (newIdx < 0 || newIdx >= ids.length) {
-            // Boundary guard — shouldn't fire with allowSlidePrev/Next, but snap back if it does
+            // Boundary guard — snap back to center without triggering nav
+            suppressNavRef.current = true;
             sw.slideTo(1, 0, false);
+            suppressNavRef.current = false;
             return;
           }
 
@@ -99,7 +105,9 @@ function ActivityDetailModal({
     needsResetRef.current = false;
     const swiper = swiperRef.current;
     if (!swiper) return;
+    suppressNavRef.current = true;
     swiper.slideTo(1, 0, false);
+    suppressNavRef.current = false;
     swiper.allowSlidePrev = currentIdxRef.current > 0;
     swiper.allowSlideNext = currentIdxRef.current < navIdsRef.current.length - 1;
   }, [currentIdx]);
