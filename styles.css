@@ -152,9 +152,10 @@ body {
    during navigation — toggling `animation` restarts the slide-up which
    reads as a "dip" when a card snaps into place. */
 
-/* ── Modal pager — Swiper.js 3-pane carousel ────────────────────────
+/* ── Modal pager — Swiper.js virtual carousel (renderExternal) ──────
    .dm-pager clips; Swiper owns the swiper-wrapper transform.
-   Exactly 3 .swiper-slide.dm-pane elements always in DOM. */
+   React always renders exactly 3 .dm-pane slots, absolutely positioned
+   at idx * slideWidth inside the wrapper. */
 .dm-pager {
   flex: 1;
   min-height: 0;
@@ -162,10 +163,14 @@ body {
   position: relative;
 }
 
-/* Swiper container and wrapper must fill the full pager height */
-.dm-pager .swiper,
+/* Swiper container and wrapper must fill the full pager height.
+   position:relative on wrapper is required for absolutely-positioned panes. */
+.dm-pager .swiper {
+  height: 100%;
+}
 .dm-pager .swiper-wrapper {
   height: 100%;
+  position: relative;
 }
 
 .dm-pane {

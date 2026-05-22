@@ -1,13 +1,13 @@
-/* DetailModal.jsx — Swiper.js 3-pane virtual carousel.
+/* DetailModal.jsx — Swiper.js virtual carousel with renderExternal.
 
-   Architecture (2026-05-21, replaces custom transform-based pager):
-   - Exactly 3 `.swiper-slide.dm-pane` DOM elements always: prev / current / next slots.
-   - Swiper is initialized at initialSlide:1 (center) with these 3 static slides.
-   - Swiper owns all touch/gesture physics (iOS-quality, no custom pointer code).
-   - On slideChange: state updates; useLayoutEffect resets Swiper to center via
-     slideTo(1, 0, false) before the browser paints — zero flash.
+   Architecture (2026-05-21, replaces 3-pane reset pager):
+   - Swiper virtual: full navigationIds array; renderExternal hands DOM to React.
+   - React always renders exactly 3 .dm-pane slots (prev/current/next), absolutely
+     positioned at idx * slideWidth pixels inside the Swiper wrapper.
+   - Swiper owns all touch/gesture physics and the wrapper CSS transform.
+   - slideChange drives currentIdx state — no slideTo(1) reset, no suppress flag.
    - Keyboard: custom handler (ArrowLeft=next, ArrowRight=prev, ArrowDown/Space=dismiss).
-   - window.__dmNavigate('next'|'prev') exposed for Playwright tests (instant state, no anim).
+   - window.__dmNavigate('next'|'prev') exposed for Playwright (instant, 0ms).
 */
 
 const {
@@ -24,27 +24,39 @@ function ActivityDetailModal({
   activityId, navigationIds, userId,
   onClose, onNavigated, onToggleWish, onToggleCommit,
 }) {
-  const navIds = navigationIds || [];
+  const navIds     = navigationIds || [];
+  const initialIdx = Math.max(0, navIds.indexOf(activityId));
 
-  const navIdsRef      = useRefDM(navIds);      navIdsRef.current = navIds;
-  const onNavRef       = useRefDM(onNavigated); onNavRef.current  = onNavigated;
-  const initialIdx     = Math.max(0, navIds.indexOf(activityId));
-  const currentIdxRef  = useRefDM(initialIdx);
+  const navIdsRef = useRefDM(navIds);      navIdsRef.current = navIds;
+  const onNavRef  = useRefDM(onNavigated); onNavRef.current  = onNavigated;
+
   const [currentIdx, setCurrentIdx] = useStateDM(initialIdx);
+  const currentIdxRef = useRefDM(initialIdx);
+  currentIdxRef.current = currentIdx;
+
+  // slideWidth in pixels; read synchronously in layout effect so first paint
+  // already has correct absolute positioning.
+  const [slideWidth, setSlideWidth] = useStateDM(0);
 
   const sheetRef           = useRefDM(null);
   const backdropRef        = useRefDM(null);
-  const swiperContainerRef = useRefDM(null);  // .swiper DOM element
-  const swiperRef          = useRefDM(null);  // Swiper instance
-  const animatingRef       = useRefDM(false); // dismiss animation guard
-  const needsResetRef      = useRefDM(false); // flag: slideTo(1) needed after React render
-  const suppressNavRef     = useRefDM(false); // suppress slideChange during programmatic reset
+  const swiperContainerRef = useRefDM(null);
+  const swiperRef          = useRefDM(null);
+  const animatingRef       = useRefDM(false);
 
-  // ── Body scroll lock ────────────────────────────────────────────
+  // ── Body scroll lock ─────────────────────────────────────────────
   useEffectDM(() => {
-    const prevOverflow = document.body.style.overflow;
+    const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = prevOverflow; };
+    return () => { document.body.style.overflow = prev; };
+  }, []);
+
+  // ── Read slide width before first paint ──────────────────────────
+  // useLayoutEffect runs synchronously after commit; setState here causes
+  // a synchronous re-render before browser paint — no flash.
+  useLayoutEffectDM(() => {
+    const el = swiperContainerRef.current;
+    if (el && el.offsetWidth > 0) setSlideWidth(el.offsetWidth);
   }, []);
 
   // ── Swiper initialization ────────────────────────────────────────
@@ -53,41 +65,32 @@ function ActivityDetailModal({
       console.error('DetailModal: Swiper not loaded');
       return;
     }
-    const swiper = new window.Swiper(swiperContainerRef.current, {
-      initialSlide: 1,
+    const el = swiperContainerRef.current;
+    if (!el) return;
+
+    const swiper = new window.Swiper(el, {
       slidesPerView: 1,
       loop: false,
-      keyboard: { enabled: false },     // custom keyboard handler below
-      allowSlidePrev: currentIdxRef.current > 0,
-      allowSlideNext: currentIdxRef.current < navIdsRef.current.length - 1,
-      resistance: true,
-      resistanceRatio: 0.85,
+      keyboard: { enabled: false },          // custom keyboard handler below
+      virtual: {
+        slides: navIdsRef.current,           // full array — Swiper manages virtual size
+        renderExternal: () => {},            // React owns slide DOM; Swiper owns transform
+      },
+      initialSlide: initialIdx,
       on: {
-        slideChange: (sw) => {
-          // Suppress when we're doing a programmatic reset to center
-          if (suppressNavRef.current) return;
-
-          const delta = sw.activeIndex - 1; // -1 = went to prev pane, +1 = went to next pane
-          const ids = navIdsRef.current;
-          const cur = currentIdxRef.current;
-          const newIdx = cur + delta;
-
-          if (newIdx < 0 || newIdx >= ids.length) {
-            // Boundary guard — snap back to center without triggering nav
-            suppressNavRef.current = true;
-            sw.slideTo(1, 0, false);
-            suppressNavRef.current = false;
-            return;
-          }
-
+        slideChange(sw) {
+          const newIdx = sw.activeIndex;
           currentIdxRef.current = newIdx;
-          if (onNavRef.current) onNavRef.current(ids[newIdx]);
-          needsResetRef.current = true;
           setCurrentIdx(newIdx);
+          if (onNavRef.current) onNavRef.current(navIdsRef.current[newIdx]);
         },
       },
     });
+
     swiperRef.current = swiper;
+    // Reconcile slideWidth with Swiper's measured value (may differ by a sub-pixel).
+    if (swiper.width > 0) setSlideWidth(swiper.width);
+
     return () => {
       if (swiperRef.current) {
         swiperRef.current.destroy(true, true);
@@ -96,40 +99,26 @@ function ActivityDetailModal({
     };
   }, []);
 
-  // ── Reset Swiper to center BEFORE paint, after React commits DOM ─
-  // slideChange moves Swiper to slide 0 or 2; this snaps it back to 1
-  // (center) and updates boundary flags so the user sees the correct
-  // new current slide without a flash.
-  useLayoutEffectDM(() => {
-    if (!needsResetRef.current) return;
-    needsResetRef.current = false;
-    const swiper = swiperRef.current;
-    if (!swiper) return;
-    suppressNavRef.current = true;
-    swiper.slideTo(1, 0, false);
-    suppressNavRef.current = false;
-    swiper.allowSlidePrev = currentIdxRef.current > 0;
-    swiper.allowSlideNext = currentIdxRef.current < navIdsRef.current.length - 1;
-  }, [currentIdx]);
-
-  // ── Keep boundary flags current for non-swipe navigation (keyboard, tests) ──
+  // ── Resize: keep slideWidth in sync ─────────────────────────────
   useEffectDM(() => {
-    const swiper = swiperRef.current;
-    if (!swiper) return;
-    swiper.allowSlidePrev = currentIdx > 0;
-    swiper.allowSlideNext = currentIdx < navIds.length - 1;
-  }, [currentIdx, navIds.length]);
+    const el = swiperContainerRef.current;
+    if (!el) return;
+    const obs = new ResizeObserver(() => {
+      const sw = swiperRef.current;
+      const w  = (sw && sw.width > 0) ? sw.width : el.offsetWidth;
+      if (w > 0) setSlideWidth(w);
+    });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
-  // ── Programmatic navigation for Playwright tests ─────────────────
+  // ── Playwright test hook ─────────────────────────────────────────
   useEffectDM(() => {
     window.__dmNavigate = (dir) => {
-      const ids = navIdsRef.current;
-      const cur = currentIdxRef.current;
-      const newIdx = dir === 'next' ? cur + 1 : cur - 1;
-      if (newIdx < 0 || newIdx >= ids.length) return;
-      currentIdxRef.current = newIdx;
-      setCurrentIdx(newIdx);
-      if (onNavRef.current) onNavRef.current(ids[newIdx]);
+      const sw = swiperRef.current;
+      if (!sw) return;
+      if (dir === 'next') sw.slideNext(0);   // 0 ms = instant
+      else                sw.slidePrev(0);
     };
     return () => { delete window.__dmNavigate; };
   }, []);
@@ -138,54 +127,50 @@ function ActivityDetailModal({
   const dismissWithAnimation = useCallbackDM((startDy = 0) => {
     if (animatingRef.current) return;
     animatingRef.current = true;
-    const sheet = sheetRef.current;
+    const sheet   = sheetRef.current;
     const backdrop = backdropRef.current;
     if (sheet) {
       sheet.style.transition = `transform ${DM_DISMISS_DURATION_MS}ms cubic-bezier(0.4, 0.0, 1, 1)`;
-      sheet.style.transform = `translateY(${Math.max(startDy, 0) + window.innerHeight}px)`;
+      sheet.style.transform  = `translateY(${Math.max(startDy, 0) + window.innerHeight}px)`;
     }
     if (backdrop) {
       backdrop.style.transition = `opacity ${DM_DISMISS_DURATION_MS}ms ease-out`;
-      backdrop.style.opacity = '0';
+      backdrop.style.opacity    = '0';
     }
     window.setTimeout(() => onClose(), DM_DISMISS_DURATION_MS);
   }, [onClose]);
 
   // ── Keyboard navigation ──────────────────────────────────────────
-  const navigateBy = useCallbackDM((delta) => {
-    const ids = navIdsRef.current;
-    const cur = currentIdxRef.current;
-    const newIdx = Math.max(0, Math.min(ids.length - 1, cur + delta));
-    if (newIdx === cur) return;
-    currentIdxRef.current = newIdx;
-    setCurrentIdx(newIdx);
-    if (onNavRef.current) onNavRef.current(ids[newIdx]);
-  }, []);
-
   useEffectDM(() => {
     function onKey(e) {
       const t = e.target;
       if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
       if (e.key === 'Escape')          { e.preventDefault(); onClose(); }
-      else if (e.key === 'ArrowLeft')  { e.preventDefault(); navigateBy(+1); /* swipe-left = advance */ }
-      else if (e.key === 'ArrowRight') { e.preventDefault(); navigateBy(-1); /* swipe-right = retreat */ }
+      else if (e.key === 'ArrowLeft')  { e.preventDefault(); swiperRef.current && swiperRef.current.slideNext(); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); swiperRef.current && swiperRef.current.slidePrev(); }
       else if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'Spacebar') {
-        e.preventDefault();
-        dismissWithAnimation(0);
+        e.preventDefault(); dismissWithAnimation(0);
       }
     }
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [onClose, navigateBy, dismissWithAnimation]);
+  }, [onClose, dismissWithAnimation]);
 
   // ── Render — always exactly 3 panes ─────────────────────────────
+  // Slots are keyed by panel role so React reuses the same DOM nodes on
+  // navigation — content updates in-place with no remount flicker.
+  // Position math: each pane is at `idx * slideWidth` px inside the Swiper
+  // wrapper, which Swiper translates by `-activeIndex * slideWidth` to scroll.
   const activities = window.BD_ACTIVITIES || [];
-  const prevId     = navIds[currentIdx - 1] || null;
-  const currentId  = navIds[currentIdx]     || null;
-  const nextId     = navIds[currentIdx + 1] || null;
-  const prevAct    = prevId    ? activities.find(a => a.id === prevId)    : null;
+
+  const slots = [
+    { panel: 'prev',    idx: currentIdx - 1 },
+    { panel: 'current', idx: currentIdx     },
+    { panel: 'next',    idx: currentIdx + 1 },
+  ];
+
+  const currentId  = navIds[currentIdx] || null;
   const currentAct = currentId ? activities.find(a => a.id === currentId) : null;
-  const nextAct    = nextId    ? activities.find(a => a.id === nextId)    : null;
 
   return (
     <div
@@ -203,54 +188,35 @@ function ActivityDetailModal({
         <div className="dm-pager">
           <div className="swiper" ref={swiperContainerRef}>
             <div className="swiper-wrapper">
-              <div
-                className="swiper-slide dm-pane"
-                data-panel="prev"
-                data-id={prevId || undefined}
-                aria-hidden={true}
-              >
-                {prevAct && (
-                  <PaneContent
-                    activity={prevAct}
-                    userId={userId}
-                    onClose={onClose}
-                    onToggleWish={onToggleWish}
-                    onToggleCommit={onToggleCommit}
-                  />
-                )}
-              </div>
-              <div
-                className="swiper-slide dm-pane"
-                data-panel="current"
-                data-id={currentId || undefined}
-                aria-hidden={false}
-              >
-                {currentAct && (
-                  <PaneContent
-                    activity={currentAct}
-                    userId={userId}
-                    onClose={onClose}
-                    onToggleWish={onToggleWish}
-                    onToggleCommit={onToggleCommit}
-                  />
-                )}
-              </div>
-              <div
-                className="swiper-slide dm-pane"
-                data-panel="next"
-                data-id={nextId || undefined}
-                aria-hidden={true}
-              >
-                {nextAct && (
-                  <PaneContent
-                    activity={nextAct}
-                    userId={userId}
-                    onClose={onClose}
-                    onToggleWish={onToggleWish}
-                    onToggleCommit={onToggleCommit}
-                  />
-                )}
-              </div>
+              {slots.map(({ panel, idx }) => {
+                const id  = (idx >= 0 && idx < navIds.length) ? navIds[idx] : null;
+                const act = id ? activities.find(a => a.id === id) : null;
+                return (
+                  <div
+                    key={panel}
+                    className="swiper-slide dm-pane"
+                    data-panel={panel}
+                    data-id={id || undefined}
+                    aria-hidden={panel !== 'current'}
+                    style={slideWidth > 0 ? {
+                      position: 'absolute',
+                      left:     `${idx * slideWidth}px`,
+                      width:    `${slideWidth}px`,
+                      height:   '100%',
+                    } : undefined}
+                  >
+                    {act && (
+                      <PaneContent
+                        activity={act}
+                        userId={userId}
+                        onClose={onClose}
+                        onToggleWish={onToggleWish}
+                        onToggleCommit={onToggleCommit}
+                      />
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
