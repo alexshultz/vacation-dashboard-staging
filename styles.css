@@ -117,12 +117,8 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  /* Touch-action is set per-element on the children below:
-     - hero + handle: `none` (we own dismiss gestures + horizontal nav)
-     - pane-inner:    `pan-y` (native vertical scroll for long content;
-                                 horizontal swipe still bubbles to us)
-     This lets long descriptions scroll while preserving the modal's
-     swipe-down-to-dismiss feel from the hero. */
+  /* Touch-action per child: pan-y everywhere lets the browser scroll
+     long content vertically while Swiper intercepts horizontal swipes. */
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
@@ -156,9 +152,9 @@ body {
    during navigation — toggling `animation` restarts the slide-up which
    reads as a "dip" when a card snaps into place. */
 
-/* ── Modal pager — transform-based virtual 3-pane carousel ─────────
-   .dm-pager clips; .dm-strip (300% wide) slides via translateX.
-   JS sets initial position in useLayoutEffect; no overflow-x scroll. */
+/* ── Modal pager — Swiper.js 3-pane carousel ────────────────────────
+   .dm-pager clips; Swiper owns the swiper-wrapper transform.
+   Exactly 3 .swiper-slide.dm-pane elements always in DOM. */
 .dm-pager {
   flex: 1;
   min-height: 0;
@@ -166,22 +162,13 @@ body {
   position: relative;
 }
 
-.dm-strip {
-  display: flex;
-  flex-direction: row;
-  width: 300%;
+/* Swiper container and wrapper must fill the full pager height */
+.dm-pager .swiper,
+.dm-pager .swiper-wrapper {
   height: 100%;
-  will-change: transform;
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-.dm-strip.dm-strip--anim {
-  transition: transform 300ms ease-out;
 }
 
 .dm-pane {
-  flex: 0 0 33.333%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -239,10 +226,8 @@ body {
   background: var(--color-bg);
   overflow: hidden;
   flex-shrink: 0;
-  /* The hero is the pull-to-dismiss zone. Horizontal touches still
-     scroll the pager (pan-x lets the browser handle that); only
-     vertical touches are claimed by our JS for dismiss. */
-  touch-action: pan-x;
+  /* pan-y: browser handles vertical scroll, Swiper handles horizontal swipe */
+  touch-action: pan-y;
 }
 .dm-hero img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
 
